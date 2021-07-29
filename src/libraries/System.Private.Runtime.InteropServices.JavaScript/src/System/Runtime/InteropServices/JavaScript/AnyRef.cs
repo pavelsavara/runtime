@@ -12,7 +12,7 @@ namespace System.Runtime.InteropServices.JavaScript
     public abstract class AnyRef : SafeHandleMinusOneIsInvalid
     {
         private GCHandle? InFlight;
-        private int InFlightCounter;
+        public int InFlightCounter;
         private GCHandle AnyRefHandle;
         public int JSHandle => (int)handle;
 

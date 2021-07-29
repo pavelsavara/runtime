@@ -195,5 +195,112 @@ namespace System.Runtime.InteropServices.JavaScript.Tests
             Assert.Equal(HelperMarshal._funcActionBufferObjectResultValue.Length, HelperMarshal._funcActionBufferResultLengthValue);
             Assert.Equal($"[object {creator}]", objectPrototype.Call(HelperMarshal._funcActionBufferObjectResultValue));
         }
+
+        [Fact]
+        [Trait("Category", "Pavel")]
+        public static void Pavel()
+        {
+            Function evtFactory;
+            Function alog;
+            JSObject et;
+            Delegate cswCallback;
+            OutOfScope(out evtFactory, out et, out alog, out cswCallback);
+
+            for (var attempt = 0; attempt < 2_00; attempt++)
+            {
+                var evt = evtFactory.Call(null, attempt);
+                et.Invoke("dispatchEvent", evt);
+
+                // fill GC helps to repro
+                var x = new byte[100 + attempt / 100];
+                if (attempt % 1000 == 10)
+                {
+                    GC.Collect();
+                }
+            }
+            cswCallback?.GetType();
+            alog?.GetType();
+        }
+
+        private static void OutOfScope(out Function evtFactory, out JSObject et, out Function alog, out Delegate acswCallback)
+        {
+            var log = new Function("message", @"
+                console.log('CS:' + message)
+                ");
+
+            var etFactory = new Function(@"
+                var EventTarget = function() {
+                  this.listeners = {};
+                };
+
+                EventTarget.prototype.listeners = null;
+                EventTarget.prototype.addEventListener = function(type, callback) {
+                  if (!(type in this.listeners)) {
+                    this.listeners[type] = [];
+                  }
+                  this.listeners[type].push(callback);
+                };
+
+                EventTarget.prototype.removeEventListener = function(type, callback) {
+                  if (!(type in this.listeners)) {
+                    return;
+                  }
+                  var stack = this.listeners[type];
+                  for (var i = 0, l = stack.length; i < l; i++) {
+                    if (stack[i] === callback){
+                      stack.splice(i, 1);
+                      return;
+                    }
+                  }
+                };
+
+                EventTarget.prototype.dispatchEvent = function(event) {
+                  if (!(event.type in this.listeners)) {
+                    return true;
+                  }
+                  var stack = this.listeners[event.type].slice();
+
+                  for (var i = 0, l = stack.length; i < l; i++) {
+                    stack[i].call(this, event);
+                  }
+                  return !event.defaultPrevented;
+                };
+
+                var et=new EventTarget();
+                var jsCallback = (event) => {
+                    if (event.message % 100==0 || event.message <100){
+                        console.log('JS: '+event.message)
+                    }
+                };
+                et.addEventListener('msg', jsCallback);
+                return et
+                ");
+
+            evtFactory = new Function("message", @"
+                return {
+                    type: 'msg',
+                    message: message
+                }
+                ");
+            et = (JSObject)etFactory.Call();
+            Delegate cswCallback = (JSObject evt) =>
+            {
+                if (evt.InFlightCounter > 0)
+                {
+                    throw new InvalidOperationException("too bad"+ evt.InFlightCounter);
+                }
+                var message = (int)evt.GetObjectProperty("message");
+                if (message % 100 == 0|| message < 100)
+                {
+                    Console.Error.WriteLine("yy" + message);
+                    log.Call(null, "xx" + message);
+                }
+            };
+            et.Invoke("addEventListener", "msg", cswCallback);
+
+            acswCallback = null;
+            //acswCallback = cswCallback; // uncommenting this will retain delegate reference and stop the issue from reproducing
+            alog = log;
+        }
     }
 }
