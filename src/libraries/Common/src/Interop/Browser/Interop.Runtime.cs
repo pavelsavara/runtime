@@ -46,6 +46,8 @@ internal static partial class Interop
         internal static extern string? AddEventListener(int jsHandle, string name, int gcHandle, int optionsJsHandle);
         [MethodImplAttribute(MethodImplOptions.InternalCall)]
         internal static extern string? RemoveEventListener(int jsHandle, string name, int gcHandle, bool capture);
+        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        internal static extern object Fetch(string resource, int optionsJSHandle, out int exceptionalResult);
 
         // / <summary>
         // / Execute the provided string in the JavaScript context

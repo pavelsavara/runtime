@@ -24,6 +24,7 @@ extern MonoObject* mono_wasm_typed_array_from (int ptr, int begin, int end, int 
 extern MonoObject* mono_wasm_typed_array_copy_from (int js_handle, int ptr, int begin, int end, int bytes_per_element, int *is_exception);
 extern MonoString* mono_wasm_add_event_listener (int jsObjHandle, MonoString *name, int weakDelegateHandle, int optionsObjHandle);
 extern MonoString* mono_wasm_remove_event_listener (int jsObjHandle, MonoString *name, int weakDelegateHandle, int capture);
+extern MonoObject* mono_wasm_fetch (MonoString *resource, int jsObjHandle, int *is_exception);
 
 // Compiles a JavaScript function from the function data passed.
 // Note: code snippet is not a function definition. Instead it must create and return a function instance.
@@ -83,6 +84,7 @@ void core_initialize_internals ()
 	mono_add_internal_call ("Interop/Runtime::CompileFunction", mono_wasm_compile_function);
 	mono_add_internal_call ("Interop/Runtime::AddEventListener", mono_wasm_add_event_listener);
 	mono_add_internal_call ("Interop/Runtime::RemoveEventListener", mono_wasm_remove_event_listener);
+	mono_add_internal_call ("Interop/Runtime::Fetch", mono_wasm_fetch);
 }
 
 // Int8Array 		| int8_t	| byte or SByte (signed byte)

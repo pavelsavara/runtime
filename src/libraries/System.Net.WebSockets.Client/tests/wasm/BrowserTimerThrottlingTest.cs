@@ -3,6 +3,8 @@
 
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
+using System.Net.Test.Common;
 using System.Net.WebSockets.Client.Tests;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -67,7 +69,7 @@ namespace System.Net.WebSockets.Client.Wasm.Tests
                         maxLightDelayMs = ms;
                         // we are lightly throttled
 #if DEBUG
-                        Console.WriteLine("Slow tick NO-WS " + ms);
+                        Console.WriteLine("Slow tick NO-NET " + ms);
 #endif
                     }
                     if (msSent > 45000)
@@ -77,12 +79,71 @@ namespace System.Net.WebSockets.Client.Wasm.Tests
                     last = e.SignalTime;
                 };
 
-                // test it for 10 minutes
-                try { await Task.Delay(10 * 60 * 1000, cts.Token); } catch (Exception) { }
+                // test it for 7 minutes
+                try { await Task.Delay(7 * 60 * 1000, cts.Token); } catch (Exception) { }
                 timer.Close();
             }
             Assert.True(maxDelayMs > detectLightThrottlingThreshold, "Expect that it throttled lightly " + maxDelayMs);
             Assert.True(maxDelayMs > moreThanLightThrottlingThreshold, "Expect that it was heavily throttled " + maxDelayMs);
+        }
+
+        [ConditionalFact(nameof(WebSocketsSupported), nameof(PlatformDetection.IsBrowser))]
+        [OuterLoop] // involves long delay
+        public async Task FetchKeepsDotnetTimersOnlyLightlyThrottled()
+        {
+            double maxDelayMs = 0;
+            double maxLightDelayMs = 0;
+            DateTime start = DateTime.Now;
+            CancellationTokenSource cts = new CancellationTokenSource();
+
+
+            using (var httpClient = new HttpClient())
+            {
+                await SendAndReceiveHTTP(httpClient);
+
+                using (var timer = new Timers.Timer(100))
+                {
+                    DateTime last = DateTime.Now;
+                    DateTime lastSent = DateTime.MinValue;
+                    timer.AutoReset = true;
+                    timer.Enabled = true;
+                    timer.Elapsed += async (object? source, Timers.ElapsedEventArgs? e) =>
+                    {
+                        var ms = (e.SignalTime - last).TotalMilliseconds;
+                        var msSent = (e.SignalTime - lastSent).TotalMilliseconds;
+                        if (maxDelayMs < ms)
+                        {
+                            maxDelayMs = ms;
+                        }
+                        if (ms > moreThanLightThrottlingThreshold)
+                        {
+                            // fail fast, we are throttled heavily
+                            Console.WriteLine("Too slow tick " + ms);
+                            cts.Cancel();
+                        }
+                        else if (ms > detectLightThrottlingThreshold)
+                        {
+                            maxLightDelayMs = ms;
+                            // we are lightly throttled
+#if DEBUG
+                            Console.WriteLine("Slow tick HTTP " + ms);
+#endif
+                        }
+                        if (msSent > 45000)
+                        {
+                            await SendAndReceiveHTTP(httpClient);
+                            lastSent = DateTime.Now;
+                        }
+                        last = e.SignalTime;
+                    };
+
+                    // test it for 7 minutes
+                    try { await Task.Delay(7 * 60 * 1000, cts.Token); } catch (Exception) { }
+                    timer.Close();
+                }
+            }
+            Assert.True(maxDelayMs > detectLightThrottlingThreshold, "Expect that it throttled lightly " + maxDelayMs);
+            Assert.True(maxDelayMs < moreThanLightThrottlingThreshold, "Expect that it wasn't heavily throttled " + maxDelayMs);
         }
 
         [ConditionalFact(nameof(WebSocketsSupported), nameof(PlatformDetection.IsBrowser))]
@@ -96,6 +157,8 @@ namespace System.Net.WebSockets.Client.Wasm.Tests
 
             using (ClientWebSocket cws = await WebSocketHelper.GetConnectedWebSocket(Test.Common.Configuration.WebSockets.RemoteEchoServer, TimeOutMilliseconds, _output))
             {
+                await SendAndReceiveWS(cws, "test");
+
                 using (var timer = new Timers.Timer(100))
                 {
                     DateTime last = DateTime.Now;
@@ -126,14 +189,14 @@ namespace System.Net.WebSockets.Client.Wasm.Tests
                         }
                         if (msSent > 45000)
                         {
-                            await SendAndReceive(cws, "test");
+                            await SendAndReceiveWS(cws, "test");
                             lastSent = DateTime.Now;
                         }
                         last = e.SignalTime;
                     };
 
-                    // test it for 10 minutes
-                    try { await Task.Delay(1 * 60 * 1000, cts.Token); } catch (Exception) { }
+                    // test it for 7 minutes
+                    try { await Task.Delay(7 * 60 * 1000, cts.Token); } catch (Exception) { }
                     timer.Close();
                 }
                 await cws.CloseAsync(WebSocketCloseStatus.NormalClosure, "WebSocketKeepsDotnetTimersOnlyLightlyThrottled", CancellationToken.None);
@@ -142,7 +205,25 @@ namespace System.Net.WebSockets.Client.Wasm.Tests
             Assert.True(maxDelayMs < moreThanLightThrottlingThreshold, "Expect that it wasn't heavily throttled " + maxDelayMs);
         }
 
-        private async static Task SendAndReceive(ClientWebSocket cws, string message)
+        private async static Task SendAndReceiveHTTP(HttpClient httpClient)
+        {
+            try
+            {
+                string received = await httpClient.GetStringAsync(Test.Common.Configuration.Http.SecureRemoteEchoServer);
+#if DEBUG
+                Console.WriteLine("SendAndReceiveHTTP");
+#endif
+            }
+            catch (OperationCanceledException)
+            {
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("SendAndReceiveHTTP fail:" + ex);
+            }
+        }
+
+        private async static Task SendAndReceiveWS(ClientWebSocket cws, string message)
         {
             try
             {
@@ -153,7 +234,7 @@ namespace System.Net.WebSockets.Client.Wasm.Tests
                 var receiveSegment = new ArraySegment<byte>(receiveBuffer);
                 WebSocketReceiveResult recvRet = await cws.ReceiveAsync(receiveSegment, CancellationToken.None);
 #if DEBUG
-                Console.WriteLine("SendAndReceive");
+                Console.WriteLine("SendAndReceiveWS");
 #endif
             }
             catch (OperationCanceledException)
@@ -161,7 +242,7 @@ namespace System.Net.WebSockets.Client.Wasm.Tests
             }
             catch (Exception ex)
             {
-                Console.WriteLine("SendAndReceive fail:" + ex);
+                Console.WriteLine("SendAndReceiveWS fail:" + ex);
             }
         }
     }

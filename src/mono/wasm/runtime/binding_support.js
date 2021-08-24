@@ -217,7 +217,7 @@ var BindingSupportLib = {
 			this._js_owned_object_table.set(gc_handle, wr);
 		},
 
-		_wrap_js_thenable_as_task: function (thenable) {
+		_wrap_js_thenable_as_task: function (thenable, call_after_promise) {
 			this.bindings_lazy_init ();
 			if (!thenable)
 				return null;
@@ -238,6 +238,9 @@ var BindingSupportLib = {
 				// when FinalizationRegistry is not supported by this browser, we will do immediate cleanup after use
 				if (!this._use_finalization_registry) {
 					this._release_js_owned_object_by_gc_handle(tcs_gc_handle);
+				}
+				if (call_after_promise) {
+					call_after_promise();
 				}
 			}, (reason) => {
 				this._set_tcs_failure(tcs_gc_handle, reason ? reason.toString() : "");
@@ -2050,7 +2053,7 @@ var BindingSupportLib = {
 
 			const prevent_timer_throttling = !BINDING.isChromium || obj.constructor.name !== 'WebSocket'
 				? null
-				: () => MONO.prevent_timer_throttling(0);
+				: MONO.prevent_timer_throttling;
 
 			var listener = BINDING._wrap_delegate_gc_handle_as_function(listener_gc_handle, prevent_timer_throttling);
 			if (!listener)
@@ -2111,7 +2114,40 @@ var BindingSupportLib = {
 			nameRoot.release();
 		}
 	},
+	mono_wasm_fetch: function (resource, options_js_handle, is_exception) {
+		const resourceRoot = MONO.mono_wasm_new_root(resource);
+		try {
+			const js_resource = BINDING.conv_string(resourceRoot.value);
+			if (!js_resource) {
+				setValue(is_exception, 1, "i32");
+				return BINDING.js_string_to_mono_string("Invalid resource argument @" + resourceRoot.value + "while calling fetch");
+			}
 
+			var options = undefined;
+			if (options_js_handle) {
+				options = BINDING.mono_wasm_get_jsobj_from_js_handle(options_js_handle);
+				if (!options) {
+					setValue(is_exception, 1, "i32");
+					return BINDING.js_string_to_mono_string("ERR16: Invalid JS object handle '" + options_js_handle + "' while calling fetch '" + js_resource + "'");
+				}
+			}
+
+			const fetchResponse = globalThis.fetch(js_resource, options)
+
+			const prevent_timer_throttling = !BINDING.isChromium
+				? null
+				: MONO.prevent_timer_throttling;
+
+			return BINDING._wrap_js_thenable_as_task(fetchResponse, prevent_timer_throttling);
+		}
+		catch (ex) {
+			setValue(is_exception, 1, "i32");
+			return BINDING.js_string_to_mono_string(ex.toString());
+		}
+		finally {
+			resourceRoot.release();
+		}
+	},
 };
 
 autoAddDeps(BindingSupportLib, '$BINDING')

@@ -180,5 +180,20 @@ namespace System.Runtime.InteropServices.JavaScript
         {
             return new Uri(uri);
         }
+
+        public static async Task<JSObject> Fetch(string resource, JSObject? options)
+        {
+            var res = Interop.Runtime.Fetch(resource, options?.JSHandle ?? 0, out int exception);
+
+            if (exception != 0)
+                throw new JSException((string)res);
+            Interop.Runtime.ReleaseInFlight(res);
+
+            var task = (Task<object>)res;
+
+            JSObject fetchResponse = (JSObject)await task.ConfigureAwait(continueOnCapturedContext: true);
+
+            return fetchResponse;
+        }
     }
 }

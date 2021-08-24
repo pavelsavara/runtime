@@ -29,8 +29,6 @@ namespace System.Net.Http
     internal sealed class BrowserHttpHandler : HttpMessageHandler
     {
         // This partial implementation contains members common to Browser WebAssembly running on .NET Core.
-        private static readonly JSObject? s_fetch = (JSObject)System.Runtime.InteropServices.JavaScript.Runtime.GetGlobalObject("fetch");
-        private static readonly JSObject? s_window = (JSObject)System.Runtime.InteropServices.JavaScript.Runtime.GetGlobalObject("window");
 
         private static readonly HttpRequestOptionsKey<bool> EnableStreamingResponse = new HttpRequestOptionsKey<bool>("WebAssemblyEnableStreamingResponse");
         private static readonly HttpRequestOptionsKey<IDictionary<string, object>> FetchOptions = new HttpRequestOptionsKey<IDictionary<string, object>>("WebAssemblyFetchOptions");
@@ -240,23 +238,15 @@ namespace System.Net.Http
                     abortCts.Dispose();
                 }));
 
-                var args = new System.Runtime.InteropServices.JavaScript.Array();
-                if (request.RequestUri != null)
+                if (request.RequestUri == null)
                 {
-                    args.Push(request.RequestUri.ToString());
-                    args.Push(requestObject);
+                    throw new ArgumentNullException(nameof(request.RequestUri));
                 }
+                JSObject fetchResponse = await Runtime.InteropServices.JavaScript.Runtime.Fetch(request.RequestUri.ToString(), requestObject).ConfigureAwait(true);
 
                 requestObject.Dispose();
 
-                var response = s_fetch?.Invoke("apply", s_window, args) as Task<object>;
-                args.Dispose();
-                if (response == null)
-                    throw new Exception(SR.net_http_marshalling_response_promise_from_fetch);
-
-                JSObject t = (JSObject)await response.ConfigureAwait(continueOnCapturedContext: true);
-
-                var status = new WasmFetchResponse(t, abortController, abortCts, abortRegistration);
+                var status = new WasmFetchResponse(fetchResponse, abortController, abortCts, abortRegistration);
                 HttpResponseMessage httpResponse = new HttpResponseMessage((HttpStatusCode)status.Status);
                 httpResponse.RequestMessage = request;
 

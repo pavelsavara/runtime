@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(TargetOS)' == 'Browser'">
-    <WasmXHarnessArgs>--background-throttling</WasmXHarnessArgs>
+    <WasmXHarnessArgs>$(WasmXHarnessArgs) --background-throttling</WasmXHarnessArgs>
     <Scenario>WasmTestOnBrowser</Scenario>
     <TestArchiveTestsRoot>$(TestArchiveRoot)browseronly/</TestArchiveTestsRoot>
     <TestArchiveTestsDir>$(TestArchiveTestsRoot)$(OSPlatformConfig)/</TestArchiveTestsDir>
