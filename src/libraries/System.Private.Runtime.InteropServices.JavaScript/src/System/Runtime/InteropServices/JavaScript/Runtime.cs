@@ -182,19 +182,22 @@ namespace System.Runtime.InteropServices.JavaScript
             return new Uri(uri);
         }
 
-        public static unsafe Task WebSocketSendBinary(JSObject webSocket, int messagePtr, int end, bool endOfMessage)
+        public static unsafe Task WebSocketSendBinary(JSObject webSocket, ReadOnlySpan<byte> buffer, int end, bool endOfMessage)
         {
-            var res = Interop.Runtime.WebSocketSendBinary(webSocket.JSHandle, messagePtr, end, endOfMessage, out int exception);
-            if (exception != 0)
-                throw new JSException((string)res);
-            if (res == null)
+            fixed (byte* messagePtr = buffer)
             {
-                return Task.CompletedTask;
+                var res = Interop.Runtime.WebSocketSendBinary(webSocket.JSHandle, (int)messagePtr, end, endOfMessage, out int exception);
+                if (exception != 0)
+                    throw new JSException((string)res);
+                if (res == null)
+                {
+                    return Task.CompletedTask;
+                }
+                return (Task)res;
             }
-            return (Task)res;
         }
 
-        public static unsafe Task WebSocketSendText(JSObject webSocket, string message, bool endOfMessage)
+        public static Task WebSocketSendText(JSObject webSocket, string message, bool endOfMessage)
         {
             var res = Interop.Runtime.WebSocketSendText(webSocket.JSHandle, message, endOfMessage, out int exception);
             if (exception != 0)

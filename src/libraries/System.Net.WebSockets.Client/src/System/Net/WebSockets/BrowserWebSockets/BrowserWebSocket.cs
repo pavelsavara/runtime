@@ -11,6 +11,7 @@ using System.Runtime.InteropServices.JavaScript;
 
 using JavaScript = System.Runtime.InteropServices.JavaScript;
 using System.Runtime.InteropServices;
+using System.Runtime.CompilerServices;
 
 namespace System.Net.WebSockets
 {
@@ -51,6 +52,8 @@ namespace System.Net.WebSockets
 
         // Stages of this class.
         private int _state;
+
+        private bool _sendInProgress;
 
         private enum InternalState
         {
@@ -116,6 +119,17 @@ namespace System.Net.WebSockets
         public override string? SubProtocol => _innerWebSocket != null && !_innerWebSocket.IsDisposed ? _innerWebSocket!.GetObjectProperty("protocol")?.ToString() : null;
 
         #endregion Properties
+
+        private void ThrowIfOperationInProgress(bool operationInProgress, [CallerMemberName] string? methodName = null)
+        {
+            if (operationInProgress)
+            {
+                Abort();
+                ThrowOperationInProgress(methodName);
+            }
+        }
+
+        private void ThrowOperationInProgress(string? methodName) => throw new InvalidOperationException(SR.Format(SR.net_Websockets_AlreadyOneOutstandingOperation, methodName));
 
         internal async Task ConnectAsyncJavaScript(Uri uri, CancellationToken cancellationToken, List<string>? requestedSubProtocols)
         {
@@ -398,33 +412,42 @@ namespace System.Net.WebSockets
 
             WebSocketValidate.ValidateArraySegment(buffer, nameof(buffer));
 
+            ThrowIfOperationInProgress(_sendInProgress);
+
             try
             {
-                var sendTask = WebSocketSend(_innerWebSocket!, buffer, messageType, endOfMessage);
-                // TODO if (cancellationToken.IsCancellationRequested), release js promise hold by sendTask ?
-                var cancelationTask = Task.Delay(-1, cancellationToken);
-                return Task.WhenAny(sendTask, cancelationTask);
+                return WebSocketSend(buffer, messageType, endOfMessage, cancellationToken);
             }
             catch (Exception excb)
             {
+                _sendInProgress = false;
                 return Task.FromException(new WebSocketException(WebSocketError.NativeError, excb));
             }
         }
 
-        public static unsafe Task WebSocketSend(JSObject webSocket, ArraySegment<byte> buffer, WebSocketMessageType messageType, bool endOfMessage)
+        public async Task WebSocketSend(ArraySegment<byte> buffer, WebSocketMessageType messageType, bool endOfMessage, CancellationToken cancellationToken)
         {
-            switch (messageType)
+            _sendInProgress = true; // todo synchronize ?
+            try
             {
-                case WebSocketMessageType.Binary:
+                Task sendTask;
+                var cancelationTask = Task.Delay(-1, cancellationToken);
+                switch (messageType)
+                {
+                    case WebSocketMessageType.Binary:
+                        sendTask = JavaScript.Runtime.WebSocketSendBinary(_innerWebSocket!, buffer, buffer.Count, endOfMessage);
+                        break;
+                    default:
+                        string message = buffer.Array == null ? string.Empty : Encoding.UTF8.GetString(buffer.Array, buffer.Offset, buffer.Count);
+                        sendTask = JavaScript.Runtime.WebSocketSendText(_innerWebSocket!, message, endOfMessage);
+                        break;
+                }
+                await Task.WhenAny(sendTask, cancelationTask).ConfigureAwait(continueOnCapturedContext: true);
 
-                    ReadOnlySpan<byte> bytes = MemoryMarshal.AsBytes((ReadOnlySpan<byte>)buffer);
-                    fixed (byte* messagePtr = bytes)
-                    {
-                        return JavaScript.Runtime.WebSocketSendBinary(webSocket, (int)messagePtr, buffer.Count, endOfMessage);
-                    }
-                default:
-                    string message = buffer.Array == null ? string.Empty : Encoding.UTF8.GetString(buffer.Array, buffer.Offset, buffer.Count);
-                    return JavaScript.Runtime.WebSocketSendText(webSocket, message, endOfMessage);
+            }
+            finally
+            {
+                _sendInProgress = false;
             }
         }
 

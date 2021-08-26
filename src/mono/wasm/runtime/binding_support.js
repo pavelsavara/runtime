@@ -42,7 +42,6 @@ var BindingSupportLib = {
 			this.delegate_invoke_signature_symbol = Symbol.for("wasm delegate_invoke_signature");
 			this.listener_registration_count_symbol = Symbol.for("wasm listener_registration_count");
 			this.wasm_ws_pending_send_buffer = Symbol.for("wasm ws_pending_send_buffer");
-			this.wasm_ws_pending_send_operation = Symbol.for("wasm ws_pending_send_operation");
 
 			// please keep System.Runtime.InteropServices.JavaScript.Runtime.MappedType in sync
 			Object.prototype[this.wasm_type_symbol] = 0;
@@ -1755,10 +1754,6 @@ var BindingSupportLib = {
 			return obj;
 		},
 		_mono_wasm_web_socket_send_and_wait: function (ws, buffer) {
-			if (ws[this.wasm_ws_pending_send_operation]) {
-				throw new Error("Parallel WebSocket.send() is not supported");
-			}
-
 			// send and return promise
 			ws.send(buffer);
 			ws[this.wasm_ws_pending_send_buffer] = null;
@@ -1766,8 +1761,6 @@ var BindingSupportLib = {
 			if (ws.bufferedAmount === 0) {
 				return null; // no promise
 			}
-
-			ws[this.wasm_ws_pending_send_operation] = true;
 
 			// block the promise/task until the browser passed the buffer to OS
 			const block_until_sent_interval = 50;//ms
@@ -1782,14 +1775,12 @@ var BindingSupportLib = {
 				// was it all sent yet ?
 				if (ws.bufferedAmount === 0) {
 					globalThis.clearInterval(intervalId);
-					ws[this.wasm_ws_pending_send_operation] = false;
 					cont_obj.resolve();
 				}
 				else if (ws.readyState != 1) {// 1==open
 					// only reject if the data were not sent
 					// bufferedAmount does not reset to zero once the connection closes
 					globalThis.clearInterval(intervalId);
-					ws[this.wasm_ws_pending_send_operation] = false;
 					cont_obj.reject("The WebSocket is not connected.");
 				}
 			};
@@ -2176,14 +2167,19 @@ var BindingSupportLib = {
 				throw new Error("ERR17: Invalid JS object handle " + webSocket_js_handle);
 			var buffer = ws[this.wasm_ws_pending_send_buffer];
 
+			// TODO, shall we speculatively pre-allocate exponentially large buffers to prevent copies on append ?
 			if (buffer) {
 				// if not empty, append to existing buffer
 				if (end !== 0) {
 					if (buffer.__message_type !== 1) {
 						throw new Error("Partial messages of different WebSocketMessageType are not supported" + webSocket_js_handle);
 					}
+
 					const view = Module.HEAPU8.subarray(message_ptr, message_ptr + end);
-					buffer.set(view, buffer.length);// append copy at the end
+					const newbuffer = new Uint8Array(buffer.length + end);
+					newbuffer.set(buffer, 0, buffer.length);// copy previous buffer
+					newbuffer.set(view, buffer.length);// append copy at the end
+					buffer = newbuffer;
 				}
 			}
 			else if (!end_of_message) {
