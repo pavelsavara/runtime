@@ -10,6 +10,7 @@ using System.Threading.Channels;
 using System.Runtime.InteropServices.JavaScript;
 
 using JavaScript = System.Runtime.InteropServices.JavaScript;
+using System.Runtime.InteropServices;
 
 namespace System.Net.WebSockets
 {
@@ -44,7 +45,6 @@ namespace System.Net.WebSockets
         private Action<JSObject?>? _onClose;
         private Action<JSObject>? _onMessage;
 
-        private MemoryStream? _writeBuffer;
         private ReceivePayload? _bufferedPayload;
         private readonly CancellationTokenSource _cts;
         private int _closeStatus;  // variable to track the close status after a close is sent.
@@ -328,7 +328,8 @@ namespace System.Net.WebSockets
         {
             if (!_disposed)
             {
-                if (_state < (int)InternalState.Aborted) {
+                if (_state < (int)InternalState.Aborted)
+                {
                     _state = (int)InternalState.Disposed;
                 }
                 _disposed = true;
@@ -340,7 +341,6 @@ namespace System.Net.WebSockets
                     _cts.Dispose();
                 }
 
-                _writeBuffer?.Dispose();
                 _receiveMessageQueue.Writer.TryComplete();
 
                 NativeCleanup();
@@ -363,7 +363,6 @@ namespace System.Net.WebSockets
                         // chrome will send an onClose event and we tear down the websocket there.
                         if (ReadyStateToDotNetState(_closeStatus) == WebSocketState.CloseSent)
                         {
-                            _writeBuffer?.Dispose();
                             _receiveMessageQueue.Writer.TryWrite(new ReceivePayload(Array.Empty<byte>(), WebSocketMessageType.Close));
                             _receiveMessageQueue.Writer.TryComplete();
                             NativeCleanup();
@@ -386,8 +385,7 @@ namespace System.Net.WebSockets
         {
             ThrowIfNotConnected();
 
-            if (messageType != WebSocketMessageType.Binary &&
-                    messageType != WebSocketMessageType.Text)
+            if (messageType != WebSocketMessageType.Binary && messageType != WebSocketMessageType.Text)
             {
                 throw new ArgumentException(SR.Format(SR.net_WebSockets_Argument_InvalidMessageType,
                     messageType,
@@ -400,54 +398,34 @@ namespace System.Net.WebSockets
 
             WebSocketValidate.ValidateArraySegment(buffer, nameof(buffer));
 
-            if (!endOfMessage)
-            {
-                _writeBuffer ??= new MemoryStream();
-                _writeBuffer.Write(buffer.Array!, buffer.Offset, buffer.Count);
-                return Task.CompletedTask;
-            }
-
-            MemoryStream? writtenBuffer = _writeBuffer;
-            _writeBuffer = null;
-
-            if (writtenBuffer is not null)
-            {
-                writtenBuffer.Write(buffer.Array!, buffer.Offset, buffer.Count);
-                if (writtenBuffer.TryGetBuffer(out var tmpBuffer))
-                {
-                    buffer = tmpBuffer;
-                }
-                else
-                {
-                    buffer = writtenBuffer.ToArray();
-                }
-            }
-
             try
             {
-                switch (messageType)
-                {
-                    case WebSocketMessageType.Binary:
-                        using (Uint8Array uint8Buffer = Uint8Array.From(buffer))
-                        {
-                            _innerWebSocket!.Invoke("send", uint8Buffer);
-                        }
-                        break;
-                    default:
-                        string strBuffer = buffer.Array == null ? string.Empty : Encoding.UTF8.GetString(buffer.Array, buffer.Offset, buffer.Count);
-                        _innerWebSocket!.Invoke("send", strBuffer);
-                        break;
-                }
+                var sendTask = WebSocketSend(_innerWebSocket!, buffer, messageType, endOfMessage);
+                // TODO if (cancellationToken.IsCancellationRequested), release js promise hold by sendTask ?
+                var cancelationTask = Task.Delay(-1, cancellationToken);
+                return Task.WhenAny(sendTask, cancelationTask);
             }
             catch (Exception excb)
             {
                 return Task.FromException(new WebSocketException(WebSocketError.NativeError, excb));
             }
-            finally
+        }
+
+        public static unsafe Task WebSocketSend(JSObject webSocket, ArraySegment<byte> buffer, WebSocketMessageType messageType, bool endOfMessage)
+        {
+            switch (messageType)
             {
-                writtenBuffer?.Dispose();
+                case WebSocketMessageType.Binary:
+
+                    ReadOnlySpan<byte> bytes = MemoryMarshal.AsBytes((ReadOnlySpan<byte>)buffer);
+                    fixed (byte* messagePtr = bytes)
+                    {
+                        return JavaScript.Runtime.WebSocketSendBinary(webSocket, (int)messagePtr, buffer.Count, endOfMessage);
+                    }
+                default:
+                    string message = buffer.Array == null ? string.Empty : Encoding.UTF8.GetString(buffer.Array, buffer.Offset, buffer.Count);
+                    return JavaScript.Runtime.WebSocketSendText(webSocket, message, endOfMessage);
             }
-            return Task.CompletedTask;
         }
 
         // This method is registered by the CancellationTokenSource in the receive async method
@@ -535,8 +513,6 @@ namespace System.Net.WebSockets
 
         public override Task CloseAsync(WebSocketCloseStatus closeStatus, string? statusDescription, CancellationToken cancellationToken)
         {
-            _writeBuffer = null;
-
             WebSocketValidate.ValidateCloseStatus(closeStatus, statusDescription);
 
             try
@@ -577,8 +553,6 @@ namespace System.Net.WebSockets
 
         public override Task CloseOutputAsync(WebSocketCloseStatus closeStatus, string? statusDescription, CancellationToken cancellationToken)
         {
-            _writeBuffer = null;
-
             WebSocketValidate.ValidateCloseStatus(closeStatus, statusDescription);
 
             try

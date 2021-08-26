@@ -3,6 +3,7 @@
 
 using System.Diagnostics.CodeAnalysis;
 using System.Reflection;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace System.Runtime.InteropServices.JavaScript
@@ -179,6 +180,30 @@ namespace System.Runtime.InteropServices.JavaScript
         public static Uri CreateUri(string uri)
         {
             return new Uri(uri);
+        }
+
+        public static unsafe Task WebSocketSendBinary(JSObject webSocket, int messagePtr, int end, bool endOfMessage)
+        {
+            var res = Interop.Runtime.WebSocketSendBinary(webSocket.JSHandle, messagePtr, end, endOfMessage, out int exception);
+            if (exception != 0)
+                throw new JSException((string)res);
+            if (res == null)
+            {
+                return Task.CompletedTask;
+            }
+            return (Task)res;
+        }
+
+        public static unsafe Task WebSocketSendText(JSObject webSocket, string message, bool endOfMessage)
+        {
+            var res = Interop.Runtime.WebSocketSendText(webSocket.JSHandle, message, endOfMessage, out int exception);
+            if (exception != 0)
+                throw new JSException((string)res);
+            if (res == null)
+            {
+                return Task.CompletedTask;
+            }
+            return (Task)res;
         }
     }
 }

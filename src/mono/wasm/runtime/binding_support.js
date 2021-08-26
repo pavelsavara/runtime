@@ -41,6 +41,8 @@ var BindingSupportLib = {
 			this.delegate_invoke_symbol = Symbol.for("wasm delegate_invoke");
 			this.delegate_invoke_signature_symbol = Symbol.for("wasm delegate_invoke_signature");
 			this.listener_registration_count_symbol = Symbol.for("wasm listener_registration_count");
+			this.wasm_ws_pending_send_buffer = Symbol.for("wasm ws_pending_send_buffer");
+			this.wasm_ws_pending_send_operation = Symbol.for("wasm ws_pending_send_operation");
 
 			// please keep System.Runtime.InteropServices.JavaScript.Runtime.MappedType in sync
 			Object.prototype[this.wasm_type_symbol] = 0;
@@ -1752,6 +1754,52 @@ var BindingSupportLib = {
 			}
 			return obj;
 		},
+		_mono_wasm_web_socket_send_and_wait: function (ws, buffer) {
+			if (ws[this.wasm_ws_pending_send_operation]) {
+				throw new Error("Parallel WebSocket.send() is not supported");
+			}
+
+			// send and return promise
+			ws.send(buffer);
+			ws[this.wasm_ws_pending_send_buffer] = null;
+
+			if (ws.bufferedAmount === 0) {
+				return null; // no promise
+			}
+
+			ws[this.wasm_ws_pending_send_operation] = true;
+
+			// block the promise/task until the browser passed the buffer to OS
+			const block_until_sent_interval = 50;//ms
+			var cont_obj = null;
+			const promise = new Promise(function (resolve, reject) {
+				cont_obj = {
+					resolve: resolve,
+					reject: reject
+				};
+			});
+			const polling_check = () => {
+				// was it all sent yet ?
+				if (ws.bufferedAmount === 0) {
+					globalThis.clearInterval(intervalId);
+					ws[this.wasm_ws_pending_send_operation] = false;
+					cont_obj.resolve();
+				}
+				else if (ws.readyState != 1) {// 1==open
+					// only reject if the data were not sent
+					// bufferedAmount does not reset to zero once the connection closes
+					globalThis.clearInterval(intervalId);
+					ws[this.wasm_ws_pending_send_operation] = false;
+					cont_obj.reject("The WebSocket is not connected.");
+				}
+			};
+
+			globalThis.setTimeout(polling_check, 0);
+			globalThis.setTimeout(polling_check, 1);
+			var intervalId = globalThis.setInterval(polling_check, block_until_sent_interval);
+
+			return this._wrap_js_thenable_as_task(promise);
+		},
 	},
 	mono_wasm_invoke_js_with_args: function(js_handle, method_name, args, is_exception) {
 		let argsRoot = MONO.mono_wasm_new_root (args), nameRoot = MONO.mono_wasm_new_root (method_name);
@@ -2120,7 +2168,103 @@ var BindingSupportLib = {
 			nameRoot.release();
 		}
 	},
+	mono_wasm_web_socket_send_binary: function (webSocket_js_handle, message_ptr, end, end_of_message, is_exception) {
+		var message_root = MONO.mono_wasm_new_root(message_ptr);
+		try {
+			const ws = BINDING.mono_wasm_get_jsobj_from_js_handle(webSocket_js_handle)
+			if (!ws)
+				throw new Error("ERR17: Invalid JS object handle " + webSocket_js_handle);
+			var buffer = ws[this.wasm_ws_pending_send_buffer];
 
+			if (buffer) {
+				// if not empty, append to existing buffer
+				if (end !== 0) {
+					if (buffer.__message_type !== 1) {
+						throw new Error("Partial messages of different WebSocketMessageType are not supported" + webSocket_js_handle);
+					}
+					const view = Module.HEAPU8.subarray(message_ptr, message_ptr + end);
+					buffer.set(view, buffer.length);// append copy at the end
+				}
+			}
+			else if (!end_of_message) {
+				// create new buffer
+				if (end === 0) {
+					// empty
+					buffer = new Uint8Array();
+				}
+				else {
+					const view = Module.HEAPU8.subarray(message_ptr, message_ptr + end);
+					buffer = new Uint8Array(view); // copy
+				}
+				buffer.__message_type = 1;
+				ws[this.wasm_ws_pending_send_buffer] = buffer;
+			}
+			else {
+				// use the buffer only localy
+				if (end === 0) {
+					// empty
+					buffer = new Uint8Array();
+				}
+				else {
+					const view = Module.HEAPU8.subarray(message_ptr, message_ptr + end);
+					buffer = view; // send will make a copy
+				}
+			}
+			if (!end_of_message) {
+				return null; // we are done buffering, no promise
+			}
+			return BINDING._mono_wasm_web_socket_send_and_wait(ws, buffer);
+		}
+		catch (exc) {
+			setValue(is_exception, 1, "i32");
+			return BINDING.js_string_to_mono_string(exc.message);
+		}
+		finally {
+			message_root.release();
+		}
+	},
+	mono_wasm_web_socket_send_text: function (webSocket_js_handle, message, end_of_message, is_exception) {
+		var message_root = MONO.mono_wasm_new_root(message);
+		try {
+			const ws = BINDING.mono_wasm_get_jsobj_from_js_handle(webSocket_js_handle)
+			if (!ws)
+				throw new Error("ERR17: Invalid JS object handle " + webSocket_js_handle);
+			var buffer = ws[this.wasm_ws_pending_send_buffer];
+
+			if (buffer) {
+				// if not empty, append to existing buffer
+				const string_message = BINDING.conv_string(message_root.value);
+				if(string_message!==""){
+					if (buffer.__message_type !== 0) {
+						throw new Error("Partial messages of different WebSocketMessageType are not supported" + webSocket_js_handle);
+					}
+					buffer += string_message;
+				}
+			}
+			else if (!end_of_message) {
+				// create new buffer
+				buffer = BINDING.conv_string(message_root.value);
+				buffer.__message_type = 0;
+				ws[this.wasm_ws_pending_send_buffer] = buffer;
+			}
+			else {
+				// use the buffer only localy
+				buffer = BINDING.conv_string(message_root.value);
+			}
+			if (!end_of_message) {
+				return null; // we are done buffering, no promise
+			}
+
+			return BINDING._mono_wasm_web_socket_send_and_wait(ws, buffer);
+		}
+		catch (exc) {
+			setValue(is_exception, 1, "i32");
+			return BINDING.js_string_to_mono_string(exc.message);
+		}
+		finally {
+			message_root.release();
+		}
+	}
 };
 
 autoAddDeps(BindingSupportLib, '$BINDING')
