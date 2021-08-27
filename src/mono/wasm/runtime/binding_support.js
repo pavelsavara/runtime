@@ -1838,7 +1838,6 @@ var BindingSupportLib = {
 			}
 
 			// block the promise/task until the browser passed the buffer to OS
-			const block_until_sent_interval = 50;//ms
 			var cont_obj = null;
 			const promise = new Promise(function (resolve, reject) {
 				cont_obj = {
@@ -1846,23 +1845,23 @@ var BindingSupportLib = {
 					reject: reject
 				};
 			});
+			var nextDelay = 1;
 			const polling_check = () => {
 				// was it all sent yet ?
 				if (ws.bufferedAmount === 0) {
-					globalThis.clearInterval(intervalId);
 					cont_obj.resolve();
 				}
 				else if (ws.readyState != 1) {// 1==open
 					// only reject if the data were not sent
 					// bufferedAmount does not reset to zero once the connection closes
-					globalThis.clearInterval(intervalId);
 					cont_obj.reject("The WebSocket is not connected.");
+				} else {
+					globalThis.setTimeout(polling_check, nextDelay);
+					nextDelay = nextDelay * 1.5;// exponentially longer delays
 				}
 			};
 
 			globalThis.setTimeout(polling_check, 0);
-			globalThis.setTimeout(polling_check, 1);
-			var intervalId = globalThis.setInterval(polling_check, block_until_sent_interval);
 
 			return this._wrap_js_thenable_as_task(promise);
 		},
