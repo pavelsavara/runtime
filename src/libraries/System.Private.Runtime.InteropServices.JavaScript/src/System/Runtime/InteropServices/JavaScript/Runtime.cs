@@ -182,11 +182,11 @@ namespace System.Runtime.InteropServices.JavaScript
             return new Uri(uri);
         }
 
-        public static unsafe Task WebSocketSendBinary(JSObject webSocket, ReadOnlySpan<byte> buffer, int end, bool endOfMessage)
+        public static unsafe Task WebSocketSend(JSObject webSocket, ReadOnlySpan<byte> buffer, int messageType, bool endOfMessage)
         {
             fixed (byte* messagePtr = buffer)
             {
-                var res = Interop.Runtime.WebSocketSendBinary(webSocket.JSHandle, (int)messagePtr, end, endOfMessage, out int exception);
+                var res = Interop.Runtime.WebSocketSend(webSocket.JSHandle, (int)messagePtr, buffer.Length, messageType, endOfMessage, out int exception);
                 if (exception != 0)
                     throw new JSException((string)res);
                 if (res == null)
@@ -195,18 +195,6 @@ namespace System.Runtime.InteropServices.JavaScript
                 }
                 return (Task)res;
             }
-        }
-
-        public static Task WebSocketSendText(JSObject webSocket, string message, bool endOfMessage)
-        {
-            var res = Interop.Runtime.WebSocketSendText(webSocket.JSHandle, message, endOfMessage, out int exception);
-            if (exception != 0)
-                throw new JSException((string)res);
-            if (res == null)
-            {
-                return Task.CompletedTask;
-            }
-            return (Task)res;
         }
     }
 }

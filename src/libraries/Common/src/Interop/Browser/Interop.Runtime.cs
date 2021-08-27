@@ -47,9 +47,7 @@ internal static partial class Interop
         [MethodImplAttribute(MethodImplOptions.InternalCall)]
         internal static extern string? RemoveEventListener(int jsHandle, string name, int gcHandle, bool capture);
         [MethodImplAttribute(MethodImplOptions.InternalCall)]
-        internal static extern object WebSocketSendBinary(int webSocketJSHandle, int messagePtr, int end, bool endOfMessage, out int exceptionalResult);
-        [MethodImplAttribute(MethodImplOptions.InternalCall)]
-        internal static extern object WebSocketSendText(int webSocketJSHandle, string message, bool endOfMessage, out int exceptionalResult);
+        internal static extern object WebSocketSend(int webSocketJSHandle, int messagePtr, int length, int messageType, bool endOfMessage, out int exceptionalResult);
 
         // / <summary>
         // / Execute the provided string in the JavaScript context

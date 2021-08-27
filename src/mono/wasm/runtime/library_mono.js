@@ -542,14 +542,15 @@ var MonoSupportLib = {
 				return result;
 			},
 			decode: function (start, end, save) {
-				if (!MONO.mono_text_decoder) {
-					MONO.mono_text_decoder = typeof TextDecoder !== 'undefined' ? new TextDecoder('utf-16le') : undefined;
+				if (MONO.mono_text_decoder === undefined) {
+					MONO.mono_text_decoder = typeof TextDecoder !== 'undefined' ? new TextDecoder('utf-16le') : null;
 				}
 
 				var str = "";
 				if (MONO.mono_text_decoder) {
 					// When threading is enabled, TextDecoder does not accept a view of a
 					// SharedArrayBuffer, we must make a copy of the array first.
+					// See https://github.com/whatwg/encoding/issues/172
 					var subArray = typeof SharedArrayBuffer !== 'undefined' && Module.HEAPU8.buffer instanceof SharedArrayBuffer
 						? Module.HEAPU8.slice(start, end)
 						: Module.HEAPU8.subarray(start, end);

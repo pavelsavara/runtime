@@ -42,6 +42,7 @@ var BindingSupportLib = {
 			this.delegate_invoke_signature_symbol = Symbol.for("wasm delegate_invoke_signature");
 			this.listener_registration_count_symbol = Symbol.for("wasm listener_registration_count");
 			this.wasm_ws_pending_send_buffer = Symbol.for("wasm ws_pending_send_buffer");
+			this.wasm_ws_pending_send_buffer_offset = Symbol.for("wasm ws_pending_send_buffer_offset");
 
 			// please keep System.Runtime.InteropServices.JavaScript.Runtime.MappedType in sync
 			Object.prototype[this.wasm_type_symbol] = 0;
@@ -1753,6 +1754,77 @@ var BindingSupportLib = {
 			}
 			return obj;
 		},
+		_text_decoder_utf8: undefined,
+		_mono_wasm_web_socket_buffering: function (ws, message_ptr, length, message_type, end_of_message) {
+			var buffer = ws[this.wasm_ws_pending_send_buffer];
+			var offset = 0;
+
+			if (buffer) {
+				// if not empty message, append to existing buffer
+				if (length !== 0) {
+					offset = ws[this.wasm_ws_pending_send_buffer_offset];
+
+					if (buffer.__message_type !== message_type) {
+						throw new Error("Message cannot be appended to the partial message of different WebSocketMessageType waiting in this socket's buffer. " + webSocket_js_handle);
+					}
+
+					const view = Module.HEAPU8.subarray(message_ptr, message_ptr + length);
+					if (offset + length > buffer.length) {
+						const newbuffer = new Uint8Array((offset + length + 50) * 1.5); // exponential growth
+						newbuffer.set(buffer, 0, offset);// copy previous buffer
+						newbuffer.set(view, offset);// append copy at the end
+						buffer = newbuffer;
+					}
+					else {
+						buffer.set(view, offset);// append copy at the end
+					}
+					offset += length;
+					ws[this.wasm_ws_pending_send_buffer_offset] = offset;
+				}
+			}
+			else if (!end_of_message) {
+				// create new buffer
+				if (length !== 0) {
+					const view = Module.HEAPU8.subarray(message_ptr, message_ptr + length);
+					buffer = new Uint8Array(view); // copy
+					offset = length;
+					ws[this.wasm_ws_pending_send_buffer_offset] = offset;
+					buffer.__message_type = message_type;
+					ws[this.wasm_ws_pending_send_buffer] = buffer;
+				}
+			}
+			else {
+				// use the buffer only localy
+				if (length !== 0) {
+					const view = Module.HEAPU8.subarray(message_ptr, message_ptr + length);
+					buffer = view; // send will make a copy
+					offset = length;
+				}
+			}
+			// buffer was updated, do we need to trim and convert it to final format ?
+			if (end_of_message) {
+				if (offset == 0) {
+					return new Uint8Array();
+				}
+				if (message_type === 0) {
+					// text, convert from UTF-8 bytes to string, because of bad browser API
+					if (this._text_decoder_utf8 === undefined) {
+						this._text_decoder_utf8 = new TextDecoder('utf-8');
+					}
+
+					// See https://github.com/whatwg/encoding/issues/172
+					var bytes = typeof SharedArrayBuffer !== 'undefined' && buffer instanceof SharedArrayBuffer
+						? buffer.slice(0, offset)
+						: buffer.subarray(0, offset);
+
+					return this._text_decoder_utf8.decode(bytes);
+				} else {
+					// binary, view to used part of the buffer
+					return buffer.subarray(0, offset);
+				}
+			}
+			return null;
+		},
 		_mono_wasm_web_socket_send_and_wait: function (ws, buffer) {
 			// send and return promise
 			ws.send(buffer);
@@ -2159,53 +2231,15 @@ var BindingSupportLib = {
 			nameRoot.release();
 		}
 	},
-	mono_wasm_web_socket_send_binary: function (webSocket_js_handle, message_ptr, end, end_of_message, is_exception) {
+	mono_wasm_web_socket_send: function (webSocket_js_handle, message_ptr, length, message_type, end_of_message, is_exception) {
 		var message_root = MONO.mono_wasm_new_root(message_ptr);
 		try {
 			const ws = BINDING.mono_wasm_get_jsobj_from_js_handle(webSocket_js_handle)
 			if (!ws)
 				throw new Error("ERR17: Invalid JS object handle " + webSocket_js_handle);
-			var buffer = ws[this.wasm_ws_pending_send_buffer];
 
-			// TODO, shall we speculatively pre-allocate exponentially large buffers to prevent copies on append ?
-			if (buffer) {
-				// if not empty, append to existing buffer
-				if (end !== 0) {
-					if (buffer.__message_type !== 1) {
-						throw new Error("Partial messages of different WebSocketMessageType are not supported" + webSocket_js_handle);
-					}
+			const buffer = BINDING._mono_wasm_web_socket_buffering(ws, message_ptr, length, message_type, end_of_message);
 
-					const view = Module.HEAPU8.subarray(message_ptr, message_ptr + end);
-					const newbuffer = new Uint8Array(buffer.length + end);
-					newbuffer.set(buffer, 0, buffer.length);// copy previous buffer
-					newbuffer.set(view, buffer.length);// append copy at the end
-					buffer = newbuffer;
-				}
-			}
-			else if (!end_of_message) {
-				// create new buffer
-				if (end === 0) {
-					// empty
-					buffer = new Uint8Array();
-				}
-				else {
-					const view = Module.HEAPU8.subarray(message_ptr, message_ptr + end);
-					buffer = new Uint8Array(view); // copy
-				}
-				buffer.__message_type = 1;
-				ws[this.wasm_ws_pending_send_buffer] = buffer;
-			}
-			else {
-				// use the buffer only localy
-				if (end === 0) {
-					// empty
-					buffer = new Uint8Array();
-				}
-				else {
-					const view = Module.HEAPU8.subarray(message_ptr, message_ptr + end);
-					buffer = view; // send will make a copy
-				}
-			}
 			if (!end_of_message) {
 				return null; // we are done buffering, no promise
 			}
@@ -2219,48 +2253,6 @@ var BindingSupportLib = {
 			message_root.release();
 		}
 	},
-	mono_wasm_web_socket_send_text: function (webSocket_js_handle, message, end_of_message, is_exception) {
-		var message_root = MONO.mono_wasm_new_root(message);
-		try {
-			const ws = BINDING.mono_wasm_get_jsobj_from_js_handle(webSocket_js_handle)
-			if (!ws)
-				throw new Error("ERR17: Invalid JS object handle " + webSocket_js_handle);
-			var buffer = ws[this.wasm_ws_pending_send_buffer];
-
-			if (buffer) {
-				// if not empty, append to existing buffer
-				const string_message = BINDING.conv_string(message_root.value);
-				if(string_message!==""){
-					if (buffer.__message_type !== 0) {
-						throw new Error("Partial messages of different WebSocketMessageType are not supported" + webSocket_js_handle);
-					}
-					buffer += string_message;
-				}
-			}
-			else if (!end_of_message) {
-				// create new buffer
-				buffer = BINDING.conv_string(message_root.value);
-				buffer.__message_type = 0;
-				ws[this.wasm_ws_pending_send_buffer] = buffer;
-			}
-			else {
-				// use the buffer only localy
-				buffer = BINDING.conv_string(message_root.value);
-			}
-			if (!end_of_message) {
-				return null; // we are done buffering, no promise
-			}
-
-			return BINDING._mono_wasm_web_socket_send_and_wait(ws, buffer);
-		}
-		catch (exc) {
-			setValue(is_exception, 1, "i32");
-			return BINDING.js_string_to_mono_string(exc.message);
-		}
-		finally {
-			message_root.release();
-		}
-	}
 };
 
 autoAddDeps(BindingSupportLib, '$BINDING')

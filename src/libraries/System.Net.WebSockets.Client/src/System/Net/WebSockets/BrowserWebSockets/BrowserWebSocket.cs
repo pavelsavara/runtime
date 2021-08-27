@@ -432,18 +432,8 @@ namespace System.Net.WebSockets
             {
                 Task sendTask;
                 var cancelationTask = Task.Delay(-1, cancellationToken);
-                switch (messageType)
-                {
-                    case WebSocketMessageType.Binary:
-                        sendTask = JavaScript.Runtime.WebSocketSendBinary(_innerWebSocket!, buffer, buffer.Count, endOfMessage);
-                        break;
-                    default:
-                        string message = buffer.Array == null ? string.Empty : Encoding.UTF8.GetString(buffer.Array, buffer.Offset, buffer.Count);
-                        sendTask = JavaScript.Runtime.WebSocketSendText(_innerWebSocket!, message, endOfMessage);
-                        break;
-                }
+                sendTask = JavaScript.Runtime.WebSocketSend(_innerWebSocket!, buffer, (int)messageType, endOfMessage);
                 await Task.WhenAny(sendTask, cancelationTask).ConfigureAwait(continueOnCapturedContext: true);
-
             }
             finally
             {
