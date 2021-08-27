@@ -43,6 +43,7 @@ var BindingSupportLib = {
 			this.listener_registration_count_symbol = Symbol.for("wasm listener_registration_count");
 			this.wasm_ws_pending_send_buffer = Symbol.for("wasm ws_pending_send_buffer");
 			this.wasm_ws_pending_send_buffer_offset = Symbol.for("wasm ws_pending_send_buffer_offset");
+			this.wasm_ws_pending_send_buffer_type = Symbol.for("wasm ws_pending_send_buffer_type");
 
 			// please keep System.Runtime.InteropServices.JavaScript.Runtime.MappedType in sync
 			Object.prototype[this.wasm_type_symbol] = 0;
@@ -1760,11 +1761,12 @@ var BindingSupportLib = {
 			var offset = 0;
 
 			if (buffer) {
+				offset = ws[this.wasm_ws_pending_send_buffer_offset];
 				// if not empty message, append to existing buffer
 				if (length !== 0) {
-					offset = ws[this.wasm_ws_pending_send_buffer_offset];
-
-					if (buffer.__message_type !== message_type) {
+					var buffer_type = ws[this.wasm_ws_pending_send_buffer_type];
+					// TODO: do we really want to remember and to check the type ?
+					if (buffer_type !== message_type) {
 						throw new Error("Message cannot be appended to the partial message of different WebSocketMessageType waiting in this socket's buffer. " + webSocket_js_handle);
 					}
 
@@ -1792,6 +1794,7 @@ var BindingSupportLib = {
 					buffer.__message_type = message_type;
 					ws[this.wasm_ws_pending_send_buffer] = buffer;
 				}
+				ws[this.wasm_ws_pending_send_buffer_type] = message_type;
 			}
 			else {
 				// use the buffer only localy
