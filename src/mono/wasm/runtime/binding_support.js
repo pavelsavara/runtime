@@ -1762,14 +1762,10 @@ var BindingSupportLib = {
 
 			if (buffer) {
 				offset = ws[this.wasm_ws_pending_send_buffer_offset];
+				// replace with message_type from first part, consistently with desktop
+				message_type = ws[this.wasm_ws_pending_send_buffer_type]; 
 				// if not empty message, append to existing buffer
 				if (length !== 0) {
-					var buffer_type = ws[this.wasm_ws_pending_send_buffer_type];
-					// TODO: do we really want to remember and to check the type ?
-					if (buffer_type !== message_type) {
-						throw new Error("Message cannot be appended to the partial message of different WebSocketMessageType waiting in this socket's buffer. " + webSocket_js_handle);
-					}
-
 					const view = Module.HEAPU8.subarray(message_ptr, message_ptr + length);
 					if (offset + length > buffer.length) {
 						const newbuffer = new Uint8Array((offset + length + 50) * 1.5); // exponential growth
@@ -1791,7 +1787,6 @@ var BindingSupportLib = {
 					buffer = new Uint8Array(view); // copy
 					offset = length;
 					ws[this.wasm_ws_pending_send_buffer_offset] = offset;
-					buffer.__message_type = message_type;
 					ws[this.wasm_ws_pending_send_buffer] = buffer;
 				}
 				ws[this.wasm_ws_pending_send_buffer_type] = message_type;
