@@ -53,8 +53,6 @@ namespace System.Net.WebSockets
         // Stages of this class.
         private int _state;
 
-        private bool _sendInProgress;
-
         private enum InternalState
         {
             Created = 0,
@@ -412,32 +410,15 @@ namespace System.Net.WebSockets
 
             WebSocketValidate.ValidateArraySegment(buffer, nameof(buffer));
 
-            ThrowIfOperationInProgress(_sendInProgress);
-
             try
             {
-                return WebSocketSend(buffer, messageType, endOfMessage, cancellationToken);
+                var cancelationTask = Task.Delay(-1, cancellationToken);
+                var sendTask = JavaScript.Runtime.WebSocketSend(_innerWebSocket!, buffer, (int)messageType, endOfMessage);
+                return Task.WhenAny(sendTask, cancelationTask);
             }
             catch (Exception excb)
             {
-                _sendInProgress = false;
                 return Task.FromException(new WebSocketException(WebSocketError.NativeError, excb));
-            }
-        }
-
-        public async Task WebSocketSend(ArraySegment<byte> buffer, WebSocketMessageType messageType, bool endOfMessage, CancellationToken cancellationToken)
-        {
-            _sendInProgress = true; // todo synchronize ?
-            try
-            {
-                Task sendTask;
-                var cancelationTask = Task.Delay(-1, cancellationToken);
-                sendTask = JavaScript.Runtime.WebSocketSend(_innerWebSocket!, buffer, (int)messageType, endOfMessage);
-                await Task.WhenAny(sendTask, cancelationTask).ConfigureAwait(continueOnCapturedContext: true);
-            }
-            finally
-            {
-                _sendInProgress = false;
             }
         }
 
