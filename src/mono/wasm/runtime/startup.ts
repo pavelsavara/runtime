@@ -58,6 +58,18 @@ export function configure_emscripten_startup(module: DotnetModule, exportedAPI: 
     const userOnRuntimeInitialized: () => void = module.onRuntimeInitialized ? module.onRuntimeInitialized : () => { };
     const isCustomStartup = !module.configSrc && !module.config; // like blazor
 
+    if (ENVIRONMENT_IS_PTHREAD) {
+        // emscripten doesn't run preRun, onRuntimeInitialized, or postRun on pthreads
+        // module.instantiateWasm is set by dotnet.worker.js to a custom callback
+        // module.ready will be resolved by dotnet.js with 'module' which is what dotnet.worker.js expects
+        // we are not running our default startup sequence on workers.
+        // TODO:
+        //   - should we run our instantiateWasm?
+        //   - should we reject our promise controllers?
+        //   - does any of our JS initialization need to run on workers?
+        return;
+    }
+
     // execution order == [0] ==
     // - default or user Module.instantiateWasm (will start downloading dotnet.wasm)
     module.instantiateWasm = (imports, callback) => instantiateWasm(imports, callback, userInstantiateWasm);
