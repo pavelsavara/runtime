@@ -19,7 +19,7 @@ namespace Sample
         public AppStartTask()
         {
             measurements = new Measurement[] {
-                //new PageShow(),
+                new PageShow(),
                 new ReachManaged(),
             };
         }
