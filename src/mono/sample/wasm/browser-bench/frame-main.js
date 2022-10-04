@@ -7,7 +7,7 @@ import createDotnetRuntime from './dotnet.js'
 
 class FrameApp {
     async init({ BINDING }) {
-        const reachManagedReached = BINDING.bind_static_method("[Wasm.Browser.Bench.Sample] Sample.AppStartTask/ReachManaged:ReachedManaged");
+        const reachManagedReached = BINDING.bind_static_method("[Wasm.Browser.Bench.Sample] Sample.AppStartTask/FrameApp:ReachedManaged");
         await reachManagedReached();
     }
 
@@ -16,11 +16,11 @@ class FrameApp {
     }
 }
 
+let mute = false;
 try {
     globalThis.frameApp = new FrameApp();
     globalThis.frameApp.ReachedCallback = globalThis.frameApp.reachedCallback.bind(globalThis.frameApp);
 
-    let mute = false;
     window.addEventListener("pageshow", event => { window.parent.resolveAppStartEvent("pageshow"); })
 
     window.muteErrors = () => {
