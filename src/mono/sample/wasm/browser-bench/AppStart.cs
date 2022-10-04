@@ -67,7 +67,6 @@ namespace Sample
             public static partial Task ReachedCallback();
 
             [MethodImpl(MethodImplOptions.NoInlining)]
-            [JSExport]
             public static void ReachedManaged()
             {
                 ReachedCallback();

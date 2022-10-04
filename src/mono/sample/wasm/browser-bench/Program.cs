@@ -30,7 +30,6 @@ namespace Sample
         Formatter formatter = new HTMLFormatter();
 
         [MethodImpl(MethodImplOptions.NoInlining)]
-        [JSExport]
         public static Task<string> RunBenchmark()
         {
             return instance.RunTasks();
@@ -40,7 +39,6 @@ namespace Sample
         // the constructors of the task we care about are already used when createing tasks field
         [UnconditionalSuppressMessage("Trim analysis error", "IL2057")]
         [UnconditionalSuppressMessage("Trim analysis error", "IL2072")]
-        [JSExport]
         public static void SetTasks(string taskNames)
         {
             Regex pattern;
@@ -75,7 +73,6 @@ namespace Sample
             instance.tasks = tasksList;
         }
 
-        [JSExport]
         [MethodImpl(MethodImplOptions.NoInlining)]
         public static string GetFullJsonResults()
         {
