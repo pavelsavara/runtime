@@ -1480,9 +1480,19 @@ namespace System.Runtime.InteropServices.JavaScript.Tests
         [Fact]
         public async Task JsImportTaskTypes()
         {
+            for (int i = 0; i < 1000; i++)
+            {
+                await xxx();
+            }
+        }
+
+        static async Task xxx()
+        {
             object a = new object();
             Exception e = new Exception();
             JSObject j = JSHost.GlobalThis;
+            GC.Collect();
+            await Task.Yield();
             Assert.Equal("test", await JavaScriptTestHelper.echopromise_String("test"));
             Assert.Same(a, await JavaScriptTestHelper.echopromise_Object(a));
             Assert.Same(e, await JavaScriptTestHelper.echopromise_Exception(e));
