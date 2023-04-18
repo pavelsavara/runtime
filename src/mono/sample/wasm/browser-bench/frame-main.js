@@ -41,6 +41,7 @@ try {
                 // config.diagnosticTracing = true;
             }
         })
+        .withStartupMemoryCache(true)
         .create();
 
     if (window.parent != window) {
