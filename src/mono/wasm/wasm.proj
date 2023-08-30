@@ -295,6 +295,7 @@
       <_EmccLinkFlags Include="-lc++abi"/>
       <_EmccLinkFlags Include="-lcompiler_rt"/>
       <_EmccLinkFlags Include="-lstubs"/>
+      <_EmccLinkFlags Include="-lunwind"/>
 
       <_EmccLinkFlags Include="-s ENVIRONMENT=&quot;web,webview,worker,node,shell&quot;" />
       <!-- remove -Wno-limited-postlink-optimizations once below issue is fixed
