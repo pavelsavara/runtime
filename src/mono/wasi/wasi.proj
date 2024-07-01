@@ -213,6 +213,8 @@
 
       <CMakeConfigurationLinkFlags Condition="'$(Configuration)' == 'Debug'"  >$(CMakeConfigurationWasiFlags)</CMakeConfigurationLinkFlags>
       <!-- wasm-opt doesn't know how to parse wasm component
+      TODO with WASI SDK 23 use `no-wasm-opt`
+      https://github.com/llvm/llvm-project/pull/95208
       <CMakeConfigurationLinkFlags Condition="'$(Configuration)' == 'Release'">-O2</CMakeConfigurationLinkFlags>
       -->
 
