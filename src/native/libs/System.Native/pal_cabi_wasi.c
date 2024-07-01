@@ -1,4 +1,7 @@
-#include <stdlib.h>
+// Licensed to the .NET Foundation under one or more agreements.
+// The .NET Foundation licenses this file to you under the MIT license.
+
+#include "pal_cabi_wasi.h"
 
 /* Done in C so we can avoid initializing the dotnet runtime and hence WASI libc */
 /* It would be preferable to do this in C# but the constraints of cabi_realloc and the demands */

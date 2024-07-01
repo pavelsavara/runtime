@@ -57,7 +57,8 @@ else()
         pal_signal_wasi.c
         pal_threading_wasi.c
         pal_uid_wasi.c
-        ../../../libraries/System.Net.Http/src/System/Net/Http/WasiHttpHandler/WasiHttpWorld_cabi_realloc.c
+        pal_cabi_wasi.h
+        pal_cabi_wasi.c
         ../../../libraries/System.Net.Http/src/System/Net/Http/WasiHttpHandler/WasiHttpWorld_component_type.o
     )
 endif()
