@@ -2,17 +2,28 @@
 // The .NET Foundation licenses this file to you under the MIT license.
 
 using System;
+using System.Net.Http.Headers;
+using System.Net.Http;
 using System.Threading.Tasks;
+using System.Net.Http.Headers;
+using System.Threading;
 
 public class Test
 {
-    public static int Main(string[] args)
+    public static async Task<int> Main(string[] args)
     {
-        Console.WriteLine("");
-        Console.WriteLine($"Hello World! Got {args.Length} args");
-        foreach (string arg in args)
-            Console.WriteLine ($"arg: {arg}");
-        Console.WriteLine("");
+
+
+        using HttpClient client = new();
+        client.Timeout = Timeout.InfiniteTimeSpan;
+        client.DefaultRequestHeaders.Accept.Clear();
+        client.DefaultRequestHeaders.Accept.Add(
+            new MediaTypeWithQualityHeaderValue("application/vnd.github.v3+json"));
+        client.DefaultRequestHeaders.Add("User-Agent", ".NET Foundation Repository Reporter");
+
+        var json = await client.GetStringAsync("https://api.github.com/orgs/dotnet/repos");
+
+
         return 0;
     }
 }
