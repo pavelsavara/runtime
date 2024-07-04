@@ -201,6 +201,7 @@
                                   $(ICULibDir)/libicui18n.a;
                                   $(ICULibDir)/libicudata.a" />
       <ICULibFiles Include="$(ICULibDir)/*.dat" />
+      <WASIComponentBinaryImports Include="$(RepoRoot)src/libraries/System.Net.Http/src/System/Net/Http/WasiHttpHandler/WasiHttpWorld_component_type.o" />
     </ItemGroup>
     <PropertyGroup>
       <PInvokeTableFile>$(WasiObjDir)\pinvoke-table.h</PInvokeTableFile>
@@ -275,7 +276,8 @@
 
     <Copy SourceFiles="@(ICULibFiles);
                        @(ICULibNativeFiles);
-                       @(_WasmArchivedTimezones);"
+                       @(_WasmArchivedTimezones);
+                       @(WASIComponentBinaryImports);"
           DestinationFolder="$(NativeBinDir)"
           SkipUnchangedFiles="true" />
 
@@ -293,7 +295,7 @@
           DestinationFolder="$(MicrosoftNetCoreAppRuntimePackNativeDir)"
           SkipUnchangedFiles="true" />
 
-    <Copy SourceFiles="@(IcuDataFiles);@(ICULibNativeFiles);@(_WasmArchivedTimezones)"
+    <Copy SourceFiles="@(IcuDataFiles);@(ICULibNativeFiles);@(_WasmArchivedTimezones);@(WASIComponentBinaryImports);"
           DestinationFolder="$(MicrosoftNetCoreAppRuntimePackNativeDir)"
           SkipUnchangedFiles="true" />
 

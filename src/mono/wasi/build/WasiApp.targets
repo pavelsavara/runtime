@@ -138,6 +138,9 @@
 
       <!--<_EmccAssertionLevelDefault Condition="'$(_EmccAssertionLevelDefault)' == ''">0</_EmccAssertionLevelDefault>-->
       <_WasiClangOptimizationFlagDefault Condition="'$(_WasmDevel)' == 'true'">-O0</_WasiClangOptimizationFlagDefault>
+      <!-- wasm-opt doesn't know how to parse wasm component
+      TODO with WASI SDK 23 use `no-wasm-opt` flag
+      https://github.com/llvm/llvm-project/pull/95208
       <_WasiClangOptimizationFlagDefault Condition="'$(_WasiClangOptimizationFlagDefault)' == '' and '$(Configuration)' == 'Debug' and '$(WasmBuildingForNestedPublish)' != 'true'">-O1</_WasiClangOptimizationFlagDefault>
       <_WasiClangOptimizationFlagDefault Condition="'$(_WasiClangOptimizationFlagDefault)' == ''">-Oz</_WasiClangOptimizationFlagDefault>
 
@@ -147,6 +150,7 @@
       <WasiBitcodeCompileOptimizationFlag Condition="'$(WasiBitcodeCompileOptimizationFlag)' == ''"   >$(WasiClangCompileOptimizationFlag)</WasiBitcodeCompileOptimizationFlag>
       <WasiClangLinkOptimizationFlag    Condition="'$(WasiClangLinkOptimizationFlag)' == '' and '$(Configuration)' == 'Release'">-O2</WasiClangLinkOptimizationFlag>
       <WasiClangLinkOptimizationFlag    Condition="'$(WasiClangLinkOptimizationFlag)' == ''"   >$(WasiClangCompileOptimizationFlag)</WasiClangLinkOptimizationFlag>
+      -->
       <WasmLinkOptimizationFlag>$(WasiClangLinkOptimizationFlag)</WasmLinkOptimizationFlag>
 
       <_WasmCompileRsp>$(_WasmIntermediateOutputPath)wasi-compile.rsp</_WasmCompileRsp>
@@ -183,6 +187,7 @@
       <_WasiClangCommonFlags Include="$(_DefaultWasiClangFlags)" />
       <_WasiClangCommonFlags Include="$(WasiClangFlags)" />
       <_WasiClangCommonFlags Include="--sysroot=&quot;$(WASI_SDK22_PATH.Replace('\', '/'))share/wasi-sysroot&quot;" />
+      <_WasiClangCommonFlags Include="--target=wasm32-unknown-wasip2" />
       <_WasiClangCommonFlags Include="-g"                                Condition="'$(WasmNativeStrip)' == 'false'" />
       <_WasiClangCommonFlags Include="-v"                                Condition="'$(WasiClangVerbose)' != 'false'" />
       <!--<_WasiClangCommonFlags Include="-s DISABLE_EXCEPTION_CATCHING=0"   Condition="'$(WasmEnableExceptionHandling)' == 'false'" />-->
@@ -316,7 +321,7 @@
       <!--<_WasmNativeFileForLinking Include="%(_WasmSourceFileToCompile.ObjectFile)" />-->
 
       <_WasmNativeFileForLinking
-          Include="$(MicrosoftNetCoreAppRuntimePackRidNativeDir)*.a"
+          Include="$(MicrosoftNetCoreAppRuntimePackRidNativeDir)*.a;$(MicrosoftNetCoreAppRuntimePackRidNativeDir)*.o"
           Exclude="@(_MonoRuntimeComponentDontLink->'$(MicrosoftNetCoreAppRuntimePackRidNativeDir)%(Identity)')" />
       <_WasmNativeFileForLinking Condition="'$(_WasmEHLib)' != ''" Include="$(MicrosoftNetCoreAppRuntimePackRidNativeDir)$(_WasmEHLib)" />
       <_WasmNativeFileForLinking Condition="'$(_WasmSIMDLib)' != ''" Include="$(MicrosoftNetCoreAppRuntimePackRidNativeDir)$(_WasmSIMDLib)" />
