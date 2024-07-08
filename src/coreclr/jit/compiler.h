@@ -43,6 +43,7 @@ XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 #include "valuenum.h"
 #include "scev.h"
 #include "namedintrinsiclist.h"
+#include "structsegments.h"
 #ifdef LATE_DISASM
 #include "disasm.h"
 #endif
@@ -5630,6 +5631,11 @@ public:
         return m_signatureToLookupInfoMap;
     }
 
+    const StructSegments& GetSignificantSegments(ClassLayout* layout);
+
+    typedef JitHashTable<ClassLayout*, JitPtrKeyFuncs<ClassLayout>, class StructSegments*> ClassLayoutStructSegmentsMap;
+    ClassLayoutStructSegmentsMap* m_significantSegmentsMap;
+
 #ifdef SWIFT_SUPPORT
     typedef JitHashTable<CORINFO_CLASS_HANDLE, JitPtrKeyFuncs<struct CORINFO_CLASS_STRUCT_>, CORINFO_SWIFT_LOWERING*> SwiftLoweringMap;
     SwiftLoweringMap* m_swiftLoweringCache;
@@ -6430,11 +6436,9 @@ public:
     Statement* fgNewStmtAtEnd(BasicBlock* block, GenTree* tree, const DebugInfo& di = DebugInfo());
     Statement* fgNewStmtNearEnd(BasicBlock* block, GenTree* tree, const DebugInfo& di = DebugInfo());
 
-private:
     void fgInsertStmtNearEnd(BasicBlock* block, Statement* stmt);
     void fgInsertStmtAtBeg(BasicBlock* block, Statement* stmt);
 
-public:
     void fgInsertStmtAfter(BasicBlock* block, Statement* insertionPoint, Statement* stmt);
     void fgInsertStmtBefore(BasicBlock* block, Statement* insertionPoint, Statement* stmt);
 
@@ -6633,6 +6637,7 @@ private:
 #if defined(FEATURE_HW_INTRINSICS)
     GenTree* fgMorphHWIntrinsic(GenTreeHWIntrinsic* tree);
     GenTree* fgOptimizeHWIntrinsic(GenTreeHWIntrinsic* node);
+    GenTree* fgOptimizeHWIntrinsicAssociative(GenTreeHWIntrinsic* node);
 #endif // FEATURE_HW_INTRINSICS
     GenTree* fgOptimizeCommutativeArithmetic(GenTreeOp* tree);
     GenTree* fgOptimizeRelationalComparisonWithCasts(GenTreeOp* cmp);
@@ -7562,6 +7567,8 @@ public:
 
     PhaseStatus optInductionVariables();
 
+    template <typename TFunctor>
+    void optVisitBoundingExitingCondBlocks(FlowGraphNaturalLoop* loop, TFunctor func);
     bool optMakeLoopDownwardsCounted(ScalarEvolutionContext& scevContext,
                                      FlowGraphNaturalLoop*   loop,
                                      LoopLocalOccurrences*   loopLocals);
@@ -10344,6 +10351,8 @@ public:
         STRESS_MODE(OPT_REPEAT) /* stress JitOptRepeat */                                       \
         STRESS_MODE(INITIAL_PARAM_REG) /* Stress initial register assigned to parameters */     \
         STRESS_MODE(DOWNWARDS_COUNTED_LOOPS) /* Make more loops downwards counted         */    \
+        STRESS_MODE(STRENGTH_REDUCTION) /* Enable strength reduction */                         \
+        STRESS_MODE(STRENGTH_REDUCTION_PROFITABILITY) /* Do more strength reduction */          \
                                                                                                 \
         /* After COUNT_VARN, stress level 2 does all of these all the time */                   \
                                                                                                 \
