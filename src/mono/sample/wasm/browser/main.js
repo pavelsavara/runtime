@@ -3,25 +3,25 @@
 
 import { dotnet, exit } from './_framework/dotnet.js'
 
-function displayMeaning(meaning) {
-    document.getElementById("out").innerHTML = `${meaning}`;
-}
-
 try {
-    const { setModuleImports } = await dotnet
+    const { getAssemblyExports, runMain, Module } = await dotnet
         .withElementOnExit()
         .withExitOnUnhandledError()
         .create();
 
-    setModuleImports("main.js", {
-        Sample: {
-            Test: {
-                displayMeaning
-            }
-        }
-    });
+    await runMain("Wasm.Browser.Sample", []);
 
-    await dotnet.run();
+    const library = await getAssemblyExports("Wasm.Browser.Sample");
+    const testClass = library.Sample.TestClass;
+    console.log("Start allocating objects...");
+    for (var i = 0; i < 389; i++) {
+        const tm = testClass?.AllocateObjects();
+        const linear = Module.HEAP32.byteLength;
+        console.log(`${i}: managed ${tm} WASM ${linear} bytes. Ratio ${linear / tm}`);
+    }
+    console.log("Disposing allocated objects...");
+    testClass?.DisposeObjects();
+    console.log("Tadaaaa!");
 }
 catch (err) {
     exit(2, err);

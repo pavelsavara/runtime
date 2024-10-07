@@ -45,8 +45,6 @@ static uint32_t
 	// The index of the last page we've allocated. Not all pages between this
 	//  and first_controlled_page_index belong to us, but scans can end here.
 	last_controlled_page_index = 0;
-static uint8_t *prev_waste_start = NULL,
-	*prev_waste_end = NULL;
 
 static inline void *
 address_from_page_index (uint32_t page_index) {
@@ -230,60 +228,26 @@ acquire_new_pages_initialized (uint32_t page_count) {
 	// Pad the allocation with an extra page, this will create waste bytes at the
 	//  start and end we can use to align the resulting allocation. We will try
 	//  to recover the waste if possible
-	uint64_t bytes = (page_count + 1) * MWPM_PAGE_SIZE;
-	uint32_t recovered_bytes = 0;
+	uint64_t bytes = (page_count) * MWPM_PAGE_SIZE;
+
 	if (bytes >= UINT32_MAX)
 		return NULL;
 
-	// We know that on WASM, sbrk grows the heap as necessary in order to return,
-	//  a region of N zeroed bytes, which isn't necessarily aligned or page-sized
-	uint8_t *allocation = sbrk ((uint32_t)bytes);
+	uint8_t *old_sbrk = sbrk(0);
+	// TODO there is a race condition here if another thread calls malloc+free between these two calls
+	uint8_t *result = memalign(MWPM_PAGE_SIZE, bytes);
 
-	if (allocation == (uint8_t *)-1) {
-		// HACK: It is theoretically possible for sbrk to fail in a non-OOM condition
-		//  due to identical bugs in v8 and spidermonkey, so retry exactly once.
-		allocation = sbrk ((uint32_t)bytes);
-		if (allocation == (uint8_t *)-1) {
-#ifdef MWPM_LOGGING
-			g_print ("mwpm failed to acquire memory\n");
-#endif
-			return NULL;
-		} else {
-			g_print ("MWPM WARNING: sbrk() failed once, then succeeded. Continuing.\n");
-		}
+	if (result < old_sbrk) {
+		// if we got preowned pages, we need to clear them
+		memset(result, 0, bytes);
 	}
 
-	uint8_t *allocation_end = allocation + bytes;
-
-	g_assert (allocation_end != allocation);
-
-	// If nobody else has called sbrk since we did, stitch the allocations together
-	//  to eliminate the wasted page in the middle.
-	if (prev_waste_start && (prev_waste_end == allocation)) {
-		recovered_bytes = allocation - prev_waste_start;
-		allocation = prev_waste_start;
-	} else {
-		// Update the dead pages that were allocated by someone else via sbrk()
-		//  so that they have skip data
-		uint32_t first_dead_page = first_page_from_address (prev_waste_end),
-			dead_page_count = page_count_from_size (allocation - prev_waste_end);
-		transition_page_states (MWPM_MARK_DEAD_PAGES, first_dead_page, dead_page_count);
-	}
-
-	uint8_t *result = allocation;
 	// Unfortunately emscripten libc doesn't page-align sbrk's return value.
 	uint32_t realignment = MWPM_PAGE_SIZE - (((uint64_t)result) % MWPM_PAGE_SIZE);
 	if (realignment < MWPM_PAGE_SIZE) {
 		result += realignment;
 		g_assert ((((uint64_t)result) % MWPM_PAGE_SIZE) == 0);
 	}
-
-	// Figure out how many wasted bytes are hanging off the end of our last page.
-	page_count = (allocation_end - result) / MWPM_PAGE_SIZE;
-	g_assert (page_count);
-	// Record the region of wasted bytes we allocated, so we can try to use it later.
-	prev_waste_start = result + (page_count * MWPM_PAGE_SIZE);
-	prev_waste_end = allocation_end;
 
 	// Mark all the allocated pages as free and zeroed
 	uint32_t first_page_index = first_page_from_address (result),
