@@ -62,7 +62,7 @@ static MonoProfiler heapshot_profiler;
 static MonoProfilerHandle heapshot_profiler_handle = NULL;
 
 extern void
-mono_wasm_heapshot_start (int full);
+mono_wasm_heapshot_start ();
 extern void
 mono_wasm_heapshot_assembly (
 	MonoAssembly *assembly, const char *name
@@ -95,7 +95,7 @@ mono_wasm_heapshot_counter (
 	const char *name, double value
 );
 extern void
-mono_wasm_heapshot_end (int full);
+mono_wasm_heapshot_end ();
 
 void
 mwpm_compute_stats (uint32_t *in_use_pages, uint32_t *free_pages, uint32_t *external_pages, uint32_t *largest_free_chunk);
@@ -289,21 +289,18 @@ mono_wasm_on_counter (
 }
 
 EMSCRIPTEN_KEEPALIVE void
-mono_wasm_perform_heapshot (int full) {
+mono_wasm_perform_heapshot () {
 	if (!heapshot_profiler_handle) {
 		memset (&heapshot_profiler, 0, sizeof(MonoProfiler));
 		heapshot_profiler_handle = mono_profiler_create (&heapshot_profiler);
 	}
 	// intentional wraparound
-	mono_wasm_heapshot_start (full);
+	mono_wasm_heapshot_start ();
 	mono_profiler_set_gc_event_callback (heapshot_profiler_handle, mono_wasm_on_gc_event);
 	mono_profiler_set_gc_roots_callback (heapshot_profiler_handle, mono_wasm_on_gc_roots);
-	if (full)
-		mono_gc_collect (mono_gc_max_generation ());
-	else
-		mono_wasm_generate_heapshot_stats ();
+	mono_gc_collect (mono_gc_max_generation ());
 	mono_counters_foreach (mono_wasm_on_counter, NULL);
 	mono_profiler_set_gc_event_callback (heapshot_profiler_handle, NULL);
 	mono_profiler_set_gc_roots_callback (heapshot_profiler_handle, NULL);
-	mono_wasm_heapshot_end (full);
+	mono_wasm_heapshot_end ();
 }

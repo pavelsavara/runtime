@@ -3,20 +3,18 @@
 // Licensed to the .NET Foundation under one or more agreements.
 // The .NET Foundation licenses this file to you under the MIT license.
 
-import ProductVersion from "consts:productVersion";
-import cwraps from "../cwraps";
-import { loaderHelpers } from "../globals";
-import { mono_log_info } from "../logging";
-import { getU32 } from "../memory";
-import { utf8ToString } from "../strings";
-import { BlobBuilder } from "../jiterpreter-support";
-import { enumerateProxies } from "../gc-handles";
-import type { VoidPtr, ManagedPointer, CharPtr } from "../types/emscripten";
+import cwraps from "./cwraps";
+import { getU32, localHeapViewU8 } from "./memory";
+import { utf8ToString } from "./strings";
+import { BlobBuilder } from "./jiterpreter-support";
+import { enumerateProxies } from "./gc-handles";
+import type { VoidPtr, ManagedPointer, CharPtr } from "./types/emscripten";
+import { Module } from "./globals";
 
 const packetBuilderCapacity = 65536;
-const packetFlushThreshold = 32768;
-// FIXME: It would be ideal if we didn't have to actually retain the whole string
 const stringTable = new Map<string, number>();
+const assemblies = new Map<string, number>();
+const classes = new Map<string, number>();
 const incompletePackets = new Map<string, BlobBuilder>();
 const formatVersion = 1;
 
@@ -25,60 +23,35 @@ const handleTypes = ["weak", "weak_track", "normal", "pinned", "weak_fields"];
 
 let totalObjects = 0, totalRefs = 0, totalClasses = 0, totalAssemblies = 0, totalRoots = 0;
 let mostRecentObjectPointer : ManagedPointer = <any>0;
-let heapshotStartedWhen = performance.now();
 
-const tabId = (Math.random() * 100000).toFixed(0);
-const globalChannel : BroadcastChannel | null = globalThis["BroadcastChannel"] ? new BroadcastChannel(".NET Runtime Diagnostics") : null,
-    tabChannel : BroadcastChannel | null = globalThis["BroadcastChannel"] ? new BroadcastChannel(`.NET Runtime Diagnostics|${tabId}`) : null;
-if (globalChannel)
-    globalChannel.addEventListener("message", channel_message);
-if (tabChannel)
-    tabChannel.addEventListener("message", tabChannel_message);
 
-function channel_message (evt: MessageEvent) {
-    const data = evt.data;
-    if ((typeof (data) !== "object") || (typeof (data.sender) !== "string") || (typeof (data.cmd) !== "string"))
-        return;
-
-    console.log("channel_message", data.cmd);
-    switch (data.cmd) {
-        case "whosThere": {
-            let title = "unknown";
-            if (globalThis["document"] && globalThis["document"]["title"])
-                title = globalThis.document.title;
-            globalChannel!.postMessage({ cmd: "iAmHere", sender: tabId, version: ProductVersion, running: loaderHelpers.is_runtime_running(), title });
-            break;
-        }
-    }
-}
-
-function tabChannel_message (evt: MessageEvent) {
-    const data = evt.data;
-    if ((typeof (data) !== "object") || (typeof (data.sender) !== "string") || (typeof (data.cmd) !== "string"))
-        return;
-
-    console.log("tabChannel_message", data.cmd);
-    switch (data.cmd) {
-        case "queryStats":
-            cwraps.mono_wasm_perform_heapshot(0);
-            break;
-        case "takeSnapshot":
-            cwraps.mono_wasm_perform_heapshot(1);
-            break;
-    }
+export function mono_wasm_perform_heapshot () {
+    cwraps.mono_wasm_perform_heapshot();
 }
 
 export function mono_wasm_heapshot_assembly (assembly: VoidPtr, pName: CharPtr) {
+    const name = utf8ToString(pName);
+    if(assemblies.has(name)){
+        return;
+    }
+    assemblies.set(name, 1);
     const builder = getBuilder("ASSM");
     totalAssemblies += 1;
     builder.appendU32(<any>assembly);
     // No point in using the string table for this
-    builder.appendName(utf8ToString(pName));
+    builder.appendName(name);
 }
 
 export function mono_wasm_heapshot_class (klass: VoidPtr, elementKlass: VoidPtr, nestingKlass: VoidPtr, assembly: VoidPtr, pNamespace: CharPtr, pName: CharPtr, rank: number, kind: number, numGps: number, pGp: VoidPtr): void {
     const builder = getBuilder("TYPE");
     const kindName = nameFromKind[kind] || "unknown";
+    const name = utf8ToString(pName);
+    const ns = utf8ToString(pNamespace);
+    const classId = `${ns}-${name}-${klass}-${elementKlass}-${nestingKlass}-${assembly}-${rank}-${kindName}`;
+    if(classes.has(classId)){
+        return;
+    }
+    classes.set(classId, 1);
     totalClasses += 1;
     builder.appendU32(<any>klass);
     builder.appendU32(<any>elementKlass);
@@ -86,9 +59,9 @@ export function mono_wasm_heapshot_class (klass: VoidPtr, elementKlass: VoidPtr,
     builder.appendU32(<any>assembly);
     builder.appendULeb(rank);
     builder.appendULeb(getStringTableIndex(kindName));
-    builder.appendULeb(utf8ToStringTableIndex(pNamespace));
+    builder.appendULeb(getStringTableIndex(ns));
     // We use the string table for names because each generic instance will have the same name
-    builder.appendULeb(utf8ToStringTableIndex(pName));
+    builder.appendULeb(getStringTableIndex(name));
     builder.appendULeb(numGps);
     for (let i = 0; i < numGps; i++) {
         const gp = getU32(<any>pGp + (i * 4));
@@ -100,10 +73,6 @@ export function mono_wasm_heapshot_class (klass: VoidPtr, elementKlass: VoidPtr,
 export function mono_wasm_heapshot_object (pObj: ManagedPointer, klass: VoidPtr, size: number, numRefs: number, pRefs: VoidPtr): void {
     // The object header and its refs are stored in separate streams
     if (pObj !== mostRecentObjectPointer) {
-        // If we flush the object header chunk we want to flush the current refs chunk so that we don't
-        //  have an object's refs span across multiple chunks unless it's unavoidable
-        if (autoFlush("OBJH"))
-            flush("REFS");
 
         totalObjects += 1;
         const objBuilder = getBuilder("OBJH");
@@ -170,18 +139,12 @@ export function mono_wasm_heapshot_roots (kind: CharPtr, count: number, pAddress
     }
 }
 
-export function mono_wasm_heapshot_start (full: number): void {
+export function mono_wasm_heapshot_start (): void {
     stringTable.clear();
     for (const kvp of incompletePackets)
         kvp[1].clear();
     totalObjects = totalRefs = totalClasses = totalAssemblies = totalRoots = 0;
     mostRecentObjectPointer = <any>0;
-
-    heapshotStartedWhen = performance.now();
-    if (tabChannel)
-        tabChannel.postMessage({ cmd: "heapshotStart", version: formatVersion, full });
-    if (full)
-        heapshotLog("heapshot starting");
 }
 
 function pagesToMegabytes (pages: number) {
@@ -197,56 +160,10 @@ function getBuilder (chunkId: string) {
     if (!result) {
         result = new BlobBuilder(packetBuilderCapacity);
         incompletePackets.set(chunkId, result);
-    } else
-        autoFlush(chunkId);
+    } 
     return result;
 }
 
-function autoFlush (chunkId: string) {
-    const builder = incompletePackets.get(chunkId);
-    if (builder && (builder.size >= packetFlushThreshold)) {
-        heapshotPacket(chunkId, builder.getArrayView(false));
-        builder.clear();
-        return true;
-    }
-    return false;
-}
-
-function flush (chunkId?: string) {
-    if (chunkId) {
-        const builder = incompletePackets.get(chunkId);
-        if (builder && (builder.size > 0)) {
-            heapshotPacket(chunkId, builder.getArrayView(false));
-            builder.clear();
-        }
-        return;
-    }
-
-    for (const kvp of incompletePackets) {
-        if (kvp[1].size < 1)
-            continue;
-
-        flush(kvp[0]);
-    }
-}
-
-function heapshotLog (text: string) {
-    mono_log_info(text);
-    if (tabChannel)
-        tabChannel.postMessage({ cmd: "heapshotText", text });
-}
-
-function heapshotPacket (chunkId: string, chunk: Uint8Array) {
-    mono_log_info(`heapshot packet ${chunkId} ${chunk.length}b`);
-    if (!tabChannel)
-        return;
-
-    // HACK: Workaround for bug in Chromium structured clone algorithm that copies the whole arraybuffer
-    if (chunk.buffer.byteLength !== (chunk.BYTES_PER_ELEMENT * chunk.length))
-        chunk = chunk.slice();
-
-    tabChannel.postMessage({ cmd: "heapshotPacket", chunkId: chunkId, chunk: chunk });
-}
 
 function heapshotCounter (name: string, value: number) {
     const builder = getBuilder("CNTR");
@@ -264,11 +181,6 @@ export function mono_wasm_heapshot_stats (
     pagesInUse: number, pagesFree: number, pagesUnknown: number,
     largestFreeChunk: number, largeObjectHeapSize: number, sgenHeapCapacity: number
 ): void {
-    const totalPages = pagesInUse + pagesFree;
-    const line1 = `mwpm: ${pagesToMegabytes(totalPages)}MB allocated; ${(pagesInUse / totalPages * 100.0).toFixed(1)}% in use; largest free block: ${pagesToMegabytes(largestFreeChunk)}MB; unknown pages: ${pagesToMegabytes(pagesUnknown)}MB`;
-    const line2 = `sgen: heap capacity ${bytesToMegabytes(sgenHeapCapacity)}MB; LOS size ${bytesToMegabytes(largeObjectHeapSize)}MB`;
-    heapshotLog(line1);
-    heapshotLog(line2);
     heapshotCounter("mwpm/pages-in-use", pagesInUse);
     heapshotCounter("mwpm/pages-free", pagesFree);
     heapshotCounter("mwpm/pages-unknown", pagesUnknown);
@@ -301,7 +213,7 @@ function mono_wasm_heapshot_js_object (handle: number, obj: any) {
     recordObject("JSOB", handle, obj);
 }
 
-export function mono_wasm_heapshot_end (full: number): void {
+export function mono_wasm_heapshot_end (): void {
     heapshotCounter("snapshot/version", formatVersion);
     heapshotCounter("snapshot/num-strings", stringTable.size);
     heapshotCounter("snapshot/num-objects", totalObjects);
@@ -309,15 +221,58 @@ export function mono_wasm_heapshot_end (full: number): void {
     heapshotCounter("snapshot/num-roots", totalRoots);
     heapshotCounter("snapshot/num-classes", totalClasses);
     heapshotCounter("snapshot/num-assemblies", totalAssemblies);
-    try {
-        if (full)
-            enumerateProxies(mono_wasm_heapshot_cs_object, mono_wasm_heapshot_js_object);
-    } finally {
-        flush();
-        const elapsedMs = performance.now() - heapshotStartedWhen;
-        if (full)
-            heapshotLog(`heapshot finished after ${elapsedMs.toFixed(1)}msec`);
-        if (tabChannel)
-            tabChannel.postMessage({ cmd: "heapshotEnd", full });
+    enumerateProxies(mono_wasm_heapshot_cs_object, mono_wasm_heapshot_js_object);
+
+    const blobParts:Uint8Array[] = [];
+
+    // write out all the incomplete packets
+    for (const kvp of incompletePackets) {
+        const builder = kvp[1];
+        const chunkId = kvp[0];
+        if (builder && (builder.size > 0)) {
+            const chunk = builder.getArrayView(false);
+
+            const headerArray = new Uint8Array(8);
+            const headerView = new DataView(headerArray.buffer);
+            for (let i = 0; i < 4; i++)
+                headerArray[i] = chunkId.charCodeAt(i);
+            headerView.setUint32(4, chunk.length, true);
+
+            if (chunkId === "CNTR") {
+                blobParts.splice(0, 0, headerArray.slice(), chunk);
+            } else {
+                blobParts.push(headerArray.slice());
+                blobParts.push(chunk);
+            }
+            builder.clear();
+        }
     }
+    incompletePackets.clear();
+    downloadChunk (blobParts, `${(new Date).toISOString().replace(":", "-")}.mono-heap`);
+}
+
+export function mono_wasm_download_heap() {
+    const mb512 = 512 * 1024 * 1024;
+    const heapData = localHeapViewU8();
+    console.log(`Heap size: ${heapData.byteLength} bytes, ${heapData.byteLength / mb512} chunks`);
+    let id = 0;
+    for (let i = 0; i < heapData.length; i += mb512) {
+        const chunkData = heapData.slice(i, i + mb512);
+        console.log(`Chunk ${id}: ${chunkData.byteLength} bytes at ${i}`);
+        downloadChunk([chunkData], `heap-chunk${id}.bin`);
+        id++;
+    }
+}
+
+function downloadChunk (chunks:Uint8Array[], fileName:string ) {
+    const a = document.createElement("a");
+    const blob = new Blob(chunks, { type: "application/octet-stream" });
+    a.href = URL.createObjectURL(blob);
+    a.download = fileName;
+    // Append anchor to body.
+    document.body.appendChild(a);
+    a.click();
+
+    // Remove anchor from body
+    document.body.removeChild(a);
 }
