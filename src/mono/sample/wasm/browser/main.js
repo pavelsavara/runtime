@@ -8,7 +8,7 @@ function displayMeaning(meaning) {
 }
 
 try {
-    const { setModuleImports, INTERNAL, runMain, getConfig } = await dotnet
+    const { setModuleImports, INTERNAL, Module } = await dotnet
         .withElementOnExit()
         .create();
 
@@ -19,14 +19,8 @@ try {
             }
         }
     });
-
     globalThis.mono_wasm_download_heap = INTERNAL.mono_wasm_download_heap;
-    globalThis.mono_wasm_perform_heapshot = INTERNAL.mono_wasm_perform_heapshot;
-
-    const config = getConfig();
-    await runMain(config.mainAssemblyName, []);
-
-
+    globalThis.mono_wasm_load_heap = INTERNAL.mono_wasm_load_heap;
 }
 catch (err) {
     exit(2, err);

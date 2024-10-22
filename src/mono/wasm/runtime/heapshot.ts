@@ -9,7 +9,7 @@ import { utf8ToString } from "./strings";
 import { BlobBuilder } from "./jiterpreter-support";
 import { enumerateProxies } from "./gc-handles";
 import type { VoidPtr, ManagedPointer, CharPtr } from "./types/emscripten";
-import { Module } from "./globals";
+import { Module, runtimeHelpers } from "./globals";
 
 const packetBuilderCapacity = 65536;
 const stringTable = new Map<string, number>();
@@ -177,14 +177,7 @@ export function mono_wasm_heapshot_counter (pName: CharPtr, value: number): void
     heapshotCounter(`mono/${utf8ToString(pName)}`, value);
 }
 
-export function mono_wasm_heapshot_stats (
-    pagesInUse: number, pagesFree: number, pagesUnknown: number,
-    largestFreeChunk: number, largeObjectHeapSize: number, sgenHeapCapacity: number
-): void {
-    heapshotCounter("mwpm/pages-in-use", pagesInUse);
-    heapshotCounter("mwpm/pages-free", pagesFree);
-    heapshotCounter("mwpm/pages-unknown", pagesUnknown);
-    heapshotCounter("mwpm/largest-free-chunk", largestFreeChunk);
+export function mono_wasm_heapshot_stats (largeObjectHeapSize: number, sgenHeapCapacity: number): void {
     heapshotCounter("sgen/heap-capacity", sgenHeapCapacity);
     heapshotCounter("sgen/los-size", largeObjectHeapSize);
 }
@@ -275,4 +268,28 @@ function downloadChunk (chunks:Uint8Array[], fileName:string ) {
 
     // Remove anchor from body
     document.body.removeChild(a);
+}
+
+async function loadMemoryFromBuffers(promises:Promise<Uint8Array>[]) {
+    const buffers = await Promise.all(promises);
+    let offset = 0;
+    for (const buffer of buffers) {
+        Module.HEAPU8.set(buffer, offset);
+        offset += buffer.byteLength;
+    }
+    mono_wasm_perform_heapshot();
+}
+
+export function mono_wasm_load_heap(ev:any){
+    ev.preventDefault();
+    const items = [...ev.dataTransfer.items].map(item => item.getAsFile());
+    items.sort((a, b) => a.name.localeCompare(b.name));
+    const totalSize = items.reduce((acc, file) => acc + file.size, 0);
+    const wasmMemory = (Module.asm?.memory || Module.wasmMemory)!;
+    if(wasmMemory.buffer.byteLength<totalSize){
+        wasmMemory.grow((totalSize - wasmMemory.buffer.byteLength + 65535) >>> 16);
+        runtimeHelpers.updateMemoryViews();
+    }
+
+    loadMemoryFromBuffers(items.map(file => file.arrayBuffer()));
 }

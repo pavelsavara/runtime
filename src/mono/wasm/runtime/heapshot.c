@@ -86,10 +86,7 @@ mono_wasm_heapshot_roots (
 	MonoObject *const *objects
 );
 extern void
-mono_wasm_heapshot_stats (
-	int in_use_pages, int free_pages, int external_pages, int largest_free_chunk,
-	int sgen_los_size, int sgen_heap_capacity
-);
+mono_wasm_heapshot_stats (int sgen_los_size, int sgen_heap_capacity);
 extern void
 mono_wasm_heapshot_counter (
 	const char *name, double value
@@ -202,9 +199,7 @@ mono_wasm_each_gchandle (void *hidden, GCHandleType handle_type, int max_generat
 
 static void
 mono_wasm_generate_heapshot_stats () {
-	mono_wasm_heapshot_stats (
-		0, 0, 0, 0, (int)sgen_los_memory_usage, (int)sgen_gc_get_total_heap_allocation ()
-	);
+	mono_wasm_heapshot_stats ((int)sgen_los_memory_usage, (int)sgen_gc_get_total_heap_allocation ());
 	struct mallinfo minfo = mallinfo ();
 #define mifield_inner(a, b) a.b
 #define mifield(name) mono_wasm_heapshot_counter("dlmalloc/" #name, mifield_inner(minfo, name))
