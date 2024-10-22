@@ -4160,4 +4160,13 @@ void sgen_add_memory_pressure (guint64 bytes_allocated)
   		check_pressure_counts ();
 	}
 }
+
+void sgen_registered_root_iterate (SgenRootIterateCallback callback, gpointer user_data, int root_type)
+{
+	void **start_root;
+	RootRecord *root;
+	SGEN_HASH_TABLE_FOREACH (&sgen_roots_hash [root_type], void **, start_root, RootRecord *, root) {
+		callback (start_root, (void**)root->end_root, root->source, root_type, root->msg, user_data);
+	} SGEN_HASH_TABLE_FOREACH_END;
+}
 #endif /* HAVE_SGEN_GC */

@@ -12,6 +12,8 @@ import { createFilter } from "@rollup/pluginutils";
 import fast_glob from "fast-glob";
 import gitCommitInfo from "git-commit-info";
 import MagicString from "magic-string";
+import { performance } from "perf_hooks";
+globalThis.performance = performance;
 
 const configuration = process.env.Configuration;
 const isDebug = configuration !== "Release";
