@@ -6,6 +6,7 @@
     -->
     <EmccExtraLDFlags> -s MAXIMUM_MEMORY=4294901760</EmccExtraLDFlags>
     <WasmBuildNative>true</WasmBuildNative>
+    <WasmNativeStrip>false</WasmNativeStrip>
   </PropertyGroup>
   <ItemGroup>
     <WasmExtraFilesToDeploy Include="main.js" />

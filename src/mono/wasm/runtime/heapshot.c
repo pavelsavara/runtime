@@ -158,7 +158,6 @@ mono_wasm_on_gc_class (MonoClass *klass) {
 	int gparam_count = mono_class_get_generic_params (info_klass, gparams, sizeof(gparams) / sizeof(gparams[0]));
 	for (int i = 0; i < gparam_count; i++) {
 		mono_wasm_on_gc_class (gparams[i]);
-			
 	}
 
 	MonoClass *nesting_klass = mono_class_get_nesting_type (info_klass);
@@ -283,8 +282,11 @@ mono_wasm_on_counter (
 	return 1;
 }
 
+extern void *mono_thread_info_attach (void);
+
 EMSCRIPTEN_KEEPALIVE void
 mono_wasm_perform_heapshot () {
+	mono_thread_info_attach ();
 	if (!heapshot_profiler_handle) {
 		memset (&heapshot_profiler, 0, sizeof(MonoProfiler));
 		heapshot_profiler_handle = mono_profiler_create (&heapshot_profiler);

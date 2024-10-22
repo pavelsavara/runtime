@@ -274,7 +274,8 @@ async function loadMemoryFromBuffers(promises:Promise<Uint8Array>[]) {
     const buffers = await Promise.all(promises);
     let offset = 0;
     for (const buffer of buffers) {
-        Module.HEAPU8.set(buffer, offset);
+        const uint8Buffer = new Uint8Array(buffer);
+        Module.HEAPU8.set(uint8Buffer, offset);
         offset += buffer.byteLength;
     }
     mono_wasm_perform_heapshot();

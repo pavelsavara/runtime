@@ -21,6 +21,7 @@ try {
     });
     globalThis.mono_wasm_download_heap = INTERNAL.mono_wasm_download_heap;
     globalThis.mono_wasm_load_heap = INTERNAL.mono_wasm_load_heap;
+    globalThis.mono_wasm_perform_heapshot = INTERNAL.mono_wasm_perform_heapshot;
 }
 catch (err) {
     exit(2, err);
