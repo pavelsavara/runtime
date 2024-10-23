@@ -75,7 +75,7 @@ export function mono_wasm_heapshot_object (pObj: ManagedPointer, klass: VoidPtr,
     if (pObj !== mostRecentObjectPointer) {
 
         totalObjects += 1;
-        const objBuilder = getBuilder("OBJH");
+        const objBuilder = getBuilder("OBJH", packetBuilderCapacity*256);
         objBuilder.appendU32(<any>pObj);
         objBuilder.appendU32(<any>klass);
         objBuilder.appendULeb(size);
@@ -86,7 +86,7 @@ export function mono_wasm_heapshot_object (pObj: ManagedPointer, klass: VoidPtr,
     if (numRefs < 1)
         return;
 
-    const refBuilder = getBuilder("REFS");
+    const refBuilder = getBuilder("REFS", packetBuilderCapacity*256*256);
     refBuilder.appendU32(<any>pObj);
     refBuilder.appendULeb(numRefs);
     for (let i = 0; i < numRefs; i++) {
@@ -110,7 +110,7 @@ function getStringTableIndex (text: string) {
     if (!index) {
         index = (stringTable.size + 1);
         stringTable.set(text, index);
-        const builder = getBuilder("STBL");
+        const builder = getBuilder("STBL", packetBuilderCapacity*16);
         builder.appendULeb(index);
         builder.appendName(text);
     }
@@ -155,10 +155,10 @@ function bytesToMegabytes (bytes: number) {
     return (bytes / (1024 * 1024)).toFixed(1);
 }
 
-function getBuilder (chunkId: string) {
+function getBuilder (chunkId: string, capacity:number=packetBuilderCapacity) {
     let result = incompletePackets.get(chunkId);
     if (!result) {
-        result = new BlobBuilder(packetBuilderCapacity);
+        result = new BlobBuilder(capacity);
         incompletePackets.set(chunkId, result);
     } 
     return result;
