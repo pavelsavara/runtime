@@ -75,7 +75,7 @@ export function mono_wasm_heapshot_object (pObj: ManagedPointer, klass: VoidPtr,
     if (pObj !== mostRecentObjectPointer) {
 
         totalObjects += 1;
-        const objBuilder = getBuilder("OBJH", packetBuilderCapacity*256);
+        const objBuilder = getBuilder("OBJH", packetBuilderCapacity * 256);
         objBuilder.appendU32(<any>pObj);
         objBuilder.appendU32(<any>klass);
         objBuilder.appendULeb(size);
@@ -89,7 +89,7 @@ export function mono_wasm_heapshot_object (pObj: ManagedPointer, klass: VoidPtr,
         numRefs = 16;
     }
 
-    const refBuilder = getBuilder("REFS", packetBuilderCapacity*256*256);
+    const refBuilder = getBuilder("REFS", packetBuilderCapacity * 256);
     refBuilder.appendU32(<any>pObj);
     refBuilder.appendULeb(numRefs);
     for (let i = 0; i < numRefs; i++) {
@@ -113,7 +113,7 @@ function getStringTableIndex (text: string) {
     if (!index) {
         index = (stringTable.size + 1);
         stringTable.set(text, index);
-        const builder = getBuilder("STBL", packetBuilderCapacity*16);
+        const builder = getBuilder("STBL", packetBuilderCapacity * 16);
         builder.appendULeb(index);
         builder.appendName(text);
     }

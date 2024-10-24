@@ -943,7 +943,7 @@ export class BlobBuilder {
     constructor (capacity?: number) {
         this.capacity = capacity || 16 * 1024;
         this.buffer = <any>Module._malloc(this.capacity);
-        mono_assert(this.buffer, () => `Failed to allocate ${this.capacity} byte(s) for BlobBuilder`);
+        mono_assert(this.buffer!==0 && this.buffer!==-1, () => `Failed to allocate ${this.capacity} byte(s) for BlobBuilder`);
         localHeapViewU8().fill(0, this.buffer, this.buffer + this.capacity);
         this.size = 0;
         this.clear();
