@@ -25,6 +25,11 @@ import { mono_wasm_change_case, mono_wasm_change_case_invariant } from "./hybrid
 import { mono_wasm_compare_string, mono_wasm_ends_with, mono_wasm_starts_with, mono_wasm_index_of } from "./hybrid-globalization/collations";
 import { mono_wasm_get_calendar_info } from "./hybrid-globalization/calendar";
 import { mono_wasm_install_js_worker_interop, mono_wasm_uninstall_js_worker_interop } from "./pthreads/shared";
+import {
+    mono_wasm_heapshot_start, mono_wasm_heapshot_end, mono_wasm_heapshot_assembly,
+    mono_wasm_heapshot_class, mono_wasm_heapshot_object, mono_wasm_heapshot_gchandle,
+    mono_wasm_heapshot_roots, mono_wasm_heapshot_stats, mono_wasm_heapshot_counter
+} from "./heapshot";
 
 import {
     mono_wasm_invoke_js_blazor, mono_wasm_invoke_js_with_args_ref, mono_wasm_get_object_property_ref, mono_wasm_set_object_property_ref,
@@ -97,6 +102,17 @@ export const mono_wasm_imports = [
     mono_wasm_trace_logger,
     mono_wasm_set_entrypoint_breakpoint,
     mono_wasm_event_pipe_early_startup_callback,
+
+    // heapshot.c
+    mono_wasm_heapshot_start,
+    mono_wasm_heapshot_assembly,
+    mono_wasm_heapshot_class,
+    mono_wasm_heapshot_object,
+    mono_wasm_heapshot_gchandle,
+    mono_wasm_heapshot_roots,
+    mono_wasm_heapshot_stats,
+    mono_wasm_heapshot_counter,
+    mono_wasm_heapshot_end,
 
     // corebindings.c
     mono_wasm_release_cs_owned_object,

@@ -420,6 +420,7 @@
           SkipUnchangedFiles="true" />
 
     <Copy SourceFiles="runtime/driver.c;
+                       runtime/heapshot.c;
                        runtime/pinvoke.c;
                        runtime/corebindings.c;
                        $(SharedNativeRoot)libs\System.Native\pal_random.lib.js;"

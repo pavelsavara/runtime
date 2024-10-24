@@ -144,8 +144,15 @@ export function assertNoProxies(): void {
     mono_assert(fn_wrapper_by_fn_handle.length === 1, "There should be no imports on this thread.");
 }
 
-// when we arrive here, the C# side is already done with the object. 
-// We don't have to call back to release them.
+export function enumerateProxies(csObject: Function, jsObject: Function): void {
+    for (const tup of _js_owned_object_table)
+        csObject(tup[0], tup[1] ? tup[1].deref() : null);
+    for (let js_handle = 0; js_handle < _cs_owned_objects_by_js_handle.length; js_handle++)
+        jsObject(js_handle, _cs_owned_objects_by_js_handle[js_handle]);
+    for (let jsv_handle = 0; jsv_handle < _cs_owned_objects_by_js_handle.length; jsv_handle++)
+        jsObject(jsv_handle, _cs_owned_objects_by_js_handle[jsv_handle]);
+}
+
 export function forceDisposeProxies(disposeMethods: boolean, verbose: boolean): void {
     let keepSomeCsAlive = false;
     let keepSomeJsAlive = false;

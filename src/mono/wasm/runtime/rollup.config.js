@@ -12,9 +12,11 @@ import { createFilter } from "@rollup/pluginutils";
 import fast_glob from "fast-glob";
 import gitCommitInfo from "git-commit-info";
 import MagicString from "magic-string";
+import { performance } from "perf_hooks";
+globalThis.performance = performance;
 
 const configuration = process.env.Configuration;
-const isDebug = configuration !== "Release";
+const isDebug = true;
 const isContinuousIntegrationBuild = process.env.ContinuousIntegrationBuild === "true" ? true : false;
 const productVersion = process.env.ProductVersion || "8.0.0-dev";
 const nativeBinDir = process.env.NativeBinDir ? process.env.NativeBinDir.replace(/"/g, "") : "bin";

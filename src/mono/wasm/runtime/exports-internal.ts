@@ -17,6 +17,7 @@ import { loadLazyAssembly } from "./lazyLoading";
 import { loadSatelliteAssemblies } from "./satelliteAssemblies";
 import { forceDisposeProxies } from "./gc-handles";
 import { mono_wasm_get_func_id_to_name_mappings } from "./logging";
+import { mono_wasm_download_heap, mono_wasm_load_heap, mono_wasm_perform_heapshot } from "./heapshot";
 
 export function export_internal(): any {
     return {
@@ -98,5 +99,8 @@ export function cwraps_internal(internal: any): void {
         mono_wasm_profiler_init_aot: profiler_c_functions.mono_wasm_profiler_init_aot,
         mono_wasm_profiler_init_browser: profiler_c_functions.mono_wasm_profiler_init_browser,
         mono_wasm_exec_regression: cwraps.mono_wasm_exec_regression,
+        mono_wasm_perform_heapshot: mono_wasm_perform_heapshot,
+        mono_wasm_download_heap: mono_wasm_download_heap,
+        mono_wasm_load_heap: mono_wasm_load_heap,
     });
 }
