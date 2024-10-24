@@ -282,11 +282,8 @@ mono_wasm_on_counter (
 	return 1;
 }
 
-extern void *mono_thread_info_attach (void);
-
 EMSCRIPTEN_KEEPALIVE void
 mono_wasm_perform_heapshot () {
-	mono_thread_info_attach ();
 	if (!heapshot_profiler_handle) {
 		memset (&heapshot_profiler, 0, sizeof(MonoProfiler));
 		heapshot_profiler_handle = mono_profiler_create (&heapshot_profiler);

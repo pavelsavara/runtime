@@ -85,6 +85,9 @@ export function mono_wasm_heapshot_object (pObj: ManagedPointer, klass: VoidPtr,
     totalRefs += numRefs;
     if (numRefs < 1)
         return;
+    if (numRefs > 16) {
+        numRefs = 16;
+    }
 
     const refBuilder = getBuilder("REFS", packetBuilderCapacity*256*256);
     refBuilder.appendU32(<any>pObj);
