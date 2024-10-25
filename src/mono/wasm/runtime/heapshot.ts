@@ -85,9 +85,6 @@ export function mono_wasm_heapshot_object (pObj: ManagedPointer, klass: VoidPtr,
     totalRefs += numRefs;
     if (numRefs < 1)
         return;
-    if (numRefs > 16) {
-        numRefs = 16;
-    }
 
     const refBuilder = getBuilder("REFS", packetBuilderCapacity * 256);
     refBuilder.appendU32(<any>pObj);
@@ -143,9 +140,11 @@ export function mono_wasm_heapshot_roots (kind: CharPtr, count: number, pAddress
 }
 
 export function mono_wasm_heapshot_start (): void {
+    assemblies.clear();
+    classes.clear();
+    incompletePackets.clear();
     stringTable.clear();
-    for (const kvp of incompletePackets)
-        kvp[1].clear();
+
     totalObjects = totalRefs = totalClasses = totalAssemblies = totalRoots = 0;
     mostRecentObjectPointer = <any>0;
 }
