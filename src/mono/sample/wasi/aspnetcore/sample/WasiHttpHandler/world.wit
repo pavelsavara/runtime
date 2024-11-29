@@ -1,0 +1,5 @@
+world wasi-http {
+  // FIXME: remove outgoing-handler https://github.com/bytecodealliance/wasm-component-ld/issues/52 -->
+  import outgoing-handler;
+  export incoming-handler;
+}

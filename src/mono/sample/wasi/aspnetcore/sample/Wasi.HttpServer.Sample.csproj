@@ -1,0 +1,42 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>$(NetCoreAppCurrent)</TargetFramework>
+    <OutputType>Exe</OutputType>
+    <RuntimeIdentifier>wasi-wasm</RuntimeIdentifier>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <GenerateTargetFrameworkAttribute>false</GenerateTargetFrameworkAttribute>
+
+    <_WasiHttpServer>true</_WasiHttpServer>
+    <_WasiNeedsCli>true</_WasiNeedsCli>
+    <WasmBuildNative>true</WasmBuildNative>
+    <WasmSingleFileBundle>true</WasmSingleFileBundle>
+    <_IsLibraryMode>true</_IsLibraryMode>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\extension\Wasi.HttpServer.Extension.csproj" />
+  </ItemGroup>
+
+  <!-- workaround for  https://github.com/bytecodealliance/wasm-component-ld/issues/52
+      it should be possible to keep the other .wit import in place 
+  -->
+  <Target Name="_WasiLinkUpdateComponentType" AfterTargets="_WasiWriteRspForLinking">
+    <ItemGroup>
+      <_WasmLinkStepArgs Remove="@(_WasiLinkStepArgs)" Condition="$([System.String]::new('%(_WasiLinkStepArgs.Identity)').Contains('WasiHttpWorld_component_type.wit'))" />
+      <_WasmLinkStepArgs Include="--verbose -Wl,--component-type,&quot;$([MSBuild]::NormalizePath('WasiHttpHandler','WasiHttpWorld_component_type.wit').Replace('\','/'))&quot;"/>
+    </ItemGroup>
+  </Target>
+
+  <!-- workaround for https://github.com/dotnet/runtime/issues/101434 -->
+  <Target Name="_RootEntireIntermediateAssembly" AfterTargets="PrepareForILLink" BeforeTargets="_RunILLink">
+    <ItemGroup>
+      <TrimmerRootAssembly Condition="'%(Identity)' == '@(IntermediateAssembly)'">
+        <RootMode>all</RootMode>
+      </TrimmerRootAssembly>
+    </ItemGroup>
+  </Target>
+
+  <Target Name="RunSample" DependsOnTargets="RunSampleWithWasmtime" />
+</Project>

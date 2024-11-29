@@ -6,8 +6,6 @@
     <_SampleProject Condition="'$(_SampleProject)' == ''">$(MSBuildProjectFile)</_SampleProject>
     <_SampleAssembly Condition="'$(_SampleAssembly)' == ''">$(TargetFileName)</_SampleAssembly>
     <_SampleProjectName>$([System.String]::Copy('$(_SampleProject)').Replace('.csproj',''))</_SampleProjectName>
-    <_MONO_LOG_LEVEL Condition="false">--env MONO_LOG_LEVEL=debug --env MONO_LOG_MASK=all</_MONO_LOG_LEVEL>
-    <_DOTNET_WASI_PRINT_EXIT_CODE>--env DOTNET_WASI_PRINT_EXIT_CODE=1</_DOTNET_WASI_PRINT_EXIT_CODE>
   </PropertyGroup>
 
   <Target Name="BuildSampleInTree"
@@ -35,14 +33,16 @@
       <_DotnetWasmName>dotnet.wasm</_DotnetWasmName>
       <_DotnetWasmName Condition="'$(WasmSingleFileBundle)' == 'true'">$([System.IO.Path]::ChangeExtension($(_SampleAssembly), '.wasm'))</_DotnetWasmName>
       <_AppBundlePath>$([MSBuild]::NormalizeDirectory('bin/wasi-wasm/AppBundle'))</_AppBundlePath>
-      <WasiCommand>$(WasmtimeDir)wasmtime$(_ExeExt) $(_MONO_LOG_LEVEL) $(_DOTNET_WASI_PRINT_EXIT_CODE)</WasiCommand>
-
-
+      <WasiCommand>$(WasmtimeDir)wasmtime$(_ExeExt)</WasiCommand>
+      <WasiCommand Condition="'$(_WasiHttpServer)' == 'true'"                                        >$(WasiCommand) serve</WasiCommand>
+      <WasiCommand Condition="'$(_WasiHttpServer)' != 'true'"                                        >$(WasiCommand) run</WasiCommand>
+      <WasiCommand Condition="'false' == 'true'"                                                     >$(WasiCommand) --env MONO_LOG_LEVEL=debug --env MONO_LOG_MASK=all</WasiCommand>
+      <WasiCommand Condition="'true' == 'true'"                                                      >$(WasiCommand) --env DOTNET_WASI_PRINT_EXIT_CODE=1</WasiCommand>
+      <WasiCommand Condition="'$(_WasiNeedsCli)' == 'true'"                                          >$(WasiCommand) --wasi cli</WasiCommand>
       <WasiCommand Condition="'$(_WasiNeedsHttp)' == 'true'"                                         >$(WasiCommand) --wasi http</WasiCommand>
       <WasiCommand Condition="'$(_WasiNeedsSocket)' == 'true' or '$(_WasiDebugger)' == 'true'"       >$(WasiCommand) --wasi inherit-network --wasi tcp --wasi udp --wasi allow-ip-name-lookup</WasiCommand>
       <WasiCommand Condition="'$(WasmSingleFileBundle)' != 'true'"                                   >$(WasiCommand) --dir .</WasiCommand>
       <WasiCommand                                                                                   >$(WasiCommand) $(_DotnetWasmName)</WasiCommand>
-      <WasiCommand Condition="'$(WasmSingleFileBundle)' != 'true'"                                   >$(WasiCommand) $(_SampleProjectName)</WasiCommand>
       <WasiCommand Condition="'$(_WasiDebugger)' == 'true'"                                          >$(WasiCommand) --debugger-agent=transport=dt_socket,server=y,address=localhost:55555,loglevel=0</WasiCommand>
     </PropertyGroup>
 
