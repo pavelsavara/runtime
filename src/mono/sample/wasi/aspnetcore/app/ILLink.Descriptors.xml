@@ -1,0 +1,8 @@
+<linker>
+  <!-- workaround for https://github.com/dotnet/runtime/issues/101434 -->
+  <assembly fullname="Wasi.HttpServer.Extension">
+    <type fullname="WasiHttpWorld.wit.exports.wasi.http.v0_2_0.IncomingHandlerInterop">
+        <method signature="System.Void wasmExportHandle(System.Int32, System.Int32)" />
+    </type>
+  </assembly>
+</linker>

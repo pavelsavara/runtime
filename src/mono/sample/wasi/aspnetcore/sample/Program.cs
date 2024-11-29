@@ -1,24 +1,15 @@
-﻿using WasiHttpWorld.wit.exports.wasi.http.v0_2_0;
-using WasiHttpWorld.wit.imports.wasi.http.v0_2_0;
+﻿// Licensed to the .NET Foundation under one or more agreements.
+// The .NET Foundation licenses this file to you under the MIT license.
 
-namespace Wasi.HttpServer.Sample
-{
-    internal class Program
-    {
-        static void Main(string[] args)
-        {
-            Console.WriteLine("Hello, World!");
-        }
-    }
-}
+using Wasi.HttpServer.App;
 
-namespace WasiHttpWorld.wit.exports.wasi.http.v0_2_0
+namespace Wasi.HttpServer.Sample;
+
+internal class SampleProgram
 {
-    internal static class IncomingHandlerImpl
+    // this is just dummy wrapper, this is main not called
+    static void Main(string[] args)
     {
-        internal static void Handle(ITypes.IncomingRequest request, ITypes.ResponseOutparam response)
-        {
-            Console.WriteLine("IncomingHandlerImpl.Handle");
-        }
+        Program.Init();
     }
 }

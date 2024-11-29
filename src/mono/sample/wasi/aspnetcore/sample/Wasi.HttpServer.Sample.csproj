@@ -16,7 +16,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\extension\Wasi.HttpServer.Extension.csproj" />
+    <ProjectReference Include="..\app\Wasi.HttpServer.App.csproj" />
+    <TrimmerRootAssembly Include="Wasi.HttpServer.App" />
   </ItemGroup>
 
   <!-- workaround for  https://github.com/bytecodealliance/wasm-component-ld/issues/52
@@ -25,16 +26,7 @@
   <Target Name="_WasiLinkUpdateComponentType" AfterTargets="_WasiWriteRspForLinking">
     <ItemGroup>
       <_WasmLinkStepArgs Remove="@(_WasiLinkStepArgs)" Condition="$([System.String]::new('%(_WasiLinkStepArgs.Identity)').Contains('WasiHttpWorld_component_type.wit'))" />
-      <_WasmLinkStepArgs Include="--verbose -Wl,--component-type,&quot;$([MSBuild]::NormalizePath('WasiHttpHandler','WasiHttpWorld_component_type.wit').Replace('\','/'))&quot;"/>
-    </ItemGroup>
-  </Target>
-
-  <!-- workaround for https://github.com/dotnet/runtime/issues/101434 -->
-  <Target Name="_RootEntireIntermediateAssembly" AfterTargets="PrepareForILLink" BeforeTargets="_RunILLink">
-    <ItemGroup>
-      <TrimmerRootAssembly Condition="'%(Identity)' == '@(IntermediateAssembly)'">
-        <RootMode>all</RootMode>
-      </TrimmerRootAssembly>
+      <_WasmLinkStepArgs Include="--verbose -Wl,--component-type,&quot;$([MSBuild]::NormalizePath('../app/WasiHttpHandler','WasiHttpWorld_component_type.wit').Replace('\','/'))&quot;"/>
     </ItemGroup>
   </Target>
 
