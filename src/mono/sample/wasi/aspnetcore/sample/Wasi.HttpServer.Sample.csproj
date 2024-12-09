@@ -18,6 +18,17 @@
   <ItemGroup>
     <ProjectReference Include="..\app\Wasi.HttpServer.App.csproj" />
     <TrimmerRootAssembly Include="Wasi.HttpServer.App" />
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+    <!-- 
+    <UseAppHost>false</UseAppHost>
+
+    <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
+    <GenerateUserSecretsAttribute>false</GenerateUserSecretsAttribute>
+    <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+    <DisableImplicitFrameworkReferences>true</DisableImplicitFrameworkReferences>
+    KnownFrameworkReference
+    ResolvedFrameworkReference
+    -->
   </ItemGroup>
 
   <!-- workaround for  https://github.com/bytecodealliance/wasm-component-ld/issues/52

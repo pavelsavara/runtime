@@ -5,10 +5,10 @@ using Wasi.HttpServer.App;
 
 namespace Wasi.HttpServer.Sample;
 
-internal class SampleProgram
+public class SampleProgram
 {
     // this is just dummy wrapper, this is main not called
-    static void Main(string[] args)
+    public static void Main(string[] args)
     {
         Program.Init();
     }
