@@ -996,7 +996,7 @@ namespace System.Threading.Tasks.Tests.WaitAllAny
             test.RealRun();
         }
 
-        [Fact]
+        [ConditionalFact(typeof(PlatformDetection), nameof(PlatformDetection.IsThreadingSupported))]
         public static void TaskWaitAllAny42()
         {
             TaskInfo[] allTasks = new TaskInfo[0];

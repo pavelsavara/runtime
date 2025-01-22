@@ -110,14 +110,14 @@ namespace System.Threading.Tests
             Assert.Equal(b.ParticipantCount, b.ParticipantsRemaining);
         }
 
-        [Fact]
+        [ConditionalFact(typeof(PlatformDetection), nameof(PlatformDetection.IsThreadingSupported))]
         public static void RunBarrierAddParticipantsTest()
         {
             RunBarrierTest4_AddParticipants(0, 1, null);
             RunBarrierTest4_AddParticipants(5, 3, null);
         }
 
-        [Fact]
+        [ConditionalFact(typeof(PlatformDetection), nameof(PlatformDetection.IsThreadingSupported))]
         public static void RunBarrierAddParticipantsTest_NegativeTests()
         {
             RunBarrierTest4_AddParticipants(0, 0, typeof(ArgumentOutOfRangeException));
@@ -126,14 +126,14 @@ namespace System.Threading.Tests
             RunBarrierTest4_AddParticipants(100, int.MaxValue, typeof(ArgumentOutOfRangeException));
         }
 
-        [Fact]
+        [ConditionalFact(typeof(PlatformDetection), nameof(PlatformDetection.IsThreadingSupported))]
         public static void TooManyParticipants()
         {
             Barrier b = new Barrier(short.MaxValue);
             Assert.Throws<InvalidOperationException>(() => b.AddParticipant());
         }
 
-        [Fact]
+        [ConditionalFact(typeof(PlatformDetection), nameof(PlatformDetection.IsThreadingSupported))]
         public static void RemovingParticipants()
         {
             Barrier b;
@@ -355,7 +355,7 @@ namespace System.Threading.Tests
         /// Test ithe case when the post phase action throws an exception
         /// </summary>
         /// <returns>True if the test succeeded, false otherwise</returns>
-        [Fact]
+        [ConditionalFact(typeof(PlatformDetection), nameof(PlatformDetection.IsThreadingSupported))]
         public static void RunBarrierTest9_PostPhaseException()
         {
             Barrier barrier = new Barrier(1, (b) => b.SignalAndWait());

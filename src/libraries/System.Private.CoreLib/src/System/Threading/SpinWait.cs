@@ -147,7 +147,6 @@ namespace System.Threading
         /// </remarks>
         public void SpinOnce(int sleep1Threshold)
         {
-#if !FEATURE_SINGLE_THREADED
             ArgumentOutOfRangeException.ThrowIfLessThan(sleep1Threshold, -1);
 
             if (sleep1Threshold >= 0 && sleep1Threshold < YieldThreshold)
@@ -156,7 +155,6 @@ namespace System.Threading
             }
 
             SpinOnceCore(sleep1Threshold);
-#endif
         }
 
         private void SpinOnceCore(int sleep1Threshold)

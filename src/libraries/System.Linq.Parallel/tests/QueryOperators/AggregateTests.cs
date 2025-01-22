@@ -7,6 +7,7 @@ using Xunit;
 
 namespace System.Linq.Parallel.Tests
 {
+    [ConditionalClass(typeof(PlatformDetection), nameof(PlatformDetection.IsThreadingSupported))]
     public static class AggregateTests
     {
         private const int ResultFuncModifier = 17;

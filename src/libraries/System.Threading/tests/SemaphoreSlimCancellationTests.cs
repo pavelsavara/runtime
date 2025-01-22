@@ -8,7 +8,7 @@ namespace System.Threading.Tests
 {
     public static class SemaphoreSlimCancellationTests
     {
-        [Fact]
+        [ConditionalFact(typeof(PlatformDetection), nameof(PlatformDetection.IsThreadingSupported))]
         public static void CancelBeforeWait()
         {
             SemaphoreSlim semaphoreSlim = new SemaphoreSlim(2);
