@@ -44,6 +44,7 @@ else(CLR_CMAKE_HOST_WIN32)
     endif()
     # Static linking
     if (CLR_CMAKE_TARGET_ARCH_WASM)
+        set(DISABLE_THREADS 1)
         target_sources(corerun PRIVATE corerun.wasm.cpp)
         target_link_libraries(corerun PRIVATE
         coreclr_static

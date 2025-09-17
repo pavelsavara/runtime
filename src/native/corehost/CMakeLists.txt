@@ -43,8 +43,12 @@ if("${CLI_CMAKE_FALLBACK_OS}" STREQUAL "${CLR_CMAKE_TARGET_OS}")
     add_compile_definitions(FALLBACK_OS_IS_SAME_AS_TARGET_OS)
 endif()
 
-# Find support libraries that we need if they're present on the system.
-find_library(PTHREAD_LIB pthread)
+if(NOT CLR_CMAKE_TARGET_ARCH_WASM)
+    # Find support libraries that we need if they're present on the system.
+    find_library(PTHREAD_LIB pthread)
+else()
+    set(DISABLE_THREADS 1)
+endif()
 
 # Prefer libatomic.a over libatomic.so.
 set(_current_CMAKE_FIND_LIBRARY_SUFFIXES ${CMAKE_FIND_LIBRARY_SUFFIXES})
