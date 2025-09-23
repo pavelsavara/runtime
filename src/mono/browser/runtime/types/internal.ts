@@ -175,7 +175,7 @@ export type LoaderHelpers = {
     isFirefox: boolean
 
     // from wasm-feature-detect npm package
-    exceptions: () => Promise<boolean>,
+    exceptionsFinal: () => Promise<boolean>,
     simd: () => Promise<boolean>,
     relaxedSimd: () => Promise<boolean>,
 }

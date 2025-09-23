@@ -38,7 +38,10 @@
     "tslib": "2.6.3",
     "typescript": "5.4.5"
   },
+  "overrides": {
+    "cross-spawn": "7.0.6"
+  },
   "dependencies": {
-    "wasm-feature-detect": "1.6.1"
+    "wasm-feature-detect": "1.8.0"
   }
 }
