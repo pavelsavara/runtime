@@ -166,6 +166,15 @@
     -->
     <Message Text="&quot;$(BuildScript)&quot; $(BuildArgs) @(NativeCMakeArg, ' ')" Importance="High"/>
     <Exec Command="&quot;$(BuildScript)&quot; $(BuildArgs) @(NativeCMakeArg, ' ')" IgnoreStandardErrorWarningFormat="true"/>
+
+    <!-- TODO-WASM: this is what target BuildWasmRuntimes in browser.proj does. It's probably wrong -->
+    <Copy SourceFiles="
+          $(HostArtifactsPath)/sharedFramework/dotnet.native.js;
+          $(HostArtifactsPath)/sharedFramework/dotnet.native.wasm;
+          "
+          DestinationFolder="$(MicrosoftNetCoreAppRuntimePackNativeDir)"
+          SkipUnchangedFiles="true" />
+
   </Target>
 
   <Target Name="PrependWindowsHeaderIncludeToVersionHeaderFile"

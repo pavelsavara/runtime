@@ -58,6 +58,7 @@ set(ROLLUP_TS_SOURCES
     "${CLR_SRC_NATIVE_DIR}/libs/System.Native.Browser/native/main.ts"
     "${CLR_SRC_NATIVE_DIR}/libs/System.Native.Browser/native/per-module.ts"
     "${CLR_SRC_NATIVE_DIR}/libs/System.Native.Browser/types.ts"
+    "${CLR_SRC_NATIVE_DIR}/libs/System.Native.Browser/diagnostics/index.ts"
     "${CLR_SRC_NATIVE_DIR}/libs/System.Native.Browser/utils/cross-module.ts"
     "${CLR_SRC_NATIVE_DIR}/libs/System.Native.Browser/utils/host.ts"
     "${CLR_SRC_NATIVE_DIR}/libs/System.Native.Browser/utils/index.ts"
@@ -86,6 +87,8 @@ set(ROLLUP_OUTPUTS
     "${STATIC_LIB_DESTINATION}/libSystem.Browser.Utils.js.map"
     "${STATIC_LIB_DESTINATION}/dotnet.runtime.js"
     "${STATIC_LIB_DESTINATION}/dotnet.runtime.js.map"
+    "${STATIC_LIB_DESTINATION}/dotnet.diagnostics.js"
+    "${STATIC_LIB_DESTINATION}/dotnet.diagnostics.js.map"
     "${STATIC_LIB_DESTINATION}/libSystem.Runtime.InteropServices.JavaScript.Native.js"
     "${STATIC_LIB_DESTINATION}/libSystem.Runtime.InteropServices.JavaScript.Native.js.map"
 )

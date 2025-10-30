@@ -11,6 +11,8 @@ set(SAMPLE_ASSETS
     ${SHARED_LIB_DESTINATION}/dotnet.js
     ${SHARED_LIB_DESTINATION}/dotnet.js.map
     ${SHARED_LIB_DESTINATION}/dotnet.d.ts
+    ${SHARED_LIB_DESTINATION}/dotnet.diagnostics.js
+    ${SHARED_LIB_DESTINATION}/dotnet.diagnostics.js.map
     ${SHARED_LIB_DESTINATION}/dotnet.runtime.js
     ${SHARED_LIB_DESTINATION}/dotnet.runtime.js.map
 

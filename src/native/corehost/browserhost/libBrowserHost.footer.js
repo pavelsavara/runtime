@@ -45,8 +45,8 @@
                             !config.environmentVariables) {
                             throw new Error("Invalid runtime config, cannot initialize the runtime.");
                         }
-                        const assemblyPaths = config.resources.assembly.map(a => a.virtualPath);
-                        const coreAssemblyPaths = config.resources.coreAssembly.map(a => a.virtualPath);
+                        const assemblyPaths = config.resources.assembly.map(a => "/" + a.virtualPath);
+                        const coreAssemblyPaths = config.resources.coreAssembly.map(a => "/" + a.virtualPath);
                         ENV[HOST_PROPERTY_TRUSTED_PLATFORM_ASSEMBLIES] = config.environmentVariables[HOST_PROPERTY_TRUSTED_PLATFORM_ASSEMBLIES] = [...coreAssemblyPaths, ...assemblyPaths].join(":");
                         ENV[HOST_PROPERTY_NATIVE_DLL_SEARCH_DIRECTORIES] = config.environmentVariables[HOST_PROPERTY_NATIVE_DLL_SEARCH_DIRECTORIES] = config.virtualWorkingDirectory;
                         ENV[HOST_PROPERTY_APP_PATHS] = config.environmentVariables[HOST_PROPERTY_APP_PATHS] = config.virtualWorkingDirectory;
