@@ -8,7 +8,7 @@ export function SystemJS_ResolveMainPromise(exitCode: number) {
         dotnetLoaderExports.resolveRunMainPromise(exitCode);
     } else {
         // this is for corerun, which does not use the promise
-        Module.exitJS(exitCode, true);
+        exitJS(exitCode, true);
     }
 }
 

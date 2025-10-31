@@ -30,10 +30,12 @@ export async function createRuntime(downloadOnly: boolean, loadBootResource?: Lo
     const config = getLoaderConfig();
     if (!config.resources || !config.resources.coreAssembly || !config.resources.coreAssembly.length) throw new Error("Invalid config, resources is not set");
 
-    const coreAssembliesPromise = Promise.all(config.resources.coreAssembly.map(fetchDll));
-    const assembliesPromise = Promise.all(config.resources.assembly.map(fetchDll));
-    const runtimeModulePromise = loadJSModule(config.resources.jsModuleRuntime[0], loadBootResource);
     const nativeModulePromise = loadJSModule(config.resources.jsModuleNative[0], loadBootResource);
+    const runtimeModulePromise = loadJSModule(config.resources.jsModuleRuntime[0], loadBootResource);
+    const coreAssembliesPromise = Promise.all(config.resources.coreAssembly.map(fetchDll));
+    const coreVfsPromise = Promise.all((config.resources.coreVfs || []).map(fetchVfs));
+    const assembliesPromise = Promise.all(config.resources.assembly.map(fetchDll));
+    const vfsPromise = Promise.all((config.resources.vfs || []).map(fetchVfs));
     // WASM-TODO fetchWasm(config.resources.wasmNative[0]);// start loading early, no await
 
     const nativeModule = await nativeModulePromise;
@@ -45,6 +47,8 @@ export async function createRuntime(downloadOnly: boolean, loadBootResource?: Lo
 
     await nativeModulePromiseController.promise;
     await coreAssembliesPromise;
+    await coreVfsPromise;
+    await vfsPromise;
 
     if (!downloadOnly) {
         BrowserHost_InitializeCoreCLR();
@@ -73,7 +77,17 @@ async function fetchDll(asset: AssemblyAsset): Promise<void> {
     dotnetBrowserHostExports.registerDllBytes(bytes, asset);
 }
 
-async function fetchBytes(asset: WasmAsset|AssemblyAsset|PdbAsset|IcuAsset): Promise<Uint8Array> {
+async function fetchVfs(asset: AssemblyAsset): Promise<void> {
+    if (asset.name && !asset.resolvedUrl) {
+        asset.resolvedUrl = locateFile(asset.name);
+    }
+    const bytes = await fetchBytes(asset);
+    await nativeModulePromiseController.promise;
+
+    dotnetBrowserHostExports.installVfsFile(bytes, asset);
+}
+
+async function fetchBytes(asset: WasmAsset | AssemblyAsset | PdbAsset | IcuAsset): Promise<Uint8Array> {
     dotnetAssert.check(asset && asset.resolvedUrl, "Bad asset.resolvedUrl");
     if (ENVIRONMENT_IS_NODE) {
         const { promises: fs } = await import("fs");

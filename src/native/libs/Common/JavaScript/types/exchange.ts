@@ -1,8 +1,8 @@
 // Licensed to the .NET Foundation under one or more agreements.
 // The .NET Foundation licenses this file to you under the MIT license.
 
-import type { registerDllBytes } from "../../../../corehost/browserhost/host/host";
-import type { check, error, info, warn } from "../../../../corehost/browserhost/loader/logging";
+import type { installVfsFile, registerDllBytes } from "../../../../corehost/browserhost/host/host";
+import type { check, error, info, warn, debug } from "../../../../corehost/browserhost/loader/logging";
 import type { resolveRunMainPromise, rejectRunMainPromise, getRunMainPromise } from "../../../../corehost/browserhost/loader/run";
 import type { stringToUTF16, stringToUTF16Ptr, stringToUTF8Ptr, utf16ToString } from "../../../System.Native.Browser/utils/strings";
 
@@ -13,6 +13,7 @@ export type RuntimeExportsTable = [
 ]
 
 export type LoggerType = {
+    debug: typeof debug,
     info: typeof info,
     warn: typeof warn,
     error: typeof error,
@@ -29,6 +30,7 @@ export type LoaderExports = {
 }
 
 export type LoaderExportsTable = [
+    typeof debug,
     typeof info,
     typeof warn,
     typeof error,
@@ -40,10 +42,12 @@ export type LoaderExportsTable = [
 
 export type BrowserHostExports = {
     registerDllBytes: typeof registerDllBytes
+    installVfsFile: typeof installVfsFile
 }
 
 export type BrowserHostExportsTable = [
     typeof registerDllBytes,
+    typeof installVfsFile,
 ]
 
 export type InteropJavaScriptExports = {

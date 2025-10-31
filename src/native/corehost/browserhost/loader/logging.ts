@@ -18,6 +18,10 @@ export function info(msg: string, ...data: any) {
     console.info(prefix + msg, ...data);
 }
 
+export function debug(msg: string, ...data: any) {
+    console.debug(prefix + msg, ...data);
+}
+
 export function warn(msg: string, ...data: any) {
     console.warn(prefix + msg, ...data);
 }

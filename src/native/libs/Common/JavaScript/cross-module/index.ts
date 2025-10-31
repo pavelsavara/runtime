@@ -102,17 +102,18 @@ export function dotnetUpdateInternalsSubscriber() {
     // keep in sync with loaderExportsToTable()
     function loaderExportsFromTable(table: LoaderExportsTable, logger: LoggerType, assert: AssertType, dotnetLoaderExports: LoaderExports): void {
         const loggerLocal: LoggerType = {
-            info: table[0],
-            warn: table[1],
-            error: table[2],
+            debug: table[0],
+            info: table[1],
+            warn: table[2],
+            error: table[3],
         };
         const assertLocal: AssertType = {
-            check: table[3],
+            check: table[4],
         };
         const loaderExportsLocal: LoaderExports = {
-            resolveRunMainPromise: table[4],
-            rejectRunMainPromise: table[5],
-            getRunMainPromise: table[6],
+            resolveRunMainPromise: table[5],
+            rejectRunMainPromise: table[6],
+            getRunMainPromise: table[7],
         };
         Object.assign(dotnetLoaderExports, loaderExportsLocal);
         Object.assign(logger, loggerLocal);
@@ -123,6 +124,7 @@ export function dotnetUpdateInternalsSubscriber() {
     function browserHostExportsFromTable(table: BrowserHostExportsTable, native: BrowserHostExports): void {
         const nativeLocal: BrowserHostExports = {
             registerDllBytes: table[0],
+            installVfsFile: table[1],
         };
         Object.assign(native, nativeLocal);
     }
