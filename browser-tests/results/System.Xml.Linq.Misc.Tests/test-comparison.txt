@@ -1,0 +1,9 @@
+Test Comparison: System.Xml.Linq.Misc.Tests
+Generated: 2026-02-01T18:44:29+01:00
+
+Mono tests:    460
+CoreCLR tests: 460
+
+=== Extra in CoreCLR (0) ===
+
+=== Missing in CoreCLR (0) ===

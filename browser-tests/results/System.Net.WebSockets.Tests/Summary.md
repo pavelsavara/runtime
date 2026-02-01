@@ -1,8 +1,8 @@
 # System.Net.WebSockets.Tests Summary
 
 ## Latest Run
-- **Date:** 2026-01-29
-- **Configuration:** Debug
+- **Date:** 2026-02-01
+- **Configuration:** Release
 - **CoreCLR:** Tests run: 268, Passed: 266, Failed: 0, Skipped: 2
 - **Mono Baseline:** Tests run: 268, Passed: 266, Failed: 0, Skipped: 2
 - **Status:** ✅ All pass - identical to Mono baseline

@@ -1,0 +1,16 @@
+Test Comparison: Microsoft.Extensions.DependencyInjection.Tests
+Generated: 2026-02-01T18:57:29+01:00
+
+Mono tests:    1362
+CoreCLR tests: 1369
+
+=== Extra in CoreCLR (7) ===
+Microsoft.Extensions.DependencyInjection.Tests.ActivatorUtilitiesTests.CreateInstance_CollectibleAssembly
+Microsoft.Extensions.DependencyInjection.Tests.ServiceProviderCompilationTest.CompilesInLimitedStackSpace(mode: Default, serviceType: typeof(Microsoft.Extensions.DependencyInjection.Tests.I999))
+Microsoft.Extensions.DependencyInjection.Tests.ServiceProviderCompilationTest.CompilesInLimitedStackSpace(mode: Dynamic, serviceType: typeof(Microsoft.Extensions.DependencyInjection.Tests.I999))
+Microsoft.Extensions.DependencyInjection.Tests.ServiceProviderCompilationTest.CompilesInLimitedStackSpace(mode: Expressions, serviceType: typeof(Microsoft.Extensions.DependencyInjection.Tests.I999))
+Microsoft.Extensions.DependencyInjection.Tests.ServiceProviderCompilationTest.CompilesInLimitedStackSpace(mode: ILEmit, serviceType: typeof(Microsoft.Extensions.DependencyInjection.Tests.I999))
+Microsoft.Extensions.DependencyInjection.Tests.ServiceProviderCompilationTest.CompilesInLimitedStackSpace(mode: Runtime, serviceType: typeof(Microsoft.Extensions.DependencyInjection.Tests.I999))
+Test collection for Microsoft.Extensions.DependencyInjection.Tests.ServiceProviderCompilationTest
+
+=== Missing in CoreCLR (0) ===

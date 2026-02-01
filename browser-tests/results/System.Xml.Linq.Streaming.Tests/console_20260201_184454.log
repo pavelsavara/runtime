@@ -1,0 +1,61 @@
+Running in: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/143.0.0.0 Safari/537.36
+Running at: http://127.0.0.1:42997/index.html?arg=--setenv%3dXHARNESS_LOG_TEST_START%3dtrue&arg=--run&arg=WasmTestRunner.dll&arg=System.Xml.Linq.Streaming.Tests.dll&arg=-notrait&arg=category%3dOuterLoop&arg=-notrait&arg=category%3dfailing&arg=-verbosity&arg=Info
+could not load /runArgs.json: 404. Ignoring
+Incoming arguments: --setenv=XHARNESS_LOG_TEST_START=true --run WasmTestRunner.dll System.Xml.Linq.Streaming.Tests.dll -notrait category=OuterLoop -notrait category=failing -verbosity Info
+Application arguments: --run WasmTestRunner.dll System.Xml.Linq.Streaming.Tests.dll -notrait category=OuterLoop -notrait category=failing -verbosity Info
+Initializing dotnet version 11.0.0 commit hash e31907b0fbca908ed525247a1dc38cc5fba7b0ff
+Using threadless Xunit runner
+Discovering: System.Xml.Linq.Streaming.Tests.dll (method display = ClassAndMethod, method display options = None)
+Discovered:  System.Xml.Linq.Streaming.Tests.dll (found 39 of 39 test cases)
+Starting:    System.Xml.Linq.Streaming.Tests.dll
+[STRT] XDocumentTests.Streaming.XStreamingElementAPI.XStreamingElementInXDocument
+[STRT] XDocumentTests.Streaming.XStreamingElementAPI.XNameAndObjectArrayConstructor
+[STRT] XDocumentTests.Streaming.XStreamingElementAPI.XNameWithNamespaceConstructor
+[STRT] XDocumentTests.Streaming.XStreamingElementAPI.NamePropertySetInvalid
+[STRT] XDocumentTests.Streaming.XStreamingElementAPI.XStreamingElementInXElement
+[STRT] XDocumentTests.Streaming.XStreamingElementAPI.AddAttributeAfterContent
+[STRT] XDocumentTests.Streaming.XStreamingElementAPI.NestedXStreamingElementPlusIEnumerable
+[STRT] XDocumentTests.Streaming.XStreamingElementAPI.IEnumerableLazinessTest1
+[STRT] XDocumentTests.Streaming.XStreamingElementAPI.XNameAndCollectionObjectConstructor
+[STRT] XDocumentTests.Streaming.XStreamingElementAPI.SaveWithXmlTextWriter
+[STRT] XDocumentTests.Streaming.XStreamingElementAPI.AddIEnumerableOfXNodesPlusString
+[STRT] XDocumentTests.Streaming.XStreamingElementAPI.XNameAndNullObjectConstructor
+[STRT] XDocumentTests.Streaming.XStreamingElementAPI.WriteToWithNull
+[STRT] XDocumentTests.Streaming.XStreamingElementAPI.AddAttribute
+[STRT] XDocumentTests.Streaming.XStreamingElementAPI.ModifyOriginalElement
+[STRT] XDocumentTests.Streaming.XStreamingElementAPI.AddTimeSpanObject
+[STRT] XDocumentTests.Streaming.XStreamingElementAPI.XNameAndEmptyStringConstructor
+[STRT] XDocumentTests.Streaming.XStreamingElementAPI.XNameAsEmptyStringConstructor
+[STRT] XDocumentTests.Streaming.XStreamingElementAPI.AddIEnumerableOfXNodesPlusAttribute
+[STRT] XDocumentTests.Streaming.XStreamingElementAPI.AddWithNull
+[STRT] XDocumentTests.Streaming.XStreamingElementAPI.XDocInXStreamingElement
+[STRT] XDocumentTests.Streaming.XStreamingElementAPI.XNameAsNullConstructor
+[STRT] XDocumentTests.Streaming.XStreamingElementAPI.NestedXStreamingElement
+[STRT] XDocumentTests.Streaming.XStreamingElementAPI.XmlDeclInXStreamingElement
+[STRT] XDocumentTests.Streaming.XStreamingElementAPI.AddIEnumerableOfMixedNodes
+[STRT] XDocumentTests.Streaming.XStreamingElementAPI.XCDataInXStreamingElement
+[STRT] XDocumentTests.Streaming.XStreamingElementAPI.NamePropertySet
+[STRT] XDocumentTests.Streaming.XStreamingElementAPI.AddObject(content: 9255550134)
+[STRT] XDocumentTests.Streaming.XStreamingElementAPI.AddObject(content: "9255550134")
+[STRT] XDocumentTests.Streaming.XStreamingElementAPI.AddObject(content: 9255550134)
+[STRT] XDocumentTests.Streaming.XStreamingElementAPI.AddIEnumerableOfNulls
+[STRT] XDocumentTests.Streaming.XStreamingElementAPI.NamePropertyGet
+[STRT] XDocumentTests.Streaming.XStreamingElementAPI.XNameConstructor
+[STRT] XDocumentTests.Streaming.XStreamingElementAPI.XNameAndXElementObjectConstructor
+[STRT] XDocumentTests.Streaming.XStreamingElementAPI.SaveWithNull
+[STRT] XDocumentTests.Streaming.XStreamingElementAPI.IEnumerableLazinessTest2
+[STRT] XDocumentTests.Streaming.XStreamingElementAPI.XDocTypeInXStreamingElement
+[STRT] XDocumentTests.Streaming.XStreamingElementAPI.SaveTwice
+[STRT] XDocumentTests.Streaming.XStreamingElementAPI.AddIEnumerableOfXNodes
+[STRT] XDocumentTests.Streaming.XStreamingElementAPI.XCommentInXStreamingElement
+[STRT] XDocumentTests.Streaming.XStreamingElementAPI.XMLPropertyGet
+Finished:    System.Xml.Linq.Streaming.Tests.dll
+Finished uploading 9020 bytes of RESULTXML
+Xml file was written to the provided writer.
+
+=== TEST EXECUTION SUMMARY ===
+Tests run: 41 Passed: 41 Inconclusive: 0 Failed: 0 Ignored: 0 Skipped: 0
+
+test-main.js exiting WasmTestRunner.dll System.Xml.Linq.Streaming.Tests.dll after 0.3042666666666667 minutes with result 0 and linear memory 231997440 bytes
+DOTNET: forceDisposeProxies done: 14 imports, 0 exports, 0 GCHandles, 0 JSHandles.
+WASM EXIT 0

@@ -1,0 +1,61 @@
+Running in: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/143.0.0.0 Safari/537.36
+Running at: http://127.0.0.1:33345/index.html?arg=--setenv%3dXHARNESS_LOG_TEST_START%3dtrue&arg=--run&arg=WasmTestRunner.dll&arg=System.Runtime.Caching.Tests.dll&arg=-notrait&arg=category%3dOuterLoop&arg=-notrait&arg=category%3dfailing&arg=-verbosity&arg=Info
+could not load /runArgs.json: 404. Ignoring
+Incoming arguments: --setenv=XHARNESS_LOG_TEST_START=true --run WasmTestRunner.dll System.Runtime.Caching.Tests.dll -notrait category=OuterLoop -notrait category=failing -verbosity Info
+Application arguments: --run WasmTestRunner.dll System.Runtime.Caching.Tests.dll -notrait category=OuterLoop -notrait category=failing -verbosity Info
+Initializing dotnet version 11.0.0 commit hash e31907b0fbca908ed525247a1dc38cc5fba7b0ff
+Using threadless Xunit runner
+Discovering: System.Runtime.Caching.Tests.dll (method display = ClassAndMethod, method display options = None)
+Discovered:  System.Runtime.Caching.Tests.dll (found 27 of 38 test cases)
+Starting:    System.Runtime.Caching.Tests.dll
+[STRT] MonoTests.System.Runtime.Caching.MemoryCacheTestExpires5.TestCacheExpiryOrdering
+[STRT] System.Runtime.Caching.Tests.AdditionalCacheTests.DisposedCacheTest
+[STRT] MonoTests.System.Runtime.Caching.MemoryCacheTestExpires4.TestCacheShrink
+[STRT] MonoTests.System.Runtime.Caching.ObjectCacheTest.GetValues
+[STRT] MonoTests.System.Runtime.Caching.ObjectCacheTest.Defaults
+[STRT] MonoTests.System.Runtime.Caching.ObjectCacheTest.Add_String_Object_DateTimeOffset_String
+[STRT] MonoTests.System.Runtime.Caching.ObjectCacheTest.Add_CacheItem_CacheItemPolicy
+[STRT] MonoTests.System.Runtime.Caching.ObjectCacheTest.Add_String_Object_CacheItemPolicy_String
+[STRT] MonoTests.System.Runtime.Caching.MemoryCacheTest.Set_String_Object_DateTimeOffset_String
+[STRT] MonoTests.System.Runtime.Caching.MemoryCacheTest.ChangeMonitors
+[STRT] MonoTests.System.Runtime.Caching.MemoryCacheTest.Trim(throwOnDisposed: "true")
+[STRT] MonoTests.System.Runtime.Caching.MemoryCacheTest.Trim(throwOnDisposed: "false")
+[STRT] MonoTests.System.Runtime.Caching.MemoryCacheTest.Trim(throwOnDisposed: null)
+[STRT] MonoTests.System.Runtime.Caching.MemoryCacheTest.Contains(throwOnDisposed: "true")
+[STRT] MonoTests.System.Runtime.Caching.MemoryCacheTest.Contains(throwOnDisposed: "false")
+[STRT] MonoTests.System.Runtime.Caching.MemoryCacheTest.Contains(throwOnDisposed: null)
+[STRT] MonoTests.System.Runtime.Caching.MemoryCacheTest.AddOrGetExisting_CacheItem_CacheItemPolicy
+[STRT] MonoTests.System.Runtime.Caching.MemoryCacheTest.DefaultInstanceDefaults
+[STRT] MonoTests.System.Runtime.Caching.MemoryCacheTest.AddOrGetExisting_String_Object_DateTimeOffset_String(throwOnDisposed: "true")
+[STRT] MonoTests.System.Runtime.Caching.MemoryCacheTest.AddOrGetExisting_String_Object_DateTimeOffset_String(throwOnDisposed: "false")
+[STRT] MonoTests.System.Runtime.Caching.MemoryCacheTest.AddOrGetExisting_String_Object_DateTimeOffset_String(throwOnDisposed: null)
+[STRT] MonoTests.System.Runtime.Caching.MemoryCacheTest.Defaults
+[STRT] MonoTests.System.Runtime.Caching.MemoryCacheTest.AddOrGetExisting_String_Object_CacheItemPolicy_String
+[STRT] MonoTests.System.Runtime.Caching.MemoryCacheTest.CreateCacheEntryChangeMonitor
+[STRT] MonoTests.System.Runtime.Caching.MemoryCacheTest.PhysicalMemoryLimitNotSupported
+[STRT] MonoTests.System.Runtime.Caching.MemoryCacheTest.Set_String_Object_CacheItemPolicy_String(throwOnDisposed: "true")
+[STRT] MonoTests.System.Runtime.Caching.MemoryCacheTest.Set_String_Object_CacheItemPolicy_String(throwOnDisposed: "false")
+[STRT] MonoTests.System.Runtime.Caching.MemoryCacheTest.Set_String_Object_CacheItemPolicy_String(throwOnDisposed: null)
+[STRT] MonoTests.System.Runtime.Caching.MemoryCacheTest.TestExpiredGetValues
+[STRT] MonoTests.System.Runtime.Caching.MemoryCacheTest.GetValues(throwOnDisposed: "true")
+[STRT] MonoTests.System.Runtime.Caching.MemoryCacheTest.GetValues(throwOnDisposed: "false")
+[STRT] MonoTests.System.Runtime.Caching.MemoryCacheTest.GetValues(throwOnDisposed: null)
+[STRT] MonoTests.System.Runtime.Caching.MemoryCacheTest.ConstructorParameters
+[STRT] MonoTests.System.Runtime.Caching.MemoryCacheTest.Remove(throwOnDisposed: "true")
+[STRT] MonoTests.System.Runtime.Caching.MemoryCacheTest.Remove(throwOnDisposed: "false")
+[STRT] MonoTests.System.Runtime.Caching.MemoryCacheTest.Remove(throwOnDisposed: null)
+[STRT] MonoTests.System.Runtime.Caching.MemoryCacheTest.ConstructorValues
+[STRT] MonoTests.System.Runtime.Caching.MemoryCacheTest.Indexer(throwOnDisposed: "true")
+[STRT] MonoTests.System.Runtime.Caching.MemoryCacheTest.Indexer(throwOnDisposed: "false")
+[STRT] MonoTests.System.Runtime.Caching.MemoryCacheTest.Indexer(throwOnDisposed: null)
+[STRT] MonoTests.System.Runtime.Caching.MemoryCacheTest.Set_CacheItem_CacheItemPolicy
+Finished:    System.Runtime.Caching.Tests.dll
+Finished uploading 10672 bytes of RESULTXML
+Xml file was written to the provided writer.
+
+=== TEST EXECUTION SUMMARY ===
+Tests run: 41 Passed: 40 Inconclusive: 0 Failed: 0 Ignored: 0 Skipped: 1
+
+test-main.js exiting WasmTestRunner.dll System.Runtime.Caching.Tests.dll after 0.14646666666666666 minutes with result 0 and linear memory 193331200 bytes
+DOTNET: forceDisposeProxies done: 14 imports, 0 exports, 0 GCHandles, 0 JSHandles.
+WASM EXIT 0
