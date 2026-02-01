@@ -3,6 +3,8 @@
   <PropertyGroup>
     <TargetFramework>$(NetCoreAppCurrent)</TargetFramework>
     <DefineConstants>$(DefineConstants);ReflectionOnly</DefineConstants>
+    <!-- https://github.com/dotnet/runtime/issues/123011 - Tests crash CoreCLR interpreter on Browser due to BadImageFormatException in generic reflection -->
+    <IgnoreForCI Condition="'$(TargetOS)' == 'browser' and '$(RuntimeFlavor)' == 'coreclr'">true</IgnoreForCI>
   </PropertyGroup>
 
   <ItemGroup>

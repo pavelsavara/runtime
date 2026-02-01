@@ -4183,6 +4183,7 @@ public static partial class DataContractSerializerTests
     }
 
     [Fact]
+    [ActiveIssue("https://github.com/dotnet/runtime/issues/123011", typeof(PlatformDetection), nameof(PlatformDetection.IsBrowser), nameof(PlatformDetection.IsCoreCLR))]
     public static void DCS_TypeWithVirtualGenericProperty()
     {
         var value1 = new TypeWithVirtualGenericProperty<int>() { Value = 1 };
@@ -4529,6 +4530,7 @@ public static partial class DataContractSerializerTests
     }
 
     [Fact]
+    [ActiveIssue("https://github.com/dotnet/runtime/issues/123011", typeof(PlatformDetection), nameof(PlatformDetection.IsBrowser), nameof(PlatformDetection.IsCoreCLR))]
     public static void DCS_TypeWithPrimitiveKnownTypes()
     {
         var list = new TypeWithPrimitiveKnownTypes();

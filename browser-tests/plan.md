@@ -250,9 +250,9 @@ Total: **203 test suites** (sorted by Mono baseline duration, longest first)
 | 0.15 | System.Runtime.Caching.Tests | src/libraries/System.Runtime.Caching/tests/System.Runtime.Caching.Tests.csproj | ✅ |
 | 0.16 | System.Collections.NonGeneric.Tests | src/libraries/System.Collections.NonGeneric/tests/System.Collections.NonGeneric.Tests.csproj | ✅ |
 | 0.16 | System.ComponentModel.TypeConverter.Tests | src/libraries/System.ComponentModel.TypeConverter/tests/System.ComponentModel.TypeConverter.Tests.csproj | ⚠️ |
-| 0.17 | Microsoft.Extensions.DependencyInjection.Tests | src/libraries/Microsoft.Extensions.DependencyInjection/tests/DI.Tests/Microsoft.Extensions.DependencyInjection.Tests.csproj | ⬜ |
-| 0.18 | System.Runtime.Serialization.Xml.ReflectionOnly.Tests | src/libraries/System.Runtime.Serialization.Xml/tests/ReflectionOnly/System.Runtime.Serialization.Xml.ReflectionOnly.Tests.csproj | ⬜ |
-| 0.19 | Common.Tests | src/libraries/Common/tests/Common.Tests.csproj | ⬜ |
+| 0.17 | Microsoft.Extensions.DependencyInjection.Tests | src/libraries/Microsoft.Extensions.DependencyInjection/tests/DI.Tests/Microsoft.Extensions.DependencyInjection.Tests.csproj | ⚠️ |
+| 0.18 | System.Runtime.Serialization.Xml.ReflectionOnly.Tests | src/libraries/System.Runtime.Serialization.Xml/tests/ReflectionOnly/System.Runtime.Serialization.Xml.ReflectionOnly.Tests.csproj | ❌ |
+| 0.19 | Common.Tests | src/libraries/Common/tests/Common.Tests.csproj | ✅ |
 | 0.19 | System.Runtime.Intrinsics.Tests | src/libraries/System.Runtime.Intrinsics/tests/System.Runtime.Intrinsics.Tests.csproj | ⬜ |
 | 0.19 | System.Runtime.Serialization.Xml.Tests | src/libraries/System.Runtime.Serialization.Xml/tests/System.Runtime.Serialization.Xml.Tests.csproj | ⬜ |
 | 0.21 | System.IO.Pipelines.Tests | src/libraries/System.IO.Pipelines/tests/System.IO.Pipelines.Tests.csproj | ⬜ |

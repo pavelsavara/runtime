@@ -1,0 +1,82 @@
+Running in: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/143.0.0.0 Safari/537.36
+Running at: http://127.0.0.1:34495/index.html?arg=--setenv%3dXHARNESS_LOG_TEST_START%3dtrue&arg=--run&arg=WasmTestRunner.dll&arg=System.Runtime.Serialization.Xml.ReflectionOnly.Tests.dll&arg=-notrait&arg=category%3dOuterLoop&arg=-notrait&arg=category%3dfailing&arg=-verbosity&arg=Info
+could not load /runArgs.json: 404. Ignoring
+Incoming arguments: --setenv=XHARNESS_LOG_TEST_START=true --run WasmTestRunner.dll System.Runtime.Serialization.Xml.ReflectionOnly.Tests.dll -notrait category=OuterLoop -notrait category=failing -verbosity Info
+Application arguments: --run WasmTestRunner.dll System.Runtime.Serialization.Xml.ReflectionOnly.Tests.dll -notrait category=OuterLoop -notrait category=failing -verbosity Info
+Initializing dotnet version 11.0.0 commit hash e31907b0fbca908ed525247a1dc38cc5fba7b0ff
+Using threadless Xunit runner
+Discovering: System.Runtime.Serialization.Xml.ReflectionOnly.Tests.dll (method display = ClassAndMethod, method display options = None)
+Discovered:  System.Runtime.Serialization.Xml.ReflectionOnly.Tests.dll (found 263 of 267 test cases)
+Starting:    System.Runtime.Serialization.Xml.ReflectionOnly.Tests.dll
+[STRT] DataContractSerializerTests.DCS_TimeSpanAsRoot
+[STRT] DataContractSerializerTests.DCS_SortedList
+[STRT] DataContractSerializerTests.DCS_MyArgumentExceptionObject
+[STRT] DataContractSerializerTests.DCS_DictionaryGenericMembers
+[STRT] DataContractSerializerTests.DCS_TypeWithGenericDictionaryAsKnownType
+[STRT] DataContractSerializerTests.DCS_TypeWithExplicitIEnumerableImplementation
+[STRT] DataContractSerializerTests.DCS_CircularTypes_PreserveObjectReferences_True
+[FAIL] DataContractSerializerTests.DCS_CircularTypes_PreserveObjectReferences_True
+System.BadImageFormatException : An attempt was made to load a program with an incorrect format.
+ (0x8007000B)
+   at System.Signature.Init(ObjectHandleOnStack _this, Void* pCorSig, Int32 cCorSig, RuntimeFieldHandleInternal fieldHandle, RuntimeMethodHandleInternal methodHandle)
+   at System.Signature.Init(Void* pCorSig, Int32 cCorSig, RuntimeFieldHandleInternal fieldHandle, RuntimeMethodHandleInternal methodHandle)
+   at System.Signature..ctor(IRuntimeMethodInfo methodHandle, RuntimeType declaringType)
+   at System.Reflection.RuntimeMethodInfo.<get_Signature>g__LazyCreateSignature|27_0()
+   at System.Reflection.RuntimeMethodInfo.FetchNonReturnParameters()
+   at System.Reflection.RuntimeMethodInfo.GetParametersAsSpan()
+   at System.RuntimeType.FilterApplyMethodBase(MethodBase methodBase, BindingFlags methodFlags, BindingFlags bindingFlags, CallingConventions callConv, Type[] argumentTypes)
+   at System.RuntimeType.FilterApplyMethodInfo(RuntimeMethodInfo method, BindingFlags bindingFlags, CallingConventions callConv, Type[] argumentTypes)
+   at System.RuntimeType.GetMethodCandidates(String name, Int32 genericParameterCount, BindingFlags bindingAttr, CallingConventions callConv, Type[] types, Boolean allowPrefixLookup)
+   at System.RuntimeType.GetMethodImplCommon(String name, Int32 genericParameterCount, BindingFlags bindingAttr, Binder binder, CallingConventions callConv, Type[] types, ParameterModifier[] modifiers)
+   at System.RuntimeType.GetMethodImpl(String name, BindingFlags bindingAttr, Binder binder, CallingConventions callConv, Type[] types, ParameterModifier[] modifiers)
+   at System.Type.GetMethod(String name, BindingFlags bindingAttr, Binder binder, CallingConventions callConvention, Type[] types, ParameterModifier[] modifiers)
+   at System.Type.GetMethod(String name, BindingFlags bindingAttr, Binder binder, Type[] types, ParameterModifier[] modifiers)
+   at System.Type.GetMethod(String name, BindingFlags bindingAttr, Type[] types)
+   at System.Runtime.Serialization.DataContracts.CollectionDataContract.CollectionDataContractCriticalHelper.GetCollectionElementType()
+   at System.Runtime.Serialization.DataContracts.CollectionDataContract.GetCollectionElementType()
+   at System.Runtime.Serialization.ReflectionXmlFormatWriter.ReflectionWriteCollection(XmlWriterDelegator xmlWriter, Object obj, XmlObjectSerializerWriteContext context, CollectionDataContract collectionDataContract)
+   at System.Runtime.Serialization.DataContracts.CollectionDataContract.WriteXmlValue(XmlWriterDelegator xmlWriter, Object obj, XmlObjectSerializerWriteContext context)
+   at System.Runtime.Serialization.XmlObjectSerializerWriteContext.WriteDataContractValue(DataContract dataContract, XmlWriterDelegator xmlWriter, Object obj, RuntimeTypeHandle declaredTypeHandle)
+   at System.Runtime.Serialization.XmlObjectSerializerWriteContext.SerializeWithoutXsiType(DataContract dataContract, XmlWriterDelegator xmlWriter, Object obj, RuntimeTypeHandle declaredTypeHandle)
+   at System.Runtime.Serialization.XmlObjectSerializerWriteContext.InternalSerialize(XmlWriterDelegator xmlWriter, Object obj, Boolean isDeclaredType, Boolean writeXsiType, Int32 declaredTypeID, RuntimeTypeHandle declaredTypeHandle)
+   at System.Runtime.Serialization.XmlObjectSerializerWriteContextComplex.InternalSerialize(XmlWriterDelegator xmlWriter, Object obj, Boolean isDeclaredType, Boolean writeXsiType, Int32 declaredTypeID, RuntimeTypeHandle declaredTypeHandle)
+   at System.Runtime.Serialization.XmlObjectSerializerWriteContext.InternalSerializeReference(XmlWriterDelegator xmlWriter, Object obj, Boolean isDeclaredType, Boolean writeXsiType, Int32 declaredTypeID, RuntimeTypeHandle declaredTypeHandle)
+   at System.Runtime.Serialization.ReflectionClassWriter.ReflectionInternalSerialize(XmlWriterDelegator xmlWriter, XmlObjectSerializerWriteContext context, Object obj, Boolean isDeclaredType, Boolean writeXsiType, Type memberType, Boolean isNullableOfT)
+   at System.Runtime.Serialization.ReflectionClassWriter.ReflectionWriteValue(XmlWriterDelegator xmlWriter, XmlObjectSerializerWriteContext context, Type type, Object value, Boolean writeXsiType, PrimitiveDataContract primitiveContractForParamType)
+   at System.Runtime.Serialization.ReflectionXmlClassWriter.ReflectionWriteMembers(XmlWriterDelegator xmlWriter, Object obj, XmlObjectSerializerWriteContext context, ClassDataContract classContract, ClassDataContract derivedMostClassContract, Int32 childElementIndex, XmlDictionaryString[] emptyStringArray)
+   at System.Runtime.Serialization.ReflectionClassWriter.ReflectionWriteClass(XmlWriterDelegator xmlWriter, Object obj, XmlObjectSerializerWriteContext context, ClassDataContract classContract, XmlDictionaryString[] memberNames)
+   at System.Runtime.Serialization.ReflectionXmlFormatWriter.ReflectionWriteClass(XmlWriterDelegator xmlWriter, Object obj, XmlObjectSerializerWriteContext context, ClassDataContract classContract)
+   at System.Runtime.Serialization.DataContracts.ClassDataContract.WriteXmlValue(XmlWriterDelegator xmlWriter, Object obj, XmlObjectSerializerWriteContext context)
+   at System.Runtime.Serialization.XmlObjectSerializerWriteContext.WriteDataContractValue(DataContract dataContract, XmlWriterDelegator xmlWriter, Object obj, RuntimeTypeHandle declaredTypeHandle)
+   at System.Runtime.Serialization.XmlObjectSerializerWriteContext.SerializeWithoutXsiType(DataContract dataContract, XmlWriterDelegator xmlWriter, Object obj, RuntimeTypeHandle declaredTypeHandle)
+   at System.Runtime.Serialization.DataContractSerializer.InternalWriteObjectContent(XmlWriterDelegator writer, Object graph, DataContractResolver dataContractResolver)
+   at System.Runtime.Serialization.DataContractSerializer.InternalWriteObject(XmlWriterDelegator writer, Object graph, DataContractResolver dataContractResolver)
+   at System.Runtime.Serialization.XmlObjectSerializer.WriteObjectHandleExceptions(XmlWriterDelegator writer, Object graph, DataContractResolver dataContractResolver)
+   at System.Runtime.Serialization.XmlObjectSerializer.WriteObjectHandleExceptions(XmlWriterDelegator writer, Object graph)
+   at System.Runtime.Serialization.XmlObjectSerializer.WriteObject(XmlDictionaryWriter writer, Object graph)
+   at System.Runtime.Serialization.XmlObjectSerializer.WriteObject(Stream stream, Object graph)
+   at System.Runtime.Serialization.Tests.DataContractSerializerHelper.SerializeAndDeserialize[T](T value, String baseline, DataContractSerializerSettings settings, Func`1 serializerFactory, Boolean skipStringCompare, Boolean verifyBinaryRoundTrip)
+   at DataContractSerializerTests.DCS_CircularTypes_PreserveObjectReferences_True()
+   at System.RuntimeMethodHandle.InvokeMethod(ObjectHandleOnStack target, Void** arguments, ObjectHandleOnStack sig, BOOL isConstructor, ObjectHandleOnStack result)
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+[STRT] DataContractSerializerTests.DCS_GenericBase
+[STRT] DataContractSerializerTests.DCS_DerivedTypeWithDifferentOverrides
+DOTNET: Unhandled error: RuntimeError: table index is out of bounds
+DOTNET: table index is out of bounds
+RuntimeError: table index is out of bounds
+    at http://127.0.0.1:34495/_framework/dotnet.native.yskk64yq6l.wasm:wasm-function[3233]:0x160519
+    at http://127.0.0.1:34495/_framework/dotnet.native.yskk64yq6l.wasm:wasm-function[2611]:0x11fe69
+    at http://127.0.0.1:34495/_framework/dotnet.native.yskk64yq6l.wasm:wasm-function[4005]:0x1d7784
+    at http://127.0.0.1:34495/_framework/dotnet.native.yskk64yq6l.wasm:wasm-function[1583]:0x91744
+    at http://127.0.0.1:34495/_framework/dotnet.native.yskk64yq6l.wasm:wasm-function[7288]:0x3133bc
+    at http://127.0.0.1:34495/_framework/dotnet.native.yskk64yq6l.wasm:wasm-function[5473]:0x254251
+    at http://127.0.0.1:34495/_framework/dotnet.native.yskk64yq6l.wasm:wasm-function[2611]:0x11f06f
+    at http://127.0.0.1:34495/_framework/dotnet.native.yskk64yq6l.wasm:wasm-function[4005]:0x1d7784
+    at http://127.0.0.1:34495/_framework/dotnet.native.yskk64yq6l.wasm:wasm-function[438]:0x1dbc5
+    at http://127.0.0.1:34495/_framework/dotnet.native.yskk64yq6l.wasm:wasm-function[3225]:0x15fecb
+    at SystemJS_ScheduleBackgroundJobTick (http://127.0.0.1:34495/_framework/dotnet.native.wd2dsb9iyb.js:8:99484)
+    at callUserCallback (http://127.0.0.1:34495/_framework/dotnet.native.wd2dsb9iyb.js:8:145083)
+    at http://127.0.0.1:34495/_framework/dotnet.native.wd2dsb9iyb.js:8:145294
+WASM EXIT 1

@@ -1,0 +1,103 @@
+Running in: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/143.0.0.0 Safari/537.36
+Running at: http://127.0.0.1:46561/index.html?arg=--setenv%3dXHARNESS_LOG_TEST_START%3dtrue&arg=--run&arg=WasmTestRunner.dll&arg=System.Runtime.Serialization.Xml.ReflectionOnly.Tests.dll&arg=-notrait&arg=category%3dOuterLoop&arg=-notrait&arg=category%3dfailing&arg=-verbosity&arg=Info
+could not load /runArgs.json: 404. Ignoring
+Incoming arguments: --setenv=XHARNESS_LOG_TEST_START=true --run WasmTestRunner.dll System.Runtime.Serialization.Xml.ReflectionOnly.Tests.dll -notrait category=OuterLoop -notrait category=failing -verbosity Info
+Application arguments: --run WasmTestRunner.dll System.Runtime.Serialization.Xml.ReflectionOnly.Tests.dll -notrait category=OuterLoop -notrait category=failing -verbosity Info
+Initializing dotnet version 11.0.0 commit hash e31907b0fbca908ed525247a1dc38cc5fba7b0ff
+Using threadless Xunit runner
+Discovering: System.Runtime.Serialization.Xml.ReflectionOnly.Tests.dll (method display = ClassAndMethod, method display options = None)
+Discovered:  System.Runtime.Serialization.Xml.ReflectionOnly.Tests.dll (found 265 of 267 test cases)
+Starting:    System.Runtime.Serialization.Xml.ReflectionOnly.Tests.dll
+[STRT] DataContractSerializerTests.DCS_ArrayAsRoot
+[STRT] DataContractSerializerTests.DCS_DictionaryWithVariousKeyValueTypes
+[STRT] DataContractSerializerTests.DCS_TypeWithAllPrimitiveProperties
+[STRT] DataContractSerializerTests.DCS_TypeWithDatetimeOffsetTypeProperty
+[STRT] DataContractSerializerTests.DCS_InvalidDataContract_Read_Invalid_Types_Throws
+[STRT] DataContractSerializerTests.DCS_UshortAsRoot
+[STRT] DataContractSerializerTests.DCS_BasicRoundTripPOCOWithIgnoreDM
+[STRT] DataContractSerializerTests.DCS_XmlQualifiedNameAsRoot
+[STRT] DataContractSerializerTests.DCS_BasicPerSerializerRoundTripAndCompare_ItRef
+[STRT] DataContractSerializerTests.DCS_DateOnlyAsRoot
+[STRT] DataContractSerializerTests.DCS_WithXElementWithNestedXElement
+[STRT] DataContractSerializerTests.DCS_ExceptionMessageWithSpecialChars
+[STRT] DataContractSerializerTests.DCS_CollectionGenericMembers
+[STRT] DataContractSerializerTests.DCS_DecimalAsRoot
+[STRT] DataContractSerializerTests.DCS_ReadOnlyCollection
+[STRT] DataContractSerializerTests.DCS_ArrayOfInt32
+[STRT] DataContractSerializerTests.DCS_ExtensionDataObjectTest
+[STRT] DataContractSerializerTests.DCS_KnownTypesThroughConstructor
+[STRT] DataContractSerializerTests.DCS_TypeWithPrimitiveKnownTypes
+[FAIL] DataContractSerializerTests.DCS_TypeWithPrimitiveKnownTypes
+System.BadImageFormatException : An attempt was made to load a program with an incorrect format.
+ (0x8007000B)
+   at System.Signature.Init(ObjectHandleOnStack _this, Void* pCorSig, Int32 cCorSig, RuntimeFieldHandleInternal fieldHandle, RuntimeMethodHandleInternal methodHandle)
+   at System.Signature.Init(Void* pCorSig, Int32 cCorSig, RuntimeFieldHandleInternal fieldHandle, RuntimeMethodHandleInternal methodHandle)
+   at System.Signature..ctor(IRuntimeMethodInfo methodHandle, RuntimeType declaringType)
+   at System.Reflection.RuntimeMethodInfo.<get_Signature>g__LazyCreateSignature|27_0()
+   at System.Reflection.RuntimeMethodInfo.FetchNonReturnParameters()
+   at System.Reflection.RuntimeMethodInfo.GetParametersAsSpan()
+   at System.RuntimeType.FilterApplyMethodBase(MethodBase methodBase, BindingFlags methodFlags, BindingFlags bindingFlags, CallingConventions callConv, Type[] argumentTypes)
+   at System.RuntimeType.FilterApplyMethodInfo(RuntimeMethodInfo method, BindingFlags bindingFlags, CallingConventions callConv, Type[] argumentTypes)
+   at System.RuntimeType.GetMethodCandidates(String name, Int32 genericParameterCount, BindingFlags bindingAttr, CallingConventions callConv, Type[] types, Boolean allowPrefixLookup)
+   at System.RuntimeType.GetMethodImplCommon(String name, Int32 genericParameterCount, BindingFlags bindingAttr, Binder binder, CallingConventions callConv, Type[] types, ParameterModifier[] modifiers)
+   at System.RuntimeType.GetMethodImpl(String name, BindingFlags bindingAttr, Binder binder, CallingConventions callConv, Type[] types, ParameterModifier[] modifiers)
+   at System.Type.GetMethod(String name, BindingFlags bindingAttr, Binder binder, CallingConventions callConvention, Type[] types, ParameterModifier[] modifiers)
+   at System.Type.GetMethod(String name, BindingFlags bindingAttr, Binder binder, Type[] types, ParameterModifier[] modifiers)
+   at System.Type.GetMethod(String name, BindingFlags bindingAttr, Type[] types)
+   at System.Runtime.Serialization.DataContracts.CollectionDataContract.CollectionDataContractCriticalHelper.GetCollectionElementType()
+   at System.Runtime.Serialization.DataContracts.CollectionDataContract.GetCollectionElementType()
+   at System.Runtime.Serialization.ReflectionXmlFormatWriter.ReflectionWriteCollection(XmlWriterDelegator xmlWriter, Object obj, XmlObjectSerializerWriteContext context, CollectionDataContract collectionDataContract)
+   at System.Runtime.Serialization.DataContracts.CollectionDataContract.WriteXmlValue(XmlWriterDelegator xmlWriter, Object obj, XmlObjectSerializerWriteContext context)
+   at System.Runtime.Serialization.XmlObjectSerializerWriteContext.WriteDataContractValue(DataContract dataContract, XmlWriterDelegator xmlWriter, Object obj, RuntimeTypeHandle declaredTypeHandle)
+   at System.Runtime.Serialization.XmlObjectSerializerWriteContext.SerializeWithoutXsiType(DataContract dataContract, XmlWriterDelegator xmlWriter, Object obj, RuntimeTypeHandle declaredTypeHandle)
+   at System.Runtime.Serialization.DataContractSerializer.InternalWriteObjectContent(XmlWriterDelegator writer, Object graph, DataContractResolver dataContractResolver)
+   at System.Runtime.Serialization.DataContractSerializer.InternalWriteObject(XmlWriterDelegator writer, Object graph, DataContractResolver dataContractResolver)
+   at System.Runtime.Serialization.XmlObjectSerializer.WriteObjectHandleExceptions(XmlWriterDelegator writer, Object graph, DataContractResolver dataContractResolver)
+   at System.Runtime.Serialization.XmlObjectSerializer.WriteObjectHandleExceptions(XmlWriterDelegator writer, Object graph)
+   at System.Runtime.Serialization.XmlObjectSerializer.WriteObject(XmlDictionaryWriter writer, Object graph)
+   at System.Runtime.Serialization.XmlObjectSerializer.WriteObject(Stream stream, Object graph)
+   at System.Runtime.Serialization.Tests.DataContractSerializerHelper.SerializeAndDeserialize[T](T value, String baseline, DataContractSerializerSettings settings, Func`1 serializerFactory, Boolean skipStringCompare, Boolean verifyBinaryRoundTrip)
+   at DataContractSerializerTests.DCS_TypeWithPrimitiveKnownTypes()
+   at System.RuntimeMethodHandle.InvokeMethod(ObjectHandleOnStack target, Void** arguments, ObjectHandleOnStack sig, BOOL isConstructor, ObjectHandleOnStack result)
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+[STRT] DataContractSerializerTests.DCS_KnownSerializableTypes_KeyValuePair_2
+[STRT] DataContractSerializerTests.DCS_EnumerableMembers
+[STRT] DataContractSerializerTests.DCS_UintAsRoot
+[STRT] DataContractSerializerTests.DCS_TypeWithCommonTypeProperties
+[STRT] DataContractSerializerTests.DCS_DataContractWithOtherSymbolsInName
+[STRT] DataContractSerializerTests.DCS_InnerExceptionMessageWithSpecialChars
+[STRT] DataContractSerializerTests.DCS_ResolveNameVariationTest
+[STRT] DataContractSerializerTests.DCS_DifferentCollectionsOfSameTypeAsKnownTypes
+[STRT] DataContractSerializerTests.DCS_BasicPerSerializerRoundTripAndCompare_DataSet
+[STRT] DataContractSerializerTests.DCS_EnumerableCollection
+[STRT] DataContractSerializerTests.DCS_BasicRoundTripResolveDTOTypes
+[STRT] DataContractSerializerTests.DCS_TypeWithUriTypeProperty
+[STRT] DataContractSerializerTests.DCS_BinarySerializationOfDateTime
+[STRT] DataContractSerializerTests.DCS_EnumerableInterfaceGetOnlyCollection
+[STRT] DataContractSerializerTests.DCS_FloatAsRoot
+[STRT] DataContractSerializerTests.DCS_EnumerableGenericMembers
+[STRT] DataContractSerializerTests.DCS_DictionaryGenericRoot
+[STRT] DataContractSerializerTests.DCS_DeserializeEmptyString
+[STRT] DataContractSerializerTests.DCS_ReadObject_XmlDictionaryReaderMaxStringContentLengthExceedsQuota
+[STRT] DataContractSerializerTests.DCS_DeserializeTypeWithInnerInvalidDataContract
+[STRT] DataContractSerializerTests.DCS_TypeWithPrimitiveFields
+[STRT] DataContractSerializerTests.DCS_TypeWithVirtualGenericProperty
+DOTNET: Unhandled error: RuntimeError: table index is out of bounds
+DOTNET: table index is out of bounds
+RuntimeError: table index is out of bounds
+    at http://127.0.0.1:46561/_framework/dotnet.native.yskk64yq6l.wasm:wasm-function[3233]:0x160519
+    at http://127.0.0.1:46561/_framework/dotnet.native.yskk64yq6l.wasm:wasm-function[2611]:0x11fe69
+    at http://127.0.0.1:46561/_framework/dotnet.native.yskk64yq6l.wasm:wasm-function[4005]:0x1d7784
+    at http://127.0.0.1:46561/_framework/dotnet.native.yskk64yq6l.wasm:wasm-function[1583]:0x91744
+    at http://127.0.0.1:46561/_framework/dotnet.native.yskk64yq6l.wasm:wasm-function[7288]:0x3133bc
+    at http://127.0.0.1:46561/_framework/dotnet.native.yskk64yq6l.wasm:wasm-function[5473]:0x254251
+    at http://127.0.0.1:46561/_framework/dotnet.native.yskk64yq6l.wasm:wasm-function[2611]:0x11f06f
+    at http://127.0.0.1:46561/_framework/dotnet.native.yskk64yq6l.wasm:wasm-function[4005]:0x1d7784
+    at http://127.0.0.1:46561/_framework/dotnet.native.yskk64yq6l.wasm:wasm-function[438]:0x1dbc5
+    at http://127.0.0.1:46561/_framework/dotnet.native.yskk64yq6l.wasm:wasm-function[3225]:0x15fecb
+    at SystemJS_ScheduleBackgroundJobTick (http://127.0.0.1:46561/_framework/dotnet.native.wd2dsb9iyb.js:8:99484)
+    at callUserCallback (http://127.0.0.1:46561/_framework/dotnet.native.wd2dsb9iyb.js:8:145083)
+    at http://127.0.0.1:46561/_framework/dotnet.native.wd2dsb9iyb.js:8:145294
+WASM EXIT 1

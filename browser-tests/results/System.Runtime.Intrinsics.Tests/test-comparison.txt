@@ -1,0 +1,41 @@
+Test Comparison: System.Runtime.Intrinsics.Tests
+Generated: 2026-02-01T19:06:19+01:00
+
+Mono tests:    12731
+CoreCLR tests: 12763
+
+=== Extra in CoreCLR (32) ===
+System.Runtime.Intrinsics.Tests.Vectors.Vector128Tests.ConvertToInt32NativeTest
+System.Runtime.Intrinsics.Tests.Vectors.Vector128Tests.ConvertToInt32Test
+System.Runtime.Intrinsics.Tests.Vectors.Vector128Tests.ConvertToInt64NativeTest
+System.Runtime.Intrinsics.Tests.Vectors.Vector128Tests.ConvertToInt64Test
+System.Runtime.Intrinsics.Tests.Vectors.Vector128Tests.ConvertToUInt32NativeTest
+System.Runtime.Intrinsics.Tests.Vectors.Vector128Tests.ConvertToUInt32Test
+System.Runtime.Intrinsics.Tests.Vectors.Vector128Tests.ConvertToUInt64NativeTest
+System.Runtime.Intrinsics.Tests.Vectors.Vector128Tests.ConvertToUInt64Test
+System.Runtime.Intrinsics.Tests.Vectors.Vector256Tests.ConvertToInt32NativeTest
+System.Runtime.Intrinsics.Tests.Vectors.Vector256Tests.ConvertToInt32Test
+System.Runtime.Intrinsics.Tests.Vectors.Vector256Tests.ConvertToInt64NativeTest
+System.Runtime.Intrinsics.Tests.Vectors.Vector256Tests.ConvertToInt64Test
+System.Runtime.Intrinsics.Tests.Vectors.Vector256Tests.ConvertToUInt32NativeTest
+System.Runtime.Intrinsics.Tests.Vectors.Vector256Tests.ConvertToUInt32Test
+System.Runtime.Intrinsics.Tests.Vectors.Vector256Tests.ConvertToUInt64NativeTest
+System.Runtime.Intrinsics.Tests.Vectors.Vector256Tests.ConvertToUInt64Test
+System.Runtime.Intrinsics.Tests.Vectors.Vector512Tests.ConvertToInt32NativeTest
+System.Runtime.Intrinsics.Tests.Vectors.Vector512Tests.ConvertToInt32Test
+System.Runtime.Intrinsics.Tests.Vectors.Vector512Tests.ConvertToInt64NativeTest
+System.Runtime.Intrinsics.Tests.Vectors.Vector512Tests.ConvertToInt64Test
+System.Runtime.Intrinsics.Tests.Vectors.Vector512Tests.ConvertToUInt32NativeTest
+System.Runtime.Intrinsics.Tests.Vectors.Vector512Tests.ConvertToUInt32Test
+System.Runtime.Intrinsics.Tests.Vectors.Vector512Tests.ConvertToUInt64NativeTest
+System.Runtime.Intrinsics.Tests.Vectors.Vector512Tests.ConvertToUInt64Test
+System.Runtime.Intrinsics.Tests.Vectors.Vector64Tests.ConvertToInt32NativeTest
+System.Runtime.Intrinsics.Tests.Vectors.Vector64Tests.ConvertToInt32Test
+System.Runtime.Intrinsics.Tests.Vectors.Vector64Tests.ConvertToInt64NativeTest
+System.Runtime.Intrinsics.Tests.Vectors.Vector64Tests.ConvertToInt64Test
+System.Runtime.Intrinsics.Tests.Vectors.Vector64Tests.ConvertToUInt32NativeTest
+System.Runtime.Intrinsics.Tests.Vectors.Vector64Tests.ConvertToUInt32Test
+System.Runtime.Intrinsics.Tests.Vectors.Vector64Tests.ConvertToUInt64NativeTest
+System.Runtime.Intrinsics.Tests.Vectors.Vector64Tests.ConvertToUInt64Test
+
+=== Missing in CoreCLR (0) ===
