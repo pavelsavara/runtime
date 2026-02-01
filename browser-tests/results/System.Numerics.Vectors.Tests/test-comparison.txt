@@ -1,0 +1,62 @@
+Test Comparison: System.Numerics.Vectors.Tests
+Generated: 2026-02-01T20:31:01+01:00
+
+Mono tests:    7057
+CoreCLR tests: 7004
+
+=== Extra in CoreCLR (0) ===
+
+=== Missing in CoreCLR (53) ===
+System.Numerics.Tests.GenericVectorTests.AdditionReflectionByte
+System.Numerics.Tests.GenericVectorTests.AdditionReflectionDouble
+System.Numerics.Tests.GenericVectorTests.AdditionReflectionInt16
+System.Numerics.Tests.GenericVectorTests.AdditionReflectionInt32
+System.Numerics.Tests.GenericVectorTests.AdditionReflectionInt64
+System.Numerics.Tests.GenericVectorTests.AdditionReflectionSByte
+System.Numerics.Tests.GenericVectorTests.AdditionReflectionSingle
+System.Numerics.Tests.GenericVectorTests.AdditionReflectionUInt16
+System.Numerics.Tests.GenericVectorTests.AdditionReflectionUInt32
+System.Numerics.Tests.GenericVectorTests.AdditionReflectionUInt64
+System.Numerics.Tests.GenericVectorTests.ConvertInt64ToDoubleWithReflection
+System.Numerics.Tests.GenericVectorTests.ConvertUInt32ToSingleWithReflection
+System.Numerics.Tests.GenericVectorTests.ConvertUInt64ToDoubleWithReflection
+System.Numerics.Tests.GenericVectorTests.CopyToReflectionByte
+System.Numerics.Tests.GenericVectorTests.CopyToReflectionDouble
+System.Numerics.Tests.GenericVectorTests.CopyToReflectionInt16
+System.Numerics.Tests.GenericVectorTests.CopyToReflectionInt32
+System.Numerics.Tests.GenericVectorTests.CopyToReflectionInt64
+System.Numerics.Tests.GenericVectorTests.CopyToReflectionSByte
+System.Numerics.Tests.GenericVectorTests.CopyToReflectionSingle
+System.Numerics.Tests.GenericVectorTests.CopyToReflectionUInt16
+System.Numerics.Tests.GenericVectorTests.CopyToReflectionUInt32
+System.Numerics.Tests.GenericVectorTests.CopyToReflectionUInt64
+System.Numerics.Tests.GenericVectorTests.CopyToWithOffsetReflectionByte
+System.Numerics.Tests.GenericVectorTests.CopyToWithOffsetReflectionDouble
+System.Numerics.Tests.GenericVectorTests.CopyToWithOffsetReflectionInt16
+System.Numerics.Tests.GenericVectorTests.CopyToWithOffsetReflectionInt32
+System.Numerics.Tests.GenericVectorTests.CopyToWithOffsetReflectionInt64
+System.Numerics.Tests.GenericVectorTests.CopyToWithOffsetReflectionSByte
+System.Numerics.Tests.GenericVectorTests.CopyToWithOffsetReflectionSingle
+System.Numerics.Tests.GenericVectorTests.CopyToWithOffsetReflectionUInt16
+System.Numerics.Tests.GenericVectorTests.CopyToWithOffsetReflectionUInt32
+System.Numerics.Tests.GenericVectorTests.CopyToWithOffsetReflectionUInt64
+System.Numerics.Tests.GenericVectorTests.DivisionReflectionByte
+System.Numerics.Tests.GenericVectorTests.DivisionReflectionDouble
+System.Numerics.Tests.GenericVectorTests.DivisionReflectionInt16
+System.Numerics.Tests.GenericVectorTests.DivisionReflectionInt32
+System.Numerics.Tests.GenericVectorTests.DivisionReflectionInt64
+System.Numerics.Tests.GenericVectorTests.DivisionReflectionSByte
+System.Numerics.Tests.GenericVectorTests.DivisionReflectionSingle
+System.Numerics.Tests.GenericVectorTests.DivisionReflectionUInt16
+System.Numerics.Tests.GenericVectorTests.DivisionReflectionUInt32
+System.Numerics.Tests.GenericVectorTests.DivisionReflectionUInt64
+System.Numerics.Tests.GenericVectorTests.MultiplicationReflectionByte
+System.Numerics.Tests.GenericVectorTests.MultiplicationReflectionDouble
+System.Numerics.Tests.GenericVectorTests.MultiplicationReflectionInt16
+System.Numerics.Tests.GenericVectorTests.MultiplicationReflectionInt32
+System.Numerics.Tests.GenericVectorTests.MultiplicationReflectionInt64
+System.Numerics.Tests.GenericVectorTests.MultiplicationReflectionSByte
+System.Numerics.Tests.GenericVectorTests.MultiplicationReflectionSingle
+System.Numerics.Tests.GenericVectorTests.MultiplicationReflectionUInt16
+System.Numerics.Tests.GenericVectorTests.MultiplicationReflectionUInt32
+System.Numerics.Tests.GenericVectorTests.MultiplicationReflectionUInt64

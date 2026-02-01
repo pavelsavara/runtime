@@ -1,0 +1,652 @@
+Running in: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/143.0.0.0 Safari/537.36
+Running at: http://127.0.0.1:39189/index.html?arg=--setenv%3dXHARNESS_LOG_TEST_START%3dtrue&arg=--run&arg=WasmTestRunner.dll&arg=System.Threading.Tests.dll&arg=-notrait&arg=category%3dOuterLoop&arg=-notrait&arg=category%3dfailing&arg=-verbosity&arg=Info
+could not load /runArgs.json: 404. Ignoring
+Incoming arguments: --setenv=XHARNESS_LOG_TEST_START=true --run WasmTestRunner.dll System.Threading.Tests.dll -notrait category=OuterLoop -notrait category=failing -verbosity Info
+Application arguments: --run WasmTestRunner.dll System.Threading.Tests.dll -notrait category=OuterLoop -notrait category=failing -verbosity Info
+Initializing dotnet version 11.0.0 commit hash e31907b0fbca908ed525247a1dc38cc5fba7b0ff
+Using threadless Xunit runner
+Discovering: System.Threading.Tests.dll (method display = ClassAndMethod, method display options = None)
+Discovered:  System.Threading.Tests.dll (found 318 of 360 test cases)
+Starting:    System.Threading.Tests.dll
+[STRT] System.Threading.Tests.AsyncLocalTests.NotifyOnThreadContextChange
+[STRT] System.Threading.Tests.AsyncLocalTests.CaptureAndRestoreEmptyContext
+[STRT] System.Threading.Tests.AsyncLocalTests.NotifyOnValuePropertyChange
+[STRT] System.Threading.Tests.AsyncLocalTests.CaptureAndRestore
+[STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType_NotifyOnChange(count: 1)
+[STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType_NotifyOnChange(count: 2)
+[STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType_NotifyOnChange(count: 3)
+[STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType_NotifyOnChange(count: 4)
+[STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType_NotifyOnChange(count: 5)
+[STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType_NotifyOnChange(count: 6)
+[STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType_NotifyOnChange(count: 7)
+[STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType_NotifyOnChange(count: 8)
+[STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType_NotifyOnChange(count: 9)
+[STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType_NotifyOnChange(count: 10)
+[STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType_NotifyOnChange(count: 11)
+[STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType_NotifyOnChange(count: 12)
+[STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType_NotifyOnChange(count: 13)
+[STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType_NotifyOnChange(count: 14)
+[STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType_NotifyOnChange(count: 15)
+[STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType_NotifyOnChange(count: 16)
+[STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType_NotifyOnChange(count: 17)
+[STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType_NotifyOnChange(count: 18)
+[STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType_NotifyOnChange(count: 19)
+[STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType_NotifyOnChange(count: 20)
+[STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType_NotifyOnChange(count: 21)
+[STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType_NotifyOnChange(count: 22)
+[STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType_NotifyOnChange(count: 23)
+[STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType_NotifyOnChange(count: 24)
+[STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType_NotifyOnChange(count: 25)
+[STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType_NotifyOnChange(count: 26)
+[STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType_NotifyOnChange(count: 27)
+[STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType_NotifyOnChange(count: 28)
+[STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType_NotifyOnChange(count: 29)
+[STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType_NotifyOnChange(count: 30)
+[STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType_NotifyOnChange(count: 31)
+[STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType_NotifyOnChange(count: 32)
+[STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType_NotifyOnChange(count: 33)
+[STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType_NotifyOnChange(count: 34)
+[STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType_NotifyOnChange(count: 35)
+[STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType_NotifyOnChange(count: 36)
+[STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType_NotifyOnChange(count: 37)
+[STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType_NotifyOnChange(count: 38)
+[STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType_NotifyOnChange(count: 39)
+[STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType_NotifyOnChange(count: 40)
+[STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType(count: 1)
+[STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType(count: 2)
+[STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType(count: 3)
+[STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType(count: 4)
+[STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType(count: 5)
+[STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType(count: 6)
+[STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType(count: 7)
+[STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType(count: 8)
+[STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType(count: 9)
+[STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType(count: 10)
+[STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType(count: 11)
+[STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType(count: 12)
+[STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType(count: 13)
+[STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType(count: 14)
+[STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType(count: 15)
+[STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType(count: 16)
+[STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType(count: 17)
+[STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType(count: 18)
+[STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType(count: 19)
+[STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType(count: 20)
+[STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType(count: 21)
+[STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType(count: 22)
+[STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType(count: 23)
+[STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType(count: 24)
+[STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType(count: 25)
+[STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType(count: 26)
+[STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType(count: 27)
+[STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType(count: 28)
+[STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType(count: 29)
+[STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType(count: 30)
+[STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType(count: 31)
+[STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType(count: 32)
+[STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType(count: 33)
+[STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType(count: 34)
+[STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType(count: 35)
+[STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType(count: 36)
+[STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType(count: 37)
+[STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType(count: 38)
+[STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType(count: 39)
+[STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType(count: 40)
+[STRT] System.Threading.Tests.AsyncLocalTests.AsyncMethodNotifications
+[STRT] System.Threading.Tests.AsyncLocalTests.NotifyCountOnObjectValueChange
+[STRT] System.Threading.Tests.AsyncLocalTests.CaptureAndRunOnFlowSuppressedContext
+[STRT] System.Threading.Tests.AsyncLocalTests.ValueProperty
+[STRT] System.Threading.Tests.AsyncLocalTests.NotifyOnThreadContextChangeWithOneEmptyContext
+[STRT] System.Threading.Tests.AsyncLocalTests.CaptureAndRestoreNullAsyncLocals(count: 1)
+[STRT] System.Threading.Tests.AsyncLocalTests.CaptureAndRestoreNullAsyncLocals(count: 2)
+[STRT] System.Threading.Tests.AsyncLocalTests.CaptureAndRestoreNullAsyncLocals(count: 3)
+[STRT] System.Threading.Tests.AsyncLocalTests.CaptureAndRestoreNullAsyncLocals(count: 4)
+[STRT] System.Threading.Tests.AsyncLocalTests.CaptureAndRestoreNullAsyncLocals(count: 5)
+[STRT] System.Threading.Tests.AsyncLocalTests.CaptureAndRestoreNullAsyncLocals(count: 6)
+[STRT] System.Threading.Tests.AsyncLocalTests.CaptureAndRestoreNullAsyncLocals(count: 7)
+[STRT] System.Threading.Tests.AsyncLocalTests.CaptureAndRestoreNullAsyncLocals(count: 8)
+[STRT] System.Threading.Tests.AsyncLocalTests.CaptureAndRestoreNullAsyncLocals(count: 9)
+[STRT] System.Threading.Tests.AsyncLocalTests.CaptureAndRestoreNullAsyncLocals(count: 10)
+[STRT] System.Threading.Tests.AsyncLocalTests.CaptureAndRestoreNullAsyncLocals(count: 11)
+[STRT] System.Threading.Tests.AsyncLocalTests.CaptureAndRestoreNullAsyncLocals(count: 12)
+[STRT] System.Threading.Tests.AsyncLocalTests.CaptureAndRestoreNullAsyncLocals(count: 13)
+[STRT] System.Threading.Tests.AsyncLocalTests.CaptureAndRestoreNullAsyncLocals(count: 14)
+[STRT] System.Threading.Tests.AsyncLocalTests.CaptureAndRestoreNullAsyncLocals(count: 15)
+[STRT] System.Threading.Tests.AsyncLocalTests.CaptureAndRestoreNullAsyncLocals(count: 16)
+[STRT] System.Threading.Tests.AsyncLocalTests.CaptureAndRestoreNullAsyncLocals(count: 17)
+[STRT] System.Threading.Tests.AsyncLocalTests.CaptureAndRestoreNullAsyncLocals(count: 18)
+[STRT] System.Threading.Tests.AsyncLocalTests.CaptureAndRestoreNullAsyncLocals(count: 19)
+[STRT] System.Threading.Tests.AsyncLocalTests.CaptureAndRestoreNullAsyncLocals(count: 20)
+[STRT] System.Threading.Tests.AsyncLocalTests.CaptureAndRestoreNullAsyncLocals(count: 21)
+[STRT] System.Threading.Tests.AsyncLocalTests.CaptureAndRestoreNullAsyncLocals(count: 22)
+[STRT] System.Threading.Tests.AsyncLocalTests.CaptureAndRestoreNullAsyncLocals(count: 23)
+[STRT] System.Threading.Tests.AsyncLocalTests.CaptureAndRestoreNullAsyncLocals(count: 24)
+[STRT] System.Threading.Tests.AsyncLocalTests.CaptureAndRestoreNullAsyncLocals(count: 25)
+[STRT] System.Threading.Tests.AsyncLocalTests.CaptureAndRestoreNullAsyncLocals(count: 26)
+[STRT] System.Threading.Tests.AsyncLocalTests.CaptureAndRestoreNullAsyncLocals(count: 27)
+[STRT] System.Threading.Tests.AsyncLocalTests.CaptureAndRestoreNullAsyncLocals(count: 28)
+[STRT] System.Threading.Tests.AsyncLocalTests.CaptureAndRestoreNullAsyncLocals(count: 29)
+[STRT] System.Threading.Tests.AsyncLocalTests.CaptureAndRestoreNullAsyncLocals(count: 30)
+[STRT] System.Threading.Tests.AsyncLocalTests.CaptureAndRestoreNullAsyncLocals(count: 31)
+[STRT] System.Threading.Tests.AsyncLocalTests.CaptureAndRestoreNullAsyncLocals(count: 32)
+[STRT] System.Threading.Tests.AsyncLocalTests.CaptureAndRestoreNullAsyncLocals(count: 33)
+[STRT] System.Threading.Tests.AsyncLocalTests.CaptureAndRestoreNullAsyncLocals(count: 34)
+[STRT] System.Threading.Tests.AsyncLocalTests.CaptureAndRestoreNullAsyncLocals(count: 35)
+[STRT] System.Threading.Tests.AsyncLocalTests.CaptureAndRestoreNullAsyncLocals(count: 36)
+[STRT] System.Threading.Tests.AsyncLocalTests.CaptureAndRestoreNullAsyncLocals(count: 37)
+[STRT] System.Threading.Tests.AsyncLocalTests.CaptureAndRestoreNullAsyncLocals(count: 38)
+[STRT] System.Threading.Tests.AsyncLocalTests.CaptureAndRestoreNullAsyncLocals(count: 39)
+[STRT] System.Threading.Tests.AsyncLocalTests.CaptureAndRestoreNullAsyncLocals(count: 40)
+[STRT] System.Threading.Tests.AsyncLocalTests.AsyncLocalsUnwind(count: 1)
+[STRT] System.Threading.Tests.AsyncLocalTests.AsyncLocalsUnwind(count: 2)
+[STRT] System.Threading.Tests.AsyncLocalTests.AsyncLocalsUnwind(count: 3)
+[STRT] System.Threading.Tests.AsyncLocalTests.AsyncLocalsUnwind(count: 4)
+[STRT] System.Threading.Tests.AsyncLocalTests.AsyncLocalsUnwind(count: 5)
+[STRT] System.Threading.Tests.AsyncLocalTests.AsyncLocalsUnwind(count: 6)
+[STRT] System.Threading.Tests.AsyncLocalTests.AsyncLocalsUnwind(count: 7)
+[STRT] System.Threading.Tests.AsyncLocalTests.AsyncLocalsUnwind(count: 8)
+[STRT] System.Threading.Tests.AsyncLocalTests.AsyncLocalsUnwind(count: 9)
+[STRT] System.Threading.Tests.AsyncLocalTests.AsyncLocalsUnwind(count: 10)
+[STRT] System.Threading.Tests.AsyncLocalTests.AsyncLocalsUnwind(count: 11)
+[STRT] System.Threading.Tests.AsyncLocalTests.AsyncLocalsUnwind(count: 12)
+[STRT] System.Threading.Tests.AsyncLocalTests.AsyncLocalsUnwind(count: 13)
+[STRT] System.Threading.Tests.AsyncLocalTests.AsyncLocalsUnwind(count: 14)
+[STRT] System.Threading.Tests.AsyncLocalTests.AsyncLocalsUnwind(count: 15)
+[STRT] System.Threading.Tests.AsyncLocalTests.AsyncLocalsUnwind(count: 16)
+[STRT] System.Threading.Tests.AsyncLocalTests.AsyncLocalsUnwind(count: 17)
+[STRT] System.Threading.Tests.AsyncLocalTests.AsyncLocalsUnwind(count: 18)
+[STRT] System.Threading.Tests.AsyncLocalTests.AsyncLocalsUnwind(count: 19)
+[STRT] System.Threading.Tests.AsyncLocalTests.AsyncLocalsUnwind(count: 20)
+[STRT] System.Threading.Tests.AsyncLocalTests.AsyncLocalsUnwind(count: 21)
+[STRT] System.Threading.Tests.AsyncLocalTests.AsyncLocalsUnwind(count: 22)
+[STRT] System.Threading.Tests.AsyncLocalTests.AsyncLocalsUnwind(count: 23)
+[STRT] System.Threading.Tests.AsyncLocalTests.AsyncLocalsUnwind(count: 24)
+[STRT] System.Threading.Tests.AsyncLocalTests.AsyncLocalsUnwind(count: 25)
+[STRT] System.Threading.Tests.AsyncLocalTests.AsyncLocalsUnwind(count: 26)
+[STRT] System.Threading.Tests.AsyncLocalTests.AsyncLocalsUnwind(count: 27)
+[STRT] System.Threading.Tests.AsyncLocalTests.AsyncLocalsUnwind(count: 28)
+[STRT] System.Threading.Tests.AsyncLocalTests.AsyncLocalsUnwind(count: 29)
+[STRT] System.Threading.Tests.AsyncLocalTests.AsyncLocalsUnwind(count: 30)
+[STRT] System.Threading.Tests.AsyncLocalTests.AsyncLocalsUnwind(count: 31)
+[STRT] System.Threading.Tests.AsyncLocalTests.AsyncLocalsUnwind(count: 32)
+[STRT] System.Threading.Tests.AsyncLocalTests.AsyncLocalsUnwind(count: 33)
+[STRT] System.Threading.Tests.AsyncLocalTests.AsyncLocalsUnwind(count: 34)
+[STRT] System.Threading.Tests.AsyncLocalTests.AsyncLocalsUnwind(count: 35)
+[STRT] System.Threading.Tests.AsyncLocalTests.AsyncLocalsUnwind(count: 36)
+[STRT] System.Threading.Tests.AsyncLocalTests.AsyncLocalsUnwind(count: 37)
+[STRT] System.Threading.Tests.AsyncLocalTests.AsyncLocalsUnwind(count: 38)
+[STRT] System.Threading.Tests.AsyncLocalTests.AsyncLocalsUnwind(count: 39)
+[STRT] System.Threading.Tests.AsyncLocalTests.AsyncLocalsUnwind(count: 40)
+[STRT] System.Threading.Tests.AsyncLocalTests.SetValueFromNotification
+[STRT] System.Threading.Tests.AsyncLocalTests.AddAndUpdateManyLocals_ValueType(count: 1)
+[STRT] System.Threading.Tests.AsyncLocalTests.AddAndUpdateManyLocals_ValueType(count: 2)
+[STRT] System.Threading.Tests.AsyncLocalTests.AddAndUpdateManyLocals_ValueType(count: 3)
+[STRT] System.Threading.Tests.AsyncLocalTests.AddAndUpdateManyLocals_ValueType(count: 4)
+[STRT] System.Threading.Tests.AsyncLocalTests.AddAndUpdateManyLocals_ValueType(count: 5)
+[STRT] System.Threading.Tests.AsyncLocalTests.AddAndUpdateManyLocals_ValueType(count: 6)
+[STRT] System.Threading.Tests.AsyncLocalTests.AddAndUpdateManyLocals_ValueType(count: 7)
+[STRT] System.Threading.Tests.AsyncLocalTests.AddAndUpdateManyLocals_ValueType(count: 8)
+[STRT] System.Threading.Tests.AsyncLocalTests.AddAndUpdateManyLocals_ValueType(count: 9)
+[STRT] System.Threading.Tests.AsyncLocalTests.AddAndUpdateManyLocals_ValueType(count: 10)
+[STRT] System.Threading.Tests.AsyncLocalTests.AddAndUpdateManyLocals_ValueType(count: 11)
+[STRT] System.Threading.Tests.AsyncLocalTests.AddAndUpdateManyLocals_ValueType(count: 12)
+[STRT] System.Threading.Tests.AsyncLocalTests.AddAndUpdateManyLocals_ValueType(count: 13)
+[STRT] System.Threading.Tests.AsyncLocalTests.AddAndUpdateManyLocals_ValueType(count: 14)
+[STRT] System.Threading.Tests.AsyncLocalTests.AddAndUpdateManyLocals_ValueType(count: 15)
+[STRT] System.Threading.Tests.AsyncLocalTests.AddAndUpdateManyLocals_ValueType(count: 16)
+[STRT] System.Threading.Tests.AsyncLocalTests.AddAndUpdateManyLocals_ValueType(count: 17)
+[STRT] System.Threading.Tests.AsyncLocalTests.AddAndUpdateManyLocals_ValueType(count: 18)
+[STRT] System.Threading.Tests.AsyncLocalTests.AddAndUpdateManyLocals_ValueType(count: 19)
+[STRT] System.Threading.Tests.AsyncLocalTests.AddAndUpdateManyLocals_ValueType(count: 20)
+[STRT] System.Threading.Tests.AsyncLocalTests.AddAndUpdateManyLocals_ValueType(count: 21)
+[STRT] System.Threading.Tests.AsyncLocalTests.AddAndUpdateManyLocals_ValueType(count: 22)
+[STRT] System.Threading.Tests.AsyncLocalTests.AddAndUpdateManyLocals_ValueType(count: 23)
+[STRT] System.Threading.Tests.AsyncLocalTests.AddAndUpdateManyLocals_ValueType(count: 24)
+[STRT] System.Threading.Tests.AsyncLocalTests.AddAndUpdateManyLocals_ValueType(count: 25)
+[STRT] System.Threading.Tests.AsyncLocalTests.AddAndUpdateManyLocals_ValueType(count: 26)
+[STRT] System.Threading.Tests.AsyncLocalTests.AddAndUpdateManyLocals_ValueType(count: 27)
+[STRT] System.Threading.Tests.AsyncLocalTests.AddAndUpdateManyLocals_ValueType(count: 28)
+[STRT] System.Threading.Tests.AsyncLocalTests.AddAndUpdateManyLocals_ValueType(count: 29)
+[STRT] System.Threading.Tests.AsyncLocalTests.AddAndUpdateManyLocals_ValueType(count: 30)
+[STRT] System.Threading.Tests.AsyncLocalTests.AddAndUpdateManyLocals_ValueType(count: 31)
+[STRT] System.Threading.Tests.AsyncLocalTests.AddAndUpdateManyLocals_ValueType(count: 32)
+[STRT] System.Threading.Tests.AsyncLocalTests.AddAndUpdateManyLocals_ValueType(count: 33)
+[STRT] System.Threading.Tests.AsyncLocalTests.AddAndUpdateManyLocals_ValueType(count: 34)
+[STRT] System.Threading.Tests.AsyncLocalTests.AddAndUpdateManyLocals_ValueType(count: 35)
+[STRT] System.Threading.Tests.AsyncLocalTests.AddAndUpdateManyLocals_ValueType(count: 36)
+[STRT] System.Threading.Tests.AsyncLocalTests.AddAndUpdateManyLocals_ValueType(count: 37)
+[STRT] System.Threading.Tests.AsyncLocalTests.AddAndUpdateManyLocals_ValueType(count: 38)
+[STRT] System.Threading.Tests.AsyncLocalTests.AddAndUpdateManyLocals_ValueType(count: 39)
+[STRT] System.Threading.Tests.AsyncLocalTests.AddAndUpdateManyLocals_ValueType(count: 40)
+[STRT] System.Threading.Tests.AsyncLocalTests.ExecutionContextCopyOnWrite
+[STRT] System.Threading.Tests.AutoResetEventTests.MultiWaitWithAllIndexesResetTest
+[STRT] System.Threading.Tests.AutoResetEventTests.SetAndResetTest
+[STRT] System.Threading.Tests.AutoResetEventTests.MultiWaitWithInnerIndexesSetTest
+[STRT] System.Threading.Tests.AutoResetEventTests.ConstructorAndDisposeTest
+[STRT] System.Threading.Tests.AutoResetEventTests.WaitHandleWaitAny
+[STRT] System.Threading.Tests.AutoResetEventTests.PingPong
+[STRT] System.Threading.Tests.AutoResetEventTests.WaitHandleWaitAll_Invalid
+[STRT] System.Threading.Tests.AutoResetEventTests.MultiWaitWithAllIndexesSetTest
+[STRT] System.Threading.Tests.AutoResetEventTests.WaitTest
+[STRT] System.Threading.Tests.AutoResetEventTests.WaitHandleWaitAny_Invalid
+[STRT] System.Threading.Tests.AutoResetEventTests.WaitHandleWaitAll
+[STRT] System.Threading.Tests.BarrierTests.RunBarrierRemoveParticipantsTests
+[STRT] System.Threading.Tests.BarrierTests.RunBarrierSignalAndWaitTests
+[STRT] System.Threading.Tests.BarrierTests.TooManyParticipants
+[STRT] System.Threading.Tests.BarrierTests.RunBarrierConstructorTests_NegativeTests
+[STRT] System.Threading.Tests.BarrierTests.RunBarrierTest10b
+[STRT] System.Threading.Tests.BarrierTests.RunBarrierTest10c
+[STRT] System.Threading.Tests.BarrierTests.RunBarrierTest6_Dispose
+[STRT] System.Threading.Tests.BarrierTests.RemovingParticipants
+[STRT] System.Threading.Tests.BarrierTests.RunBarrierAddParticipantsTest
+[STRT] System.Threading.Tests.BarrierTests.RunBarrierConstructorTests
+[STRT] System.Threading.Tests.BarrierTests.RemovingWaitingParticipants
+[STRT] System.Threading.Tests.BarrierTests.RunBarrierAddParticipantsTest_NegativeTests
+[STRT] System.Threading.Tests.BarrierTests.PostPhaseException
+[STRT] System.Threading.Tests.BarrierTests.RunBarrierRemoveParticipantsTests_NegativeTests
+[STRT] System.Threading.Tests.BarrierTests.RunBarrierTest8_PostPhaseException
+[STRT] System.Threading.Tests.BarrierTests.SignalBarrierWithoutParticipants
+[STRT] System.Threading.Tests.BarrierTests.RunBarrierTest9_PostPhaseException
+[STRT] System.Threading.Tests.BarrierTests.RunBarrierSignalAndWaitTests_NegativeTests
+[STRT] System.Threading.Tests.BarrierTests.RunBarrierTest7a
+[STRT] System.Threading.Tests.CountdownEventTests.RunCountdownEventTest1_SimpleTimeout
+[STRT] System.Threading.Tests.CountdownEventTests.RunCountdownEventTest0_StateTrans(initCount: 0, increms: 0, takeAllAtOnce: False)
+[STRT] System.Threading.Tests.CountdownEventTests.RunCountdownEventTest0_StateTrans(initCount: 1, increms: 0, takeAllAtOnce: False)
+[STRT] System.Threading.Tests.CountdownEventTests.RunCountdownEventTest0_StateTrans(initCount: 128, increms: 0, takeAllAtOnce: False)
+[STRT] System.Threading.Tests.CountdownEventTests.RunCountdownEventTest0_StateTrans(initCount: 1048576, increms: 0, takeAllAtOnce: False)
+[STRT] System.Threading.Tests.CountdownEventTests.RunCountdownEventTest0_StateTrans(initCount: 1, increms: 1024, takeAllAtOnce: False)
+[STRT] System.Threading.Tests.CountdownEventTests.RunCountdownEventTest0_StateTrans(initCount: 128, increms: 1024, takeAllAtOnce: False)
+[STRT] System.Threading.Tests.CountdownEventTests.RunCountdownEventTest0_StateTrans(initCount: 1048576, increms: 1024, takeAllAtOnce: False)
+[STRT] System.Threading.Tests.CountdownEventTests.RunCountdownEventTest0_StateTrans(initCount: 1, increms: 0, takeAllAtOnce: True)
+[STRT] System.Threading.Tests.CountdownEventTests.RunCountdownEventTest0_StateTrans(initCount: 128, increms: 0, takeAllAtOnce: True)
+[STRT] System.Threading.Tests.CountdownEventTests.RunCountdownEventTest0_StateTrans(initCount: 1048576, increms: 0, takeAllAtOnce: True)
+[STRT] System.Threading.Tests.CountdownEventTests.RunCountdownEventTest0_StateTrans(initCount: 1, increms: 1024, takeAllAtOnce: True)
+[STRT] System.Threading.Tests.CountdownEventTests.RunCountdownEventTest0_StateTrans(initCount: 128, increms: 1024, takeAllAtOnce: True)
+[STRT] System.Threading.Tests.CountdownEventTests.RunCountdownEventTest0_StateTrans(initCount: 1048576, increms: 1024, takeAllAtOnce: True)
+[STRT] System.Threading.Tests.CountdownEventTests.RunCountdownEventTest2_Exceptions
+[STRT] System.Threading.Tests.EtwTests.TestEtw
+[STRT] System.Threading.Tests.EtwTests.WaitHandleWaitEventTest
+[STRT] System.Threading.Tests.EventWaitHandleTests.Ctor_NamesArentSupported_Unix
+[STRT] System.Threading.Tests.EventWaitHandleTests.Ctor_StateMode(initialState: False, mode: AutoReset)
+[STRT] System.Threading.Tests.EventWaitHandleTests.Ctor_StateMode(initialState: False, mode: ManualReset)
+[STRT] System.Threading.Tests.EventWaitHandleTests.Ctor_StateMode(initialState: True, mode: AutoReset)
+[STRT] System.Threading.Tests.EventWaitHandleTests.Ctor_StateMode(initialState: True, mode: ManualReset)
+[STRT] System.Threading.Tests.EventWaitHandleTests.SetReset
+[STRT] System.Threading.Tests.EventWaitHandleTests.Ctor_InvalidMode
+[STRT] System.Threading.Tests.EventWaitHandleTests.OpenExisting_NotSupported_Unix
+[STRT] System.Threading.Tests.HostExecutionContextTests.BasicTest
+[STRT] System.Threading.Tests.HostExecutionContextManagerTests.BasicTest
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedAnd_UInt64
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedExchange_Int16
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedCompareExchange_Int64
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedDecrement_Int64
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedOr_Generic_UInt32(initial: 305419888, operand: 124076833, expected: 393566065)
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedOr_Generic_UInt32(initial: 0, operand: 4294967295, expected: 4294967295)
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedOr_Generic_UInt32(initial: 2863311530, operand: 1431655765, expected: 4294967295)
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedOr_Generic_UInt32(initial: 4294967295, operand: 0, expected: 4294967295)
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedOr_Generic_UInt32(initial: 0, operand: 0, expected: 0)
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedOr_Generic_Int64_NullRef
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedAnd_Generic_SByte_NullRef
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedCompareExchange_Float
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedCompareExchange_Int8
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedDecrement_Int32
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedExchange_BoxedObject
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedExchange_UInt8
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedOr_Generic_Unsupported
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedExchange_IntPtr
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedOr_Generic_UInt16_NullRef
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedCompareExchange_Char
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedIncrement_Multithreaded_Int32
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedCompareExchange_Unsupported
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedAnd_Generic_UInt16_NullRef
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedOr_Generic_Int16_NullRef
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedOr_Generic_Int32_NullRef
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedExchange_Int32
+[STRT] System.Threading.Tests.InterlockedTests.MemoryBarrierProcessWide
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedAnd_Generic_Int64_NullRef
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedExchange_UInt32
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedOr_Generic_Half_ThrowsNotSupported
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedExchange_UInt16
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedExchange_Unsupported
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedIncrement_UInt32
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedAnd_UInt32
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedDecrement_UInt64
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedAnd_Generic_Int16_NullRef
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedCompareExchange_UInt32
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedOr_UInt32
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedOr_Generic_Enum(initial: Sunday, operand: Monday, expected: Monday)
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedOr_Generic_Enum(initial: Monday, operand: Tuesday, expected: Wednesday)
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedOr_Generic_Enum(initial: Sunday, operand: 255, expected: 255)
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedOr_Generic_Enum(initial: 255, operand: Sunday, expected: 255)
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedCompareExchange_UInt64
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedCompareExchange_Int16
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedOr_Int32
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedCompareExchange_IntPtr
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedIncrement_Int32
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedOr_Int64
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedAnd_Generic_UInt64(initial: 305419888, operand: 124076833, expected: 35930656)
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedAnd_Generic_UInt64(initial: 18446744073709551615, operand: 0, expected: 0)
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedAnd_Generic_UInt64(initial: 12297829382473034410, operand: 6148914691236517205, expected: 0)
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedAnd_Generic_UInt64(initial: 18446744073709551615, operand: 18446744073709551615, expected: 18446744073709551615)
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedAnd_Generic_UInt64(initial: 0, operand: 18446744073709551615, expected: 0)
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedOr_Generic_UInt64(initial: 305419888, operand: 124076833, expected: 393566065)
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedOr_Generic_UInt64(initial: 0, operand: 18446744073709551615, expected: 18446744073709551615)
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedOr_Generic_UInt64(initial: 12297829382473034410, operand: 6148914691236517205, expected: 18446744073709551615)
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedOr_Generic_UInt64(initial: 18446744073709551615, operand: 0, expected: 18446744073709551615)
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedOr_Generic_UInt64(initial: 0, operand: 0, expected: 0)
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedAnd_Generic_Unsupported
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedExchange_UInt64
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedCompareExchange_Double
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedOr_Generic_Enum_NullRef
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedOr_Generic_Byte_NullRef
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedAdd_UInt32
+[STRT] System.Threading.Tests.InterlockedTests.MemoryBarrierIntrinsic
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedExchange_Int64
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedAnd_Generic_Float_ThrowsNotSupported
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedRead_UInt64
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedDecrement_UInt32
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedOr_Generic_SByte(initial: 80, operand: 33, expected: 113)
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedOr_Generic_SByte(initial: -128, operand: 127, expected: -1)
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedOr_Generic_SByte(initial: 0, operand: -1, expected: -1)
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedOr_Generic_SByte(initial: -1, operand: 0, expected: -1)
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedOr_Generic_SByte(initial: 0, operand: 0, expected: 0)
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedCompareExchange_Object
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedExchange_Float
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedAnd_Generic_Enum(initial: Wednesday, operand: Monday, expected: Monday)
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedAnd_Generic_Enum(initial: 7, operand: Wednesday, expected: Wednesday)
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedAnd_Generic_Enum(initial: 255, operand: Sunday, expected: Sunday)
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedAnd_Generic_Enum(initial: 255, operand: 255, expected: 255)
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedOr_Generic_Double_ThrowsNotSupported
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedOr_Generic_UInt32_NullRef
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedAnd_Generic_Enum_NullRef
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedCompareExchange_Enum
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedCompareExchange_UIntPtr
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedOr_Generic_Int16(initial: 4660, operand: 20488, expected: 21052)
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedOr_Generic_Int16(initial: -32768, operand: 32767, expected: -1)
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedOr_Generic_Int16(initial: 0, operand: -1, expected: -1)
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedOr_Generic_Int16(initial: -1, operand: 0, expected: -1)
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedOr_Generic_Int16(initial: 0, operand: 0, expected: 0)
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedCompareExchange_Multithreaded_Double
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedAnd_Generic_UInt32_NullRef
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedOr_Generic_SByte_NullRef
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedOr_UInt64
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedCompareExchange_UInt8
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedAnd_Generic_Byte(initial: 240, operand: 60, expected: 48)
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedAnd_Generic_Byte(initial: 255, operand: 0, expected: 0)
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedAnd_Generic_Byte(initial: 170, operand: 85, expected: 0)
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedAnd_Generic_Byte(initial: 255, operand: 255, expected: 255)
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedAnd_Generic_Byte(initial: 0, operand: 255, expected: 0)
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedAdd_Int32
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedAnd_Generic_SByte(initial: 112, operand: 33, expected: 32)
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedAnd_Generic_SByte(initial: -1, operand: 127, expected: 127)
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedAnd_Generic_SByte(initial: -128, operand: 127, expected: 0)
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedAnd_Generic_SByte(initial: -1, operand: -1, expected: -1)
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedAnd_Generic_SByte(initial: 0, operand: -1, expected: 0)
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedIncrement_Int64
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedAnd_Generic_Byte_NullRef
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedRead_Int64
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedExchange_Object
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedCompareExchange_UInt16
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedCompareExchange_Bool
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedAnd_Generic_Int32_NullRef
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedOr_Generic_Int32(initial: 305419888, operand: 124076833, expected: 393566065)
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedOr_Generic_Int32(initial: -2147483648, operand: 2147483647, expected: -1)
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedOr_Generic_Int32(initial: 0, operand: -1, expected: -1)
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedOr_Generic_Int32(initial: -1, operand: 0, expected: -1)
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedOr_Generic_Int32(initial: 0, operand: 0, expected: 0)
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedAdd_UInt64
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedAnd_Generic_UInt16(initial: 4660, operand: 22136, expected: 4656)
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedAnd_Generic_UInt16(initial: 65535, operand: 0, expected: 0)
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedAnd_Generic_UInt16(initial: 43690, operand: 21845, expected: 0)
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedAnd_Generic_UInt16(initial: 65535, operand: 65535, expected: 65535)
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedAnd_Generic_UInt16(initial: 0, operand: 65535, expected: 0)
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedExchange_Double
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedIncrement_UInt64
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedAnd_Int32
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedAnd_Generic_Int32(initial: 305419888, operand: 124076833, expected: 35930656)
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedAnd_Generic_Int32(initial: -1, operand: 2147483647, expected: 2147483647)
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedAnd_Generic_Int32(initial: -2147483648, operand: 2147483647, expected: 0)
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedAnd_Generic_Int32(initial: -1, operand: -1, expected: -1)
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedAnd_Generic_Int32(initial: 0, operand: -1, expected: 0)
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedExchange_UIntPtr
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedCompareExchange_BoxedObject
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedOr_Generic_UInt16(initial: 4660, operand: 20488, expected: 21052)
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedOr_Generic_UInt16(initial: 0, operand: 65535, expected: 65535)
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedOr_Generic_UInt16(initial: 43690, operand: 21845, expected: 65535)
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedOr_Generic_UInt16(initial: 65535, operand: 0, expected: 65535)
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedOr_Generic_UInt16(initial: 0, operand: 0, expected: 0)
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedAnd_Generic_Double_ThrowsNotSupported
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedCompareExchange_Int32
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedAnd_Generic_Half_ThrowsNotSupported
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedAnd_Generic_Int64(initial: 305419888, operand: 124076833, expected: 35930656)
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedAnd_Generic_Int64(initial: -1, operand: 9223372036854775807, expected: 9223372036854775807)
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedAnd_Generic_Int64(initial: -9223372036854775808, operand: 9223372036854775807, expected: 0)
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedAnd_Generic_Int64(initial: -1, operand: -1, expected: -1)
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedAnd_Generic_Int64(initial: 0, operand: -1, expected: 0)
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedAnd_Generic_UInt32(initial: 305419888, operand: 124076833, expected: 35930656)
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedAnd_Generic_UInt32(initial: 4294967295, operand: 0, expected: 0)
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedAnd_Generic_UInt32(initial: 2863311530, operand: 1431655765, expected: 0)
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedAnd_Generic_UInt32(initial: 4294967295, operand: 4294967295, expected: 4294967295)
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedAnd_Generic_UInt32(initial: 0, operand: 4294967295, expected: 0)
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedAnd_Generic_Int16(initial: 4660, operand: 22136, expected: 4656)
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedAnd_Generic_Int16(initial: -1, operand: 32767, expected: 32767)
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedAnd_Generic_Int16(initial: -32768, operand: 32767, expected: 0)
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedAnd_Generic_Int16(initial: -1, operand: -1, expected: -1)
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedAnd_Generic_Int16(initial: 0, operand: -1, expected: 0)
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedExchange_Int8
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedAnd_Generic_UInt64_NullRef
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedAdd_Int64
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedOr_Generic_Float_ThrowsNotSupported
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedOr_Generic_Int64(initial: 305419888, operand: 124076833, expected: 393566065)
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedOr_Generic_Int64(initial: -9223372036854775808, operand: 9223372036854775807, expected: -1)
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedOr_Generic_Int64(initial: 0, operand: -1, expected: -1)
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedOr_Generic_Int64(initial: -1, operand: 0, expected: -1)
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedOr_Generic_Int64(initial: 0, operand: 0, expected: 0)
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedOr_Generic_Byte(initial: 240, operand: 12, expected: 252)
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedOr_Generic_Byte(initial: 0, operand: 255, expected: 255)
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedOr_Generic_Byte(initial: 170, operand: 85, expected: 255)
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedOr_Generic_Byte(initial: 255, operand: 0, expected: 255)
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedOr_Generic_Byte(initial: 0, operand: 0, expected: 0)
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedOr_Generic_UInt64_NullRef
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedAnd_Int64
+[STRT] System.Threading.Tests.InterlockedTests.InterlockedAddAndRead_Multithreaded_Int64
+[STRT] System.Threading.Tests.LockTests.Exit_Invalid
+[STRT] System.Threading.Tests.LockTests.BasicRecursion
+[STRT] System.Threading.Tests.LockTests.IsHeldByCurrentThread_WhenHeldBySomeoneElse
+[STRT] System.Threading.Tests.LockTests.LockStatementWithLockVsMonitor
+[STRT] System.Threading.Tests.LockTests.Enter_HasToWait_LockContentionCountTest
+[STRT] System.Threading.Tests.LockTests.InterruptWaitTest
+[STRT] System.Threading.Tests.LockTests.Exit_WhenHeldBySomeoneElse_ThrowsSynchronizationLockException
+[STRT] System.Threading.Tests.LockTests.IsHeldByCurrentThread
+[STRT] System.Threading.Tests.LockTests.DeepRecursion
+[STRT] System.Threading.Tests.LockTests.TryEnter_Invalid
+[STRT] System.Threading.Tests.LockTests.Enter_HasToWait
+[STRT] System.Threading.Tests.ManualResetEventTests.MultiWaitWithInnerIndexesSetTest
+[STRT] System.Threading.Tests.ManualResetEventTests.SetAndResetTest
+[STRT] System.Threading.Tests.ManualResetEventTests.MultiWaitWithAllIndexesSetTest
+[STRT] System.Threading.Tests.ManualResetEventTests.ConstructorAndDisposeTest
+[STRT] System.Threading.Tests.ManualResetEventTests.PingPong
+[STRT] System.Threading.Tests.ManualResetEventTests.WaitHandleWaitAny
+[STRT] System.Threading.Tests.ManualResetEventTests.MultiWaitWithAllIndexesResetTest
+[STRT] System.Threading.Tests.ManualResetEventTests.WaitTest
+[STRT] System.Threading.Tests.ManualResetEventTests.WaitHandleWaitAll
+[STRT] System.Threading.Tests.ManualResetEventSlimTests.RunManualResetEventSlimTest3_ConstructorTests
+[STRT] System.Threading.Tests.ManualResetEventSlimTests.RunManualResetEventSlimTest0_StateTrans(init: True)
+[STRT] System.Threading.Tests.ManualResetEventSlimTests.RunManualResetEventSlimTest0_StateTrans(init: False)
+[STRT] System.Threading.Tests.ManualResetEventSlimTests.RunManualResetEventSlimTest4_CombinedStateTests
+[STRT] System.Threading.Tests.ManualResetEventSlimTests.RunManualResetEventSlimTest1_SimpleWait
+[STRT] System.Threading.Tests.ManualResetEventSlimTests.RunManualResetEventSlimTest6_Exceptions
+[STRT] System.Threading.Tests.ManualResetEventSlimTests.RunManualResetEventSlimTest5_Dispose_Negative
+[STRT] System.Threading.Tests.ManualResetEventSlimTests.RunManualResetEventSlimTest5_Dispose
+[STRT] System.Threading.Tests.ManualResetEventSlimTests.RunManualResetEventSlimTest2_TimeoutWait
+[STRT] System.Threading.Tests.MonitorTests.Pulse_Invalid
+[STRT] System.Threading.Tests.MonitorTests.IsEntered
+[STRT] System.Threading.Tests.MonitorTests.Exit_Invalid
+[STRT] System.Threading.Tests.MonitorTests.DeepRecursion
+[STRT] System.Threading.Tests.MonitorTests.Enter_HasToWait_LockContentionCountTest
+[STRT] System.Threading.Tests.MonitorTests.ObjectHeaderSyncBlockTransitionTryEnterRaceTest
+[STRT] System.Threading.Tests.MonitorTests.TryEnter_SetsLockTaken
+[STRT] System.Threading.Tests.MonitorTests.Exit_WhenHeldBySomeoneElse_ThrowsSynchronizationLockException
+[STRT] System.Threading.Tests.MonitorTests.Enter_SetsLockTaken
+[STRT] System.Threading.Tests.MonitorTests.BasicRecursion
+[STRT] System.Threading.Tests.MonitorTests.IsEntered_Invalid
+[STRT] System.Threading.Tests.MonitorTests.Enter_Invalid
+[STRT] System.Threading.Tests.MonitorTests.InterruptWaitTest
+[STRT] System.Threading.Tests.MonitorTests.PulseAll_Invalid
+[STRT] System.Threading.Tests.MonitorTests.Wait_Invalid
+[STRT] System.Threading.Tests.MonitorTests.TryEnter_Invalid
+[STRT] System.Threading.Tests.MonitorTests.WaitTest
+[STRT] System.Threading.Tests.MonitorTests.IsEntered_WhenHeldBySomeoneElse
+[STRT] System.Threading.Tests.MonitorTests.Enter_HasToWait
+[STRT] System.Threading.Tests.MutexTests.OpenExisting_UnavailableName
+[STRT] System.Threading.Tests.MutexTests.MultiWaitWithAllIndexesUnlockedTest
+[STRT] System.Threading.Tests.MutexTests.Ctor_ValidName(name: "237305cbff7148fb92a6c83d539680e4")
+[STRT] System.Threading.Tests.MutexTests.Ctor_ValidName(name: "cb7c44f332b949e7b2e757b355b39067aaaaaaaaaaaaaaaaaa"···)
+[STRT] System.Threading.Tests.MutexTests.WaitTest
+[STRT] System.Threading.Tests.MutexTests.NamedMutex_InvalidSharedMemoryHeaderVersion
+[STRT] System.Threading.Tests.MutexTests.NamedMutex_SharedMemoryFileAlreadyOpen
+[STRT] System.Threading.Tests.MutexTests.NameOptionsApiCompatibilityTest(namePrefix: "")
+[STRT] System.Threading.Tests.MutexTests.NameOptionsApiCompatibilityTest(namePrefix: "Local\\")
+[STRT] System.Threading.Tests.MutexTests.NameOptionsApiCompatibilityTest(namePrefix: "Global\\")
+[STRT] System.Threading.Tests.MutexTests.OpenExisting
+[STRT] System.Threading.Tests.MutexTests.MutualExclusionTest
+[STRT] System.Threading.Tests.MutexTests.AcquireAndReleaseTest
+[STRT] System.Threading.Tests.MutexTests.Ctor_InvalidNames_Unix
+[STRT] System.Threading.Tests.MutexTests.MultiWaitWithOuterIndexesLockedTest
+[STRT] System.Threading.Tests.MutexTests.NamedMutex_TooSmallSharedMemoryFile
+[STRT] System.Threading.Tests.MutexTests.MultiWaitWithAllIndexesLockedTest
+[STRT] System.Threading.Tests.MutexTests.NamedMutex_DisposeWhenLockedRaceTest
+[STRT] System.Threading.Tests.MutexTests.NamedWaitHandleOptionsTest
+[STRT] System.Threading.Tests.MutexTests.NamedMutex_InvalidSharedMemoryHeaderKind
+[STRT] System.Threading.Tests.MutexTests.NamePrefixAndOptionsCompatibilityTest(currentUserOnly: False, currentSessionOnly: False, namePrefix: "")
+[STRT] System.Threading.Tests.MutexTests.NamePrefixAndOptionsCompatibilityTest(currentUserOnly: False, currentSessionOnly: False, namePrefix: "Local\\")
+[STRT] System.Threading.Tests.MutexTests.NamePrefixAndOptionsCompatibilityTest(currentUserOnly: False, currentSessionOnly: False, namePrefix: "Global\\")
+[STRT] System.Threading.Tests.MutexTests.NamePrefixAndOptionsCompatibilityTest(currentUserOnly: False, currentSessionOnly: True, namePrefix: "")
+[STRT] System.Threading.Tests.MutexTests.NamePrefixAndOptionsCompatibilityTest(currentUserOnly: False, currentSessionOnly: True, namePrefix: "Local\\")
+[STRT] System.Threading.Tests.MutexTests.NamePrefixAndOptionsCompatibilityTest(currentUserOnly: False, currentSessionOnly: True, namePrefix: "Global\\")
+[STRT] System.Threading.Tests.MutexTests.NamePrefixAndOptionsCompatibilityTest(currentUserOnly: True, currentSessionOnly: False, namePrefix: "")
+[STRT] System.Threading.Tests.MutexTests.NamePrefixAndOptionsCompatibilityTest(currentUserOnly: True, currentSessionOnly: False, namePrefix: "Local\\")
+[STRT] System.Threading.Tests.MutexTests.NamePrefixAndOptionsCompatibilityTest(currentUserOnly: True, currentSessionOnly: False, namePrefix: "Global\\")
+[STRT] System.Threading.Tests.MutexTests.NamePrefixAndOptionsCompatibilityTest(currentUserOnly: True, currentSessionOnly: True, namePrefix: "")
+[STRT] System.Threading.Tests.MutexTests.NamePrefixAndOptionsCompatibilityTest(currentUserOnly: True, currentSessionOnly: True, namePrefix: "Local\\")
+[STRT] System.Threading.Tests.MutexTests.NamePrefixAndOptionsCompatibilityTest(currentUserOnly: True, currentSessionOnly: True, namePrefix: "Global\\")
+[STRT] System.Threading.Tests.MutexTests.AbandonExisting
+[STRT] System.Threading.Tests.MutexTests.NamedMutex_OtherEvent_NotCompatible
+[STRT] System.Threading.Tests.MutexTests.CrossProcess_NamedMutex_ProtectedFileAccessAtomic
+[STRT] System.Threading.Tests.MutexTests.ConstructorAndDisposeTest
+[STRT] System.Threading.Tests.MutexTests.NameNamespaceTest(create_currentUserOnly: False, create_currentSessionOnly: False, open_currentUserOnly: False, open_currentSessionOnly: False)
+[STRT] System.Threading.Tests.MutexTests.NameNamespaceTest(create_currentUserOnly: False, create_currentSessionOnly: False, open_currentUserOnly: False, open_currentSessionOnly: True)
+[STRT] System.Threading.Tests.MutexTests.NameNamespaceTest(create_currentUserOnly: False, create_currentSessionOnly: False, open_currentUserOnly: True, open_currentSessionOnly: False)
+[STRT] System.Threading.Tests.MutexTests.NameNamespaceTest(create_currentUserOnly: False, create_currentSessionOnly: False, open_currentUserOnly: True, open_currentSessionOnly: True)
+[STRT] System.Threading.Tests.MutexTests.NameNamespaceTest(create_currentUserOnly: False, create_currentSessionOnly: True, open_currentUserOnly: False, open_currentSessionOnly: False)
+[STRT] System.Threading.Tests.MutexTests.NameNamespaceTest(create_currentUserOnly: False, create_currentSessionOnly: True, open_currentUserOnly: False, open_currentSessionOnly: True)
+[STRT] System.Threading.Tests.MutexTests.NameNamespaceTest(create_currentUserOnly: False, create_currentSessionOnly: True, open_currentUserOnly: True, open_currentSessionOnly: False)
+[STRT] System.Threading.Tests.MutexTests.NameNamespaceTest(create_currentUserOnly: False, create_currentSessionOnly: True, open_currentUserOnly: True, open_currentSessionOnly: True)
+[STRT] System.Threading.Tests.MutexTests.NameNamespaceTest(create_currentUserOnly: True, create_currentSessionOnly: False, open_currentUserOnly: False, open_currentSessionOnly: False)
+[STRT] System.Threading.Tests.MutexTests.NameNamespaceTest(create_currentUserOnly: True, create_currentSessionOnly: False, open_currentUserOnly: False, open_currentSessionOnly: True)
+[STRT] System.Threading.Tests.MutexTests.NameNamespaceTest(create_currentUserOnly: True, create_currentSessionOnly: False, open_currentUserOnly: True, open_currentSessionOnly: False)
+[STRT] System.Threading.Tests.MutexTests.NameNamespaceTest(create_currentUserOnly: True, create_currentSessionOnly: False, open_currentUserOnly: True, open_currentSessionOnly: True)
+[STRT] System.Threading.Tests.MutexTests.NameNamespaceTest(create_currentUserOnly: True, create_currentSessionOnly: True, open_currentUserOnly: False, open_currentSessionOnly: False)
+[STRT] System.Threading.Tests.MutexTests.NameNamespaceTest(create_currentUserOnly: True, create_currentSessionOnly: True, open_currentUserOnly: False, open_currentSessionOnly: True)
+[STRT] System.Threading.Tests.MutexTests.NameNamespaceTest(create_currentUserOnly: True, create_currentSessionOnly: True, open_currentUserOnly: True, open_currentSessionOnly: False)
+[STRT] System.Threading.Tests.MutexTests.NameNamespaceTest(create_currentUserOnly: True, create_currentSessionOnly: True, open_currentUserOnly: True, open_currentSessionOnly: True)
+[STRT] System.Threading.Tests.MutexTests.OpenExisting_InvalidNames
+[STRT] System.Threading.Tests.SemaphoreSlimTests.RunSemaphoreSlimTest2_Release_NegativeCases
+[STRT] System.Threading.Tests.SemaphoreSlimTests.RunSemaphoreSlimTest0_Ctor_Negative
+[STRT] System.Threading.Tests.SemaphoreSlimTests.RunSemaphoreSlimTest2_Release
+[STRT] System.Threading.Tests.SemaphoreSlimTests.RunSemaphoreSlimTest1_Wait
+[STRT] System.Threading.Tests.SemaphoreSlimTests.TestConcurrentWaitAndWaitAsync
+[STRT] System.Threading.Tests.SemaphoreSlimTests.RunSemaphoreSlimTest8_ConcWaitAsyncAndRelease
+[STRT] System.Threading.Tests.SemaphoreSlimTests.RunSemaphoreSlimTest5_CurrentCount
+[STRT] System.Threading.Tests.SemaphoreSlimTests.RunSemaphoreSlimTest1_WaitAsync
+[STRT] System.Threading.Tests.SemaphoreSlimTests.RunSemaphoreSlimTest1_Wait_NegativeCases
+[STRT] System.Threading.Tests.SemaphoreSlimTests.RunSemaphoreSlimTest0_Ctor
+[STRT] System.Threading.Tests.SemaphoreSlimTests.RunSemaphoreSlimTest4_Dispose
+[STRT] System.Threading.Tests.SemaphoreSlimTests.RunSemaphoreSlimTest7_AvailableWaitHandle
+[STRT] System.Threading.Tests.SemaphoreSlimTests.WaitAsync_Timeout_NoUnhandledException
+[STRT] System.Threading.Tests.SemaphoreSlimTests.RunSemaphoreSlimTest8_ConcWaitAndRelease
+[STRT] System.Threading.Tests.SemaphoreTests.Ctor_InitialAndMax(initialCount: 0, maximumCount: 1)
+[STRT] System.Threading.Tests.SemaphoreTests.Ctor_InitialAndMax(initialCount: 1, maximumCount: 1)
+[STRT] System.Threading.Tests.SemaphoreTests.Ctor_InitialAndMax(initialCount: 1, maximumCount: 2)
+[STRT] System.Threading.Tests.SemaphoreTests.Ctor_InitialAndMax(initialCount: 0, maximumCount: 2147483647)
+[STRT] System.Threading.Tests.SemaphoreTests.Ctor_InitialAndMax(initialCount: 2147483647, maximumCount: 2147483647)
+[STRT] System.Threading.Tests.SemaphoreTests.SignalAndUnsignalTest
+[STRT] System.Threading.Tests.SemaphoreTests.MultiWaitWithInnerIndexesSignaled
+[STRT] System.Threading.Tests.SemaphoreTests.WaitTest
+[STRT] System.Threading.Tests.SemaphoreTests.AnonymousProducerConsumer
+[STRT] System.Threading.Tests.SemaphoreTests.CanWaitWithoutBlockingForReleasedCount
+[STRT] System.Threading.Tests.SemaphoreTests.Ctor_NamesArentSupported_Unix
+[STRT] System.Threading.Tests.SemaphoreTests.MultiWaitWithAllIndexesUnsignaled
+[STRT] System.Threading.Tests.SemaphoreTests.MultiWaitWithAllIndexesSignaledTest
+[STRT] System.Threading.Tests.SemaphoreTests.ConstructorAndDisposeTest
+[STRT] System.Threading.Tests.SemaphoreTests.Ctor_InvalidArguments
+[STRT] System.Threading.Tests.SemaphoreTests.CanWaitWithoutBlockingUntilNoCount
+[STRT] System.Threading.Tests.SemaphoreTests.OpenExisting_NotSupported_Unix
+[STRT] System.Threading.Tests.SpinLockTests.RunSpinLockTests_NegativeTests
+[STRT] System.Threading.Tests.SpinLockTests.EnterExit
+[STRT] System.Threading.Tests.SpinLockTests.RunSpinLockTestExceptions
+[STRT] System.Threading.Tests.ReaderWriterLockTests.WaitingReadersTest
+[STRT] System.Threading.Tests.ReaderWriterLockTests.ShouldNotBeOwnerForRestoreLockTest
+[STRT] System.Threading.Tests.ReaderWriterLockTests.MultipleNestedReadersMiscellaneousTest
+[STRT] System.Threading.Tests.ReaderWriterLockTests.NotOwnerTest
+[STRT] System.Threading.Tests.ReaderWriterLockTests.AtomicDowngradeTest
+[STRT] System.Threading.Tests.ReaderWriterLockTests.OverflowOnExcessiveNestedReaderLock
+[STRT] System.Threading.Tests.ReaderWriterLockTests.ReadersWaitingOnWaitingWriterTest
+[STRT] System.Threading.Tests.ReaderWriterLockTests.SingleThreadLockOwnerMiscellaneousTest
+[STRT] System.Threading.Tests.ReaderWriterLockTests.BasicLockTest
+[STRT] System.Threading.Tests.ReaderWriterLockTests.InvalidTimeoutTest_ChangedInDotNetCore
+[STRT] System.Threading.Tests.ReaderWriterLockTests.DowngradeQuirks_ChangedInDotNetCore
+[STRT] System.Threading.Tests.ReaderWriterLockTests.InvalidLockCookieTest
+[STRT] System.Threading.Tests.ReaderWriterLockTests.OverflowOnExcessiveNestedWriterLock
+[STRT] System.Threading.Tests.ReaderWriterLockTests.WaitingWritersTest
+[STRT] System.Threading.Tests.ReaderWriterLockTests.AtomicRecursiveReaderTest
+[STRT] System.Threading.Tests.ReaderWriterLockTests.ReadersWaitingOnWaitingUpgraderTest
+[STRT] System.Threading.Tests.ReaderWriterLockTests.WaitingUpgradersTest
+[STRT] System.Threading.Tests.ReaderWriterLockSlimTests.InvalidTimeouts
+[STRT] System.Threading.Tests.ReaderWriterLockSlimTests.Dispose
+[STRT] System.Threading.Tests.ReaderWriterLockSlimTests.InvalidExits
+[STRT] System.Threading.Tests.ReaderWriterLockSlimTests.Ctor
+[STRT] System.Threading.Tests.ReaderWriterLockSlimTests.WriterToReaderChain
+[STRT] System.Threading.Tests.ReaderWriterLockSlimTests.WriterToUpgradeableReaderChain
+[STRT] System.Threading.Tests.ReaderWriterLockSlimTests.WritersAreMutuallyExclusiveFromWriters
+[STRT] System.Threading.Tests.ReaderWriterLockSlimTests.DeadlockAvoidance
+[STRT] System.Threading.Tests.ReaderWriterLockSlimTests.WritersAreMutuallyExclusiveFromReaders
+[STRT] System.Threading.Tests.ReaderWriterLockSlimTests.EnterExit
+[STRT] System.Threading.Tests.ReaderWriterLockSlimTests.ReadersMayBeConcurrent
+[STRT] System.Threading.Tests.ReaderWriterLockSlimTests.WriterToWriterChain
+[STRT] System.Threading.Tests.SpinWaitTests.RunSpinWaitTests_Negative
+[STRT] System.Threading.Tests.SpinWaitTests.RunSpinWaitTests
+[STRT] System.Threading.Tests.SpinWaitTests.SpinOnce_Sleep1Threshold
+[STRT] System.Threading.Tests.ThreadLocalTests.RunThreadLocalTest5_Dispose
+[STRT] System.Threading.Tests.ThreadLocalTests.RunThreadLocalTest1_Ctor_Negative
+[STRT] System.Threading.Tests.ThreadLocalTests.RunThreadLocalTest4_Value_NegativeCases
+[STRT] System.Threading.Tests.ThreadLocalTests.RunThreadLocalTest2_ToString
+[STRT] System.Threading.Tests.ThreadLocalTests.RunThreadLocalTest9_Uninitialized
+[STRT] System.Threading.Tests.ThreadLocalTests.RunThreadLocalTest8_Values_NegativeCases
+[STRT] System.Threading.Tests.ThreadLocalTests.RunThreadLocalTest6_SlowPath
+[STRT] System.Threading.Tests.ThreadLocalTests.RunThreadLocalTest4_Value
+[STRT] System.Threading.Tests.ThreadLocalTests.RunThreadLocalTest3_IsValueCreated
+[STRT] System.Threading.Tests.ThreadLocalTests.RunThreadLocalTest1_Ctor
+[STRT] System.Threading.Tests.ThreadLocalTests.RunThreadLocalTest5_Dispose_Negative
+[STRT] System.Threading.Tests.ThreadLocalTests.RunThreadLocalTest7_WeakReference
+[STRT] System.Threading.Tests.ThreadLocalTests.TestUnrelatedThreadLocalDoesNotInterfereWithTrackAllValues
+[STRT] System.Threading.Tests.ThreadLocalTests.RunThreadLocalTest8_Values
+[STRT] System.Threading.Tests.ExecutionContextTests.DisposeTest
+[STRT] System.Threading.Tests.ExecutionContextTests.CreateCopyTest
+[STRT] System.Threading.Tests.ExecutionContextTests.FlowTest
+[STRT] System.Threading.Tests.ExecutionContextTests.RestoreTest
+[STRT] System.Threading.Tests.ExecutionContextTests.AsyncFlowControlTest
+[STRT] System.Threading.Tests.ExecutionContextTests.CaptureThenSuppressThenRunFlowTest
+[STRT] System.Threading.Tests.SynchronizationContextTests.WaitTest_ChangedInDotNetCore
+[STRT] System.Threading.Tests.SynchronizationContextTests.WaitTest
+[STRT] System.Threading.Tests.SynchronizationContextTests.WaitNotificationTest
+Finished:    System.Threading.Tests.dll
+Finished uploading 150329 bytes of RESULTXML
+Xml file was written to the provided writer.
+
+=== TEST EXECUTION SUMMARY ===
+Tests run: 632 Passed: 545 Inconclusive: 0 Failed: 0 Ignored: 0 Skipped: 87
+
+test-main.js exiting WasmTestRunner.dll System.Threading.Tests.dll after 1.0542333333333334 minutes with result 0 and linear memory 193331200 bytes
+DOTNET: forceDisposeProxies done: 14 imports, 0 exports, 0 GCHandles, 0 JSHandles.
+WASM EXIT 0

@@ -1,0 +1,633 @@
+Running in: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/143.0.0.0 Safari/537.36
+Running at: http://127.0.0.1:34777/index.html?arg=--setenv%3dXHARNESS_LOG_TEST_START%3dtrue&arg=--run&arg=WasmTestRunner.dll&arg=System.Linq.AsyncEnumerable.Tests.dll&arg=-notrait&arg=category%3dOuterLoop&arg=-notrait&arg=category%3dfailing&arg=-verbosity&arg=Info
+could not load /runArgs.json: 404. Ignoring
+Incoming arguments: --setenv=XHARNESS_LOG_TEST_START=true --run WasmTestRunner.dll System.Linq.AsyncEnumerable.Tests.dll -notrait category=OuterLoop -notrait category=failing -verbosity Info
+Application arguments: --run WasmTestRunner.dll System.Linq.AsyncEnumerable.Tests.dll -notrait category=OuterLoop -notrait category=failing -verbosity Info
+Initializing dotnet version 11.0.0 commit hash e31907b0fbca908ed525247a1dc38cc5fba7b0ff
+Using threadless Xunit runner
+Discovering: System.Linq.AsyncEnumerable.Tests.dll (method display = ClassAndMethod, method display options = None)
+Discovered:  System.Linq.AsyncEnumerable.Tests.dll (found 375 of 375 test cases)
+Starting:    System.Linq.AsyncEnumerable.Tests.dll
+[STRT] System.Linq.Tests.SelectManyTests.Cancellation_Cancels
+[STRT] System.Linq.Tests.SelectManyTests.InvalidInputs_Throws
+[STRT] System.Linq.Tests.SelectManyTests.Empty_ProducesEmpty
+[STRT] System.Linq.Tests.SelectManyTests.Callbacks_InvokedOnOriginalContext
+[STRT] System.Linq.Tests.SelectManyTests.InterfaceCalls_ExpectedCounts
+[STRT] System.Linq.Tests.SelectManyTests.VariousValues_MatchesEnumerable
+[STRT] System.Linq.Tests.ConcatTests.ConcatWithAppendPrepend_WorksCorrectly
+[STRT] System.Linq.Tests.ConcatTests.Empty_ProducesEmpty
+[STRT] System.Linq.Tests.ConcatTests.Cancellation_Cancels
+[STRT] System.Linq.Tests.ConcatTests.ParallelEnumeration_ConcatClones
+[STRT] System.Linq.Tests.ConcatTests.DisposeBeforeComplete_DoesNotThrow
+[STRT] System.Linq.Tests.ConcatTests.ChainedConcat_ProducesCorrectSequence(concatCount: 2)
+[STRT] System.Linq.Tests.ConcatTests.ChainedConcat_ProducesCorrectSequence(concatCount: 3)
+[STRT] System.Linq.Tests.ConcatTests.ChainedConcat_ProducesCorrectSequence(concatCount: 5)
+[STRT] System.Linq.Tests.ConcatTests.ChainedConcat_ProducesCorrectSequence(concatCount: 10)
+[STRT] System.Linq.Tests.ConcatTests.InterfaceCalls_ExpectedCounts
+[STRT] System.Linq.Tests.ConcatTests.MultipleEnumerations_ProducesSameResults
+[STRT] System.Linq.Tests.ConcatTests.InvalidInputs_Throws
+[STRT] System.Linq.Tests.ConcatTests.VariousValues_MatchesEnumerable(first: [], second: [])
+[STRT] System.Linq.Tests.ConcatTests.VariousValues_MatchesEnumerable(first: [], second: [42])
+[STRT] System.Linq.Tests.ConcatTests.VariousValues_MatchesEnumerable(first: [42, 43], second: [])
+[STRT] System.Linq.Tests.ConcatTests.VariousValues_MatchesEnumerable(first: [1], second: [2, 3])
+[STRT] System.Linq.Tests.ConcatTests.VariousValues_MatchesEnumerable(first: [2, 4, 8], second: [3, 5])
+[STRT] System.Linq.Tests.ConcatTests.VariousValues_MatchesEnumerable(first: [2, 4, 8], second: [2, 4, 8])
+[STRT] System.Linq.Tests.ConcatTests.VariousValues_MatchesEnumerable(first: [2, 4, 8], second: [2, 5, 8])
+[STRT] System.Linq.Tests.ConcatTests.VariousValues_MatchesEnumerable(first: [-1, 2, 5, 6, 7, ···], second: [-2147483648, 2147483647])
+[STRT] System.Linq.Tests.ConcatTests.LongConcatChain_WorksCorrectly
+[STRT] System.Linq.Tests.ConcatTests.ConcatEmptySequences_ReturnsEmpty
+[STRT] System.Linq.Tests.ConcatTests.MultipleConcat_Coalesced
+[STRT] System.Linq.Tests.ConcatTests.Concat_TransitionsCorrectlyBetweenSources
+[STRT] System.Linq.Tests.DistinctByTests.Cancellation_Cancels
+[STRT] System.Linq.Tests.DistinctByTests.InvalidInputs_Throws
+[STRT] System.Linq.Tests.DistinctByTests.Empty_ProducesEmpty
+[STRT] System.Linq.Tests.DistinctByTests.Callbacks_InvokedOnOriginalContext
+[STRT] System.Linq.Tests.DistinctByTests.InterfaceCalls_ExpectedCounts(useAsync: False)
+[STRT] System.Linq.Tests.DistinctByTests.InterfaceCalls_ExpectedCounts(useAsync: True)
+[STRT] System.Linq.Tests.DistinctByTests.VariousValues_MatchesEnumerable(values: [])
+[STRT] System.Linq.Tests.DistinctByTests.VariousValues_MatchesEnumerable(values: [1])
+[STRT] System.Linq.Tests.DistinctByTests.VariousValues_MatchesEnumerable(values: [1, 1, 1, 2, 2, ···])
+[STRT] System.Linq.Tests.DistinctByTests.VariousValues_MatchesEnumerable(values: [2, 4, 8])
+[STRT] System.Linq.Tests.DistinctByTests.VariousValues_MatchesEnumerable(values: [2, 4, 8, 2, 4, ···])
+[STRT] System.Linq.Tests.DistinctByTests.VariousValues_MatchesEnumerable(values: [-1, 2, 5, 6, 7, ···])
+[STRT] System.Linq.Tests.SequenceTests.Numbers_ProduceExpectedSequence
+[STRT] System.Linq.Tests.SequenceTests.InvalidArguments_Throws
+[STRT] System.Linq.Tests.SequenceTests.EndOutOfRange_Throws
+[STRT] System.Linq.Tests.SequenceTests.SmallIntegers_ProducesFullRange
+[STRT] System.Linq.Tests.SequenceTests.FloatingPoints_ProduceExpectedSequence
+[STRT] System.Linq.Tests.SequenceTests.Step1_MatchesRange
+[STRT] System.Linq.Tests.SequenceTests.MultipleGetEnumeratorCalls_ReturnsUniqueInstances
+[STRT] System.Linq.Tests.SingleOrDefaultAsyncTests.VariousValues_MatchesEnumerable(values: [1])
+[STRT] System.Linq.Tests.SingleOrDefaultAsyncTests.VariousValues_MatchesEnumerable(values: [2, 4, 8])
+[STRT] System.Linq.Tests.SingleOrDefaultAsyncTests.VariousValues_MatchesEnumerable(values: [-1, 2, 5, 6, 7, ···])
+[STRT] System.Linq.Tests.SingleOrDefaultAsyncTests.VariousValues_MatchesEnumerable(values: [1, 3, 5, 7])
+[STRT] System.Linq.Tests.SingleOrDefaultAsyncTests.InvalidInputs_Throws
+[STRT] System.Linq.Tests.SingleOrDefaultAsyncTests.EmptyInputs_DefaultValueReturned
+[STRT] System.Linq.Tests.SingleOrDefaultAsyncTests.InterfaceCalls_ExpectedCounts
+[STRT] System.Linq.Tests.SingleOrDefaultAsyncTests.Cancellation_Cancels
+[STRT] System.Linq.Tests.SingleOrDefaultAsyncTests.DoubleInputs_Throws
+[STRT] System.Linq.Tests.OrderByTests.Cancellation_Cancels
+[STRT] System.Linq.Tests.OrderByTests.InvalidInputs_Throws
+[STRT] System.Linq.Tests.OrderByTests.Empty_ProducesEmpty
+[STRT] System.Linq.Tests.OrderByTests.Callbacks_InvokedOnOriginalContext
+[STRT] System.Linq.Tests.OrderByTests.InterfaceCalls_ExpectedCounts
+[STRT] System.Linq.Tests.OrderByTests.VariousValues_MatchesEnumerable_String
+[STRT] System.Linq.Tests.OrderByTests.VariousValues_MatchesEnumerable_Int32
+[STRT] System.Linq.Tests.GroupByTests.Cancellation_Cancels
+[STRT] System.Linq.Tests.GroupByTests.InvalidInputs_Throws
+[STRT] System.Linq.Tests.GroupByTests.Empty_ProducesEmpty
+[STRT] System.Linq.Tests.GroupByTests.IGrouping_ImplementsIList
+[STRT] System.Linq.Tests.GroupByTests.InterfaceCalls_ExpectedCounts
+[STRT] System.Linq.Tests.GroupByTests.VariousValues_MatchesEnumerable_String
+[STRT] System.Linq.Tests.ReverseTests.Cancellation_Cancels
+[STRT] System.Linq.Tests.ReverseTests.InvalidInputs_Throws
+[STRT] System.Linq.Tests.ReverseTests.Empty_ProducesEmpty
+[STRT] System.Linq.Tests.ReverseTests.InterfaceCalls_ExpectedCounts
+[STRT] System.Linq.Tests.ReverseTests.VariousValues_MatchesEnumerable(values: [])
+[STRT] System.Linq.Tests.ReverseTests.VariousValues_MatchesEnumerable(values: [1])
+[STRT] System.Linq.Tests.ReverseTests.VariousValues_MatchesEnumerable(values: [2, 4, 8])
+[STRT] System.Linq.Tests.ReverseTests.VariousValues_MatchesEnumerable(values: [-1, 2, 5, 6, 7, ···])
+[STRT] System.Linq.Tests.AppendTests.VeryLongAppendChain_MatchesBenchmarkScenario
+[STRT] System.Linq.Tests.AppendTests.VariousValues_MatchesEnumerable(values: [])
+[STRT] System.Linq.Tests.AppendTests.VariousValues_MatchesEnumerable(values: [1])
+[STRT] System.Linq.Tests.AppendTests.VariousValues_MatchesEnumerable(values: [2, 4, 8])
+[STRT] System.Linq.Tests.AppendTests.VariousValues_MatchesEnumerable(values: [-1, 2, 5, 6, 7, ···])
+[STRT] System.Linq.Tests.AppendTests.InterfaceCalls_ExpectedCounts
+[STRT] System.Linq.Tests.AppendTests.ParallelEnumeration_AppendClones
+[STRT] System.Linq.Tests.AppendTests.AppendOnEmptySource_WorksCorrectly
+[STRT] System.Linq.Tests.AppendTests.AppendThenPrepend_Coalesced
+[STRT] System.Linq.Tests.AppendTests.MultipleAppends_Coalesced
+[STRT] System.Linq.Tests.AppendTests.MultipleEnumerations_ProducesSameResults
+[STRT] System.Linq.Tests.AppendTests.InvalidInputs_Throws
+[STRT] System.Linq.Tests.AppendTests.Cancellation_Cancels
+[STRT] System.Linq.Tests.AppendTests.LongAppendChain_WorksCorrectly
+[STRT] System.Linq.Tests.AppendTests.DisposeBeforeComplete_DoesNotThrow
+[STRT] System.Linq.Tests.AppendTests.ChainedAppends_ProducesCorrectSequence(appendCount: 1)
+[STRT] System.Linq.Tests.AppendTests.ChainedAppends_ProducesCorrectSequence(appendCount: 2)
+[STRT] System.Linq.Tests.AppendTests.ChainedAppends_ProducesCorrectSequence(appendCount: 5)
+[STRT] System.Linq.Tests.AppendTests.ChainedAppends_ProducesCorrectSequence(appendCount: 10)
+[STRT] System.Linq.Tests.AppendTests.PrependAfterAppend_BothWork
+[STRT] System.Linq.Tests.AggregateAsyncTests.Cancellation_Cancels
+[STRT] System.Linq.Tests.AggregateAsyncTests.InvalidInputs_Throws
+[STRT] System.Linq.Tests.AggregateAsyncTests.VariousValues_MatchesEnumerable_Int32(values: [])
+[STRT] System.Linq.Tests.AggregateAsyncTests.VariousValues_MatchesEnumerable_Int32(values: [1])
+[STRT] System.Linq.Tests.AggregateAsyncTests.VariousValues_MatchesEnumerable_Int32(values: [2, 4, 8])
+[STRT] System.Linq.Tests.AggregateAsyncTests.VariousValues_MatchesEnumerable_Int32(values: [-1, 2, 5, 6, 7, ···])
+[STRT] System.Linq.Tests.AggregateAsyncTests.Callbacks_InvokedOnOriginalContext
+[STRT] System.Linq.Tests.AggregateAsyncTests.InterfaceCalls_ExpectedCounts
+[STRT] System.Linq.Tests.AggregateAsyncTests.VariousValues_MatchesEnumerable_String(values: [])
+[STRT] System.Linq.Tests.AggregateAsyncTests.VariousValues_MatchesEnumerable_String(values: ["1"])
+[STRT] System.Linq.Tests.AggregateAsyncTests.VariousValues_MatchesEnumerable_String(values: ["2", "4", "8"])
+[STRT] System.Linq.Tests.AggregateAsyncTests.VariousValues_MatchesEnumerable_String(values: ["-1", "2", "5", "6", "7", ···])
+[STRT] System.Linq.Tests.JoinTests.Cancellation_Cancels
+[STRT] System.Linq.Tests.JoinTests.InvalidInputs_Throws
+[STRT] System.Linq.Tests.JoinTests.Empty_ProducesEmpty
+[STRT] System.Linq.Tests.JoinTests.InterfaceCalls_ExpectedCounts
+[STRT] System.Linq.Tests.JoinTests.VariousValues_MatchesEnumerable_String
+[STRT] System.Linq.Tests.IndexTests.Cancellation_Cancels
+[STRT] System.Linq.Tests.IndexTests.InvalidInputs_Throws
+[STRT] System.Linq.Tests.IndexTests.Empty_ProducesEmpty
+[STRT] System.Linq.Tests.IndexTests.InterfaceCalls_ExpectedCounts
+[STRT] System.Linq.Tests.IndexTests.VariousValues_MatchesEnumerable(values: [])
+[STRT] System.Linq.Tests.IndexTests.VariousValues_MatchesEnumerable(values: [1])
+[STRT] System.Linq.Tests.IndexTests.VariousValues_MatchesEnumerable(values: [2, 4, 8])
+[STRT] System.Linq.Tests.IndexTests.VariousValues_MatchesEnumerable(values: [-1, 2, 5, 6, 7, ···])
+[STRT] System.Linq.Tests.FirstOrDefaultAsyncTests.Cancellation_Cancels
+[STRT] System.Linq.Tests.FirstOrDefaultAsyncTests.InvalidInputs_Throws
+[STRT] System.Linq.Tests.FirstOrDefaultAsyncTests.EmptyInputs_DefaultValueReturned
+[STRT] System.Linq.Tests.FirstOrDefaultAsyncTests.Callbacks_InvokedOnOriginalContext
+[STRT] System.Linq.Tests.FirstOrDefaultAsyncTests.InterfaceCalls_ExpectedCounts
+[STRT] System.Linq.Tests.FirstOrDefaultAsyncTests.VariousValues_MatchesEnumerable(values: [1])
+[STRT] System.Linq.Tests.FirstOrDefaultAsyncTests.VariousValues_MatchesEnumerable(values: [2, 4, 8])
+[STRT] System.Linq.Tests.FirstOrDefaultAsyncTests.VariousValues_MatchesEnumerable(values: [-1, 2, 5, 6, 7, ···])
+[STRT] System.Linq.Tests.FirstOrDefaultAsyncTests.VariousValues_MatchesEnumerable(values: [1, 3, 5, 7])
+[STRT] System.Linq.Tests.FirstAsyncTests.Cancellation_Cancels
+[STRT] System.Linq.Tests.FirstAsyncTests.InvalidInputs_Throws
+[STRT] System.Linq.Tests.FirstAsyncTests.EmptyInputs_Throws
+[STRT] System.Linq.Tests.FirstAsyncTests.Callbacks_InvokedOnOriginalContext
+[STRT] System.Linq.Tests.FirstAsyncTests.InterfaceCalls_ExpectedCounts
+[STRT] System.Linq.Tests.FirstAsyncTests.VariousValues_MatchesEnumerable(values: [1])
+[STRT] System.Linq.Tests.FirstAsyncTests.VariousValues_MatchesEnumerable(values: [2, 4, 8])
+[STRT] System.Linq.Tests.FirstAsyncTests.VariousValues_MatchesEnumerable(values: [-1, 2, 5, 6, 7, ···])
+[STRT] System.Linq.Tests.FirstAsyncTests.VariousValues_MatchesEnumerable(values: [1, 3, 5, 7])
+[STRT] System.Linq.Tests.DistinctTests.Cancellation_Cancels
+[STRT] System.Linq.Tests.DistinctTests.InvalidInputs_Throws
+[STRT] System.Linq.Tests.DistinctTests.Empty_ProducesEmpty
+[STRT] System.Linq.Tests.DistinctTests.InterfaceCalls_ExpectedCounts
+[STRT] System.Linq.Tests.DistinctTests.VariousValues_MatchesEnumerable(values: [])
+[STRT] System.Linq.Tests.DistinctTests.VariousValues_MatchesEnumerable(values: [1])
+[STRT] System.Linq.Tests.DistinctTests.VariousValues_MatchesEnumerable(values: [1, 1, 1, 2, 2, ···])
+[STRT] System.Linq.Tests.DistinctTests.VariousValues_MatchesEnumerable(values: [2, 4, 8])
+[STRT] System.Linq.Tests.DistinctTests.VariousValues_MatchesEnumerable(values: [2, 4, 8, 2, 4, ···])
+[STRT] System.Linq.Tests.DistinctTests.VariousValues_MatchesEnumerable(values: [-1, 2, 5, 6, 7, ···])
+[STRT] System.Linq.Tests.ToAsyncEnumerableTests.VariousValues_MatchesEnumerable(values: [])
+[STRT] System.Linq.Tests.ToAsyncEnumerableTests.VariousValues_MatchesEnumerable(values: [1])
+[STRT] System.Linq.Tests.ToAsyncEnumerableTests.VariousValues_MatchesEnumerable(values: [1, 1, 1])
+[STRT] System.Linq.Tests.ToAsyncEnumerableTests.VariousValues_MatchesEnumerable(values: [2, 4, 8])
+[STRT] System.Linq.Tests.ToAsyncEnumerableTests.VariousValues_MatchesEnumerable(values: [-1, 2, 5, 6, 7, ···])
+[STRT] System.Linq.Tests.ToAsyncEnumerableTests.VariousValues_MatchesEnumerable(values: [-1, 2, 5, 6, 7, ···])
+[STRT] System.Linq.Tests.ToAsyncEnumerableTests.InvalidInputs_Throws
+[STRT] System.Linq.Tests.ToAsyncEnumerableTests.Empty_ProducesEmpty
+[STRT] System.Linq.Tests.ToAsyncEnumerableTests.InterfaceCalls_ExpectedCounts
+[STRT] System.Linq.Tests.LastOrDefaultAsyncTests.Cancellation_Cancels
+[STRT] System.Linq.Tests.LastOrDefaultAsyncTests.InvalidInputs_Throws
+[STRT] System.Linq.Tests.LastOrDefaultAsyncTests.EmptyInputs_DefaultValueReturned
+[STRT] System.Linq.Tests.LastOrDefaultAsyncTests.Callbacks_InvokedOnOriginalContext
+[STRT] System.Linq.Tests.LastOrDefaultAsyncTests.InterfaceCalls_ExpectedCounts
+[STRT] System.Linq.Tests.LastOrDefaultAsyncTests.VariousValues_MatchesEnumerable(values: [1])
+[STRT] System.Linq.Tests.LastOrDefaultAsyncTests.VariousValues_MatchesEnumerable(values: [2, 4, 8])
+[STRT] System.Linq.Tests.LastOrDefaultAsyncTests.VariousValues_MatchesEnumerable(values: [-1, 2, 5, 6, 7, ···])
+[STRT] System.Linq.Tests.LastOrDefaultAsyncTests.VariousValues_MatchesEnumerable(values: [1, 3, 5, 7])
+[STRT] System.Linq.Tests.SumAsyncTests.Cancellation_Cancels
+[STRT] System.Linq.Tests.SumAsyncTests.InvalidInputs_Throws
+[STRT] System.Linq.Tests.SumAsyncTests.EmptyInputs_NonNullable_Throws
+[STRT] System.Linq.Tests.SumAsyncTests.InterfaceCalls_ExpectedCounts
+[STRT] System.Linq.Tests.SumAsyncTests.VariousValues_MatchesEnumerable(values: [0])
+[STRT] System.Linq.Tests.SumAsyncTests.VariousValues_MatchesEnumerable(values: [1])
+[STRT] System.Linq.Tests.SumAsyncTests.VariousValues_MatchesEnumerable(values: [2, 4, 8])
+[STRT] System.Linq.Tests.SumAsyncTests.VariousValues_MatchesEnumerable(values: [-1, 2, 5, 6, 7, ···])
+[STRT] System.Linq.Tests.SumAsyncTests.VariousValues_MatchesEnumerable(values: [-2147483647, 2147483647])
+[STRT] System.Linq.Tests.SumAsyncTests.VariousValues_MatchesEnumerable(values: [-1, -2, -3])
+[STRT] System.Linq.Tests.SequenceEqualAsyncTests.Cancellation_Cancels
+[STRT] System.Linq.Tests.SequenceEqualAsyncTests.InvalidInputs_Throws
+[STRT] System.Linq.Tests.SequenceEqualAsyncTests.VariousValues_MatchesEnumerable
+[STRT] System.Linq.Tests.SequenceEqualAsyncTests.InterfaceCalls_ExpectedCounts
+[STRT] System.Linq.Tests.RepeatTests.Empty_ProducesEmpty
+[STRT] System.Linq.Tests.RepeatTests.InvalidInputs_Throws
+[STRT] System.Linq.Tests.RepeatTests.VariousValues_MatchesEnumerable
+[STRT] System.Linq.Tests.PrependTests.MultipleEnumerations_ProducesSameResults
+[STRT] System.Linq.Tests.PrependTests.VariousValues_MatchesEnumerable(values: [])
+[STRT] System.Linq.Tests.PrependTests.VariousValues_MatchesEnumerable(values: [1])
+[STRT] System.Linq.Tests.PrependTests.VariousValues_MatchesEnumerable(values: [2, 4, 8])
+[STRT] System.Linq.Tests.PrependTests.VariousValues_MatchesEnumerable(values: [-1, 2, 5, 6, 7, ···])
+[STRT] System.Linq.Tests.PrependTests.InterfaceCalls_ExpectedCounts
+[STRT] System.Linq.Tests.PrependTests.ParallelEnumeration_PrependClones
+[STRT] System.Linq.Tests.PrependTests.PrependOnEmptySource_WorksCorrectly
+[STRT] System.Linq.Tests.PrependTests.PrependThenAppend_Coalesced
+[STRT] System.Linq.Tests.PrependTests.MultiplePrepends_Coalesced
+[STRT] System.Linq.Tests.PrependTests.LongPrependChain_WorksCorrectly
+[STRT] System.Linq.Tests.PrependTests.InvalidInputs_Throws
+[STRT] System.Linq.Tests.PrependTests.Cancellation_Cancels
+[STRT] System.Linq.Tests.PrependTests.DisposeBeforeComplete_DoesNotThrow
+[STRT] System.Linq.Tests.PrependTests.ChainedPrepends_ProducesCorrectSequence(prependCount: 1)
+[STRT] System.Linq.Tests.PrependTests.ChainedPrepends_ProducesCorrectSequence(prependCount: 2)
+[STRT] System.Linq.Tests.PrependTests.ChainedPrepends_ProducesCorrectSequence(prependCount: 5)
+[STRT] System.Linq.Tests.PrependTests.ChainedPrepends_ProducesCorrectSequence(prependCount: 10)
+[STRT] System.Linq.Tests.PrependTests.AppendAfterPrepend_BothWork
+[STRT] System.Linq.Tests.ToArrayAsyncTests.Cancellation_Cancels
+[STRT] System.Linq.Tests.ToArrayAsyncTests.InvalidInputs_Throws
+[STRT] System.Linq.Tests.ToArrayAsyncTests.VariousValues_MatchesEnumerable(values: [])
+[STRT] System.Linq.Tests.ToArrayAsyncTests.VariousValues_MatchesEnumerable(values: [1])
+[STRT] System.Linq.Tests.ToArrayAsyncTests.VariousValues_MatchesEnumerable(values: [1, 1, 1])
+[STRT] System.Linq.Tests.ToArrayAsyncTests.VariousValues_MatchesEnumerable(values: [2, 4, 8])
+[STRT] System.Linq.Tests.ToArrayAsyncTests.VariousValues_MatchesEnumerable(values: [-1, 2, 5, 6, 7, ···])
+[STRT] System.Linq.Tests.ToArrayAsyncTests.VariousValues_MatchesEnumerable(values: [-1, 2, 5, 6, 7, ···])
+[STRT] System.Linq.Tests.ToArrayAsyncTests.InterfaceCalls_ExpectedCounts
+[STRT] System.Linq.Tests.DefaultIfEmptyTests.Cancellation_Cancels
+[STRT] System.Linq.Tests.DefaultIfEmptyTests.InvalidInputs_Throws
+[STRT] System.Linq.Tests.DefaultIfEmptyTests.VariousValues_MatchesEnumerable(values: [])
+[STRT] System.Linq.Tests.DefaultIfEmptyTests.VariousValues_MatchesEnumerable(values: [1])
+[STRT] System.Linq.Tests.DefaultIfEmptyTests.VariousValues_MatchesEnumerable(values: [2, 4, 8])
+[STRT] System.Linq.Tests.DefaultIfEmptyTests.VariousValues_MatchesEnumerable(values: [-1, 2, 5, 6, 7, ···])
+[STRT] System.Linq.Tests.DefaultIfEmptyTests.InterfaceCalls_ExpectedCounts
+[STRT] System.Linq.Tests.SelectTests.Cancellation_Cancels
+[STRT] System.Linq.Tests.SelectTests.InvalidInputs_Throws
+[STRT] System.Linq.Tests.SelectTests.Empty_ProducesEmpty
+[STRT] System.Linq.Tests.SelectTests.Callbacks_InvokedOnOriginalContext
+[STRT] System.Linq.Tests.SelectTests.InterfaceCalls_ExpectedCounts
+[STRT] System.Linq.Tests.SelectTests.VariousValues_MatchesEnumerable(ints: [])
+[STRT] System.Linq.Tests.SelectTests.VariousValues_MatchesEnumerable(ints: [42])
+[STRT] System.Linq.Tests.SelectTests.VariousValues_MatchesEnumerable(ints: [1, 2, 3, 4, 5, ···])
+[STRT] System.Linq.Tests.SelectTests.VariousValues_MatchesEnumerable(ints: [-1, 1, -2, 2, -10, ···])
+[STRT] System.Linq.Tests.SelectTests.VariousValues_MatchesEnumerable(ints: [-2147483648, 2147483647])
+[STRT] System.Linq.Tests.ToListAsyncTests.Cancellation_Cancels
+[STRT] System.Linq.Tests.ToListAsyncTests.InvalidInputs_Throws
+[STRT] System.Linq.Tests.ToListAsyncTests.VariousValues_MatchesEnumerable(values: [])
+[STRT] System.Linq.Tests.ToListAsyncTests.VariousValues_MatchesEnumerable(values: [1])
+[STRT] System.Linq.Tests.ToListAsyncTests.VariousValues_MatchesEnumerable(values: [1, 1, 1])
+[STRT] System.Linq.Tests.ToListAsyncTests.VariousValues_MatchesEnumerable(values: [2, 4, 8])
+[STRT] System.Linq.Tests.ToListAsyncTests.VariousValues_MatchesEnumerable(values: [-1, 2, 5, 6, 7, ···])
+[STRT] System.Linq.Tests.ToListAsyncTests.VariousValues_MatchesEnumerable(values: [-1, 2, 5, 6, 7, ···])
+[STRT] System.Linq.Tests.ToListAsyncTests.InterfaceCalls_ExpectedCounts
+[STRT] System.Linq.Tests.IntersectTests.Cancellation_Cancels
+[STRT] System.Linq.Tests.IntersectTests.InvalidInputs_Throws
+[STRT] System.Linq.Tests.IntersectTests.Empty_ProducesEmpty
+[STRT] System.Linq.Tests.IntersectTests.InterfaceCalls_ExpectedCounts
+[STRT] System.Linq.Tests.IntersectTests.VariousValues_MatchesEnumerable(first: [], second: [])
+[STRT] System.Linq.Tests.IntersectTests.VariousValues_MatchesEnumerable(first: [], second: [42])
+[STRT] System.Linq.Tests.IntersectTests.VariousValues_MatchesEnumerable(first: [42, 43], second: [])
+[STRT] System.Linq.Tests.IntersectTests.VariousValues_MatchesEnumerable(first: [1], second: [2, 3])
+[STRT] System.Linq.Tests.IntersectTests.VariousValues_MatchesEnumerable(first: [2, 4, 8], second: [3, 5])
+[STRT] System.Linq.Tests.IntersectTests.VariousValues_MatchesEnumerable(first: [2, 4, 8], second: [2, 4, 8])
+[STRT] System.Linq.Tests.IntersectTests.VariousValues_MatchesEnumerable(first: [2, 4, 8], second: [2, 5, 8])
+[STRT] System.Linq.Tests.IntersectTests.VariousValues_MatchesEnumerable(first: [-1, 2, 5, 6, 7, ···], second: [-2147483648, 2147483647])
+[STRT] System.Linq.Tests.InfiniteSequenceTests.InfiniteSequence_AllZeroes_MatchesExpectedOutput
+[STRT] System.Linq.Tests.InfiniteSequenceTests.NullArguments_Throws
+[STRT] System.Linq.Tests.InfiniteSequenceTests.MultipleGetEnumeratorCalls_ReturnsUniqueInstances
+[STRT] System.Linq.Tests.InfiniteSequenceTests.InfiniteSequence_ProducesExpectedSequence
+[STRT] System.Linq.Tests.MinAsyncTests.Cancellation_Cancels
+[STRT] System.Linq.Tests.MinAsyncTests.InvalidInputs_Throws
+[STRT] System.Linq.Tests.MinAsyncTests.EmptyInputs_NonNullable_Throws
+[STRT] System.Linq.Tests.MinAsyncTests.InterfaceCalls_ExpectedCounts
+[STRT] System.Linq.Tests.MinAsyncTests.VariousValues_MatchesEnumerable(values: [])
+[STRT] System.Linq.Tests.MinAsyncTests.VariousValues_MatchesEnumerable(values: [0])
+[STRT] System.Linq.Tests.MinAsyncTests.VariousValues_MatchesEnumerable(values: [1])
+[STRT] System.Linq.Tests.MinAsyncTests.VariousValues_MatchesEnumerable(values: [2, 4, 8])
+[STRT] System.Linq.Tests.MinAsyncTests.VariousValues_MatchesEnumerable(values: [-1, 2, 5, 6, 7, ···])
+[STRT] System.Linq.Tests.MinAsyncTests.VariousValues_MatchesEnumerable(values: [-1000, 1000])
+[STRT] System.Linq.Tests.MinAsyncTests.VariousValues_MatchesEnumerable(values: [-1, -2, -3])
+[STRT] System.Linq.Tests.AverageAsyncTests.Cancellation_Cancels
+[STRT] System.Linq.Tests.AverageAsyncTests.InvalidInputs_Throws
+[STRT] System.Linq.Tests.AverageAsyncTests.EmptyInputs_NonNullable_Throws
+[STRT] System.Linq.Tests.AverageAsyncTests.InterfaceCalls_ExpectedCounts
+[STRT] System.Linq.Tests.AverageAsyncTests.VariousValues_MatchesEnumerable(values: [0])
+[STRT] System.Linq.Tests.AverageAsyncTests.VariousValues_MatchesEnumerable(values: [1])
+[STRT] System.Linq.Tests.AverageAsyncTests.VariousValues_MatchesEnumerable(values: [2, 4, 8])
+[STRT] System.Linq.Tests.AverageAsyncTests.VariousValues_MatchesEnumerable(values: [-1, 2, 5, 6, 7, ···])
+[STRT] System.Linq.Tests.AverageAsyncTests.VariousValues_MatchesEnumerable(values: [-2147483647, 2147483647])
+[STRT] System.Linq.Tests.AverageAsyncTests.VariousValues_MatchesEnumerable(values: [-1, -2, -3])
+[STRT] System.Linq.Tests.ShuffleTests.ToArrayAsync_ElementsAreRandomized
+[STRT] System.Linq.Tests.ShuffleTests.InvalidInputs_Throws
+[STRT] System.Linq.Tests.ShuffleTests.Empty_ProducesEmpty
+[STRT] System.Linq.Tests.ShuffleTests.InterfaceCalls_ExpectedCounts
+[STRT] System.Linq.Tests.ShuffleTests.Cancellation_Cancels
+[STRT] System.Linq.Tests.ShuffleTests.VariousValues_ContainsAllInputValues(values: [])
+[STRT] System.Linq.Tests.ShuffleTests.VariousValues_ContainsAllInputValues(values: [1])
+[STRT] System.Linq.Tests.ShuffleTests.VariousValues_ContainsAllInputValues(values: [2, 4, 8])
+[STRT] System.Linq.Tests.ShuffleTests.VariousValues_ContainsAllInputValues(values: [-1, 2, 5, 6, 7, ···])
+[STRT] System.Linq.Tests.CountAsyncTests.InterfaceCalls_ExpectedCounts
+[STRT] System.Linq.Tests.CountAsyncTests.InvalidInputs_Throws
+[STRT] System.Linq.Tests.CountAsyncTests.VariousValues_MatchesEnumerable(values: [])
+[STRT] System.Linq.Tests.CountAsyncTests.VariousValues_MatchesEnumerable(values: [1])
+[STRT] System.Linq.Tests.CountAsyncTests.VariousValues_MatchesEnumerable(values: [2, 4, 8])
+[STRT] System.Linq.Tests.CountAsyncTests.VariousValues_MatchesEnumerable(values: [-1, 2, 5, 6, 7, ···])
+[STRT] System.Linq.Tests.CountAsyncTests.VariousValues_MatchesEnumerable(values: [1, 3, 5, 7])
+[STRT] System.Linq.Tests.CountAsyncTests.Callbacks_InvokedOnOriginalContext
+[STRT] System.Linq.Tests.CountAsyncTests.Cancellation_Cancels
+[STRT] System.Linq.Tests.RangeTests.Empty_ProducesEmpty
+[STRT] System.Linq.Tests.RangeTests.InvalidInputs_Throws
+[STRT] System.Linq.Tests.RangeTests.VariousValues_MatchesEnumerable
+[STRT] System.Linq.Tests.SkipWhileTests.Cancellation_Cancels
+[STRT] System.Linq.Tests.SkipWhileTests.InvalidInputs_Throws
+[STRT] System.Linq.Tests.SkipWhileTests.Empty_ProducesEmpty
+[STRT] System.Linq.Tests.SkipWhileTests.Callbacks_InvokedOnOriginalContext
+[STRT] System.Linq.Tests.SkipWhileTests.InterfaceCalls_ExpectedCounts
+[STRT] System.Linq.Tests.SkipWhileTests.VariousValues_MatchesEnumerable(ints: [])
+[STRT] System.Linq.Tests.SkipWhileTests.VariousValues_MatchesEnumerable(ints: [42])
+[STRT] System.Linq.Tests.SkipWhileTests.VariousValues_MatchesEnumerable(ints: [1, 2, 3, 4, 5, ···])
+[STRT] System.Linq.Tests.SkipWhileTests.VariousValues_MatchesEnumerable(ints: [-1, 1, -2, 2, -10, ···])
+[STRT] System.Linq.Tests.SkipWhileTests.VariousValues_MatchesEnumerable(ints: [-2147483648, 2147483647])
+[STRT] System.Linq.Tests.AnyAsyncTests.InterfaceCalls_ExpectedCounts
+[STRT] System.Linq.Tests.AnyAsyncTests.InvalidInputs_Throws
+[STRT] System.Linq.Tests.AnyAsyncTests.VariousValues_MatchesEnumerable(values: [])
+[STRT] System.Linq.Tests.AnyAsyncTests.VariousValues_MatchesEnumerable(values: [1])
+[STRT] System.Linq.Tests.AnyAsyncTests.VariousValues_MatchesEnumerable(values: [2, 4, 8])
+[STRT] System.Linq.Tests.AnyAsyncTests.VariousValues_MatchesEnumerable(values: [-1, 2, 5, 6, 7, ···])
+[STRT] System.Linq.Tests.AnyAsyncTests.VariousValues_MatchesEnumerable(values: [1, 3, 5, 7])
+[STRT] System.Linq.Tests.AnyAsyncTests.Callbacks_InvokedOnOriginalContext
+[STRT] System.Linq.Tests.AnyAsyncTests.Cancellation_Cancels
+[STRT] System.Linq.Tests.SingleAsyncTests.VariousValues_MatchesEnumerable(values: [1])
+[STRT] System.Linq.Tests.SingleAsyncTests.VariousValues_MatchesEnumerable(values: [2, 4, 8])
+[STRT] System.Linq.Tests.SingleAsyncTests.VariousValues_MatchesEnumerable(values: [-1, 2, 5, 6, 7, ···])
+[STRT] System.Linq.Tests.SingleAsyncTests.VariousValues_MatchesEnumerable(values: [1, 3, 5, 7])
+[STRT] System.Linq.Tests.SingleAsyncTests.InvalidInputs_Throws
+[STRT] System.Linq.Tests.SingleAsyncTests.EmptyInputs_Throws
+[STRT] System.Linq.Tests.SingleAsyncTests.InterfaceCalls_ExpectedCounts
+[STRT] System.Linq.Tests.SingleAsyncTests.Cancellation_Cancels
+[STRT] System.Linq.Tests.SingleAsyncTests.DoubleInputs_Throws
+[STRT] System.Linq.Tests.MinByAsyncTests.Cancellation_Cancels
+[STRT] System.Linq.Tests.MinByAsyncTests.InvalidInputs_Throws
+[STRT] System.Linq.Tests.MinByAsyncTests.EmptyInputs_ThrowsForNonNullableTypes
+[STRT] System.Linq.Tests.MinByAsyncTests.InterfaceCalls_ExpectedCounts(useAsync: False)
+[STRT] System.Linq.Tests.MinByAsyncTests.InterfaceCalls_ExpectedCounts(useAsync: True)
+[STRT] System.Linq.Tests.MinByAsyncTests.VariousValues_MatchesEnumerable(values: [0])
+[STRT] System.Linq.Tests.MinByAsyncTests.VariousValues_MatchesEnumerable(values: [1])
+[STRT] System.Linq.Tests.MinByAsyncTests.VariousValues_MatchesEnumerable(values: [2, 4, 8])
+[STRT] System.Linq.Tests.MinByAsyncTests.VariousValues_MatchesEnumerable(values: [-1, 2, 5, 6, 7, ···])
+[STRT] System.Linq.Tests.MinByAsyncTests.VariousValues_MatchesEnumerable(values: [1, 8, 2, 7, 3, ···])
+[STRT] System.Linq.Tests.MinByAsyncTests.VariousValues_MatchesEnumerable(values: [-1000, 1000])
+[STRT] System.Linq.Tests.MinByAsyncTests.VariousValues_MatchesEnumerable(values: [-1, -2, -3])
+[STRT] System.Linq.Tests.CountByTests.Cancellation_Cancels
+[STRT] System.Linq.Tests.CountByTests.InvalidInputs_Throws
+[STRT] System.Linq.Tests.CountByTests.Empty_ProducesEmpty
+[STRT] System.Linq.Tests.CountByTests.Callbacks_InvokedOnOriginalContext
+[STRT] System.Linq.Tests.CountByTests.InterfaceCalls_ExpectedCounts(useAsync: False)
+[STRT] System.Linq.Tests.CountByTests.InterfaceCalls_ExpectedCounts(useAsync: True)
+[STRT] System.Linq.Tests.CountByTests.VariousValues_MatchesEnumerable_Strings
+[STRT] System.Linq.Tests.MaxByAsyncTests.Cancellation_Cancels
+[STRT] System.Linq.Tests.MaxByAsyncTests.InvalidInputs_Throws
+[STRT] System.Linq.Tests.MaxByAsyncTests.EmptyInputs_ThrowsForNonNullableTypes
+[STRT] System.Linq.Tests.MaxByAsyncTests.InterfaceCalls_ExpectedCounts(useAsync: False)
+[STRT] System.Linq.Tests.MaxByAsyncTests.InterfaceCalls_ExpectedCounts(useAsync: True)
+[STRT] System.Linq.Tests.MaxByAsyncTests.VariousValues_MatchesEnumerable(values: [0])
+[STRT] System.Linq.Tests.MaxByAsyncTests.VariousValues_MatchesEnumerable(values: [1])
+[STRT] System.Linq.Tests.MaxByAsyncTests.VariousValues_MatchesEnumerable(values: [2, 4, 8])
+[STRT] System.Linq.Tests.MaxByAsyncTests.VariousValues_MatchesEnumerable(values: [-1, 2, 5, 6, 7, ···])
+[STRT] System.Linq.Tests.MaxByAsyncTests.VariousValues_MatchesEnumerable(values: [1, 8, 2, 7, 3, ···])
+[STRT] System.Linq.Tests.MaxByAsyncTests.VariousValues_MatchesEnumerable(values: [-1000, 1000])
+[STRT] System.Linq.Tests.MaxByAsyncTests.VariousValues_MatchesEnumerable(values: [-1, -2, -3])
+[STRT] System.Linq.Tests.SkipTests.Cancellation_Cancels
+[STRT] System.Linq.Tests.SkipTests.InvalidInputs_Throws
+[STRT] System.Linq.Tests.SkipTests.Empty_ProducesEmpty
+[STRT] System.Linq.Tests.SkipTests.InterfaceCalls_ExpectedCounts
+[STRT] System.Linq.Tests.SkipTests.VariousValues_MatchesEnumerable(ints: [])
+[STRT] System.Linq.Tests.SkipTests.VariousValues_MatchesEnumerable(ints: [42])
+[STRT] System.Linq.Tests.SkipTests.VariousValues_MatchesEnumerable(ints: [1, 2, 3, 4, 5, ···])
+[STRT] System.Linq.Tests.SkipTests.VariousValues_MatchesEnumerable(ints: [-1, 1, -2, 2, -10, ···])
+[STRT] System.Linq.Tests.SkipTests.VariousValues_MatchesEnumerable(ints: [-2147483648, 2147483647])
+[STRT] System.Linq.Tests.TakeTests.Cancellation_Cancels
+[STRT] System.Linq.Tests.TakeTests.InvalidInputs_Throws
+[STRT] System.Linq.Tests.TakeTests.Empty_ProducesEmpty
+[STRT] System.Linq.Tests.TakeTests.InterfaceCalls_ExpectedCounts
+[STRT] System.Linq.Tests.TakeTests.VariousValues_MatchesEnumerable(ints: [])
+[STRT] System.Linq.Tests.TakeTests.VariousValues_MatchesEnumerable(ints: [42])
+[STRT] System.Linq.Tests.TakeTests.VariousValues_MatchesEnumerable(ints: [1, 2, 3, 4, 5, ···])
+[STRT] System.Linq.Tests.TakeTests.VariousValues_MatchesEnumerable(ints: [-1, 1, -2, 2, -10, ···])
+[STRT] System.Linq.Tests.TakeTests.VariousValues_MatchesEnumerable(ints: [-2147483648, 2147483647])
+[STRT] System.Linq.Tests.RightJoinTests.Cancellation_Cancels
+[STRT] System.Linq.Tests.RightJoinTests.InvalidInputs_Throws
+[STRT] System.Linq.Tests.RightJoinTests.Empty_ProducesEmpty
+[STRT] System.Linq.Tests.RightJoinTests.InterfaceCalls_ExpectedCounts
+[STRT] System.Linq.Tests.RightJoinTests.VariousValues_MatchesEnumerable_String
+[STRT] System.Linq.Tests.EmptyTests.Empty_ContainsZeroElements
+[STRT] System.Linq.Tests.EmptyTests.Empty_Idempotent
+[STRT] System.Linq.Tests.TakeLastTests.Cancellation_Cancels
+[STRT] System.Linq.Tests.TakeLastTests.InvalidInputs_Throws
+[STRT] System.Linq.Tests.TakeLastTests.Empty_ProducesEmpty
+[STRT] System.Linq.Tests.TakeLastTests.InterfaceCalls_ExpectedCounts
+[STRT] System.Linq.Tests.TakeLastTests.VariousValues_MatchesEnumerable(ints: [])
+[STRT] System.Linq.Tests.TakeLastTests.VariousValues_MatchesEnumerable(ints: [42])
+[STRT] System.Linq.Tests.TakeLastTests.VariousValues_MatchesEnumerable(ints: [1, 2, 3, 4, 5, ···])
+[STRT] System.Linq.Tests.TakeLastTests.VariousValues_MatchesEnumerable(ints: [-1, 1, -2, 2, -10, ···])
+[STRT] System.Linq.Tests.TakeLastTests.VariousValues_MatchesEnumerable(ints: [-2147483648, 2147483647])
+[STRT] System.Linq.Tests.IntersectByTests.Cancellation_Cancels
+[STRT] System.Linq.Tests.IntersectByTests.InvalidInputs_Throws
+[STRT] System.Linq.Tests.IntersectByTests.Empty_ProducesEmpty
+[STRT] System.Linq.Tests.IntersectByTests.InterfaceCalls_ExpectedCounts(useAsync: False)
+[STRT] System.Linq.Tests.IntersectByTests.InterfaceCalls_ExpectedCounts(useAsync: True)
+[STRT] System.Linq.Tests.IntersectByTests.VariousValues_MatchesEnumerable(firstInts: [], second: [])
+[STRT] System.Linq.Tests.IntersectByTests.VariousValues_MatchesEnumerable(firstInts: [], second: [42])
+[STRT] System.Linq.Tests.IntersectByTests.VariousValues_MatchesEnumerable(firstInts: [42, 43], second: [])
+[STRT] System.Linq.Tests.IntersectByTests.VariousValues_MatchesEnumerable(firstInts: [1], second: [2, 3])
+[STRT] System.Linq.Tests.IntersectByTests.VariousValues_MatchesEnumerable(firstInts: [2, 4, 8], second: [3, 5])
+[STRT] System.Linq.Tests.IntersectByTests.VariousValues_MatchesEnumerable(firstInts: [2, 4, 8], second: [2, 4, 8])
+[STRT] System.Linq.Tests.IntersectByTests.VariousValues_MatchesEnumerable(firstInts: [2, 4, 8], second: [2, 5, 8])
+[STRT] System.Linq.Tests.IntersectByTests.VariousValues_MatchesEnumerable(firstInts: [-1, 2, 5, 6, 7, ···], second: [-2147483648, 2147483647])
+[STRT] System.Linq.Tests.ToDictionaryAsyncTests.Cancellation_Cancels
+[STRT] System.Linq.Tests.ToDictionaryAsyncTests.InvalidInputs_Throws
+[STRT] System.Linq.Tests.ToDictionaryAsyncTests.Duplicates_Throws
+[STRT] System.Linq.Tests.ToDictionaryAsyncTests.Callbacks_InvokedOnOriginalContext
+[STRT] System.Linq.Tests.ToDictionaryAsyncTests.InterfaceCalls_ExpectedCounts
+[STRT] System.Linq.Tests.ToDictionaryAsyncTests.VariousValues_MatchesEnumerable
+[STRT] System.Linq.Tests.ToLookupAsyncTests.Cancellation_Cancels
+[STRT] System.Linq.Tests.ToLookupAsyncTests.InvalidInputs_Throws
+[STRT] System.Linq.Tests.ToLookupAsyncTests.VariousValues_MatchesEnumerable
+[STRT] System.Linq.Tests.ToLookupAsyncTests.InterfaceCalls_ExpectedCounts
+[STRT] System.Linq.Tests.ToHashSetAsyncTests.Cancellation_Cancels
+[STRT] System.Linq.Tests.ToHashSetAsyncTests.InvalidInputs_Throws
+[STRT] System.Linq.Tests.ToHashSetAsyncTests.VariousValues_MatchesEnumerable(values: [])
+[STRT] System.Linq.Tests.ToHashSetAsyncTests.VariousValues_MatchesEnumerable(values: [1])
+[STRT] System.Linq.Tests.ToHashSetAsyncTests.VariousValues_MatchesEnumerable(values: [1, 1, 1])
+[STRT] System.Linq.Tests.ToHashSetAsyncTests.VariousValues_MatchesEnumerable(values: [2, 4, 8])
+[STRT] System.Linq.Tests.ToHashSetAsyncTests.VariousValues_MatchesEnumerable(values: [-1, 2, 5, 6, 7, ···])
+[STRT] System.Linq.Tests.ToHashSetAsyncTests.VariousValues_MatchesEnumerable(values: [-1, 2, 5, 6, 7, ···])
+[STRT] System.Linq.Tests.ToHashSetAsyncTests.InterfaceCalls_ExpectedCounts
+[STRT] System.Linq.Tests.MaxAsyncTests.Cancellation_Cancels
+[STRT] System.Linq.Tests.MaxAsyncTests.InvalidInputs_Throws
+[STRT] System.Linq.Tests.MaxAsyncTests.EmptyInputs_NonNullable_Throws
+[STRT] System.Linq.Tests.MaxAsyncTests.InterfaceCalls_ExpectedCounts
+[STRT] System.Linq.Tests.MaxAsyncTests.VariousValues_MatchesEnumerable(values: [])
+[STRT] System.Linq.Tests.MaxAsyncTests.VariousValues_MatchesEnumerable(values: [0])
+[STRT] System.Linq.Tests.MaxAsyncTests.VariousValues_MatchesEnumerable(values: [1])
+[STRT] System.Linq.Tests.MaxAsyncTests.VariousValues_MatchesEnumerable(values: [2, 4, 8])
+[STRT] System.Linq.Tests.MaxAsyncTests.VariousValues_MatchesEnumerable(values: [-1, 2, 5, 6, 7, ···])
+[STRT] System.Linq.Tests.MaxAsyncTests.VariousValues_MatchesEnumerable(values: [-1000, 1000])
+[STRT] System.Linq.Tests.MaxAsyncTests.VariousValues_MatchesEnumerable(values: [-1, -2, -3])
+[STRT] System.Linq.Tests.ZipTests.Cancellation_Cancels
+[STRT] System.Linq.Tests.ZipTests.InvalidInputs_Throws
+[STRT] System.Linq.Tests.ZipTests.Empty_ProducesEmpty
+[STRT] System.Linq.Tests.ZipTests.Callbacks_InvokedOnOriginalContext
+[STRT] System.Linq.Tests.ZipTests.InterfaceCalls_ExpectedCounts
+[STRT] System.Linq.Tests.ZipTests.VariousValues_MatchesEnumerable(first: [], second: [])
+[STRT] System.Linq.Tests.ZipTests.VariousValues_MatchesEnumerable(first: [], second: [42])
+[STRT] System.Linq.Tests.ZipTests.VariousValues_MatchesEnumerable(first: [42, 43], second: [])
+[STRT] System.Linq.Tests.ZipTests.VariousValues_MatchesEnumerable(first: [1], second: [2, 3])
+[STRT] System.Linq.Tests.ZipTests.VariousValues_MatchesEnumerable(first: [2, 4, 8], second: [3, 5])
+[STRT] System.Linq.Tests.ZipTests.VariousValues_MatchesEnumerable(first: [2, 4, 8], second: [2, 4, 8])
+[STRT] System.Linq.Tests.ZipTests.VariousValues_MatchesEnumerable(first: [2, 4, 8], second: [2, 5, 8])
+[STRT] System.Linq.Tests.ZipTests.VariousValues_MatchesEnumerable(first: [-1, 2, 5, 6, 7, ···], second: [-2147483648, 2147483647])
+[STRT] System.Linq.Tests.SkipLastTests.Cancellation_Cancels
+[STRT] System.Linq.Tests.SkipLastTests.InvalidInputs_Throws
+[STRT] System.Linq.Tests.SkipLastTests.Empty_ProducesEmpty
+[STRT] System.Linq.Tests.SkipLastTests.InterfaceCalls_ExpectedCounts
+[STRT] System.Linq.Tests.SkipLastTests.VariousValues_MatchesEnumerable(ints: [])
+[STRT] System.Linq.Tests.SkipLastTests.VariousValues_MatchesEnumerable(ints: [42])
+[STRT] System.Linq.Tests.SkipLastTests.VariousValues_MatchesEnumerable(ints: [1, 2, 3, 4, 5, ···])
+[STRT] System.Linq.Tests.SkipLastTests.VariousValues_MatchesEnumerable(ints: [-1, 1, -2, 2, -10, ···])
+[STRT] System.Linq.Tests.SkipLastTests.VariousValues_MatchesEnumerable(ints: [-2147483648, 2147483647])
+[STRT] System.Linq.Tests.CastTests.IncorrectType_Throws
+[STRT] System.Linq.Tests.CastTests.InvalidInputs_Throws
+[STRT] System.Linq.Tests.CastTests.Empty_ProducesEmpty
+[STRT] System.Linq.Tests.CastTests.InterfaceCalls_ExpectedCounts
+[STRT] System.Linq.Tests.CastTests.Cancellation_Cancels
+[STRT] System.Linq.Tests.CastTests.NullAndNonNull_IncludesNulls
+[STRT] System.Linq.Tests.ElementAtOrDefaultAsyncTests.Cancellation_Cancels
+[STRT] System.Linq.Tests.ElementAtOrDefaultAsyncTests.InvalidInputs_Throws
+[STRT] System.Linq.Tests.ElementAtOrDefaultAsyncTests.OutOfRange_ReturnsDefault
+[STRT] System.Linq.Tests.ElementAtOrDefaultAsyncTests.InterfaceCalls_ExpectedCounts
+[STRT] System.Linq.Tests.ElementAtOrDefaultAsyncTests.VariousValues_MatchesEnumerable(values: [1])
+[STRT] System.Linq.Tests.ElementAtOrDefaultAsyncTests.VariousValues_MatchesEnumerable(values: [2, 4, 8])
+[STRT] System.Linq.Tests.ElementAtOrDefaultAsyncTests.VariousValues_MatchesEnumerable(values: [-1, 2, 5, 6, 7, ···])
+[STRT] System.Linq.Tests.ElementAtOrDefaultAsyncTests.VariousValues_MatchesEnumerable(values: [1, 3, 5, 7])
+[STRT] System.Linq.Tests.UnionTests.Cancellation_Cancels
+[STRT] System.Linq.Tests.UnionTests.InvalidInputs_Throws
+[STRT] System.Linq.Tests.UnionTests.Empty_ProducesEmpty
+[STRT] System.Linq.Tests.UnionTests.InterfaceCalls_ExpectedCounts
+[STRT] System.Linq.Tests.UnionTests.VariousValues_MatchesEnumerable(first: [], second: [])
+[STRT] System.Linq.Tests.UnionTests.VariousValues_MatchesEnumerable(first: [], second: [42])
+[STRT] System.Linq.Tests.UnionTests.VariousValues_MatchesEnumerable(first: [42, 43], second: [])
+[STRT] System.Linq.Tests.UnionTests.VariousValues_MatchesEnumerable(first: [1], second: [2, 3])
+[STRT] System.Linq.Tests.UnionTests.VariousValues_MatchesEnumerable(first: [2, 4, 8], second: [3, 5])
+[STRT] System.Linq.Tests.UnionTests.VariousValues_MatchesEnumerable(first: [2, 4, 8], second: [2, 4, 8])
+[STRT] System.Linq.Tests.UnionTests.VariousValues_MatchesEnumerable(first: [2, 4, 8], second: [2, 5, 8])
+[STRT] System.Linq.Tests.UnionTests.VariousValues_MatchesEnumerable(first: [-1, 2, 5, 6, 7, ···], second: [-2147483648, 2147483647])
+[STRT] System.Linq.Tests.ContainsAsyncTests.Cancellation_Cancels
+[STRT] System.Linq.Tests.ContainsAsyncTests.InvalidInputs_Throws
+[STRT] System.Linq.Tests.ContainsAsyncTests.VariousValues_MatchesEnumerable_Int32(values: [])
+[STRT] System.Linq.Tests.ContainsAsyncTests.VariousValues_MatchesEnumerable_Int32(values: [1])
+[STRT] System.Linq.Tests.ContainsAsyncTests.VariousValues_MatchesEnumerable_Int32(values: [2, 4, 8])
+[STRT] System.Linq.Tests.ContainsAsyncTests.VariousValues_MatchesEnumerable_Int32(values: [-1, 5, 6, 7, 8, ···])
+[STRT] System.Linq.Tests.ContainsAsyncTests.InterfaceCalls_ExpectedCounts
+[STRT] System.Linq.Tests.ContainsAsyncTests.VariousValues_MatchesEnumerable_String(values: [])
+[STRT] System.Linq.Tests.ContainsAsyncTests.VariousValues_MatchesEnumerable_String(values: ["1"])
+[STRT] System.Linq.Tests.ContainsAsyncTests.VariousValues_MatchesEnumerable_String(values: ["2", "4", "8"])
+[STRT] System.Linq.Tests.ContainsAsyncTests.VariousValues_MatchesEnumerable_String(values: ["-1", "5", "6", "7", "8", ···])
+[STRT] System.Linq.Tests.UnionByTests.Cancellation_Cancels
+[STRT] System.Linq.Tests.UnionByTests.InvalidInputs_Throws
+[STRT] System.Linq.Tests.UnionByTests.Empty_ProducesEmpty
+[STRT] System.Linq.Tests.UnionByTests.InterfaceCalls_ExpectedCounts(useAsync: False)
+[STRT] System.Linq.Tests.UnionByTests.InterfaceCalls_ExpectedCounts(useAsync: True)
+[STRT] System.Linq.Tests.UnionByTests.VariousValues_MatchesEnumerable(first: [], second: [])
+[STRT] System.Linq.Tests.UnionByTests.VariousValues_MatchesEnumerable(first: [], second: [42])
+[STRT] System.Linq.Tests.UnionByTests.VariousValues_MatchesEnumerable(first: [42, 43], second: [])
+[STRT] System.Linq.Tests.UnionByTests.VariousValues_MatchesEnumerable(first: [1], second: [2, 3])
+[STRT] System.Linq.Tests.UnionByTests.VariousValues_MatchesEnumerable(first: [2, 4, 8], second: [3, 5])
+[STRT] System.Linq.Tests.UnionByTests.VariousValues_MatchesEnumerable(first: [2, 4, 8], second: [2, 4, 8])
+[STRT] System.Linq.Tests.UnionByTests.VariousValues_MatchesEnumerable(first: [2, 4, 8], second: [2, 5, 8])
+[STRT] System.Linq.Tests.UnionByTests.VariousValues_MatchesEnumerable(first: [-1, 2, 5, 6, 7, ···], second: [-2147483648, 2147483647])
+[STRT] System.Linq.Tests.QueryComprehensionTests.OrderByClauses
+[STRT] System.Linq.Tests.QueryComprehensionTests.QueryExpressionsWithContinuations
+[STRT] System.Linq.Tests.QueryComprehensionTests.ExplicitRangeVariableTypes
+[STRT] System.Linq.Tests.QueryComprehensionTests.GroupClauses
+[STRT] System.Linq.Tests.QueryComprehensionTests.SelectClauses
+[STRT] System.Linq.Tests.QueryComprehensionTests.FromLetWhereJoinClauses
+[STRT] System.Linq.Tests.WhereTests.Cancellation_Cancels
+[STRT] System.Linq.Tests.WhereTests.InvalidInputs_Throws
+[STRT] System.Linq.Tests.WhereTests.Empty_ProducesEmpty
+[STRT] System.Linq.Tests.WhereTests.InterfaceCalls_ExpectedCounts
+[STRT] System.Linq.Tests.WhereTests.VariousValues_MatchesEnumerable(ints: [])
+[STRT] System.Linq.Tests.WhereTests.VariousValues_MatchesEnumerable(ints: [42])
+[STRT] System.Linq.Tests.WhereTests.VariousValues_MatchesEnumerable(ints: [1, 2, 3, 4, 5, ···])
+[STRT] System.Linq.Tests.WhereTests.VariousValues_MatchesEnumerable(ints: [-1, 1, -2, 2, -10, ···])
+[STRT] System.Linq.Tests.WhereTests.VariousValues_MatchesEnumerable(ints: [-2147483648, 2147483647])
+[STRT] System.Linq.Tests.GroupJoinTests.Cancellation_Cancels
+[STRT] System.Linq.Tests.GroupJoinTests.InvalidInputs_Throws
+[STRT] System.Linq.Tests.GroupJoinTests.Empty_ProducesEmpty
+[STRT] System.Linq.Tests.GroupJoinTests.InterfaceCalls_ExpectedCounts
+[STRT] System.Linq.Tests.GroupJoinTests.VariousValues_MatchesEnumerable_String
+[STRT] System.Linq.Tests.AllAsyncTests.InterfaceCalls_ExpectedCounts
+[STRT] System.Linq.Tests.AllAsyncTests.InvalidInputs_Throws
+[STRT] System.Linq.Tests.AllAsyncTests.VariousValues_MatchesEnumerable(values: [])
+[STRT] System.Linq.Tests.AllAsyncTests.VariousValues_MatchesEnumerable(values: [1])
+[STRT] System.Linq.Tests.AllAsyncTests.VariousValues_MatchesEnumerable(values: [2, 4, 8])
+[STRT] System.Linq.Tests.AllAsyncTests.VariousValues_MatchesEnumerable(values: [-1, 2, 5, 6, 7, ···])
+[STRT] System.Linq.Tests.AllAsyncTests.Callbacks_InvokedOnOriginalContext
+[STRT] System.Linq.Tests.AllAsyncTests.Cancellation_Cancels
+[STRT] System.Linq.Tests.ElementAtAsyncTests.Cancellation_Cancels
+[STRT] System.Linq.Tests.ElementAtAsyncTests.InvalidInputs_Throws
+[STRT] System.Linq.Tests.ElementAtAsyncTests.OutOfRange_Throws
+[STRT] System.Linq.Tests.ElementAtAsyncTests.InterfaceCalls_ExpectedCounts
+[STRT] System.Linq.Tests.ElementAtAsyncTests.VariousValues_MatchesEnumerable(values: [1])
+[STRT] System.Linq.Tests.ElementAtAsyncTests.VariousValues_MatchesEnumerable(values: [2, 4, 8])
+[STRT] System.Linq.Tests.ElementAtAsyncTests.VariousValues_MatchesEnumerable(values: [-1, 2, 5, 6, 7, ···])
+[STRT] System.Linq.Tests.ElementAtAsyncTests.VariousValues_MatchesEnumerable(values: [1, 3, 5, 7])
+[STRT] System.Linq.Tests.LastAsyncTests.Cancellation_Cancels
+[STRT] System.Linq.Tests.LastAsyncTests.InvalidInputs_Throws
+[STRT] System.Linq.Tests.LastAsyncTests.EmptyInputs_Throws
+[STRT] System.Linq.Tests.LastAsyncTests.Callbacks_InvokedOnOriginalContext
+[STRT] System.Linq.Tests.LastAsyncTests.InterfaceCalls_ExpectedCounts
+[STRT] System.Linq.Tests.LastAsyncTests.VariousValues_MatchesEnumerable(values: [1])
+[STRT] System.Linq.Tests.LastAsyncTests.VariousValues_MatchesEnumerable(values: [2, 4, 8])
+[STRT] System.Linq.Tests.LastAsyncTests.VariousValues_MatchesEnumerable(values: [-1, 2, 5, 6, 7, ···])
+[STRT] System.Linq.Tests.LastAsyncTests.VariousValues_MatchesEnumerable(values: [1, 3, 5, 7])
+[STRT] System.Linq.Tests.OfTypeTests.Cancellation_Cancels
+[STRT] System.Linq.Tests.OfTypeTests.InvalidInputs_Throws
+[STRT] System.Linq.Tests.OfTypeTests.Empty_ProducesEmpty
+[STRT] System.Linq.Tests.OfTypeTests.InterfaceCalls_ExpectedCounts
+[STRT] System.Linq.Tests.OfTypeTests.NullAndNonNull_SkipsNulls
+[STRT] System.Linq.Tests.ExceptTests.Cancellation_Cancels
+[STRT] System.Linq.Tests.ExceptTests.InvalidInputs_Throws
+[STRT] System.Linq.Tests.ExceptTests.Empty_ProducesEmpty
+[STRT] System.Linq.Tests.ExceptTests.InterfaceCalls_ExpectedCounts
+[STRT] System.Linq.Tests.ExceptTests.VariousValues_MatchesEnumerable(first: [], second: [])
+[STRT] System.Linq.Tests.ExceptTests.VariousValues_MatchesEnumerable(first: [], second: [42])
+[STRT] System.Linq.Tests.ExceptTests.VariousValues_MatchesEnumerable(first: [42, 43], second: [])
+[STRT] System.Linq.Tests.ExceptTests.VariousValues_MatchesEnumerable(first: [1], second: [2, 3])
+[STRT] System.Linq.Tests.ExceptTests.VariousValues_MatchesEnumerable(first: [2, 4, 8], second: [3, 5])
+[STRT] System.Linq.Tests.ExceptTests.VariousValues_MatchesEnumerable(first: [2, 4, 8], second: [2, 4, 8])
+[STRT] System.Linq.Tests.ExceptTests.VariousValues_MatchesEnumerable(first: [2, 4, 8], second: [2, 5, 8])
+[STRT] System.Linq.Tests.ExceptTests.VariousValues_MatchesEnumerable(first: [-1, 2, 5, 6, 7, ···], second: [-2147483648, 2147483647])
+[STRT] System.Linq.Tests.ExceptByTests.Cancellation_Cancels
+[STRT] System.Linq.Tests.ExceptByTests.InvalidInputs_Throws
+[STRT] System.Linq.Tests.ExceptByTests.Empty_ProducesEmpty
+[STRT] System.Linq.Tests.ExceptByTests.InterfaceCalls_ExpectedCounts(useAsync: False)
+[STRT] System.Linq.Tests.ExceptByTests.InterfaceCalls_ExpectedCounts(useAsync: True)
+[STRT] System.Linq.Tests.ExceptByTests.VariousValues_MatchesEnumerable(firstInts: [], second: [])
+[STRT] System.Linq.Tests.ExceptByTests.VariousValues_MatchesEnumerable(firstInts: [], second: [42])
+[STRT] System.Linq.Tests.ExceptByTests.VariousValues_MatchesEnumerable(firstInts: [42, 43], second: [])
+[STRT] System.Linq.Tests.ExceptByTests.VariousValues_MatchesEnumerable(firstInts: [1], second: [2, 3])
+[STRT] System.Linq.Tests.ExceptByTests.VariousValues_MatchesEnumerable(firstInts: [2, 4, 8], second: [3, 5])
+[STRT] System.Linq.Tests.ExceptByTests.VariousValues_MatchesEnumerable(firstInts: [2, 4, 8], second: [2, 4, 8])
+[STRT] System.Linq.Tests.ExceptByTests.VariousValues_MatchesEnumerable(firstInts: [2, 4, 8], second: [2, 5, 8])
+[STRT] System.Linq.Tests.ExceptByTests.VariousValues_MatchesEnumerable(firstInts: [-1, 2, 5, 6, 7, ···], second: [-2147483648, 2147483647])
+[STRT] System.Linq.Tests.TakeWhileTests.Cancellation_Cancels
+[STRT] System.Linq.Tests.TakeWhileTests.InvalidInputs_Throws
+[STRT] System.Linq.Tests.TakeWhileTests.Empty_ProducesEmpty
+[STRT] System.Linq.Tests.TakeWhileTests.Callbacks_InvokedOnOriginalContext
+[STRT] System.Linq.Tests.TakeWhileTests.InterfaceCalls_ExpectedCounts
+[STRT] System.Linq.Tests.TakeWhileTests.VariousValues_MatchesEnumerable(ints: [])
+[STRT] System.Linq.Tests.TakeWhileTests.VariousValues_MatchesEnumerable(ints: [42])
+[STRT] System.Linq.Tests.TakeWhileTests.VariousValues_MatchesEnumerable(ints: [1, 2, 3, 4, 5, ···])
+[STRT] System.Linq.Tests.TakeWhileTests.VariousValues_MatchesEnumerable(ints: [-1, 1, -2, 2, -10, ···])
+[STRT] System.Linq.Tests.TakeWhileTests.VariousValues_MatchesEnumerable(ints: [-2147483648, 2147483647])
+[STRT] System.Linq.Tests.LeftJoinTests.Cancellation_Cancels
+[STRT] System.Linq.Tests.LeftJoinTests.InvalidInputs_Throws
+[STRT] System.Linq.Tests.LeftJoinTests.Empty_ProducesEmpty
+[STRT] System.Linq.Tests.LeftJoinTests.InterfaceCalls_ExpectedCounts
+[STRT] System.Linq.Tests.LeftJoinTests.VariousValues_MatchesEnumerable_String
+[STRT] System.Linq.Tests.ChunkTests.Cancellation_Cancels
+[STRT] System.Linq.Tests.ChunkTests.InvalidInputs_Throws
+[STRT] System.Linq.Tests.ChunkTests.Empty_ProducesEmpty
+[STRT] System.Linq.Tests.ChunkTests.InterfaceCalls_ExpectedCounts
+[STRT] System.Linq.Tests.ChunkTests.VariousValues_MatchesEnumerable
+[STRT] System.Linq.Tests.AggregateByTests.Cancellation_Cancels
+[STRT] System.Linq.Tests.AggregateByTests.InvalidInputs_Throws
+[STRT] System.Linq.Tests.AggregateByTests.Empty_ProducesEmpty
+[STRT] System.Linq.Tests.AggregateByTests.Callbacks_InvokedOnOriginalContext
+[STRT] System.Linq.Tests.AggregateByTests.InterfaceCalls_ExpectedCounts
+[STRT] System.Linq.Tests.AggregateByTests.VariousValues_MatchesEnumerable_String(values: [])
+[STRT] System.Linq.Tests.AggregateByTests.VariousValues_MatchesEnumerable_String(values: ["1"])
+[STRT] System.Linq.Tests.AggregateByTests.VariousValues_MatchesEnumerable_String(values: ["2", "4", "8"])
+[STRT] System.Linq.Tests.AggregateByTests.VariousValues_MatchesEnumerable_String(values: ["12", "4", "8"])
+[STRT] System.Linq.Tests.AggregateByTests.VariousValues_MatchesEnumerable_String(values: ["12", "13", "14", "15", "22", ···])
+[STRT] System.Linq.Tests.AggregateByTests.VariousValues_MatchesEnumerable_String(values: ["-1", "2", "5", "6", "7", ···])
+Finished:    System.Linq.AsyncEnumerable.Tests.dll
+Finished uploading 136098 bytes of RESULTXML
+Xml file was written to the provided writer.
+
+=== TEST EXECUTION SUMMARY ===
+Tests run: 613 Passed: 613 Inconclusive: 0 Failed: 0 Ignored: 0 Skipped: 0
+
+test-main.js exiting WasmTestRunner.dll System.Linq.AsyncEnumerable.Tests.dll after 0.4334 minutes with result 0 and linear memory 481165312 bytes
+DOTNET: forceDisposeProxies done: 14 imports, 0 exports, 0 GCHandles, 0 JSHandles.
+WASM EXIT 0

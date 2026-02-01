@@ -1,0 +1,9 @@
+Test Comparison: System.Globalization.Extensions.Tests
+Generated: 2026-02-01T20:15:59+01:00
+
+Mono tests:    295
+CoreCLR tests: 295
+
+=== Extra in CoreCLR (0) ===
+
+=== Missing in CoreCLR (0) ===

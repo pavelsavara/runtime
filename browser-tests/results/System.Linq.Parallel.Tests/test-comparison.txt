@@ -1,0 +1,35 @@
+Test Comparison: System.Linq.Parallel.Tests
+Generated: 2026-02-01T20:34:20+01:00
+
+Mono tests:    27705
+CoreCLR tests: 27679
+
+=== Extra in CoreCLR (0) ===
+
+=== Missing in CoreCLR (26) ===
+System.Linq.Parallel.Tests.DefaultIfEmptyTests.DefaultIfEmpty_Empty&lt;Decimal&gt;(labeled: Empty-Decimal, def: 1.5)
+System.Linq.Parallel.Tests.DefaultIfEmptyTests.DefaultIfEmpty_Empty&lt;Int32&gt;(labeled: Array, def: 1)
+System.Linq.Parallel.Tests.DefaultIfEmptyTests.DefaultIfEmpty_Empty&lt;Int32&gt;(labeled: Array-Ordered, def: 1)
+System.Linq.Parallel.Tests.DefaultIfEmptyTests.DefaultIfEmpty_Empty&lt;Int32&gt;(labeled: Empty-Int, def: 1)
+System.Linq.Parallel.Tests.DefaultIfEmptyTests.DefaultIfEmpty_Empty&lt;Int32&gt;(labeled: Enumerable.Range, def: 1)
+System.Linq.Parallel.Tests.DefaultIfEmptyTests.DefaultIfEmpty_Empty&lt;Int32&gt;(labeled: Enumerable.Range-Ordered, def: 1)
+System.Linq.Parallel.Tests.DefaultIfEmptyTests.DefaultIfEmpty_Empty&lt;Int32&gt;(labeled: List, def: 1)
+System.Linq.Parallel.Tests.DefaultIfEmptyTests.DefaultIfEmpty_Empty&lt;Int32&gt;(labeled: List-Ordered, def: 1)
+System.Linq.Parallel.Tests.DefaultIfEmptyTests.DefaultIfEmpty_Empty&lt;Int32&gt;(labeled: ParallelEnumerable.Range, def: 1)
+System.Linq.Parallel.Tests.DefaultIfEmptyTests.DefaultIfEmpty_Empty&lt;Int32&gt;(labeled: ParallelEnumerable.Range-Ordered, def: 1)
+System.Linq.Parallel.Tests.DefaultIfEmptyTests.DefaultIfEmpty_Empty&lt;Int32&gt;(labeled: Partitioner, def: 1)
+System.Linq.Parallel.Tests.DefaultIfEmptyTests.DefaultIfEmpty_Empty&lt;Int32&gt;(labeled: Partitioner-Ordered, def: 1)
+System.Linq.Parallel.Tests.DefaultIfEmptyTests.DefaultIfEmpty_Empty&lt;String&gt;(labeled: Empty-String, def: \&quot;default\&quot;)
+System.Linq.Parallel.Tests.DefaultIfEmptyTests.DefaultIfEmpty_Empty_NotPipelined&lt;Decimal&gt;(labeled: Empty-Decimal, def: 1.5)
+System.Linq.Parallel.Tests.DefaultIfEmptyTests.DefaultIfEmpty_Empty_NotPipelined&lt;Int32&gt;(labeled: Array, def: 1)
+System.Linq.Parallel.Tests.DefaultIfEmptyTests.DefaultIfEmpty_Empty_NotPipelined&lt;Int32&gt;(labeled: Array-Ordered, def: 1)
+System.Linq.Parallel.Tests.DefaultIfEmptyTests.DefaultIfEmpty_Empty_NotPipelined&lt;Int32&gt;(labeled: Empty-Int, def: 1)
+System.Linq.Parallel.Tests.DefaultIfEmptyTests.DefaultIfEmpty_Empty_NotPipelined&lt;Int32&gt;(labeled: Enumerable.Range, def: 1)
+System.Linq.Parallel.Tests.DefaultIfEmptyTests.DefaultIfEmpty_Empty_NotPipelined&lt;Int32&gt;(labeled: Enumerable.Range-Ordered, def: 1)
+System.Linq.Parallel.Tests.DefaultIfEmptyTests.DefaultIfEmpty_Empty_NotPipelined&lt;Int32&gt;(labeled: List, def: 1)
+System.Linq.Parallel.Tests.DefaultIfEmptyTests.DefaultIfEmpty_Empty_NotPipelined&lt;Int32&gt;(labeled: List-Ordered, def: 1)
+System.Linq.Parallel.Tests.DefaultIfEmptyTests.DefaultIfEmpty_Empty_NotPipelined&lt;Int32&gt;(labeled: ParallelEnumerable.Range, def: 1)
+System.Linq.Parallel.Tests.DefaultIfEmptyTests.DefaultIfEmpty_Empty_NotPipelined&lt;Int32&gt;(labeled: ParallelEnumerable.Range-Ordered, def: 1)
+System.Linq.Parallel.Tests.DefaultIfEmptyTests.DefaultIfEmpty_Empty_NotPipelined&lt;Int32&gt;(labeled: Partitioner, def: 1)
+System.Linq.Parallel.Tests.DefaultIfEmptyTests.DefaultIfEmpty_Empty_NotPipelined&lt;Int32&gt;(labeled: Partitioner-Ordered, def: 1)
+System.Linq.Parallel.Tests.DefaultIfEmptyTests.DefaultIfEmpty_Empty_NotPipelined&lt;String&gt;(labeled: Empty-String, def: \&quot;default\&quot;)

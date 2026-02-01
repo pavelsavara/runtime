@@ -1,0 +1,39 @@
+Running in: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/143.0.0.0 Safari/537.36
+Running at: http://127.0.0.1:43463/index.html?arg=--setenv%3dXHARNESS_LOG_TEST_START%3dtrue&arg=--run&arg=WasmTestRunner.dll&arg=System.Private.Uri.Unit.Tests.dll&arg=-notrait&arg=category%3dOuterLoop&arg=-notrait&arg=category%3dfailing&arg=-verbosity&arg=Info
+could not load /runArgs.json: 404. Ignoring
+Incoming arguments: --setenv=XHARNESS_LOG_TEST_START=true --run WasmTestRunner.dll System.Private.Uri.Unit.Tests.dll -notrait category=OuterLoop -notrait category=failing -verbosity Info
+Application arguments: --run WasmTestRunner.dll System.Private.Uri.Unit.Tests.dll -notrait category=OuterLoop -notrait category=failing -verbosity Info
+Initializing dotnet version 11.0.0 commit hash e31907b0fbca908ed525247a1dc38cc5fba7b0ff
+Using threadless Xunit runner
+Discovering: System.Private.Uri.Unit.Tests.dll (method display = ClassAndMethod, method display options = None)
+Discovered:  System.Private.Uri.Unit.Tests.dll (found 19 of 19 test cases)
+Starting:    System.Private.Uri.Unit.Tests.dll
+[STRT] System.Net.Test.Uri.IriTest.IriEscapeUnescapeTest.Iri_EscapeUnescapeIri_UnicodePlane15_16
+[STRT] System.Net.Test.Uri.IriTest.IriEscapeUnescapeTest.Iri_EscapeUnescapeIri_EscapedAscii
+[STRT] System.Net.Test.Uri.IriTest.IriEscapeUnescapeTest.Iri_EscapeUnescapeIri_UnicodePlane0
+[STRT] System.Net.Test.Uri.IriTest.IriEscapeUnescapeTest.Iri_EscapeUnescapeIri_UnicodePlane14
+[STRT] System.Net.Test.Uri.IriTest.IriEscapeUnescapeTest.Iri_EscapeUnescapeIri_InIriRange_AfterEscapingBufferInitialized
+[STRT] System.Net.Test.Uri.IriTest.IriEscapeUnescapeTest.Iri_EscapeUnescapeIri_UnicodePlane1
+[STRT] System.Net.Test.Uri.IriTest.IriEscapeUnescapeTest.Iri_EscapeUnescapeIri_IncompleteEscapedCharacter
+[STRT] System.Net.Test.Uri.IriTest.IriEscapeUnescapeTest.Iri_EscapeUnescapeIri_EscapedAsciiFollowedByUnescaped
+[STRT] System.Net.Test.Uri.IriTest.IriEscapeUnescapeTest.Iri_EscapeUnescapeIri_UnicodePlane2
+[STRT] System.Net.Test.Uri.IriTest.IriEscapeUnescapeTest.Iri_EscapeUnescapeIri_BidiCharacters
+[STRT] System.Net.Test.Uri.IriTest.IriEscapeUnescapeTest.Iri_EscapeUnescapeIri_IncompleteSurrogate
+[STRT] System.Net.Test.Uri.IriTest.IriEscapeUnescapeTest.Iri_EscapeUnescapeIri_ReservedCharacters
+[STRT] System.Net.Test.Uri.IriTest.IriEscapeUnescapeTest.Iri_EscapeUnescapeIri_BidiCharacter_AfterEscapingBufferInitialized
+[STRT] System.Net.Test.Uri.IriTest.IriEscapeUnescapeTest.Iri_EscapeUnescapeIri_UnicodePlane3_13
+[STRT] System.Net.Test.Uri.IriTest.IriEscapeUnescapeTest.Iri_EscapeUnescapeIri_InvalidHexSequence
+[STRT] System.Net.Test.Uri.IriTest.IriEscapeUnescapeTest.Iri_EscapeUnescapeIri_FragmentInvalidCharacters
+[STRT] System.Net.Test.Uri.IriTest.IriEscapeUnescapeTest.Iri_EscapeUnescapeIri_InvalidUTF8Sequence
+[STRT] System.Net.Test.Uri.IriTest.IriEscapeUnescapeTest.Iri_EscapeUnescapeIri_EscapedReservedCharacters
+[STRT] System.PrivateUri.Tests.PathCompressionTests.TestCompressRegressions
+Finished:    System.Private.Uri.Unit.Tests.dll
+Finished uploading 5502 bytes of RESULTXML
+Xml file was written to the provided writer.
+
+=== TEST EXECUTION SUMMARY ===
+Tests run: 19 Passed: 19 Inconclusive: 0 Failed: 0 Ignored: 0 Skipped: 0
+
+test-main.js exiting WasmTestRunner.dll System.Private.Uri.Unit.Tests.dll after 0.5754833333333333 minutes with result 0 and linear memory 161087488 bytes
+DOTNET: forceDisposeProxies done: 14 imports, 0 exports, 0 GCHandles, 0 JSHandles.
+WASM EXIT 0

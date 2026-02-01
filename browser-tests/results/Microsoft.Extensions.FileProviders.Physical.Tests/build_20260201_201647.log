@@ -1,0 +1,163 @@
+
+  Determining projects to restore...
+  Restored /home/pavelsavara/dev/runtime/src/libraries/Microsoft.Extensions.FileProviders.Physical/tests/Microsoft.Extensions.FileProviders.Physical.Tests.csproj (in 210 ms).
+  16 of 17 projects are up-to-date for restore.
+  TestUtilities -> /home/pavelsavara/dev/runtime/artifacts/bin/TestUtilities/Release/net10.0/TestUtilities.dll
+  ILLink.RoslynAnalyzer -> /home/pavelsavara/dev/runtime/artifacts/bin/ILLink.RoslynAnalyzer/Release/netstandard2.0/ILLink.RoslynAnalyzer.dll
+  ILLink.CodeFixProvider -> /home/pavelsavara/dev/runtime/artifacts/bin/ILLink.CodeFixProvider/Release/netstandard2.0/ILLink.CodeFixProvider.dll
+  Mono.Linker -> /home/pavelsavara/dev/runtime/artifacts/bin/Mono.Linker/ref/Release/net11.0/illink.dll
+  Mono.Linker -> /home/pavelsavara/dev/runtime/artifacts/bin/Mono.Linker/Release/net11.0/illink.dll
+  ILLink.Tasks -> /home/pavelsavara/dev/runtime/artifacts/bin/ILLink.Tasks/Release/net/ILLink.Tasks.dll
+  Microsoft.Extensions.FileSystemGlobbing -> /home/pavelsavara/dev/runtime/artifacts/bin/Microsoft.Extensions.FileSystemGlobbing/ref/Release/net11.0/Microsoft.Extensions.FileSystemGlobbing.dll
+  Microsoft.Extensions.FileSystemGlobbing -> /home/pavelsavara/dev/runtime/artifacts/bin/Microsoft.Extensions.FileSystemGlobbing/Release/net11.0/Microsoft.Extensions.FileSystemGlobbing.dll
+  Microsoft.Extensions.Primitives -> /home/pavelsavara/dev/runtime/artifacts/bin/Microsoft.Extensions.Primitives/ref/Release/net11.0/Microsoft.Extensions.Primitives.dll
+  Microsoft.Extensions.Primitives -> /home/pavelsavara/dev/runtime/artifacts/bin/Microsoft.Extensions.Primitives/Release/net11.0/Microsoft.Extensions.Primitives.dll
+  Microsoft.Extensions.FileProviders.Abstractions -> /home/pavelsavara/dev/runtime/artifacts/bin/Microsoft.Extensions.FileProviders.Abstractions/ref/Release/net11.0/Microsoft.Extensions.FileProviders.Abstractions.dll
+  Microsoft.Extensions.FileProviders.Abstractions -> /home/pavelsavara/dev/runtime/artifacts/bin/Microsoft.Extensions.FileProviders.Abstractions/Release/net11.0/Microsoft.Extensions.FileProviders.Abstractions.dll
+  Microsoft.Extensions.FileProviders.Physical -> /home/pavelsavara/dev/runtime/artifacts/bin/Microsoft.Extensions.FileProviders.Physical/ref/Release/net11.0/Microsoft.Extensions.FileProviders.Physical.dll
+  Microsoft.Extensions.FileProviders.Physical -> /home/pavelsavara/dev/runtime/artifacts/bin/Microsoft.Extensions.FileProviders.Physical/Release/net11.0/Microsoft.Extensions.FileProviders.Physical.dll
+  WasmTriggerPublishApp for CoreCLR not implemented
+  Microsoft.Extensions.FileProviders.Physical.Tests -> /home/pavelsavara/dev/runtime/artifacts/bin/Microsoft.Extensions.FileProviders.Physical.Tests/Release/net11.0/browser-wasm/Microsoft.Extensions.FileProviders.Physical.Tests.dll
+  export SCENARIO=WasmTestOnChrome
+  export XUNIT_HIDE_PASSING_OUTPUT_DIAGNOSTICS=1
+  export PREPEND_PATH=/home/pavelsavara/dev/runtime/artifacts/bin/chromedriver/chromedriver_linux64
+  export RuntimeIdentifier=browser-wasm
+  PATH=/home/pavelsavara/dev/runtime/artifacts/bin/chromedriver/chromedriver_linux64:/home/pavelsavara/.jsvu/bin:/home/pavelsavara/dev/runtime/.dotnet:/home/pavelsavara/bin:/home/pavelsavara/dev/.dotnet:/home/pavelsavara/.vscode-server/data/User/globalStorage/github.copilot-chat/debugCommand:/home/pavelsavara/.vscode-server/data/User/globalStorage/github.copilot-chat/copilotCli:/home/pavelsavara/.vscode-server/bin/c9d77990917f3102ada88be140d28b038d1dd7c7/bin/remote-cli:/home/pavelsavara/bin:/home/pavelsavara/bin:/home/pavelsavara/dev/.dotnet:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/windows/system32:/mnt/c/windows:/mnt/d/.dotnet/:/mnt/c/windows/System32/Wbem:/mnt/c/windows/System32/WindowsPowerShell/v1.0/:/mnt/c/windows/System32/OpenSSH/:/mnt/c/Program Files/HP/HP One Agent:/mnt/c/Program Files/nodejs/:/mnt/c/Program Files/Meld/:/mnt/c/Program Files/dotnet/:/mnt/c/Program Files/Git/cmd:/mnt/c/Program Files/PuTTY/:/mnt/c/Program Files/PowerShell/7/:/mnt/c/Program Files/Microsoft SQL Server/170/Tools/Binn/:/mnt/c/Program Files/GitExtensions/:/mnt/c/Program Files/GitHub CLI/:/mnt/d/bin:/mnt/d/.dotnet/:/mnt/c/Users/pavelsavara/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/pavelsavara/AppData/Local/Programs/MicrosoftVSCode/bin:/mnt/c/Users/pavelsavara/AppData/Roaming/npm:/mnt/c/Users/pavelsavara/AppData/Local/Programs/Python/Python310/:/mnt/c/Users/pavelsavara/AppData/Local/Programs/Python/Python310/Scripts/:/mnt/c/Users/pavelsavara/AppData/Local/Microsoft/WinGet/Packages/GitHub.Copilot.Prerelease_Microsoft.Winget.Source_8wekyb3d8bbwe:/mnt/c/Users/pavelsavara/.dotnet/tools:/snap/bin
+  EXECUTION_DIR=/home/pavelsavara/dev/runtime/artifacts/bin/Microsoft.Extensions.FileProviders.Physical.Tests/Release/net11.0/browser-wasm/wwwroot
+  SCENARIO=WasmTestOnChrome
+  XHARNESS_OUT=/home/pavelsavara/dev/runtime/artifacts/bin/Microsoft.Extensions.FileProviders.Physical.Tests/Release/net11.0/browser-wasm/wwwroot/xharness-output
+  XHARNESS_CLI_PATH=
+  HARNESS_RUNNER=dotnet xharness
+  XHARNESS_COMMAND=test-browser
+  MAIN_JS=
+  JS_ENGINE=
+  JS_ENGINE_ARGS=--browser-arg=--js-flags=--stack-trace-limit=1000
+  XHARNESS_ARGS= --browser-arg=--js-flags=--stack-trace-limit=1000
+  ~/dev/runtime/artifacts/bin/Microsoft.Extensions.FileProviders.Physical.Tests/Release/net11.0/browser-wasm/wwwroot ~/dev/runtime/src/libraries/Microsoft.Extensions.FileProviders.Physical/tests
+  ----- start Sun Feb 1 20:16:55 CET 2026 =============== To repro directly: =====================================================
+  pushd /home/pavelsavara/dev/runtime/artifacts/bin/Microsoft.Extensions.FileProviders.Physical.Tests/Release/net11.0/browser-wasm/wwwroot
+  dotnet xharness wasm test-browser --app=. --output-directory=/home/pavelsavara/dev/runtime/artifacts/bin/Microsoft.Extensions.FileProviders.Physical.Tests/Release/net11.0/browser-wasm/wwwroot/xharness-output -s dotnet.native.js.symbols --symbol-patterns wasm-symbol-patterns.txt --symbolicator WasmSymbolicator.dll,Microsoft.WebAssembly.Internal.SymbolicatorWrapperForXHarness --browser-path=/home/pavelsavara/dev/runtime/artifacts/bin/chrome/chrome-linux/chrome --timeout=00:30:00  --browser-arg=--js-flags=--stack-trace-limit=1000   --  --setenv=XHARNESS_LOG_TEST_START=true  --run WasmTestRunner.dll Microsoft.Extensions.FileProviders.Physical.Tests.dll  -notrait category=OuterLoop -notrait category=failing 
+  popd
+  ===========================================================================================================
+  ~/dev/runtime/artifacts/bin/Microsoft.Extensions.FileProviders.Physical.Tests/Release/net11.0/browser-wasm/wwwroot ~/dev/runtime/artifacts/bin/Microsoft.Extensions.FileProviders.Physical.Tests/Release/net11.0/browser-wasm/wwwroot ~/dev/runtime/src/libraries/Microsoft.Extensions.FileProviders.Physical/tests
+  [11.0.0-prerelease.26064.3+31e0b8e08f57890f7b7004b93361d69cd4b21079] XHarness command issued: wasm test-browser --app=. --output-directory=/home/pavelsavara/dev/runtime/artifacts/bin/Microsoft.Extensions.FileProviders.Physical.Tests/Release/net11.0/browser-wasm/wwwroot/xharness-output -s dotnet.native.js.symbols --symbol-patterns wasm-symbol-patterns.txt --symbolicator WasmSymbolicator.dll,Microsoft.WebAssembly.Internal.SymbolicatorWrapperForXHarness --browser-path=/home/pavelsavara/dev/runtime/artifacts/bin/chrome/chrome-linux/chrome --timeout=00:30:00 --browser-arg=--js-flags=--stack-trace-limit=1000 -- --setenv=XHARNESS_LOG_TEST_START=true --run WasmTestRunner.dll Microsoft.Extensions.FileProviders.Physical.Tests.dll -notrait category=OuterLoop -notrait category=failing
+  [40m[1m[33mwarn[39m[22m[49m: Cannot find symbols file dotnet.native.js.symbols
+  [40m[32minfo[39m[22m[49m: Using Chrome from /home/pavelsavara/dev/runtime/artifacts/bin/chrome/chrome-linux/chrome
+  [40m[32minfo[39m[22m[49m: Starting chromedriver with args: --js-flags=--stack-trace-limit=1000 --headless --incognito --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-renderer-backgrounding --enable-features=NetworkService,NetworkServiceInProcess --allow-insecure-localhost --disable-breakpad --disable-component-extensions-with-background-pages --disable-dev-shm-usage --disable-extensions --disable-features=TranslateUI --disable-ipc-flooding-protection --force-color-profile=srgb --metrics-recording-only and load strategy: Normal
+  Starting ChromeDriver 143.0.7499.0 (0000000000000000000000000000000000000000-0000000000000000000000000000000000000000) on port 36487
+  Only local connections are allowed.
+  Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
+  ChromeDriver was started successfully on port 36487.
+  [40m[32minfo[39m[22m[49m: Running in: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/143.0.0.0 Safari/537.36
+  [40m[32minfo[39m[22m[49m: Running at: http://127.0.0.1:36599/index.html?arg=--setenv%3dXHARNESS_LOG_TEST_START%3dtrue&arg=--run&arg=WasmTestRunner.dll&arg=Microsoft.Extensions.FileProviders.Physical.Tests.dll&arg=-notrait&arg=category%3dOuterLoop&arg=-notrait&arg=category%3dfailing&arg=-verbosity&arg=Info
+  [40m[32minfo[39m[22m[49m: could not load /runArgs.json: 404. Ignoring
+  [40m[32minfo[39m[22m[49m: Incoming arguments: --setenv=XHARNESS_LOG_TEST_START=true --run WasmTestRunner.dll Microsoft.Extensions.FileProviders.Physical.Tests.dll -notrait category=OuterLoop -notrait category=failing -verbosity Info
+  [40m[32minfo[39m[22m[49m: Application arguments: --run WasmTestRunner.dll Microsoft.Extensions.FileProviders.Physical.Tests.dll -notrait category=OuterLoop -notrait category=failing -verbosity Info
+  [40m[32minfo[39m[22m[49m: Initializing dotnet version 11.0.0 commit hash e31907b0fbca908ed525247a1dc38cc5fba7b0ff
+  [40m[32minfo[39m[22m[49m: Using threadless Xunit runner
+  [40m[32minfo[39m[22m[49m: Discovering: Microsoft.Extensions.FileProviders.Physical.Tests.dll (method display = ClassAndMethod, method display options = None)
+  [40m[32minfo[39m[22m[49m: Discovered:  Microsoft.Extensions.FileProviders.Physical.Tests.dll (found 43 of 92 test cases)
+  [40m[32minfo[39m[22m[49m: Starting:    Microsoft.Extensions.FileProviders.Physical.Tests.dll
+  [40m[32minfo[39m[22m[49m: [STRT] Microsoft.Extensions.FileProviders.Physical.PollingWildCardChangeTokenTest.HasChanged_ReturnsFalseIfFilesDoNotChange
+  [40m[32minfo[39m[22m[49m: [STRT] Microsoft.Extensions.FileProviders.Physical.PollingWildCardChangeTokenTest.HasChanged_ReturnsTrueIfFilesWereModified
+  [40m[32minfo[39m[22m[49m: [STRT] Microsoft.Extensions.FileProviders.Physical.PollingWildCardChangeTokenTest.HasChanged_ReturnsTrueIfNewFilesWereAdded
+  [40m[32minfo[39m[22m[49m: [STRT] Microsoft.Extensions.FileProviders.Physical.PollingWildCardChangeTokenTest.HasChanged_ReturnsTrueIfFileWasModifiedButRetainedAnOlderTimestamp
+  [40m[32minfo[39m[22m[49m: [STRT] Microsoft.Extensions.FileProviders.Physical.PollingWildCardChangeTokenTest.HasChanged_ReturnsTrueIfFilesWereRemoved
+  [40m[32minfo[39m[22m[49m: [STRT] Microsoft.Extensions.FileProviders.Physical.PollingWildCardChangeTokenTest.HasChanged_ReturnsFalseIfNoFilesExist
+  [40m[32minfo[39m[22m[49m: [STRT] Microsoft.Extensions.FileProviders.Physical.Tests.ExclusionFilterTests.FiltersExcludedFiles(filename: ".dot", attributes: Normal, filters: None, excluded: False)
+  [40m[32minfo[39m[22m[49m: [STRT] Microsoft.Extensions.FileProviders.Physical.Tests.ExclusionFilterTests.FiltersExcludedFiles(filename: ".dot", attributes: Normal, filters: System, excluded: False)
+  [40m[32minfo[39m[22m[49m: [STRT] Microsoft.Extensions.FileProviders.Physical.Tests.ExclusionFilterTests.FiltersExcludedFiles(filename: ".dot", attributes: Normal, filters: DotPrefixed, excluded: True)
+  [40m[32minfo[39m[22m[49m: [STRT] Microsoft.Extensions.FileProviders.Physical.Tests.ExclusionFilterTests.FiltersExcludedFiles(filename: ".dot", attributes: Normal, filters: Hidden, excluded: True)
+  [40m[32minfo[39m[22m[49m: [STRT] Microsoft.Extensions.FileProviders.Physical.Tests.ExclusionFilterTests.FiltersExcludedFiles(filename: ".dot", attributes: Normal, filters: Sensitive, excluded: True)
+  [40m[32minfo[39m[22m[49m: [STRT] Microsoft.Extensions.FileProviders.Physical.Tests.ExclusionFilterTests.FiltersExcludedFiles(filename: "hidden", attributes: Normal, filters: None, excluded: False)
+  [40m[32minfo[39m[22m[49m: [STRT] Microsoft.Extensions.FileProviders.Physical.Tests.ExclusionFilterTests.FiltersExcludedFiles(filename: "hidden", attributes: Normal, filters: System, excluded: False)
+  [40m[32minfo[39m[22m[49m: [STRT] Microsoft.Extensions.FileProviders.Physical.Tests.ExclusionFilterTests.FiltersExcludedFiles(filename: "hidden", attributes: Normal, filters: DotPrefixed, excluded: False)
+  [40m[32minfo[39m[22m[49m: [STRT] Microsoft.Extensions.FileProviders.Physical.Tests.ExclusionFilterTests.FiltersExcludedFiles(filename: "hidden", attributes: Normal, filters: Hidden, excluded: False)
+  [40m[32minfo[39m[22m[49m: [STRT] Microsoft.Extensions.FileProviders.Physical.Tests.ExclusionFilterTests.FiltersExcludedFiles(filename: "hidden", attributes: Normal, filters: Sensitive, excluded: False)
+  [40m[32minfo[39m[22m[49m: [STRT] Microsoft.Extensions.FileProviders.Physical.Tests.ExclusionFilterTests.FiltersExcludedDirectories(dirname: ".dot", attributes: Normal, filters: None, excluded: False)
+  [40m[32minfo[39m[22m[49m: [STRT] Microsoft.Extensions.FileProviders.Physical.Tests.ExclusionFilterTests.FiltersExcludedDirectories(dirname: ".dot", attributes: Normal, filters: System, excluded: False)
+  [40m[32minfo[39m[22m[49m: [STRT] Microsoft.Extensions.FileProviders.Physical.Tests.ExclusionFilterTests.FiltersExcludedDirectories(dirname: ".dot", attributes: Normal, filters: DotPrefixed, excluded: True)
+  [40m[32minfo[39m[22m[49m: [STRT] Microsoft.Extensions.FileProviders.Physical.Tests.ExclusionFilterTests.FiltersExcludedDirectories(dirname: ".dot", attributes: Normal, filters: Hidden, excluded: True)
+  [40m[32minfo[39m[22m[49m: [STRT] Microsoft.Extensions.FileProviders.Physical.Tests.ExclusionFilterTests.FiltersExcludedDirectories(dirname: ".dot", attributes: Normal, filters: Sensitive, excluded: True)
+  [40m[32minfo[39m[22m[49m: [STRT] Microsoft.Extensions.FileProviders.Physical.Tests.ExclusionFilterTests.FiltersExcludedDirectories(dirname: "hidden", attributes: Normal, filters: None, excluded: False)
+  [40m[32minfo[39m[22m[49m: [STRT] Microsoft.Extensions.FileProviders.Physical.Tests.ExclusionFilterTests.FiltersExcludedDirectories(dirname: "hidden", attributes: Normal, filters: System, excluded: False)
+  [40m[32minfo[39m[22m[49m: [STRT] Microsoft.Extensions.FileProviders.Physical.Tests.ExclusionFilterTests.FiltersExcludedDirectories(dirname: "hidden", attributes: Normal, filters: DotPrefixed, excluded: False)
+  [40m[32minfo[39m[22m[49m: [STRT] Microsoft.Extensions.FileProviders.Physical.Tests.ExclusionFilterTests.FiltersExcludedDirectories(dirname: "hidden", attributes: Normal, filters: Hidden, excluded: False)
+  [40m[32minfo[39m[22m[49m: [STRT] Microsoft.Extensions.FileProviders.Physical.Tests.ExclusionFilterTests.FiltersExcludedDirectories(dirname: "hidden", attributes: Normal, filters: Sensitive, excluded: False)
+  [40m[32minfo[39m[22m[49m: [STRT] Microsoft.Extensions.FileProviders.PhysicalFileProviderTests.GetFileInfoReturnsNotFoundFileInfoForFileNameStartingWithPeriod
+  [40m[32minfo[39m[22m[49m: [STRT] Microsoft.Extensions.FileProviders.PhysicalFileProviderTests.NoopChangeTokenForNullFilter
+  [40m[32minfo[39m[22m[49m: [STRT] Microsoft.Extensions.FileProviders.PhysicalFileProviderTests.GetDirectoryContentsReturnsNotFoundDirectoryContentsForInvalidPath_Unix(path: "/\0/")
+  [40m[32minfo[39m[22m[49m: [STRT] Microsoft.Extensions.FileProviders.PhysicalFileProviderTests.GetDirectoryContentsReturnsNotFoundDirectoryContentsForInvalidPath_Unix(path: "/\\/")
+  [40m[32minfo[39m[22m[49m: [STRT] Microsoft.Extensions.FileProviders.PhysicalFileProviderTests.GetDirectoryContentsReturnsNotFoundDirectoryContentsForInvalidPath_Unix(path: "\\/\\/")
+  [40m[32minfo[39m[22m[49m: [STRT] Microsoft.Extensions.FileProviders.PhysicalFileProviderTests.GetDirectoryContentsReturnsNotFoundDirectoryContentsForInvalidPath_Unix(path: ". ./file")
+  [40m[32minfo[39m[22m[49m: [STRT] Microsoft.Extensions.FileProviders.PhysicalFileProviderTests.GetDirectoryContentsReturnsNotFoundDirectoryContentsForInvalidPath_Unix(path: " ../file")
+  [40m[32minfo[39m[22m[49m: [STRT] Microsoft.Extensions.FileProviders.PhysicalFileProviderTests.GetDirectoryContentsReturnsNotFoundDirectoryContentsForInvalidPath_Unix(path: ".. /file")
+  [40m[32minfo[39m[22m[49m: [STRT] Microsoft.Extensions.FileProviders.PhysicalFileProviderTests.GetDirectoryContentsReturnsNotFoundDirectoryContentsForInvalidPath_Unix(path: " ./file")
+  [40m[32minfo[39m[22m[49m: [STRT] Microsoft.Extensions.FileProviders.PhysicalFileProviderTests.GetDirectoryContentsReturnsNotFoundDirectoryContentsForInvalidPath_Unix(path: ". /file")
+  [40m[32minfo[39m[22m[49m: [STRT] Microsoft.Extensions.FileProviders.PhysicalFileProviderTests.UsePollingFileWatcher_UseActivePolling_HasChanged(useWildcard: False)
+  [40m[32minfo[39m[22m[49m: [STRT] Microsoft.Extensions.FileProviders.PhysicalFileProviderTests.UsePollingFileWatcher_UseActivePolling_HasChanged(useWildcard: True)
+  [40m[32minfo[39m[22m[49m: [STRT] Microsoft.Extensions.FileProviders.PhysicalFileProviderTests.GetDirectoryContentsReturnsFilesWhenExclusionDisabled
+  [40m[32minfo[39m[22m[49m: [STRT] Microsoft.Extensions.FileProviders.PhysicalFileProviderTests.UsePollingFileWatcher_UseActivePolling_HasChanged_FileDeleted(useWildcard: False)
+  [40m[32minfo[39m[22m[49m: [STRT] Microsoft.Extensions.FileProviders.PhysicalFileProviderTests.UsePollingFileWatcher_UseActivePolling_HasChanged_FileDeleted(useWildcard: True)
+  [40m[32minfo[39m[22m[49m: [STRT] Microsoft.Extensions.FileProviders.PhysicalFileProviderTests.UsePollingFileWatcher_UseActivePolling_HasChanged_SymbolicLink_TargetChanged
+  [40m[32minfo[39m[22m[49m: [STRT] Microsoft.Extensions.FileProviders.PhysicalFileProviderTests.GetFileInfoReturnsPhysicalFileInfoForValidPathsWithLeadingSlashes_Unix(path: "/")
+  [40m[32minfo[39m[22m[49m: [STRT] Microsoft.Extensions.FileProviders.PhysicalFileProviderTests.GetFileInfoReturnsPhysicalFileInfoForValidPathsWithLeadingSlashes_Unix(path: "///")
+  [40m[32minfo[39m[22m[49m: [STRT] Microsoft.Extensions.FileProviders.PhysicalFileProviderTests.TokenForEmptyFilter
+  [40m[32minfo[39m[22m[49m: [STRT] Microsoft.Extensions.FileProviders.PhysicalFileProviderTests.UsePollingFileWatcher_FileWatcherNull_SetsSuccessfully
+  [40m[32minfo[39m[22m[49m: [STRT] Microsoft.Extensions.FileProviders.PhysicalFileProviderTests.GetDirectoryContentsReturnsNotFoundDirectoryContentsForPathThatNavigatesAboveRoot
+  [40m[32minfo[39m[22m[49m: [STRT] Microsoft.Extensions.FileProviders.PhysicalFileProviderTests.GetFileInfoReturnsNotFoundFileInfoForRelativePathAboveRootPath
+  [40m[32minfo[39m[22m[49m: [STRT] Microsoft.Extensions.FileProviders.PhysicalFileProviderTests.GetFileInfoReturnsFileInfoWhenExclusionDisabled
+  [40m[32minfo[39m[22m[49m: [STRT] Microsoft.Extensions.FileProviders.PhysicalFileProviderTests.UsePollingFileWatcher_UseActivePolling_HasChanged_SymbolicLink_TargetDeleted
+  [40m[32minfo[39m[22m[49m: [STRT] Microsoft.Extensions.FileProviders.PhysicalFileProviderTests.GetFileInfoReturnsNotFoundFileInfoForIllegalPathWithLeadingSlashes_Unix(path: "/\0/")
+  [40m[32minfo[39m[22m[49m: [STRT] Microsoft.Extensions.FileProviders.PhysicalFileProviderTests.InvalidPath_DoesNotThrowUnix_GetDirectoryContents(path: "/test:test\0")
+  [40m[32minfo[39m[22m[49m: [STRT] Microsoft.Extensions.FileProviders.PhysicalFileProviderTests.InvalidPath_DoesNotThrowUnix_GetDirectoryContents(path: "/dir/\0name\"")
+  [40m[32minfo[39m[22m[49m: [STRT] Microsoft.Extensions.FileProviders.PhysicalFileProviderTests.InvalidPath_DoesNotThrowUnix_GetDirectoryContents(path: "/dir>/name\0")
+  [40m[32minfo[39m[22m[49m: [STRT] Microsoft.Extensions.FileProviders.PhysicalFileProviderTests.GetDirectoryContentsReturnsNotFoundDirectoryContentsForNullPath
+  [40m[32minfo[39m[22m[49m: [STRT] Microsoft.Extensions.FileProviders.PhysicalFileProviderTests.GetFileInfoReturnsNotFoundFileInfoForRelativePathWithEmptySegmentsThatNavigates
+  [40m[32minfo[39m[22m[49m: [STRT] Microsoft.Extensions.FileProviders.PhysicalFileProviderTests.TokenForWhitespaceFilters
+  [40m[32minfo[39m[22m[49m: [STRT] Microsoft.Extensions.FileProviders.PhysicalFileProviderTests.GetDirectoryContentsDoesNotReturnFileInfoForFileNameStartingWithPeriodByDefault
+  [40m[32minfo[39m[22m[49m: [STRT] Microsoft.Extensions.FileProviders.PhysicalFileProviderTests.GetFileInfoReturnsNotFoundFileInfoForRelativePathThatNavigatesAboveRoot
+  [40m[32minfo[39m[22m[49m: [STRT] Microsoft.Extensions.FileProviders.PhysicalFileProviderTests.CreateReadStreamSucceedsOnEmptyFile
+  [40m[32minfo[39m[22m[49m: [STRT] Microsoft.Extensions.FileProviders.PhysicalFileProviderTests.UsePollingFileWatcher_UseActivePolling_HasChanged_SymbolicLink
+  [40m[32minfo[39m[22m[49m: [STRT] Microsoft.Extensions.FileProviders.PhysicalFileProviderTests.CreateFileWatcher_CreatesWatcherWithPollingAndActiveFlags
+  [40m[32minfo[39m[22m[49m: [STRT] Microsoft.Extensions.FileProviders.PhysicalFileProviderTests.GetDirectoryContentsReturnsEnumerableDirectoryContentsForValidPathWithLeadingSlashes_Unix(path: "/")
+  [40m[32minfo[39m[22m[49m: [STRT] Microsoft.Extensions.FileProviders.PhysicalFileProviderTests.GetDirectoryContentsReturnsEnumerableDirectoryContentsForValidPathWithLeadingSlashes_Unix(path: "///")
+  [40m[32minfo[39m[22m[49m: [STRT] Microsoft.Extensions.FileProviders.PhysicalFileProviderTests.GetDirectoryContentsReturnsNotFoundDirectoryContentsForAbsolutePath
+  [40m[32minfo[39m[22m[49m: [STRT] Microsoft.Extensions.FileProviders.PhysicalFileProviderTests.GetDirectoryContentsReturnsRootDirectoryContentsForEmptyPath
+  [40m[32minfo[39m[22m[49m: [STRT] Microsoft.Extensions.FileProviders.PhysicalFileProviderTests.GetDirectoryContentsReturnsNotFoundDirectoryContentsForNonExistingDirectory
+  [40m[32minfo[39m[22m[49m: [STRT] Microsoft.Extensions.FileProviders.PhysicalFileProviderTests.GetFileInfoReturnsNotFoundFileInfoForNullPath
+  [40m[32minfo[39m[22m[49m: [STRT] Microsoft.Extensions.FileProviders.PhysicalFileProviderTests.GetFileInfoReturnsNotFoundFileInfoForEmptyPath
+  [40m[32minfo[39m[22m[49m: [STRT] Microsoft.Extensions.FileProviders.PhysicalFileProviderTests.GetFileInfoReturnsNonExistentFileInfoForIllegalPath(path: ". ./file")
+  [40m[32minfo[39m[22m[49m: [STRT] Microsoft.Extensions.FileProviders.PhysicalFileProviderTests.GetFileInfoReturnsNonExistentFileInfoForIllegalPath(path: " ../file")
+  [40m[32minfo[39m[22m[49m: [STRT] Microsoft.Extensions.FileProviders.PhysicalFileProviderTests.GetFileInfoReturnsNonExistentFileInfoForIllegalPath(path: ".. /file")
+  [40m[32minfo[39m[22m[49m: [STRT] Microsoft.Extensions.FileProviders.PhysicalFileProviderTests.GetFileInfoReturnsNonExistentFileInfoForIllegalPath(path: " ./file")
+  [40m[32minfo[39m[22m[49m: [STRT] Microsoft.Extensions.FileProviders.PhysicalFileProviderTests.GetFileInfoReturnsNonExistentFileInfoForIllegalPath(path: ". /file")
+  [40m[32minfo[39m[22m[49m: [STRT] Microsoft.Extensions.FileProviders.PhysicalFileProviderTests.NoopChangeTokenForFilterThatNavigatesAboveRoot
+  [40m[32minfo[39m[22m[49m: [STRT] Microsoft.Extensions.FileProviders.PhysicalFileProviderTests.InvalidPath_DoesNotThrowUnix_GetFileInfo(path: "/test:test\0")
+  [40m[32minfo[39m[22m[49m: [STRT] Microsoft.Extensions.FileProviders.PhysicalFileProviderTests.InvalidPath_DoesNotThrowUnix_GetFileInfo(path: "/dir/\0name\"")
+  [40m[32minfo[39m[22m[49m: [STRT] Microsoft.Extensions.FileProviders.PhysicalFileProviderTests.InvalidPath_DoesNotThrowUnix_GetFileInfo(path: "/dir>/name\0")
+  [40m[32minfo[39m[22m[49m: [STRT] Microsoft.Extensions.FileProviders.Physical.Tests.PhysicalFilesWatcherTests.RaiseChangeEvents_CancelsCancellationTokenSourceForExpiredTokens
+  [40m[32minfo[39m[22m[49m: [STRT] Microsoft.Extensions.FileProviders.Physical.Tests.PhysicalFilesWatcherTests.RaiseChangeEvents_CancelsAndRemovesMultipleChangedTokens
+  [40m[32minfo[39m[22m[49m: Finished:    Microsoft.Extensions.FileProviders.Physical.Tests.dll
+  [40m[32minfo[39m[22m[49m: Stored /home/pavelsavara/dev/runtime/artifacts/bin/Microsoft.Extensions.FileProviders.Physical.Tests/Release/net11.0/browser-wasm/wwwroot/xharness-output/testResults.xml results 27695 bytes
+  [40m[32minfo[39m[22m[49m: Finished uploading 27695 bytes of RESULTXML
+  [40m[32minfo[39m[22m[49m: Xml file was written to the provided writer.
+  [40m[32minfo[39m[22m[49m: 
+  [40m[32minfo[39m[22m[49m: === TEST EXECUTION SUMMARY ===
+  [40m[32minfo[39m[22m[49m: Tests run: 80 Passed: 77 Inconclusive: 0 Failed: 0 Ignored: 0 Skipped: 3
+  [40m[32minfo[39m[22m[49m: 
+  [40m[32minfo[39m[22m[49m: test-main.js exiting WasmTestRunner.dll Microsoft.Extensions.FileProviders.Physical.Tests.dll after 0.33463333333333334 minutes with result 0 and linear memory 193331200 bytes
+  [40m[32minfo[39m[22m[49m: DOTNET: forceDisposeProxies done: 14 imports, 0 exports, 0 GCHandles, 0 JSHandles.
+  [40m[32minfo[39m[22m[49m: WASM EXIT 0
+  [40m[32minfo[39m[22m[49m: Waiting to flush log messages with a timeout of 120 secs ..
+  [40m[32minfo[39m[22m[49m: Closing 1 browser tabs before setting the main tab to config page and quitting.
+  XHarness exit code: 0
+  ~/dev/runtime/artifacts/bin/Microsoft.Extensions.FileProviders.Physical.Tests/Release/net11.0/browser-wasm/wwwroot ~/dev/runtime/src/libraries/Microsoft.Extensions.FileProviders.Physical/tests
+  ----- end Sun Feb 1 20:17:17 CET 2026 ----- exit code 0 ----------------------------------------------------------
+  XHarness artifacts: /home/pavelsavara/dev/runtime/artifacts/bin/Microsoft.Extensions.FileProviders.Physical.Tests/Release/net11.0/browser-wasm/wwwroot/xharness-output
+
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:29.83

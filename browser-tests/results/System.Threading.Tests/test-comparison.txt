@@ -1,0 +1,18 @@
+Test Comparison: System.Threading.Tests
+Generated: 2026-02-01T20:19:30+01:00
+
+Mono tests:    629
+CoreCLR tests: 634
+
+=== Extra in CoreCLR (7) ===
+System.Threading.Tests.MonitorTests.InterruptWaitTest
+System.Threading.Tests.MutexTests.Ctor_ValidName(name: \&quot;237305cbff7148fb92a6c83d539680e4\&quot;)
+System.Threading.Tests.MutexTests.Ctor_ValidName(name: \&quot;cb7c44f332b949e7b2e757b355b39067aaaaaaaaaaaaaaaaaa\&quot;···)
+System.Threading.Tests.SemaphoreTests.Ctor_NamesArentSupported_Unix
+System.Threading.Tests.SemaphoreTests.OpenExisting_NotSupported_Unix
+System.Threading.Tests.SynchronizationContextTests.WaitNotificationTest
+System.Threading.Tests.ThreadLocalTests.RunThreadLocalTest8_Values
+
+=== Missing in CoreCLR (2) ===
+System.Threading.Tests.MutexTests.Ctor_ValidName(name: \&quot;0a720628b77047aa9dfc5413e9286148aaaaaaaaaaaaaaaaaa\&quot;···)
+System.Threading.Tests.MutexTests.Ctor_ValidName(name: \&quot;e88c32b8b20e49e6891a9217969cf8a6\&quot;)

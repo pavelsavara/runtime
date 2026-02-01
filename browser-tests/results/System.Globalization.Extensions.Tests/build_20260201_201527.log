@@ -1,0 +1,361 @@
+
+  Determining projects to restore...
+  Restored /home/pavelsavara/dev/runtime/src/libraries/System.Runtime/tests/System.Globalization.Extensions.Tests/System.Globalization.Extensions.Tests.csproj (in 128 ms).
+  3 of 4 projects are up-to-date for restore.
+  TestUtilities -> /home/pavelsavara/dev/runtime/artifacts/bin/TestUtilities/Release/net10.0/TestUtilities.dll
+  WasmTriggerPublishApp for CoreCLR not implemented
+  System.Globalization.Extensions.Tests -> /home/pavelsavara/dev/runtime/artifacts/bin/System.Globalization.Extensions.Tests/Release/net11.0/browser-wasm/System.Globalization.Extensions.Tests.dll
+  export SCENARIO=WasmTestOnChrome
+  export XUNIT_HIDE_PASSING_OUTPUT_DIAGNOSTICS=1
+  export PREPEND_PATH=/home/pavelsavara/dev/runtime/artifacts/bin/chromedriver/chromedriver_linux64
+  export RuntimeIdentifier=browser-wasm
+  PATH=/home/pavelsavara/dev/runtime/artifacts/bin/chromedriver/chromedriver_linux64:/home/pavelsavara/.jsvu/bin:/home/pavelsavara/dev/runtime/.dotnet:/home/pavelsavara/bin:/home/pavelsavara/dev/.dotnet:/home/pavelsavara/.vscode-server/data/User/globalStorage/github.copilot-chat/debugCommand:/home/pavelsavara/.vscode-server/data/User/globalStorage/github.copilot-chat/copilotCli:/home/pavelsavara/.vscode-server/bin/c9d77990917f3102ada88be140d28b038d1dd7c7/bin/remote-cli:/home/pavelsavara/bin:/home/pavelsavara/bin:/home/pavelsavara/dev/.dotnet:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/windows/system32:/mnt/c/windows:/mnt/d/.dotnet/:/mnt/c/windows/System32/Wbem:/mnt/c/windows/System32/WindowsPowerShell/v1.0/:/mnt/c/windows/System32/OpenSSH/:/mnt/c/Program Files/HP/HP One Agent:/mnt/c/Program Files/nodejs/:/mnt/c/Program Files/Meld/:/mnt/c/Program Files/dotnet/:/mnt/c/Program Files/Git/cmd:/mnt/c/Program Files/PuTTY/:/mnt/c/Program Files/PowerShell/7/:/mnt/c/Program Files/Microsoft SQL Server/170/Tools/Binn/:/mnt/c/Program Files/GitExtensions/:/mnt/c/Program Files/GitHub CLI/:/mnt/d/bin:/mnt/d/.dotnet/:/mnt/c/Users/pavelsavara/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/pavelsavara/AppData/Local/Programs/MicrosoftVSCode/bin:/mnt/c/Users/pavelsavara/AppData/Roaming/npm:/mnt/c/Users/pavelsavara/AppData/Local/Programs/Python/Python310/:/mnt/c/Users/pavelsavara/AppData/Local/Programs/Python/Python310/Scripts/:/mnt/c/Users/pavelsavara/AppData/Local/Microsoft/WinGet/Packages/GitHub.Copilot.Prerelease_Microsoft.Winget.Source_8wekyb3d8bbwe:/mnt/c/Users/pavelsavara/.dotnet/tools:/snap/bin
+  EXECUTION_DIR=/home/pavelsavara/dev/runtime/artifacts/bin/System.Globalization.Extensions.Tests/Release/net11.0/browser-wasm/wwwroot
+  SCENARIO=WasmTestOnChrome
+  XHARNESS_OUT=/home/pavelsavara/dev/runtime/artifacts/bin/System.Globalization.Extensions.Tests/Release/net11.0/browser-wasm/wwwroot/xharness-output
+  XHARNESS_CLI_PATH=
+  HARNESS_RUNNER=dotnet xharness
+  XHARNESS_COMMAND=test-browser
+  MAIN_JS=
+  JS_ENGINE=
+  JS_ENGINE_ARGS=--browser-arg=--js-flags=--stack-trace-limit=1000
+  XHARNESS_ARGS= --browser-arg=--js-flags=--stack-trace-limit=1000
+  ~/dev/runtime/artifacts/bin/System.Globalization.Extensions.Tests/Release/net11.0/browser-wasm/wwwroot ~/dev/runtime/src/libraries/System.Runtime/tests/System.Globalization.Extensions.Tests
+  ----- start Sun Feb 1 20:15:30 CET 2026 =============== To repro directly: =====================================================
+  pushd /home/pavelsavara/dev/runtime/artifacts/bin/System.Globalization.Extensions.Tests/Release/net11.0/browser-wasm/wwwroot
+  dotnet xharness wasm test-browser --app=. --output-directory=/home/pavelsavara/dev/runtime/artifacts/bin/System.Globalization.Extensions.Tests/Release/net11.0/browser-wasm/wwwroot/xharness-output -s dotnet.native.js.symbols --symbol-patterns wasm-symbol-patterns.txt --symbolicator WasmSymbolicator.dll,Microsoft.WebAssembly.Internal.SymbolicatorWrapperForXHarness --browser-path=/home/pavelsavara/dev/runtime/artifacts/bin/chrome/chrome-linux/chrome --timeout=00:30:00  --browser-arg=--js-flags=--stack-trace-limit=1000   --  --setenv=XHARNESS_LOG_TEST_START=true  --run WasmTestRunner.dll System.Globalization.Extensions.Tests.dll  -notrait category=OuterLoop -notrait category=failing 
+  popd
+  ===========================================================================================================
+  ~/dev/runtime/artifacts/bin/System.Globalization.Extensions.Tests/Release/net11.0/browser-wasm/wwwroot ~/dev/runtime/artifacts/bin/System.Globalization.Extensions.Tests/Release/net11.0/browser-wasm/wwwroot ~/dev/runtime/src/libraries/System.Runtime/tests/System.Globalization.Extensions.Tests
+  [11.0.0-prerelease.26064.3+31e0b8e08f57890f7b7004b93361d69cd4b21079] XHarness command issued: wasm test-browser --app=. --output-directory=/home/pavelsavara/dev/runtime/artifacts/bin/System.Globalization.Extensions.Tests/Release/net11.0/browser-wasm/wwwroot/xharness-output -s dotnet.native.js.symbols --symbol-patterns wasm-symbol-patterns.txt --symbolicator WasmSymbolicator.dll,Microsoft.WebAssembly.Internal.SymbolicatorWrapperForXHarness --browser-path=/home/pavelsavara/dev/runtime/artifacts/bin/chrome/chrome-linux/chrome --timeout=00:30:00 --browser-arg=--js-flags=--stack-trace-limit=1000 -- --setenv=XHARNESS_LOG_TEST_START=true --run WasmTestRunner.dll System.Globalization.Extensions.Tests.dll -notrait category=OuterLoop -notrait category=failing
+  [40m[1m[33mwarn[39m[22m[49m: Cannot find symbols file dotnet.native.js.symbols
+  [40m[32minfo[39m[22m[49m: Using Chrome from /home/pavelsavara/dev/runtime/artifacts/bin/chrome/chrome-linux/chrome
+  [40m[32minfo[39m[22m[49m: Starting chromedriver with args: --js-flags=--stack-trace-limit=1000 --headless --incognito --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-renderer-backgrounding --enable-features=NetworkService,NetworkServiceInProcess --allow-insecure-localhost --disable-breakpad --disable-component-extensions-with-background-pages --disable-dev-shm-usage --disable-extensions --disable-features=TranslateUI --disable-ipc-flooding-protection --force-color-profile=srgb --metrics-recording-only and load strategy: Normal
+  Starting ChromeDriver 143.0.7499.0 (0000000000000000000000000000000000000000-0000000000000000000000000000000000000000) on port 38987
+  Only local connections are allowed.
+  Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
+  ChromeDriver was started successfully on port 38987.
+  [40m[32minfo[39m[22m[49m: Running in: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/143.0.0.0 Safari/537.36
+  [40m[32minfo[39m[22m[49m: Running at: http://127.0.0.1:36799/index.html?arg=--setenv%3dXHARNESS_LOG_TEST_START%3dtrue&arg=--run&arg=WasmTestRunner.dll&arg=System.Globalization.Extensions.Tests.dll&arg=-notrait&arg=category%3dOuterLoop&arg=-notrait&arg=category%3dfailing&arg=-verbosity&arg=Info
+  [40m[32minfo[39m[22m[49m: could not load /runArgs.json: 404. Ignoring
+  [40m[32minfo[39m[22m[49m: Incoming arguments: --setenv=XHARNESS_LOG_TEST_START=true --run WasmTestRunner.dll System.Globalization.Extensions.Tests.dll -notrait category=OuterLoop -notrait category=failing -verbosity Info
+  [40m[32minfo[39m[22m[49m: Application arguments: --run WasmTestRunner.dll System.Globalization.Extensions.Tests.dll -notrait category=OuterLoop -notrait category=failing -verbosity Info
+  [40m[32minfo[39m[22m[49m: Initializing dotnet version 11.0.0 commit hash e31907b0fbca908ed525247a1dc38cc5fba7b0ff
+  [40m[32minfo[39m[22m[49m: Using threadless Xunit runner
+  [40m[32minfo[39m[22m[49m: Discovering: System.Globalization.Extensions.Tests.dll (method display = ClassAndMethod, method display options = None)
+  [40m[32minfo[39m[22m[49m: Discovered:  System.Globalization.Extensions.Tests.dll (found 28 of 28 test cases)
+  [40m[32minfo[39m[22m[49m: Starting:    System.Globalization.Extensions.Tests.dll
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii_NoTranslationNeeded_ResultIsSameObjectAsInput(input: "www.microsoft.com")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii_NoTranslationNeeded_ResultIsSameObjectAsInput(input: "bing.com")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.TestGetAsciiWithDot
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.TestStringWithHyphenIn3rdAnd4thPlace
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii(unicode: " ", index: 0, count: 1, expected: " ")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii(unicode: "!", index: 0, count: 1, expected: "!")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii(unicode: "\"", index: 0, count: 1, expected: "\"")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii(unicode: "#", index: 0, count: 1, expected: "#")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii(unicode: "$", index: 0, count: 1, expected: "$")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii(unicode: "%", index: 0, count: 1, expected: "%")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii(unicode: "&", index: 0, count: 1, expected: "&")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii(unicode: "'", index: 0, count: 1, expected: "'")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii(unicode: "(", index: 0, count: 1, expected: "(")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii(unicode: ")", index: 0, count: 1, expected: ")")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii(unicode: "*", index: 0, count: 1, expected: "*")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii(unicode: "+", index: 0, count: 1, expected: "+")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii(unicode: ",", index: 0, count: 1, expected: ",")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii(unicode: "/", index: 0, count: 1, expected: "/")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii(unicode: "0", index: 0, count: 1, expected: "0")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii(unicode: "1", index: 0, count: 1, expected: "1")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii(unicode: "2", index: 0, count: 1, expected: "2")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii(unicode: "3", index: 0, count: 1, expected: "3")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii(unicode: "4", index: 0, count: 1, expected: "4")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii(unicode: "5", index: 0, count: 1, expected: "5")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii(unicode: "6", index: 0, count: 1, expected: "6")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii(unicode: "7", index: 0, count: 1, expected: "7")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii(unicode: "8", index: 0, count: 1, expected: "8")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii(unicode: "9", index: 0, count: 1, expected: "9")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii(unicode: ":", index: 0, count: 1, expected: ":")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii(unicode: ";", index: 0, count: 1, expected: ";")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii(unicode: "<", index: 0, count: 1, expected: "<")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii(unicode: "=", index: 0, count: 1, expected: "=")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii(unicode: ">", index: 0, count: 1, expected: ">")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii(unicode: "?", index: 0, count: 1, expected: "?")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii(unicode: "@", index: 0, count: 1, expected: "@")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii(unicode: "A", index: 0, count: 1, expected: "A")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii(unicode: "B", index: 0, count: 1, expected: "B")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii(unicode: "C", index: 0, count: 1, expected: "C")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii(unicode: "D", index: 0, count: 1, expected: "D")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii(unicode: "E", index: 0, count: 1, expected: "E")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii(unicode: "F", index: 0, count: 1, expected: "F")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii(unicode: "G", index: 0, count: 1, expected: "G")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii(unicode: "H", index: 0, count: 1, expected: "H")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii(unicode: "I", index: 0, count: 1, expected: "I")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii(unicode: "J", index: 0, count: 1, expected: "J")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii(unicode: "K", index: 0, count: 1, expected: "K")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii(unicode: "L", index: 0, count: 1, expected: "L")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii(unicode: "M", index: 0, count: 1, expected: "M")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii(unicode: "N", index: 0, count: 1, expected: "N")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii(unicode: "O", index: 0, count: 1, expected: "O")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii(unicode: "P", index: 0, count: 1, expected: "P")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii(unicode: "Q", index: 0, count: 1, expected: "Q")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii(unicode: "R", index: 0, count: 1, expected: "R")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii(unicode: "S", index: 0, count: 1, expected: "S")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii(unicode: "T", index: 0, count: 1, expected: "T")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii(unicode: "U", index: 0, count: 1, expected: "U")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii(unicode: "V", index: 0, count: 1, expected: "V")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii(unicode: "W", index: 0, count: 1, expected: "W")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii(unicode: "X", index: 0, count: 1, expected: "X")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii(unicode: "Y", index: 0, count: 1, expected: "Y")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii(unicode: "Z", index: 0, count: 1, expected: "Z")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii(unicode: "[", index: 0, count: 1, expected: "[")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii(unicode: "\\", index: 0, count: 1, expected: "\\")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii(unicode: "]", index: 0, count: 1, expected: "]")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii(unicode: "^", index: 0, count: 1, expected: "^")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii(unicode: "_", index: 0, count: 1, expected: "_")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii(unicode: "`", index: 0, count: 1, expected: "`")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii(unicode: "a", index: 0, count: 1, expected: "a")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii(unicode: "b", index: 0, count: 1, expected: "b")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii(unicode: "c", index: 0, count: 1, expected: "c")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii(unicode: "d", index: 0, count: 1, expected: "d")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii(unicode: "e", index: 0, count: 1, expected: "e")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii(unicode: "f", index: 0, count: 1, expected: "f")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii(unicode: "g", index: 0, count: 1, expected: "g")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii(unicode: "h", index: 0, count: 1, expected: "h")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii(unicode: "i", index: 0, count: 1, expected: "i")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii(unicode: "j", index: 0, count: 1, expected: "j")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii(unicode: "k", index: 0, count: 1, expected: "k")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii(unicode: "l", index: 0, count: 1, expected: "l")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii(unicode: "m", index: 0, count: 1, expected: "m")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii(unicode: "n", index: 0, count: 1, expected: "n")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii(unicode: "o", index: 0, count: 1, expected: "o")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii(unicode: "p", index: 0, count: 1, expected: "p")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii(unicode: "q", index: 0, count: 1, expected: "q")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii(unicode: "r", index: 0, count: 1, expected: "r")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii(unicode: "s", index: 0, count: 1, expected: "s")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii(unicode: "t", index: 0, count: 1, expected: "t")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii(unicode: "u", index: 0, count: 1, expected: "u")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii(unicode: "v", index: 0, count: 1, expected: "v")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii(unicode: "w", index: 0, count: 1, expected: "w")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii(unicode: "x", index: 0, count: 1, expected: "x")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii(unicode: "y", index: 0, count: 1, expected: "y")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii(unicode: "z", index: 0, count: 1, expected: "z")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii(unicode: "{", index: 0, count: 1, expected: "{")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii(unicode: "|", index: 0, count: 1, expected: "|")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii(unicode: "}", index: 0, count: 1, expected: "}")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii(unicode: "~", index: 0, count: 1, expected: "~")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii(unicode: "ā", index: 0, count: 1, expected: "xn--yda")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii(unicode: "āaA", index: 0, count: 3, expected: "xn--aa-cla")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii(unicode: "aāb", index: 0, count: 3, expected: "xn--ab-dla")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii(unicode: "abā", index: 0, count: 3, expected: "xn--ab-ela")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii(unicode: "𐌀𐌁𐌂", index: 0, count: 6, expected: "xn--097ccd")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii(unicode: "𐌀a𐌁B𐌂", index: 0, count: 8, expected: "xn--ab-ic6nfag")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii(unicode: "𐌀ā𐌁そ𐌂", index: 0, count: 8, expected: "xn--yda263v6b6kfag")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii(unicode: "𐌀ā𐌁a𐌂", index: 0, count: 8, expected: "xn--a-nha4529qfag")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii(unicode: "abc", index: 0, count: 3, expected: "abc")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii(unicode: "そのスピードで", index: 0, count: 7, expected: "xn--d9juau41awczczp")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii(unicode: "パフィーdeルンバ", index: 0, count: 9, expected: "xn--de-jg4avhby1noc0d")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii(unicode: "abc.そのスピードで.パフィーdeルンバ", index: 0, count: 21, expected: "abc.xn--d9juau41awczczp.xn--de-jg4avhby1noc0d")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii(unicode: "abc.そのスピードで.パフィーdeルンバ", index: 0, count: 21, expected: "abc.xn--d9juau41awczczp.xn--de-jg4avhby1noc0d")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii(unicode: "abc.そのスピードで.パフィーdeルンバ", index: 0, count: 11, expected: "abc.xn--d9juau41awczczp")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii(unicode: "abc.そのスピードで.パフィーdeルンバ", index: 0, count: 12, expected: "abc.xn--d9juau41awczczp.")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii(unicode: "abc.そのスピードで.パフィーdeルンバ", index: 4, count: 17, expected: "xn--d9juau41awczczp.xn--de-jg4avhby1noc0d")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii(unicode: "abc.そのスピードで.パフィーdeルンバ", index: 4, count: 7, expected: "xn--d9juau41awczczp")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii(unicode: "abc.そのスピードで.パフィーdeルンバ", index: 4, count: 8, expected: "xn--d9juau41awczczp.")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii(unicode: "abc.そのスピードで.パフィーdeルンバ", index: 12, count: 9, expected: "xn--de-jg4avhby1noc0d")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii_Invalid(unicode: null, index: 0, count: 0, exceptionType: typeof(System.ArgumentNullException))
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii_Invalid(unicode: null, index: -5, count: -10, exceptionType: typeof(System.ArgumentNullException))
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii_Invalid(unicode: "abc", index: -1, count: 0, exceptionType: typeof(System.ArgumentOutOfRangeException))
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii_Invalid(unicode: "abc", index: 0, count: -1, exceptionType: typeof(System.ArgumentOutOfRangeException))
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii_Invalid(unicode: "abc", index: -5, count: -10, exceptionType: typeof(System.ArgumentOutOfRangeException))
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii_Invalid(unicode: "abc", index: 2, count: 2, exceptionType: typeof(System.ArgumentOutOfRangeException))
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii_Invalid(unicode: "abc", index: 4, count: 99, exceptionType: typeof(System.ArgumentOutOfRangeException))
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii_Invalid(unicode: "abc", index: 3, count: 0, exceptionType: typeof(System.ArgumentException))
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii_Invalid(unicode: "abc.そのスピードで.パフィーdeルンバ", index: 3, count: 18, exceptionType: typeof(System.ArgumentException))
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii_Invalid(unicode: "abc.そのスピードで.パフィーdeルンバ", index: 3, count: 8, exceptionType: typeof(System.ArgumentException))
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii_Invalid(unicode: "abc.そのスピードで.パフィーdeルンバ", index: 3, count: 9, exceptionType: typeof(System.ArgumentException))
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii_Invalid(unicode: "abc.そのスピードで.パフィーdeルンバ", index: 11, count: 10, exceptionType: typeof(System.ArgumentException))
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii_Invalid(unicode: "-", index: 0, count: 1, exceptionType: typeof(System.ArgumentException))
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii_Invalid(unicode: "ā\0", index: 0, count: 2, exceptionType: typeof(System.ArgumentException))
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii_Invalid(unicode: "ā\0ā", index: 0, count: 3, exceptionType: typeof(System.ArgumentException))
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii_Invalid(unicode: "ā\0ā\0", index: 0, count: 4, exceptionType: typeof(System.ArgumentException))
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii_Invalid(unicode: "abc\0def", index: 0, count: 7, exceptionType: typeof(System.ArgumentException))
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii_Invalid(unicode: "abc\x01def", index: 0, count: 7, exceptionType: typeof(System.ArgumentException))
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii_Invalid(unicode: "abc\x02def", index: 0, count: 7, exceptionType: typeof(System.ArgumentException))
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii_Invalid(unicode: "abc\x03def", index: 0, count: 7, exceptionType: typeof(System.ArgumentException))
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii_Invalid(unicode: "abc\x04def", index: 0, count: 7, exceptionType: typeof(System.ArgumentException))
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii_Invalid(unicode: "abc\x05def", index: 0, count: 7, exceptionType: typeof(System.ArgumentException))
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii_Invalid(unicode: "abc\x06def", index: 0, count: 7, exceptionType: typeof(System.ArgumentException))
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii_Invalid(unicode: "abc\adef", index: 0, count: 7, exceptionType: typeof(System.ArgumentException))
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii_Invalid(unicode: "abc\bdef", index: 0, count: 7, exceptionType: typeof(System.ArgumentException))
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii_Invalid(unicode: "abc\tdef", index: 0, count: 7, exceptionType: typeof(System.ArgumentException))
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii_Invalid(unicode: "abc\ndef", index: 0, count: 7, exceptionType: typeof(System.ArgumentException))
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii_Invalid(unicode: "abc\vdef", index: 0, count: 7, exceptionType: typeof(System.ArgumentException))
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii_Invalid(unicode: "abc\fdef", index: 0, count: 7, exceptionType: typeof(System.ArgumentException))
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii_Invalid(unicode: "abc\rdef", index: 0, count: 7, exceptionType: typeof(System.ArgumentException))
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii_Invalid(unicode: "abc\x0edef", index: 0, count: 7, exceptionType: typeof(System.ArgumentException))
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii_Invalid(unicode: "abc\x0fdef", index: 0, count: 7, exceptionType: typeof(System.ArgumentException))
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii_Invalid(unicode: "abc\x10def", index: 0, count: 7, exceptionType: typeof(System.ArgumentException))
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii_Invalid(unicode: "abc\x11def", index: 0, count: 7, exceptionType: typeof(System.ArgumentException))
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii_Invalid(unicode: "abc\x12def", index: 0, count: 7, exceptionType: typeof(System.ArgumentException))
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii_Invalid(unicode: "abc\x13def", index: 0, count: 7, exceptionType: typeof(System.ArgumentException))
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii_Invalid(unicode: "abc\x14def", index: 0, count: 7, exceptionType: typeof(System.ArgumentException))
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii_Invalid(unicode: "abc\x15def", index: 0, count: 7, exceptionType: typeof(System.ArgumentException))
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii_Invalid(unicode: "abc\x16def", index: 0, count: 7, exceptionType: typeof(System.ArgumentException))
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii_Invalid(unicode: "abc\x17def", index: 0, count: 7, exceptionType: typeof(System.ArgumentException))
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii_Invalid(unicode: "abc\x18def", index: 0, count: 7, exceptionType: typeof(System.ArgumentException))
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii_Invalid(unicode: "abc\x19def", index: 0, count: 7, exceptionType: typeof(System.ArgumentException))
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii_Invalid(unicode: "abc\x1adef", index: 0, count: 7, exceptionType: typeof(System.ArgumentException))
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii_Invalid(unicode: "abc\x1bdef", index: 0, count: 7, exceptionType: typeof(System.ArgumentException))
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii_Invalid(unicode: "abc\x1cdef", index: 0, count: 7, exceptionType: typeof(System.ArgumentException))
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii_Invalid(unicode: "abc\x1ddef", index: 0, count: 7, exceptionType: typeof(System.ArgumentException))
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii_Invalid(unicode: "abc\x1edef", index: 0, count: 7, exceptionType: typeof(System.ArgumentException))
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii_Invalid(unicode: "abc\x1fdef", index: 0, count: 7, exceptionType: typeof(System.ArgumentException))
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetAsciiTests.GetAscii_Invalid(unicode: "abcdef", index: 0, count: 7, exceptionType: typeof(System.ArgumentException))
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingIdnaConformanceTests.GetUnicode_Success
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingIdnaConformanceTests.GetAscii_Invalid
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingIdnaConformanceTests.EqualsTest(allowUnassigned: False, useStd3AsciiRules: False)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingIdnaConformanceTests.EqualsTest(allowUnassigned: False, useStd3AsciiRules: True)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingIdnaConformanceTests.EqualsTest(allowUnassigned: True, useStd3AsciiRules: False)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingIdnaConformanceTests.EqualsTest(allowUnassigned: True, useStd3AsciiRules: True)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingIdnaConformanceTests.GetAscii_Success
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingIdnaConformanceTests.GetUnicode_Invalid
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.StringNormalizationTests.IsNormalized_Null
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.StringNormalizationTests.IsNormalized_Invalid
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.StringNormalizationTests.Normalize_Null
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.StringNormalizationTests.Normalize(value: "", normalizationForm: FormC, expected: "")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.StringNormalizationTests.Normalize(value: "ÄÇ", normalizationForm: FormD, expected: "ÄÇ")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.StringNormalizationTests.Normalize(value: "ÄÇ", normalizationForm: FormC, expected: "ÄÇ")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.StringNormalizationTests.Normalize(value: "ﬁ", normalizationForm: FormC, expected: "ﬁ")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.StringNormalizationTests.Normalize(value: "ﬁ", normalizationForm: FormD, expected: "ﬁ")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.StringNormalizationTests.Normalize(value: "ẛ̣", normalizationForm: FormC, expected: "ẛ̣")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.StringNormalizationTests.Normalize(value: "ẛ̣", normalizationForm: FormD, expected: "ẛ̣")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.StringNormalizationTests.NormalizationForms_ThrowOnNotSupportedPlatforms
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.StringNormalizationTests.Normalize_Invalid
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.StringNormalizationTests.IsNormalized(value: "ÄÇ", normalizationForm: FormC, expected: True)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.StringNormalizationTests.IsNormalized(value: "ÄÇ", normalizationForm: FormD, expected: False)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.StringNormalizationTests.IsNormalized(value: "ÄÇ", normalizationForm: FormC, expected: False)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.StringNormalizationTests.IsNormalized(value: "ÄÇ", normalizationForm: FormD, expected: True)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetUnicodeTests.GetUnicode(ascii: "xn--yda", index: 0, count: 7, expected: "ā")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetUnicodeTests.GetUnicode(ascii: "axn--ydab", index: 1, count: 7, expected: "ā")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetUnicodeTests.GetUnicode(ascii: "xn--aa-cla", index: 0, count: 10, expected: "āaa")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetUnicodeTests.GetUnicode(ascii: "xn--ab-dla", index: 0, count: 10, expected: "aāb")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetUnicodeTests.GetUnicode(ascii: "xn--ab-ela", index: 0, count: 10, expected: "abā")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetUnicodeTests.GetUnicode(ascii: "xn--097ccd", index: 0, count: 10, expected: "𐌀𐌁𐌂")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetUnicodeTests.GetUnicode(ascii: "xn--ab-ic6nfag", index: 0, count: 14, expected: "𐌀a𐌁b𐌂")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetUnicodeTests.GetUnicode(ascii: "xn--yda263v6b6kfag", index: 0, count: 18, expected: "𐌀ā𐌁そ𐌂")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetUnicodeTests.GetUnicode(ascii: "xn--a-nha4529qfag", index: 0, count: 17, expected: "𐌀ā𐌁a𐌂")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetUnicodeTests.GetUnicode(ascii: "abc", index: 0, count: 3, expected: "abc")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetUnicodeTests.GetUnicode(ascii: "xn--d9juau41awczczp", index: 0, count: 19, expected: "そのスピードで")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetUnicodeTests.GetUnicode(ascii: "xn--de-jg4avhby1noc0d", index: 0, count: 21, expected: "パフィーdeルンバ")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetUnicodeTests.GetUnicode(ascii: "abc.xn--d9juau41awczczp.xn--de-jg4avhby1noc0d", index: 0, count: 45, expected: "abc.そのスピードで.パフィーdeルンバ")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetUnicodeTests.GetUnicode(ascii: "abc.xn--d9juau41awczczp.xn--de-jg4avhby1noc0d", index: 0, count: 45, expected: "abc.そのスピードで.パフィーdeルンバ")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetUnicodeTests.GetUnicode(ascii: "abc.xn--d9juau41awczczp", index: 0, count: 23, expected: "abc.そのスピードで")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetUnicodeTests.GetUnicode(ascii: "abc.xn--d9juau41awczczp.", index: 0, count: 24, expected: "abc.そのスピードで.")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetUnicodeTests.GetUnicode(ascii: "xn--d9juau41awczczp.xn--de-jg4avhby1noc0d", index: 0, count: 41, expected: "そのスピードで.パフィーdeルンバ")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetUnicodeTests.GetUnicode(ascii: "xn--d9juau41awczczp", index: 0, count: 19, expected: "そのスピードで")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetUnicodeTests.GetUnicode(ascii: "xn--d9juau41awczczp.", index: 0, count: 20, expected: "そのスピードで.")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetUnicodeTests.GetUnicode(ascii: "xn--de-jg4avhby1noc0d", index: 0, count: 21, expected: "パフィーdeルンバ")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetUnicodeTests.GetUnicode_NoTranslationNeeded_ResultIsSameObjectAsInput(input: "www.microsoft.com")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetUnicodeTests.GetUnicode_NoTranslationNeeded_ResultIsSameObjectAsInput(input: "bing.com")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetUnicodeTests.GetUnicode_Invalid(ascii: null, index: 0, count: 0, exceptionType: typeof(System.ArgumentNullException))
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetUnicodeTests.GetUnicode_Invalid(ascii: null, index: -5, count: -10, exceptionType: typeof(System.ArgumentNullException))
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetUnicodeTests.GetUnicode_Invalid(ascii: "abc", index: -1, count: 0, exceptionType: typeof(System.ArgumentOutOfRangeException))
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetUnicodeTests.GetUnicode_Invalid(ascii: "abc", index: 0, count: -1, exceptionType: typeof(System.ArgumentOutOfRangeException))
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetUnicodeTests.GetUnicode_Invalid(ascii: "abc", index: -5, count: -10, exceptionType: typeof(System.ArgumentOutOfRangeException))
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetUnicodeTests.GetUnicode_Invalid(ascii: "abc", index: 2, count: 2, exceptionType: typeof(System.ArgumentOutOfRangeException))
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetUnicodeTests.GetUnicode_Invalid(ascii: "abc", index: 4, count: 99, exceptionType: typeof(System.ArgumentOutOfRangeException))
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetUnicodeTests.GetUnicode_Invalid(ascii: "abc", index: 3, count: 0, exceptionType: typeof(System.ArgumentException))
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetUnicodeTests.GetUnicode_Invalid(ascii: "abc\0", index: 0, count: 4, exceptionType: typeof(System.ArgumentException))
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetUnicodeTests.GetUnicode_Invalid(ascii: "ab\0c", index: 0, count: 4, exceptionType: typeof(System.ArgumentException))
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetUnicodeTests.GetUnicode_Invalid(ascii: "abc\0def", index: 0, count: 7, exceptionType: typeof(System.ArgumentException))
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetUnicodeTests.GetUnicode_Invalid(ascii: "abc\x01def", index: 0, count: 7, exceptionType: typeof(System.ArgumentException))
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetUnicodeTests.GetUnicode_Invalid(ascii: "abc\x02def", index: 0, count: 7, exceptionType: typeof(System.ArgumentException))
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetUnicodeTests.GetUnicode_Invalid(ascii: "abc\x03def", index: 0, count: 7, exceptionType: typeof(System.ArgumentException))
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetUnicodeTests.GetUnicode_Invalid(ascii: "abc\x04def", index: 0, count: 7, exceptionType: typeof(System.ArgumentException))
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetUnicodeTests.GetUnicode_Invalid(ascii: "abc\x05def", index: 0, count: 7, exceptionType: typeof(System.ArgumentException))
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetUnicodeTests.GetUnicode_Invalid(ascii: "abc\x06def", index: 0, count: 7, exceptionType: typeof(System.ArgumentException))
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetUnicodeTests.GetUnicode_Invalid(ascii: "abc\adef", index: 0, count: 7, exceptionType: typeof(System.ArgumentException))
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetUnicodeTests.GetUnicode_Invalid(ascii: "abc\bdef", index: 0, count: 7, exceptionType: typeof(System.ArgumentException))
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetUnicodeTests.GetUnicode_Invalid(ascii: "abc\tdef", index: 0, count: 7, exceptionType: typeof(System.ArgumentException))
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetUnicodeTests.GetUnicode_Invalid(ascii: "abc\ndef", index: 0, count: 7, exceptionType: typeof(System.ArgumentException))
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetUnicodeTests.GetUnicode_Invalid(ascii: "abc\vdef", index: 0, count: 7, exceptionType: typeof(System.ArgumentException))
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetUnicodeTests.GetUnicode_Invalid(ascii: "abc\fdef", index: 0, count: 7, exceptionType: typeof(System.ArgumentException))
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetUnicodeTests.GetUnicode_Invalid(ascii: "abc\rdef", index: 0, count: 7, exceptionType: typeof(System.ArgumentException))
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetUnicodeTests.GetUnicode_Invalid(ascii: "abc\x0edef", index: 0, count: 7, exceptionType: typeof(System.ArgumentException))
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetUnicodeTests.GetUnicode_Invalid(ascii: "abc\x0fdef", index: 0, count: 7, exceptionType: typeof(System.ArgumentException))
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetUnicodeTests.GetUnicode_Invalid(ascii: "abc\x10def", index: 0, count: 7, exceptionType: typeof(System.ArgumentException))
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetUnicodeTests.GetUnicode_Invalid(ascii: "abc\x11def", index: 0, count: 7, exceptionType: typeof(System.ArgumentException))
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetUnicodeTests.GetUnicode_Invalid(ascii: "abc\x12def", index: 0, count: 7, exceptionType: typeof(System.ArgumentException))
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetUnicodeTests.GetUnicode_Invalid(ascii: "abc\x13def", index: 0, count: 7, exceptionType: typeof(System.ArgumentException))
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetUnicodeTests.GetUnicode_Invalid(ascii: "abc\x14def", index: 0, count: 7, exceptionType: typeof(System.ArgumentException))
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetUnicodeTests.GetUnicode_Invalid(ascii: "abc\x15def", index: 0, count: 7, exceptionType: typeof(System.ArgumentException))
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetUnicodeTests.GetUnicode_Invalid(ascii: "abc\x16def", index: 0, count: 7, exceptionType: typeof(System.ArgumentException))
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetUnicodeTests.GetUnicode_Invalid(ascii: "abc\x17def", index: 0, count: 7, exceptionType: typeof(System.ArgumentException))
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetUnicodeTests.GetUnicode_Invalid(ascii: "abc\x18def", index: 0, count: 7, exceptionType: typeof(System.ArgumentException))
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetUnicodeTests.GetUnicode_Invalid(ascii: "abc\x19def", index: 0, count: 7, exceptionType: typeof(System.ArgumentException))
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetUnicodeTests.GetUnicode_Invalid(ascii: "abc\x1adef", index: 0, count: 7, exceptionType: typeof(System.ArgumentException))
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetUnicodeTests.GetUnicode_Invalid(ascii: "abc\x1bdef", index: 0, count: 7, exceptionType: typeof(System.ArgumentException))
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetUnicodeTests.GetUnicode_Invalid(ascii: "abc\x1cdef", index: 0, count: 7, exceptionType: typeof(System.ArgumentException))
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetUnicodeTests.GetUnicode_Invalid(ascii: "abc\x1ddef", index: 0, count: 7, exceptionType: typeof(System.ArgumentException))
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetUnicodeTests.GetUnicode_Invalid(ascii: "abc\x1edef", index: 0, count: 7, exceptionType: typeof(System.ArgumentException))
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetUnicodeTests.GetUnicode_Invalid(ascii: "abc\x1fdef", index: 0, count: 7, exceptionType: typeof(System.ArgumentException))
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.IdnMappingGetUnicodeTests.GetUnicode_Invalid(ascii: "abcdef", index: 0, count: 7, exceptionType: typeof(System.ArgumentException))
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.StringNormalizationAllTests.Normalize
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.UseStd3AsciiRules.UseStd3AsciiRules_IsFalseByDefault
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.UseStd3AsciiRules.UseStd3AsciiRules_ChangesGetAsciiBehavior(unicode: " ab", containsInvalidHyphen: False)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.UseStd3AsciiRules.UseStd3AsciiRules_ChangesGetAsciiBehavior(unicode: "a/b", containsInvalidHyphen: False)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.UseStd3AsciiRules.UseStd3AsciiRules_ChangesGetAsciiBehavior(unicode: "ab=", containsInvalidHyphen: False)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.UseStd3AsciiRules.UseStd3AsciiRules_ChangesGetAsciiBehavior(unicode: "ab]", containsInvalidHyphen: False)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.UseStd3AsciiRules.UseStd3AsciiRules_ChangesGetAsciiBehavior(unicode: "~ab", containsInvalidHyphen: False)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.UseStd3AsciiRules.UseStd3AsciiRules_ChangesGetAsciiBehavior(unicode: " .=]~", containsInvalidHyphen: False)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.UseStd3AsciiRules.UseStd3AsciiRules_ChangesGetAsciiBehavior(unicode: "~.a", containsInvalidHyphen: False)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.UseStd3AsciiRules.UseStd3AsciiRules_ChangesGetAsciiBehavior(unicode: "a.~", containsInvalidHyphen: False)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.UseStd3AsciiRules.UseStd3AsciiRules_ChangesGetAsciiBehavior(unicode: "-ab", containsInvalidHyphen: True)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.UseStd3AsciiRules.UseStd3AsciiRules_ChangesGetAsciiBehavior(unicode: "-ab.cd", containsInvalidHyphen: True)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.UseStd3AsciiRules.UseStd3AsciiRules_ChangesGetAsciiBehavior(unicode: "ab.-cd", containsInvalidHyphen: True)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.UseStd3AsciiRules.UseStd3AsciiRules_ChangesGetAsciiBehavior(unicode: "ab-", containsInvalidHyphen: True)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.UseStd3AsciiRules.UseStd3AsciiRules_ChangesGetAsciiBehavior(unicode: "ab-.cd", containsInvalidHyphen: True)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.UseStd3AsciiRules.UseStd3AsciiRules_ChangesGetAsciiBehavior(unicode: "ab.cd-", containsInvalidHyphen: True)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.UseStd3AsciiRules.UseStd3AsciiRules_ChangesGetAsciiBehavior(unicode: "-", containsInvalidHyphen: True)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.UseStd3AsciiRules.UseStd3AsciiRules_ChangesGetAsciiBehavior(unicode: "-b-", containsInvalidHyphen: True)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.UseStd3AsciiRules.UseStd3AsciiRules_NonLDH_ASCII_Codepoint
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.GetStringComparerTests.Compare(x: "hello", y: "hello", cultureName: "fr-FR", options: IgnoreCase, expectedNls: 0, expectedICU: 0)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.GetStringComparerTests.Compare(x: "hello", y: "HELLo", cultureName: "fr-FR", options: IgnoreCase, expectedNls: 0, expectedICU: 0)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.GetStringComparerTests.Compare(x: "hello", y: null, cultureName: "fr-FR", options: IgnoreCase, expectedNls: 1, expectedICU: 1)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.GetStringComparerTests.Compare(x: null, y: "hello", cultureName: "fr-FR", options: IgnoreCase, expectedNls: -1, expectedICU: -1)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.GetStringComparerTests.Compare(x: null, y: null, cultureName: "fr-FR", options: IgnoreCase, expectedNls: 0, expectedICU: 0)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.GetStringComparerTests.Compare(x: "abc", y: "def", cultureName: "fr-FR", options: IgnoreCase, expectedNls: -1, expectedICU: -1)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.GetStringComparerTests.Compare(x: "abc", y: "ABC", cultureName: "fr-FR", options: IgnoreCase, expectedNls: 0, expectedICU: 0)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.GetStringComparerTests.Compare(x: "def", y: "ABC", cultureName: "fr-FR", options: IgnoreCase, expectedNls: 1, expectedICU: 1)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.GetStringComparerTests.Compare(x: "abc", y: "ABC", cultureName: "en-US", options: Ordinal, expectedNls: 1, expectedICU: 1)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.GetStringComparerTests.Compare(x: "abc", y: "ABC", cultureName: "en-US", options: OrdinalIgnoreCase, expectedNls: 0, expectedICU: 0)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.GetStringComparerTests.Compare(x: "Coté", y: "coté", cultureName: "fr-FR", options: IgnoreCase, expectedNls: 0, expectedICU: 0)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.GetStringComparerTests.Compare(x: "coté", y: "côte", cultureName: "fr-FR", options: None, expectedNls: 1, expectedICU: -1)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.GetStringComparerTests.GetStringComparer_Invalid
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.GetStringComparerTests.EqualsTest(cultureName1: "en-US", options1: IgnoreCase, cultureName2: "en-US", options2: IgnoreCase, expected: True)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.GetStringComparerTests.EqualsTest(cultureName1: "en-US", options1: IgnoreCase, cultureName2: "en-US", options2: IgnoreSymbols, expected: False)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.GetStringComparerTests.EqualsTest(cultureName1: "en-US", options1: IgnoreCase, cultureName2: "fr-FR", options2: IgnoreCase, expected: False)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.GetStringComparerTests.EqualsTest(cultureName1: "en-US", options1: IgnoreCase, cultureName2: "fr-FR", options2: Ordinal, expected: False)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Globalization.Tests.GetStringComparerTests.GetHashCode_Null_ThrowsArgumentNullException
+  [40m[32minfo[39m[22m[49m: Finished:    System.Globalization.Extensions.Tests.dll
+  [40m[32minfo[39m[22m[49m: Stored /home/pavelsavara/dev/runtime/artifacts/bin/System.Globalization.Extensions.Tests/Release/net11.0/browser-wasm/wwwroot/xharness-output/testResults.xml results 84350 bytes
+  [40m[32minfo[39m[22m[49m: Finished uploading 84350 bytes of RESULTXML
+  [40m[32minfo[39m[22m[49m: Xml file was written to the provided writer.
+  [40m[32minfo[39m[22m[49m: 
+  [40m[32minfo[39m[22m[49m: === TEST EXECUTION SUMMARY ===
+  [40m[32minfo[39m[22m[49m: Tests run: 291 Passed: 291 Inconclusive: 0 Failed: 0 Ignored: 0 Skipped: 0
+  [40m[32minfo[39m[22m[49m: 
+  [40m[32minfo[39m[22m[49m: test-main.js exiting WasmTestRunner.dll System.Globalization.Extensions.Tests.dll after 0.4423166666666667 minutes with result 0 and linear memory 193331200 bytes
+  [40m[32minfo[39m[22m[49m: DOTNET: forceDisposeProxies done: 14 imports, 0 exports, 0 GCHandles, 0 JSHandles.
+  [40m[32minfo[39m[22m[49m: WASM EXIT 0
+  [40m[32minfo[39m[22m[49m: Waiting to flush log messages with a timeout of 120 secs ..
+  [40m[32minfo[39m[22m[49m: Closing 1 browser tabs before setting the main tab to config page and quitting.
+  XHarness exit code: 0
+  ~/dev/runtime/artifacts/bin/System.Globalization.Extensions.Tests/Release/net11.0/browser-wasm/wwwroot ~/dev/runtime/src/libraries/System.Runtime/tests/System.Globalization.Extensions.Tests
+  ----- end Sun Feb 1 20:15:59 CET 2026 ----- exit code 0 ----------------------------------------------------------
+  XHarness artifacts: /home/pavelsavara/dev/runtime/artifacts/bin/System.Globalization.Extensions.Tests/Release/net11.0/browser-wasm/wwwroot/xharness-output
+
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:31.69

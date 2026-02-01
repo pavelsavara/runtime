@@ -1,0 +1,440 @@
+
+  Determining projects to restore...
+  Restored /home/pavelsavara/dev/runtime/src/libraries/System.Threading.Tasks.Dataflow/tests/System.Threading.Tasks.Dataflow.Tests.csproj (in 159 ms).
+  46 of 47 projects are up-to-date for restore.
+  TestUtilities -> /home/pavelsavara/dev/runtime/artifacts/bin/TestUtilities/Release/net10.0/TestUtilities.dll
+  WasmTriggerPublishApp for CoreCLR not implemented
+  System.Threading.Tasks.Dataflow.Tests -> /home/pavelsavara/dev/runtime/artifacts/bin/System.Threading.Tasks.Dataflow.Tests/Release/net11.0/browser-wasm/System.Threading.Tasks.Dataflow.Tests.dll
+  export SCENARIO=WasmTestOnChrome
+  export XUNIT_HIDE_PASSING_OUTPUT_DIAGNOSTICS=1
+  export PREPEND_PATH=/home/pavelsavara/dev/runtime/artifacts/bin/chromedriver/chromedriver_linux64
+  export RuntimeIdentifier=browser-wasm
+  PATH=/home/pavelsavara/dev/runtime/artifacts/bin/chromedriver/chromedriver_linux64:/home/pavelsavara/.jsvu/bin:/home/pavelsavara/dev/runtime/.dotnet:/home/pavelsavara/bin:/home/pavelsavara/dev/.dotnet:/home/pavelsavara/.vscode-server/data/User/globalStorage/github.copilot-chat/debugCommand:/home/pavelsavara/.vscode-server/data/User/globalStorage/github.copilot-chat/copilotCli:/home/pavelsavara/.vscode-server/bin/c9d77990917f3102ada88be140d28b038d1dd7c7/bin/remote-cli:/home/pavelsavara/bin:/home/pavelsavara/bin:/home/pavelsavara/dev/.dotnet:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/windows/system32:/mnt/c/windows:/mnt/d/.dotnet/:/mnt/c/windows/System32/Wbem:/mnt/c/windows/System32/WindowsPowerShell/v1.0/:/mnt/c/windows/System32/OpenSSH/:/mnt/c/Program Files/HP/HP One Agent:/mnt/c/Program Files/nodejs/:/mnt/c/Program Files/Meld/:/mnt/c/Program Files/dotnet/:/mnt/c/Program Files/Git/cmd:/mnt/c/Program Files/PuTTY/:/mnt/c/Program Files/PowerShell/7/:/mnt/c/Program Files/Microsoft SQL Server/170/Tools/Binn/:/mnt/c/Program Files/GitExtensions/:/mnt/c/Program Files/GitHub CLI/:/mnt/d/bin:/mnt/d/.dotnet/:/mnt/c/Users/pavelsavara/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/pavelsavara/AppData/Local/Programs/MicrosoftVSCode/bin:/mnt/c/Users/pavelsavara/AppData/Roaming/npm:/mnt/c/Users/pavelsavara/AppData/Local/Programs/Python/Python310/:/mnt/c/Users/pavelsavara/AppData/Local/Programs/Python/Python310/Scripts/:/mnt/c/Users/pavelsavara/AppData/Local/Microsoft/WinGet/Packages/GitHub.Copilot.Prerelease_Microsoft.Winget.Source_8wekyb3d8bbwe:/mnt/c/Users/pavelsavara/.dotnet/tools:/snap/bin
+  EXECUTION_DIR=/home/pavelsavara/dev/runtime/artifacts/bin/System.Threading.Tasks.Dataflow.Tests/Release/net11.0/browser-wasm/wwwroot
+  SCENARIO=WasmTestOnChrome
+  XHARNESS_OUT=/home/pavelsavara/dev/runtime/artifacts/bin/System.Threading.Tasks.Dataflow.Tests/Release/net11.0/browser-wasm/wwwroot/xharness-output
+  XHARNESS_CLI_PATH=
+  HARNESS_RUNNER=dotnet xharness
+  XHARNESS_COMMAND=test-browser
+  MAIN_JS=
+  JS_ENGINE=
+  JS_ENGINE_ARGS=--browser-arg=--js-flags=--stack-trace-limit=1000
+  XHARNESS_ARGS= --browser-arg=--js-flags=--stack-trace-limit=1000
+  ~/dev/runtime/artifacts/bin/System.Threading.Tasks.Dataflow.Tests/Release/net11.0/browser-wasm/wwwroot ~/dev/runtime/src/libraries/System.Threading.Tasks.Dataflow/tests
+  ----- start Sun Feb 1 20:17:32 CET 2026 =============== To repro directly: =====================================================
+  pushd /home/pavelsavara/dev/runtime/artifacts/bin/System.Threading.Tasks.Dataflow.Tests/Release/net11.0/browser-wasm/wwwroot
+  dotnet xharness wasm test-browser --app=. --output-directory=/home/pavelsavara/dev/runtime/artifacts/bin/System.Threading.Tasks.Dataflow.Tests/Release/net11.0/browser-wasm/wwwroot/xharness-output -s dotnet.native.js.symbols --symbol-patterns wasm-symbol-patterns.txt --symbolicator WasmSymbolicator.dll,Microsoft.WebAssembly.Internal.SymbolicatorWrapperForXHarness --browser-path=/home/pavelsavara/dev/runtime/artifacts/bin/chrome/chrome-linux/chrome --timeout=00:30:00  --browser-arg=--js-flags=--stack-trace-limit=1000   --  --setenv=XHARNESS_LOG_TEST_START=true  --run WasmTestRunner.dll System.Threading.Tasks.Dataflow.Tests.dll  -notrait category=OuterLoop -notrait category=failing 
+  popd
+  ===========================================================================================================
+  ~/dev/runtime/artifacts/bin/System.Threading.Tasks.Dataflow.Tests/Release/net11.0/browser-wasm/wwwroot ~/dev/runtime/artifacts/bin/System.Threading.Tasks.Dataflow.Tests/Release/net11.0/browser-wasm/wwwroot ~/dev/runtime/src/libraries/System.Threading.Tasks.Dataflow/tests
+  [11.0.0-prerelease.26064.3+31e0b8e08f57890f7b7004b93361d69cd4b21079] XHarness command issued: wasm test-browser --app=. --output-directory=/home/pavelsavara/dev/runtime/artifacts/bin/System.Threading.Tasks.Dataflow.Tests/Release/net11.0/browser-wasm/wwwroot/xharness-output -s dotnet.native.js.symbols --symbol-patterns wasm-symbol-patterns.txt --symbolicator WasmSymbolicator.dll,Microsoft.WebAssembly.Internal.SymbolicatorWrapperForXHarness --browser-path=/home/pavelsavara/dev/runtime/artifacts/bin/chrome/chrome-linux/chrome --timeout=00:30:00 --browser-arg=--js-flags=--stack-trace-limit=1000 -- --setenv=XHARNESS_LOG_TEST_START=true --run WasmTestRunner.dll System.Threading.Tasks.Dataflow.Tests.dll -notrait category=OuterLoop -notrait category=failing
+  [40m[1m[33mwarn[39m[22m[49m: Cannot find symbols file dotnet.native.js.symbols
+  [40m[32minfo[39m[22m[49m: Using Chrome from /home/pavelsavara/dev/runtime/artifacts/bin/chrome/chrome-linux/chrome
+  [40m[32minfo[39m[22m[49m: Starting chromedriver with args: --js-flags=--stack-trace-limit=1000 --headless --incognito --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-renderer-backgrounding --enable-features=NetworkService,NetworkServiceInProcess --allow-insecure-localhost --disable-breakpad --disable-component-extensions-with-background-pages --disable-dev-shm-usage --disable-extensions --disable-features=TranslateUI --disable-ipc-flooding-protection --force-color-profile=srgb --metrics-recording-only and load strategy: Normal
+  Starting ChromeDriver 143.0.7499.0 (0000000000000000000000000000000000000000-0000000000000000000000000000000000000000) on port 41313
+  Only local connections are allowed.
+  Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
+  ChromeDriver was started successfully on port 41313.
+  [40m[32minfo[39m[22m[49m: Running in: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/143.0.0.0 Safari/537.36
+  [40m[32minfo[39m[22m[49m: Running at: http://127.0.0.1:33777/index.html?arg=--setenv%3dXHARNESS_LOG_TEST_START%3dtrue&arg=--run&arg=WasmTestRunner.dll&arg=System.Threading.Tasks.Dataflow.Tests.dll&arg=-notrait&arg=category%3dOuterLoop&arg=-notrait&arg=category%3dfailing&arg=-verbosity&arg=Info
+  [40m[32minfo[39m[22m[49m: could not load /runArgs.json: 404. Ignoring
+  [40m[32minfo[39m[22m[49m: Incoming arguments: --setenv=XHARNESS_LOG_TEST_START=true --run WasmTestRunner.dll System.Threading.Tasks.Dataflow.Tests.dll -notrait category=OuterLoop -notrait category=failing -verbosity Info
+  [40m[32minfo[39m[22m[49m: Application arguments: --run WasmTestRunner.dll System.Threading.Tasks.Dataflow.Tests.dll -notrait category=OuterLoop -notrait category=failing -verbosity Info
+  [40m[32minfo[39m[22m[49m: Initializing dotnet version 11.0.0 commit hash e31907b0fbca908ed525247a1dc38cc5fba7b0ff
+  [40m[32minfo[39m[22m[49m: Using threadless Xunit runner
+  [40m[32minfo[39m[22m[49m: Discovering: System.Threading.Tasks.Dataflow.Tests.dll (method display = ClassAndMethod, method display options = None)
+  [40m[32minfo[39m[22m[49m: Discovered:  System.Threading.Tasks.Dataflow.Tests.dll (found 327 of 338 test cases)
+  [40m[32minfo[39m[22m[49m: Starting:    System.Threading.Tasks.Dataflow.Tests.dll
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.DataflowBlockOptionsTests.TestDefaultValues
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.DataflowBlockOptionsTests.TestPropertyRoundtripping
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.DataflowBlockOptionsTests.TestInvalidArguments
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.TransformManyBlockTests.TestOrdering_Async_OrderedEnabled(mmpt: -1, dop: 1, EnsureOrdered: null)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.TransformManyBlockTests.TestOrdering_Async_OrderedEnabled(mmpt: -1, dop: 2, EnsureOrdered: null)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.TransformManyBlockTests.TestOrdering_Async_OrderedEnabled(mmpt: -1, dop: -1, EnsureOrdered: null)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.TransformManyBlockTests.TestOrdering_Async_OrderedEnabled(mmpt: 1, dop: 1, EnsureOrdered: null)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.TransformManyBlockTests.TestOrdering_Async_OrderedEnabled(mmpt: 1, dop: 2, EnsureOrdered: null)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.TransformManyBlockTests.TestOrdering_Async_OrderedEnabled(mmpt: 1, dop: -1, EnsureOrdered: null)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.TransformManyBlockTests.TestOrdering_Async_OrderedEnabled(mmpt: 2, dop: 2, EnsureOrdered: True)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.TransformManyBlockTests.TestOrdering_Async_OrderedEnabled(mmpt: 2, dop: 1, EnsureOrdered: False)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.TransformManyBlockTests.TestExceptionsAsyncEnumerable
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.TransformManyBlockTests.TestProducerConsumerAsyncEnumerable
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.TransformManyBlockTests.TestReserveReleaseConsumeAsyncEnumerable
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.TransformManyBlockTests.TestToString
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.TransformManyBlockTests.TestMessagePostponement
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.TransformManyBlockTests.TestOrdering_Sync_OrderedDisabled
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.TransformManyBlockTests.TestOrdering_Sync_BlockingEnumeration_NoDeadlock
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.TransformManyBlockTests.TestOrdering_Sync_OrderedDisabledAsyncEnumerable
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.TransformManyBlockTests.TestLinkToOptionsAsyncEnumerable
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.TransformManyBlockTests.TestCountZeroAtCompletion
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.TransformManyBlockTests.TestExceptions
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.TransformManyBlockTests.TestFaultingAndCancellation
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.TransformManyBlockTests.TestPost
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.TransformManyBlockTests.TestArgumentExceptions
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.TransformManyBlockTests.TestPrecanceled
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.TransformManyBlockTests.TestOrdering_Sync_OrderedEnabledAsyncEnumerable(mmpt: -1, dop: 1, EnsureOrdered: null)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.TransformManyBlockTests.TestOrdering_Sync_OrderedEnabledAsyncEnumerable(mmpt: -1, dop: 2, EnsureOrdered: null)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.TransformManyBlockTests.TestOrdering_Sync_OrderedEnabledAsyncEnumerable(mmpt: -1, dop: -1, EnsureOrdered: null)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.TransformManyBlockTests.TestOrdering_Sync_OrderedEnabledAsyncEnumerable(mmpt: 1, dop: 1, EnsureOrdered: null)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.TransformManyBlockTests.TestOrdering_Sync_OrderedEnabledAsyncEnumerable(mmpt: 1, dop: 2, EnsureOrdered: null)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.TransformManyBlockTests.TestOrdering_Sync_OrderedEnabledAsyncEnumerable(mmpt: 1, dop: -1, EnsureOrdered: null)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.TransformManyBlockTests.TestOrdering_Sync_OrderedEnabledAsyncEnumerable(mmpt: 2, dop: 2, EnsureOrdered: True)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.TransformManyBlockTests.TestOrdering_Sync_OrderedEnabledAsyncEnumerable(mmpt: 2, dop: 1, EnsureOrdered: False)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.TransformManyBlockTests.TestYieldingNoResultsAsyncEnumerable
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.TransformManyBlockTests.TestCircularLinkingAsyncEnumerable
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.TransformManyBlockTests.TestInputCountAsyncEnumerable
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.TransformManyBlockTests.TestCancellationExceptionsIgnored
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.TransformManyBlockTests.TestChainedSendReceive
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.TransformManyBlockTests.TestToStringAsyncEnumerable
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.TransformManyBlockTests.TestOfferMessage
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.TransformManyBlockTests.TestMessagePostponementAsyncEnumerable
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.TransformManyBlockTests.TestFaultingAndCancellationAsyncEnumerable
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.TransformManyBlockTests.TestOrdering_Async_OrderedDisabled(trustedEnumeration: True)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.TransformManyBlockTests.TestOrdering_Async_OrderedDisabled(trustedEnumeration: False)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.TransformManyBlockTests.TestChainedSendReceiveAsyncEnumerable
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.TransformManyBlockTests.TestReceivesAsyncEnumerable
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.TransformManyBlockTests.TestCtorAsyncEnumerable
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.TransformManyBlockTests.TestCompletionTaskAsyncEnumerable
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.TransformManyBlockTests.TestArrayListReusePossibleForDop1
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.TransformManyBlockTests.TestProducerConsumer
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.TransformManyBlockTests.TestSendAllThenReceive
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.TransformManyBlockTests.TestCountZeroAtCompletionAsyncEnumerable
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.TransformManyBlockTests.TestScheduling_MoveNextAsync_RunsOnTargetScheduler
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.TransformManyBlockTests.TestOrdering_Sync_OrderedEnabled(mmpt: -1, dop: 1, EnsureOrdered: null)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.TransformManyBlockTests.TestOrdering_Sync_OrderedEnabled(mmpt: -1, dop: 2, EnsureOrdered: null)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.TransformManyBlockTests.TestOrdering_Sync_OrderedEnabled(mmpt: -1, dop: -1, EnsureOrdered: null)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.TransformManyBlockTests.TestOrdering_Sync_OrderedEnabled(mmpt: 1, dop: 1, EnsureOrdered: null)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.TransformManyBlockTests.TestOrdering_Sync_OrderedEnabled(mmpt: 1, dop: 2, EnsureOrdered: null)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.TransformManyBlockTests.TestOrdering_Sync_OrderedEnabled(mmpt: 1, dop: -1, EnsureOrdered: null)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.TransformManyBlockTests.TestOrdering_Sync_OrderedEnabled(mmpt: 2, dop: 2, EnsureOrdered: True)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.TransformManyBlockTests.TestOrdering_Sync_OrderedEnabled(mmpt: 2, dop: 1, EnsureOrdered: False)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.TransformManyBlockTests.TestCircularLinking
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.TransformManyBlockTests.TestReceives
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.TransformManyBlockTests.TestMultipleYieldsAsyncEnumerable
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.TransformManyBlockTests.TestCompletionTask
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.TransformManyBlockTests.TestOrdering_Sync_BlockingEnumeration_NoDeadlockAsyncEnumerable
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.TransformManyBlockTests.TestPostAsyncEnumerable
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.TransformManyBlockTests.TestSendAllThenReceiveAsyncEnumerable
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.TransformManyBlockTests.TestReserveReleaseConsume
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.TransformManyBlockTests.TestArrayListReusePossibleForDop1AsyncEnumerable
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.TransformManyBlockTests.TestPrecanceledAsyncEnumerable
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.TransformManyBlockTests.TestCancellationExceptionsIgnoredAsyncEnumerable
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.TransformManyBlockTests.TestNullTasksIgnored
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.TransformManyBlockTests.TestCtor
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.TransformManyBlockTests.TestMultipleYields
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.TransformManyBlockTests.TestLinkToOptions
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.TransformManyBlockTests.TestInputCount
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.TransformManyBlockTests.TestOfferMessageAsyncEnumerable
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.TransformManyBlockTests.TestArgumentExceptionsAsyncEnumerable
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.TransformManyBlockTests.TestYieldingNoResults
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.JoinBlockTests.TestPrecancellation3
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.JoinBlockTests.TestNonGreedyConsumingFailsWhileJoining
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.JoinBlockTests.TestNonGreedyFailToConsumeReservedMessage
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.JoinBlockTests.TestNonGreedyDropPostponedOnCompletion
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.JoinBlockTests.TestCtor2
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.JoinBlockTests.TestPostThenReceive
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.JoinBlockTests.TestCompletionThroughTargets
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.JoinBlockTests.TestFaultThroughTargets
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.JoinBlockTests.TestTree
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.JoinBlockTests.TestCompletionTask
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.JoinBlockTests.TestArgumentExceptions
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.JoinBlockTests.TestSendAllThenReceive
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.JoinBlockTests.TestOneTargetInsufficient
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.JoinBlockTests.TestCtor3
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.JoinBlockTests.TestToString
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.JoinBlockTests.TestPrecancellation2
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.JoinBlockTests.TestMaxNumberOfGroups
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.JoinBlockTests.TestNonGreedyPostponedMessagesNotAvailable
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.JoinBlockTests.TestNonGreedyReleasingFailsAtCompletion
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.JoinBlockTests.TestCompletionThroughBlock
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.JoinBlockTests.TestPostAllThenReceive
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.SimpleNetworkTests.WriteOnceToAction
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.SimpleNetworkTests.TransformPingPong
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.SimpleNetworkTests.BroadcastToActions
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.SimpleNetworkTests.TransformManyEnumerableToAction
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.SimpleNetworkTests.TransformToAction
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.SimpleNetworkTests.TransformThroughDiscardingFilterToAction
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.SimpleNetworkTests.BatchedJoinToAction
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.SimpleNetworkTests.BufferBlocksToBatchNonGreedyToAction
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.SimpleNetworkTests.BuffersToNonGreedyJoinToAction
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.SimpleNetworkTests.BatchGreedyToAction
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.SimpleNetworkTests.TransformThroughFilterToAction
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.SimpleNetworkTests.TenTransformsToAction
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.SimpleNetworkTests.ActionPingPong
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.ActionBlockTests.TestNonGreedy
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.ActionBlockTests.TestReleasingOfPostponedMessages
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.ActionBlockTests.TestFault
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.ActionBlockTests.TestFaulting
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.ActionBlockTests.TestToString
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.ActionBlockTests.TestCompletionTask
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.ActionBlockTests.TestOrderMaintained
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.ActionBlockTests.TestConsumeToAccept
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.ActionBlockTests.TestFaultyScheduler
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.ActionBlockTests.TestPrecanceledToken
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.ActionBlockTests.TestCtor
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.ActionBlockTests.TestSchedulerUsage
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.ActionBlockTests.TestBasicMessageProcessing
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.ActionBlockTests.TestOfferMessage
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.ActionBlockTests.TestPost
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.ActionBlockTests.TestOperationCanceledExceptionsIgnored
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.ActionBlockTests.TestExceptionDataStorage
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.ActionBlockTests.TestParallelExecution
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.ActionBlockTests.TestNullReturnedTasks
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.ActionBlockTests.TestInputCount
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.BatchedJoinBlockTests.TestCompletion
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.BatchedJoinBlockTests.TestOfferMessage2
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.BatchedJoinBlockTests.TestFaultsThroughTargets
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.BatchedJoinBlockTests.TestCompletesThroughBlock
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.BatchedJoinBlockTests.TestCtor
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.BatchedJoinBlockTests.TestCompletionTask
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.BatchedJoinBlockTests.TestUnbalanced3
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.BatchedJoinBlockTests.TestPrecanceled2
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.BatchedJoinBlockTests.TestMaxNumberOfGroups
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.BatchedJoinBlockTests.TestCompletesThroughTargets
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.BatchedJoinBlockTests.TestPostThenReceive2
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.BatchedJoinBlockTests.TestPostAllThenReceive
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.BatchedJoinBlockTests.TestPostThenReceive3
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.BatchedJoinBlockTests.TestArgumentExceptions
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.BatchedJoinBlockTests.TestToString
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.BatchedJoinBlockTests.TestPrecanceled3
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.BatchedJoinBlockTests.TestOfferMessage3
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.BatchedJoinBlockTests.TestConsumeToAccept
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.BatchedJoinBlockTests.TestReserveReleaseConsume
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.BatchedJoinBlockTests.TestUnbalanced2
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.DebugAttributeTests.TestDebuggerDisplaysAndTypeProxies
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.EtwTests.TestEtw
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.DataflowBlockExtensionTests.ReceiveAllAsync_UnavailableDataCompletesAsynchronously
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.DataflowBlockExtensionTests.ReceiveAllAsync_CanceledBeforeMoveNextAsync_Throws(dataAvailable: False)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.DataflowBlockExtensionTests.ReceiveAllAsync_CanceledBeforeMoveNextAsync_Throws(dataAvailable: True)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.DataflowBlockExtensionTests.ReceiveAllAsync_MultipleSingleElementEnumerations_AllItemsEnumerated(sameEnumerable: False, dispose: False)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.DataflowBlockExtensionTests.ReceiveAllAsync_MultipleSingleElementEnumerations_AllItemsEnumerated(sameEnumerable: False, dispose: True)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.DataflowBlockExtensionTests.ReceiveAllAsync_MultipleSingleElementEnumerations_AllItemsEnumerated(sameEnumerable: True, dispose: False)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.DataflowBlockExtensionTests.ReceiveAllAsync_MultipleSingleElementEnumerations_AllItemsEnumerated(sameEnumerable: True, dispose: True)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.DataflowBlockExtensionTests.ReceiveAllAsync_MultipleEnumerationsToEnd
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.DataflowBlockExtensionTests.ReceiveAllAsync_ArgumentValidation
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.DataflowBlockExtensionTests.ReceiveAllAsync_UseMoveNextAsyncAfterCompleted_ReturnsFalse
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.DataflowBlockExtensionTests.ReceiveAllAsync_ProducerConsumer_ConsumesAllData(items: 0)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.DataflowBlockExtensionTests.ReceiveAllAsync_ProducerConsumer_ConsumesAllData(items: 1)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.DataflowBlockExtensionTests.ReceiveAllAsync_ProducerConsumer_ConsumesAllData(items: 128)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.DataflowBlockExtensionTests.ReceiveAllAsync_DualConcurrentEnumeration_AllItemsEnumerated(sameEnumerable: False)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.DataflowBlockExtensionTests.ReceiveAllAsync_DualConcurrentEnumeration_AllItemsEnumerated(sameEnumerable: True)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.DataflowBlockExtensionTests.ReceiveAllAsync_CanceledAfterMoveNextAsync_Throws
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.DataflowBlockExtensionTests.ReceiveAllAsync_AvailableDataCompletesSynchronously
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.DataflowBlockExtensionTests.ReceiveAllAsync_NotIdempotent
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.DataflowBlockExtensionsTests.TestSendAsync_FaultyTarget
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.DataflowBlockExtensionsTests.TestEncapsulate_EncapsulateBoundedTarget
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.DataflowBlockExtensionsTests.TestChoose3_DataAlreadyAvailable
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.DataflowBlockExtensionsTests.TestChoose3_Exceptions
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.DataflowBlockExtensionsTests.TestNullTarget_Completion
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.DataflowBlockExtensionsTests.TestAsObservableAndAsObserver_AllObserversGetData
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.DataflowBlockExtensionsTests.TestReceive_ArgumentValidation
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.DataflowBlockExtensionsTests.TestReceive_AlreadyAvailable
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.DataflowBlockExtensionsTests.TestOutputAvailableAsync_DataAfterCompletion
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.DataflowBlockExtensionsTests.TestReceive_FaultySourceTryReceive
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.DataflowBlockExtensionsTests.TestLinkTo_ArgumentValidation
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.DataflowBlockExtensionsTests.TestLinkTo_Append
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.DataflowBlockExtensionsTests.TestLinkTo_PropagateCompletion
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.DataflowBlockExtensionsTests.TestAsObservableAndAsObserver_ArgumentValidation
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.DataflowBlockExtensionsTests.TestNullTarget_OfferMessage
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.DataflowBlockExtensionsTests.TestLinkTo_Predicate
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.DataflowBlockExtensionsTests.TestOutputAvailableAsync_NoDataAfterCompletion
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.DataflowBlockExtensionsTests.TestEncapsulate_CompleteAndFaultPassthrough
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.DataflowBlockExtensionsTests.TestChoose2_DataAlreadyAvailable
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.DataflowBlockExtensionsTests.TestChoose_WellBehavingTarget
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.DataflowBlockExtensionsTests.TestLinkTo_MaxMessages
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.DataflowBlockExtensionsTests.TestLinkTo_DoubleLinking_ValidPropagator
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.DataflowBlockExtensionsTests.TestReceive_Cancellation
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.DataflowBlockExtensionsTests.TestPost_ArgumentValidation
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.DataflowBlockExtensionsTests.TestChoose2_BasicFunctionality
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.DataflowBlockExtensionsTests.TestEncapsulate_ReserveAndRelease
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.DataflowBlockExtensionsTests.TestSendAsync_ConsumeCanceled
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.DataflowBlockExtensionsTests.TestChoose_FaultySource
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.DataflowBlockExtensionsTests.TestChoose2_Exceptions
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.DataflowBlockExtensionsTests.TestReceive_TimeoutZero
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.DataflowBlockExtensionsTests.TestReceive_FaultySourceConsume
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.DataflowBlockExtensionsTests.TestSendAsync_Canceled
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.DataflowBlockExtensionsTests.TestAsObservableAndAsObserver_LinkAndUnlink
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.DataflowBlockExtensionsTests.TestLinkTo_BasicLinking
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.DataflowBlockExtensionsTests.TestChoose3_BasicFunctionality
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.DataflowBlockExtensionsTests.TestOutputAvailableAsync_FaultySource
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.DataflowBlockExtensionsTests.TestSendAsync_BehavesAsGoodSource
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.DataflowBlockExtensionsTests.TestAsObservableAndAsObserver_AsObservableDoesntConsume
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.DataflowBlockExtensionsTests.TestAsObservableAndAsObserver_ObservableIdempotency
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.DataflowBlockExtensionsTests.TestChoose_LinkTracking
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.DataflowBlockExtensionsTests.TestAsObservableAndAsObserver_MixedTargets
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.DataflowBlockExtensionsTests.TestOutputAvailableAsync_AvailabilityBeforeAfterData
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.DataflowBlockExtensionsTests.TestReceive_WellBehavingTarget
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.DataflowBlockExtensionsTests.TestChoose_ConsumeToAccept
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.DataflowBlockExtensionsTests.TestAsObservableAndAsObserver_BroadcastFaultyTarget
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.DataflowBlockExtensionsTests.TestOutputAvailableAsync_ArgumentValidation
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.DataflowBlockExtensionsTests.TestEncapsulate_ArgumentValidation
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.DataflowBlockExtensionsTests.TestEncapsulate_Receives
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.DataflowBlockExtensionsTests.TestSendAsync_ReserveRelease
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.DataflowBlockExtensionsTests.TestDataflowMessageHeader
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.DataflowBlockExtensionsTests.TestLinkTo_TwoPhaseCommit
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.DataflowBlockExtensionsTests.TestAsObservableAndAsObserver_ErrorPropagation
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.DataflowBlockExtensionsTests.TestNullTarget_NonNull
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.DataflowBlockExtensionsTests.TestChoose_ArgumentValidation
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.DataflowBlockExtensionsTests.TestOutputAvailableAsync_Cancellation
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.DataflowBlockExtensionsTests.TestAsObservableAndAsObserver_BroadcastBackPressure
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.DataflowBlockExtensionsTests.TestSendAsync_Immediate
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.DataflowBlockExtensionsTests.TestReceive_CanceledSource
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.DataflowBlockExtensionsTests.TestAsObservableAndAsObserver_DataPropagation
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.DataflowBlockExtensionsTests.TestSendAsync_ArgumentValidation
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.DataflowBlockExtensionsTests.TestChoose_ManyConcurrent
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.DataflowBlockExtensionsTests.TestReceiveAsync_ManyInOrder
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.DataflowBlockExtensionsTests.TestEncapsulate_LinkingAndUnlinking
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.DataflowBlockExtensionsTests.TestSendAsync_DelayedConsume
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.DataflowBlockExtensionsTests.TestReceive_NotYetAvailable
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.DataflowBlockExtensionsTests.TestLinkTo_DoubleLinking
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.BroadcastBlockTests.TestRepeatedReceives
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.BroadcastBlockTests.TestBounding
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.BroadcastBlockTests.TestCloning
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.BroadcastBlockTests.TestPrecancellation
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.BroadcastBlockTests.TestCtor
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.BroadcastBlockTests.TestPost
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.BroadcastBlockTests.TestBroadcasting
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.BroadcastBlockTests.TestLinkingAfterCompletion
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.BroadcastBlockTests.TestFaultyScheduler
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.BroadcastBlockTests.TestLinkingToCompleted
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.BroadcastBlockTests.TestToString
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.BroadcastBlockTests.TestCompletionTask
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.BroadcastBlockTests.TestReceiveThenPost
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.BroadcastBlockTests.TestArgumentExceptions
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.BroadcastBlockTests.TestReserveReleaseConsume
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.BroadcastBlockTests.TestFaultingAndCancellation
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.BufferBlockTests.TestReserveReleaseConsume
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.BufferBlockTests.TestFaultySource
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.BufferBlockTests.TestSendAllThenReceive
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.BufferBlockTests.TestFaultingAndCancellation
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.BufferBlockTests.TestArgumentExceptions
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.BufferBlockTests.TestPost
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.BufferBlockTests.TestSourceCoreSpecifics
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.BufferBlockTests.TestOutputAvailableAsyncAfterTryReceiveAll
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.BufferBlockTests.TestSynchronousWaitForCompletionDoesNotDeadlock
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.BufferBlockTests.TestChainedSendReceive
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.BufferBlockTests.TestCompletionTask
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.BufferBlockTests.TestBoundedReceives
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.BufferBlockTests.TestProducerConsumer
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.BufferBlockTests.TestToString
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.BufferBlockTests.TestCtor
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.BufferBlockTests.TestMessagePostponement
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.BufferBlockTests.TestReleasingFailsAtCompletion
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.BufferBlockTests.TestMultiplePostponesFromSameSource
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.BufferBlockTests.TestPrecanceled
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.BufferBlockTests.TestFaultyScheduler
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.BufferBlockTests.TestReceives
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.BufferBlockTests.TestLinkToOptions
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.BufferBlockTests.TestCount
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.BufferBlockTests.TestOfferMessage
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.BufferBlockTests.TestFaultyTarget
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.BufferBlockTests.TestCountZeroAtCompletion
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.TransformBlockTests.TestCountZeroAtCompletion
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.TransformBlockTests.TestOrdering_Sync_OrderedEnabled(mmpt: -1, dop: 1, EnsureOrdered: null)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.TransformBlockTests.TestOrdering_Sync_OrderedEnabled(mmpt: -1, dop: 2, EnsureOrdered: null)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.TransformBlockTests.TestOrdering_Sync_OrderedEnabled(mmpt: -1, dop: -1, EnsureOrdered: null)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.TransformBlockTests.TestOrdering_Sync_OrderedEnabled(mmpt: 1, dop: 1, EnsureOrdered: null)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.TransformBlockTests.TestOrdering_Sync_OrderedEnabled(mmpt: 1, dop: 2, EnsureOrdered: null)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.TransformBlockTests.TestOrdering_Sync_OrderedEnabled(mmpt: 1, dop: -1, EnsureOrdered: null)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.TransformBlockTests.TestOrdering_Sync_OrderedEnabled(mmpt: 2, dop: 2, EnsureOrdered: True)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.TransformBlockTests.TestOrdering_Sync_OrderedEnabled(mmpt: 2, dop: 1, EnsureOrdered: False)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.TransformBlockTests.TestFaultingAndCancellation
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.TransformBlockTests.TestCancellationExceptionsIgnored
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.TransformBlockTests.TestArgumentExceptions
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.TransformBlockTests.TestCompletionTask
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.TransformBlockTests.TestInputCount
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.TransformBlockTests.TestChainedSendReceive
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.TransformBlockTests.TestOrdering_Sync_OrderedDisabled
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.TransformBlockTests.TestPrecanceled
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.TransformBlockTests.TestLinkToOptions
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.TransformBlockTests.TestCircularLinking
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.TransformBlockTests.TestProducerConsumer
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.TransformBlockTests.TestToString
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.TransformBlockTests.TestCtor
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.TransformBlockTests.TestMessagePostponement
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.TransformBlockTests.TestOrdering_Async_OrderedDisabled
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.TransformBlockTests.TestOrdering_Async_OrderedEnabled(mmpt: -1, dop: 1, EnsureOrdered: null)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.TransformBlockTests.TestOrdering_Async_OrderedEnabled(mmpt: -1, dop: 2, EnsureOrdered: null)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.TransformBlockTests.TestOrdering_Async_OrderedEnabled(mmpt: -1, dop: -1, EnsureOrdered: null)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.TransformBlockTests.TestOrdering_Async_OrderedEnabled(mmpt: 1, dop: 1, EnsureOrdered: null)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.TransformBlockTests.TestOrdering_Async_OrderedEnabled(mmpt: 1, dop: 2, EnsureOrdered: null)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.TransformBlockTests.TestOrdering_Async_OrderedEnabled(mmpt: 1, dop: -1, EnsureOrdered: null)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.TransformBlockTests.TestOrdering_Async_OrderedEnabled(mmpt: 2, dop: 2, EnsureOrdered: True)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.TransformBlockTests.TestOrdering_Async_OrderedEnabled(mmpt: 2, dop: 1, EnsureOrdered: False)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.TransformBlockTests.TestNullTasksIgnored
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.TransformBlockTests.TestCtorOverloading
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.TransformBlockTests.TestReceives
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.TransformBlockTests.TestPost
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.TransformBlockTests.TestSendAllThenReceive
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.TransformBlockTests.TestOfferMessage
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.TransformBlockTests.TestExceptions
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.TransformBlockTests.TestFaultyLinkedTarget
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.TransformBlockTests.TestReserveReleaseConsume
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.BatchBlockTests.TestMultipleNonGreedyFromSources
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.BatchBlockTests.TestTriggerBatch_Cancellation
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.BatchBlockTests.TestCompletionWithBufferedItems
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.BatchBlockTests.TestReleaseOnReserveException
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.BatchBlockTests.TestArgumentExceptions
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.BatchBlockTests.TestCompletionTask
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.BatchBlockTests.TestBoundedCapacityFromSends
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.BatchBlockTests.TestNonGreedyFailedConsume
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.BatchBlockTests.TestFaultyScheduler
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.BatchBlockTests.TestPrecancellation
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.BatchBlockTests.TestLinkToOptions
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.BatchBlockTests.TestProducerConsumer
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.BatchBlockTests.TestReserveReleaseConsume
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.BatchBlockTests.TestToString
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.BatchBlockTests.TestCtor
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.BatchBlockTests.TestNonGreedy
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.BatchBlockTests.TestTriggerBatch_NonGreedy
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.BatchBlockTests.TestTriggerBatch_MaxNumberOfGroups
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.BatchBlockTests.TestMaxNumberOfGroups
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.BatchBlockTests.TestTriggerBatch_Nop
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.BatchBlockTests.TestBoundedReceives
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.BatchBlockTests.TestReceives
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.BatchBlockTests.TestNonGreedyLostMessages
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.BatchBlockTests.TestOfferMessage
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.BatchBlockTests.TestFaultingAndCancellation
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.BatchBlockTests.TestTriggerBatch_NonGreedyEmpty
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.BatchBlockTests.TestGreedyFromPosts
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.BatchBlockTests.TestTriggerBatch_VaryingBatchSizes
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.BatchBlockTests.TestBatchingFromSubsetOfSources
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.BatchBlockTests.TestPost
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.WriteOnceBlockTests.TestPostThenReceive
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.WriteOnceBlockTests.TestReserveReleaseConsume
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.WriteOnceBlockTests.TestBroadcasting
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.WriteOnceBlockTests.TestCancellationBeforeAndAfterCtor
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.WriteOnceBlockTests.TestCtor
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.WriteOnceBlockTests.TestLinkToOptions
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.WriteOnceBlockTests.TestPost
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.WriteOnceBlockTests.TestReceiveThenPost
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.WriteOnceBlockTests.TestFaultyScheduler
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.WriteOnceBlockTests.TestTryReceiveWithFilter
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.WriteOnceBlockTests.TestToString
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.WriteOnceBlockTests.TestOfferMessage
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.WriteOnceBlockTests.TestCompletionTask
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.WriteOnceBlockTests.TestArgumentExceptions
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.WriteOnceBlockTests.TestCloning
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Dataflow.Tests.WriteOnceBlockTests.TestFaultyTarget
+  [40m[32minfo[39m[22m[49m: Finished:    System.Threading.Tasks.Dataflow.Tests.dll
+  [40m[32minfo[39m[22m[49m: Stored /home/pavelsavara/dev/runtime/artifacts/bin/System.Threading.Tasks.Dataflow.Tests/Release/net11.0/browser-wasm/wwwroot/xharness-output/testResults.xml results 96810 bytes
+  [40m[32minfo[39m[22m[49m: Finished uploading 96810 bytes of RESULTXML
+  [40m[32minfo[39m[22m[49m: Xml file was written to the provided writer.
+  [40m[32minfo[39m[22m[49m: 
+  [40m[32minfo[39m[22m[49m: === TEST EXECUTION SUMMARY ===
+  [40m[32minfo[39m[22m[49m: Tests run: 370 Passed: 348 Inconclusive: 0 Failed: 0 Ignored: 0 Skipped: 22
+  [40m[32minfo[39m[22m[49m: 
+  [40m[32minfo[39m[22m[49m: test-main.js exiting WasmTestRunner.dll System.Threading.Tasks.Dataflow.Tests.dll after 0.6263 minutes with result 0 and linear memory 278396928 bytes
+  [40m[32minfo[39m[22m[49m: DOTNET: forceDisposeProxies done: 14 imports, 0 exports, 0 GCHandles, 0 JSHandles.
+  [40m[32minfo[39m[22m[49m: WASM EXIT 0
+  [40m[32minfo[39m[22m[49m: Waiting to flush log messages with a timeout of 120 secs ..
+  [40m[32minfo[39m[22m[49m: Closing 1 browser tabs before setting the main tab to config page and quitting.
+  XHarness exit code: 0
+  ~/dev/runtime/artifacts/bin/System.Threading.Tasks.Dataflow.Tests/Release/net11.0/browser-wasm/wwwroot ~/dev/runtime/src/libraries/System.Threading.Tasks.Dataflow/tests
+  ----- end Sun Feb 1 20:18:12 CET 2026 ----- exit code 0 ----------------------------------------------------------
+  XHarness artifacts: /home/pavelsavara/dev/runtime/artifacts/bin/System.Threading.Tasks.Dataflow.Tests/Release/net11.0/browser-wasm/wwwroot/xharness-output
+
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:43.79

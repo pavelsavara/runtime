@@ -1,0 +1,347 @@
+Running in: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/143.0.0.0 Safari/537.36
+Running at: http://127.0.0.1:35311/index.html?arg=--setenv%3dXHARNESS_LOG_TEST_START%3dtrue&arg=--run&arg=WasmTestRunner.dll&arg=System.Runtime.Serialization.Xml.Tests.dll&arg=-notrait&arg=category%3dOuterLoop&arg=-notrait&arg=category%3dfailing&arg=-verbosity&arg=Info
+could not load /runArgs.json: 404. Ignoring
+Incoming arguments: --setenv=XHARNESS_LOG_TEST_START=true --run WasmTestRunner.dll System.Runtime.Serialization.Xml.Tests.dll -notrait category=OuterLoop -notrait category=failing -verbosity Info
+Application arguments: --run WasmTestRunner.dll System.Runtime.Serialization.Xml.Tests.dll -notrait category=OuterLoop -notrait category=failing -verbosity Info
+Initializing dotnet version 11.0.0 commit hash e31907b0fbca908ed525247a1dc38cc5fba7b0ff
+Using threadless Xunit runner
+Discovering: System.Runtime.Serialization.Xml.Tests.dll (method display = ClassAndMethod, method display options = None)
+Discovered:  System.Runtime.Serialization.Xml.Tests.dll (found 271 of 289 test cases)
+Starting:    System.Runtime.Serialization.Xml.Tests.dll
+[STRT] XmlDictionaryWriterTest.XmlBaseWriter_WriteBinHex
+[STRT] XmlDictionaryWriterTest.XmlBaseWriter_FlushAsync
+[STRT] XmlDictionaryWriterTest.XmlDictionaryWriter_InvalidUnicodeChar
+[STRT] XmlDictionaryWriterTest.XmlBaseWriter_WriteStartEndElementAsync
+[STRT] XmlDictionaryWriterTest.IXmlBinaryReaderWriterInitializerTest
+[STRT] XmlDictionaryWriterTest.IXmlTextReaderInitializerTest
+[STRT] XmlDictionaryWriterTest.CreateTextReaderWriterTest
+[STRT] XmlDictionaryWriterTest.BinaryWriter_PrimitiveTypes
+[STRT] XmlDictionaryWriterTest.XmlBaseWriter_CheckAsync_ThrowInvalidOperationException
+[STRT] XmlDictionaryWriterTest.XmlBaseWriter_WriteBase64Async
+[STRT] XmlDictionaryWriterTest.BinaryWriter_Arrays
+[STRT] XmlDictionaryWriterTest.XmlBaseWriter_WriteString
+[STRT] XmlDictionaryWriterTest.StreamProvoiderTest
+[STRT] XmlDictionaryWriterTest.CreateMtomReaderWriter_Throw_PNSE
+[STRT] XmlDictionaryWriterTest.FragmentTest
+[STRT] DataContractSerializerTests.DCS_ArrayAsRoot
+[STRT] DataContractSerializerTests.DCS_ObjectAsRoot
+[STRT] DataContractSerializerTests.DCS_WithDuplicateNames
+[STRT] DataContractSerializerTests.DCS_CollectionGenericRoot
+[STRT] DataContractSerializerTests.DCS_DuplicatedKeyDateTimeOffset
+[STRT] DataContractSerializerTests.DCS_ReadOnlyCollection
+[STRT] DataContractSerializerTests.DCS_MyArgumentExceptionObject
+[STRT] DataContractSerializerTests.DCS_GenericICollectionOfDouble
+[STRT] DataContractSerializerTests.DCS_XElementAsRoot
+[STRT] DataContractSerializerTests.DCS_TimeSpanAsRoot
+[STRT] DataContractSerializerTests.DCS_GenericICollectionOfInt64
+[STRT] DataContractSerializerTests.DCS_MemoryStream_Deserialize_CompatibleWithFullFramework
+[STRT] DataContractSerializerTests.DCS_KnownTypesThroughSettings
+[STRT] DataContractSerializerTests.DCS_RootNameAndNamespaceThroughConstructorAsString
+[STRT] DataContractSerializerTests.DCS_CollectionGenericMembers
+[STRT] DataContractSerializerTests.DCS_ArrayOfSimpleType_PreserveObjectReferences_True
+[STRT] DataContractSerializerTests.DCS_DataMemberNames
+[STRT] DataContractSerializerTests.DCS_InvalidDataContract_Write_Invalid_Types_Throws
+[STRT] DataContractSerializerTests.DCS_KnownSerializableTypes_Version
+[STRT] DataContractSerializerTests.DCS_ByteAsRoot
+[STRT] DataContractSerializerTests.DCS_GenericICollectionOfDecimal
+[STRT] DataContractSerializerTests.DCS_EnumerableInterfaceGetOnlyCollection
+[STRT] DataContractSerializerTests.DCS_ExceptionObject
+[STRT] DataContractSerializerTests.DCS_DataContractWithDotInName
+[STRT] DataContractSerializerTests.DCS_FileStreamSurrogate
+[STRT] DataContractSerializerTests.DCS_InternalTypeSerialization
+[STRT] DataContractSerializerTests.DCS_BasicPerSerializerRoundTripAndCompare_SampleTypes_SampleICollectionTExplicit
+[STRT] DataContractSerializerTests.DCS_MyDerivedCollectionContainer
+[STRT] DataContractSerializerTests.DCS_BinarySerializationOfTimeOnly
+[STRT] DataContractSerializerTests.DCS_DictionaryRoot
+[STRT] DataContractSerializerTests.DCS_WithXElement
+[STRT] DataContractSerializerTests.DCS_InnerExceptionMessageWithSpecialChars
+[STRT] DataContractSerializerTests.DCS_EnumerableMemberConcreteTypeWithoutDefaultConstructor
+[STRT] DataContractSerializerTests.DCS_XmlQualifiedNameAsRoot
+[STRT] DataContractSerializerTests.DCS_MyISerializableType
+[STRT] DataContractSerializerTests.DCS_BasicPerSerializerRoundTripAndCompare_SelfRefCycles
+[STRT] DataContractSerializerTests.DCS_ContainsLinkedList
+[STRT] DataContractSerializerTests.DCS_ArrayOfSimpleType
+[STRT] DataContractSerializerTests.DCS_RootNameWithoutNamespaceThroughSettings
+[STRT] DataContractSerializerTests.DCS_DateTimeAsRoot
+[STRT] DataContractSerializerTests.DCS_GenericICollectionOfBoolean
+[STRT] DataContractSerializerTests.DCS_XmlElementAsRoot
+[STRT] DataContractSerializerTests.DCS_TypeWithIDictionaryPropertyInitWithConcreteType
+[STRT] DataContractSerializerTests.DCS_KnownSerializableTypes_ReadOnlyCollection_1
+[STRT] DataContractSerializerTests.DCS_DataMemberAttribute
+[STRT] DataContractSerializerTests.DCS_BasicRoundtripDCRDefaultCollections
+[STRT] DataContractSerializerTests.DCS_DictionaryMembers
+[STRT] DataContractSerializerTests.DCS_NonGenericDictionaryOfStringInt32
+[STRT] DataContractSerializerTests.DCS_DataContractWithOtherSymbolsInName
+[STRT] DataContractSerializerTests.DCS_ByteArrayAsRoot
+[STRT] DataContractSerializerTests.DCS_DuplicatedKnownTypesWithAdapterThroughConstructor
+[STRT] DataContractSerializerTests.DCS_StringAsRoot
+[STRT] DataContractSerializerTests.DCS_ArrayAsGetSet
+[STRT] DataContractSerializerTests.DCS_GuidAsRoot
+[STRT] DataContractSerializerTests.DCS_GenericDictionaryOfInt32String
+[STRT] DataContractSerializerTests.DCS_PocoDerivedTypeWithBaseTypeWithDataMember
+[STRT] DataContractSerializerTests.DCS_ArrayOfDecimal
+[STRT] DataContractSerializerTests.DCS_GenericICollectionOfString
+[STRT] DataContractSerializerTests.DCS_EnumAsRoot
+[STRT] DataContractSerializerTests.DCS_ListRoot
+[STRT] DataContractSerializerTests.DCS_ArrayOfInt32
+[STRT] DataContractSerializerTests.DCS_BinarySerializationOfDateOnly
+[STRT] DataContractSerializerTests.DCS_ArrayOfBoolean
+[STRT] DataContractSerializerTests.DCS_DictionaryGenericRoot
+[STRT] DataContractSerializerTests.DCS_BasicRoundtripDCRVariation3
+[STRT] DataContractSerializerTests.DCS_TypeNamesWithSpecialCharacters
+[STRT] DataContractSerializerTests.DCS_XPathQueryGeneratorTest
+[STRT] DataContractSerializerTests.DCS_EnumerableStruct
+[STRT] DataContractSerializerTests.DCS_TypeWithXmlElementProperty
+[STRT] DataContractSerializerTests.DCS_WithXElementWithNestedXElement
+[STRT] DataContractSerializerTests.DCS_DerivedTypeWithDifferentOverrides
+[STRT] DataContractSerializerTests.DCS_DataContractWithOperatorsInName
+[STRT] DataContractSerializerTests.DCS_DataContractWithMinusSignInName
+[STRT] DataContractSerializerTests.DCS_KnownSerializableTypes_ReadOnlyDictionary_2
+[STRT] DataContractSerializerTests.DCS_EnumerableCollection
+[STRT] DataContractSerializerTests.DCS_ShortAsRoot
+[STRT] DataContractSerializerTests.DCS_SortedList
+[STRT] DataContractSerializerTests.DCS_TypeWithNestedGenericClassImplementingIXmlSerializable
+[STRT] DataContractSerializerTests.DCS_Nullables
+[STRT] DataContractSerializerTests.DCS_IntAsRoot
+[STRT] DataContractSerializerTests.DCS_SuspensionManager
+[STRT] DataContractSerializerTests.DCS_ArrayAsGetOnly
+[STRT] DataContractSerializerTests.DCS_BasicRoundTripResolvePrimitiveTypes_NotNetFramework
+[STRT] DataContractSerializerTests.DCS_FloatAsRoot
+[STRT] DataContractSerializerTests.DCS_TypeWithOptionalField
+[STRT] DataContractSerializerTests.DCS_CustomType
+[STRT] DataContractSerializerTests.DCS_DataContractResolver_Property
+[STRT] DataContractSerializerTests.DCS_DictionaryGenericMembers
+[STRT] DataContractSerializerTests.DCS_RootNameNamespaceAndKnownTypesThroughConstructorAsXmlDictionary
+[STRT] DataContractSerializerTests.DCS_WithArrayOfXElement
+[STRT] DataContractSerializerTests.DCS_GenericContainer
+[STRT] DataContractSerializerTests.DCS_ArrayOfSingle
+[STRT] DataContractSerializerTests.DCS_DerivedTypeWithBaseTypeWithDataMember
+[STRT] DataContractSerializerTests.DCS_TypesWithArrayOfOtherTypes
+[STRT] DataContractSerializerTests.DCS_ExceptionMessageWithSpecialChars
+[STRT] DataContractSerializerTests.DCS_ArrayOfDouble
+[STRT] DataContractSerializerTests.DCS_ValidateExceptionOnUnspecifiedRootSerializationType
+[STRT] DataContractSerializerTests.DCS_CharAsRoot
+[STRT] DataContractSerializerTests.DCS_SbyteAsRoot
+[STRT] DataContractSerializerTests.DCS_KnownTypeMethodName
+[STRT] DataContractSerializerTests.DCS_UriAsRoot
+[STRT] DataContractSerializerTests.DCS_BasicPerSerializerRoundTripAndCompare_IObjectRef
+[STRT] DataContractSerializerTests.DCS_EnumerableGenericMembers
+[STRT] DataContractSerializerTests.DCS_DateTimeOffsetInIXmlSerializableContainer
+[STRT] DataContractSerializerTests.DCS_SerializableEnumWithNonSerializedValue
+[STRT] DataContractSerializerTests.DCS_BasicPerSerializerRoundTripAndCompare_DataSet
+[STRT] DataContractSerializerTests.DCS_CollectionDataContractWithCustomKeyName
+[STRT] DataContractSerializerTests.DCS_CircularLink
+[STRT] DataContractSerializerTests.DCS_SquareWithDeserializationCallback
+[STRT] DataContractSerializerTests.DCS_ArrayOfInt64
+[STRT] DataContractSerializerTests.DCS_FloatAsRoot_NotNetFramework
+[STRT] DataContractSerializerTests.DCS_CollectionRoot
+[STRT] DataContractSerializerTests.DCS_TypeWithDatetimeOffsetTypeProperty
+[STRT] DataContractSerializerTests.DCS_EnumerableGenericRoot
+[STRT] DataContractSerializerTests.DCS_KnownSerializableTypes_Tuples
+[STRT] DataContractSerializerTests.DCS_CollectionDataContractWithCustomKeyNameDuplicate
+[STRT] DataContractSerializerTests.DCS_SimpleCollectionDataContract
+[STRT] DataContractSerializerTests.DCS_TypeWithPrimitiveFields
+[STRT] DataContractSerializerTests.DCS_GenericStack
+[STRT] DataContractSerializerTests.DCS_TypeWithEmitDefaultValueFalse
+[STRT] DataContractSerializerTests.DCS_DifferentCollectionsOfSameTypeAsKnownTypes
+[STRT] DataContractSerializerTests.DCS_ArrayOfDateTime
+[STRT] DataContractSerializerTests.DCS_MemoryStream_Deserialize_DisallowsBogusInputs
+[STRT] DataContractSerializerTests.DCS_RootNameNamespaceAndKnownTypesThroughConstructorAsStrings
+[STRT] DataContractSerializerTests.DCS_BinarySerializationOfDateTime
+[STRT] DataContractSerializerTests.DCS_ArrayOfTypeWithPrimitiveProperties
+[STRT] DataContractSerializerTests.DCS_UintAsRoot
+[STRT] DataContractSerializerTests.DCS_SimpleStructWithProperties
+[STRT] DataContractSerializerTests.DCS_ConcurrentDictionary
+[STRT] DataContractSerializerTests.DCS_NonGenericDictionaryOfInt32String
+[STRT] DataContractSerializerTests.DCS_CollectionMembers
+[STRT] DataContractSerializerTests.DCS_TypeWithTypeProperty
+[STRT] DataContractSerializerTests.DCS_TypeWithExplicitIEnumerableImplementation
+[STRT] DataContractSerializerTests.DCS_SystemVersion
+[STRT] DataContractSerializerTests.DCS_TypeWithCollectionAndDateTimeOffset
+[STRT] DataContractSerializerTests.DCS_Queue
+[STRT] DataContractSerializerTests.DCS_ReadObject_XmlDictionaryReaderMaxStringContentLengthExceedsQuota
+[STRT] DataContractSerializerTests.DCS_GenericTypeWithNestedGenerics
+[STRT] DataContractSerializerTests.DCS_EnumFlags
+[STRT] DataContractSerializerTests.DCS_KnownSerializableTypes_Stack_1
+[STRT] DataContractSerializerTests.DCS_GenericICollectionOfSingle
+[STRT] DataContractSerializerTests.DCS_TimeOnlyAsRoot
+[STRT] DataContractSerializerTests.DCS_TypeWithUriTypeProperty
+[STRT] DataContractSerializerTests.DCS_ResolveNameReturnsEmptyNamespace
+[STRT] DataContractSerializerTests.DCS_EnumAsMember
+[STRT] DataContractSerializerTests.DCS_UlongAsRoot
+[STRT] DataContractSerializerTests.DCS_JaggedArrayAsRoot
+[STRT] DataContractSerializerTests.DCS_KnownTypesThroughConstructor
+[STRT] DataContractSerializerTests.DCS_RootNameAndNamespaceThroughSettings
+[STRT] DataContractSerializerTests.DCS_BasicPerSerializerRoundTripAndCompare_TypeInheritedFromIListT
+[STRT] DataContractSerializerTests.DCS_Tuple
+[STRT] DataContractSerializerTests.DCS_Stack
+[STRT] DataContractSerializerTests.DCS_GenericDictionaryOfInt32Boolean
+[STRT] DataContractSerializerTests.DCS_DuplicatedKeyXmlQualifiedName
+[STRT] DataContractSerializerTests.DCS_SampleICollectionTExplicitWithoutDC
+[STRT] DataContractSerializerTests.DCS_KeyValuePair
+[STRT] DataContractSerializerTests.DCS_BasicPerSerializerRoundTripAndCompare_EnumStruct_NotNetFramework
+[STRT] DataContractSerializerTests.DCS_BasicRoundTripResolveEnumStructTypes
+[STRT] DataContractSerializerTests.DCS_DictionaryWithVariousKeyValueTypes
+[STRT] DataContractSerializerTests.DCS_DateTimeOnlyWrapper_Roundtrip
+[STRT] DataContractSerializerTests.DCS_ResolveDatacontractBaseType
+[STRT] DataContractSerializerTests.DCS_DCClassWithEnumAndStruct
+[STRT] DataContractSerializerTests.DCS_NonGenericDictionaryOfInt32Boolean
+[STRT] DataContractSerializerTests.DCS_DecimalAsRoot
+[STRT] DataContractSerializerTests.DCS_DeserializeEmptyString
+[STRT] DataContractSerializerTests.DCS_GenericICollectionOfInt32
+[STRT] DataContractSerializerTests.DCS_TypeWithNonSerializedField
+[STRT] DataContractSerializerTests.DCS_MemoryStream_Serialize_UsesBuiltInAdapter
+[STRT] DataContractSerializerTests.DCS_EnumerableMembers
+[STRT] DataContractSerializerTests.DCS_TypeWithCollectionWithoutDefaultConstructor
+[STRT] DataContractSerializerTests.DCS_XmlDictionaryQuotas(quotas: XmlDictionaryReaderQuotas { MaxArrayLength = 16384, MaxBytesPerRead = 4096, MaxDepth = 32, MaxNameTableCharCount = 16384, MaxStringContentLength = 8192, ··· }, shouldSucceed: True)
+[STRT] DataContractSerializerTests.DCS_XmlDictionaryQuotas(quotas: XmlDictionaryReaderQuotas { MaxArrayLength = 16384, MaxBytesPerRead = 4096, MaxDepth = 1, MaxNameTableCharCount = 16384, MaxStringContentLength = 8192, ··· }, shouldSucceed: False)
+[STRT] DataContractSerializerTests.DCS_XmlDictionaryQuotas(quotas: XmlDictionaryReaderQuotas { MaxArrayLength = 16384, MaxBytesPerRead = 4096, MaxDepth = 32, MaxNameTableCharCount = 16384, MaxStringContentLength = 1, ··· }, shouldSucceed: False)
+[STRT] DataContractSerializerTests.DCS_BasicRoundtripDCRVerifyWireformatScenarios
+[STRT] DataContractSerializerTests.DCS_CollectionTypeInCollectibleALC
+[STRT] DataContractSerializerTests.DCS_ClassImplementingIXmlSerializable
+[STRT] DataContractSerializerTests.DCS_TypeWithCollectionAndDateTimeOffset_ListIsNull
+[STRT] DataContractSerializerTests.DCS_KnownSerializableTypes_Queue_1
+[STRT] DataContractSerializerTests.DCS_BuiltInTypes
+[STRT] DataContractSerializerTests.DCS_DataContractAttribute
+[STRT] DataContractSerializerTests.DCS_ListMembers
+[STRT] DataContractSerializerTests.DCS_KnownSerializableTypes_Stack
+[STRT] DataContractSerializerTests.DCS_GenericQueue
+[STRT] DataContractSerializerTests.DCS_TypeWithDelegate
+[STRT] DataContractSerializerTests.DCS_MyPersonSurrogate
+[STRT] DataContractSerializerTests.DCS_GenericDictionaryOfStringInt32
+[STRT] DataContractSerializerTests.DCS_SerializeClassThatImplementsInterface
+[STRT] DataContractSerializerTests.DCS_BasicRoundtripDCRVariation1
+[STRT] DataContractSerializerTests.DCS_BasicRoundtripDCRVariation2
+[STRT] DataContractSerializerTests.DCS_InvalidDataContract_Read_Invalid_Types_Throws
+[STRT] DataContractSerializerTests.DCS_TypeWithGenericDictionaryAsKnownType
+[STRT] DataContractSerializerTests.DCS_TypeWithKnownTypeAttributeAndInterfaceMember
+[STRT] DataContractSerializerTests.DCS_DeserializeTypeWithInnerInvalidDataContract
+[STRT] DataContractSerializerTests.DCS_TypeWithPrivateFieldAndPrivateGetPublicSetProperty
+[STRT] DataContractSerializerTests.DCS_UshortAsRoot
+[STRT] DataContractSerializerTests.DCS_EnumerableRoot
+[STRT] DataContractSerializerTests.DCS_LongAsRoot
+[STRT] DataContractSerializerTests.DCS_TypeWithCommonTypeProperties
+[STRT] DataContractSerializerTests.DCS_RootNameAndNamespaceThroughConstructorAsXmlDictionary
+[STRT] DataContractSerializerTests.DCS_WriteObject_Use_DataContractResolver
+[STRT] DataContractSerializerTests.DCS_GenericBase
+[STRT] DataContractSerializerTests.DCS_TypeWithAllPrimitiveProperties
+[STRT] DataContractSerializerTests.DCS_ReadOnlyDictionary
+[STRT] DataContractSerializerTests.DCS_MyDataContractResolver
+[STRT] DataContractSerializerTests.DCS_DateOnlyAsRoot
+[STRT] DataContractSerializerTests.DCS_ResolveNameVariationTest
+[STRT] DataContractSerializerTests.DCS_PrivateTypeSerialization
+[STRT] DataContractSerializerTests.DCS_ArrayOfString
+[STRT] DataContractSerializerTests.DCS_DateTimeOffsetAsRoot
+[STRT] DataContractSerializerTests.DCS_IgnoreDataMemberAttribute
+[STRT] DataContractSerializerTests.DCS_TypeWithPrimitiveProperties
+[STRT] DataContractSerializerTests.DCS_MyPersonSurrogate_Stress
+[STRT] DataContractSerializerTests.DCS_InvalidDataContract_Write_NonEmpty_Collection_Of_Invalid_Type_Throws
+[STRT] DataContractSerializerTests.DCS_BasicRoundtripDCRVariation4
+[STRT] DataContractSerializerTests.DCS_ExtensionDataObjectTest
+[STRT] DataContractSerializerTests.DCS_RecursiveCollection
+[STRT] DataContractSerializerTests.DCS_BasicPerSerializerRoundTripAndCompare_InheritedFromIList
+[STRT] DataContractSerializerTests.DCS_KnownSerializableTypes_Queue
+[STRT] DataContractSerializerTests.DCS_TypeInCollectibleALC
+[STRT] DataContractSerializerTests.DCS_KnownSerializableTypes_KeyValuePair_2
+[STRT] DataContractSerializerTests.DCS_BasicRoundTripResolveDTOTypes
+[STRT] DataContractSerializerTests.DCS_BasicRoundTripPOCOWithIgnoreDM
+[STRT] DataContractSerializerTests.DCS_BasicPerSerializerRoundTripAndCompare_ItRef
+[STRT] DataContractSerializerTests.DCS_ArrayOfSimpleType_PreserveObjectReferences_False
+[STRT] DataContractSerializerTests.DCS_DoubleAsRoot
+[STRT] DataContractSerializerTests.DCS_GenericICollectionOfTypeWithPrimitiveProperties
+[STRT] DataContractSerializerTests.DCS_BoolAsRoot
+[STRT] DataContractSerializerTests.DCS_CollectionInterfaceGetOnlyCollection
+[STRT] System.Runtime.Serialization.Xml.XsdDataContractExporterTests.SurrogateTests.SurrogateProvider(type: typeof(System.Runtime.Serialization.Xml.XsdDataContractExporterTests.SurrogateTests+CircleContainer), surrogate: NodeToSerializableNode { }, schemaCheck: Action`2 { Method = Void <SurrogateProvider_MemberData>b__0(System.String, System.Xml.Schema.XmlSchemaSet), Target = <>c__DisplayClass3_0 { majorVersion = 11 } })
+[STRT] System.Runtime.Serialization.Xml.XsdDataContractExporterTests.SurrogateTests.SurrogateProvider(type: typeof(System.Runtime.Serialization.Xml.XsdDataContractExporterTests.SurrogateTests+Node), surrogate: NodeToSerializableNode { }, schemaCheck: Action`2 { Method = Void <SurrogateProvider_MemberData>b__1(System.String, System.Xml.Schema.XmlSchemaSet), Target = <>c__DisplayClass3_0 { majorVersion = 11 } })
+[STRT] System.Runtime.Serialization.Xml.XsdDataContractExporterTests.SurrogateTests.SurrogateProvider(type: typeof(System.Runtime.Serialization.Xml.XsdDataContractExporterTests.SurrogateTests+XmlSerializerPerson), surrogate: NodeToSerializableNode { }, schemaCheck: Action`2 { Method = Void <SurrogateProvider_MemberData>b__3_2(System.String, System.Xml.Schema.XmlSchemaSet), Target = <>c { } })
+[STRT] System.Runtime.Serialization.Xml.XsdDataContractExporterTests.SurrogateTests.SurrogateProvider(type: typeof(System.Runtime.Serialization.Xml.XsdDataContractExporterTests.SurrogateTests+ValidSurrogateTest), surrogate: PersonSurrogate { }, schemaCheck: Action`2 { Method = Void <SurrogateProvider_MemberData>b__3_3(System.String, System.Xml.Schema.XmlSchemaSet), Target = <>c { } })
+[STRT] System.Runtime.Serialization.Xml.XsdDataContractExporterTests.SurrogateTests.SurrogateProvider(type: typeof(System.Runtime.Serialization.Xml.XsdDataContractExporterTests.SurrogateTests+ValidSurrogateTestDC), surrogate: PersonSurrogate { }, schemaCheck: Action`2 { Method = Void <SurrogateProvider_MemberData>b__3_4(System.String, System.Xml.Schema.XmlSchemaSet), Target = <>c { } })
+[STRT] System.Runtime.Serialization.Xml.XsdDataContractExporterTests.SurrogateTests.SurrogateProvider_Negative(badType: typeof(System.Runtime.Serialization.Xml.XsdDataContractExporterTests.SurrogateTests+InvalidSurrogateTest), surrogate: CollectionASurrogate { }, exceptionType: typeof(System.Runtime.Serialization.InvalidDataContractException), exMsg: null)
+[STRT] System.Runtime.Serialization.Xml.XsdDataContractExporterTests.SurrogateTests.SurrogateProvider_Negative(badType: typeof(System.Runtime.Serialization.Xml.XsdDataContractExporterTests.SurrogateTests+InvalidSurrogateTestDC), surrogate: CollectionASurrogate { }, exceptionType: typeof(System.Runtime.Serialization.InvalidDataContractException), exMsg: null)
+[STRT] XmlSerializerTests.FlagEnums_With_Different_Namespaces
+[STRT] System.Runtime.Serialization.Xml.XsdDataContractExporterTests.ExportOptionsTests.DefaultOptions
+[STRT] System.Runtime.Serialization.Xml.XsdDataContractExporterTests.ExportOptionsTests.GetImportOptions
+[STRT] System.Runtime.Serialization.Xml.XsdDataContractExporterTests.ExportOptionsTests.SetImportOptions
+[STRT] System.Runtime.Serialization.Xml.XsdDataContractExporterTests.ExportOptionsTests.KnownTypes_Negative
+[STRT] System.Runtime.Serialization.Xml.XsdDataContractExporterTests.ExporterApiTests.Ctor_Schemas
+[STRT] System.Runtime.Serialization.Xml.XsdDataContractExporterTests.ExporterApiTests.Ctor_Default
+[STRT] System.Runtime.Serialization.Xml.XsdDataContractExporterTests.ExporterApiTests.Export(testname: "Exp1", export: Action`1 { Method = Void <Export_MemberData>b__7_0(System.Runtime.Serialization.XsdDataContractExporter), Target = <>c { } }, schemaCheck: Action`2 { Method = Void <Export_MemberData>b__7_1(System.String, System.Xml.Schema.XmlSchemaSet), Target = <>c { } })
+[STRT] System.Runtime.Serialization.Xml.XsdDataContractExporterTests.ExporterApiTests.Export(testname: "Exp2", export: Action`1 { Method = Void <Export_MemberData>b__7_2(System.Runtime.Serialization.XsdDataContractExporter), Target = <>c { } }, schemaCheck: Action`2 { Method = Void <Export_MemberData>b__3(System.String, System.Xml.Schema.XmlSchemaSet), Target = <>c__DisplayClass7_0 { autoImportKVP = False } })
+[STRT] System.Runtime.Serialization.Xml.XsdDataContractExporterTests.ExporterApiTests.Export(testname: "Exp3", export: Action`1 { Method = Void <Export_MemberData>b__7_4(System.Runtime.Serialization.XsdDataContractExporter), Target = <>c { } }, schemaCheck: Action`2 { Method = Void <Export_MemberData>b__7_5(System.String, System.Xml.Schema.XmlSchemaSet), Target = <>c { } })
+[STRT] System.Runtime.Serialization.Xml.XsdDataContractExporterTests.ExporterApiTests.Export(testname: "Exp4", export: Action`1 { Method = Void <Export_MemberData>b__7_6(System.Runtime.Serialization.XsdDataContractExporter), Target = <>c { } }, schemaCheck: Action`2 { Method = Void <Export_MemberData>b__7_7(System.String, System.Xml.Schema.XmlSchemaSet), Target = <>c { } })
+[STRT] System.Runtime.Serialization.Xml.XsdDataContractExporterTests.ExporterApiTests.Export(testname: "ExpEnum", export: Action`1 { Method = Void <Export_MemberData>b__7_8(System.Runtime.Serialization.XsdDataContractExporter), Target = <>c { } }, schemaCheck: Action`2 { Method = Void <Export_MemberData>b__7_9(System.String, System.Xml.Schema.XmlSchemaSet), Target = <>c { } })
+[STRT] System.Runtime.Serialization.Xml.XsdDataContractExporterTests.ExporterApiTests.CanExport(expectedResult: True, testname: "t1+", canExport: Func`2 { Method = Boolean <CanExport_MemberData>b__5_0(System.Runtime.Serialization.XsdDataContractExporter), Target = <>c { } }, expectedExceptionType: null, msg: null)
+[STRT] System.Runtime.Serialization.Xml.XsdDataContractExporterTests.ExporterApiTests.CanExport(expectedResult: False, testname: "t2-", canExport: Func`2 { Method = Boolean <CanExport_MemberData>b__5_1(System.Runtime.Serialization.XsdDataContractExporter), Target = <>c { } }, expectedExceptionType: typeof(System.ArgumentNullException), msg: "Value cannot be null. (Parameter 'type')")
+[STRT] System.Runtime.Serialization.Xml.XsdDataContractExporterTests.ExporterApiTests.CanExport(expectedResult: False, testname: "t3-", canExport: Func`2 { Method = Boolean <CanExport_MemberData>b__5_2(System.Runtime.Serialization.XsdDataContractExporter), Target = <>c { } }, expectedExceptionType: null, msg: null)
+[STRT] System.Runtime.Serialization.Xml.XsdDataContractExporterTests.ExporterApiTests.CanExport(expectedResult: True, testname: "t4+", canExport: Func`2 { Method = Boolean <CanExport_MemberData>b__5_3(System.Runtime.Serialization.XsdDataContractExporter), Target = <>c { } }, expectedExceptionType: null, msg: null)
+[STRT] System.Runtime.Serialization.Xml.XsdDataContractExporterTests.ExporterApiTests.CanExport(expectedResult: True, testname: "t5+", canExport: Func`2 { Method = Boolean <CanExport_MemberData>b__5_4(System.Runtime.Serialization.XsdDataContractExporter), Target = <>c { } }, expectedExceptionType: null, msg: null)
+[STRT] System.Runtime.Serialization.Xml.XsdDataContractExporterTests.ExporterApiTests.CanExport(expectedResult: True, testname: "t6+", canExport: Func`2 { Method = Boolean <CanExport_MemberData>b__5_5(System.Runtime.Serialization.XsdDataContractExporter), Target = <>c { } }, expectedExceptionType: null, msg: null)
+[STRT] System.Runtime.Serialization.Xml.XsdDataContractExporterTests.ExporterApiTests.CanExport(expectedResult: False, testname: "t7-", canExport: Func`2 { Method = Boolean <CanExport_MemberData>b__5_6(System.Runtime.Serialization.XsdDataContractExporter), Target = <>c { } }, expectedExceptionType: null, msg: null)
+[STRT] System.Runtime.Serialization.Xml.XsdDataContractExporterTests.ExporterApiTests.CanExport(expectedResult: False, testname: "t8-", canExport: Func`2 { Method = Boolean <CanExport_MemberData>b__5_7(System.Runtime.Serialization.XsdDataContractExporter), Target = <>c { } }, expectedExceptionType: null, msg: null)
+[STRT] System.Runtime.Serialization.Xml.XsdDataContractExporterTests.ExporterApiTests.CanExport(expectedResult: False, testname: "t9-", canExport: Func`2 { Method = Boolean <CanExport_MemberData>b__5_8(System.Runtime.Serialization.XsdDataContractExporter), Target = <>c { } }, expectedExceptionType: null, msg: null)
+[STRT] System.Runtime.Serialization.Xml.XsdDataContractExporterTests.ExporterApiTests.CanExport(expectedResult: False, testname: "t10-", canExport: Func`2 { Method = Boolean <CanExport_MemberData>b__5_9(System.Runtime.Serialization.XsdDataContractExporter), Target = <>c { } }, expectedExceptionType: null, msg: null)
+[STRT] System.Runtime.Serialization.Xml.XsdDataContractExporterTests.ExporterApiTests.CanExport(expectedResult: True, testname: "ca1+", canExport: Func`2 { Method = Boolean <CanExport_MemberData>b__5_10(System.Runtime.Serialization.XsdDataContractExporter), Target = <>c { } }, expectedExceptionType: null, msg: null)
+[STRT] System.Runtime.Serialization.Xml.XsdDataContractExporterTests.ExporterApiTests.CanExport(expectedResult: False, testname: "ca2-", canExport: Func`2 { Method = Boolean <CanExport_MemberData>b__5_11(System.Runtime.Serialization.XsdDataContractExporter), Target = <>c { } }, expectedExceptionType: typeof(System.ArgumentNullException), msg: "Value cannot be null. (Parameter 'assemblies')")
+[STRT] System.Runtime.Serialization.Xml.XsdDataContractExporterTests.ExporterApiTests.CanExport(expectedResult: False, testname: "ca3-", canExport: Func`2 { Method = Boolean <CanExport_MemberData>b__5_12(System.Runtime.Serialization.XsdDataContractExporter), Target = <>c { } }, expectedExceptionType: typeof(System.ArgumentException), msg: "Cannot export null assembly provided via 'assembli"···)
+[STRT] System.Runtime.Serialization.Xml.XsdDataContractExporterTests.ExporterApiTests.CanExport(expectedResult: False, testname: "ca4-", canExport: Func`2 { Method = Boolean <CanExport_MemberData>b__5_13(System.Runtime.Serialization.XsdDataContractExporter), Target = <>c { } }, expectedExceptionType: null, msg: null)
+[STRT] System.Runtime.Serialization.Xml.XsdDataContractExporterTests.ExporterApiTests.CanExport(expectedResult: True, testname: "ct1+", canExport: Func`2 { Method = Boolean <CanExport_MemberData>b__5_14(System.Runtime.Serialization.XsdDataContractExporter), Target = <>c { } }, expectedExceptionType: null, msg: null)
+[STRT] System.Runtime.Serialization.Xml.XsdDataContractExporterTests.ExporterApiTests.CanExport(expectedResult: False, testname: "ct2-", canExport: Func`2 { Method = Boolean <CanExport_MemberData>b__5_15(System.Runtime.Serialization.XsdDataContractExporter), Target = <>c { } }, expectedExceptionType: typeof(System.ArgumentNullException), msg: "Value cannot be null. (Parameter 'types')")
+[STRT] System.Runtime.Serialization.Xml.XsdDataContractExporterTests.ExporterApiTests.CanExport(expectedResult: False, testname: "ct3-", canExport: Func`2 { Method = Boolean <CanExport_MemberData>b__5_16(System.Runtime.Serialization.XsdDataContractExporter), Target = <>c { } }, expectedExceptionType: typeof(System.ArgumentException), msg: "Cannot export null type provided via 'types' param"···)
+[STRT] System.Runtime.Serialization.Xml.XsdDataContractExporterTests.ExporterApiTests.CanExport(expectedResult: False, testname: "ct4-", canExport: Func`2 { Method = Boolean <CanExport_MemberData>b__5_17(System.Runtime.Serialization.XsdDataContractExporter), Target = <>c { } }, expectedExceptionType: null, msg: null)
+[STRT] System.Runtime.Serialization.Xml.XsdDataContractExporterTests.ExporterApiTests.GetSchemaType(testname: "GST_Point", t: typeof(System.Runtime.Serialization.Xml.XsdDataContractExporterTests.Types.Point), stName: null, expectedExceptionType: null, msg: null)
+[STRT] System.Runtime.Serialization.Xml.XsdDataContractExporterTests.ExporterApiTests.GetSchemaType(testname: "GST_null", t: null, stName: null, expectedExceptionType: typeof(System.ArgumentNullException), msg: "Value cannot be null. (Parameter 'type')")
+[STRT] System.Runtime.Serialization.Xml.XsdDataContractExporterTests.ExporterApiTests.GetSchemaType(testname: "GST_invalid", t: typeof(System.Runtime.Serialization.Xml.XsdDataContractExporterTests.Types.NonSerializableSquare), stName: null, expectedExceptionType: typeof(System.Runtime.Serialization.InvalidDataContractException), msg: "Type 'System.Runtime.Serialization.Xml.XsdDataCont"···)
+[STRT] System.Runtime.Serialization.Xml.XsdDataContractExporterTests.ExporterApiTests.GetRootElementName(testname: "GREN_Point", t: typeof(System.Runtime.Serialization.Xml.XsdDataContractExporterTests.Types.Point), rName: http://basic:Point, expectedExceptionType: null, msg: null)
+[STRT] System.Runtime.Serialization.Xml.XsdDataContractExporterTests.ExporterApiTests.GetRootElementName(testname: "GREN_null", t: null, rName: null, expectedExceptionType: typeof(System.ArgumentNullException), msg: "Value cannot be null. (Parameter 'type')")
+[STRT] System.Runtime.Serialization.Xml.XsdDataContractExporterTests.ExporterApiTests.GetRootElementName(testname: "GREN_invalid", t: typeof(System.Runtime.Serialization.Xml.XsdDataContractExporterTests.Types.NonSerializableSquare), rName: null, expectedExceptionType: typeof(System.Runtime.Serialization.InvalidDataContractException), msg: "Type 'System.Runtime.Serialization.Xml.XsdDataCont"···)
+[STRT] System.Runtime.Serialization.Xml.XsdDataContractExporterTests.ExporterApiTests.GetRootElementName(testname: "GREN_Square", t: typeof(System.Runtime.Serialization.Xml.XsdDataContractExporterTests.Types.Square), rName: http://shapes:Square, expectedExceptionType: null, msg: null)
+[STRT] System.Runtime.Serialization.Xml.XsdDataContractExporterTests.ExporterApiTests.GetRootElementName(testname: "GREN_ExtSq", t: typeof(System.Runtime.Serialization.Xml.XsdDataContractExporterTests.Types.ExtendedSquare), rName: http://schemas.datacontract.org/2004/07/System.Runtime.Serialization.Xml.XsdDataContractExporterTests.Types:ExtendedSquare, expectedExceptionType: null, msg: null)
+[STRT] System.Runtime.Serialization.Xml.XsdDataContractExporterTests.ExporterApiTests.GetSchemaTypeName(testname: "GSTN_Point", t: typeof(System.Runtime.Serialization.Xml.XsdDataContractExporterTests.Types.Point), qname: http://basic:Point, expectedExceptionType: null, msg: null)
+[STRT] System.Runtime.Serialization.Xml.XsdDataContractExporterTests.ExporterApiTests.GetSchemaTypeName(testname: "GSTN_null", t: null, qname: null, expectedExceptionType: typeof(System.ArgumentNullException), msg: "Value cannot be null. (Parameter 'type')")
+[STRT] System.Runtime.Serialization.Xml.XsdDataContractExporterTests.ExporterApiTests.GetSchemaTypeName(testname: "GSTN_invalid", t: typeof(System.Runtime.Serialization.Xml.XsdDataContractExporterTests.Types.NonSerializableSquare), qname: null, expectedExceptionType: typeof(System.Runtime.Serialization.InvalidDataContractException), msg: "Type 'System.Runtime.Serialization.Xml.XsdDataCont"···)
+[STRT] System.Runtime.Serialization.Xml.XsdDataContractExporterTests.ExporterApiTests.GetSchemaTypeName(testname: "GSTN_Square", t: typeof(System.Runtime.Serialization.Xml.XsdDataContractExporterTests.Types.Square), qname: http://shapes:Square, expectedExceptionType: null, msg: null)
+[STRT] System.Runtime.Serialization.Xml.XsdDataContractExporterTests.ExporterApiTests.GetSchemaTypeName(testname: "GSTN_ExtSq", t: typeof(System.Runtime.Serialization.Xml.XsdDataContractExporterTests.Types.ExtendedSquare), qname: http://schemas.datacontract.org/2004/07/System.Runtime.Serialization.Xml.XsdDataContractExporterTests.Types:ExtendedSquare, expectedExceptionType: null, msg: null)
+[STRT] System.Runtime.Serialization.Xml.XsdDataContractExporterTests.ExporterApiTests.GetSchemaTypeName(testname: "DCTT_Addr2", t: typeof(SerializableTypes.XsdDataContractExporterTests.DataContractTypes+Address2), qname: http://schemas.datacontract.org/2004/07/schemaexport.suites:Address, expectedExceptionType: null, msg: null)
+[STRT] System.Runtime.Serialization.Xml.XsdDataContractExporterTests.ExporterApiTests.get_Schemas_Bug
+[STRT] System.Runtime.Serialization.Xml.XsdDataContractExporterTests.ExporterApiTests.Export_NegativeCases(testname: "tn", export: Action`1 { Method = Void <Export_NegativeCases_MemberData>b__9_0(System.Runtime.Serialization.XsdDataContractExporter), Target = <>c { } }, expectedExceptionType: typeof(System.ArgumentNullException), exMsg: "Value cannot be null. (Parameter 'type')")
+[STRT] System.Runtime.Serialization.Xml.XsdDataContractExporterTests.ExporterApiTests.Export_NegativeCases(testname: "tinv", export: Action`1 { Method = Void <Export_NegativeCases_MemberData>b__9_1(System.Runtime.Serialization.XsdDataContractExporter), Target = <>c { } }, expectedExceptionType: typeof(System.Runtime.Serialization.InvalidDataContractException), exMsg: "Type 'System.Runtime.Serialization.Xml.XsdDataCont"···)
+[STRT] System.Runtime.Serialization.Xml.XsdDataContractExporterTests.ExporterApiTests.Export_NegativeCases(testname: "can", export: Action`1 { Method = Void <Export_NegativeCases_MemberData>b__9_2(System.Runtime.Serialization.XsdDataContractExporter), Target = <>c { } }, expectedExceptionType: typeof(System.ArgumentNullException), exMsg: "Value cannot be null. (Parameter 'assemblies')")
+[STRT] System.Runtime.Serialization.Xml.XsdDataContractExporterTests.ExporterApiTests.Export_NegativeCases(testname: "canv", export: Action`1 { Method = Void <Export_NegativeCases_MemberData>b__9_3(System.Runtime.Serialization.XsdDataContractExporter), Target = <>c { } }, expectedExceptionType: typeof(System.ArgumentException), exMsg: "Cannot export null assembly provided via 'assembli"···)
+[STRT] System.Runtime.Serialization.Xml.XsdDataContractExporterTests.ExporterApiTests.Export_NegativeCases(testname: "cainv", export: Action`1 { Method = Void <Export_NegativeCases_MemberData>b__9_4(System.Runtime.Serialization.XsdDataContractExporter), Target = <>c { } }, expectedExceptionType: typeof(System.Runtime.Serialization.InvalidDataContractException), exMsg: "Type 'NonSerializablePerson' cannot be serialized."···)
+[STRT] System.Runtime.Serialization.Xml.XsdDataContractExporterTests.ExporterApiTests.Export_NegativeCases(testname: "ctn", export: Action`1 { Method = Void <Export_NegativeCases_MemberData>b__9_5(System.Runtime.Serialization.XsdDataContractExporter), Target = <>c { } }, expectedExceptionType: typeof(System.ArgumentNullException), exMsg: "Value cannot be null. (Parameter 'types')")
+[STRT] System.Runtime.Serialization.Xml.XsdDataContractExporterTests.ExporterApiTests.Export_NegativeCases(testname: "ctnv", export: Action`1 { Method = Void <Export_NegativeCases_MemberData>b__9_6(System.Runtime.Serialization.XsdDataContractExporter), Target = <>c { } }, expectedExceptionType: typeof(System.ArgumentException), exMsg: "Cannot export null type provided via 'types' param"···)
+[STRT] System.Runtime.Serialization.Xml.XsdDataContractExporterTests.ExporterApiTests.Export_NegativeCases(testname: "ctinv", export: Action`1 { Method = Void <Export_NegativeCases_MemberData>b__9_7(System.Runtime.Serialization.XsdDataContractExporter), Target = <>c { } }, expectedExceptionType: typeof(System.Runtime.Serialization.InvalidDataContractException), exMsg: "Type 'System.Runtime.Serialization.Xml.XsdDataCont"···)
+[STRT] System.Runtime.Serialization.Xml.XsdDataContractExporterTests.ExporterTypesTests.TypesTest
+[STRT] System.Runtime.Serialization.Xml.XsdDataContractExporterTests.ExporterTypesTests.TypeArrayTest_Negative(badTypes: [typeof(System.Runtime.Serialization.Xml.XsdDataContractExporterTests.ExporterTypesTests+AddressA), typeof(System.Runtime.Serialization.Xml.XsdDataContractExporterTests.ExporterTypesTests+AddressB)], exType: typeof(System.InvalidOperationException), exMsg: "DataContract for type 'System.Runtime.Serializatio"···)
+[STRT] System.Runtime.Serialization.Xml.XsdDataContractExporterTests.ExporterTypesTests.TypeArrayTest_Negative(badTypes: [typeof(System.Runtime.Serialization.Xml.XsdDataContractExporterTests.ExporterTypesTests+AddressA), typeof(System.Runtime.Serialization.Xml.XsdDataContractExporterTests.ExporterTypesTests+AddressC)], exType: typeof(System.InvalidOperationException), exMsg: "DataContract for type 'System.Runtime.Serializatio"···)
+[STRT] System.Runtime.Serialization.Xml.XsdDataContractExporterTests.ExporterTypesTests.TypeArrayTest_Negative(badTypes: [typeof(System.Runtime.Serialization.Xml.XsdDataContractExporterTests.ExporterTypesTests+OrderA), typeof(System.Runtime.Serialization.Xml.XsdDataContractExporterTests.ExporterTypesTests+OrderB)], exType: typeof(System.InvalidOperationException), exMsg: "DataContract for type 'System.Runtime.Serializatio"···)
+[STRT] System.Runtime.Serialization.Xml.XsdDataContractExporterTests.ExporterTypesTests.TypeArrayTest_Negative(badTypes: [typeof(System.Runtime.Serialization.Xml.XsdDataContractExporterTests.ExporterTypesTests+ArrayA), typeof(System.Runtime.Serialization.Xml.XsdDataContractExporterTests.ExporterTypesTests+ArrayB)], exType: typeof(System.InvalidOperationException), exMsg: "DataContract for type 'System.Runtime.Serializatio"···)
+[STRT] System.Runtime.Serialization.Xml.XsdDataContractExporterTests.ExporterTypesTests.TypeArrayTest_Negative(badTypes: [typeof(System.Runtime.Serialization.Xml.XsdDataContractExporterTests.ExporterTypesTests+EnumA), typeof(System.Runtime.Serialization.Xml.XsdDataContractExporterTests.ExporterTypesTests+EnumB)], exType: typeof(System.InvalidOperationException), exMsg: "DataContract for type 'System.Runtime.Serializatio"···)
+[STRT] System.Runtime.Serialization.Xml.XsdDataContractExporterTests.ExporterTypesTests.TypeArrayTest_Negative(badTypes: [typeof(System.Runtime.Serialization.Xml.XsdDataContractExporterTests.ExporterTypesTests+EnumB), typeof(System.Runtime.Serialization.Xml.XsdDataContractExporterTests.ExporterTypesTests+EnumC)], exType: typeof(System.InvalidOperationException), exMsg: "DataContract for type 'System.Runtime.Serializatio"···)
+[STRT] System.Runtime.Serialization.Xml.XsdDataContractExporterTests.ExporterTypesTests.TypeArrayTest_Negative(badTypes: [typeof(System.Runtime.Serialization.Xml.XsdDataContractExporterTests.ExporterTypesTests+EnumContainerA), typeof(System.Runtime.Serialization.Xml.XsdDataContractExporterTests.ExporterTypesTests+EnumContainerB)], exType: typeof(System.InvalidOperationException), exMsg: "DataContract for type 'System.Runtime.Serializatio"···)
+[STRT] System.Runtime.Serialization.Xml.XsdDataContractExporterTests.ExporterTypesTests.TypeArrayTest_Negative(badTypes: [typeof(System.Runtime.Serialization.Xml.XsdDataContractExporterTests.ExporterTypesTests+CollectionA), typeof(System.Runtime.Serialization.Xml.XsdDataContractExporterTests.ExporterTypesTests+CollectionB)], exType: typeof(System.InvalidOperationException), exMsg: "DataContract for type 'System.Runtime.Serializatio"···)
+[STRT] System.Runtime.Serialization.Xml.XsdDataContractExporterTests.ExporterTypesTests.TypeArrayTest_Negative(badTypes: [typeof(System.Runtime.Serialization.Xml.XsdDataContractExporterTests.ExporterTypesTests+DictionaryA), typeof(System.Runtime.Serialization.Xml.XsdDataContractExporterTests.ExporterTypesTests+DictionaryB)], exType: typeof(System.InvalidOperationException), exMsg: "DataContract for type 'System.Runtime.Serializatio"···)
+[STRT] System.Runtime.Serialization.Xml.XsdDataContractExporterTests.ExporterTypesTests.ReferenceTypes
+[STRT] System.Runtime.Serialization.Xml.XsdDataContractExporterTests.ExporterTypesTests.ReferenceTypes_Negative(badRefType: typeof(System.Runtime.Serialization.Xml.XsdDataContractExporterTests.ExporterTypesTests+Fruit2), exType: typeof(System.Runtime.Serialization.InvalidDataContractException), exMsg: "The IsReference setting for type 'System.Runtime.S"···)
+[STRT] System.Runtime.Serialization.Xml.XsdDataContractExporterTests.ExporterTypesTests.ReferenceTypes_Negative(badRefType: typeof(System.Runtime.Serialization.Xml.XsdDataContractExporterTests.ExporterTypesTests+Orange), exType: typeof(System.Runtime.Serialization.InvalidDataContractException), exMsg: "The IsReference setting for type 'System.Runtime.S"···)
+[STRT] System.Runtime.Serialization.Xml.XsdDataContractExporterTests.ExporterTypesTests.ReferenceTypes_Negative(badRefType: typeof(System.Runtime.Serialization.Xml.XsdDataContractExporterTests.ExporterTypesTests+RefEnum), exType: typeof(System.Runtime.Serialization.InvalidDataContractException), exMsg: "Enum type 'System.Runtime.Serialization.Xml.XsdDat"···)
+[STRT] System.Runtime.Serialization.Xml.XsdDataContractExporterTests.ExporterTypesTests.DateOnly_TimeOnly_PrimitiveSchemas_Exported
+[STRT] System.Runtime.Serialization.Xml.Tests.XmlDictionaryReaderTests.ReadElementContentAsStringDataExceedsMaxBytesPerReadQuota
+[STRT] System.Runtime.Serialization.Xml.Tests.XmlDictionaryReaderTests.ReadValueChunkReadEncodedDoubleWideChars
+[STRT] System.Runtime.Serialization.Xml.Tests.XmlDictionaryReaderTests.ReadElementContentAsBinHexTest
+[STRT] System.Runtime.Serialization.Xml.Tests.XmlDictionaryReaderTests.ReadElementContentAsDateTimeTest
+[STRT] System.Runtime.Serialization.Xml.Tests.XmlDictionaryReaderTests.BinaryXml_ReadPrimitiveTypes
+[STRT] System.Runtime.Serialization.Xml.Tests.XmlDictionaryReaderTests.BinaryXml_Array_RoundTrip
+[STRT] System.Runtime.Serialization.Xml.Tests.XmlDictionaryReaderTests.ReadStringTest
+[STRT] System.Runtime.Serialization.Xml.Tests.XmlDictionaryReaderTests.Close_DerivedReader_Success
+[STRT] System.Runtime.Serialization.Xml.Tests.XmlDictionaryReaderTests.GetNonAtomizedNamesTest
+Finished:    System.Runtime.Serialization.Xml.Tests.dll
+Finished uploading 230455 bytes of RESULTXML
+Xml file was written to the provided writer.
+
+=== TEST EXECUTION SUMMARY ===
+Tests run: 327 Passed: 322 Inconclusive: 0 Failed: 0 Ignored: 0 Skipped: 5
+
+test-main.js exiting WasmTestRunner.dll System.Runtime.Serialization.Xml.Tests.dll after 0.31215 minutes with result 0 and linear memory 334102528 bytes
+DOTNET: forceDisposeProxies done: 14 imports, 0 exports, 0 GCHandles, 0 JSHandles.
+WASM EXIT 0

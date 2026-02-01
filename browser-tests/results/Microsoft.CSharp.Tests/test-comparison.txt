@@ -1,0 +1,13 @@
+Test Comparison: Microsoft.CSharp.Tests
+Generated: 2026-02-01T20:13:10+01:00
+
+Mono tests:    3171
+CoreCLR tests: 3171
+
+=== Extra in CoreCLR (2) ===
+Microsoft.CSharp.RuntimeBinder.Tests.AssignmentTests.PropertyAddConstantResultAssignment(lhs: HasProperty`1 { Prop = 2 }, rhs: 2, expected: 2)
+Microsoft.CSharp.RuntimeBinder.Tests.AssignmentTests.PropertyAddResultAssignment(lhs: HasProperty`1 { Prop = 1 }, rhs: 2, expected: 2)
+
+=== Missing in CoreCLR (2) ===
+Microsoft.CSharp.RuntimeBinder.Tests.AssignmentTests.PropertyAddConstantResultAssignment(lhs: HasProperty`1 { Prop = 1 }, rhs: 2, expected: 2)
+Microsoft.CSharp.RuntimeBinder.Tests.AssignmentTests.PropertyAddResultAssignment(lhs: HasProperty`1 { Prop = 2 }, rhs: 2, expected: 2)

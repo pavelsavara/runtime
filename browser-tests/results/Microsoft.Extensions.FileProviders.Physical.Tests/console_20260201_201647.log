@@ -1,0 +1,100 @@
+Running in: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/143.0.0.0 Safari/537.36
+Running at: http://127.0.0.1:36599/index.html?arg=--setenv%3dXHARNESS_LOG_TEST_START%3dtrue&arg=--run&arg=WasmTestRunner.dll&arg=Microsoft.Extensions.FileProviders.Physical.Tests.dll&arg=-notrait&arg=category%3dOuterLoop&arg=-notrait&arg=category%3dfailing&arg=-verbosity&arg=Info
+could not load /runArgs.json: 404. Ignoring
+Incoming arguments: --setenv=XHARNESS_LOG_TEST_START=true --run WasmTestRunner.dll Microsoft.Extensions.FileProviders.Physical.Tests.dll -notrait category=OuterLoop -notrait category=failing -verbosity Info
+Application arguments: --run WasmTestRunner.dll Microsoft.Extensions.FileProviders.Physical.Tests.dll -notrait category=OuterLoop -notrait category=failing -verbosity Info
+Initializing dotnet version 11.0.0 commit hash e31907b0fbca908ed525247a1dc38cc5fba7b0ff
+Using threadless Xunit runner
+Discovering: Microsoft.Extensions.FileProviders.Physical.Tests.dll (method display = ClassAndMethod, method display options = None)
+Discovered:  Microsoft.Extensions.FileProviders.Physical.Tests.dll (found 43 of 92 test cases)
+Starting:    Microsoft.Extensions.FileProviders.Physical.Tests.dll
+[STRT] Microsoft.Extensions.FileProviders.Physical.PollingWildCardChangeTokenTest.HasChanged_ReturnsFalseIfFilesDoNotChange
+[STRT] Microsoft.Extensions.FileProviders.Physical.PollingWildCardChangeTokenTest.HasChanged_ReturnsTrueIfFilesWereModified
+[STRT] Microsoft.Extensions.FileProviders.Physical.PollingWildCardChangeTokenTest.HasChanged_ReturnsTrueIfNewFilesWereAdded
+[STRT] Microsoft.Extensions.FileProviders.Physical.PollingWildCardChangeTokenTest.HasChanged_ReturnsTrueIfFileWasModifiedButRetainedAnOlderTimestamp
+[STRT] Microsoft.Extensions.FileProviders.Physical.PollingWildCardChangeTokenTest.HasChanged_ReturnsTrueIfFilesWereRemoved
+[STRT] Microsoft.Extensions.FileProviders.Physical.PollingWildCardChangeTokenTest.HasChanged_ReturnsFalseIfNoFilesExist
+[STRT] Microsoft.Extensions.FileProviders.Physical.Tests.ExclusionFilterTests.FiltersExcludedFiles(filename: ".dot", attributes: Normal, filters: None, excluded: False)
+[STRT] Microsoft.Extensions.FileProviders.Physical.Tests.ExclusionFilterTests.FiltersExcludedFiles(filename: ".dot", attributes: Normal, filters: System, excluded: False)
+[STRT] Microsoft.Extensions.FileProviders.Physical.Tests.ExclusionFilterTests.FiltersExcludedFiles(filename: ".dot", attributes: Normal, filters: DotPrefixed, excluded: True)
+[STRT] Microsoft.Extensions.FileProviders.Physical.Tests.ExclusionFilterTests.FiltersExcludedFiles(filename: ".dot", attributes: Normal, filters: Hidden, excluded: True)
+[STRT] Microsoft.Extensions.FileProviders.Physical.Tests.ExclusionFilterTests.FiltersExcludedFiles(filename: ".dot", attributes: Normal, filters: Sensitive, excluded: True)
+[STRT] Microsoft.Extensions.FileProviders.Physical.Tests.ExclusionFilterTests.FiltersExcludedFiles(filename: "hidden", attributes: Normal, filters: None, excluded: False)
+[STRT] Microsoft.Extensions.FileProviders.Physical.Tests.ExclusionFilterTests.FiltersExcludedFiles(filename: "hidden", attributes: Normal, filters: System, excluded: False)
+[STRT] Microsoft.Extensions.FileProviders.Physical.Tests.ExclusionFilterTests.FiltersExcludedFiles(filename: "hidden", attributes: Normal, filters: DotPrefixed, excluded: False)
+[STRT] Microsoft.Extensions.FileProviders.Physical.Tests.ExclusionFilterTests.FiltersExcludedFiles(filename: "hidden", attributes: Normal, filters: Hidden, excluded: False)
+[STRT] Microsoft.Extensions.FileProviders.Physical.Tests.ExclusionFilterTests.FiltersExcludedFiles(filename: "hidden", attributes: Normal, filters: Sensitive, excluded: False)
+[STRT] Microsoft.Extensions.FileProviders.Physical.Tests.ExclusionFilterTests.FiltersExcludedDirectories(dirname: ".dot", attributes: Normal, filters: None, excluded: False)
+[STRT] Microsoft.Extensions.FileProviders.Physical.Tests.ExclusionFilterTests.FiltersExcludedDirectories(dirname: ".dot", attributes: Normal, filters: System, excluded: False)
+[STRT] Microsoft.Extensions.FileProviders.Physical.Tests.ExclusionFilterTests.FiltersExcludedDirectories(dirname: ".dot", attributes: Normal, filters: DotPrefixed, excluded: True)
+[STRT] Microsoft.Extensions.FileProviders.Physical.Tests.ExclusionFilterTests.FiltersExcludedDirectories(dirname: ".dot", attributes: Normal, filters: Hidden, excluded: True)
+[STRT] Microsoft.Extensions.FileProviders.Physical.Tests.ExclusionFilterTests.FiltersExcludedDirectories(dirname: ".dot", attributes: Normal, filters: Sensitive, excluded: True)
+[STRT] Microsoft.Extensions.FileProviders.Physical.Tests.ExclusionFilterTests.FiltersExcludedDirectories(dirname: "hidden", attributes: Normal, filters: None, excluded: False)
+[STRT] Microsoft.Extensions.FileProviders.Physical.Tests.ExclusionFilterTests.FiltersExcludedDirectories(dirname: "hidden", attributes: Normal, filters: System, excluded: False)
+[STRT] Microsoft.Extensions.FileProviders.Physical.Tests.ExclusionFilterTests.FiltersExcludedDirectories(dirname: "hidden", attributes: Normal, filters: DotPrefixed, excluded: False)
+[STRT] Microsoft.Extensions.FileProviders.Physical.Tests.ExclusionFilterTests.FiltersExcludedDirectories(dirname: "hidden", attributes: Normal, filters: Hidden, excluded: False)
+[STRT] Microsoft.Extensions.FileProviders.Physical.Tests.ExclusionFilterTests.FiltersExcludedDirectories(dirname: "hidden", attributes: Normal, filters: Sensitive, excluded: False)
+[STRT] Microsoft.Extensions.FileProviders.PhysicalFileProviderTests.GetFileInfoReturnsNotFoundFileInfoForFileNameStartingWithPeriod
+[STRT] Microsoft.Extensions.FileProviders.PhysicalFileProviderTests.NoopChangeTokenForNullFilter
+[STRT] Microsoft.Extensions.FileProviders.PhysicalFileProviderTests.GetDirectoryContentsReturnsNotFoundDirectoryContentsForInvalidPath_Unix(path: "/\0/")
+[STRT] Microsoft.Extensions.FileProviders.PhysicalFileProviderTests.GetDirectoryContentsReturnsNotFoundDirectoryContentsForInvalidPath_Unix(path: "/\\/")
+[STRT] Microsoft.Extensions.FileProviders.PhysicalFileProviderTests.GetDirectoryContentsReturnsNotFoundDirectoryContentsForInvalidPath_Unix(path: "\\/\\/")
+[STRT] Microsoft.Extensions.FileProviders.PhysicalFileProviderTests.GetDirectoryContentsReturnsNotFoundDirectoryContentsForInvalidPath_Unix(path: ". ./file")
+[STRT] Microsoft.Extensions.FileProviders.PhysicalFileProviderTests.GetDirectoryContentsReturnsNotFoundDirectoryContentsForInvalidPath_Unix(path: " ../file")
+[STRT] Microsoft.Extensions.FileProviders.PhysicalFileProviderTests.GetDirectoryContentsReturnsNotFoundDirectoryContentsForInvalidPath_Unix(path: ".. /file")
+[STRT] Microsoft.Extensions.FileProviders.PhysicalFileProviderTests.GetDirectoryContentsReturnsNotFoundDirectoryContentsForInvalidPath_Unix(path: " ./file")
+[STRT] Microsoft.Extensions.FileProviders.PhysicalFileProviderTests.GetDirectoryContentsReturnsNotFoundDirectoryContentsForInvalidPath_Unix(path: ". /file")
+[STRT] Microsoft.Extensions.FileProviders.PhysicalFileProviderTests.UsePollingFileWatcher_UseActivePolling_HasChanged(useWildcard: False)
+[STRT] Microsoft.Extensions.FileProviders.PhysicalFileProviderTests.UsePollingFileWatcher_UseActivePolling_HasChanged(useWildcard: True)
+[STRT] Microsoft.Extensions.FileProviders.PhysicalFileProviderTests.GetDirectoryContentsReturnsFilesWhenExclusionDisabled
+[STRT] Microsoft.Extensions.FileProviders.PhysicalFileProviderTests.UsePollingFileWatcher_UseActivePolling_HasChanged_FileDeleted(useWildcard: False)
+[STRT] Microsoft.Extensions.FileProviders.PhysicalFileProviderTests.UsePollingFileWatcher_UseActivePolling_HasChanged_FileDeleted(useWildcard: True)
+[STRT] Microsoft.Extensions.FileProviders.PhysicalFileProviderTests.UsePollingFileWatcher_UseActivePolling_HasChanged_SymbolicLink_TargetChanged
+[STRT] Microsoft.Extensions.FileProviders.PhysicalFileProviderTests.GetFileInfoReturnsPhysicalFileInfoForValidPathsWithLeadingSlashes_Unix(path: "/")
+[STRT] Microsoft.Extensions.FileProviders.PhysicalFileProviderTests.GetFileInfoReturnsPhysicalFileInfoForValidPathsWithLeadingSlashes_Unix(path: "///")
+[STRT] Microsoft.Extensions.FileProviders.PhysicalFileProviderTests.TokenForEmptyFilter
+[STRT] Microsoft.Extensions.FileProviders.PhysicalFileProviderTests.UsePollingFileWatcher_FileWatcherNull_SetsSuccessfully
+[STRT] Microsoft.Extensions.FileProviders.PhysicalFileProviderTests.GetDirectoryContentsReturnsNotFoundDirectoryContentsForPathThatNavigatesAboveRoot
+[STRT] Microsoft.Extensions.FileProviders.PhysicalFileProviderTests.GetFileInfoReturnsNotFoundFileInfoForRelativePathAboveRootPath
+[STRT] Microsoft.Extensions.FileProviders.PhysicalFileProviderTests.GetFileInfoReturnsFileInfoWhenExclusionDisabled
+[STRT] Microsoft.Extensions.FileProviders.PhysicalFileProviderTests.UsePollingFileWatcher_UseActivePolling_HasChanged_SymbolicLink_TargetDeleted
+[STRT] Microsoft.Extensions.FileProviders.PhysicalFileProviderTests.GetFileInfoReturnsNotFoundFileInfoForIllegalPathWithLeadingSlashes_Unix(path: "/\0/")
+[STRT] Microsoft.Extensions.FileProviders.PhysicalFileProviderTests.InvalidPath_DoesNotThrowUnix_GetDirectoryContents(path: "/test:test\0")
+[STRT] Microsoft.Extensions.FileProviders.PhysicalFileProviderTests.InvalidPath_DoesNotThrowUnix_GetDirectoryContents(path: "/dir/\0name\"")
+[STRT] Microsoft.Extensions.FileProviders.PhysicalFileProviderTests.InvalidPath_DoesNotThrowUnix_GetDirectoryContents(path: "/dir>/name\0")
+[STRT] Microsoft.Extensions.FileProviders.PhysicalFileProviderTests.GetDirectoryContentsReturnsNotFoundDirectoryContentsForNullPath
+[STRT] Microsoft.Extensions.FileProviders.PhysicalFileProviderTests.GetFileInfoReturnsNotFoundFileInfoForRelativePathWithEmptySegmentsThatNavigates
+[STRT] Microsoft.Extensions.FileProviders.PhysicalFileProviderTests.TokenForWhitespaceFilters
+[STRT] Microsoft.Extensions.FileProviders.PhysicalFileProviderTests.GetDirectoryContentsDoesNotReturnFileInfoForFileNameStartingWithPeriodByDefault
+[STRT] Microsoft.Extensions.FileProviders.PhysicalFileProviderTests.GetFileInfoReturnsNotFoundFileInfoForRelativePathThatNavigatesAboveRoot
+[STRT] Microsoft.Extensions.FileProviders.PhysicalFileProviderTests.CreateReadStreamSucceedsOnEmptyFile
+[STRT] Microsoft.Extensions.FileProviders.PhysicalFileProviderTests.UsePollingFileWatcher_UseActivePolling_HasChanged_SymbolicLink
+[STRT] Microsoft.Extensions.FileProviders.PhysicalFileProviderTests.CreateFileWatcher_CreatesWatcherWithPollingAndActiveFlags
+[STRT] Microsoft.Extensions.FileProviders.PhysicalFileProviderTests.GetDirectoryContentsReturnsEnumerableDirectoryContentsForValidPathWithLeadingSlashes_Unix(path: "/")
+[STRT] Microsoft.Extensions.FileProviders.PhysicalFileProviderTests.GetDirectoryContentsReturnsEnumerableDirectoryContentsForValidPathWithLeadingSlashes_Unix(path: "///")
+[STRT] Microsoft.Extensions.FileProviders.PhysicalFileProviderTests.GetDirectoryContentsReturnsNotFoundDirectoryContentsForAbsolutePath
+[STRT] Microsoft.Extensions.FileProviders.PhysicalFileProviderTests.GetDirectoryContentsReturnsRootDirectoryContentsForEmptyPath
+[STRT] Microsoft.Extensions.FileProviders.PhysicalFileProviderTests.GetDirectoryContentsReturnsNotFoundDirectoryContentsForNonExistingDirectory
+[STRT] Microsoft.Extensions.FileProviders.PhysicalFileProviderTests.GetFileInfoReturnsNotFoundFileInfoForNullPath
+[STRT] Microsoft.Extensions.FileProviders.PhysicalFileProviderTests.GetFileInfoReturnsNotFoundFileInfoForEmptyPath
+[STRT] Microsoft.Extensions.FileProviders.PhysicalFileProviderTests.GetFileInfoReturnsNonExistentFileInfoForIllegalPath(path: ". ./file")
+[STRT] Microsoft.Extensions.FileProviders.PhysicalFileProviderTests.GetFileInfoReturnsNonExistentFileInfoForIllegalPath(path: " ../file")
+[STRT] Microsoft.Extensions.FileProviders.PhysicalFileProviderTests.GetFileInfoReturnsNonExistentFileInfoForIllegalPath(path: ".. /file")
+[STRT] Microsoft.Extensions.FileProviders.PhysicalFileProviderTests.GetFileInfoReturnsNonExistentFileInfoForIllegalPath(path: " ./file")
+[STRT] Microsoft.Extensions.FileProviders.PhysicalFileProviderTests.GetFileInfoReturnsNonExistentFileInfoForIllegalPath(path: ". /file")
+[STRT] Microsoft.Extensions.FileProviders.PhysicalFileProviderTests.NoopChangeTokenForFilterThatNavigatesAboveRoot
+[STRT] Microsoft.Extensions.FileProviders.PhysicalFileProviderTests.InvalidPath_DoesNotThrowUnix_GetFileInfo(path: "/test:test\0")
+[STRT] Microsoft.Extensions.FileProviders.PhysicalFileProviderTests.InvalidPath_DoesNotThrowUnix_GetFileInfo(path: "/dir/\0name\"")
+[STRT] Microsoft.Extensions.FileProviders.PhysicalFileProviderTests.InvalidPath_DoesNotThrowUnix_GetFileInfo(path: "/dir>/name\0")
+[STRT] Microsoft.Extensions.FileProviders.Physical.Tests.PhysicalFilesWatcherTests.RaiseChangeEvents_CancelsCancellationTokenSourceForExpiredTokens
+[STRT] Microsoft.Extensions.FileProviders.Physical.Tests.PhysicalFilesWatcherTests.RaiseChangeEvents_CancelsAndRemovesMultipleChangedTokens
+Finished:    Microsoft.Extensions.FileProviders.Physical.Tests.dll
+Finished uploading 27695 bytes of RESULTXML
+Xml file was written to the provided writer.
+
+=== TEST EXECUTION SUMMARY ===
+Tests run: 80 Passed: 77 Inconclusive: 0 Failed: 0 Ignored: 0 Skipped: 3
+
+test-main.js exiting WasmTestRunner.dll Microsoft.Extensions.FileProviders.Physical.Tests.dll after 0.33463333333333334 minutes with result 0 and linear memory 193331200 bytes
+DOTNET: forceDisposeProxies done: 14 imports, 0 exports, 0 GCHandles, 0 JSHandles.
+WASM EXIT 0

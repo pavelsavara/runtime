@@ -570,6 +570,7 @@ public static partial class DataContractSerializerTests
     }
 
     [Fact]
+    [ActiveIssue("https://github.com/dotnet/runtime/issues/123011", typeof(PlatformDetection), nameof(PlatformDetection.IsBrowser), nameof(PlatformDetection.IsCoreCLR))]
     public static void DCS_ListGenericRoot()
     {
         List<string> x = new List<string>();
@@ -585,6 +586,7 @@ public static partial class DataContractSerializerTests
     }
 
     [Fact]
+    [ActiveIssue("https://github.com/dotnet/runtime/issues/123011", typeof(PlatformDetection), nameof(PlatformDetection.IsBrowser), nameof(PlatformDetection.IsCoreCLR))]
     public static void DCS_ListGenericMembers()
     {
         TypeWithListGenericMembers x = new TypeWithListGenericMembers();
@@ -1165,6 +1167,7 @@ public static partial class DataContractSerializerTests
     }
 
     [Fact]
+    [ActiveIssue("https://github.com/dotnet/runtime/issues/123011", typeof(PlatformDetection), nameof(PlatformDetection.IsBrowser), nameof(PlatformDetection.IsCoreCLR))]
     public static void DCS_WithListOfXElement()
     {
         var original = new WithListOfXElement(true);
@@ -1401,6 +1404,7 @@ public static partial class DataContractSerializerTests
     }
 
     [Fact]
+    [ActiveIssue("https://github.com/dotnet/runtime/issues/123011", typeof(PlatformDetection), nameof(PlatformDetection.IsBrowser), nameof(PlatformDetection.IsCoreCLR))]
     public static void DCS_BaseClassAndDerivedClassWithSameProperty()
     {
         var value = new DerivedClassWithSameProperty() { DateTimeProperty = new DateTime(100), IntProperty = 5, StringProperty = "TestString", ListProperty = new List<string>() };
@@ -1994,6 +1998,7 @@ public static partial class DataContractSerializerTests
     }
 
     [Fact]
+    [ActiveIssue("https://github.com/dotnet/runtime/issues/123011", typeof(PlatformDetection), nameof(PlatformDetection.IsBrowser), nameof(PlatformDetection.IsCoreCLR))]
     public static void DCS_TypeWithKnownTypeAttributeAndListOfInterfaceMember()
     {
         TypeWithKnownTypeAttributeAndListOfInterfaceMember value = new TypeWithKnownTypeAttributeAndListOfInterfaceMember();
@@ -2010,6 +2015,7 @@ public static partial class DataContractSerializerTests
      */
 
     [Fact]
+    [ActiveIssue("https://github.com/dotnet/runtime/issues/123011", typeof(PlatformDetection), nameof(PlatformDetection.IsBrowser), nameof(PlatformDetection.IsCoreCLR))]
     public static void DCS_InvalidDataContract_Write_And_Read_Empty_Collection_Of_Invalid_Type_Succeeds()
     {
         // Collections of invalid types can be serialized and deserialized if they are empty.
@@ -2439,6 +2445,7 @@ public static partial class DataContractSerializerTests
     }
 
     [Fact]
+    [ActiveIssue("https://github.com/dotnet/runtime/issues/123011", typeof(PlatformDetection), nameof(PlatformDetection.IsBrowser), nameof(PlatformDetection.IsCoreCLR))]
     public static void DCS_CircularTypes_PreserveObjectReferences_True()
     {
         var root = new TypeWithListOfReferenceChildren();
@@ -2469,6 +2476,7 @@ public static partial class DataContractSerializerTests
     }
 
     [Fact]
+    [ActiveIssue("https://github.com/dotnet/runtime/issues/123011", typeof(PlatformDetection), nameof(PlatformDetection.IsBrowser), nameof(PlatformDetection.IsCoreCLR))]
     public static void DCS_CircularTypes_PreserveObjectReferences_False()
     {
         var root = new TypeWithListOfReferenceChildren();
@@ -2748,6 +2756,7 @@ public static partial class DataContractSerializerTests
     }
 
     [Fact]
+    [ActiveIssue("https://github.com/dotnet/runtime/issues/123011", typeof(PlatformDetection), nameof(PlatformDetection.IsBrowser), nameof(PlatformDetection.IsCoreCLR))]
     public static void DCS_CollectionOfTypeWithNonDefaultNamcespace()
     {
         var value = new CollectionOfTypeWithNonDefaultNamcespace();
@@ -3319,6 +3328,7 @@ public static partial class DataContractSerializerTests
     }
 
     [Fact]
+    [ActiveIssue("https://github.com/dotnet/runtime/issues/123011", typeof(PlatformDetection), nameof(PlatformDetection.IsBrowser), nameof(PlatformDetection.IsCoreCLR))]
     public static void DCS_BasicPerSerializerRoundTripAndCompare_SampleTypes()
     {
         string assemblyName = typeof(DataContractSerializerTests).Assembly.FullName;
@@ -3739,6 +3749,7 @@ public static partial class DataContractSerializerTests
     }
 
     [Fact]
+    [ActiveIssue("https://github.com/dotnet/runtime/issues/123011", typeof(PlatformDetection), nameof(PlatformDetection.IsBrowser), nameof(PlatformDetection.IsCoreCLR))]
     public static void DCS_BasicPerSerializerRoundTripAndCompare_Collections()
     {
         string assemblyName = typeof(DataContractSerializerTests).Assembly.FullName;
@@ -3758,6 +3769,7 @@ public static partial class DataContractSerializerTests
     }
 
     [Fact]
+    [ActiveIssue("https://github.com/dotnet/runtime/issues/123011", typeof(PlatformDetection), nameof(PlatformDetection.IsBrowser), nameof(PlatformDetection.IsCoreCLR))]
     public static void DCS_BasicPerSerializerRoundTripAndCompare_CollectionDataContract()
     {
         string assemblyName = typeof(DataContractSerializerTests).Assembly.FullName;
@@ -3959,6 +3971,7 @@ public static partial class DataContractSerializerTests
     }
 
     [Fact]
+    [ActiveIssue("https://github.com/dotnet/runtime/issues/123011", typeof(PlatformDetection), nameof(PlatformDetection.IsBrowser), nameof(PlatformDetection.IsCoreCLR))]
     public static void DCS_BasicPerSerializerRoundTripAndCompare_EnumStruct()
     {
         string assemblyName = typeof(DataContractSerializerTests).Assembly.FullName;

@@ -1,0 +1,702 @@
+
+  Determining projects to restore...
+  Restored /home/pavelsavara/dev/runtime/src/libraries/System.Threading/tests/System.Threading.Tests.csproj (in 150 ms).
+  3 of 4 projects are up-to-date for restore.
+  TestUtilities -> /home/pavelsavara/dev/runtime/artifacts/bin/TestUtilities/Release/net10.0/TestUtilities.dll
+  WasmTriggerPublishApp for CoreCLR not implemented
+  System.Threading.Tests -> /home/pavelsavara/dev/runtime/artifacts/bin/System.Threading.Tests/Release/net11.0/browser-wasm/System.Threading.Tests.dll
+  export SCENARIO=WasmTestOnChrome
+  export XUNIT_HIDE_PASSING_OUTPUT_DIAGNOSTICS=1
+  export PREPEND_PATH=/home/pavelsavara/dev/runtime/artifacts/bin/chromedriver/chromedriver_linux64
+  export RuntimeIdentifier=browser-wasm
+  PATH=/home/pavelsavara/dev/runtime/artifacts/bin/chromedriver/chromedriver_linux64:/home/pavelsavara/.jsvu/bin:/home/pavelsavara/dev/runtime/.dotnet:/home/pavelsavara/bin:/home/pavelsavara/dev/.dotnet:/home/pavelsavara/.vscode-server/data/User/globalStorage/github.copilot-chat/debugCommand:/home/pavelsavara/.vscode-server/data/User/globalStorage/github.copilot-chat/copilotCli:/home/pavelsavara/.vscode-server/bin/c9d77990917f3102ada88be140d28b038d1dd7c7/bin/remote-cli:/home/pavelsavara/bin:/home/pavelsavara/bin:/home/pavelsavara/dev/.dotnet:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/windows/system32:/mnt/c/windows:/mnt/d/.dotnet/:/mnt/c/windows/System32/Wbem:/mnt/c/windows/System32/WindowsPowerShell/v1.0/:/mnt/c/windows/System32/OpenSSH/:/mnt/c/Program Files/HP/HP One Agent:/mnt/c/Program Files/nodejs/:/mnt/c/Program Files/Meld/:/mnt/c/Program Files/dotnet/:/mnt/c/Program Files/Git/cmd:/mnt/c/Program Files/PuTTY/:/mnt/c/Program Files/PowerShell/7/:/mnt/c/Program Files/Microsoft SQL Server/170/Tools/Binn/:/mnt/c/Program Files/GitExtensions/:/mnt/c/Program Files/GitHub CLI/:/mnt/d/bin:/mnt/d/.dotnet/:/mnt/c/Users/pavelsavara/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/pavelsavara/AppData/Local/Programs/MicrosoftVSCode/bin:/mnt/c/Users/pavelsavara/AppData/Roaming/npm:/mnt/c/Users/pavelsavara/AppData/Local/Programs/Python/Python310/:/mnt/c/Users/pavelsavara/AppData/Local/Programs/Python/Python310/Scripts/:/mnt/c/Users/pavelsavara/AppData/Local/Microsoft/WinGet/Packages/GitHub.Copilot.Prerelease_Microsoft.Winget.Source_8wekyb3d8bbwe:/mnt/c/Users/pavelsavara/.dotnet/tools:/snap/bin
+  EXECUTION_DIR=/home/pavelsavara/dev/runtime/artifacts/bin/System.Threading.Tests/Release/net11.0/browser-wasm/wwwroot
+  SCENARIO=WasmTestOnChrome
+  XHARNESS_OUT=/home/pavelsavara/dev/runtime/artifacts/bin/System.Threading.Tests/Release/net11.0/browser-wasm/wwwroot/xharness-output
+  XHARNESS_CLI_PATH=
+  HARNESS_RUNNER=dotnet xharness
+  XHARNESS_COMMAND=test-browser
+  MAIN_JS=
+  JS_ENGINE=
+  JS_ENGINE_ARGS=--browser-arg=--js-flags=--stack-trace-limit=1000
+  XHARNESS_ARGS= --browser-arg=--js-flags=--stack-trace-limit=1000
+  ~/dev/runtime/artifacts/bin/System.Threading.Tests/Release/net11.0/browser-wasm/wwwroot ~/dev/runtime/src/libraries/System.Threading/tests
+  ----- start Sun Feb 1 20:18:24 CET 2026 =============== To repro directly: =====================================================
+  pushd /home/pavelsavara/dev/runtime/artifacts/bin/System.Threading.Tests/Release/net11.0/browser-wasm/wwwroot
+  dotnet xharness wasm test-browser --app=. --output-directory=/home/pavelsavara/dev/runtime/artifacts/bin/System.Threading.Tests/Release/net11.0/browser-wasm/wwwroot/xharness-output -s dotnet.native.js.symbols --symbol-patterns wasm-symbol-patterns.txt --symbolicator WasmSymbolicator.dll,Microsoft.WebAssembly.Internal.SymbolicatorWrapperForXHarness --browser-path=/home/pavelsavara/dev/runtime/artifacts/bin/chrome/chrome-linux/chrome --timeout=00:30:00  --browser-arg=--js-flags=--stack-trace-limit=1000   --  --setenv=XHARNESS_LOG_TEST_START=true  --run WasmTestRunner.dll System.Threading.Tests.dll  -notrait category=OuterLoop -notrait category=failing 
+  popd
+  ===========================================================================================================
+  ~/dev/runtime/artifacts/bin/System.Threading.Tests/Release/net11.0/browser-wasm/wwwroot ~/dev/runtime/artifacts/bin/System.Threading.Tests/Release/net11.0/browser-wasm/wwwroot ~/dev/runtime/src/libraries/System.Threading/tests
+  [11.0.0-prerelease.26064.3+31e0b8e08f57890f7b7004b93361d69cd4b21079] XHarness command issued: wasm test-browser --app=. --output-directory=/home/pavelsavara/dev/runtime/artifacts/bin/System.Threading.Tests/Release/net11.0/browser-wasm/wwwroot/xharness-output -s dotnet.native.js.symbols --symbol-patterns wasm-symbol-patterns.txt --symbolicator WasmSymbolicator.dll,Microsoft.WebAssembly.Internal.SymbolicatorWrapperForXHarness --browser-path=/home/pavelsavara/dev/runtime/artifacts/bin/chrome/chrome-linux/chrome --timeout=00:30:00 --browser-arg=--js-flags=--stack-trace-limit=1000 -- --setenv=XHARNESS_LOG_TEST_START=true --run WasmTestRunner.dll System.Threading.Tests.dll -notrait category=OuterLoop -notrait category=failing
+  [40m[1m[33mwarn[39m[22m[49m: Cannot find symbols file dotnet.native.js.symbols
+  [40m[32minfo[39m[22m[49m: Using Chrome from /home/pavelsavara/dev/runtime/artifacts/bin/chrome/chrome-linux/chrome
+  [40m[32minfo[39m[22m[49m: Starting chromedriver with args: --js-flags=--stack-trace-limit=1000 --headless --incognito --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-renderer-backgrounding --enable-features=NetworkService,NetworkServiceInProcess --allow-insecure-localhost --disable-breakpad --disable-component-extensions-with-background-pages --disable-dev-shm-usage --disable-extensions --disable-features=TranslateUI --disable-ipc-flooding-protection --force-color-profile=srgb --metrics-recording-only and load strategy: Normal
+  Starting ChromeDriver 143.0.7499.0 (0000000000000000000000000000000000000000-0000000000000000000000000000000000000000) on port 45605
+  Only local connections are allowed.
+  Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
+  ChromeDriver was started successfully on port 45605.
+  [40m[32minfo[39m[22m[49m: Running in: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/143.0.0.0 Safari/537.36
+  [40m[32minfo[39m[22m[49m: Running at: http://127.0.0.1:39189/index.html?arg=--setenv%3dXHARNESS_LOG_TEST_START%3dtrue&arg=--run&arg=WasmTestRunner.dll&arg=System.Threading.Tests.dll&arg=-notrait&arg=category%3dOuterLoop&arg=-notrait&arg=category%3dfailing&arg=-verbosity&arg=Info
+  [40m[32minfo[39m[22m[49m: could not load /runArgs.json: 404. Ignoring
+  [40m[32minfo[39m[22m[49m: Incoming arguments: --setenv=XHARNESS_LOG_TEST_START=true --run WasmTestRunner.dll System.Threading.Tests.dll -notrait category=OuterLoop -notrait category=failing -verbosity Info
+  [40m[32minfo[39m[22m[49m: Application arguments: --run WasmTestRunner.dll System.Threading.Tests.dll -notrait category=OuterLoop -notrait category=failing -verbosity Info
+  [40m[32minfo[39m[22m[49m: Initializing dotnet version 11.0.0 commit hash e31907b0fbca908ed525247a1dc38cc5fba7b0ff
+  [40m[32minfo[39m[22m[49m: Using threadless Xunit runner
+  [40m[32minfo[39m[22m[49m: Discovering: System.Threading.Tests.dll (method display = ClassAndMethod, method display options = None)
+  [40m[32minfo[39m[22m[49m: Discovered:  System.Threading.Tests.dll (found 318 of 360 test cases)
+  [40m[32minfo[39m[22m[49m: Starting:    System.Threading.Tests.dll
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.NotifyOnThreadContextChange
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.CaptureAndRestoreEmptyContext
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.NotifyOnValuePropertyChange
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.CaptureAndRestore
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType_NotifyOnChange(count: 1)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType_NotifyOnChange(count: 2)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType_NotifyOnChange(count: 3)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType_NotifyOnChange(count: 4)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType_NotifyOnChange(count: 5)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType_NotifyOnChange(count: 6)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType_NotifyOnChange(count: 7)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType_NotifyOnChange(count: 8)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType_NotifyOnChange(count: 9)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType_NotifyOnChange(count: 10)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType_NotifyOnChange(count: 11)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType_NotifyOnChange(count: 12)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType_NotifyOnChange(count: 13)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType_NotifyOnChange(count: 14)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType_NotifyOnChange(count: 15)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType_NotifyOnChange(count: 16)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType_NotifyOnChange(count: 17)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType_NotifyOnChange(count: 18)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType_NotifyOnChange(count: 19)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType_NotifyOnChange(count: 20)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType_NotifyOnChange(count: 21)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType_NotifyOnChange(count: 22)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType_NotifyOnChange(count: 23)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType_NotifyOnChange(count: 24)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType_NotifyOnChange(count: 25)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType_NotifyOnChange(count: 26)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType_NotifyOnChange(count: 27)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType_NotifyOnChange(count: 28)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType_NotifyOnChange(count: 29)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType_NotifyOnChange(count: 30)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType_NotifyOnChange(count: 31)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType_NotifyOnChange(count: 32)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType_NotifyOnChange(count: 33)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType_NotifyOnChange(count: 34)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType_NotifyOnChange(count: 35)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType_NotifyOnChange(count: 36)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType_NotifyOnChange(count: 37)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType_NotifyOnChange(count: 38)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType_NotifyOnChange(count: 39)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType_NotifyOnChange(count: 40)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType(count: 1)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType(count: 2)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType(count: 3)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType(count: 4)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType(count: 5)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType(count: 6)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType(count: 7)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType(count: 8)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType(count: 9)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType(count: 10)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType(count: 11)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType(count: 12)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType(count: 13)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType(count: 14)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType(count: 15)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType(count: 16)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType(count: 17)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType(count: 18)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType(count: 19)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType(count: 20)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType(count: 21)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType(count: 22)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType(count: 23)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType(count: 24)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType(count: 25)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType(count: 26)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType(count: 27)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType(count: 28)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType(count: 29)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType(count: 30)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType(count: 31)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType(count: 32)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType(count: 33)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType(count: 34)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType(count: 35)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType(count: 36)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType(count: 37)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType(count: 38)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType(count: 39)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AddUpdateAndRemoveManyLocals_ReferenceType(count: 40)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AsyncMethodNotifications
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.NotifyCountOnObjectValueChange
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.CaptureAndRunOnFlowSuppressedContext
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.ValueProperty
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.NotifyOnThreadContextChangeWithOneEmptyContext
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.CaptureAndRestoreNullAsyncLocals(count: 1)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.CaptureAndRestoreNullAsyncLocals(count: 2)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.CaptureAndRestoreNullAsyncLocals(count: 3)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.CaptureAndRestoreNullAsyncLocals(count: 4)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.CaptureAndRestoreNullAsyncLocals(count: 5)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.CaptureAndRestoreNullAsyncLocals(count: 6)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.CaptureAndRestoreNullAsyncLocals(count: 7)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.CaptureAndRestoreNullAsyncLocals(count: 8)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.CaptureAndRestoreNullAsyncLocals(count: 9)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.CaptureAndRestoreNullAsyncLocals(count: 10)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.CaptureAndRestoreNullAsyncLocals(count: 11)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.CaptureAndRestoreNullAsyncLocals(count: 12)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.CaptureAndRestoreNullAsyncLocals(count: 13)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.CaptureAndRestoreNullAsyncLocals(count: 14)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.CaptureAndRestoreNullAsyncLocals(count: 15)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.CaptureAndRestoreNullAsyncLocals(count: 16)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.CaptureAndRestoreNullAsyncLocals(count: 17)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.CaptureAndRestoreNullAsyncLocals(count: 18)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.CaptureAndRestoreNullAsyncLocals(count: 19)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.CaptureAndRestoreNullAsyncLocals(count: 20)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.CaptureAndRestoreNullAsyncLocals(count: 21)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.CaptureAndRestoreNullAsyncLocals(count: 22)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.CaptureAndRestoreNullAsyncLocals(count: 23)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.CaptureAndRestoreNullAsyncLocals(count: 24)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.CaptureAndRestoreNullAsyncLocals(count: 25)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.CaptureAndRestoreNullAsyncLocals(count: 26)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.CaptureAndRestoreNullAsyncLocals(count: 27)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.CaptureAndRestoreNullAsyncLocals(count: 28)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.CaptureAndRestoreNullAsyncLocals(count: 29)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.CaptureAndRestoreNullAsyncLocals(count: 30)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.CaptureAndRestoreNullAsyncLocals(count: 31)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.CaptureAndRestoreNullAsyncLocals(count: 32)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.CaptureAndRestoreNullAsyncLocals(count: 33)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.CaptureAndRestoreNullAsyncLocals(count: 34)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.CaptureAndRestoreNullAsyncLocals(count: 35)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.CaptureAndRestoreNullAsyncLocals(count: 36)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.CaptureAndRestoreNullAsyncLocals(count: 37)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.CaptureAndRestoreNullAsyncLocals(count: 38)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.CaptureAndRestoreNullAsyncLocals(count: 39)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.CaptureAndRestoreNullAsyncLocals(count: 40)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AsyncLocalsUnwind(count: 1)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AsyncLocalsUnwind(count: 2)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AsyncLocalsUnwind(count: 3)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AsyncLocalsUnwind(count: 4)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AsyncLocalsUnwind(count: 5)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AsyncLocalsUnwind(count: 6)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AsyncLocalsUnwind(count: 7)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AsyncLocalsUnwind(count: 8)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AsyncLocalsUnwind(count: 9)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AsyncLocalsUnwind(count: 10)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AsyncLocalsUnwind(count: 11)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AsyncLocalsUnwind(count: 12)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AsyncLocalsUnwind(count: 13)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AsyncLocalsUnwind(count: 14)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AsyncLocalsUnwind(count: 15)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AsyncLocalsUnwind(count: 16)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AsyncLocalsUnwind(count: 17)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AsyncLocalsUnwind(count: 18)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AsyncLocalsUnwind(count: 19)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AsyncLocalsUnwind(count: 20)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AsyncLocalsUnwind(count: 21)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AsyncLocalsUnwind(count: 22)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AsyncLocalsUnwind(count: 23)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AsyncLocalsUnwind(count: 24)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AsyncLocalsUnwind(count: 25)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AsyncLocalsUnwind(count: 26)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AsyncLocalsUnwind(count: 27)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AsyncLocalsUnwind(count: 28)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AsyncLocalsUnwind(count: 29)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AsyncLocalsUnwind(count: 30)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AsyncLocalsUnwind(count: 31)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AsyncLocalsUnwind(count: 32)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AsyncLocalsUnwind(count: 33)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AsyncLocalsUnwind(count: 34)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AsyncLocalsUnwind(count: 35)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AsyncLocalsUnwind(count: 36)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AsyncLocalsUnwind(count: 37)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AsyncLocalsUnwind(count: 38)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AsyncLocalsUnwind(count: 39)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AsyncLocalsUnwind(count: 40)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.SetValueFromNotification
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AddAndUpdateManyLocals_ValueType(count: 1)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AddAndUpdateManyLocals_ValueType(count: 2)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AddAndUpdateManyLocals_ValueType(count: 3)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AddAndUpdateManyLocals_ValueType(count: 4)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AddAndUpdateManyLocals_ValueType(count: 5)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AddAndUpdateManyLocals_ValueType(count: 6)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AddAndUpdateManyLocals_ValueType(count: 7)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AddAndUpdateManyLocals_ValueType(count: 8)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AddAndUpdateManyLocals_ValueType(count: 9)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AddAndUpdateManyLocals_ValueType(count: 10)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AddAndUpdateManyLocals_ValueType(count: 11)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AddAndUpdateManyLocals_ValueType(count: 12)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AddAndUpdateManyLocals_ValueType(count: 13)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AddAndUpdateManyLocals_ValueType(count: 14)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AddAndUpdateManyLocals_ValueType(count: 15)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AddAndUpdateManyLocals_ValueType(count: 16)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AddAndUpdateManyLocals_ValueType(count: 17)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AddAndUpdateManyLocals_ValueType(count: 18)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AddAndUpdateManyLocals_ValueType(count: 19)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AddAndUpdateManyLocals_ValueType(count: 20)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AddAndUpdateManyLocals_ValueType(count: 21)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AddAndUpdateManyLocals_ValueType(count: 22)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AddAndUpdateManyLocals_ValueType(count: 23)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AddAndUpdateManyLocals_ValueType(count: 24)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AddAndUpdateManyLocals_ValueType(count: 25)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AddAndUpdateManyLocals_ValueType(count: 26)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AddAndUpdateManyLocals_ValueType(count: 27)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AddAndUpdateManyLocals_ValueType(count: 28)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AddAndUpdateManyLocals_ValueType(count: 29)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AddAndUpdateManyLocals_ValueType(count: 30)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AddAndUpdateManyLocals_ValueType(count: 31)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AddAndUpdateManyLocals_ValueType(count: 32)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AddAndUpdateManyLocals_ValueType(count: 33)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AddAndUpdateManyLocals_ValueType(count: 34)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AddAndUpdateManyLocals_ValueType(count: 35)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AddAndUpdateManyLocals_ValueType(count: 36)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AddAndUpdateManyLocals_ValueType(count: 37)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AddAndUpdateManyLocals_ValueType(count: 38)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AddAndUpdateManyLocals_ValueType(count: 39)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.AddAndUpdateManyLocals_ValueType(count: 40)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AsyncLocalTests.ExecutionContextCopyOnWrite
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AutoResetEventTests.MultiWaitWithAllIndexesResetTest
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AutoResetEventTests.SetAndResetTest
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AutoResetEventTests.MultiWaitWithInnerIndexesSetTest
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AutoResetEventTests.ConstructorAndDisposeTest
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AutoResetEventTests.WaitHandleWaitAny
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AutoResetEventTests.PingPong
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AutoResetEventTests.WaitHandleWaitAll_Invalid
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AutoResetEventTests.MultiWaitWithAllIndexesSetTest
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AutoResetEventTests.WaitTest
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AutoResetEventTests.WaitHandleWaitAny_Invalid
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.AutoResetEventTests.WaitHandleWaitAll
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.BarrierTests.RunBarrierRemoveParticipantsTests
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.BarrierTests.RunBarrierSignalAndWaitTests
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.BarrierTests.TooManyParticipants
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.BarrierTests.RunBarrierConstructorTests_NegativeTests
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.BarrierTests.RunBarrierTest10b
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.BarrierTests.RunBarrierTest10c
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.BarrierTests.RunBarrierTest6_Dispose
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.BarrierTests.RemovingParticipants
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.BarrierTests.RunBarrierAddParticipantsTest
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.BarrierTests.RunBarrierConstructorTests
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.BarrierTests.RemovingWaitingParticipants
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.BarrierTests.RunBarrierAddParticipantsTest_NegativeTests
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.BarrierTests.PostPhaseException
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.BarrierTests.RunBarrierRemoveParticipantsTests_NegativeTests
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.BarrierTests.RunBarrierTest8_PostPhaseException
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.BarrierTests.SignalBarrierWithoutParticipants
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.BarrierTests.RunBarrierTest9_PostPhaseException
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.BarrierTests.RunBarrierSignalAndWaitTests_NegativeTests
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.BarrierTests.RunBarrierTest7a
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.CountdownEventTests.RunCountdownEventTest1_SimpleTimeout
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.CountdownEventTests.RunCountdownEventTest0_StateTrans(initCount: 0, increms: 0, takeAllAtOnce: False)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.CountdownEventTests.RunCountdownEventTest0_StateTrans(initCount: 1, increms: 0, takeAllAtOnce: False)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.CountdownEventTests.RunCountdownEventTest0_StateTrans(initCount: 128, increms: 0, takeAllAtOnce: False)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.CountdownEventTests.RunCountdownEventTest0_StateTrans(initCount: 1048576, increms: 0, takeAllAtOnce: False)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.CountdownEventTests.RunCountdownEventTest0_StateTrans(initCount: 1, increms: 1024, takeAllAtOnce: False)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.CountdownEventTests.RunCountdownEventTest0_StateTrans(initCount: 128, increms: 1024, takeAllAtOnce: False)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.CountdownEventTests.RunCountdownEventTest0_StateTrans(initCount: 1048576, increms: 1024, takeAllAtOnce: False)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.CountdownEventTests.RunCountdownEventTest0_StateTrans(initCount: 1, increms: 0, takeAllAtOnce: True)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.CountdownEventTests.RunCountdownEventTest0_StateTrans(initCount: 128, increms: 0, takeAllAtOnce: True)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.CountdownEventTests.RunCountdownEventTest0_StateTrans(initCount: 1048576, increms: 0, takeAllAtOnce: True)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.CountdownEventTests.RunCountdownEventTest0_StateTrans(initCount: 1, increms: 1024, takeAllAtOnce: True)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.CountdownEventTests.RunCountdownEventTest0_StateTrans(initCount: 128, increms: 1024, takeAllAtOnce: True)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.CountdownEventTests.RunCountdownEventTest0_StateTrans(initCount: 1048576, increms: 1024, takeAllAtOnce: True)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.CountdownEventTests.RunCountdownEventTest2_Exceptions
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.EtwTests.TestEtw
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.EtwTests.WaitHandleWaitEventTest
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.EventWaitHandleTests.Ctor_NamesArentSupported_Unix
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.EventWaitHandleTests.Ctor_StateMode(initialState: False, mode: AutoReset)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.EventWaitHandleTests.Ctor_StateMode(initialState: False, mode: ManualReset)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.EventWaitHandleTests.Ctor_StateMode(initialState: True, mode: AutoReset)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.EventWaitHandleTests.Ctor_StateMode(initialState: True, mode: ManualReset)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.EventWaitHandleTests.SetReset
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.EventWaitHandleTests.Ctor_InvalidMode
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.EventWaitHandleTests.OpenExisting_NotSupported_Unix
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.HostExecutionContextTests.BasicTest
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.HostExecutionContextManagerTests.BasicTest
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedAnd_UInt64
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedExchange_Int16
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedCompareExchange_Int64
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedDecrement_Int64
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedOr_Generic_UInt32(initial: 305419888, operand: 124076833, expected: 393566065)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedOr_Generic_UInt32(initial: 0, operand: 4294967295, expected: 4294967295)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedOr_Generic_UInt32(initial: 2863311530, operand: 1431655765, expected: 4294967295)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedOr_Generic_UInt32(initial: 4294967295, operand: 0, expected: 4294967295)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedOr_Generic_UInt32(initial: 0, operand: 0, expected: 0)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedOr_Generic_Int64_NullRef
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedAnd_Generic_SByte_NullRef
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedCompareExchange_Float
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedCompareExchange_Int8
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedDecrement_Int32
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedExchange_BoxedObject
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedExchange_UInt8
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedOr_Generic_Unsupported
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedExchange_IntPtr
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedOr_Generic_UInt16_NullRef
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedCompareExchange_Char
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedIncrement_Multithreaded_Int32
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedCompareExchange_Unsupported
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedAnd_Generic_UInt16_NullRef
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedOr_Generic_Int16_NullRef
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedOr_Generic_Int32_NullRef
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedExchange_Int32
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.MemoryBarrierProcessWide
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedAnd_Generic_Int64_NullRef
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedExchange_UInt32
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedOr_Generic_Half_ThrowsNotSupported
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedExchange_UInt16
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedExchange_Unsupported
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedIncrement_UInt32
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedAnd_UInt32
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedDecrement_UInt64
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedAnd_Generic_Int16_NullRef
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedCompareExchange_UInt32
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedOr_UInt32
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedOr_Generic_Enum(initial: Sunday, operand: Monday, expected: Monday)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedOr_Generic_Enum(initial: Monday, operand: Tuesday, expected: Wednesday)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedOr_Generic_Enum(initial: Sunday, operand: 255, expected: 255)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedOr_Generic_Enum(initial: 255, operand: Sunday, expected: 255)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedCompareExchange_UInt64
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedCompareExchange_Int16
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedOr_Int32
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedCompareExchange_IntPtr
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedIncrement_Int32
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedOr_Int64
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedAnd_Generic_UInt64(initial: 305419888, operand: 124076833, expected: 35930656)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedAnd_Generic_UInt64(initial: 18446744073709551615, operand: 0, expected: 0)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedAnd_Generic_UInt64(initial: 12297829382473034410, operand: 6148914691236517205, expected: 0)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedAnd_Generic_UInt64(initial: 18446744073709551615, operand: 18446744073709551615, expected: 18446744073709551615)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedAnd_Generic_UInt64(initial: 0, operand: 18446744073709551615, expected: 0)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedOr_Generic_UInt64(initial: 305419888, operand: 124076833, expected: 393566065)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedOr_Generic_UInt64(initial: 0, operand: 18446744073709551615, expected: 18446744073709551615)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedOr_Generic_UInt64(initial: 12297829382473034410, operand: 6148914691236517205, expected: 18446744073709551615)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedOr_Generic_UInt64(initial: 18446744073709551615, operand: 0, expected: 18446744073709551615)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedOr_Generic_UInt64(initial: 0, operand: 0, expected: 0)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedAnd_Generic_Unsupported
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedExchange_UInt64
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedCompareExchange_Double
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedOr_Generic_Enum_NullRef
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedOr_Generic_Byte_NullRef
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedAdd_UInt32
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.MemoryBarrierIntrinsic
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedExchange_Int64
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedAnd_Generic_Float_ThrowsNotSupported
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedRead_UInt64
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedDecrement_UInt32
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedOr_Generic_SByte(initial: 80, operand: 33, expected: 113)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedOr_Generic_SByte(initial: -128, operand: 127, expected: -1)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedOr_Generic_SByte(initial: 0, operand: -1, expected: -1)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedOr_Generic_SByte(initial: -1, operand: 0, expected: -1)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedOr_Generic_SByte(initial: 0, operand: 0, expected: 0)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedCompareExchange_Object
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedExchange_Float
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedAnd_Generic_Enum(initial: Wednesday, operand: Monday, expected: Monday)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedAnd_Generic_Enum(initial: 7, operand: Wednesday, expected: Wednesday)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedAnd_Generic_Enum(initial: 255, operand: Sunday, expected: Sunday)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedAnd_Generic_Enum(initial: 255, operand: 255, expected: 255)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedOr_Generic_Double_ThrowsNotSupported
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedOr_Generic_UInt32_NullRef
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedAnd_Generic_Enum_NullRef
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedCompareExchange_Enum
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedCompareExchange_UIntPtr
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedOr_Generic_Int16(initial: 4660, operand: 20488, expected: 21052)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedOr_Generic_Int16(initial: -32768, operand: 32767, expected: -1)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedOr_Generic_Int16(initial: 0, operand: -1, expected: -1)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedOr_Generic_Int16(initial: -1, operand: 0, expected: -1)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedOr_Generic_Int16(initial: 0, operand: 0, expected: 0)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedCompareExchange_Multithreaded_Double
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedAnd_Generic_UInt32_NullRef
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedOr_Generic_SByte_NullRef
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedOr_UInt64
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedCompareExchange_UInt8
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedAnd_Generic_Byte(initial: 240, operand: 60, expected: 48)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedAnd_Generic_Byte(initial: 255, operand: 0, expected: 0)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedAnd_Generic_Byte(initial: 170, operand: 85, expected: 0)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedAnd_Generic_Byte(initial: 255, operand: 255, expected: 255)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedAnd_Generic_Byte(initial: 0, operand: 255, expected: 0)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedAdd_Int32
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedAnd_Generic_SByte(initial: 112, operand: 33, expected: 32)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedAnd_Generic_SByte(initial: -1, operand: 127, expected: 127)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedAnd_Generic_SByte(initial: -128, operand: 127, expected: 0)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedAnd_Generic_SByte(initial: -1, operand: -1, expected: -1)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedAnd_Generic_SByte(initial: 0, operand: -1, expected: 0)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedIncrement_Int64
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedAnd_Generic_Byte_NullRef
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedRead_Int64
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedExchange_Object
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedCompareExchange_UInt16
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedCompareExchange_Bool
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedAnd_Generic_Int32_NullRef
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedOr_Generic_Int32(initial: 305419888, operand: 124076833, expected: 393566065)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedOr_Generic_Int32(initial: -2147483648, operand: 2147483647, expected: -1)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedOr_Generic_Int32(initial: 0, operand: -1, expected: -1)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedOr_Generic_Int32(initial: -1, operand: 0, expected: -1)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedOr_Generic_Int32(initial: 0, operand: 0, expected: 0)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedAdd_UInt64
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedAnd_Generic_UInt16(initial: 4660, operand: 22136, expected: 4656)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedAnd_Generic_UInt16(initial: 65535, operand: 0, expected: 0)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedAnd_Generic_UInt16(initial: 43690, operand: 21845, expected: 0)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedAnd_Generic_UInt16(initial: 65535, operand: 65535, expected: 65535)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedAnd_Generic_UInt16(initial: 0, operand: 65535, expected: 0)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedExchange_Double
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedIncrement_UInt64
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedAnd_Int32
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedAnd_Generic_Int32(initial: 305419888, operand: 124076833, expected: 35930656)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedAnd_Generic_Int32(initial: -1, operand: 2147483647, expected: 2147483647)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedAnd_Generic_Int32(initial: -2147483648, operand: 2147483647, expected: 0)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedAnd_Generic_Int32(initial: -1, operand: -1, expected: -1)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedAnd_Generic_Int32(initial: 0, operand: -1, expected: 0)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedExchange_UIntPtr
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedCompareExchange_BoxedObject
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedOr_Generic_UInt16(initial: 4660, operand: 20488, expected: 21052)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedOr_Generic_UInt16(initial: 0, operand: 65535, expected: 65535)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedOr_Generic_UInt16(initial: 43690, operand: 21845, expected: 65535)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedOr_Generic_UInt16(initial: 65535, operand: 0, expected: 65535)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedOr_Generic_UInt16(initial: 0, operand: 0, expected: 0)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedAnd_Generic_Double_ThrowsNotSupported
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedCompareExchange_Int32
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedAnd_Generic_Half_ThrowsNotSupported
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedAnd_Generic_Int64(initial: 305419888, operand: 124076833, expected: 35930656)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedAnd_Generic_Int64(initial: -1, operand: 9223372036854775807, expected: 9223372036854775807)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedAnd_Generic_Int64(initial: -9223372036854775808, operand: 9223372036854775807, expected: 0)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedAnd_Generic_Int64(initial: -1, operand: -1, expected: -1)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedAnd_Generic_Int64(initial: 0, operand: -1, expected: 0)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedAnd_Generic_UInt32(initial: 305419888, operand: 124076833, expected: 35930656)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedAnd_Generic_UInt32(initial: 4294967295, operand: 0, expected: 0)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedAnd_Generic_UInt32(initial: 2863311530, operand: 1431655765, expected: 0)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedAnd_Generic_UInt32(initial: 4294967295, operand: 4294967295, expected: 4294967295)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedAnd_Generic_UInt32(initial: 0, operand: 4294967295, expected: 0)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedAnd_Generic_Int16(initial: 4660, operand: 22136, expected: 4656)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedAnd_Generic_Int16(initial: -1, operand: 32767, expected: 32767)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedAnd_Generic_Int16(initial: -32768, operand: 32767, expected: 0)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedAnd_Generic_Int16(initial: -1, operand: -1, expected: -1)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedAnd_Generic_Int16(initial: 0, operand: -1, expected: 0)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedExchange_Int8
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedAnd_Generic_UInt64_NullRef
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedAdd_Int64
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedOr_Generic_Float_ThrowsNotSupported
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedOr_Generic_Int64(initial: 305419888, operand: 124076833, expected: 393566065)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedOr_Generic_Int64(initial: -9223372036854775808, operand: 9223372036854775807, expected: -1)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedOr_Generic_Int64(initial: 0, operand: -1, expected: -1)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedOr_Generic_Int64(initial: -1, operand: 0, expected: -1)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedOr_Generic_Int64(initial: 0, operand: 0, expected: 0)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedOr_Generic_Byte(initial: 240, operand: 12, expected: 252)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedOr_Generic_Byte(initial: 0, operand: 255, expected: 255)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedOr_Generic_Byte(initial: 170, operand: 85, expected: 255)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedOr_Generic_Byte(initial: 255, operand: 0, expected: 255)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedOr_Generic_Byte(initial: 0, operand: 0, expected: 0)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedOr_Generic_UInt64_NullRef
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedAnd_Int64
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.InterlockedTests.InterlockedAddAndRead_Multithreaded_Int64
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.LockTests.Exit_Invalid
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.LockTests.BasicRecursion
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.LockTests.IsHeldByCurrentThread_WhenHeldBySomeoneElse
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.LockTests.LockStatementWithLockVsMonitor
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.LockTests.Enter_HasToWait_LockContentionCountTest
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.LockTests.InterruptWaitTest
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.LockTests.Exit_WhenHeldBySomeoneElse_ThrowsSynchronizationLockException
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.LockTests.IsHeldByCurrentThread
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.LockTests.DeepRecursion
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.LockTests.TryEnter_Invalid
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.LockTests.Enter_HasToWait
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.ManualResetEventTests.MultiWaitWithInnerIndexesSetTest
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.ManualResetEventTests.SetAndResetTest
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.ManualResetEventTests.MultiWaitWithAllIndexesSetTest
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.ManualResetEventTests.ConstructorAndDisposeTest
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.ManualResetEventTests.PingPong
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.ManualResetEventTests.WaitHandleWaitAny
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.ManualResetEventTests.MultiWaitWithAllIndexesResetTest
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.ManualResetEventTests.WaitTest
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.ManualResetEventTests.WaitHandleWaitAll
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.ManualResetEventSlimTests.RunManualResetEventSlimTest3_ConstructorTests
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.ManualResetEventSlimTests.RunManualResetEventSlimTest0_StateTrans(init: True)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.ManualResetEventSlimTests.RunManualResetEventSlimTest0_StateTrans(init: False)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.ManualResetEventSlimTests.RunManualResetEventSlimTest4_CombinedStateTests
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.ManualResetEventSlimTests.RunManualResetEventSlimTest1_SimpleWait
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.ManualResetEventSlimTests.RunManualResetEventSlimTest6_Exceptions
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.ManualResetEventSlimTests.RunManualResetEventSlimTest5_Dispose_Negative
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.ManualResetEventSlimTests.RunManualResetEventSlimTest5_Dispose
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.ManualResetEventSlimTests.RunManualResetEventSlimTest2_TimeoutWait
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.MonitorTests.Pulse_Invalid
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.MonitorTests.IsEntered
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.MonitorTests.Exit_Invalid
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.MonitorTests.DeepRecursion
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.MonitorTests.Enter_HasToWait_LockContentionCountTest
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.MonitorTests.ObjectHeaderSyncBlockTransitionTryEnterRaceTest
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.MonitorTests.TryEnter_SetsLockTaken
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.MonitorTests.Exit_WhenHeldBySomeoneElse_ThrowsSynchronizationLockException
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.MonitorTests.Enter_SetsLockTaken
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.MonitorTests.BasicRecursion
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.MonitorTests.IsEntered_Invalid
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.MonitorTests.Enter_Invalid
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.MonitorTests.InterruptWaitTest
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.MonitorTests.PulseAll_Invalid
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.MonitorTests.Wait_Invalid
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.MonitorTests.TryEnter_Invalid
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.MonitorTests.WaitTest
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.MonitorTests.IsEntered_WhenHeldBySomeoneElse
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.MonitorTests.Enter_HasToWait
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.MutexTests.OpenExisting_UnavailableName
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.MutexTests.MultiWaitWithAllIndexesUnlockedTest
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.MutexTests.Ctor_ValidName(name: "237305cbff7148fb92a6c83d539680e4")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.MutexTests.Ctor_ValidName(name: "cb7c44f332b949e7b2e757b355b39067aaaaaaaaaaaaaaaaaa"···)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.MutexTests.WaitTest
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.MutexTests.NamedMutex_InvalidSharedMemoryHeaderVersion
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.MutexTests.NamedMutex_SharedMemoryFileAlreadyOpen
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.MutexTests.NameOptionsApiCompatibilityTest(namePrefix: "")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.MutexTests.NameOptionsApiCompatibilityTest(namePrefix: "Local\\")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.MutexTests.NameOptionsApiCompatibilityTest(namePrefix: "Global\\")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.MutexTests.OpenExisting
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.MutexTests.MutualExclusionTest
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.MutexTests.AcquireAndReleaseTest
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.MutexTests.Ctor_InvalidNames_Unix
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.MutexTests.MultiWaitWithOuterIndexesLockedTest
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.MutexTests.NamedMutex_TooSmallSharedMemoryFile
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.MutexTests.MultiWaitWithAllIndexesLockedTest
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.MutexTests.NamedMutex_DisposeWhenLockedRaceTest
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.MutexTests.NamedWaitHandleOptionsTest
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.MutexTests.NamedMutex_InvalidSharedMemoryHeaderKind
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.MutexTests.NamePrefixAndOptionsCompatibilityTest(currentUserOnly: False, currentSessionOnly: False, namePrefix: "")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.MutexTests.NamePrefixAndOptionsCompatibilityTest(currentUserOnly: False, currentSessionOnly: False, namePrefix: "Local\\")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.MutexTests.NamePrefixAndOptionsCompatibilityTest(currentUserOnly: False, currentSessionOnly: False, namePrefix: "Global\\")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.MutexTests.NamePrefixAndOptionsCompatibilityTest(currentUserOnly: False, currentSessionOnly: True, namePrefix: "")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.MutexTests.NamePrefixAndOptionsCompatibilityTest(currentUserOnly: False, currentSessionOnly: True, namePrefix: "Local\\")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.MutexTests.NamePrefixAndOptionsCompatibilityTest(currentUserOnly: False, currentSessionOnly: True, namePrefix: "Global\\")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.MutexTests.NamePrefixAndOptionsCompatibilityTest(currentUserOnly: True, currentSessionOnly: False, namePrefix: "")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.MutexTests.NamePrefixAndOptionsCompatibilityTest(currentUserOnly: True, currentSessionOnly: False, namePrefix: "Local\\")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.MutexTests.NamePrefixAndOptionsCompatibilityTest(currentUserOnly: True, currentSessionOnly: False, namePrefix: "Global\\")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.MutexTests.NamePrefixAndOptionsCompatibilityTest(currentUserOnly: True, currentSessionOnly: True, namePrefix: "")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.MutexTests.NamePrefixAndOptionsCompatibilityTest(currentUserOnly: True, currentSessionOnly: True, namePrefix: "Local\\")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.MutexTests.NamePrefixAndOptionsCompatibilityTest(currentUserOnly: True, currentSessionOnly: True, namePrefix: "Global\\")
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.MutexTests.AbandonExisting
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.MutexTests.NamedMutex_OtherEvent_NotCompatible
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.MutexTests.CrossProcess_NamedMutex_ProtectedFileAccessAtomic
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.MutexTests.ConstructorAndDisposeTest
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.MutexTests.NameNamespaceTest(create_currentUserOnly: False, create_currentSessionOnly: False, open_currentUserOnly: False, open_currentSessionOnly: False)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.MutexTests.NameNamespaceTest(create_currentUserOnly: False, create_currentSessionOnly: False, open_currentUserOnly: False, open_currentSessionOnly: True)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.MutexTests.NameNamespaceTest(create_currentUserOnly: False, create_currentSessionOnly: False, open_currentUserOnly: True, open_currentSessionOnly: False)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.MutexTests.NameNamespaceTest(create_currentUserOnly: False, create_currentSessionOnly: False, open_currentUserOnly: True, open_currentSessionOnly: True)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.MutexTests.NameNamespaceTest(create_currentUserOnly: False, create_currentSessionOnly: True, open_currentUserOnly: False, open_currentSessionOnly: False)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.MutexTests.NameNamespaceTest(create_currentUserOnly: False, create_currentSessionOnly: True, open_currentUserOnly: False, open_currentSessionOnly: True)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.MutexTests.NameNamespaceTest(create_currentUserOnly: False, create_currentSessionOnly: True, open_currentUserOnly: True, open_currentSessionOnly: False)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.MutexTests.NameNamespaceTest(create_currentUserOnly: False, create_currentSessionOnly: True, open_currentUserOnly: True, open_currentSessionOnly: True)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.MutexTests.NameNamespaceTest(create_currentUserOnly: True, create_currentSessionOnly: False, open_currentUserOnly: False, open_currentSessionOnly: False)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.MutexTests.NameNamespaceTest(create_currentUserOnly: True, create_currentSessionOnly: False, open_currentUserOnly: False, open_currentSessionOnly: True)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.MutexTests.NameNamespaceTest(create_currentUserOnly: True, create_currentSessionOnly: False, open_currentUserOnly: True, open_currentSessionOnly: False)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.MutexTests.NameNamespaceTest(create_currentUserOnly: True, create_currentSessionOnly: False, open_currentUserOnly: True, open_currentSessionOnly: True)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.MutexTests.NameNamespaceTest(create_currentUserOnly: True, create_currentSessionOnly: True, open_currentUserOnly: False, open_currentSessionOnly: False)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.MutexTests.NameNamespaceTest(create_currentUserOnly: True, create_currentSessionOnly: True, open_currentUserOnly: False, open_currentSessionOnly: True)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.MutexTests.NameNamespaceTest(create_currentUserOnly: True, create_currentSessionOnly: True, open_currentUserOnly: True, open_currentSessionOnly: False)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.MutexTests.NameNamespaceTest(create_currentUserOnly: True, create_currentSessionOnly: True, open_currentUserOnly: True, open_currentSessionOnly: True)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.MutexTests.OpenExisting_InvalidNames
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.SemaphoreSlimTests.RunSemaphoreSlimTest2_Release_NegativeCases
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.SemaphoreSlimTests.RunSemaphoreSlimTest0_Ctor_Negative
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.SemaphoreSlimTests.RunSemaphoreSlimTest2_Release
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.SemaphoreSlimTests.RunSemaphoreSlimTest1_Wait
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.SemaphoreSlimTests.TestConcurrentWaitAndWaitAsync
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.SemaphoreSlimTests.RunSemaphoreSlimTest8_ConcWaitAsyncAndRelease
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.SemaphoreSlimTests.RunSemaphoreSlimTest5_CurrentCount
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.SemaphoreSlimTests.RunSemaphoreSlimTest1_WaitAsync
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.SemaphoreSlimTests.RunSemaphoreSlimTest1_Wait_NegativeCases
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.SemaphoreSlimTests.RunSemaphoreSlimTest0_Ctor
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.SemaphoreSlimTests.RunSemaphoreSlimTest4_Dispose
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.SemaphoreSlimTests.RunSemaphoreSlimTest7_AvailableWaitHandle
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.SemaphoreSlimTests.WaitAsync_Timeout_NoUnhandledException
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.SemaphoreSlimTests.RunSemaphoreSlimTest8_ConcWaitAndRelease
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.SemaphoreTests.Ctor_InitialAndMax(initialCount: 0, maximumCount: 1)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.SemaphoreTests.Ctor_InitialAndMax(initialCount: 1, maximumCount: 1)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.SemaphoreTests.Ctor_InitialAndMax(initialCount: 1, maximumCount: 2)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.SemaphoreTests.Ctor_InitialAndMax(initialCount: 0, maximumCount: 2147483647)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.SemaphoreTests.Ctor_InitialAndMax(initialCount: 2147483647, maximumCount: 2147483647)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.SemaphoreTests.SignalAndUnsignalTest
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.SemaphoreTests.MultiWaitWithInnerIndexesSignaled
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.SemaphoreTests.WaitTest
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.SemaphoreTests.AnonymousProducerConsumer
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.SemaphoreTests.CanWaitWithoutBlockingForReleasedCount
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.SemaphoreTests.Ctor_NamesArentSupported_Unix
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.SemaphoreTests.MultiWaitWithAllIndexesUnsignaled
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.SemaphoreTests.MultiWaitWithAllIndexesSignaledTest
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.SemaphoreTests.ConstructorAndDisposeTest
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.SemaphoreTests.Ctor_InvalidArguments
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.SemaphoreTests.CanWaitWithoutBlockingUntilNoCount
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.SemaphoreTests.OpenExisting_NotSupported_Unix
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.SpinLockTests.RunSpinLockTests_NegativeTests
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.SpinLockTests.EnterExit
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.SpinLockTests.RunSpinLockTestExceptions
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.ReaderWriterLockTests.WaitingReadersTest
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.ReaderWriterLockTests.ShouldNotBeOwnerForRestoreLockTest
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.ReaderWriterLockTests.MultipleNestedReadersMiscellaneousTest
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.ReaderWriterLockTests.NotOwnerTest
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.ReaderWriterLockTests.AtomicDowngradeTest
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.ReaderWriterLockTests.OverflowOnExcessiveNestedReaderLock
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.ReaderWriterLockTests.ReadersWaitingOnWaitingWriterTest
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.ReaderWriterLockTests.SingleThreadLockOwnerMiscellaneousTest
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.ReaderWriterLockTests.BasicLockTest
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.ReaderWriterLockTests.InvalidTimeoutTest_ChangedInDotNetCore
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.ReaderWriterLockTests.DowngradeQuirks_ChangedInDotNetCore
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.ReaderWriterLockTests.InvalidLockCookieTest
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.ReaderWriterLockTests.OverflowOnExcessiveNestedWriterLock
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.ReaderWriterLockTests.WaitingWritersTest
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.ReaderWriterLockTests.AtomicRecursiveReaderTest
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.ReaderWriterLockTests.ReadersWaitingOnWaitingUpgraderTest
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.ReaderWriterLockTests.WaitingUpgradersTest
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.ReaderWriterLockSlimTests.InvalidTimeouts
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.ReaderWriterLockSlimTests.Dispose
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.ReaderWriterLockSlimTests.InvalidExits
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.ReaderWriterLockSlimTests.Ctor
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.ReaderWriterLockSlimTests.WriterToReaderChain
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.ReaderWriterLockSlimTests.WriterToUpgradeableReaderChain
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.ReaderWriterLockSlimTests.WritersAreMutuallyExclusiveFromWriters
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.ReaderWriterLockSlimTests.DeadlockAvoidance
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.ReaderWriterLockSlimTests.WritersAreMutuallyExclusiveFromReaders
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.ReaderWriterLockSlimTests.EnterExit
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.ReaderWriterLockSlimTests.ReadersMayBeConcurrent
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.ReaderWriterLockSlimTests.WriterToWriterChain
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.SpinWaitTests.RunSpinWaitTests_Negative
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.SpinWaitTests.RunSpinWaitTests
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.SpinWaitTests.SpinOnce_Sleep1Threshold
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.ThreadLocalTests.RunThreadLocalTest5_Dispose
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.ThreadLocalTests.RunThreadLocalTest1_Ctor_Negative
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.ThreadLocalTests.RunThreadLocalTest4_Value_NegativeCases
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.ThreadLocalTests.RunThreadLocalTest2_ToString
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.ThreadLocalTests.RunThreadLocalTest9_Uninitialized
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.ThreadLocalTests.RunThreadLocalTest8_Values_NegativeCases
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.ThreadLocalTests.RunThreadLocalTest6_SlowPath
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.ThreadLocalTests.RunThreadLocalTest4_Value
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.ThreadLocalTests.RunThreadLocalTest3_IsValueCreated
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.ThreadLocalTests.RunThreadLocalTest1_Ctor
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.ThreadLocalTests.RunThreadLocalTest5_Dispose_Negative
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.ThreadLocalTests.RunThreadLocalTest7_WeakReference
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.ThreadLocalTests.TestUnrelatedThreadLocalDoesNotInterfereWithTrackAllValues
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.ThreadLocalTests.RunThreadLocalTest8_Values
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.ExecutionContextTests.DisposeTest
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.ExecutionContextTests.CreateCopyTest
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.ExecutionContextTests.FlowTest
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.ExecutionContextTests.RestoreTest
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.ExecutionContextTests.AsyncFlowControlTest
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.ExecutionContextTests.CaptureThenSuppressThenRunFlowTest
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.SynchronizationContextTests.WaitTest_ChangedInDotNetCore
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.SynchronizationContextTests.WaitTest
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tests.SynchronizationContextTests.WaitNotificationTest
+  [40m[32minfo[39m[22m[49m: Finished:    System.Threading.Tests.dll
+  [40m[32minfo[39m[22m[49m: Stored /home/pavelsavara/dev/runtime/artifacts/bin/System.Threading.Tests/Release/net11.0/browser-wasm/wwwroot/xharness-output/testResults.xml results 150329 bytes
+  [40m[32minfo[39m[22m[49m: Finished uploading 150329 bytes of RESULTXML
+  [40m[32minfo[39m[22m[49m: Xml file was written to the provided writer.
+  [40m[32minfo[39m[22m[49m: 
+  [40m[32minfo[39m[22m[49m: === TEST EXECUTION SUMMARY ===
+  [40m[32minfo[39m[22m[49m: Tests run: 632 Passed: 545 Inconclusive: 0 Failed: 0 Ignored: 0 Skipped: 87
+  [40m[32minfo[39m[22m[49m: 
+  [40m[32minfo[39m[22m[49m: test-main.js exiting WasmTestRunner.dll System.Threading.Tests.dll after 1.0542333333333334 minutes with result 0 and linear memory 193331200 bytes
+  [40m[32minfo[39m[22m[49m: DOTNET: forceDisposeProxies done: 14 imports, 0 exports, 0 GCHandles, 0 JSHandles.
+  [40m[32minfo[39m[22m[49m: WASM EXIT 0
+  [40m[32minfo[39m[22m[49m: Waiting to flush log messages with a timeout of 120 secs ..
+  [40m[32minfo[39m[22m[49m: Closing 1 browser tabs before setting the main tab to config page and quitting.
+  XHarness exit code: 0
+  ~/dev/runtime/artifacts/bin/System.Threading.Tests/Release/net11.0/browser-wasm/wwwroot ~/dev/runtime/src/libraries/System.Threading/tests
+  ----- end Sun Feb 1 20:19:29 CET 2026 ----- exit code 0 ----------------------------------------------------------
+  XHarness artifacts: /home/pavelsavara/dev/runtime/artifacts/bin/System.Threading.Tests/Release/net11.0/browser-wasm/wwwroot/xharness-output
+
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:01:08.88

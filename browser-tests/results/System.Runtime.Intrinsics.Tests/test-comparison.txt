@@ -1,8 +1,8 @@
 Test Comparison: System.Runtime.Intrinsics.Tests
-Generated: 2026-02-01T19:06:19+01:00
+Generated: 2026-02-01T20:03:09+01:00
 
 Mono tests:    12731
-CoreCLR tests: 12763
+CoreCLR tests: 12681
 
 === Extra in CoreCLR (32) ===
 System.Runtime.Intrinsics.Tests.Vectors.Vector128Tests.ConvertToInt32NativeTest
@@ -38,4 +38,86 @@ System.Runtime.Intrinsics.Tests.Vectors.Vector64Tests.ConvertToUInt32Test
 System.Runtime.Intrinsics.Tests.Vectors.Vector64Tests.ConvertToUInt64NativeTest
 System.Runtime.Intrinsics.Tests.Vectors.Vector64Tests.ConvertToUInt64Test
 
-=== Missing in CoreCLR (0) ===
+=== Missing in CoreCLR (82) ===
+System.Runtime.Intrinsics.Tests.Vectors.Vector128Tests.GetOneByte
+System.Runtime.Intrinsics.Tests.Vectors.Vector128Tests.GetOneDouble
+System.Runtime.Intrinsics.Tests.Vectors.Vector128Tests.GetOneInt16
+System.Runtime.Intrinsics.Tests.Vectors.Vector128Tests.GetOneInt32
+System.Runtime.Intrinsics.Tests.Vectors.Vector128Tests.GetOneInt64
+System.Runtime.Intrinsics.Tests.Vectors.Vector128Tests.GetOneIntPtr
+System.Runtime.Intrinsics.Tests.Vectors.Vector128Tests.GetOneSByte
+System.Runtime.Intrinsics.Tests.Vectors.Vector128Tests.GetOneSingle
+System.Runtime.Intrinsics.Tests.Vectors.Vector128Tests.GetOneUInt16
+System.Runtime.Intrinsics.Tests.Vectors.Vector128Tests.GetOneUInt32
+System.Runtime.Intrinsics.Tests.Vectors.Vector128Tests.GetOneUInt64
+System.Runtime.Intrinsics.Tests.Vectors.Vector128Tests.GetOneUIntPtr
+System.Runtime.Intrinsics.Tests.Vectors.Vector256Tests.GetOneByte
+System.Runtime.Intrinsics.Tests.Vectors.Vector256Tests.GetOneDouble
+System.Runtime.Intrinsics.Tests.Vectors.Vector256Tests.GetOneInt16
+System.Runtime.Intrinsics.Tests.Vectors.Vector256Tests.GetOneInt32
+System.Runtime.Intrinsics.Tests.Vectors.Vector256Tests.GetOneInt64
+System.Runtime.Intrinsics.Tests.Vectors.Vector256Tests.GetOneIntPtr
+System.Runtime.Intrinsics.Tests.Vectors.Vector256Tests.GetOneSByte
+System.Runtime.Intrinsics.Tests.Vectors.Vector256Tests.GetOneSingle
+System.Runtime.Intrinsics.Tests.Vectors.Vector256Tests.GetOneUInt16
+System.Runtime.Intrinsics.Tests.Vectors.Vector256Tests.GetOneUInt32
+System.Runtime.Intrinsics.Tests.Vectors.Vector256Tests.GetOneUInt64
+System.Runtime.Intrinsics.Tests.Vectors.Vector256Tests.GetOneUIntPtr
+System.Runtime.Intrinsics.Tests.Vectors.Vector64Tests.GetOneByte
+System.Runtime.Intrinsics.Tests.Vectors.Vector64Tests.GetOneDouble
+System.Runtime.Intrinsics.Tests.Vectors.Vector64Tests.GetOneInt16
+System.Runtime.Intrinsics.Tests.Vectors.Vector64Tests.GetOneInt32
+System.Runtime.Intrinsics.Tests.Vectors.Vector64Tests.GetOneInt64
+System.Runtime.Intrinsics.Tests.Vectors.Vector64Tests.GetOneIntPtr
+System.Runtime.Intrinsics.Tests.Vectors.Vector64Tests.GetOneSByte
+System.Runtime.Intrinsics.Tests.Vectors.Vector64Tests.GetOneSingle
+System.Runtime.Intrinsics.Tests.Vectors.Vector64Tests.GetOneUInt16
+System.Runtime.Intrinsics.Tests.Vectors.Vector64Tests.GetOneUInt32
+System.Runtime.Intrinsics.Tests.Vectors.Vector64Tests.GetOneUInt64
+System.Runtime.Intrinsics.Tests.Vectors.Vector64Tests.GetOneUIntPtr
+System.Runtime.Intrinsics.Wasm.Tests.PackedSimdTests.AddPairwiseWideningTest
+System.Runtime.Intrinsics.Wasm.Tests.PackedSimdTests.AverageRoundedTest
+System.Runtime.Intrinsics.Wasm.Tests.PackedSimdTests.BasicArithmeticTest
+System.Runtime.Intrinsics.Wasm.Tests.PackedSimdTests.BitmaskTest
+System.Runtime.Intrinsics.Wasm.Tests.PackedSimdTests.BitwiseOperationsTest
+System.Runtime.Intrinsics.Wasm.Tests.PackedSimdTests.BitwiseSelectTest
+System.Runtime.Intrinsics.Wasm.Tests.PackedSimdTests.ComparisonOperationsTest
+System.Runtime.Intrinsics.Wasm.Tests.PackedSimdTests.ComparisonWithNaNTest
+System.Runtime.Intrinsics.Wasm.Tests.PackedSimdTests.ConversionTest
+System.Runtime.Intrinsics.Wasm.Tests.PackedSimdTests.ConvertNarrowingSaturateSignedTest
+System.Runtime.Intrinsics.Wasm.Tests.PackedSimdTests.ConvertNarrowingSaturateUnsignedIntToUShort
+System.Runtime.Intrinsics.Wasm.Tests.PackedSimdTests.ConvertNarrowingSaturateUnsignedShortToByte
+System.Runtime.Intrinsics.Wasm.Tests.PackedSimdTests.DotProductTest
+System.Runtime.Intrinsics.Wasm.Tests.PackedSimdTests.ExtractInsertScalarTest
+System.Runtime.Intrinsics.Wasm.Tests.PackedSimdTests.FloatingPointAbsTest
+System.Runtime.Intrinsics.Wasm.Tests.PackedSimdTests.FloatingPointDivisionTest
+System.Runtime.Intrinsics.Wasm.Tests.PackedSimdTests.FloatingPointNegationTest
+System.Runtime.Intrinsics.Wasm.Tests.PackedSimdTests.FloatingPointOperationsTest
+System.Runtime.Intrinsics.Wasm.Tests.PackedSimdTests.FloatingPointTruncateTest
+System.Runtime.Intrinsics.Wasm.Tests.PackedSimdTests.IntegerAbsTest
+System.Runtime.Intrinsics.Wasm.Tests.PackedSimdTests.LoadScalarAndInsertTest
+System.Runtime.Intrinsics.Wasm.Tests.PackedSimdTests.LoadScalarAndSplatInfinityTest
+System.Runtime.Intrinsics.Wasm.Tests.PackedSimdTests.LoadScalarAndSplatTest
+System.Runtime.Intrinsics.Wasm.Tests.PackedSimdTests.LoadStoreTest
+System.Runtime.Intrinsics.Wasm.Tests.PackedSimdTests.LoadWideningTest
+System.Runtime.Intrinsics.Wasm.Tests.PackedSimdTests.MinMaxSignedUnsignedTest
+System.Runtime.Intrinsics.Wasm.Tests.PackedSimdTests.MultiplyWideningTest
+System.Runtime.Intrinsics.Wasm.Tests.PackedSimdTests.NativeIntegerArithmeticTest
+System.Runtime.Intrinsics.Wasm.Tests.PackedSimdTests.NativeIntegerLoadStoreTest
+System.Runtime.Intrinsics.Wasm.Tests.PackedSimdTests.NativeIntegerShiftTest
+System.Runtime.Intrinsics.Wasm.Tests.PackedSimdTests.NativeUnsignedIntegerArithmeticTest
+System.Runtime.Intrinsics.Wasm.Tests.PackedSimdTests.NativeUnsignedIntegerLoadStoreTest
+System.Runtime.Intrinsics.Wasm.Tests.PackedSimdTests.NativeUnsignedIntegerShiftTest
+System.Runtime.Intrinsics.Wasm.Tests.PackedSimdTests.NotTests
+System.Runtime.Intrinsics.Wasm.Tests.PackedSimdTests.PackedSimdIsSupported
+System.Runtime.Intrinsics.Wasm.Tests.PackedSimdTests.SaturatingArithmeticEdgeCasesTest
+System.Runtime.Intrinsics.Wasm.Tests.PackedSimdTests.SaturatingArithmeticForIntegersTest
+System.Runtime.Intrinsics.Wasm.Tests.PackedSimdTests.SaturatingArithmeticForUnsignedIntegersTest
+System.Runtime.Intrinsics.Wasm.Tests.PackedSimdTests.SaturatingArithmeticSignedTest
+System.Runtime.Intrinsics.Wasm.Tests.PackedSimdTests.SaturatingArithmeticTest
+System.Runtime.Intrinsics.Wasm.Tests.PackedSimdTests.ShiftOperationsTest
+System.Runtime.Intrinsics.Wasm.Tests.PackedSimdTests.SplatTypes
+System.Runtime.Intrinsics.Wasm.Tests.PackedSimdTests.StoreSelectedScalarTest
+System.Runtime.Intrinsics.Wasm.Tests.PackedSimdTests.SwizzleTest
+System.Runtime.Intrinsics.Wasm.Tests.PackedSimdTests.WideningOperationsTest
+Test collection for System.Runtime.Intrinsics.Wasm.Tests.PackedSimdTests
