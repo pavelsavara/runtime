@@ -1,0 +1,721 @@
+
+  Determining projects to restore...
+  All projects are up-to-date for restore.
+  TestUtilities -> /home/pavelsavara/dev/runtime/artifacts/bin/TestUtilities/Release/net10.0/TestUtilities.dll
+  WasmTriggerPublishApp for CoreCLR not implemented
+  System.Threading.Tasks.Tests -> /home/pavelsavara/dev/runtime/artifacts/bin/System.Threading.Tasks.Tests/Release/net11.0/browser-wasm/System.Threading.Tasks.Tests.dll
+  export SCENARIO=WasmTestOnChrome
+  export XUNIT_HIDE_PASSING_OUTPUT_DIAGNOSTICS=1
+  export PREPEND_PATH=/home/pavelsavara/dev/runtime/artifacts/bin/chromedriver/chromedriver_linux64
+  export RuntimeIdentifier=browser-wasm
+  PATH=/home/pavelsavara/dev/runtime/artifacts/bin/chromedriver/chromedriver_linux64:/home/pavelsavara/.jsvu/bin:/home/pavelsavara/dev/runtime/.dotnet:/home/pavelsavara/dev/runtime/.dotnet:/home/pavelsavara/dev/runtime/.dotnet:/home/pavelsavara/dev/runtime/.dotnet:/home/pavelsavara/dev/runtime/.dotnet:/home/pavelsavara/dev/runtime/.dotnet:/home/pavelsavara/dev/runtime/.dotnet:/home/pavelsavara/dev/runtime/.dotnet:/home/pavelsavara/dev/runtime/.dotnet:/home/pavelsavara/dev/runtime/.dotnet:/home/pavelsavara/dev/runtime/.dotnet:/home/pavelsavara/dev/runtime/.dotnet:/home/pavelsavara/dev/runtime/.dotnet:/home/pavelsavara/dev/runtime/.dotnet:/home/pavelsavara/dev/runtime/.dotnet:/home/pavelsavara/dev/runtime/.dotnet:/home/pavelsavara/dev/runtime/.dotnet:/home/pavelsavara/bin:/home/pavelsavara/dev/.dotnet:/home/pavelsavara/.vscode-server/data/User/globalStorage/github.copilot-chat/debugCommand:/home/pavelsavara/.vscode-server/data/User/globalStorage/github.copilot-chat/copilotCli:/home/pavelsavara/.vscode-server/bin/c9d77990917f3102ada88be140d28b038d1dd7c7/bin/remote-cli:/home/pavelsavara/bin:/home/pavelsavara/bin:/home/pavelsavara/dev/.dotnet:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/windows/system32:/mnt/c/windows:/mnt/d/.dotnet/:/mnt/c/windows/System32/Wbem:/mnt/c/windows/System32/WindowsPowerShell/v1.0/:/mnt/c/windows/System32/OpenSSH/:/mnt/c/Program Files/HP/HP One Agent:/mnt/c/Program Files/nodejs/:/mnt/c/Program Files/Meld/:/mnt/c/Program Files/dotnet/:/mnt/c/Program Files/Git/cmd:/mnt/c/Program Files/PuTTY/:/mnt/c/Program Files/PowerShell/7/:/mnt/c/Program Files/Microsoft SQL Server/170/Tools/Binn/:/mnt/c/Program Files/GitExtensions/:/mnt/c/Program Files/GitHub CLI/:/mnt/d/bin:/mnt/d/.dotnet/:/mnt/c/Users/pavelsavara/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/pavelsavara/AppData/Local/Programs/MicrosoftVSCode/bin:/mnt/c/Users/pavelsavara/AppData/Roaming/npm:/mnt/c/Users/pavelsavara/AppData/Local/Programs/Python/Python310/:/mnt/c/Users/pavelsavara/AppData/Local/Programs/Python/Python310/Scripts/:/mnt/c/Users/pavelsavara/AppData/Local/Microsoft/WinGet/Packages/GitHub.Copilot.Prerelease_Microsoft.Winget.Source_8wekyb3d8bbwe:/mnt/c/Users/pavelsavara/.dotnet/tools:/snap/bin
+  EXECUTION_DIR=/home/pavelsavara/dev/runtime/artifacts/bin/System.Threading.Tasks.Tests/Release/net11.0/browser-wasm/wwwroot
+  SCENARIO=WasmTestOnChrome
+  XHARNESS_OUT=/home/pavelsavara/dev/runtime/artifacts/bin/System.Threading.Tasks.Tests/Release/net11.0/browser-wasm/wwwroot/xharness-output
+  XHARNESS_CLI_PATH=
+  HARNESS_RUNNER=dotnet xharness
+  XHARNESS_COMMAND=test-browser
+  MAIN_JS=
+  JS_ENGINE=
+  JS_ENGINE_ARGS=--browser-arg=--js-flags=--stack-trace-limit=1000
+  XHARNESS_ARGS= --browser-arg=--js-flags=--stack-trace-limit=1000
+  ~/dev/runtime/artifacts/bin/System.Threading.Tasks.Tests/Release/net11.0/browser-wasm/wwwroot ~/dev/runtime/src/libraries/System.Runtime/tests/System.Threading.Tasks.Tests
+  ----- start Sun Feb 1 16:27:00 CET 2026 =============== To repro directly: =====================================================
+  pushd /home/pavelsavara/dev/runtime/artifacts/bin/System.Threading.Tasks.Tests/Release/net11.0/browser-wasm/wwwroot
+  dotnet xharness wasm test-browser --app=. --output-directory=/home/pavelsavara/dev/runtime/artifacts/bin/System.Threading.Tasks.Tests/Release/net11.0/browser-wasm/wwwroot/xharness-output -s dotnet.native.js.symbols --symbol-patterns wasm-symbol-patterns.txt --symbolicator WasmSymbolicator.dll,Microsoft.WebAssembly.Internal.SymbolicatorWrapperForXHarness --browser-path=/home/pavelsavara/dev/runtime/artifacts/bin/chrome/chrome-linux/chrome --timeout=00:30:00  --browser-arg=--js-flags=--stack-trace-limit=1000   --  --setenv=XHARNESS_LOG_TEST_START=true  --run WasmTestRunner.dll System.Threading.Tasks.Tests.dll  -notrait category=OuterLoop -notrait category=failing 
+  popd
+  ===========================================================================================================
+  ~/dev/runtime/artifacts/bin/System.Threading.Tasks.Tests/Release/net11.0/browser-wasm/wwwroot ~/dev/runtime/artifacts/bin/System.Threading.Tasks.Tests/Release/net11.0/browser-wasm/wwwroot ~/dev/runtime/src/libraries/System.Runtime/tests/System.Threading.Tasks.Tests
+  [11.0.0-prerelease.26064.3+31e0b8e08f57890f7b7004b93361d69cd4b21079] XHarness command issued: wasm test-browser --app=. --output-directory=/home/pavelsavara/dev/runtime/artifacts/bin/System.Threading.Tasks.Tests/Release/net11.0/browser-wasm/wwwroot/xharness-output -s dotnet.native.js.symbols --symbol-patterns wasm-symbol-patterns.txt --symbolicator WasmSymbolicator.dll,Microsoft.WebAssembly.Internal.SymbolicatorWrapperForXHarness --browser-path=/home/pavelsavara/dev/runtime/artifacts/bin/chrome/chrome-linux/chrome --timeout=00:30:00 --browser-arg=--js-flags=--stack-trace-limit=1000 -- --setenv=XHARNESS_LOG_TEST_START=true --run WasmTestRunner.dll System.Threading.Tasks.Tests.dll -notrait category=OuterLoop -notrait category=failing
+  [40m[1m[33mwarn[39m[22m[49m: Cannot find symbols file dotnet.native.js.symbols
+  [40m[32minfo[39m[22m[49m: Using Chrome from /home/pavelsavara/dev/runtime/artifacts/bin/chrome/chrome-linux/chrome
+  [40m[32minfo[39m[22m[49m: Starting chromedriver with args: --js-flags=--stack-trace-limit=1000 --headless --incognito --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-renderer-backgrounding --enable-features=NetworkService,NetworkServiceInProcess --allow-insecure-localhost --disable-breakpad --disable-component-extensions-with-background-pages --disable-dev-shm-usage --disable-extensions --disable-features=TranslateUI --disable-ipc-flooding-protection --force-color-profile=srgb --metrics-recording-only and load strategy: Normal
+  Starting ChromeDriver 143.0.7499.0 (0000000000000000000000000000000000000000-0000000000000000000000000000000000000000) on port 36499
+  Only local connections are allowed.
+  Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
+  ChromeDriver was started successfully on port 36499.
+  [40m[32minfo[39m[22m[49m: Running in: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/143.0.0.0 Safari/537.36
+  [40m[32minfo[39m[22m[49m: Running at: http://127.0.0.1:46253/index.html?arg=--setenv%3dXHARNESS_LOG_TEST_START%3dtrue&arg=--run&arg=WasmTestRunner.dll&arg=System.Threading.Tasks.Tests.dll&arg=-notrait&arg=category%3dOuterLoop&arg=-notrait&arg=category%3dfailing&arg=-verbosity&arg=Info
+  [40m[32minfo[39m[22m[49m: could not load /runArgs.json: 404. Ignoring
+  [40m[32minfo[39m[22m[49m: Incoming arguments: --setenv=XHARNESS_LOG_TEST_START=true --run WasmTestRunner.dll System.Threading.Tasks.Tests.dll -notrait category=OuterLoop -notrait category=failing -verbosity Info
+  [40m[32minfo[39m[22m[49m: Application arguments: --run WasmTestRunner.dll System.Threading.Tasks.Tests.dll -notrait category=OuterLoop -notrait category=failing -verbosity Info
+  [40m[32minfo[39m[22m[49m: Initializing dotnet version 11.0.0 commit hash e31907b0fbca908ed525247a1dc38cc5fba7b0ff
+  [40m[32minfo[39m[22m[49m: Using threadless Xunit runner
+  [40m[32minfo[39m[22m[49m: Discovering: System.Threading.Tasks.Tests.dll (method display = ClassAndMethod, method display options = None)
+  [40m[32minfo[39m[22m[49m: Discovered:  System.Threading.Tasks.Tests.dll (found 572 of 812 test cases)
+  [40m[32minfo[39m[22m[49m: Starting:    System.Threading.Tasks.Tests.dll
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.Status.TaskStatusTests.Status_IsProperties_Match
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.Status.TaskStatusTests.TaskStatus1
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.Status.TaskStatusTests.TaskStatus10
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.Status.TaskStatusTests.TaskStatus7
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.Status.TaskStatusTests.TaskStatus11
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.Status.TaskStatusTests.TaskStatus0
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.Status.TaskStatusTests.TaskStatus6
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.Status.TaskStatusTests.TaskStatus5
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.Status.TaskStatusTests.TaskStatus15
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.Status.TaskStatusTests.TaskStatus17
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.Status.TaskStatusTests.TaskStatus14
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.Status.TaskStatusTests.TaskStatus4
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.OperationCanceledExceptionTests.BasicConstructors
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskRtTests_Core.RunTaskCanceledExceptionTests
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskRtTests_Core.RunTaskCompletionSourceTests_SetCanceled
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskRtTests_Core.RunTaskWaitAnyTests
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskRtTests_Core.RunSynchronouslyTest
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskRtTests_Core.CoreRunSynchronouslyTest_NegativeTests
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskRtTests_Core.RunTCSCompletionStateTests_SetException
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskRtTests_Core.RunBasicFutureTest_PromiseTestsAndCancellation
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskRtTests_Core.RunTaskCreateTests
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskRtTests_Core.RunRefactoringTests
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskRtTests_Core.RunTaskRecursiveWaitTimeoutTest
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskRtTests_Core.RunTaskWaitTimeoutTest
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskRtTests_Core.RunTaskStatusTests_NegativeTests
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskRtTests_Core.TestTaskTConstruction_tco
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskRtTests_Core.RunTaskExceptionTest
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskRtTests_Core.TestTaskTConstruction_bare
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskRtTests_Core.RunTaskSchedulerExceptionTests
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskRtTests_Core.RunTaskStatusTests
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskRtTests_Core.RunTaskWaitAnyTests_Negative
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskRtTests_Core.RunTaskRecursiveWaitTest
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskRtTests_Core.TestTaskTConstruction_ct_tco
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskRtTests_Core.RunTaskCompletionSourceTests_Negative
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskRtTests_Core.RunTCSCompletionStateTests_SetCancel
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskRtTests_Core.RunBasicFutureTest
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskRtTests_Core.RunAsyncWaitHandleTests
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskRtTests_Core.RunTaskCompletionSourceTests_SetException
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskRtTests_Core.CoreRunSynchronouslyTest
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskRtTests_Core.RunTaskCompletionSourceTests_CancellationTests
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskRtTests_Core.RunTaskCompletionSourceTests
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskRtTests_Core.RunTaskWaitTest
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskRtTests_Core.RunTCSCompletionStateTests
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskRtTests_Core.RunTaskWaitTest_NegativeTests
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskRtTests_Core.RunLongRunningTaskTests
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskRtTests_Core.RunBasicFutureTest_Negative
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskRtTests_Core.RunRefactoringTests_NegativeTests
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskRtTests_Core.RunTaskWaitAnyTests_WithCancellationTokenTests
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskRtTests_Core.TestTaskTConstruction_ct
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskContinueWith_ContFuncAndActionTests.RunContinueWithFutureTask_FaultedCanceled_OnException
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskContinueWith_ContFuncAndActionTests.RunContinueWithFutureTask_NoneCompleted
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskContinueWith_ContFuncAndActionTests.RunContinueWithTaskFuture_NoneCompleted_OnException
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskContinueWith_ContFuncAndActionTests.RunContinueWithFutureFuture_FaultedCanceled
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskContinueWith_ContFuncAndActionTests.RunContinueWithTestsNoState_NoneCompleted_OnException
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskContinueWith_ContFuncAndActionTests.RunContinueWithTestsNoState_NoneCompleted
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskContinueWith_ContFuncAndActionTests.RunContinueWithFutureTask_FaultedCanceled
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskContinueWith_ContFuncAndActionTests.RunContinueWithFutureFuture_NoneCompleted
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskContinueWith_ContFuncAndActionTests.RunContinueWithFutureFuture_NoneCompleted_OnException
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskContinueWith_ContFuncAndActionTests.RunContinueWithFutureFuture_FaultedCanceled_OnException
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskContinueWith_ContFuncAndActionTests.RunContinueWithTaskFuture_FaultedCanceled_OnException
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskContinueWith_ContFuncAndActionTests.RunContinueWithFutureTask_NoneCompleted_OnException
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskContinueWith_ContFuncAndActionTests.RunContinueWithTestsNoState_FaultedCanceled
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskContinueWith_ContFuncAndActionTests.RunContinueWithTaskFuture_FaultedCanceled
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskContinueWith_ContFuncAndActionTests.RunContinueWithTaskFuture_NoneCompleted
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskContinueWith_ContFuncAndActionTests.RunContinueWithTestsNoState_FaultedCanceled_OnException
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskContinueWhenAllTests.RunContinueWhenAllTests_Exceptions
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskContinueWhenAllTests.TestContinueWhenAll_bare
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskContinueWhenAllTests.TestContinueWhenAll_TaskContinuationOptions
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskContinueWhenAllTests.TestContinueWhenAll_CancellationToken
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskContinueWhenAllTests.TestCWAll_CancellationToken_TaskContinuation_TaskScheduler
+  [40m[32minfo[39m[22m[49m: [STRT] System.Runtime.CompilerServices.Tests.ConfiguredCancelableAsyncEnumerableTests.WithCancellation_TokenPassedThrough
+  [40m[32minfo[39m[22m[49m: [STRT] System.Runtime.CompilerServices.Tests.ConfiguredCancelableAsyncEnumerableTests.Default_EnumeratorMembers_Throws
+  [40m[32minfo[39m[22m[49m: [STRT] System.Runtime.CompilerServices.Tests.ConfiguredCancelableAsyncEnumerableTests.ConfigureAwait_AwaitMoveNextAsync_FlagsSetAppropriately(continueOnCapturedContext: False)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Runtime.CompilerServices.Tests.ConfiguredCancelableAsyncEnumerableTests.ConfigureAwait_AwaitMoveNextAsync_FlagsSetAppropriately(continueOnCapturedContext: True)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Runtime.CompilerServices.Tests.ConfiguredCancelableAsyncEnumerableTests.Default_ConfigureAwait_WithCancellation_NoThrow
+  [40m[32minfo[39m[22m[49m: [STRT] System.Runtime.CompilerServices.Tests.ConfiguredCancelableAsyncEnumerableTests.ConfigureAwait_AwaitDisposeAsync_FlagsSetAppropriately(continueOnCapturedContext: False)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Runtime.CompilerServices.Tests.ConfiguredCancelableAsyncEnumerableTests.ConfigureAwait_AwaitDisposeAsync_FlagsSetAppropriately(continueOnCapturedContext: True)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Runtime.CompilerServices.Tests.ConfiguredCancelableAsyncEnumerableTests.Default_GetAsyncEnumerator_Throws
+  [40m[32minfo[39m[22m[49m: [STRT] System.Runtime.CompilerServices.Tests.ConfiguredCancelableAsyncEnumerableTests.Default_WithCancellation_ConfigureAwait_NoThrow
+  [40m[32minfo[39m[22m[49m: [STRT] System.Runtime.CompilerServices.Tests.ConfiguredCancelableAsyncEnumerableTests.CanBeEnumeratedWithStandardPattern
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskContinueWith_ContFuncAndActionWithArgsTests.RunContinueWithParamsTest_State_Cancellation
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskContinueWith_ContFuncAndActionWithArgsTests.RunContinueWithFutureFuture_State
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskContinueWith_ContFuncAndActionWithArgsTests.RunContinueWithTaskTask_State_FaultedCanceled_OnException
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskContinueWith_ContFuncAndActionWithArgsTests.RunContinueWithTaskFuture_State_OnException
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskContinueWith_ContFuncAndActionWithArgsTests.RunContinueWithFutureTask_State_OnException
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskContinueWith_ContFuncAndActionWithArgsTests.RunContinueWithTaskFuture_State
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskContinueWith_ContFuncAndActionWithArgsTests.RunContinueWithTaskTask_State_OnException
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskContinueWith_ContFuncAndActionWithArgsTests.RunContinueWithTaskFuture_State_FaultedCanceled
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskContinueWith_ContFuncAndActionWithArgsTests.RunContinueWithFutureFuture_State_FaultedCanceled_OnException
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskContinueWith_ContFuncAndActionWithArgsTests.RunContinueWithParamsTest_State_IllegalParameters
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskContinueWith_ContFuncAndActionWithArgsTests.RunContinuationChainingTest_State
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskContinueWith_ContFuncAndActionWithArgsTests.RunContinueWithFutureTask_State_FaultedCanceled_OnException
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskContinueWith_ContFuncAndActionWithArgsTests.RunContinueWithFutureTask_State_FaultedCanceled
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskContinueWith_ContFuncAndActionWithArgsTests.RunContinueWithFutureFuture_State_OnException
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskContinueWith_ContFuncAndActionWithArgsTests.RunContinueWithFutureTask_State
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskContinueWith_ContFuncAndActionWithArgsTests.RunContinueWithOnDisposedTaskTest_State
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskContinueWith_ContFuncAndActionWithArgsTests.RunContinueWithTaskFuture_State_FaultedCanceled_OnException
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskContinueWith_ContFuncAndActionWithArgsTests.RunContinueWithFutureFuture_State_FaultedCanceled
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskContinueWith_ContFuncAndActionWithArgsTests.RunContinueWithPreCancelTests_State
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskContinueWith_ContFuncAndActionWithArgsTests.RunContinueWithTaskTask_State
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskContinueWith_ContFuncAndActionWithArgsTests.RunContinueWithTaskTask_State_FaultedCanceled
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.CESchedulerPairTests.TestConcurrentExclusiveChain
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.CESchedulerPairTests.TestMaxItemsPerTask
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.CESchedulerPairTests.TestInvalidParameters
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.CESchedulerPairTests.TestConcurrentBlockage
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.CESchedulerPairTests.TestIntegration
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.CESchedulerPairTests.TestCreationOptions
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.CESchedulerPairTests.TestCompletionTask
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.CESchedulerPairTests.TestLowerConcurrencyLevel
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.CESchedulerPairTests.TestSchedulerNesting
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskFactoryTests.RunTaskFactoryFromAsyncExceptionTests
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskFactoryTests.RunTaskFactoryTests
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskFactoryTests.RunTaskFactoryExceptionTests
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskFactoryTests.RunTaskFactoryTests_Cancellation_Negative
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.ContinueWithAllAny.TaskContinueWithAllAnyTests.TaskContinueWithAllAnyTest36
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.ContinueWithAllAny.TaskContinueWithAllAnyTests.TaskContinueWithAllAnyTest6
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.ContinueWithAllAny.TaskContinueWithAllAnyTests.TaskContinueWithAllAnyTest23
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.ContinueWithAllAny.TaskContinueWithAllAnyTests.TaskContinueWithAllAnyTest19
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.ContinueWithAllAny.TaskContinueWithAllAnyTests.TaskContinueWithAllAnyTest20
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.ContinueWithAllAny.TaskContinueWithAllAnyTests.TaskContinueWithAllAnyTest1
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.ContinueWithAllAny.TaskContinueWithAllAnyTests.TaskContinueWithAllAnyTest18
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.ContinueWithAllAny.TaskContinueWithAllAnyTests.TaskContinueWithAllAnyTest12
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.ContinueWithAllAny.TaskContinueWithAllAnyTests.TaskContinueWithAllAnyTest31
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.ContinueWithAllAny.TaskContinueWithAllAnyTests.TaskContinueWithAllAnyTest35
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.ContinueWithAllAny.TaskContinueWithAllAnyTests.TaskContinueWithAllAnyTest34
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.ContinueWithAllAny.TaskContinueWithAllAnyTests.TaskContinueWithAllAnyTest32
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.ContinueWithAllAny.TaskContinueWithAllAnyTests.TaskContinueWithAllAnyTest15
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.ContinueWithAllAny.TaskContinueWithAllAnyTests.TaskContinueWithAllAnyTest21
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.ContinueWithAllAny.TaskContinueWithAllAnyTests.TaskContinueWithAllAnyTest8
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.ContinueWithAllAny.TaskContinueWithAllAnyTests.TaskContinueWithAllAnyTest37
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.ContinueWithAllAny.TaskContinueWithAllAnyTests.TaskContinueWithAllAnyTest27
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.ContinueWithAllAny.TaskContinueWithAllAnyTests.TaskContinueWithAllAnyTest16
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.ContinueWithAllAny.TaskContinueWithAllAnyTests.TaskContinueWithAllAnyTest33
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.ContinueWithAllAny.TaskContinueWithAllAnyTests.TaskContinueWithAllAnyTest4
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.ContinueWithAllAny.TaskContinueWithAllAnyTests.TaskContinueWithAllAnyTest0
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.ContinueWithAllAny.TaskContinueWithAllAnyTests.TaskContinueWithAllAnyTest13
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.ContinueWithAllAny.TaskContinueWithAllAnyTests.TaskContinueWithAllAnyTest25
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.CancelWait.TaskCancelWaitTestCases.TaskCancelWait24
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.CancelWait.TaskCancelWaitTestCases.TaskCancelWait4
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.CancelWait.TaskCancelWaitTestCases.TaskCancelWait16
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.CancelWait.TaskCancelWaitTestCases.TaskCancelWait12
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.CancelWait.TaskCancelWaitTestCases.TaskCancelWait14
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.CancelWait.TaskCancelWaitTestCases.TaskCancelWait1
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.CancelWait.TaskCancelWaitTestCases.TaskCancelWait10
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.CancelWait.TaskCancelWaitTestCases.TaskCancelWait6
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.CancelWait.TaskCancelWaitTestCases.TaskCancelWait21
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.CancelWait.TaskCancelWaitTestCases.TaskCancelWait25
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.CancelWait.TaskCancelWaitTestCases.TaskCancelWait23
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.CancelWait.TaskCancelWaitTestCases.TaskCancelWait19
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.CancelWait.TaskCancelWaitTestCases.TaskCancelWait8
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.CancelWait.TaskCancelWaitTestCases.TaskCancelWait9
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.CancelWait.TaskCancelWaitTestCases.TaskCancelWait3
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.CancelWait.TaskCancelWaitTestCases.TaskCancelWait22
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.CancelWait.TaskCancelWaitTestCases.TaskCancelWait17
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.CancelWait.TaskCancelWaitTestCases.TaskCancelWait2
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskAwaiterTests.ConfigureAwaitOptions_SuppressThrowing_NoExceptionsAreThrown
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskAwaiterTests.Await_TaskCompletesOnNonDefaultScheduler_ContinuesOnDefaultScheduler
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskAwaiterTests.ConfigureAwait_NoCancellationOrTimeoutOccurs_Success
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskAwaiterTests.ConfigureAwait_InvalidTimeout_Throws
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskAwaiterTests.ConfigureAwait_CanceledAndTimedOut_AlreadyCompleted_UsesTaskResult
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskAwaiterTests.OnCompleted_CompletesInAnotherTaskScheduler
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskAwaiterTests.GetResult_FaultedTask_MultipleExceptions_ThrowsFirstException
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskAwaiterTests.GetResult_Completed_Success
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskAwaiterTests.OperationCanceledException_PropagatesThroughCanceledTask
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskAwaiterTests.ConfigureAwaitOptions_ContinueOnCapturedContext_QueuesAccordingly
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskAwaiterTests.ConfigureAwaitOptions_SuppressThrowingUnsupportedOnGenericTask
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskAwaiterTests.BaseSynchronizationContext_SameAsNoSynchronizationContext
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskAwaiterTests.GetResult_CanceledTask_ThrowsCancellationException
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskAwaiterTests.ConfigureAwait_TimeoutOrCanceled_Throws
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskAwaiterTests.Await_TaskCompletesOnNonDefaultSyncCtx_ContinuesOnDefaultSyncCtx
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskAwaiterTests.ConfigureAwaitOptions_ForceYielding_IsCompletedAlwaysFalse(options: ForceYielding)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskAwaiterTests.ConfigureAwaitOptions_ForceYielding_IsCompletedAlwaysFalse(options: ContinueOnCapturedContext | ForceYielding)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskAwaiterTests.ConfigureAwaitOptions_ForceYielding_IsCompletedAlwaysFalse(options: SuppressThrowing | ForceYielding)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskAwaiterTests.ConfigureAwaitOptions_ForceYielding_IsCompletedAlwaysFalse(options: ContinueOnCapturedContext | SuppressThrowing | ForceYielding)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskAwaiterTests.AwaiterAndAwaitableEquality
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskAwaiterTests.GetResult_FaultedTask_OneException_ThrowsOriginalException
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskAwaiterTests.ConfigureAwaitOptions_Invalid(options: 8)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskAwaiterTests.OnCompleted_CompletesInAnotherSynchronizationContext
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskAwaiterTests.Await_MultipleAwaits_FirstCompletesAccordingToOptions_RestCompleteAsynchronously
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.RunContinuationsAsynchronouslyTests.ViaWhenAny
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.RunContinuationsAsynchronouslyTests.Direct
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.RunContinuationsAsynchronouslyTests.ViaWhenAll
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.RunContinuationsAsynchronouslyTests.ViaUnwrap
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskContinueWhenAnyTests.RunContinueWhenAnyTests
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskToAsyncResultTests.WithFromAsync_Delegate_Roundtrips
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskToAsyncResultTests.BeginFromTask_UnwrapTask_EndFromTask_Roundtrips
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskToAsyncResultTests.BeginFromTask_CompletedAsynchronously_CallbackInvokedAsynchronously
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskToAsyncResultTests.BeginFromTask_CompletedSynchronously_CallbackInvokedSynchronously
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskToAsyncResultTests.EndFromTask_PropagatesExceptions
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskToAsyncResultTests.InvalidArguments_ThrowExceptions
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskToAsyncResultTests.WithFromAsync_IAsyncResult_Roundtrips
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.Status.TaskCompletionSourceTests.SetFromTask_Canceled(tryMethod: False)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.Status.TaskCompletionSourceTests.SetFromTask_Canceled(tryMethod: True)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.Status.TaskCompletionSourceTests.Ctor_InvalidArguments_Throws
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.Status.TaskCompletionSourceTests.SetException_Enumerable_CompletesSuccessfully(tryMethod: False)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.Status.TaskCompletionSourceTests.SetException_Enumerable_CompletesSuccessfully(tryMethod: True)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.Status.TaskCompletionSourceTests.SetException_Exception_CompletesSuccessfully(tryMethod: False)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.Status.TaskCompletionSourceTests.SetException_Exception_CompletesSuccessfully(tryMethod: True)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.Status.TaskCompletionSourceTests.SetFromTask_InvalidArgument_Throws
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.Status.TaskCompletionSourceTests.Ctor_ArgumentsRoundtrip
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.Status.TaskCompletionSourceTests.SetCanceled_Token_CompletesSuccessfully(tryMethod: False)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.Status.TaskCompletionSourceTests.SetCanceled_Token_CompletesSuccessfully(tryMethod: True)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.Status.TaskCompletionSourceTests.SetCanceled_CompletesSuccessfully(tryMethod: False)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.Status.TaskCompletionSourceTests.SetCanceled_CompletesSuccessfully(tryMethod: True)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.Status.TaskCompletionSourceTests.SetFromTask_CompletedSuccessfully(tryMethod: False)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.Status.TaskCompletionSourceTests.SetFromTask_CompletedSuccessfully(tryMethod: True)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.Status.TaskCompletionSourceTests.SetFromTask_Faulted(tryMethod: False)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.Status.TaskCompletionSourceTests.SetFromTask_Faulted(tryMethod: True)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.Status.TaskCompletionSourceTests.SetFromTask_AlreadyCompleted_ReturnsFalseOrThrows
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.Status.TaskCompletionSourceTests.SetResult_CompletesSuccessfully(tryMethod: False)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.Status.TaskCompletionSourceTests.SetResult_CompletesSuccessfully(tryMethod: True)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.AsyncIteratorMethodBuilderTests.AsyncIteratorMethodBuilder_TaskCompleted
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskAPMTests.AsyncWaitHandle_DisposeHandleThenCompleteTask_Succeeds
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.FromAsync.TaskFromAsyncTests.TaskFromAsyncTest71
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.FromAsync.TaskFromAsyncTests.TaskFromAsyncTest32
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.FromAsync.TaskFromAsyncTests.TaskFromAsyncTest25
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.FromAsync.TaskFromAsyncTests.TaskFromAsyncTest13
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.FromAsync.TaskFromAsyncTests.TaskFromAsyncTest18
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.FromAsync.TaskFromAsyncTests.TaskFromAsyncTest11
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.FromAsync.TaskFromAsyncTests.TaskFromAsyncTest9
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.FromAsync.TaskFromAsyncTests.TaskFromAsyncTest42
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.FromAsync.TaskFromAsyncTests.TaskFromAsyncTest35
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.FromAsync.TaskFromAsyncTests.TaskFromAsyncTest70
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.FromAsync.TaskFromAsyncTests.TaskFromAsyncTest65
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.FromAsync.TaskFromAsyncTests.TaskFromAsyncTest52
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.FromAsync.TaskFromAsyncTests.TaskFromAsyncTest68
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.FromAsync.TaskFromAsyncTests.TaskFromAsyncTest19
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.FromAsync.TaskFromAsyncTests.TaskFromAsyncTest54
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.FromAsync.TaskFromAsyncTests.TaskFromAsyncTest74
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.FromAsync.TaskFromAsyncTests.TaskFromAsyncTest47
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.FromAsync.TaskFromAsyncTests.TaskFromAsyncTest27
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.FromAsync.TaskFromAsyncTests.TaskFromAsyncTest66
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.FromAsync.TaskFromAsyncTests.TaskFromAsyncTest3
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.FromAsync.TaskFromAsyncTests.TaskFromAsyncTest31
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.FromAsync.TaskFromAsyncTests.TaskFromAsyncTest10
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.FromAsync.TaskFromAsyncTests.TaskFromAsyncTest73
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.FromAsync.TaskFromAsyncTests.TaskFromAsyncTest75
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.FromAsync.TaskFromAsyncTests.TaskFromAsyncTest29
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.FromAsync.TaskFromAsyncTests.TaskFromAsyncTest12
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.FromAsync.TaskFromAsyncTests.TaskFromAsyncTest53
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.FromAsync.TaskFromAsyncTests.TaskFromAsyncTest36
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.FromAsync.TaskFromAsyncTests.TaskFromAsyncTest50
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.FromAsync.TaskFromAsyncTests.TaskFromAsyncTest1
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.FromAsync.TaskFromAsyncTests.TaskFromAsyncTest72
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.FromAsync.TaskFromAsyncTests.TaskFromAsyncTest34
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.FromAsync.TaskFromAsyncTests.TaskFromAsyncTest8
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.FromAsync.TaskFromAsyncTests.TaskFromAsyncTest61
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.FromAsync.TaskFromAsyncTests.TaskFromAsyncTest23
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.FromAsync.TaskFromAsyncTests.TaskFromAsyncTest6
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.FromAsync.TaskFromAsyncTests.TaskFromAsyncTest46
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.FromAsync.TaskFromAsyncTests.TaskFromAsyncTest28
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.FromAsync.TaskFromAsyncTests.TaskFromAsyncTest21
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.FromAsync.TaskFromAsyncTests.TaskFromAsyncTest20
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.FromAsync.TaskFromAsyncTests.TaskFromAsyncTest57
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.FromAsync.TaskFromAsyncTests.TaskFromAsyncTest60
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.FromAsync.TaskFromAsyncTests.TaskFromAsyncTest64
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.FromAsync.TaskFromAsyncTests.TaskFromAsyncTest48
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.FromAsync.TaskFromAsyncTests.TaskFromAsyncTest14
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.FromAsync.TaskFromAsyncTests.TaskFromAsyncTest0
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.FromAsync.TaskFromAsyncTests.TaskFromAsyncTest33
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.FromAsync.TaskFromAsyncTests.TaskFromAsyncTest38
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.FromAsync.TaskFromAsyncTests.TaskFromAsyncTest43
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.FromAsync.TaskFromAsyncTests.TaskFromAsyncTest55
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.FromAsync.TaskFromAsyncTests.TaskFromAsyncTest7
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.FromAsync.TaskFromAsyncTests.TaskFromAsyncTest16
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.FromAsync.TaskFromAsyncTests.TaskFromAsyncTest2
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.FromAsync.TaskFromAsyncTests.TaskFromAsyncTest39
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.FromAsync.TaskFromAsyncTests.TaskFromAsyncTest62
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.FromAsync.TaskFromAsyncTests.TaskFromAsyncTest59
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.FromAsync.TaskFromAsyncTests.TaskFromAsyncTest45
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.FromAsync.TaskFromAsyncTests.TaskFromAsyncTest22
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.FromAsync.TaskFromAsyncTests.TaskFromAsyncTest58
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.FromAsync.TaskFromAsyncTests.TaskFromAsyncTest5
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.FromAsync.TaskFromAsyncTests.TaskFromAsyncTest56
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.FromAsync.TaskFromAsyncTests.TaskFromAsyncTest63
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.FromAsync.TaskFromAsyncTests.TaskFromAsyncTest4
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.FromAsync.TaskFromAsyncTests.TaskFromAsyncTest40
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.FromAsync.TaskFromAsyncTests.TaskFromAsyncTest77
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.FromAsync.TaskFromAsyncTests.TaskFromAsyncTest41
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.FromAsync.TaskFromAsyncTests.TaskFromAsyncTest67
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.FromAsync.TaskFromAsyncTests.TaskFromAsyncTest17
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.FromAsync.TaskFromAsyncTests.TaskFromAsyncTest69
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.FromAsync.TaskFromAsyncTests.TaskFromAsyncTest15
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.FromAsync.TaskFromAsyncTests.TaskFromAsyncTest44
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.FromAsync.TaskFromAsyncTests.TaskFromAsyncTest30
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.FromAsync.TaskFromAsyncTests.TaskFromAsyncTest37
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskRunSyncTests.TaskRunSyncTest29
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskRunSyncTests.TaskRunSyncTest4
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskRunSyncTests.TaskRunSyncTest12
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskRunSyncTests.TaskRunSyncTest10
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskRunSyncTests.TaskRunSyncTest11
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskRunSyncTests.TaskRunSyncTest1
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskRunSyncTests.TaskRunSyncTest9
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskRunSyncTests.TaskRunSyncTest5
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskRunSyncTests.TaskRunSyncTest16
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskRunSyncTests.TaskRunSyncTest30
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskRunSyncTests.TaskRunSyncTest22
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskRunSyncTests.TaskRunSyncTest21
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskRunSyncTests.TaskRunSyncTest6
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskRunSyncTests.TaskRunSyncTest8
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskRunSyncTests.TaskRunSyncTest2
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskRunSyncTests.TaskRunSyncTest28
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskRunSyncTests.TaskRunSyncTest14
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskRunSyncTests.TaskRunSyncTest7
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskRunSyncTests.TaskRunSyncTest13
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskRunSyncTests.TaskRunSyncTest0
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.UnwrapTests.Generic_DefaultSchedulerUsed
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.UnwrapTests.Generic_Completed_Completed(inner: Task<string> { Status = RanToCompletion })
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.UnwrapTests.Generic_Completed_Completed(inner: Task<string> { Status = Canceled })
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.UnwrapTests.Generic_Completed_Completed(inner: Task<string> { Status = Faulted })
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.UnwrapTests.Generic_Completed_Completed(inner: Task<string> { Status = Canceled })
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.UnwrapTests.Generic_NotCompleted_NotCompleted(outerCompletesFirst: True, innerStatus: RanToCompletion)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.UnwrapTests.Generic_NotCompleted_NotCompleted(outerCompletesFirst: True, innerStatus: Canceled)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.UnwrapTests.Generic_NotCompleted_NotCompleted(outerCompletesFirst: True, innerStatus: Faulted)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.UnwrapTests.Generic_NotCompleted_NotCompleted(outerCompletesFirst: False, innerStatus: RanToCompletion)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.UnwrapTests.Generic_NotCompleted_NotCompleted(outerCompletesFirst: False, innerStatus: Canceled)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.UnwrapTests.Generic_NotCompleted_NotCompleted(outerCompletesFirst: False, innerStatus: Faulted)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.UnwrapTests.Generic_Completed_NotCompleted(innerStatus: RanToCompletion)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.UnwrapTests.Generic_Completed_NotCompleted(innerStatus: Faulted)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.UnwrapTests.Generic_Completed_NotCompleted(innerStatus: Canceled)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.UnwrapTests.NonGeneric_NotCompleted_NotCompleted(outerCompletesFirst: True, innerStatus: RanToCompletion)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.UnwrapTests.NonGeneric_NotCompleted_NotCompleted(outerCompletesFirst: True, innerStatus: Canceled)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.UnwrapTests.NonGeneric_NotCompleted_NotCompleted(outerCompletesFirst: True, innerStatus: Faulted)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.UnwrapTests.NonGeneric_NotCompleted_NotCompleted(outerCompletesFirst: False, innerStatus: RanToCompletion)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.UnwrapTests.NonGeneric_NotCompleted_NotCompleted(outerCompletesFirst: False, innerStatus: Canceled)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.UnwrapTests.NonGeneric_NotCompleted_NotCompleted(outerCompletesFirst: False, innerStatus: Faulted)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.UnwrapTests.ArgumentValidation
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.UnwrapTests.NonGeneric_Completed_NotCompleted(innerStatus: RanToCompletion)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.UnwrapTests.NonGeneric_Completed_NotCompleted(innerStatus: Faulted)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.UnwrapTests.NonGeneric_Completed_NotCompleted(innerStatus: Canceled)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.UnwrapTests.Generic_Completed_Completed_OptimizeToUseSameInner(inner: Task<string> { Status = RanToCompletion })
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.UnwrapTests.Generic_Completed_Completed_OptimizeToUseSameInner(inner: Task<string> { Status = Canceled })
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.UnwrapTests.Generic_Completed_Completed_OptimizeToUseSameInner(inner: Task<string> { Status = Faulted })
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.UnwrapTests.Generic_Completed_Completed_OptimizeToUseSameInner(inner: Task<string> { Status = Canceled })
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.UnwrapTests.NonGeneric_AttachedToParent
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.UnwrapTests.RunStackGuardTests
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.UnwrapTests.NonGeneric_DefaultSchedulerUsed
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.UnwrapTests.Generic_UnsuccessfulOuter(outerCompletesBeforeUnwrap: True, outerStatus: RanToCompletion)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.UnwrapTests.Generic_UnsuccessfulOuter(outerCompletesBeforeUnwrap: True, outerStatus: Faulted)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.UnwrapTests.Generic_UnsuccessfulOuter(outerCompletesBeforeUnwrap: True, outerStatus: Canceled)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.UnwrapTests.Generic_UnsuccessfulOuter(outerCompletesBeforeUnwrap: False, outerStatus: RanToCompletion)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.UnwrapTests.Generic_UnsuccessfulOuter(outerCompletesBeforeUnwrap: False, outerStatus: Faulted)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.UnwrapTests.Generic_UnsuccessfulOuter(outerCompletesBeforeUnwrap: False, outerStatus: Canceled)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.UnwrapTests.NonGeneric_NotCompleted_Completed(inner: Task<VoidTaskResult> { Status = RanToCompletion })
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.UnwrapTests.NonGeneric_NotCompleted_Completed(inner: Task { Status = Canceled })
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.UnwrapTests.NonGeneric_NotCompleted_Completed(inner: Task { Status = Faulted })
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.UnwrapTests.NonGeneric_NotCompleted_Completed(inner: Task<int> { Status = Canceled })
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.UnwrapTests.Generic_NotCompleted_Completed(inner: Task<string> { Status = RanToCompletion })
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.UnwrapTests.Generic_NotCompleted_Completed(inner: Task<string> { Status = Canceled })
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.UnwrapTests.Generic_NotCompleted_Completed(inner: Task<string> { Status = Faulted })
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.UnwrapTests.Generic_NotCompleted_Completed(inner: Task<string> { Status = Canceled })
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.UnwrapTests.NonGeneric_Completed_Completed_OptimizeToUseSameInner(inner: Task<VoidTaskResult> { Status = RanToCompletion })
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.UnwrapTests.NonGeneric_Completed_Completed_OptimizeToUseSameInner(inner: Task { Status = Canceled })
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.UnwrapTests.NonGeneric_Completed_Completed_OptimizeToUseSameInner(inner: Task { Status = Faulted })
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.UnwrapTests.NonGeneric_Completed_Completed_OptimizeToUseSameInner(inner: Task<int> { Status = Canceled })
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.UnwrapTests.Generic_AttachedToParent
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.UnwrapTests.NonGeneric_UnsuccessfulOuter(outerCompletesBeforeUnwrap: True, outerStatus: RanToCompletion)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.UnwrapTests.NonGeneric_UnsuccessfulOuter(outerCompletesBeforeUnwrap: True, outerStatus: Faulted)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.UnwrapTests.NonGeneric_UnsuccessfulOuter(outerCompletesBeforeUnwrap: True, outerStatus: Canceled)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.UnwrapTests.NonGeneric_UnsuccessfulOuter(outerCompletesBeforeUnwrap: False, outerStatus: RanToCompletion)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.UnwrapTests.NonGeneric_UnsuccessfulOuter(outerCompletesBeforeUnwrap: False, outerStatus: Faulted)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.UnwrapTests.NonGeneric_UnsuccessfulOuter(outerCompletesBeforeUnwrap: False, outerStatus: Canceled)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.UnwrapTests.NonGeneric_Completed_Completed(inner: Task<VoidTaskResult> { Status = RanToCompletion })
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.UnwrapTests.NonGeneric_Completed_Completed(inner: Task { Status = Canceled })
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.UnwrapTests.NonGeneric_Completed_Completed(inner: Task { Status = Faulted })
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.UnwrapTests.NonGeneric_Completed_Completed(inner: Task<int> { Status = Canceled })
+  [40m[32minfo[39m[22m[49m: [STRT] System.Runtime.CompilerServices.Tests.ConfiguredAsyncDisposableTests.DisposeAsync_ContinuesOnCapturedContextIfExpected(continueOnCapturedContext: False)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Runtime.CompilerServices.Tests.ConfiguredAsyncDisposableTests.DisposeAsync_ContinuesOnCapturedContextIfExpected(continueOnCapturedContext: True)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Runtime.CompilerServices.Tests.ConfiguredAsyncDisposableTests.Default_GetAsyncEnumerator_Throws
+  [40m[32minfo[39m[22m[49m: [STRT] System.Runtime.CompilerServices.Tests.ConfiguredAsyncDisposableTests.DisposeAsync_InvokesUnderlyingDisposeAsync(continueOnCapturedContext: False)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Runtime.CompilerServices.Tests.ConfiguredAsyncDisposableTests.DisposeAsync_InvokesUnderlyingDisposeAsync(continueOnCapturedContext: True)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskPropertiesTests.TaskOptionsTestSync
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskPropertiesTests.TaskIDTest
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskPropertiesTests.TaskOptionsTestAsync
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.Status.TaskCompletionSourceTResultTests.SetFromTask_Canceled(tryMethod: False)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.Status.TaskCompletionSourceTResultTests.SetFromTask_Canceled(tryMethod: True)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.Status.TaskCompletionSourceTResultTests.Ctor_InvalidArguments_Throws
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.Status.TaskCompletionSourceTResultTests.SetException_Enumerable_CompletesSuccessfully(tryMethod: False)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.Status.TaskCompletionSourceTResultTests.SetException_Enumerable_CompletesSuccessfully(tryMethod: True)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.Status.TaskCompletionSourceTResultTests.SetException_Exception_CompletesSuccessfully(tryMethod: False)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.Status.TaskCompletionSourceTResultTests.SetException_Exception_CompletesSuccessfully(tryMethod: True)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.Status.TaskCompletionSourceTResultTests.SetFromTask_InvalidArgument_Throws
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.Status.TaskCompletionSourceTResultTests.Ctor_ArgumentsRoundtrip
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.Status.TaskCompletionSourceTResultTests.SetCanceled_Token_CompletesSuccessfully(tryMethod: False)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.Status.TaskCompletionSourceTResultTests.SetCanceled_Token_CompletesSuccessfully(tryMethod: True)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.Status.TaskCompletionSourceTResultTests.SetCanceled_CompletesSuccessfully(tryMethod: False)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.Status.TaskCompletionSourceTResultTests.SetCanceled_CompletesSuccessfully(tryMethod: True)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.Status.TaskCompletionSourceTResultTests.SetFromTask_CompletedSuccessfully(tryMethod: False)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.Status.TaskCompletionSourceTResultTests.SetFromTask_CompletedSuccessfully(tryMethod: True)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.Status.TaskCompletionSourceTResultTests.SetFromTask_Faulted(tryMethod: False)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.Status.TaskCompletionSourceTResultTests.SetFromTask_Faulted(tryMethod: True)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.Status.TaskCompletionSourceTResultTests.SetFromTask_AlreadyCompleted_ReturnsFalseOrThrows
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.Status.TaskCompletionSourceTResultTests.SetResult_CompletesSuccessfully(tryMethod: False)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.Status.TaskCompletionSourceTResultTests.SetResult_CompletesSuccessfully(tryMethod: True)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.AggregateExceptionTests.Flatten
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.AggregateExceptionTests.ConstructorBasic
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.AggregateExceptionTests.Handle
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.AggregateExceptionTests.BaseExceptions
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.AggregateExceptionTests.HandleInvalidCases
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.AggregateExceptionTests.ConstructorInvalidArguments
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskContinueWithTests.LongContinuationChain_Unwrap_DoesNotStackOverflow
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskContinueWithTests.RunContinueWithPreCancelTests
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskContinueWithTests.RunUnwrapTests
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskContinueWithTests.RunContinueWithExceptionTestsNoState
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskContinueWithTests.RunContinueWithAllParamsTestsNoState
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskContinueWithTests.RunContinueWithAsyncStateCheckTests
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskContinueWithTests.RunUnwrapTests_ExceptionTests
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskContinueWithTests.RunContinueWithParamsTest_Cancellation
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskContinueWithTests.RunContinuationCancelTest_State
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskContinueWithTests.TestNoDeadlockOnContinueWithExecuteSynchronously
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskContinueWithTests.RunLazyCancellationTests_Negative
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskContinueWithTests.RunUnwrapTests_CancellationTests
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskContinueWithTests.RunContinuationChainingTest
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskContinueWithTests.RunContinuationCancelTest
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskContinueWithTests.RunContinueWithStressTestsNoState
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskContinueWithTests.RunLazyCancellationTests
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskContinueWithTests.RunContinueWithParamsTest_IllegalArgs
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.AsyncEnumerableToBlockingEnumerableTests.SimpleAsyncEnumerable
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.AsyncEnumerableToBlockingEnumerableTests.EmptyAsyncEnumerable
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.CancellationTokenTests.CancellationTokenRegistration_DisposeAsync_NopAfterDispose(mode: 0)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.CancellationTokenTests.CancellationTokenRegistration_DisposeAsync_NopAfterDispose(mode: 1)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.CancellationTokenTests.CancellationTokenRegistration_DisposeAsync_NopAfterDispose(mode: 2)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.CancellationTokenTests.CancellationTokenWaitHandle_SignalBeforeWait
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.CancellationTokenTests.CancellationTokenSource_TryReset_ReturnsFalseIfAlreadyCanceled
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.CancellationTokenTests.DeregisterFromWithinACallbackIsSafe_BasicTest
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.CancellationTokenTests.DerivedCancellationTokenSource_Negative
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.CancellationTokenTests.TokenSourceDispose
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.CancellationTokenTests.ThrowIfCancellationRequested
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.CancellationTokenTests.CreateLinkedTokenSource_Simple_TwoToken
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.CancellationTokenTests.EnlistWithSyncContext_BeforeCancel_ThrowingExceptionInSyncContextDelegate
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.CancellationTokenTests.CancellationTokenRegistration_DisposeAsyncDuringCancellation_SuccessfullyRemovedIfNotYetInvoked
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.CancellationTokenTests.CancellationTokenRegistration_DisposeAsyncRemovesDelegate
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.CancellationTokenTests.CancellationTokenRegistration_UnregisterRemovesDelegate
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.CancellationTokenTests.WaitAll
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.CancellationTokenTests.CancellationTokenSourceWithTimer
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.CancellationTokenTests.CreateLinkedToken_SourceTokenAlreadySignalled_OneToken
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.CancellationTokenTests.CancellationTokenSource_CancelAsync_NoRegistrations_CallbackCompletesImmediately
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.CancellationTokenTests.CancellationTokenRegistration_Token_AccessibleAfterCtsDispose
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.CancellationTokenTests.CancellationTokenSource_TryReset_ReturnsTrueIfNotCanceledAndNoTimer
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.CancellationTokenTests.CancellationTokenRegistration_DisposeAsyncWhileCallbackRunning_WaitsForCallbackToComplete
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.CancellationTokenTests.Cancel_DontThrowOnFirstException
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.CancellationTokenTests.CancellationTokenLateEnlistment
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.CancellationTokenTests.CancellationToken_EqualityAndDispose
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.CancellationTokenTests.BehaviourAfterCancelSignalled
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.CancellationTokenTests.CancellationTokenSource_CancelAsync_CallbacksInvokedAsynchronously
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.CancellationTokenTests.AddAndRemoveDelegates
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.CancellationTokenTests.CancellationTokenLinking_ODEinTarget
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.CancellationTokenTests.CreateLinkedTokenSource_Simple_MultiToken(useSpan: False)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.CancellationTokenTests.CreateLinkedTokenSource_Simple_MultiToken(useSpan: True)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.CancellationTokenTests.CancellationTokenWaitHandle_WaitAny
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.CancellationTokenTests.CancellationTokenRegistration_UnregisterOnDefaultIsNop
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.CancellationTokenTests.CancellationTokenRegister_Exceptions
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.CancellationTokenTests.CancellationTokenSource_Ctor_ZeroTimeout(timeSpan: False)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.CancellationTokenTests.CancellationTokenSource_Ctor_ZeroTimeout(timeSpan: True)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.CancellationTokenTests.CancellationTokenSource_TryReset_UnregistersAll
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.CancellationTokenTests.CancellationTokenRegistration_EqualityAndHashCode
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.CancellationTokenTests.Register_ExecutionContextFlowsIfExpected(callbackWithToken: False)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.CancellationTokenTests.Register_ExecutionContextFlowsIfExpected(callbackWithToken: True)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.CancellationTokenTests.CancellationTokenSourceWithTimer_SupportsInfinite
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.CancellationTokenTests.CancellationToken_GetHashCode
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.CancellationTokenTests.CreateLinkedToken_SourceTokenAlreadySignalled_TwoTokens
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.CancellationTokenTests.CancellationTokenWaitHandle_SignalAfterWait
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.CancellationTokenTests.CancellationTokenActiveListening
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.CancellationTokenTests.CancellationTokenSourceWithTimer_Negative
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.CancellationTokenTests.CreateLinkedToken_MultistepComposition_SourceTokenAlreadySignalled
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.CancellationTokenTests.CancellationTokenRegistration_ConcurrentUnregisterWithCancel_ReturnsFalseOrCallbackInvoked
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.CancellationTokenTests.CancellationTokenRegistration_DisposeAsyncOnDefaultIsNop
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.CancellationTokenTests.CancellationTokenRegistration_Token_MatchesExpectedValue
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.CancellationTokenTests.DerivedCancellationTokenSource
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.CancellationTokenTests.Cancel_ThrowOnFirstException
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.CancellationTokenTests.EnlistWithSyncContext_BeforeCancel
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.CancellationTokenTests.EnlistWithSyncContext_BeforeCancel_ThrowingExceptionInSyncContextDelegate_ThrowOnFirst
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.CancellationTokenTests.Bug720327_DeregisterFromWithinACallbackIsSafe_SyncContextTest
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.CancellationTokenTests.CancellationTokenRegistration_UnregisterWhileCallbackRunning_UnregisterDoesntWaitForCallbackToComplete
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.CancellationTokenTests.CancellationRegistration_RepeatDispose
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.CancellationTokenTests.CancellationTokenPassiveListening
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.CancellationTokenTests.CancellationTokenEquality
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.CancellationTokenTests.SyncContextWithExceptionThrowingCallback
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.CancellationTokenTests.CallbacksOrderIsLifo
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.CancellationTokenTests.CancellationTokenRegistration_UnregisterDuringCancellation_SuccessfullyRemovedIfNotYetInvoked
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.CancellationTokenTests.CancellationTokenRegistration_DisposeDuringCancellation_SuccessfullyRemovedIfNotYetInvoked
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.CancellationTokenTests.ODEWhenDisposingLinkedCTS
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.CancellationTokenTests.CreateLinkedTokenSource_OneToken
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.CancellationTokenTests.TokenSourceDispose_Negative
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.CancellationTokenTests.CancellationTokenSource_CancelAsync_AllCallbacksInvoked
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.CancellationTokenTests.Enlist_EarlyAndLate
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.CancellationTokenTests.CancellationTokenSource_TryReset_ReturnsTrueIfNotCanceledAndTimerHasntFired
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.AsyncTaskMethodBuilderTests.CancellationDoesntResultInEventFiring
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.AsyncTaskMethodBuilderTests.TaskMethodBuilderT_DoesNotTouchSyncContext
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.AsyncTaskMethodBuilderTests.TaskMethodBuilderT_TaskIsCached
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.AsyncTaskMethodBuilderTests.TaskMethodBuilderT_SetExceptionTest0
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.AsyncTaskMethodBuilderTests.TaskMethodBuilderT_SetExceptionTest1
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.AsyncTaskMethodBuilderTests.TaskMethodBuilder_Basic
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.AsyncTaskMethodBuilderTests.AsyncMethodBuilderCreate_SetExceptionTest2
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.AsyncTaskMethodBuilderTests.VoidMethodBuilder_IncorrectUsage
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.AsyncTaskMethodBuilderTests.TaskMethodBuilderInt32_UsesCompletedCache(result: 0, shouldBeCached: True)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.AsyncTaskMethodBuilderTests.TaskMethodBuilderInt32_UsesCompletedCache(result: 5, shouldBeCached: True)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.AsyncTaskMethodBuilderTests.TaskMethodBuilderInt32_UsesCompletedCache(result: -5, shouldBeCached: False)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.AsyncTaskMethodBuilderTests.TaskMethodBuilderInt32_UsesCompletedCache(result: 42, shouldBeCached: False)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.AsyncTaskMethodBuilderTests.AsyncTaskMethodBuilder_Completed_RemovedFromTracking
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.AsyncTaskMethodBuilderTests.TrackedSyncContext_ValidateException
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.AsyncTaskMethodBuilderTests.Tcs_ValidateFaultedTask
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.AsyncTaskMethodBuilderTests.TaskMethodBuilderT_CantBeReset
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.AsyncTaskMethodBuilderTests.TaskMethodBuilderT_Cancellation
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.AsyncTaskMethodBuilderTests.TaskMethodBuilder_CantBeReset
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.AsyncTaskMethodBuilderTests.AsyncTaskMethodBuilder_NullStateEvenAfterSuspend
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.AsyncTaskMethodBuilderTests.TaskMethodBuilderRef_UsesCompletedCache(result: null, shouldBeCached: True)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.AsyncTaskMethodBuilderTests.TaskMethodBuilderRef_UsesCompletedCache(result: "test", shouldBeCached: False)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.AsyncTaskMethodBuilderTests.TaskMethodBuilder_TaskIsCached
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.AsyncTaskMethodBuilderTests.TaskMethodBuilderT_ValidateFaultedTask
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.AsyncTaskMethodBuilderTests.TaskMethodBuilder_SetException_CantBeReset0
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.AsyncTaskMethodBuilderTests.TaskMethodBuilder_DoesNotTouchSyncContext
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.AsyncTaskMethodBuilderTests.VoidMethodBuilder_NoContext
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.AsyncTaskMethodBuilderTests.TaskMethodBuilder_SetException_CantBeReset1
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.AsyncTaskMethodBuilderTests.FaultedTaskExceptions
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.AsyncTaskMethodBuilderTests.TaskMethodBuilderT_Basic
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.AsyncTaskMethodBuilderTests.TaskMethodBuilder_Cancellation
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.AsyncTaskMethodBuilderTests.TaskMethodBuilder_IncorrectUsage
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.AsyncTaskMethodBuilderTests.TaskMethodBuilderT_IncorrectUsage
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.AsyncTaskMethodBuilderTests.TaskMethodBuilderDecimal_DoesntUseCompletedCache
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.AsyncTaskMethodBuilderTests.VoidMethodBuilder_TrackedContext
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.AsyncTaskMethodBuilderTests.TaskMethodBuilder_ValidateFaultedTask
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.AsyncTaskMethodBuilderTests.TaskMethodBuilderBoolean_UsesCompletedCache(result: True)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.AsyncTaskMethodBuilderTests.TaskMethodBuilderBoolean_UsesCompletedCache(result: False)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.AsyncTaskMethodBuilderTests.TaskMethodBuilder_UsesCompletedCache
+  [40m[32minfo[39m[22m[49m: [STRT] TaskCoverage.Coverage.Task_WhenEach_EmptyInputsCompleteImmediately
+  [40m[32minfo[39m[22m[49m: [STRT] TaskCoverage.Coverage.Task_WhenAny_NoTasks_Throws
+  [40m[32minfo[39m[22m[49m: [STRT] TaskCoverage.Coverage.Task_WhenAll_TwoTasks_OnePreCompleted
+  [40m[32minfo[39m[22m[49m: [STRT] TaskCoverage.Coverage.Task_WhenAll_NullArgument_Throws
+  [40m[32minfo[39m[22m[49m: [STRT] TaskCoverage.Coverage.Task_WhenAll_NoTasks_IsCompletedSuccessfully
+  [40m[32minfo[39m[22m[49m: [STRT] TaskCoverage.Coverage.TaskWaitAny_WhenAny
+  [40m[32minfo[39m[22m[49m: [STRT] TaskCoverage.Coverage.Task_WhenAll_NullTaskElement_Throws
+  [40m[32minfo[39m[22m[49m: [STRT] TaskCoverage.Coverage.Task_WhenAny_TwoTasks_BothPreCompleted
+  [40m[32minfo[39m[22m[49m: [STRT] TaskCoverage.Coverage.Task_WhenAll_TwoTasks_WhenBothPreCompletedFromException
+  [40m[32minfo[39m[22m[49m: [STRT] TaskCoverage.Coverage.Task_WhenEach_TasksOnlyEnumerableOnce
+  [40m[32minfo[39m[22m[49m: [STRT] TaskCoverage.Coverage.Task_WhenAll_TwoTasks_WakesOnBothCompletionWithExceptionAndCancellation
+  [40m[32minfo[39m[22m[49m: [STRT] TaskCoverage.Coverage.Task_WhenAll_TwoTasks_WakesOnBothCompletionWithCancellation
+  [40m[32minfo[39m[22m[49m: [STRT] TaskCoverage.Coverage.FromAsync
+  [40m[32minfo[39m[22m[49m: [STRT] TaskCoverage.Coverage.Task_WaitAll_InvalidArgument_Throws
+  [40m[32minfo[39m[22m[49m: [STRT] TaskCoverage.Coverage.Task_WhenAny_TwoTasks_WakesOnFirstCompletion
+  [40m[32minfo[39m[22m[49m: [STRT] TaskCoverage.Coverage.Task_WhenEach_IteratesThroughCompleteAndIncompleteTasks
+  [40m[32minfo[39m[22m[49m: [STRT] TaskCoverage.Coverage.Task_WhenAll_TwoTasks_WakesOnBothCompletionWithExceptionForBoth
+  [40m[32minfo[39m[22m[49m: [STRT] TaskCoverage.Coverage.Task_WhenAll_TwoTasks_BothPreCompleted
+  [40m[32minfo[39m[22m[49m: [STRT] TaskCoverage.Coverage.Task_WhenAll_TwoTasks_WakesOnBothCompletionWithSameCancellationForBoth
+  [40m[32minfo[39m[22m[49m: [STRT] TaskCoverage.Coverage.TaskConfigurableAwaiter
+  [40m[32minfo[39m[22m[49m: [STRT] TaskCoverage.Coverage.Task_WhenAny_TwoTasks_InvalidArgs_Throws
+  [40m[32minfo[39m[22m[49m: [STRT] TaskCoverage.Coverage.TaskWaitWithCTS
+  [40m[32minfo[39m[22m[49m: [STRT] TaskCoverage.Coverage.Task_WaitAll_NullArgument_Throws
+  [40m[32minfo[39m[22m[49m: [STRT] TaskCoverage.Coverage.Task_WhenEach_NullsTriggerExceptions
+  [40m[32minfo[39m[22m[49m: [STRT] TaskCoverage.Coverage.Task_WhenAny_NullTaskElement_Throws
+  [40m[32minfo[39m[22m[49m: [STRT] TaskCoverage.Coverage.Task_WhenAll_TwoTasks_WakesOnBothCompletion
+  [40m[32minfo[39m[22m[49m: [STRT] TaskCoverage.Coverage.Task_WhenAny_TwoTasks_OnePreCompleted
+  [40m[32minfo[39m[22m[49m: [STRT] TaskCoverage.Coverage.TaskWait_MaxInt32
+  [40m[32minfo[39m[22m[49m: [STRT] TaskCoverage.Coverage.Task_WhenAll_TwoTasks_WakesOnBothCompletionWithCancellationForBoth
+  [40m[32minfo[39m[22m[49m: [STRT] TaskCoverage.Coverage.Task_WaitAll_NullTaskElement_Throws
+  [40m[32minfo[39m[22m[49m: [STRT] TaskCoverage.Coverage.Task_WhenAll_TwoTasks_WakesOnBothCompletionWithException
+  [40m[32minfo[39m[22m[49m: [STRT] TaskCoverage.Coverage.Task_WhenAll_TwoTasks_WhenPreCompletedFromException
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskDisposeTests.Dispose_ThenUseTaskCompletionSource
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskDisposeTests.Dispose_BeforeComplete
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskDisposeTests.Dispose_ThenAddContinuation
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskDisposeTests.Dispose_InContinuation
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskCanceledExceptionTests.TaskCanceledException_Ctor_StringExceptionToken
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskRtTests.RunDenyChildAttachTests
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskRtTests.RunFromResult
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskRtTests.RunDelayTests_NegativeCases
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskRtTests.TaskDelay_MaxSupported_Success
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskRtTests.RunDelayTests
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskRtTests.RunRunTests_FastPathTests
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskRtTests.TaskDelay_Cancellation_ContinuationsInvokedAsynchronously
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskRtTests.FromResult_KnownResults_Cached
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskRtTests.RunHideSchedulerTests
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskRtTests.RunBasicFutureTest_Negative
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskRtTests.RunHideSchedulerTests_Negative
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskRtTests.RunExceptionWrappingTest
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskRtTests.RunFromResult_FaultedTask
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskRtTests.TaskDelay_OutOfBounds_ThrowsException(delay: -2)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskRtTests.TaskDelay_OutOfBounds_ThrowsException(delay: -2147483648)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskRtTests.TaskDelay_OutOfBounds_ThrowsException(delay: 4294967295)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskRtTests.RunRunTests_Unwrap_NegativeCases
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.YieldAwaitableTests.AsyncMethod_Yields_ReturnsToCorrectSynchronizationContext
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.YieldAwaitableTests.RunAsyncYieldAwaiterTests
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.YieldAwaitableTests.AsyncMethod_Yields_ReturnsToDefaultTaskScheduler
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.YieldAwaitableTests.RunAsyncYieldAwaiterTests_Negative
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.YieldAwaitableTests.AsyncMethod_Yields_ReturnsToCorrectTaskScheduler
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskCreateTests.TaskCreateTest51
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskCreateTests.TaskCreateTest9
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskCreateTests.TaskCreateTest31
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskCreateTests.TaskCreateTest25
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskCreateTests.TaskCreateTest28
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskCreateTests.TaskCreateTest3
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskCreateTests.TaskCreateTest24
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskCreateTests.TaskCreateTest12
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskCreateTests.TaskCreateTest36
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskCreateTests.TaskCreateTest50
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskCreateTests.TaskCreateTest48
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskCreateTests.TaskCreateTest43
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskCreateTests.TaskCreateTest18
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskCreateTests.TaskCreateTest27
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskCreateTests.TaskCreateTest14
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskCreateTests.TaskCreateTest53
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskCreateTests.TaskCreateTest40
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskCreateTests.TaskCreateTest32
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskCreateTests.TaskCreateTest47
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskCreateTests.TaskCreateTest20
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskCreateTests.TaskCreateTest8
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskCreateTests.TaskCreateTest4
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskCreateTests.TaskCreateTest19
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskCreateTests.TaskCreateTest52
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskCreateTests.TaskCreateTest7
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskCreateTests.TaskCreateTest23
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskCreateTests.TaskCreateTest13
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskCreateTests.TaskCreateTest10
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskCreateTests.TaskCreateTest42
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskCreateTests.TaskCreateTest0
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskCreateTests.TaskCreateTest54
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskCreateTests.TaskCreateTest34
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskCreateTests.TaskCreateTest26
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskCreateTests.TaskCreateTest46
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskCreateTests.TaskCreateTest33
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskCreateTests.TaskCreateTest2
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskCreateTests.TaskCreateTest15
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskCreateTests.TaskCreateTest6
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskCreateTests.TaskCreateTest11
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskCreateTests.TaskCreateTest30
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskCreateTests.TaskCreateTest17
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskCreateTests.TaskCreateTest45
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskCreateTests.TaskCreateTest44
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskCreateTests.TaskCreateTest39
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskCreateTests.TaskCreateTest29
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskCreateTests.TaskCreateTest21
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskCreateTests.TaskCreateTest37
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskCreateTests.TaskCreateTest35
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskCreateTests.TaskCreateTest38
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskCreateTests.TaskCreateTest41
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskCreateTests.TaskCreateTest16
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskCreateTests.TaskCreateTest1
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskCreateTests.TaskCreateTest5
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskCreateTests.TaskCreateTest49
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskCreateTests.TaskCreateTest22
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskArgumentValidationTests.Task_Wait_ArgumentOutOfRange(milliseconds: -2)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskArgumentValidationTests.Task_Wait_ArgumentOutOfRange(milliseconds: 2147483648)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.ExecutionContextFlowTest.TaskCompletionSourceDoesntCaptureExecutionContext
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.ExecutionContextFlowTest.SuppressFlow_TaskCapturesContextAccordingly(suppressFlow: False)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.ExecutionContextFlowTest.SuppressFlow_TaskCapturesContextAccordingly(suppressFlow: True)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskFactory_FromAsyncTests.FromAsync_CompletedSynchronouslyIAsyncResult_CompletesSynchronously(invokesCallback: False)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskFactory_FromAsyncTests.FromAsync_CompletedSynchronouslyIAsyncResult_CompletesSynchronously(invokesCallback: True)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskFactory_FromAsyncTests.RunAPMFactoryTests
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskSchedulerTests.GetScheduledTasksForDebugger_DebuggerAttached_ReturnsTasksFromCustomSchedulers
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskSchedulerTests.RunBuggySchedulerTests
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskSchedulerTests.GetTaskSchedulersForDebugger_ReturnsDefaultScheduler
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskSchedulerTests.RunSynchronizationContextTaskSchedulerTests_Negative
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.Tasks.Tests.TaskSchedulerTests.GetTaskSchedulersForDebugger_DebuggerAttached_ReturnsAllSchedulers
+  [40m[32minfo[39m[22m[49m: Finished:    System.Threading.Tasks.Tests.dll
+  [40m[32minfo[39m[22m[49m: Stored /home/pavelsavara/dev/runtime/artifacts/bin/System.Threading.Tasks.Tests/Release/net11.0/browser-wasm/wwwroot/xharness-output/testResults.xml results 197057 bytes
+  [40m[32minfo[39m[22m[49m: Finished uploading 197057 bytes of RESULTXML
+  [40m[32minfo[39m[22m[49m: Xml file was written to the provided writer.
+  [40m[32minfo[39m[22m[49m: 
+  [40m[32minfo[39m[22m[49m: === TEST EXECUTION SUMMARY ===
+  [40m[32minfo[39m[22m[49m: Tests run: 652 Passed: 311 Inconclusive: 0 Failed: 0 Ignored: 0 Skipped: 341
+  [40m[32minfo[39m[22m[49m: 
+  [40m[32minfo[39m[22m[49m: test-main.js exiting WasmTestRunner.dll System.Threading.Tasks.Tests.dll after 0.0071 minutes with result 0 and linear memory 193331200 bytes
+  [40m[32minfo[39m[22m[49m: DOTNET: forceDisposeProxies done: 14 imports, 0 exports, 0 GCHandles, 0 JSHandles.
+  [40m[32minfo[39m[22m[49m: WASM EXIT 0
+  [40m[32minfo[39m[22m[49m: Waiting to flush log messages with a timeout of 120 secs ..
+  [40m[32minfo[39m[22m[49m: Closing 1 browser tabs before setting the main tab to config page and quitting.
+  XHarness exit code: 0
+  ~/dev/runtime/artifacts/bin/System.Threading.Tasks.Tests/Release/net11.0/browser-wasm/wwwroot ~/dev/runtime/src/libraries/System.Runtime/tests/System.Threading.Tasks.Tests
+  ----- end Sun Feb 1 16:27:03 CET 2026 ----- exit code 0 ----------------------------------------------------------
+  XHarness artifacts: /home/pavelsavara/dev/runtime/artifacts/bin/System.Threading.Tasks.Tests/Release/net11.0/browser-wasm/wwwroot/xharness-output
+
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:05.12

@@ -1,0 +1,21 @@
+Test Comparison: System.Runtime.Serialization.Json.ReflectionOnly.Tests
+Generated: 2026-02-01T16:25:15+01:00
+
+Mono tests:    175
+CoreCLR tests: 163
+
+=== Extra in CoreCLR (0) ===
+
+=== Missing in CoreCLR (12) ===
+DataContractJsonSerializerTests.DCJS_ListGenericMembers
+DataContractJsonSerializerTests.DCJS_ListGenericRoot
+DataContractJsonSerializerTests.DCJS_Nullables
+DataContractJsonSerializerTests.DCJS_SuspensionManager
+DataContractJsonSerializerTests.DCJS_TypeWithGenericDictionaryAsKnownType
+DataContractJsonSerializerTests.DCJS_TypeWithKnownTypeAttributeAndInterfaceMember
+DataContractJsonSerializerTests.DCJS_TypeWithKnownTypeAttributeAndListOfInterfaceMember
+DataContractJsonSerializerTests.DCJS_UseSimpleDictionaryFormat
+DataContractJsonSerializerTests.DCJS_VerifyDictionaryFormat
+DataContractJsonSerializerTests.DCJS_VerifyDictionaryTypes
+DataContractJsonSerializerTests.DCJS_VerifyIndentation
+DataContractJsonSerializerTests.DCJS_WithListOfXElement

@@ -1,0 +1,17 @@
+Test Comparison: System.IO.Hashing.Tests
+Generated: 2026-02-01T16:19:37+01:00
+
+Mono tests:    1065
+CoreCLR tests: 1073
+
+=== Extra in CoreCLR (8) ===
+System.IO.Hashing.Tests.Crc32Tests.AppendingEmptyHasNoEffect
+System.IO.Hashing.Tests.Crc64Tests.AppendingEmptyHasNoEffect
+System.IO.Hashing.Tests.XxHash32Tests.AppendingEmptyHasNoEffect
+System.IO.Hashing.Tests.XxHash32Tests_Seeded_007.AppendingEmptyHasNoEffect
+System.IO.Hashing.Tests.XxHash32Tests_Seeded_f00d.AppendingEmptyHasNoEffect
+System.IO.Hashing.Tests.XxHash64Tests.AppendingEmptyHasNoEffect
+System.IO.Hashing.Tests.XxHash64Tests_Seeded_007.AppendingEmptyHasNoEffect
+System.IO.Hashing.Tests.XxHash64Tests_Seeded_f00d.AppendingEmptyHasNoEffect
+
+=== Missing in CoreCLR (0) ===

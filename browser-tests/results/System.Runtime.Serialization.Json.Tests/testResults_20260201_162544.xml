@@ -1,0 +1,209 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<assemblies>
+  <assembly name="System.Runtime.Serialization.Json.Tests.dll" environment="32-bit .NET .NET 11.0 [collection-per-class, non-parallel]" test-framework="xUnit.net 2.9.3.0" run-date="2026-02-01" run-time="15:25:49" total="161" passed="160" failed="1" skipped="0" time="1.283" errors="0">
+    <errors />
+    <collection total="161" passed="160" failed="1" skipped="0" name="Test collection for DataContractJsonSerializerTests" time="0.993">
+      <test name="DataContractJsonSerializerTests.DCJS_ListMembers" type="DataContractJsonSerializerTests" method="DCJS_ListMembers" time="0.0815" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_ByteArrayAsRoot" type="DataContractJsonSerializerTests" method="DCJS_ByteArrayAsRoot" time="0.0032999" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_CollectionInterfaceGetOnlyCollection" type="DataContractJsonSerializerTests" method="DCJS_CollectionInterfaceGetOnlyCollection" time="0.0109" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_CollectionMembers" type="DataContractJsonSerializerTests" method="DCJS_CollectionMembers" time="0.0123" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_ArrayOfInt32" type="DataContractJsonSerializerTests" method="DCJS_ArrayOfInt32" time="0.0052" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_ObjectArrayAsObject" type="DataContractJsonSerializerTests" method="DCJS_ObjectArrayAsObject" time="0.002" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_GenericDictionaryOfInt32Boolean" type="DataContractJsonSerializerTests" method="DCJS_GenericDictionaryOfInt32Boolean" time="0.021" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_CollectionGenericMembers" type="DataContractJsonSerializerTests" method="DCJS_CollectionGenericMembers" time="0.0092999" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_Tuple" type="DataContractJsonSerializerTests" method="DCJS_Tuple" time="0.0435999" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_NonGenericDictionaryOfStringInt32" type="DataContractJsonSerializerTests" method="DCJS_NonGenericDictionaryOfStringInt32" time="0.0103" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_ExtensionDataObjectTest" type="DataContractJsonSerializerTests" method="DCJS_ExtensionDataObjectTest" time="0.0110999" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_TypeNamesWithSpecialCharacters" type="DataContractJsonSerializerTests" method="DCJS_TypeNamesWithSpecialCharacters" time="0.0045" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_KnownTypesThroughConstructor" type="DataContractJsonSerializerTests" method="DCJS_KnownTypesThroughConstructor" time="0.0115" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_XmlElementAsRoot" type="DataContractJsonSerializerTests" method="DCJS_XmlElementAsRoot" time="0.0210999" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_WithDuplicateNames" type="DataContractJsonSerializerTests" method="DCJS_WithDuplicateNames" time="0.0174" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_DictionaryWithTypeSimpleWithDictionaryMembers" type="DataContractJsonSerializerTests" method="DCJS_DictionaryWithTypeSimpleWithDictionaryMembers" time="0.0118999" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_TypeWithNestedGenericClassImplementingIXmlSerializable" type="DataContractJsonSerializerTests" method="DCJS_TypeWithNestedGenericClassImplementingIXmlSerializable" time="0.0065" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_GenericTypeWithPrivateSetter" type="DataContractJsonSerializerTests" method="DCJS_GenericTypeWithPrivateSetter" time="0.0024" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_CreateJsonReaderTest" type="DataContractJsonSerializerTests" method="DCJS_CreateJsonReaderTest" time="0.0173" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_SimpleCollectionDataContract" type="DataContractJsonSerializerTests" method="DCJS_SimpleCollectionDataContract" time="0.0032999" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_CharAsRoot" type="DataContractJsonSerializerTests" method="DCJS_CharAsRoot" time="0.0073" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_TimeOnlyAsRoot" type="DataContractJsonSerializerTests" method="DCJS_TimeOnlyAsRoot" time="0.0196" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_ArrayOfTypeWithPrimitiveProperties" type="DataContractJsonSerializerTests" method="DCJS_ArrayOfTypeWithPrimitiveProperties" time="0.0067" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_TypeWithPrimitiveProperties" type="DataContractJsonSerializerTests" method="DCJS_TypeWithPrimitiveProperties" time="0.0004" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_Stack" type="DataContractJsonSerializerTests" method="DCJS_Stack" time="0.006" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_NewLineChars" type="DataContractJsonSerializerTests" method="DCJS_NewLineChars" time="0.0005" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_GenericICollectionOfInt32" type="DataContractJsonSerializerTests" method="DCJS_GenericICollectionOfInt32" time="0.0028" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_GenericDictionaryOfInt32String" type="DataContractJsonSerializerTests" method="DCJS_GenericDictionaryOfInt32String" time="0.0114" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_InvalidDataContract_Write_Invalid_Types_Throws" type="DataContractJsonSerializerTests" method="DCJS_InvalidDataContract_Write_Invalid_Types_Throws" time="0.0031999" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_DictionaryGenericRoot" type="DataContractJsonSerializerTests" method="DCJS_DictionaryGenericRoot" time="0.0015999" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_ReadOnlyDictionaryCausingDuplicateInvalidDataContract" type="DataContractJsonSerializerTests" method="DCJS_ReadOnlyDictionaryCausingDuplicateInvalidDataContract" time="0.0083999" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_ArrayAsGetOnly" type="DataContractJsonSerializerTests" method="DCJS_ArrayAsGetOnly" time="0.0087" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_ShortAsRoot" type="DataContractJsonSerializerTests" method="DCJS_ShortAsRoot" time="0.0035" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_LongAsRoot" type="DataContractJsonSerializerTests" method="DCJS_LongAsRoot" time="0.0021999" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_BuiltInTypes" type="DataContractJsonSerializerTests" method="DCJS_BuiltInTypes" time="0.0028" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_DateOnlyAsRoot" type="DataContractJsonSerializerTests" method="DCJS_DateOnlyAsRoot" time="0.0055999" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_NegativeDateTimeStylesTest_IncorrectDateTimeStyles" type="DataContractJsonSerializerTests" method="DCJS_NegativeDateTimeStylesTest_IncorrectDateTimeStyles" time="0.0022999" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_JaggedArrayAsRoot" type="DataContractJsonSerializerTests" method="DCJS_JaggedArrayAsRoot" time="0.0145" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_WithXElement" type="DataContractJsonSerializerTests" method="DCJS_WithXElement" time="0.0056" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_ByteAsRoot" type="DataContractJsonSerializerTests" method="DCJS_ByteAsRoot" time="0.0011999" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_RoundtrippingDateTime" type="DataContractJsonSerializerTests" method="DCJS_RoundtrippingDateTime" time="0.0029" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_DataMemberAttribute" type="DataContractJsonSerializerTests" method="DCJS_DataMemberAttribute" time="0.0136" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_DifferentCollectionsOfSameTypeAsKnownTypes" type="DataContractJsonSerializerTests" method="DCJS_DifferentCollectionsOfSameTypeAsKnownTypes" time="0.007" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_WithXElementWithNestedXElement" type="DataContractJsonSerializerTests" method="DCJS_WithXElementWithNestedXElement" time="0.0034" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_ArrayOfString" type="DataContractJsonSerializerTests" method="DCJS_ArrayOfString" time="0.0004" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_TypeWithAllPrimitiveProperties" type="DataContractJsonSerializerTests" method="DCJS_TypeWithAllPrimitiveProperties" time="0.0132" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_GenericTypeWithNestedGenerics" type="DataContractJsonSerializerTests" method="DCJS_GenericTypeWithNestedGenerics" time="0.0035" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_DataContractWithMinusSignInName" type="DataContractJsonSerializerTests" method="DCJS_DataContractWithMinusSignInName" time="0.0025" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_GenericStack" type="DataContractJsonSerializerTests" method="DCJS_GenericStack" time="0.005" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_Queue" type="DataContractJsonSerializerTests" method="DCJS_Queue" time="0.0061999" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_ArrayOfBoolean" type="DataContractJsonSerializerTests" method="DCJS_ArrayOfBoolean" time="0.0031" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_TypeWithEmitDefaultValueFalse" type="DataContractJsonSerializerTests" method="DCJS_TypeWithEmitDefaultValueFalse" time="0.0027" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_InternalTypeSerialization" type="DataContractJsonSerializerTests" method="DCJS_InternalTypeSerialization" time="0.003" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_ArrayOfInt64" type="DataContractJsonSerializerTests" method="DCJS_ArrayOfInt64" time="0.0033" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_EmptyString_Throws" type="DataContractJsonSerializerTests" method="DCJS_EmptyString_Throws" time="0.0014" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_ArrayAsRoot" type="DataContractJsonSerializerTests" method="DCJS_ArrayAsRoot" time="0.0011" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_EnumerableRoot" type="DataContractJsonSerializerTests" method="DCJS_EnumerableRoot" time="0.0019" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_VerifySuppressTypeInformation" type="DataContractJsonSerializerTests" method="DCJS_VerifySuppressTypeInformation" time="0.0083999" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_GenericICollectionOfSingle" type="DataContractJsonSerializerTests" method="DCJS_GenericICollectionOfSingle" time="0.0038" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_TypeWithPrimitiveFields" type="DataContractJsonSerializerTests" method="DCJS_TypeWithPrimitiveFields" time="0.0032" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_GenericICollectionOfString" type="DataContractJsonSerializerTests" method="DCJS_GenericICollectionOfString" time="0.0026" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DSJS_ThrowExceptionOnDispose" type="DataContractJsonSerializerTests" method="DSJS_ThrowExceptionOnDispose" time="0.0026" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_ListRoot" type="DataContractJsonSerializerTests" method="DCJS_ListRoot" time="0.0009" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_CollectionRoot" type="DataContractJsonSerializerTests" method="DCJS_CollectionRoot" time="0.0005" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_ConstructorWithRootName" type="DataContractJsonSerializerTests" method="DCJS_ConstructorWithRootName" time="0.0023" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_TypeWithXmlElementProperty" type="DataContractJsonSerializerTests" method="DCJS_TypeWithXmlElementProperty" time="0.0053" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_EnumerableMembers" type="DataContractJsonSerializerTests" method="DCJS_EnumerableMembers" time="0.0083999" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_DictionaryWithVariousKeyValueTypes" type="DataContractJsonSerializerTests" method="DCJS_DictionaryWithVariousKeyValueTypes" time="0.0506" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_DataContractAttribute" type="DataContractJsonSerializerTests" method="DCJS_DataContractAttribute" time="0.0062999" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_IgnoreDataMemberAttribute" type="DataContractJsonSerializerTests" method="DCJS_IgnoreDataMemberAttribute" time="0.0029" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_TypeWithDateTimeStringProperty" type="DataContractJsonSerializerTests" method="DCJS_TypeWithDateTimeStringProperty" time="0.0028999" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_TimeSpanAsRoot" type="DataContractJsonSerializerTests" method="DCJS_TimeSpanAsRoot" time="0.0041" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_XmlQualifiedNameAsRoot" type="DataContractJsonSerializerTests" method="DCJS_XmlQualifiedNameAsRoot" time="0.0007" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_NonGenericDictionaryOfInt32String" type="DataContractJsonSerializerTests" method="DCJS_NonGenericDictionaryOfInt32String" time="0.001" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_DeserializeTypeWithInnerInvalidDataContract" type="DataContractJsonSerializerTests" method="DCJS_DeserializeTypeWithInnerInvalidDataContract" time="0.0025" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_ArrayOfDouble" type="DataContractJsonSerializerTests" method="DCJS_ArrayOfDouble" time="0.0045" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_FloatAsRoot_NotNetFramework" type="DataContractJsonSerializerTests" method="DCJS_FloatAsRoot_NotNetFramework" time="0.0035" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_XElementAsRoot" type="DataContractJsonSerializerTests" method="DCJS_XElementAsRoot" time="0.0008" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_NegativeDateTimeStylesTest_IncorrectFormat" type="DataContractJsonSerializerTests" method="DCJS_NegativeDateTimeStylesTest_IncorrectFormat" time="0.002" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_GenericDictionaryOfStringInt32" type="DataContractJsonSerializerTests" method="DCJS_GenericDictionaryOfStringInt32" time="0.0021" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_SerializationEvents" type="DataContractJsonSerializerTests" method="DCJS_SerializationEvents" time="0.0037" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_UshortAsRoot" type="DataContractJsonSerializerTests" method="DCJS_UshortAsRoot" time="0.0011" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_EnumAsMember" type="DataContractJsonSerializerTests" method="DCJS_EnumAsMember" time="0.0033" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_ClassImplementingIXmlSerializable" type="DataContractJsonSerializerTests" method="DCJS_ClassImplementingIXmlSerializable" time="0.0019" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_ReadOnlyCollection" type="DataContractJsonSerializerTests" method="DCJS_ReadOnlyCollection" time="0.0051" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_UintAsRoot" type="DataContractJsonSerializerTests" method="DCJS_UintAsRoot" time="0.0016" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_GenericICollectionOfInt64" type="DataContractJsonSerializerTests" method="DCJS_GenericICollectionOfInt64" time="0.0033" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_EnumerableCollection" type="DataContractJsonSerializerTests" method="DCJS_EnumerableCollection" time="0.005" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_DataMemberNames" type="DataContractJsonSerializerTests" method="DCJS_DataMemberNames" time="0.0075999" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_UlongAsRoot" type="DataContractJsonSerializerTests" method="DCJS_UlongAsRoot" time="0.0027" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_NonGenericDictionaryOfInt32Boolean" type="DataContractJsonSerializerTests" method="DCJS_NonGenericDictionaryOfInt32Boolean" time="0.0011" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_VerifyDateTimeForFormatStringDCJsonSerSettings" type="DataContractJsonSerializerTests" method="DCJS_VerifyDateTimeForFormatStringDCJsonSerSettings" time="0.0332" result="Fail">
+        <failure exception-type="System.BadImageFormatException">
+          <message><![CDATA[System.BadImageFormatException : An attempt was made to load a program with an incorrect format.\n (0x8007000B)]]></message>
+          <stack-trace><![CDATA[   at System.Signature.Init(ObjectHandleOnStack _this, Void* pCorSig, Int32 cCorSig, RuntimeFieldHandleInternal fieldHandle, RuntimeMethodHandleInternal methodHandle)
+   at System.Signature.Init(Void* pCorSig, Int32 cCorSig, RuntimeFieldHandleInternal fieldHandle, RuntimeMethodHandleInternal methodHandle)
+   at System.Signature..ctor(IRuntimeMethodInfo methodHandle, RuntimeType declaringType)
+   at System.Reflection.RuntimeMethodInfo.<get_Signature>g__LazyCreateSignature|27_0()
+   at System.Reflection.RuntimeMethodInfo.FetchNonReturnParameters()
+   at System.Reflection.RuntimeMethodInfo.GetParametersAsSpan()
+   at System.RuntimeType.FilterApplyMethodBase(MethodBase methodBase, BindingFlags methodFlags, BindingFlags bindingFlags, CallingConventions callConv, Type[] argumentTypes)
+   at System.RuntimeType.FilterApplyMethodInfo(RuntimeMethodInfo method, BindingFlags bindingFlags, CallingConventions callConv, Type[] argumentTypes)
+   at System.RuntimeType.GetMethodCandidates(String name, Int32 genericParameterCount, BindingFlags bindingAttr, CallingConventions callConv, Type[] types, Boolean allowPrefixLookup)
+   at System.RuntimeType.GetMethodImplCommon(String name, Int32 genericParameterCount, BindingFlags bindingAttr, Binder binder, CallingConventions callConv, Type[] types, ParameterModifier[] modifiers)
+   at System.RuntimeType.GetMethodImpl(String name, BindingFlags bindingAttr, Binder binder, CallingConventions callConv, Type[] types, ParameterModifier[] modifiers)
+   at System.Type.GetMethod(String name, BindingFlags bindingAttr, Binder binder, CallingConventions callConvention, Type[] types, ParameterModifier[] modifiers)
+   at System.Type.GetMethod(String name, BindingFlags bindingAttr, Binder binder, Type[] types, ParameterModifier[] modifiers)
+   at System.Type.GetMethod(String name, BindingFlags bindingAttr, Type[] types)
+   at System.Runtime.Serialization.Json.JsonFormatWriterGenerator.CriticalHelper.WriteCollection(CollectionDataContract collectionContract)
+   at System.Runtime.Serialization.Json.JsonFormatWriterGenerator.CriticalHelper.GenerateCollectionWriter(CollectionDataContract collectionContract)
+   at System.Runtime.Serialization.Json.JsonFormatWriterGenerator.GenerateCollectionWriter(CollectionDataContract collectionContract)
+   at System.Runtime.Serialization.Json.JsonCollectionDataContract.get_JsonFormatWriterDelegate()
+   at System.Runtime.Serialization.Json.JsonCollectionDataContract.WriteJsonValueCore(XmlWriterDelegator jsonWriter, Object obj, XmlObjectSerializerWriteContextComplexJson context, RuntimeTypeHandle declaredTypeHandle)
+   at System.Runtime.Serialization.Json.JsonDataContract.WriteJsonValue(XmlWriterDelegator jsonWriter, Object obj, XmlObjectSerializerWriteContextComplexJson context, RuntimeTypeHandle declaredTypeHandle)
+   at System.Runtime.Serialization.Json.DataContractJsonSerializer.WriteJsonValue(JsonDataContract contract, XmlWriterDelegator writer, Object graph, XmlObjectSerializerWriteContextComplexJson context, RuntimeTypeHandle declaredTypeHandle)
+   at System.Runtime.Serialization.Json.XmlObjectSerializerWriteContextComplexJson.WriteDataContractValue(DataContract dataContract, XmlWriterDelegator xmlWriter, Object obj, RuntimeTypeHandle declaredTypeHandle)
+   at System.Runtime.Serialization.XmlObjectSerializerWriteContext.SerializeWithoutXsiType(DataContract dataContract, XmlWriterDelegator xmlWriter, Object obj, RuntimeTypeHandle declaredTypeHandle)
+   at System.Runtime.Serialization.Json.DataContractJsonSerializer.InternalWriteObjectContent(XmlWriterDelegator writer, Object graph)
+   at System.Runtime.Serialization.Json.DataContractJsonSerializer.InternalWriteObject(XmlWriterDelegator writer, Object graph)
+   at System.Runtime.Serialization.XmlObjectSerializer.InternalWriteObject(XmlWriterDelegator writer, Object graph, DataContractResolver dataContractResolver)
+   at System.Runtime.Serialization.XmlObjectSerializer.WriteObjectHandleExceptions(XmlWriterDelegator writer, Object graph, DataContractResolver dataContractResolver)
+   at System.Runtime.Serialization.XmlObjectSerializer.WriteObjectHandleExceptions(XmlWriterDelegator writer, Object graph)
+   at System.Runtime.Serialization.Json.DataContractJsonSerializer.WriteObject(XmlDictionaryWriter writer, Object graph)
+   at System.Runtime.Serialization.Json.DataContractJsonSerializer.WriteObject(Stream stream, Object graph)
+   at DataContractJsonSerializerTests.SerializeAndDeserialize[T](T value, String baseline, DataContractJsonSerializerSettings settings, Func`1 serializerFactory, Boolean skipStringCompare)
+   at DataContractJsonSerializerTests.DCJS_VerifyDateTimeForFormatStringDCJsonSerSettings()
+   at System.RuntimeMethodHandle.InvokeMethod(ObjectHandleOnStack target, Void** arguments, ObjectHandleOnStack sig, BOOL isConstructor, ObjectHandleOnStack result)
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)]]></stack-trace>
+        </failure>
+      </test>
+      <test name="DataContractJsonSerializerTests.DCJS_CollectionDataContractWithCustomKeyNameDuplicate" type="DataContractJsonSerializerTests" method="DCJS_CollectionDataContractWithCustomKeyNameDuplicate" time="0.0097999" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_TypeWithInternalDefaultConstructor" type="DataContractJsonSerializerTests" method="DCJS_TypeWithInternalDefaultConstructor" time="0.0021" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_Dictionary_UseSimpleDictionaryFormat_VariousKeyTypes" type="DataContractJsonSerializerTests" method="DCJS_Dictionary_UseSimpleDictionaryFormat_VariousKeyTypes" time="0.0623" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_DifferentDateTimeStylesForDeserialization" type="DataContractJsonSerializerTests" method="DCJS_DifferentDateTimeStylesForDeserialization" time="0.0019" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_DecimalAsRoot" type="DataContractJsonSerializerTests" method="DCJS_DecimalAsRoot" time="0.0013999" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_ArrayOfDecimal" type="DataContractJsonSerializerTests" method="DCJS_ArrayOfDecimal" time="0.0031999" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_SystemVersion" type="DataContractJsonSerializerTests" method="DCJS_SystemVersion" time="0.0042" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_FloatAsRoot" type="DataContractJsonSerializerTests" method="DCJS_FloatAsRoot" time="0.0008" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_EnumerableStruct" type="DataContractJsonSerializerTests" method="DCJS_EnumerableStruct" time="0.0021" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_StringAsRoot_BackwardCompatibility" type="DataContractJsonSerializerTests" method="DCJS_StringAsRoot_BackwardCompatibility" time="0.0007" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_EnumerableGenericRoot" type="DataContractJsonSerializerTests" method="DCJS_EnumerableGenericRoot" time="0.0021" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_ArrayAsGetSet" type="DataContractJsonSerializerTests" method="DCJS_ArrayAsGetSet" time="0.0046" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_DateTimeAsRoot" type="DataContractJsonSerializerTests" method="DCJS_DateTimeAsRoot" time="0.0021" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_DataContractWithDotInName" type="DataContractJsonSerializerTests" method="DCJS_DataContractWithDotInName" time="0.0024" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_GenericICollectionOfDecimal" type="DataContractJsonSerializerTests" method="DCJS_GenericICollectionOfDecimal" time="0.0027" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_EnumerableInterfaceGetOnlyCollection" type="DataContractJsonSerializerTests" method="DCJS_EnumerableInterfaceGetOnlyCollection" time="0.0032" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_GetOonlyDictionary_UseSimpleDictionaryFormat" type="DataContractJsonSerializerTests" method="DCJS_GetOonlyDictionary_UseSimpleDictionaryFormat" time="0.0165999" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_GenericICollectionOfTypeWithPrimitiveProperties" type="DataContractJsonSerializerTests" method="DCJS_GenericICollectionOfTypeWithPrimitiveProperties" time="0.003" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_SbyteAsRoot" type="DataContractJsonSerializerTests" method="DCJS_SbyteAsRoot" time="0.0013" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_VerifyDateTimeForFormatStringDCJsonSerSetting" type="DataContractJsonSerializerTests" method="DCJS_VerifyDateTimeForFormatStringDCJsonSerSetting" time="0.0008" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_DoubleAsRoot" type="DataContractJsonSerializerTests" method="DCJS_DoubleAsRoot" time="0.002" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_ConcurrentDictionary" type="DataContractJsonSerializerTests" method="DCJS_ConcurrentDictionary" time="0.0057" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_DictionaryMembers" type="DataContractJsonSerializerTests" method="DCJS_DictionaryMembers" time="0.0158" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_CollectionDataContractWithCustomKeyName" type="DataContractJsonSerializerTests" method="DCJS_CollectionDataContractWithCustomKeyName" time="0.0049" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_ArrayOfDateTime" type="DataContractJsonSerializerTests" method="DCJS_ArrayOfDateTime" time="0.0027999" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_CreateJsonWriterTest" type="DataContractJsonSerializerTests" method="DCJS_CreateJsonWriterTest" time="0.0015999" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_GenericICollectionOfDouble" type="DataContractJsonSerializerTests" method="DCJS_GenericICollectionOfDouble" time="0.0035" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_TypeWithInternalDefaultConstructorWithoutDataContractAttribute" type="DataContractJsonSerializerTests" method="DCJS_TypeWithInternalDefaultConstructorWithoutDataContractAttribute" time="0.0029" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_DateTimeFormatIsNull" type="DataContractJsonSerializerTests" method="DCJS_DateTimeFormatIsNull" time="0.0007" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_TypeWithOptionalField" type="DataContractJsonSerializerTests" method="DCJS_TypeWithOptionalField" time="0.0028" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_RecursiveCollection" type="DataContractJsonSerializerTests" method="DCJS_RecursiveCollection" time="0.0021999" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_UriAsRoot" type="DataContractJsonSerializerTests" method="DCJS_UriAsRoot" time="0.0013" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_GenericQueue" type="DataContractJsonSerializerTests" method="DCJS_GenericQueue" time="0.0055" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_ClassWithDatetimeOffsetTypeProperty" type="DataContractJsonSerializerTests" method="DCJS_ClassWithDatetimeOffsetTypeProperty" time="0.0035999" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_SortedList" type="DataContractJsonSerializerTests" method="DCJS_SortedList" time="0.0060999" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_WithArrayOfXElement" type="DataContractJsonSerializerTests" method="DCJS_WithArrayOfXElement" time="0.005" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_KeyValuePair" type="DataContractJsonSerializerTests" method="DCJS_KeyValuePair" time="0.0033999" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_DataContractWithOperatorsInName" type="DataContractJsonSerializerTests" method="DCJS_DataContractWithOperatorsInName" time="0.0032" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_ArrayOfSingle" type="DataContractJsonSerializerTests" method="DCJS_ArrayOfSingle" time="0.0024" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_EnumAsRoot" type="DataContractJsonSerializerTests" method="DCJS_EnumAsRoot" time="0.0081999" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_TypeWithNonSerializedField" type="DataContractJsonSerializerTests" method="DCJS_TypeWithNonSerializedField" time="0.0032" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_SquareWithDeserializationCallback" type="DataContractJsonSerializerTests" method="DCJS_SquareWithDeserializationCallback" time="0.0018" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_DCClassWithEnumAndStruct" type="DataContractJsonSerializerTests" method="DCJS_DCClassWithEnumAndStruct" time="0.0045999" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_CustomType" type="DataContractJsonSerializerTests" method="DCJS_CustomType" time="0.0119" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_VerifyDateTimeForDateTimeFormat" type="DataContractJsonSerializerTests" method="DCJS_VerifyDateTimeForDateTimeFormat" time="0.0062999" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_ObjectAsRoot" type="DataContractJsonSerializerTests" method="DCJS_ObjectAsRoot" time="0.0007" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_ContainsLinkedList" type="DataContractJsonSerializerTests" method="DCJS_ContainsLinkedList" time="0.0113999" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_ValidateExceptionOnUnspecifiedRootSerializationType" type="DataContractJsonSerializerTests" method="DCJS_ValidateExceptionOnUnspecifiedRootSerializationType" time="0.0030999" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_TypesWithArrayOfOtherTypes" type="DataContractJsonSerializerTests" method="DCJS_TypesWithArrayOfOtherTypes" time="0.0054" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_IntAsRoot" type="DataContractJsonSerializerTests" method="DCJS_IntAsRoot" time="0.0010999" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_DictionaryGenericMembers" type="DataContractJsonSerializerTests" method="DCJS_DictionaryGenericMembers" time="0.004" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_ExtensionDataObjectTest2" type="DataContractJsonSerializerTests" method="DCJS_ExtensionDataObjectTest2" time="0.0056999" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_BoolAsRoot" type="DataContractJsonSerializerTests" method="DCJS_BoolAsRoot" time="0.0005" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_MyISerializableType" type="DataContractJsonSerializerTests" method="DCJS_MyISerializableType" time="0.003" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_ConstructorWithRootNameAsXmlDictionaryString" type="DataContractJsonSerializerTests" method="DCJS_ConstructorWithRootNameAsXmlDictionaryString" time="0.0002" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_ReadOnlyDictionary" type="DataContractJsonSerializerTests" method="DCJS_ReadOnlyDictionary" time="0.0007" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_EnumFlags" type="DataContractJsonSerializerTests" method="DCJS_EnumFlags" time="0.0017999" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_DeserializeEmptyString" type="DataContractJsonSerializerTests" method="DCJS_DeserializeEmptyString" time="0.0004" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_DictionaryRoot" type="DataContractJsonSerializerTests" method="DCJS_DictionaryRoot" time="0.0007999" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_CollectionGenericRoot" type="DataContractJsonSerializerTests" method="DCJS_CollectionGenericRoot" time="0.0009" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_Regression195109" type="DataContractJsonSerializerTests" method="DCJS_Regression195109" time="0.0033999" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_TypeWithCollectionWithoutDefaultConstructor" type="DataContractJsonSerializerTests" method="DCJS_TypeWithCollectionWithoutDefaultConstructor" time="0.0043999" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_StringAsRoot" type="DataContractJsonSerializerTests" method="DCJS_StringAsRoot" time="0.0057" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_PrivateTypeSerialization" type="DataContractJsonSerializerTests" method="DCJS_PrivateTypeSerialization" time="0.0031" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_KeyValuePairOfStringObject" type="DataContractJsonSerializerTests" method="DCJS_KeyValuePairOfStringObject" time="0.0005" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_GuidAsRoot" type="DataContractJsonSerializerTests" method="DCJS_GuidAsRoot" time="0.0007" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_DataContractWithOtherSymbolsInName" type="DataContractJsonSerializerTests" method="DCJS_DataContractWithOtherSymbolsInName" time="0.0023999" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_GenericICollectionOfBoolean" type="DataContractJsonSerializerTests" method="DCJS_GenericICollectionOfBoolean" time="0.0023" result="Pass" />
+      <test name="DataContractJsonSerializerTests.DCJS_EnumerableGenericMembers" type="DataContractJsonSerializerTests" method="DCJS_EnumerableGenericMembers" time="0.0058" result="Pass" />
+    </collection>
+  </assembly>
+</assemblies>

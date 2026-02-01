@@ -1,0 +1,180 @@
+Running in: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/143.0.0.0 Safari/537.36
+Running at: http://127.0.0.1:35465/index.html?arg=--setenv%3dXHARNESS_LOG_TEST_START%3dtrue&arg=--run&arg=WasmTestRunner.dll&arg=System.Runtime.Serialization.Json.Tests.dll&arg=-notrait&arg=category%3dOuterLoop&arg=-notrait&arg=category%3dfailing&arg=-verbosity&arg=Info
+could not load /runArgs.json: 404. Ignoring
+Incoming arguments: --setenv=XHARNESS_LOG_TEST_START=true --run WasmTestRunner.dll System.Runtime.Serialization.Json.Tests.dll -notrait category=OuterLoop -notrait category=failing -verbosity Info
+Application arguments: --run WasmTestRunner.dll System.Runtime.Serialization.Json.Tests.dll -notrait category=OuterLoop -notrait category=failing -verbosity Info
+Initializing dotnet version 11.0.0 commit hash e31907b0fbca908ed525247a1dc38cc5fba7b0ff
+Using threadless Xunit runner
+Discovering: System.Runtime.Serialization.Json.Tests.dll (method display = ClassAndMethod, method display options = None)
+Discovered:  System.Runtime.Serialization.Json.Tests.dll (found 160 of 173 test cases)
+Starting:    System.Runtime.Serialization.Json.Tests.dll
+[STRT] DataContractJsonSerializerTests.DCJS_WithXElementWithNestedXElement
+[STRT] DataContractJsonSerializerTests.DCJS_ArrayAsGetSet
+[STRT] DataContractJsonSerializerTests.DCJS_CollectionDataContractWithCustomKeyName
+[STRT] DataContractJsonSerializerTests.DCJS_IgnoreDataMemberAttribute
+[STRT] DataContractJsonSerializerTests.DCJS_GenericICollectionOfDouble
+[STRT] DataContractJsonSerializerTests.DCJS_RecursiveCollection
+[STRT] DataContractJsonSerializerTests.DCJS_TypeWithPrimitiveProperties
+[STRT] DataContractJsonSerializerTests.DCJS_LongAsRoot
+[STRT] DataContractJsonSerializerTests.DCJS_InternalTypeSerialization
+[STRT] DataContractJsonSerializerTests.DCJS_StringAsRoot_BackwardCompatibility
+[STRT] DataContractJsonSerializerTests.DCJS_ConcurrentDictionary
+[STRT] DataContractJsonSerializerTests.DCJS_NegativeDateTimeStylesTest_IncorrectDateTimeStyles
+[STRT] DataContractJsonSerializerTests.DCJS_GenericICollectionOfString
+[STRT] DataContractJsonSerializerTests.DCJS_ReadOnlyDictionaryCausingDuplicateInvalidDataContract
+[STRT] DataContractJsonSerializerTests.DCJS_GuidAsRoot
+[STRT] DataContractJsonSerializerTests.DCJS_Dictionary_UseSimpleDictionaryFormat_VariousKeyTypes
+[STRT] DataContractJsonSerializerTests.DCJS_ArrayOfDouble
+[STRT] DataContractJsonSerializerTests.DCJS_DataContractWithDotInName
+[STRT] DataContractJsonSerializerTests.DCJS_TypeWithInternalDefaultConstructor
+[STRT] DataContractJsonSerializerTests.DCJS_ReadOnlyCollection
+[STRT] DataContractJsonSerializerTests.DCJS_EmptyString_Throws
+[STRT] DataContractJsonSerializerTests.DCJS_ListRoot
+[STRT] DataContractJsonSerializerTests.DCJS_TypeWithDateTimeStringProperty
+[STRT] DataContractJsonSerializerTests.DCJS_UriAsRoot
+[STRT] DataContractJsonSerializerTests.DCJS_ClassWithDatetimeOffsetTypeProperty
+[STRT] DataContractJsonSerializerTests.DCJS_DictionaryRoot
+[STRT] DataContractJsonSerializerTests.DCJS_UlongAsRoot
+[STRT] DataContractJsonSerializerTests.DCJS_EnumerableRoot
+[STRT] DataContractJsonSerializerTests.DCJS_IntAsRoot
+[STRT] DataContractJsonSerializerTests.DCJS_SystemVersion
+[STRT] DataContractJsonSerializerTests.DCJS_ByteArrayAsRoot
+[STRT] DataContractJsonSerializerTests.DCJS_Tuple
+[STRT] DataContractJsonSerializerTests.DCJS_TypeWithPrimitiveFields
+[STRT] DataContractJsonSerializerTests.DCJS_ExtensionDataObjectTest
+[STRT] DataContractJsonSerializerTests.DCJS_GenericDictionaryOfInt32String
+[STRT] DataContractJsonSerializerTests.DCJS_InvalidDataContract_Write_Invalid_Types_Throws
+[STRT] DataContractJsonSerializerTests.DCJS_FloatAsRoot_NotNetFramework
+[STRT] DataContractJsonSerializerTests.DCJS_GenericICollectionOfBoolean
+[STRT] DataContractJsonSerializerTests.DCJS_ArrayOfSingle
+[STRT] DataContractJsonSerializerTests.DCJS_ArrayAsRoot
+[STRT] DataContractJsonSerializerTests.DCJS_DataContractWithOtherSymbolsInName
+[STRT] DataContractJsonSerializerTests.DCJS_XElementAsRoot
+[STRT] DataContractJsonSerializerTests.DCJS_CollectionGenericRoot
+[STRT] DataContractJsonSerializerTests.DCJS_CreateJsonWriterTest
+[STRT] DataContractJsonSerializerTests.DCJS_WithXElement
+[STRT] DataContractJsonSerializerTests.DCJS_EnumerableGenericRoot
+[STRT] DataContractJsonSerializerTests.DCJS_EnumAsMember
+[STRT] DataContractJsonSerializerTests.DCJS_GenericDictionaryOfInt32Boolean
+[STRT] DataContractJsonSerializerTests.DCJS_CreateJsonReaderTest
+[STRT] DataContractJsonSerializerTests.DCJS_NonGenericDictionaryOfStringInt32
+[STRT] DataContractJsonSerializerTests.DCJS_SimpleCollectionDataContract
+[STRT] DataContractJsonSerializerTests.DCJS_VerifyDateTimeForDateTimeFormat
+[STRT] DataContractJsonSerializerTests.DCJS_DictionaryWithTypeSimpleWithDictionaryMembers
+[STRT] DataContractJsonSerializerTests.DCJS_DictionaryWithVariousKeyValueTypes
+[STRT] DataContractJsonSerializerTests.DCJS_EnumerableMembers
+[STRT] DataContractJsonSerializerTests.DCJS_TimeSpanAsRoot
+[STRT] DataContractJsonSerializerTests.DCJS_ArrayOfDateTime
+[STRT] DataContractJsonSerializerTests.DCJS_GenericQueue
+[STRT] DataContractJsonSerializerTests.DCJS_ConstructorWithRootName
+[STRT] DataContractJsonSerializerTests.DCJS_KeyValuePair
+[STRT] DataContractJsonSerializerTests.DCJS_ObjectArrayAsObject
+[STRT] DataContractJsonSerializerTests.DCJS_EnumerableCollection
+[STRT] DataContractJsonSerializerTests.DCJS_BoolAsRoot
+[STRT] DataContractJsonSerializerTests.DCJS_NegativeDateTimeStylesTest_IncorrectFormat
+[STRT] DataContractJsonSerializerTests.DCJS_ShortAsRoot
+[STRT] DataContractJsonSerializerTests.DCJS_ClassImplementingIXmlSerializable
+[STRT] DataContractJsonSerializerTests.DCJS_CustomType
+[STRT] DataContractJsonSerializerTests.DCJS_RoundtrippingDateTime
+[STRT] DataContractJsonSerializerTests.DCJS_DictionaryGenericRoot
+[STRT] DataContractJsonSerializerTests.DCJS_XmlQualifiedNameAsRoot
+[STRT] DataContractJsonSerializerTests.DCJS_StringAsRoot
+[STRT] DataContractJsonSerializerTests.DCJS_CharAsRoot
+[STRT] DataContractJsonSerializerTests.DCJS_ExtensionDataObjectTest2
+[STRT] DataContractJsonSerializerTests.DCJS_DeserializeEmptyString
+[STRT] DataContractJsonSerializerTests.DSJS_ThrowExceptionOnDispose
+[STRT] DataContractJsonSerializerTests.DCJS_TimeOnlyAsRoot
+[STRT] DataContractJsonSerializerTests.DCJS_DecimalAsRoot
+[STRT] DataContractJsonSerializerTests.DCJS_XmlElementAsRoot
+[STRT] DataContractJsonSerializerTests.DCJS_GenericICollectionOfTypeWithPrimitiveProperties
+[STRT] DataContractJsonSerializerTests.DCJS_DataContractAttribute
+[STRT] DataContractJsonSerializerTests.DCJS_SquareWithDeserializationCallback
+[STRT] DataContractJsonSerializerTests.DCJS_EnumerableStruct
+[STRT] DataContractJsonSerializerTests.DCJS_KnownTypesThroughConstructor
+[STRT] DataContractJsonSerializerTests.DCJS_EnumAsRoot
+[STRT] DataContractJsonSerializerTests.DCJS_DateOnlyAsRoot
+[STRT] DataContractJsonSerializerTests.DCJS_FloatAsRoot
+[STRT] DataContractJsonSerializerTests.DCJS_UshortAsRoot
+[STRT] DataContractJsonSerializerTests.DCJS_WithArrayOfXElement
+[STRT] DataContractJsonSerializerTests.DCJS_CollectionInterfaceGetOnlyCollection
+[STRT] DataContractJsonSerializerTests.DCJS_ArrayOfBoolean
+[STRT] DataContractJsonSerializerTests.DCJS_BuiltInTypes
+[STRT] DataContractJsonSerializerTests.DCJS_TypeWithInternalDefaultConstructorWithoutDataContractAttribute
+[STRT] DataContractJsonSerializerTests.DCJS_TypeWithOptionalField
+[STRT] DataContractJsonSerializerTests.DCJS_GetOonlyDictionary_UseSimpleDictionaryFormat
+[STRT] DataContractJsonSerializerTests.DCJS_TypeWithAllPrimitiveProperties
+[STRT] DataContractJsonSerializerTests.DCJS_EnumerableGenericMembers
+[STRT] DataContractJsonSerializerTests.DCJS_PrivateTypeSerialization
+[STRT] DataContractJsonSerializerTests.DCJS_KeyValuePairOfStringObject
+[STRT] DataContractJsonSerializerTests.DCJS_GenericICollectionOfDecimal
+[STRT] DataContractJsonSerializerTests.DCJS_MyISerializableType
+[STRT] DataContractJsonSerializerTests.DCJS_VerifySuppressTypeInformation
+[STRT] DataContractJsonSerializerTests.DCJS_EnumFlags
+[STRT] DataContractJsonSerializerTests.DCJS_TypeWithCollectionWithoutDefaultConstructor
+[STRT] DataContractJsonSerializerTests.DCJS_ArrayOfTypeWithPrimitiveProperties
+[STRT] DataContractJsonSerializerTests.DCJS_ArrayOfInt64
+[STRT] DataContractJsonSerializerTests.DCJS_GenericStack
+[STRT] DataContractJsonSerializerTests.DCJS_ObjectAsRoot
+[STRT] DataContractJsonSerializerTests.DCJS_NonGenericDictionaryOfInt32String
+[STRT] DataContractJsonSerializerTests.DCJS_JaggedArrayAsRoot
+[STRT] DataContractJsonSerializerTests.DCJS_CollectionGenericMembers
+[STRT] DataContractJsonSerializerTests.DCJS_UintAsRoot
+[STRT] DataContractJsonSerializerTests.DCJS_DoubleAsRoot
+[STRT] DataContractJsonSerializerTests.DCJS_ArrayOfDecimal
+[STRT] DataContractJsonSerializerTests.DCJS_DataMemberNames
+[STRT] DataContractJsonSerializerTests.DCJS_ArrayOfInt32
+[STRT] DataContractJsonSerializerTests.DCJS_DictionaryGenericMembers
+[STRT] DataContractJsonSerializerTests.DCJS_DifferentCollectionsOfSameTypeAsKnownTypes
+[STRT] DataContractJsonSerializerTests.DCJS_GenericICollectionOfInt64
+[STRT] DataContractJsonSerializerTests.DCJS_ConstructorWithRootNameAsXmlDictionaryString
+[STRT] DataContractJsonSerializerTests.DCJS_DateTimeAsRoot
+[STRT] DataContractJsonSerializerTests.DCJS_Stack
+[STRT] DataContractJsonSerializerTests.DCJS_Regression195109
+[STRT] DataContractJsonSerializerTests.DCJS_TypeNamesWithSpecialCharacters
+[STRT] DataContractJsonSerializerTests.DCJS_DeserializeTypeWithInnerInvalidDataContract
+[STRT] DataContractJsonSerializerTests.DCJS_TypeWithEmitDefaultValueFalse
+[STRT] DataContractJsonSerializerTests.DCJS_TypeWithNestedGenericClassImplementingIXmlSerializable
+[STRT] DataContractJsonSerializerTests.DCJS_ArrayAsGetOnly
+[STRT] DataContractJsonSerializerTests.DCJS_ArrayOfString
+[STRT] DataContractJsonSerializerTests.DCJS_TypeWithNonSerializedField
+[STRT] DataContractJsonSerializerTests.DCJS_GenericICollectionOfSingle
+[STRT] DataContractJsonSerializerTests.DCJS_EnumerableInterfaceGetOnlyCollection
+[STRT] DataContractJsonSerializerTests.DCJS_GenericICollectionOfInt32
+[STRT] DataContractJsonSerializerTests.DCJS_DateTimeFormatIsNull
+[STRT] DataContractJsonSerializerTests.DCJS_VerifyDateTimeForFormatStringDCJsonSerSetting
+[STRT] DataContractJsonSerializerTests.DCJS_DataMemberAttribute
+[STRT] DataContractJsonSerializerTests.DCJS_SortedList
+[STRT] DataContractJsonSerializerTests.DCJS_CollectionDataContractWithCustomKeyNameDuplicate
+[STRT] DataContractJsonSerializerTests.DCJS_DataContractWithMinusSignInName
+[STRT] DataContractJsonSerializerTests.DCJS_Queue
+[STRT] DataContractJsonSerializerTests.DCJS_SerializationEvents
+[STRT] DataContractJsonSerializerTests.DCJS_ValidateExceptionOnUnspecifiedRootSerializationType
+[STRT] DataContractJsonSerializerTests.DCJS_CollectionRoot
+[STRT] DataContractJsonSerializerTests.DCJS_DifferentDateTimeStylesForDeserialization
+[STRT] DataContractJsonSerializerTests.DCJS_TypesWithArrayOfOtherTypes
+[STRT] DataContractJsonSerializerTests.DCJS_ContainsLinkedList
+[STRT] DataContractJsonSerializerTests.DCJS_DictionaryMembers
+[STRT] DataContractJsonSerializerTests.DCJS_NonGenericDictionaryOfInt32Boolean
+[STRT] DataContractJsonSerializerTests.DCJS_ListMembers
+[STRT] DataContractJsonSerializerTests.DCJS_WithDuplicateNames
+[STRT] DataContractJsonSerializerTests.DCJS_GenericTypeWithPrivateSetter
+[STRT] DataContractJsonSerializerTests.DCJS_SbyteAsRoot
+[STRT] DataContractJsonSerializerTests.DCJS_ReadOnlyDictionary
+[STRT] DataContractJsonSerializerTests.DCJS_DCClassWithEnumAndStruct
+[STRT] DataContractJsonSerializerTests.DCJS_DataContractWithOperatorsInName
+[STRT] DataContractJsonSerializerTests.DCJS_CollectionMembers
+[STRT] DataContractJsonSerializerTests.DCJS_GenericDictionaryOfStringInt32
+[STRT] DataContractJsonSerializerTests.DCJS_NewLineChars
+[STRT] DataContractJsonSerializerTests.DCJS_ByteAsRoot
+[STRT] DataContractJsonSerializerTests.DCJS_TypeWithXmlElementProperty
+[STRT] DataContractJsonSerializerTests.DCJS_GenericTypeWithNestedGenerics
+Finished:    System.Runtime.Serialization.Json.Tests.dll
+Finished uploading 30620 bytes of RESULTXML
+Xml file was written to the provided writer.
+
+=== TEST EXECUTION SUMMARY ===
+Tests run: 160 Passed: 160 Inconclusive: 0 Failed: 0 Ignored: 0 Skipped: 0
+
+test-main.js exiting WasmTestRunner.dll System.Runtime.Serialization.Json.Tests.dll after 0.03791666666666667 minutes with result 0 and linear memory 231997440 bytes
+DOTNET: forceDisposeProxies done: 14 imports, 0 exports, 0 GCHandles, 0 JSHandles.
+WASM EXIT 0

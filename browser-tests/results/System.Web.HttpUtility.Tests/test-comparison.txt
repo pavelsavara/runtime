@@ -1,0 +1,9 @@
+Test Comparison: System.Web.HttpUtility.Tests
+Generated: 2026-02-01T16:14:24+01:00
+
+Mono tests:    2366
+CoreCLR tests: 2366
+
+=== Extra in CoreCLR (0) ===
+
+=== Missing in CoreCLR (0) ===

@@ -1,0 +1,49 @@
+Test Comparison: System.IO.MemoryMappedFiles.Tests
+Generated: 2026-02-01T16:21:23+01:00
+
+Mono tests:    384
+CoreCLR tests: 384
+
+=== Extra in CoreCLR (20) ===
+System.IO.MemoryMappedFiles.Tests.MemoryMappedFileTests_CreateFromFile.MapNamesNotSupported_Unix(mapName: \&quot;\\r \\t\\t\\n\\n\\t \\r\\t\\t\\n \\r  \\t \\n\\0\\0\\0\\0\\0\\0\\0\\0\\0\&quot;···)
+System.IO.MemoryMappedFiles.Tests.MemoryMappedFileTests_CreateFromFile.MapNamesNotSupported_Unix(mapName: \&quot;e8f9c0727e5c4237ab00c3587194e630aaaaaaaaaaaaaaaaaa\&quot;···)
+System.IO.MemoryMappedFiles.Tests.MemoryMappedFileTests_CreateFromFile.MapNamesNotSupported_Unix(mapName: \&quot;fa65354a23b8441fa6b6f1f9cfd2a56c\&quot;)
+System.IO.MemoryMappedFiles.Tests.MemoryMappedFileTests_CreateFromFile.MapNamesNotSupported_Unix(mapName: \&quot;global/a3934be59e344142a1a784e85541fb24\&quot;)
+System.IO.MemoryMappedFiles.Tests.MemoryMappedFileTests_CreateFromFile.MapNamesNotSupported_Unix(mapName: \&quot;local/71a5910e9e834f96b3281d214f8dffb8\&quot;)
+System.IO.MemoryMappedFiles.Tests.MemoryMappedFileTests_CreateNew.MapNamesNotSupported_Unix(mapName: \&quot;664d406a8e45413a9a925b0406aa63c9aaaaaaaaaaaaaaaaaa\&quot;···)
+System.IO.MemoryMappedFiles.Tests.MemoryMappedFileTests_CreateNew.MapNamesNotSupported_Unix(mapName: \&quot;\\n\\n\\n\\t\\n\\n\\r\\n  \\t\\t\\n\\t\\n\\r\\n\\t\\t\\0\\0\\0\\0\\0\\0\\0\&quot;···)
+System.IO.MemoryMappedFiles.Tests.MemoryMappedFileTests_CreateNew.MapNamesNotSupported_Unix(mapName: \&quot;f07af22f99124923a72950d4e6f0e7f7\&quot;)
+System.IO.MemoryMappedFiles.Tests.MemoryMappedFileTests_CreateNew.MapNamesNotSupported_Unix(mapName: \&quot;global/8a7df852102f4a57be7c134f68184c3f\&quot;)
+System.IO.MemoryMappedFiles.Tests.MemoryMappedFileTests_CreateNew.MapNamesNotSupported_Unix(mapName: \&quot;local/d036ec8ebc4c4ca293dea45154a44eae\&quot;)
+System.IO.MemoryMappedFiles.Tests.MemoryMappedFileTests_CreateOrOpen.MapNamesNotSupported_Unix(mapName: \&quot;37d02f778cb74c75a1d9c38a010518cc\&quot;)
+System.IO.MemoryMappedFiles.Tests.MemoryMappedFileTests_CreateOrOpen.MapNamesNotSupported_Unix(mapName: \&quot;427f2e53ee634584b650fa7df32d14dcaaaaaaaaaaaaaaaaaa\&quot;···)
+System.IO.MemoryMappedFiles.Tests.MemoryMappedFileTests_CreateOrOpen.MapNamesNotSupported_Unix(mapName: \&quot;\\t\\t\\t\\r\\r \\t \\r\\n \\r\\n\\n\\t\\n\\n\\n\\t\\0\\0\\0\\0\\0\\0\\0\\\&quot;···)
+System.IO.MemoryMappedFiles.Tests.MemoryMappedFileTests_CreateOrOpen.MapNamesNotSupported_Unix(mapName: \&quot;global/ed4e105512cc4ac78e84ca5d03541ac2\&quot;)
+System.IO.MemoryMappedFiles.Tests.MemoryMappedFileTests_CreateOrOpen.MapNamesNotSupported_Unix(mapName: \&quot;local/2dff0adc34c5401aaf75ddc79e9365fb\&quot;)
+System.IO.MemoryMappedFiles.Tests.MemoryMappedFileTests_OpenExisting.MapNamesNotSupported_Unix(mapName: \&quot;64b327b05c3447e9a7e7112ac49f7bc6aaaaaaaaaaaaaaaaaa\&quot;···)
+System.IO.MemoryMappedFiles.Tests.MemoryMappedFileTests_OpenExisting.MapNamesNotSupported_Unix(mapName: \&quot;\\t\\r\\n\\n\\t\\r\\t \\r\\r \\r\\t\\n\\t\\r\\t\\n \\0\\0\\0\\0\\0\\0\\0\\\&quot;···)
+System.IO.MemoryMappedFiles.Tests.MemoryMappedFileTests_OpenExisting.MapNamesNotSupported_Unix(mapName: \&quot;d9b36ba2373245bbb5a0faa8a59248c0\&quot;)
+System.IO.MemoryMappedFiles.Tests.MemoryMappedFileTests_OpenExisting.MapNamesNotSupported_Unix(mapName: \&quot;global/952acbae9fa74b4685fc1a4fa31b328f\&quot;)
+System.IO.MemoryMappedFiles.Tests.MemoryMappedFileTests_OpenExisting.MapNamesNotSupported_Unix(mapName: \&quot;local/ed78ab73383a498590bffb51c42cdc97\&quot;)
+
+=== Missing in CoreCLR (20) ===
+System.IO.MemoryMappedFiles.Tests.MemoryMappedFileTests_CreateFromFile.MapNamesNotSupported_Unix(mapName: \&quot;161ebac9a7624864b384523dd21b557caaaaaaaaaaaaaaaaaa\&quot;···)
+System.IO.MemoryMappedFiles.Tests.MemoryMappedFileTests_CreateFromFile.MapNamesNotSupported_Unix(mapName: \&quot;4a25571ae5c0436ea94b5d9fbd15f2e3\&quot;)
+System.IO.MemoryMappedFiles.Tests.MemoryMappedFileTests_CreateFromFile.MapNamesNotSupported_Unix(mapName: \&quot;\\r\\n\\n\\r \\n  \\r\\r\\r\\r\\n\\n\\r\\t\\t\\t\\t\\0\\0\\0\\0\\0\\0\\0\\\&quot;···)
+System.IO.MemoryMappedFiles.Tests.MemoryMappedFileTests_CreateFromFile.MapNamesNotSupported_Unix(mapName: \&quot;global/7d6443d3528a47d7908aa5a5986de784\&quot;)
+System.IO.MemoryMappedFiles.Tests.MemoryMappedFileTests_CreateFromFile.MapNamesNotSupported_Unix(mapName: \&quot;local/9f8c8004df8f4cd1b3b462ce83aba331\&quot;)
+System.IO.MemoryMappedFiles.Tests.MemoryMappedFileTests_CreateNew.MapNamesNotSupported_Unix(mapName: \&quot;151db0e383564cdbb11245ceb6a0b983aaaaaaaaaaaaaaaaaa\&quot;···)
+System.IO.MemoryMappedFiles.Tests.MemoryMappedFileTests_CreateNew.MapNamesNotSupported_Unix(mapName: \&quot;3e52547a86654088a2db53e8395fa23a\&quot;)
+System.IO.MemoryMappedFiles.Tests.MemoryMappedFileTests_CreateNew.MapNamesNotSupported_Unix(mapName: \&quot;\\r\\r\\t \\t\\r\\t\\t\\r\\r\\r\\n\\t\\n\\n\\n\\t\\t \\0\\0\\0\\0\\0\\0\\0\&quot;···)
+System.IO.MemoryMappedFiles.Tests.MemoryMappedFileTests_CreateNew.MapNamesNotSupported_Unix(mapName: \&quot;global/b9773b70a80d4b14abe4e51c93ffff0f\&quot;)
+System.IO.MemoryMappedFiles.Tests.MemoryMappedFileTests_CreateNew.MapNamesNotSupported_Unix(mapName: \&quot;local/d5c176c97802418c91d94743708d9506\&quot;)
+System.IO.MemoryMappedFiles.Tests.MemoryMappedFileTests_CreateOrOpen.MapNamesNotSupported_Unix(mapName: \&quot;4869f3d94e1048519c4c35c3f2bdc3acaaaaaaaaaaaaaaaaaa\&quot;···)
+System.IO.MemoryMappedFiles.Tests.MemoryMappedFileTests_CreateOrOpen.MapNamesNotSupported_Unix(mapName: \&quot;\\r\\n\\r \\n\\n\\r\\r\\r \\r\\r\\t\\r\\r\\r \\t \\0\\0\\0\\0\\0\\0\\0\\0\&quot;···)
+System.IO.MemoryMappedFiles.Tests.MemoryMappedFileTests_CreateOrOpen.MapNamesNotSupported_Unix(mapName: \&quot;b51ddb0d850c4ecdbca87ef3a72264b9\&quot;)
+System.IO.MemoryMappedFiles.Tests.MemoryMappedFileTests_CreateOrOpen.MapNamesNotSupported_Unix(mapName: \&quot;global/64cd88dbfff7488a8a77862ee0634846\&quot;)
+System.IO.MemoryMappedFiles.Tests.MemoryMappedFileTests_CreateOrOpen.MapNamesNotSupported_Unix(mapName: \&quot;local/c67f00756060497c84bf9003f7734ca7\&quot;)
+System.IO.MemoryMappedFiles.Tests.MemoryMappedFileTests_OpenExisting.MapNamesNotSupported_Unix(mapName: \&quot;1dc8fc6f94d241f6976d7dcb1ea9dc16\&quot;)
+System.IO.MemoryMappedFiles.Tests.MemoryMappedFileTests_OpenExisting.MapNamesNotSupported_Unix(mapName: \&quot;3a2e8f1e945b4a2390a98088e3dc2958aaaaaaaaaaaaaaaaaa\&quot;···)
+System.IO.MemoryMappedFiles.Tests.MemoryMappedFileTests_OpenExisting.MapNamesNotSupported_Unix(mapName: \&quot;\\n\\t \\n \\n\\n\\n \\r\\t\\t\\t\\n  \\t\\n\\n\\0\\0\\0\\0\\0\\0\\0\\0\\\&quot;···)
+System.IO.MemoryMappedFiles.Tests.MemoryMappedFileTests_OpenExisting.MapNamesNotSupported_Unix(mapName: \&quot;global/5bfc6e868b994769a3d3f28ea4c43170\&quot;)
+System.IO.MemoryMappedFiles.Tests.MemoryMappedFileTests_OpenExisting.MapNamesNotSupported_Unix(mapName: \&quot;local/9dc8efd2b04e46dc9ec25a11ccfd97cc\&quot;)

@@ -1,0 +1,149 @@
+Running in: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/143.0.0.0 Safari/537.36
+Running at: http://127.0.0.1:40977/index.html?arg=--setenv%3dXHARNESS_LOG_TEST_START%3dtrue&arg=--run&arg=WasmTestRunner.dll&arg=System.Runtime.CompilerServices.Unsafe.Tests.dll&arg=-notrait&arg=category%3dOuterLoop&arg=-notrait&arg=category%3dfailing&arg=-verbosity&arg=Info
+could not load /runArgs.json: 404. Ignoring
+Incoming arguments: --setenv=XHARNESS_LOG_TEST_START=true --run WasmTestRunner.dll System.Runtime.CompilerServices.Unsafe.Tests.dll -notrait category=OuterLoop -notrait category=failing -verbosity Info
+Application arguments: --run WasmTestRunner.dll System.Runtime.CompilerServices.Unsafe.Tests.dll -notrait category=OuterLoop -notrait category=failing -verbosity Info
+Initializing dotnet version 11.0.0 commit hash e31907b0fbca908ed525247a1dc38cc5fba7b0ff
+Using threadless Xunit runner
+Discovering: System.Runtime.CompilerServices.Unsafe.Tests.dll (method display = ClassAndMethod, method display options = None)
+Discovered:  System.Runtime.CompilerServices.Unsafe.Tests.dll (found 73 of 73 test cases)
+Starting:    System.Runtime.CompilerServices.Unsafe.Tests.dll
+[STRT] System.Runtime.CompilerServices.UnsafeTests.RefIsAddressLessThan
+[STRT] System.Runtime.CompilerServices.UnsafeTests.CopyToVoidPtr
+[STRT] System.Runtime.CompilerServices.UnsafeTests.InitBlockUnalignedStack(numBytes: 0, value: 1)
+[STRT] System.Runtime.CompilerServices.UnsafeTests.InitBlockUnalignedStack(numBytes: 1, value: 1)
+[STRT] System.Runtime.CompilerServices.UnsafeTests.InitBlockUnalignedStack(numBytes: 10, value: 0)
+[STRT] System.Runtime.CompilerServices.UnsafeTests.InitBlockUnalignedStack(numBytes: 10, value: 2)
+[STRT] System.Runtime.CompilerServices.UnsafeTests.InitBlockUnalignedStack(numBytes: 10, value: 255)
+[STRT] System.Runtime.CompilerServices.UnsafeTests.InitBlockUnalignedStack(numBytes: 10000, value: 255)
+[STRT] System.Runtime.CompilerServices.UnsafeTests.CopyToVoidPtrGenericStruct
+[STRT] System.Runtime.CompilerServices.UnsafeTests.WriteUnaligned_ByRef_StructManaged
+[STRT] System.Runtime.CompilerServices.UnsafeTests.ReadUnaligned_ByRef_Double
+[STRT] System.Runtime.CompilerServices.UnsafeTests.ByteOffsetConstantRef
+[STRT] System.Runtime.CompilerServices.UnsafeTests.Unbox_Int32
+[STRT] System.Runtime.CompilerServices.UnsafeTests.ByteOffsetArray
+[STRT] System.Runtime.CompilerServices.UnsafeTests.RefIsAddressLessThanOrEqualTo
+[STRT] System.Runtime.CompilerServices.UnsafeTests.RefAreSame
+[STRT] System.Runtime.CompilerServices.UnsafeTests.RefSubtractNuintByteOffset
+[STRT] System.Runtime.CompilerServices.UnsafeTests.CopyBlock(numBytes: 0)
+[STRT] System.Runtime.CompilerServices.UnsafeTests.CopyBlock(numBytes: 1)
+[STRT] System.Runtime.CompilerServices.UnsafeTests.CopyBlock(numBytes: 10)
+[STRT] System.Runtime.CompilerServices.UnsafeTests.CopyBlock(numBytes: 100)
+[STRT] System.Runtime.CompilerServices.UnsafeTests.CopyBlock(numBytes: 100000)
+[STRT] System.Runtime.CompilerServices.UnsafeTests.WriteUnaligned_Ptr_Double
+[STRT] System.Runtime.CompilerServices.UnsafeTests.WriteUnaligned_ByRef_Int32
+[STRT] System.Runtime.CompilerServices.UnsafeTests.WriteBytesIntoInt32
+[STRT] System.Runtime.CompilerServices.UnsafeTests.ReadUnaligned_ByRef_Int32
+[STRT] System.Runtime.CompilerServices.UnsafeTests.InitBlockUnalignedUnmanaged(numBytes: 0, value: 1)
+[STRT] System.Runtime.CompilerServices.UnsafeTests.InitBlockUnalignedUnmanaged(numBytes: 1, value: 1)
+[STRT] System.Runtime.CompilerServices.UnsafeTests.InitBlockUnalignedUnmanaged(numBytes: 10, value: 0)
+[STRT] System.Runtime.CompilerServices.UnsafeTests.InitBlockUnalignedUnmanaged(numBytes: 10, value: 2)
+[STRT] System.Runtime.CompilerServices.UnsafeTests.InitBlockUnalignedUnmanaged(numBytes: 10, value: 255)
+[STRT] System.Runtime.CompilerServices.UnsafeTests.InitBlockUnalignedUnmanaged(numBytes: 10000, value: 255)
+[STRT] System.Runtime.CompilerServices.UnsafeTests.WriteSpan
+[STRT] System.Runtime.CompilerServices.UnsafeTests.CopyBlockUnaligned(numBytes: 0)
+[STRT] System.Runtime.CompilerServices.UnsafeTests.CopyBlockUnaligned(numBytes: 1)
+[STRT] System.Runtime.CompilerServices.UnsafeTests.CopyBlockUnaligned(numBytes: 10)
+[STRT] System.Runtime.CompilerServices.UnsafeTests.CopyBlockUnaligned(numBytes: 100)
+[STRT] System.Runtime.CompilerServices.UnsafeTests.CopyBlockUnaligned(numBytes: 100000)
+[STRT] System.Runtime.CompilerServices.UnsafeTests.IsNullRef_NotNull
+[STRT] System.Runtime.CompilerServices.UnsafeTests.CopyBlockUnalignedRef(numBytes: 0)
+[STRT] System.Runtime.CompilerServices.UnsafeTests.CopyBlockUnalignedRef(numBytes: 1)
+[STRT] System.Runtime.CompilerServices.UnsafeTests.CopyBlockUnalignedRef(numBytes: 10)
+[STRT] System.Runtime.CompilerServices.UnsafeTests.CopyBlockUnalignedRef(numBytes: 100)
+[STRT] System.Runtime.CompilerServices.UnsafeTests.CopyBlockUnalignedRef(numBytes: 100000)
+[STRT] System.Runtime.CompilerServices.UnsafeTests.CopyToRefGenericStruct
+[STRT] System.Runtime.CompilerServices.UnsafeTests.ReadInt32
+[STRT] System.Runtime.CompilerServices.UnsafeTests.SizeOf
+[STRT] System.Runtime.CompilerServices.UnsafeTests.AsRef_RefStruct
+[STRT] System.Runtime.CompilerServices.UnsafeTests.InitBlockUnalignedRefStack(numBytes: 0, value: 1)
+[STRT] System.Runtime.CompilerServices.UnsafeTests.InitBlockUnalignedRefStack(numBytes: 1, value: 1)
+[STRT] System.Runtime.CompilerServices.UnsafeTests.InitBlockUnalignedRefStack(numBytes: 10, value: 0)
+[STRT] System.Runtime.CompilerServices.UnsafeTests.InitBlockUnalignedRefStack(numBytes: 10, value: 2)
+[STRT] System.Runtime.CompilerServices.UnsafeTests.InitBlockUnalignedRefStack(numBytes: 10, value: 255)
+[STRT] System.Runtime.CompilerServices.UnsafeTests.InitBlockUnalignedRefStack(numBytes: 10000, value: 255)
+[STRT] System.Runtime.CompilerServices.UnsafeTests.IsNullRef_Null
+[STRT] System.Runtime.CompilerServices.UnsafeTests.InitBlockStack(numBytes: 0, value: 1)
+[STRT] System.Runtime.CompilerServices.UnsafeTests.InitBlockStack(numBytes: 1, value: 1)
+[STRT] System.Runtime.CompilerServices.UnsafeTests.InitBlockStack(numBytes: 10, value: 0)
+[STRT] System.Runtime.CompilerServices.UnsafeTests.InitBlockStack(numBytes: 10, value: 2)
+[STRT] System.Runtime.CompilerServices.UnsafeTests.InitBlockStack(numBytes: 10, value: 255)
+[STRT] System.Runtime.CompilerServices.UnsafeTests.InitBlockStack(numBytes: 10000, value: 255)
+[STRT] System.Runtime.CompilerServices.UnsafeTests.RefSubtractByteOffset
+[STRT] System.Runtime.CompilerServices.UnsafeTests.InitBlockUnmanaged(numBytes: 0, value: 1)
+[STRT] System.Runtime.CompilerServices.UnsafeTests.InitBlockUnmanaged(numBytes: 1, value: 1)
+[STRT] System.Runtime.CompilerServices.UnsafeTests.InitBlockUnmanaged(numBytes: 10, value: 0)
+[STRT] System.Runtime.CompilerServices.UnsafeTests.InitBlockUnmanaged(numBytes: 10, value: 2)
+[STRT] System.Runtime.CompilerServices.UnsafeTests.InitBlockUnmanaged(numBytes: 10, value: 255)
+[STRT] System.Runtime.CompilerServices.UnsafeTests.InitBlockUnmanaged(numBytes: 10000, value: 255)
+[STRT] System.Runtime.CompilerServices.UnsafeTests.WriteUnaligned_Ptr_Int32
+[STRT] System.Runtime.CompilerServices.UnsafeTests.WriteInt32
+[STRT] System.Runtime.CompilerServices.UnsafeTests.RefIsAddressGreaterThanOrEqualTo
+[STRT] System.Runtime.CompilerServices.UnsafeTests.RefSubtractNuint
+[STRT] System.Runtime.CompilerServices.UnsafeTests.InAsRef
+[STRT] System.Runtime.CompilerServices.UnsafeTests.CopyToRef
+[STRT] System.Runtime.CompilerServices.UnsafeTests.VoidPointerAdd
+[STRT] System.Runtime.CompilerServices.UnsafeTests.WriteUnaligned_ByRef_Struct
+[STRT] System.Runtime.CompilerServices.UnsafeTests.WriteUnaligned_Ptr_Struct
+[STRT] System.Runtime.CompilerServices.UnsafeTests.ReadSpan
+[STRT] System.Runtime.CompilerServices.UnsafeTests.VoidPointerSubtract
+[STRT] System.Runtime.CompilerServices.UnsafeTests.ByteOffsetStackByte4
+[STRT] System.Runtime.CompilerServices.UnsafeTests.InitBlockRefStack(numBytes: 0, value: 1)
+[STRT] System.Runtime.CompilerServices.UnsafeTests.InitBlockRefStack(numBytes: 1, value: 1)
+[STRT] System.Runtime.CompilerServices.UnsafeTests.InitBlockRefStack(numBytes: 10, value: 0)
+[STRT] System.Runtime.CompilerServices.UnsafeTests.InitBlockRefStack(numBytes: 10, value: 2)
+[STRT] System.Runtime.CompilerServices.UnsafeTests.InitBlockRefStack(numBytes: 10, value: 255)
+[STRT] System.Runtime.CompilerServices.UnsafeTests.InitBlockRefStack(numBytes: 10000, value: 255)
+[STRT] System.Runtime.CompilerServices.UnsafeTests.DangerousAs
+[STRT] System.Runtime.CompilerServices.UnsafeTests.NullRef
+[STRT] System.Runtime.CompilerServices.UnsafeTests.RefIsAddressGreaterThan
+[STRT] System.Runtime.CompilerServices.UnsafeTests.RefAs
+[STRT] System.Runtime.CompilerServices.UnsafeTests.RefSubtractIntPtr
+[STRT] System.Runtime.CompilerServices.UnsafeTests.Unbox_CustomValueType
+[STRT] System.Runtime.CompilerServices.UnsafeTests.ReadUnaligned_Ptr_Int32
+[STRT] System.Runtime.CompilerServices.UnsafeTests.RefSubtract
+[STRT] System.Runtime.CompilerServices.UnsafeTests.ReadUnaligned_Ptr_Double
+[STRT] System.Runtime.CompilerServices.UnsafeTests.RefAddByteOffset
+[STRT] System.Runtime.CompilerServices.UnsafeTests.ReadUnaligned_ByRef_StructManaged
+[STRT] System.Runtime.CompilerServices.UnsafeTests.AsRef
+[STRT] System.Runtime.CompilerServices.UnsafeTests.LongIntoCompoundStruct
+[STRT] System.Runtime.CompilerServices.UnsafeTests.CopyBlockRef(numBytes: 0)
+[STRT] System.Runtime.CompilerServices.UnsafeTests.CopyBlockRef(numBytes: 1)
+[STRT] System.Runtime.CompilerServices.UnsafeTests.CopyBlockRef(numBytes: 10)
+[STRT] System.Runtime.CompilerServices.UnsafeTests.CopyBlockRef(numBytes: 100)
+[STRT] System.Runtime.CompilerServices.UnsafeTests.CopyBlockRef(numBytes: 100000)
+[STRT] System.Runtime.CompilerServices.UnsafeTests.ReadWriteDoublePointer
+[STRT] System.Runtime.CompilerServices.UnsafeTests.RefAddNuint
+[STRT] System.Runtime.CompilerServices.UnsafeTests.RefAddNuintByteOffset
+[STRT] System.Runtime.CompilerServices.UnsafeTests.RefAddIntPtr_RefStruct
+[STRT] System.Runtime.CompilerServices.UnsafeTests.SkipInit
+[STRT] System.Runtime.CompilerServices.UnsafeTests.WriteUnaligned_ByRef_Double
+[STRT] System.Runtime.CompilerServices.UnsafeTests.ReadUnaligned_ByRef_Struct
+[STRT] System.Runtime.CompilerServices.UnsafeTests.SkipInit_PreservesPrevious
+[STRT] System.Runtime.CompilerServices.UnsafeTests.RefAddIntPtr
+[STRT] System.Runtime.CompilerServices.UnsafeTests.RefAdd
+[STRT] System.Runtime.CompilerServices.UnsafeTests.InitBlockUnalignedRefUnmanaged(numBytes: 0, value: 1)
+[STRT] System.Runtime.CompilerServices.UnsafeTests.InitBlockUnalignedRefUnmanaged(numBytes: 1, value: 1)
+[STRT] System.Runtime.CompilerServices.UnsafeTests.InitBlockUnalignedRefUnmanaged(numBytes: 10, value: 0)
+[STRT] System.Runtime.CompilerServices.UnsafeTests.InitBlockUnalignedRefUnmanaged(numBytes: 10, value: 2)
+[STRT] System.Runtime.CompilerServices.UnsafeTests.InitBlockUnalignedRefUnmanaged(numBytes: 10, value: 255)
+[STRT] System.Runtime.CompilerServices.UnsafeTests.InitBlockUnalignedRefUnmanaged(numBytes: 10000, value: 255)
+[STRT] System.Runtime.CompilerServices.UnsafeTests.As
+[STRT] System.Runtime.CompilerServices.UnsafeTests.BitCast
+[STRT] System.Runtime.CompilerServices.UnsafeTests.InitBlockRefUnmanaged(numBytes: 0, value: 1)
+[STRT] System.Runtime.CompilerServices.UnsafeTests.InitBlockRefUnmanaged(numBytes: 1, value: 1)
+[STRT] System.Runtime.CompilerServices.UnsafeTests.InitBlockRefUnmanaged(numBytes: 10, value: 0)
+[STRT] System.Runtime.CompilerServices.UnsafeTests.InitBlockRefUnmanaged(numBytes: 10, value: 2)
+[STRT] System.Runtime.CompilerServices.UnsafeTests.InitBlockRefUnmanaged(numBytes: 10, value: 255)
+[STRT] System.Runtime.CompilerServices.UnsafeTests.InitBlockRefUnmanaged(numBytes: 10000, value: 255)
+[STRT] System.Runtime.CompilerServices.UnsafeTests.ReadUnaligned_Ptr_Struct
+Finished:    System.Runtime.CompilerServices.Unsafe.Tests.dll
+Finished uploading 27093 bytes of RESULTXML
+Xml file was written to the provided writer.
+
+=== TEST EXECUTION SUMMARY ===
+Tests run: 129 Passed: 129 Inconclusive: 0 Failed: 0 Ignored: 0 Skipped: 0
+
+test-main.js exiting WasmTestRunner.dll System.Runtime.CompilerServices.Unsafe.Tests.dll after 0.0766 minutes with result 0 and linear memory 193331200 bytes
+DOTNET: forceDisposeProxies done: 14 imports, 0 exports, 0 GCHandles, 0 JSHandles.
+WASM EXIT 0

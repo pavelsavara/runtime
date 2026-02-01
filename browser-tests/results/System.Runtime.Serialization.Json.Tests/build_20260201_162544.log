@@ -1,0 +1,273 @@
+
+  Determining projects to restore...
+  Restored /home/pavelsavara/dev/runtime/src/libraries/System.Runtime.Serialization.Json/tests/System.Runtime.Serialization.Json.Tests.csproj (in 134 ms).
+  3 of 4 projects are up-to-date for restore.
+  TestUtilities -> /home/pavelsavara/dev/runtime/artifacts/bin/TestUtilities/Release/net10.0/TestUtilities.dll
+  WasmTriggerPublishApp for CoreCLR not implemented
+  System.Runtime.Serialization.Json.Tests -> /home/pavelsavara/dev/runtime/artifacts/bin/System.Runtime.Serialization.Json.Tests/Release/net11.0/browser-wasm/System.Runtime.Serialization.Json.Tests.dll
+  export SCENARIO=WasmTestOnChrome
+  export XUNIT_HIDE_PASSING_OUTPUT_DIAGNOSTICS=1
+  export PREPEND_PATH=/home/pavelsavara/dev/runtime/artifacts/bin/chromedriver/chromedriver_linux64
+  export RuntimeIdentifier=browser-wasm
+  PATH=/home/pavelsavara/dev/runtime/artifacts/bin/chromedriver/chromedriver_linux64:/home/pavelsavara/.jsvu/bin:/home/pavelsavara/dev/runtime/.dotnet:/home/pavelsavara/dev/runtime/.dotnet:/home/pavelsavara/dev/runtime/.dotnet:/home/pavelsavara/dev/runtime/.dotnet:/home/pavelsavara/dev/runtime/.dotnet:/home/pavelsavara/dev/runtime/.dotnet:/home/pavelsavara/dev/runtime/.dotnet:/home/pavelsavara/dev/runtime/.dotnet:/home/pavelsavara/dev/runtime/.dotnet:/home/pavelsavara/dev/runtime/.dotnet:/home/pavelsavara/dev/runtime/.dotnet:/home/pavelsavara/dev/runtime/.dotnet:/home/pavelsavara/dev/runtime/.dotnet:/home/pavelsavara/bin:/home/pavelsavara/dev/.dotnet:/home/pavelsavara/.vscode-server/data/User/globalStorage/github.copilot-chat/debugCommand:/home/pavelsavara/.vscode-server/data/User/globalStorage/github.copilot-chat/copilotCli:/home/pavelsavara/.vscode-server/bin/c9d77990917f3102ada88be140d28b038d1dd7c7/bin/remote-cli:/home/pavelsavara/bin:/home/pavelsavara/bin:/home/pavelsavara/dev/.dotnet:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/windows/system32:/mnt/c/windows:/mnt/d/.dotnet/:/mnt/c/windows/System32/Wbem:/mnt/c/windows/System32/WindowsPowerShell/v1.0/:/mnt/c/windows/System32/OpenSSH/:/mnt/c/Program Files/HP/HP One Agent:/mnt/c/Program Files/nodejs/:/mnt/c/Program Files/Meld/:/mnt/c/Program Files/dotnet/:/mnt/c/Program Files/Git/cmd:/mnt/c/Program Files/PuTTY/:/mnt/c/Program Files/PowerShell/7/:/mnt/c/Program Files/Microsoft SQL Server/170/Tools/Binn/:/mnt/c/Program Files/GitExtensions/:/mnt/c/Program Files/GitHub CLI/:/mnt/d/bin:/mnt/d/.dotnet/:/mnt/c/Users/pavelsavara/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/pavelsavara/AppData/Local/Programs/MicrosoftVSCode/bin:/mnt/c/Users/pavelsavara/AppData/Roaming/npm:/mnt/c/Users/pavelsavara/AppData/Local/Programs/Python/Python310/:/mnt/c/Users/pavelsavara/AppData/Local/Programs/Python/Python310/Scripts/:/mnt/c/Users/pavelsavara/AppData/Local/Microsoft/WinGet/Packages/GitHub.Copilot.Prerelease_Microsoft.Winget.Source_8wekyb3d8bbwe:/mnt/c/Users/pavelsavara/.dotnet/tools:/snap/bin
+  EXECUTION_DIR=/home/pavelsavara/dev/runtime/artifacts/bin/System.Runtime.Serialization.Json.Tests/Release/net11.0/browser-wasm/wwwroot
+  SCENARIO=WasmTestOnChrome
+  XHARNESS_OUT=/home/pavelsavara/dev/runtime/artifacts/bin/System.Runtime.Serialization.Json.Tests/Release/net11.0/browser-wasm/wwwroot/xharness-output
+  XHARNESS_CLI_PATH=
+  HARNESS_RUNNER=dotnet xharness
+  XHARNESS_COMMAND=test-browser
+  MAIN_JS=
+  JS_ENGINE=
+  JS_ENGINE_ARGS=--browser-arg=--js-flags=--stack-trace-limit=1000
+  XHARNESS_ARGS= --browser-arg=--js-flags=--stack-trace-limit=1000
+  ~/dev/runtime/artifacts/bin/System.Runtime.Serialization.Json.Tests/Release/net11.0/browser-wasm/wwwroot ~/dev/runtime/src/libraries/System.Runtime.Serialization.Json/tests
+  ----- start Sun Feb 1 16:25:47 CET 2026 =============== To repro directly: =====================================================
+  pushd /home/pavelsavara/dev/runtime/artifacts/bin/System.Runtime.Serialization.Json.Tests/Release/net11.0/browser-wasm/wwwroot
+  dotnet xharness wasm test-browser --app=. --output-directory=/home/pavelsavara/dev/runtime/artifacts/bin/System.Runtime.Serialization.Json.Tests/Release/net11.0/browser-wasm/wwwroot/xharness-output -s dotnet.native.js.symbols --symbol-patterns wasm-symbol-patterns.txt --symbolicator WasmSymbolicator.dll,Microsoft.WebAssembly.Internal.SymbolicatorWrapperForXHarness --browser-path=/home/pavelsavara/dev/runtime/artifacts/bin/chrome/chrome-linux/chrome --timeout=00:30:00  --browser-arg=--js-flags=--stack-trace-limit=1000   --  --setenv=XHARNESS_LOG_TEST_START=true  --run WasmTestRunner.dll System.Runtime.Serialization.Json.Tests.dll  -notrait category=OuterLoop -notrait category=failing 
+  popd
+  ===========================================================================================================
+  ~/dev/runtime/artifacts/bin/System.Runtime.Serialization.Json.Tests/Release/net11.0/browser-wasm/wwwroot ~/dev/runtime/artifacts/bin/System.Runtime.Serialization.Json.Tests/Release/net11.0/browser-wasm/wwwroot ~/dev/runtime/src/libraries/System.Runtime.Serialization.Json/tests
+  [11.0.0-prerelease.26064.3+31e0b8e08f57890f7b7004b93361d69cd4b21079] XHarness command issued: wasm test-browser --app=. --output-directory=/home/pavelsavara/dev/runtime/artifacts/bin/System.Runtime.Serialization.Json.Tests/Release/net11.0/browser-wasm/wwwroot/xharness-output -s dotnet.native.js.symbols --symbol-patterns wasm-symbol-patterns.txt --symbolicator WasmSymbolicator.dll,Microsoft.WebAssembly.Internal.SymbolicatorWrapperForXHarness --browser-path=/home/pavelsavara/dev/runtime/artifacts/bin/chrome/chrome-linux/chrome --timeout=00:30:00 --browser-arg=--js-flags=--stack-trace-limit=1000 -- --setenv=XHARNESS_LOG_TEST_START=true --run WasmTestRunner.dll System.Runtime.Serialization.Json.Tests.dll -notrait category=OuterLoop -notrait category=failing
+  [40m[1m[33mwarn[39m[22m[49m: Cannot find symbols file dotnet.native.js.symbols
+  [40m[32minfo[39m[22m[49m: Using Chrome from /home/pavelsavara/dev/runtime/artifacts/bin/chrome/chrome-linux/chrome
+  [40m[32minfo[39m[22m[49m: Starting chromedriver with args: --js-flags=--stack-trace-limit=1000 --headless --incognito --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-renderer-backgrounding --enable-features=NetworkService,NetworkServiceInProcess --allow-insecure-localhost --disable-breakpad --disable-component-extensions-with-background-pages --disable-dev-shm-usage --disable-extensions --disable-features=TranslateUI --disable-ipc-flooding-protection --force-color-profile=srgb --metrics-recording-only and load strategy: Normal
+  Starting ChromeDriver 143.0.7499.0 (0000000000000000000000000000000000000000-0000000000000000000000000000000000000000) on port 36403
+  Only local connections are allowed.
+  Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
+  ChromeDriver was started successfully on port 36403.
+  [40m[32minfo[39m[22m[49m: Running in: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/143.0.0.0 Safari/537.36
+  [40m[32minfo[39m[22m[49m: Running at: http://127.0.0.1:35917/index.html?arg=--setenv%3dXHARNESS_LOG_TEST_START%3dtrue&arg=--run&arg=WasmTestRunner.dll&arg=System.Runtime.Serialization.Json.Tests.dll&arg=-notrait&arg=category%3dOuterLoop&arg=-notrait&arg=category%3dfailing&arg=-verbosity&arg=Info
+  [40m[32minfo[39m[22m[49m: could not load /runArgs.json: 404. Ignoring
+  [40m[32minfo[39m[22m[49m: Incoming arguments: --setenv=XHARNESS_LOG_TEST_START=true --run WasmTestRunner.dll System.Runtime.Serialization.Json.Tests.dll -notrait category=OuterLoop -notrait category=failing -verbosity Info
+  [40m[32minfo[39m[22m[49m: Application arguments: --run WasmTestRunner.dll System.Runtime.Serialization.Json.Tests.dll -notrait category=OuterLoop -notrait category=failing -verbosity Info
+  [40m[32minfo[39m[22m[49m: Initializing dotnet version 11.0.0 commit hash e31907b0fbca908ed525247a1dc38cc5fba7b0ff
+  [40m[32minfo[39m[22m[49m: Using threadless Xunit runner
+  [40m[32minfo[39m[22m[49m: Discovering: System.Runtime.Serialization.Json.Tests.dll (method display = ClassAndMethod, method display options = None)
+  [40m[32minfo[39m[22m[49m: Discovered:  System.Runtime.Serialization.Json.Tests.dll (found 161 of 173 test cases)
+  [40m[32minfo[39m[22m[49m: Starting:    System.Runtime.Serialization.Json.Tests.dll
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_ListMembers
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_ByteArrayAsRoot
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_CollectionInterfaceGetOnlyCollection
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_CollectionMembers
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_ArrayOfInt32
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_ObjectArrayAsObject
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_GenericDictionaryOfInt32Boolean
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_CollectionGenericMembers
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_Tuple
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_NonGenericDictionaryOfStringInt32
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_ExtensionDataObjectTest
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_TypeNamesWithSpecialCharacters
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_KnownTypesThroughConstructor
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_XmlElementAsRoot
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_WithDuplicateNames
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_DictionaryWithTypeSimpleWithDictionaryMembers
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_TypeWithNestedGenericClassImplementingIXmlSerializable
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_GenericTypeWithPrivateSetter
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_CreateJsonReaderTest
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_SimpleCollectionDataContract
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_CharAsRoot
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_TimeOnlyAsRoot
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_ArrayOfTypeWithPrimitiveProperties
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_TypeWithPrimitiveProperties
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_Stack
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_NewLineChars
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_GenericICollectionOfInt32
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_GenericDictionaryOfInt32String
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_InvalidDataContract_Write_Invalid_Types_Throws
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_DictionaryGenericRoot
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_ReadOnlyDictionaryCausingDuplicateInvalidDataContract
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_ArrayAsGetOnly
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_ShortAsRoot
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_LongAsRoot
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_BuiltInTypes
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_DateOnlyAsRoot
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_NegativeDateTimeStylesTest_IncorrectDateTimeStyles
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_JaggedArrayAsRoot
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_WithXElement
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_ByteAsRoot
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_RoundtrippingDateTime
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_DataMemberAttribute
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_DifferentCollectionsOfSameTypeAsKnownTypes
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_WithXElementWithNestedXElement
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_ArrayOfString
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_TypeWithAllPrimitiveProperties
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_GenericTypeWithNestedGenerics
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_DataContractWithMinusSignInName
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_GenericStack
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_Queue
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_ArrayOfBoolean
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_TypeWithEmitDefaultValueFalse
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_InternalTypeSerialization
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_ArrayOfInt64
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_EmptyString_Throws
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_ArrayAsRoot
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_EnumerableRoot
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_VerifySuppressTypeInformation
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_GenericICollectionOfSingle
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_TypeWithPrimitiveFields
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_GenericICollectionOfString
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DSJS_ThrowExceptionOnDispose
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_ListRoot
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_CollectionRoot
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_ConstructorWithRootName
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_TypeWithXmlElementProperty
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_EnumerableMembers
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_DictionaryWithVariousKeyValueTypes
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_DataContractAttribute
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_IgnoreDataMemberAttribute
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_TypeWithDateTimeStringProperty
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_TimeSpanAsRoot
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_XmlQualifiedNameAsRoot
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_NonGenericDictionaryOfInt32String
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_DeserializeTypeWithInnerInvalidDataContract
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_ArrayOfDouble
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_FloatAsRoot_NotNetFramework
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_XElementAsRoot
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_NegativeDateTimeStylesTest_IncorrectFormat
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_GenericDictionaryOfStringInt32
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_SerializationEvents
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_UshortAsRoot
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_EnumAsMember
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_ClassImplementingIXmlSerializable
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_ReadOnlyCollection
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_UintAsRoot
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_GenericICollectionOfInt64
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_EnumerableCollection
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_DataMemberNames
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_UlongAsRoot
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_NonGenericDictionaryOfInt32Boolean
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_VerifyDateTimeForFormatStringDCJsonSerSettings
+  [40m[32minfo[39m[22m[49m: [FAIL] DataContractJsonSerializerTests.DCJS_VerifyDateTimeForFormatStringDCJsonSerSettings
+  [40m[32minfo[39m[22m[49m: System.BadImageFormatException : An attempt was made to load a program with an incorrect format.
+  [40m[32minfo[39m[22m[49m:  (0x8007000B)
+  [40m[32minfo[39m[22m[49m:    at System.Signature.Init(ObjectHandleOnStack _this, Void* pCorSig, Int32 cCorSig, RuntimeFieldHandleInternal fieldHandle, RuntimeMethodHandleInternal methodHandle)
+  [40m[32minfo[39m[22m[49m:    at System.Signature.Init(Void* pCorSig, Int32 cCorSig, RuntimeFieldHandleInternal fieldHandle, RuntimeMethodHandleInternal methodHandle)
+  [40m[32minfo[39m[22m[49m:    at System.Signature..ctor(IRuntimeMethodInfo methodHandle, RuntimeType declaringType)
+  [40m[32minfo[39m[22m[49m:    at System.Reflection.RuntimeMethodInfo.<get_Signature>g__LazyCreateSignature|27_0()
+  [40m[32minfo[39m[22m[49m:    at System.Reflection.RuntimeMethodInfo.FetchNonReturnParameters()
+  [40m[32minfo[39m[22m[49m:    at System.Reflection.RuntimeMethodInfo.GetParametersAsSpan()
+  [40m[32minfo[39m[22m[49m:    at System.RuntimeType.FilterApplyMethodBase(MethodBase methodBase, BindingFlags methodFlags, BindingFlags bindingFlags, CallingConventions callConv, Type[] argumentTypes)
+  [40m[32minfo[39m[22m[49m:    at System.RuntimeType.FilterApplyMethodInfo(RuntimeMethodInfo method, BindingFlags bindingFlags, CallingConventions callConv, Type[] argumentTypes)
+  [40m[32minfo[39m[22m[49m:    at System.RuntimeType.GetMethodCandidates(String name, Int32 genericParameterCount, BindingFlags bindingAttr, CallingConventions callConv, Type[] types, Boolean allowPrefixLookup)
+  [40m[32minfo[39m[22m[49m:    at System.RuntimeType.GetMethodImplCommon(String name, Int32 genericParameterCount, BindingFlags bindingAttr, Binder binder, CallingConventions callConv, Type[] types, ParameterModifier[] modifiers)
+  [40m[32minfo[39m[22m[49m:    at System.RuntimeType.GetMethodImpl(String name, BindingFlags bindingAttr, Binder binder, CallingConventions callConv, Type[] types, ParameterModifier[] modifiers)
+  [40m[32minfo[39m[22m[49m:    at System.Type.GetMethod(String name, BindingFlags bindingAttr, Binder binder, CallingConventions callConvention, Type[] types, ParameterModifier[] modifiers)
+  [40m[32minfo[39m[22m[49m:    at System.Type.GetMethod(String name, BindingFlags bindingAttr, Binder binder, Type[] types, ParameterModifier[] modifiers)
+  [40m[32minfo[39m[22m[49m:    at System.Type.GetMethod(String name, BindingFlags bindingAttr, Type[] types)
+  [40m[32minfo[39m[22m[49m:    at System.Runtime.Serialization.Json.JsonFormatWriterGenerator.CriticalHelper.WriteCollection(CollectionDataContract collectionContract)
+  [40m[32minfo[39m[22m[49m:    at System.Runtime.Serialization.Json.JsonFormatWriterGenerator.CriticalHelper.GenerateCollectionWriter(CollectionDataContract collectionContract)
+  [40m[32minfo[39m[22m[49m:    at System.Runtime.Serialization.Json.JsonFormatWriterGenerator.GenerateCollectionWriter(CollectionDataContract collectionContract)
+  [40m[32minfo[39m[22m[49m:    at System.Runtime.Serialization.Json.JsonCollectionDataContract.get_JsonFormatWriterDelegate()
+  [40m[32minfo[39m[22m[49m:    at System.Runtime.Serialization.Json.JsonCollectionDataContract.WriteJsonValueCore(XmlWriterDelegator jsonWriter, Object obj, XmlObjectSerializerWriteContextComplexJson context, RuntimeTypeHandle declaredTypeHandle)
+  [40m[32minfo[39m[22m[49m:    at System.Runtime.Serialization.Json.JsonDataContract.WriteJsonValue(XmlWriterDelegator jsonWriter, Object obj, XmlObjectSerializerWriteContextComplexJson context, RuntimeTypeHandle declaredTypeHandle)
+  [40m[32minfo[39m[22m[49m:    at System.Runtime.Serialization.Json.DataContractJsonSerializer.WriteJsonValue(JsonDataContract contract, XmlWriterDelegator writer, Object graph, XmlObjectSerializerWriteContextComplexJson context, RuntimeTypeHandle declaredTypeHandle)
+  [40m[32minfo[39m[22m[49m:    at System.Runtime.Serialization.Json.XmlObjectSerializerWriteContextComplexJson.WriteDataContractValue(DataContract dataContract, XmlWriterDelegator xmlWriter, Object obj, RuntimeTypeHandle declaredTypeHandle)
+  [40m[32minfo[39m[22m[49m:    at System.Runtime.Serialization.XmlObjectSerializerWriteContext.SerializeWithoutXsiType(DataContract dataContract, XmlWriterDelegator xmlWriter, Object obj, RuntimeTypeHandle declaredTypeHandle)
+  [40m[32minfo[39m[22m[49m:    at System.Runtime.Serialization.Json.DataContractJsonSerializer.InternalWriteObjectContent(XmlWriterDelegator writer, Object graph)
+  [40m[32minfo[39m[22m[49m:    at System.Runtime.Serialization.Json.DataContractJsonSerializer.InternalWriteObject(XmlWriterDelegator writer, Object graph)
+  [40m[32minfo[39m[22m[49m:    at System.Runtime.Serialization.XmlObjectSerializer.InternalWriteObject(XmlWriterDelegator writer, Object graph, DataContractResolver dataContractResolver)
+  [40m[32minfo[39m[22m[49m:    at System.Runtime.Serialization.XmlObjectSerializer.WriteObjectHandleExceptions(XmlWriterDelegator writer, Object graph, DataContractResolver dataContractResolver)
+  [40m[32minfo[39m[22m[49m:    at System.Runtime.Serialization.XmlObjectSerializer.WriteObjectHandleExceptions(XmlWriterDelegator writer, Object graph)
+  [40m[32minfo[39m[22m[49m:    at System.Runtime.Serialization.Json.DataContractJsonSerializer.WriteObject(XmlDictionaryWriter writer, Object graph)
+  [40m[32minfo[39m[22m[49m:    at System.Runtime.Serialization.Json.DataContractJsonSerializer.WriteObject(Stream stream, Object graph)
+  [40m[32minfo[39m[22m[49m:    at DataContractJsonSerializerTests.SerializeAndDeserialize[T](T value, String baseline, DataContractJsonSerializerSettings settings, Func`1 serializerFactory, Boolean skipStringCompare)
+  [40m[32minfo[39m[22m[49m:    at DataContractJsonSerializerTests.DCJS_VerifyDateTimeForFormatStringDCJsonSerSettings()
+  [40m[32minfo[39m[22m[49m:    at System.RuntimeMethodHandle.InvokeMethod(ObjectHandleOnStack target, Void** arguments, ObjectHandleOnStack sig, BOOL isConstructor, ObjectHandleOnStack result)
+  [40m[32minfo[39m[22m[49m:    at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+  [40m[32minfo[39m[22m[49m:    at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+  [40m[32minfo[39m[22m[49m:    at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_CollectionDataContractWithCustomKeyNameDuplicate
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_TypeWithInternalDefaultConstructor
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_Dictionary_UseSimpleDictionaryFormat_VariousKeyTypes
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_DifferentDateTimeStylesForDeserialization
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_DecimalAsRoot
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_ArrayOfDecimal
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_SystemVersion
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_FloatAsRoot
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_EnumerableStruct
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_StringAsRoot_BackwardCompatibility
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_EnumerableGenericRoot
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_ArrayAsGetSet
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_DateTimeAsRoot
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_DataContractWithDotInName
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_GenericICollectionOfDecimal
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_EnumerableInterfaceGetOnlyCollection
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_GetOonlyDictionary_UseSimpleDictionaryFormat
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_GenericICollectionOfTypeWithPrimitiveProperties
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_SbyteAsRoot
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_VerifyDateTimeForFormatStringDCJsonSerSetting
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_DoubleAsRoot
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_ConcurrentDictionary
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_DictionaryMembers
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_CollectionDataContractWithCustomKeyName
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_ArrayOfDateTime
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_CreateJsonWriterTest
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_GenericICollectionOfDouble
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_TypeWithInternalDefaultConstructorWithoutDataContractAttribute
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_DateTimeFormatIsNull
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_TypeWithOptionalField
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_RecursiveCollection
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_UriAsRoot
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_GenericQueue
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_ClassWithDatetimeOffsetTypeProperty
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_SortedList
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_WithArrayOfXElement
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_KeyValuePair
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_DataContractWithOperatorsInName
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_ArrayOfSingle
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_EnumAsRoot
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_TypeWithNonSerializedField
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_SquareWithDeserializationCallback
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_DCClassWithEnumAndStruct
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_CustomType
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_VerifyDateTimeForDateTimeFormat
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_ObjectAsRoot
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_ContainsLinkedList
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_ValidateExceptionOnUnspecifiedRootSerializationType
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_TypesWithArrayOfOtherTypes
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_IntAsRoot
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_DictionaryGenericMembers
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_ExtensionDataObjectTest2
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_BoolAsRoot
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_MyISerializableType
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_ConstructorWithRootNameAsXmlDictionaryString
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_ReadOnlyDictionary
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_EnumFlags
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_DeserializeEmptyString
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_DictionaryRoot
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_CollectionGenericRoot
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_Regression195109
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_TypeWithCollectionWithoutDefaultConstructor
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_StringAsRoot
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_PrivateTypeSerialization
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_KeyValuePairOfStringObject
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_GuidAsRoot
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_DataContractWithOtherSymbolsInName
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_GenericICollectionOfBoolean
+  [40m[32minfo[39m[22m[49m: [STRT] DataContractJsonSerializerTests.DCJS_EnumerableGenericMembers
+  [40m[32minfo[39m[22m[49m: Finished:    System.Runtime.Serialization.Json.Tests.dll
+  [40m[32minfo[39m[22m[49m: Stored /home/pavelsavara/dev/runtime/artifacts/bin/System.Runtime.Serialization.Json.Tests/Release/net11.0/browser-wasm/wwwroot/xharness-output/testResults.xml results 36434 bytes
+  [40m[32minfo[39m[22m[49m: Finished uploading 36434 bytes of RESULTXML
+  [40m[32minfo[39m[22m[49m: Xml file was written to the provided writer.
+  [40m[32minfo[39m[22m[49m: 
+  [40m[32minfo[39m[22m[49m: === TEST EXECUTION SUMMARY ===
+  [40m[32minfo[39m[22m[49m: Tests run: 161 Passed: 160 Inconclusive: 0 Failed: 1 Ignored: 0 Skipped: 0
+  [40m[32minfo[39m[22m[49m: 
+  [40m[32minfo[39m[22m[49m: test-main.js exiting WasmTestRunner.dll System.Runtime.Serialization.Json.Tests.dll after 0.03978333333333333 minutes with result 1 and linear memory 231997440 bytes
+  [40m[32minfo[39m[22m[49m: WASM EXIT 1
+  [40m[32minfo[39m[22m[49m: Waiting to flush log messages with a timeout of 120 secs ..
+  [41m[30mfail[39m[22m[49m: Application has finished with exit code TESTS_FAILED but 0 was expected
+  [40m[32minfo[39m[22m[49m: Closing 1 browser tabs before setting the main tab to config page and quitting.
+  XHarness exit code: 71 (GENERAL_FAILURE)
+  ~/dev/runtime/artifacts/bin/System.Runtime.Serialization.Json.Tests/Release/net11.0/browser-wasm/wwwroot ~/dev/runtime/src/libraries/System.Runtime.Serialization.Json/tests
+  ----- end Sun Feb 1 16:25:52 CET 2026 ----- exit code 71 ----------------------------------------------------------
+  XHarness artifacts: /home/pavelsavara/dev/runtime/artifacts/bin/System.Runtime.Serialization.Json.Tests/Release/net11.0/browser-wasm/wwwroot/xharness-output
+/home/pavelsavara/dev/runtime/eng/testing/tests.targets(206,5): error : One or more tests failed while running tests from 'System.Runtime.Serialization.Json.Tests'. [/home/pavelsavara/dev/runtime/src/libraries/System.Runtime.Serialization.Json/tests/System.Runtime.Serialization.Json.Tests.csproj]
+
+Build FAILED.
+
+/home/pavelsavara/dev/runtime/eng/testing/tests.targets(206,5): error : One or more tests failed while running tests from 'System.Runtime.Serialization.Json.Tests'. [/home/pavelsavara/dev/runtime/src/libraries/System.Runtime.Serialization.Json/tests/System.Runtime.Serialization.Json.Tests.csproj]
+    0 Warning(s)
+    1 Error(s)
+
+Time Elapsed 00:00:07.65

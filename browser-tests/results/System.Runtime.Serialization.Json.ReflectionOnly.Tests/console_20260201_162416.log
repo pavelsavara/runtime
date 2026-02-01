@@ -1,0 +1,368 @@
+Running in: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/143.0.0.0 Safari/537.36
+Running at: http://127.0.0.1:45559/index.html?arg=--setenv%3dXHARNESS_LOG_TEST_START%3dtrue&arg=--run&arg=WasmTestRunner.dll&arg=System.Runtime.Serialization.Json.ReflectionOnly.Tests.dll&arg=-notrait&arg=category%3dOuterLoop&arg=-notrait&arg=category%3dfailing&arg=-verbosity&arg=Info
+could not load /runArgs.json: 404. Ignoring
+Incoming arguments: --setenv=XHARNESS_LOG_TEST_START=true --run WasmTestRunner.dll System.Runtime.Serialization.Json.ReflectionOnly.Tests.dll -notrait category=OuterLoop -notrait category=failing -verbosity Info
+Application arguments: --run WasmTestRunner.dll System.Runtime.Serialization.Json.ReflectionOnly.Tests.dll -notrait category=OuterLoop -notrait category=failing -verbosity Info
+Initializing dotnet version 11.0.0 commit hash e31907b0fbca908ed525247a1dc38cc5fba7b0ff
+Using threadless Xunit runner
+Discovering: System.Runtime.Serialization.Json.ReflectionOnly.Tests.dll (method display = ClassAndMethod, method display options = None)
+Discovered:  System.Runtime.Serialization.Json.ReflectionOnly.Tests.dll (found 166 of 173 test cases)
+Starting:    System.Runtime.Serialization.Json.ReflectionOnly.Tests.dll
+[STRT] DataContractJsonSerializerTests.DCJS_ArrayOfInt64
+[STRT] DataContractJsonSerializerTests.DCJS_DateTimeAsRoot
+[STRT] DataContractJsonSerializerTests.DCJS_DeserializeEmptyString
+[STRT] DataContractJsonSerializerTests.DCJS_GenericICollectionOfInt32
+[STRT] DataContractJsonSerializerTests.DCJS_NonGenericDictionaryOfStringInt32
+[STRT] DataContractJsonSerializerTests.DCJS_TypeWithInternalDefaultConstructor
+[STRT] DataContractJsonSerializerTests.DCJS_EnumerableMembers
+[STRT] DataContractJsonSerializerTests.DCJS_TypeWithKnownTypeAttributeAndListOfInterfaceMember
+[FAIL] DataContractJsonSerializerTests.DCJS_TypeWithKnownTypeAttributeAndListOfInterfaceMember
+System.BadImageFormatException : An attempt was made to load a program with an incorrect format.
+ (0x8007000B)
+   at System.Signature.Init(ObjectHandleOnStack _this, Void* pCorSig, Int32 cCorSig, RuntimeFieldHandleInternal fieldHandle, RuntimeMethodHandleInternal methodHandle)
+   at System.Signature.Init(Void* pCorSig, Int32 cCorSig, RuntimeFieldHandleInternal fieldHandle, RuntimeMethodHandleInternal methodHandle)
+   at System.Signature..ctor(IRuntimeMethodInfo methodHandle, RuntimeType declaringType)
+   at System.Reflection.RuntimeMethodInfo.<get_Signature>g__LazyCreateSignature|27_0()
+   at System.Reflection.RuntimeMethodInfo.FetchNonReturnParameters()
+   at System.Reflection.RuntimeMethodInfo.GetParametersAsSpan()
+   at System.RuntimeType.FilterApplyMethodBase(MethodBase methodBase, BindingFlags methodFlags, BindingFlags bindingFlags, CallingConventions callConv, Type[] argumentTypes)
+   at System.RuntimeType.FilterApplyMethodInfo(RuntimeMethodInfo method, BindingFlags bindingFlags, CallingConventions callConv, Type[] argumentTypes)
+   at System.RuntimeType.GetMethodCandidates(String name, Int32 genericParameterCount, BindingFlags bindingAttr, CallingConventions callConv, Type[] types, Boolean allowPrefixLookup)
+   at System.RuntimeType.GetMethodImplCommon(String name, Int32 genericParameterCount, BindingFlags bindingAttr, Binder binder, CallingConventions callConv, Type[] types, ParameterModifier[] modifiers)
+   at System.RuntimeType.GetMethodImpl(String name, BindingFlags bindingAttr, Binder binder, CallingConventions callConv, Type[] types, ParameterModifier[] modifiers)
+   at System.Type.GetMethod(String name, BindingFlags bindingAttr, Binder binder, CallingConventions callConvention, Type[] types, ParameterModifier[] modifiers)
+   at System.Type.GetMethod(String name, BindingFlags bindingAttr, Binder binder, Type[] types, ParameterModifier[] modifiers)
+   at System.Type.GetMethod(String name, BindingFlags bindingAttr, Type[] types)
+   at System.Runtime.Serialization.DataContracts.CollectionDataContract.CollectionDataContractCriticalHelper.GetCollectionElementType()
+   at System.Runtime.Serialization.DataContracts.CollectionDataContract.GetCollectionElementType()
+   at System.Runtime.Serialization.Json.ReflectionJsonFormatWriter.ReflectionWriteCollection(XmlWriterDelegator xmlWriter, Object obj, XmlObjectSerializerWriteContextComplexJson context, CollectionDataContract collectionContract)
+   at System.Runtime.Serialization.Json.JsonCollectionDataContract.WriteJsonValueCore(XmlWriterDelegator jsonWriter, Object obj, XmlObjectSerializerWriteContextComplexJson context, RuntimeTypeHandle declaredTypeHandle)
+   at System.Runtime.Serialization.Json.JsonDataContract.WriteJsonValue(XmlWriterDelegator jsonWriter, Object obj, XmlObjectSerializerWriteContextComplexJson context, RuntimeTypeHandle declaredTypeHandle)
+   at System.Runtime.Serialization.Json.DataContractJsonSerializer.WriteJsonValue(JsonDataContract contract, XmlWriterDelegator writer, Object graph, XmlObjectSerializerWriteContextComplexJson context, RuntimeTypeHandle declaredTypeHandle)
+   at System.Runtime.Serialization.Json.XmlObjectSerializerWriteContextComplexJson.WriteDataContractValue(DataContract dataContract, XmlWriterDelegator xmlWriter, Object obj, RuntimeTypeHandle declaredTypeHandle)
+   at System.Runtime.Serialization.XmlObjectSerializerWriteContext.SerializeWithoutXsiType(DataContract dataContract, XmlWriterDelegator xmlWriter, Object obj, RuntimeTypeHandle declaredTypeHandle)
+   at System.Runtime.Serialization.XmlObjectSerializerWriteContext.InternalSerialize(XmlWriterDelegator xmlWriter, Object obj, Boolean isDeclaredType, Boolean writeXsiType, Int32 declaredTypeID, RuntimeTypeHandle declaredTypeHandle)
+   at System.Runtime.Serialization.XmlObjectSerializerWriteContextComplex.InternalSerialize(XmlWriterDelegator xmlWriter, Object obj, Boolean isDeclaredType, Boolean writeXsiType, Int32 declaredTypeID, RuntimeTypeHandle declaredTypeHandle)
+   at System.Runtime.Serialization.XmlObjectSerializerWriteContext.InternalSerializeReference(XmlWriterDelegator xmlWriter, Object obj, Boolean isDeclaredType, Boolean writeXsiType, Int32 declaredTypeID, RuntimeTypeHandle declaredTypeHandle)
+   at System.Runtime.Serialization.ReflectionClassWriter.ReflectionInternalSerialize(XmlWriterDelegator xmlWriter, XmlObjectSerializerWriteContext context, Object obj, Boolean isDeclaredType, Boolean writeXsiType, Type memberType, Boolean isNullableOfT)
+   at System.Runtime.Serialization.ReflectionClassWriter.ReflectionWriteValue(XmlWriterDelegator xmlWriter, XmlObjectSerializerWriteContext context, Type type, Object value, Boolean writeXsiType, PrimitiveDataContract primitiveContractForParamType)
+   at System.Runtime.Serialization.Json.ReflectionJsonClassWriter.ReflectionWriteMembers(XmlWriterDelegator xmlWriter, Object obj, XmlObjectSerializerWriteContext context, ClassDataContract classContract, ClassDataContract derivedMostClassContract, Int32 childElementIndex, XmlDictionaryString[] memberNames)
+   at System.Runtime.Serialization.ReflectionClassWriter.ReflectionWriteClass(XmlWriterDelegator xmlWriter, Object obj, XmlObjectSerializerWriteContext context, ClassDataContract classContract, XmlDictionaryString[] memberNames)
+   at System.Runtime.Serialization.Json.ReflectionJsonFormatWriter.ReflectionWriteClass(XmlWriterDelegator xmlWriter, Object obj, XmlObjectSerializerWriteContextComplexJson context, ClassDataContract classContract, XmlDictionaryString[] memberNames)
+   at System.Runtime.Serialization.Json.JsonClassDataContract.WriteJsonValueCore(XmlWriterDelegator jsonWriter, Object obj, XmlObjectSerializerWriteContextComplexJson context, RuntimeTypeHandle declaredTypeHandle)
+   at System.Runtime.Serialization.Json.JsonDataContract.WriteJsonValue(XmlWriterDelegator jsonWriter, Object obj, XmlObjectSerializerWriteContextComplexJson context, RuntimeTypeHandle declaredTypeHandle)
+   at System.Runtime.Serialization.Json.DataContractJsonSerializer.WriteJsonValue(JsonDataContract contract, XmlWriterDelegator writer, Object graph, XmlObjectSerializerWriteContextComplexJson context, RuntimeTypeHandle declaredTypeHandle)
+   at System.Runtime.Serialization.Json.XmlObjectSerializerWriteContextComplexJson.WriteDataContractValue(DataContract dataContract, XmlWriterDelegator xmlWriter, Object obj, RuntimeTypeHandle declaredTypeHandle)
+   at System.Runtime.Serialization.XmlObjectSerializerWriteContext.SerializeWithoutXsiType(DataContract dataContract, XmlWriterDelegator xmlWriter, Object obj, RuntimeTypeHandle declaredTypeHandle)
+   at System.Runtime.Serialization.Json.DataContractJsonSerializer.InternalWriteObjectContent(XmlWriterDelegator writer, Object graph)
+   at System.Runtime.Serialization.Json.DataContractJsonSerializer.InternalWriteObject(XmlWriterDelegator writer, Object graph)
+   at System.Runtime.Serialization.XmlObjectSerializer.InternalWriteObject(XmlWriterDelegator writer, Object graph, DataContractResolver dataContractResolver)
+   at System.Runtime.Serialization.XmlObjectSerializer.WriteObjectHandleExceptions(XmlWriterDelegator writer, Object graph, DataContractResolver dataContractResolver)
+   at System.Runtime.Serialization.XmlObjectSerializer.WriteObjectHandleExceptions(XmlWriterDelegator writer, Object graph)
+   at System.Runtime.Serialization.Json.DataContractJsonSerializer.WriteObject(XmlDictionaryWriter writer, Object graph)
+   at System.Runtime.Serialization.Json.DataContractJsonSerializer.WriteObject(Stream stream, Object graph)
+   at DataContractJsonSerializerTests.SerializeAndDeserialize[T](T value, String baseline, DataContractJsonSerializerSettings settings, Func`1 serializerFactory, Boolean skipStringCompare)
+   at DataContractJsonSerializerTests.DCJS_TypeWithKnownTypeAttributeAndListOfInterfaceMember()
+   at System.RuntimeMethodHandle.InvokeMethod(ObjectHandleOnStack target, Void** arguments, ObjectHandleOnStack sig, BOOL isConstructor, ObjectHandleOnStack result)
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+[STRT] DataContractJsonSerializerTests.DCJS_GenericICollectionOfTypeWithPrimitiveProperties
+[STRT] DataContractJsonSerializerTests.DCJS_GenericICollectionOfString
+[STRT] DataContractJsonSerializerTests.DCJS_ListMembers
+[STRT] DataContractJsonSerializerTests.DCJS_FloatAsRoot_NotNetFramework
+[STRT] DataContractJsonSerializerTests.DCJS_GenericICollectionOfDecimal
+[STRT] DataContractJsonSerializerTests.DCJS_CharAsRoot
+[STRT] DataContractJsonSerializerTests.DCJS_BuiltInTypes
+[STRT] DataContractJsonSerializerTests.DCJS_NonGenericDictionaryOfInt32Boolean
+[STRT] DataContractJsonSerializerTests.DCJS_SortedList
+[STRT] DataContractJsonSerializerTests.DCJS_DataContractWithOperatorsInName
+[STRT] DataContractJsonSerializerTests.DCJS_GenericDictionaryOfInt32String
+[STRT] DataContractJsonSerializerTests.DCJS_EnumAsRoot
+[STRT] DataContractJsonSerializerTests.DCJS_Dictionary_UseSimpleDictionaryFormat_VariousKeyTypes
+[STRT] DataContractJsonSerializerTests.DCJS_DifferentCollectionsOfSameTypeAsKnownTypes
+[STRT] DataContractJsonSerializerTests.DCJS_ContainsLinkedList
+[STRT] DataContractJsonSerializerTests.DCJS_ByteArrayAsRoot
+[STRT] DataContractJsonSerializerTests.DCJS_CollectionInterfaceGetOnlyCollection
+[STRT] DataContractJsonSerializerTests.DCJS_DictionaryWithVariousKeyValueTypes
+[STRT] DataContractJsonSerializerTests.DCJS_DataContractWithMinusSignInName
+[STRT] DataContractJsonSerializerTests.DCJS_DictionaryWithTypeSimpleWithDictionaryMembers
+[STRT] DataContractJsonSerializerTests.DCJS_DataMemberAttribute
+[STRT] DataContractJsonSerializerTests.DCJS_GenericDictionaryOfStringInt32
+[STRT] DataContractJsonSerializerTests.DCJS_CollectionDataContractWithCustomKeyName
+[STRT] DataContractJsonSerializerTests.DCJS_TypeWithPrimitiveProperties
+[STRT] DataContractJsonSerializerTests.DCJS_ByteAsRoot
+[STRT] DataContractJsonSerializerTests.DCJS_VerifySuppressTypeInformation
+[STRT] DataContractJsonSerializerTests.DCJS_TypesWithArrayOfOtherTypes
+[STRT] DataContractJsonSerializerTests.DCJS_KnownTypesThroughConstructor
+[STRT] DataContractJsonSerializerTests.DCJS_DataContractAttribute
+[STRT] DataContractJsonSerializerTests.DCJS_WithXElement
+[STRT] DataContractJsonSerializerTests.DCJS_VerifyIndentation
+[FAIL] DataContractJsonSerializerTests.DCJS_VerifyIndentation
+System.BadImageFormatException : An attempt was made to load a program with an incorrect format.
+ (0x8007000B)
+   at System.Signature.Init(ObjectHandleOnStack _this, Void* pCorSig, Int32 cCorSig, RuntimeFieldHandleInternal fieldHandle, RuntimeMethodHandleInternal methodHandle)
+   at System.Signature.Init(Void* pCorSig, Int32 cCorSig, RuntimeFieldHandleInternal fieldHandle, RuntimeMethodHandleInternal methodHandle)
+   at System.Signature..ctor(IRuntimeMethodInfo methodHandle, RuntimeType declaringType)
+   at System.Reflection.RuntimeMethodInfo.<get_Signature>g__LazyCreateSignature|27_0()
+   at System.Reflection.RuntimeMethodInfo.FetchNonReturnParameters()
+   at System.Reflection.RuntimeMethodInfo.GetParametersAsSpan()
+   at System.RuntimeType.FilterApplyMethodBase(MethodBase methodBase, BindingFlags methodFlags, BindingFlags bindingFlags, CallingConventions callConv, Type[] argumentTypes)
+   at System.RuntimeType.FilterApplyMethodInfo(RuntimeMethodInfo method, BindingFlags bindingFlags, CallingConventions callConv, Type[] argumentTypes)
+   at System.RuntimeType.GetMethodCandidates(String name, Int32 genericParameterCount, BindingFlags bindingAttr, CallingConventions callConv, Type[] types, Boolean allowPrefixLookup)
+   at System.RuntimeType.GetMethodImplCommon(String name, Int32 genericParameterCount, BindingFlags bindingAttr, Binder binder, CallingConventions callConv, Type[] types, ParameterModifier[] modifiers)
+   at System.RuntimeType.GetMethodImpl(String name, BindingFlags bindingAttr, Binder binder, CallingConventions callConv, Type[] types, ParameterModifier[] modifiers)
+   at System.Type.GetMethod(String name, BindingFlags bindingAttr, Binder binder, CallingConventions callConvention, Type[] types, ParameterModifier[] modifiers)
+   at System.Type.GetMethod(String name, BindingFlags bindingAttr, Binder binder, Type[] types, ParameterModifier[] modifiers)
+   at System.Type.GetMethod(String name, BindingFlags bindingAttr, Type[] types)
+   at System.Runtime.Serialization.DataContracts.CollectionDataContract.CollectionDataContractCriticalHelper.GetCollectionElementType()
+   at System.Runtime.Serialization.DataContracts.CollectionDataContract.GetCollectionElementType()
+   at System.Runtime.Serialization.Json.ReflectionJsonFormatWriter.ReflectionWriteCollection(XmlWriterDelegator xmlWriter, Object obj, XmlObjectSerializerWriteContextComplexJson context, CollectionDataContract collectionContract)
+   at System.Runtime.Serialization.Json.JsonCollectionDataContract.WriteJsonValueCore(XmlWriterDelegator jsonWriter, Object obj, XmlObjectSerializerWriteContextComplexJson context, RuntimeTypeHandle declaredTypeHandle)
+   at System.Runtime.Serialization.Json.JsonDataContract.WriteJsonValue(XmlWriterDelegator jsonWriter, Object obj, XmlObjectSerializerWriteContextComplexJson context, RuntimeTypeHandle declaredTypeHandle)
+   at System.Runtime.Serialization.Json.DataContractJsonSerializer.WriteJsonValue(JsonDataContract contract, XmlWriterDelegator writer, Object graph, XmlObjectSerializerWriteContextComplexJson context, RuntimeTypeHandle declaredTypeHandle)
+   at System.Runtime.Serialization.Json.XmlObjectSerializerWriteContextComplexJson.WriteDataContractValue(DataContract dataContract, XmlWriterDelegator xmlWriter, Object obj, RuntimeTypeHandle declaredTypeHandle)
+   at System.Runtime.Serialization.XmlObjectSerializerWriteContext.SerializeWithoutXsiType(DataContract dataContract, XmlWriterDelegator xmlWriter, Object obj, RuntimeTypeHandle declaredTypeHandle)
+   at System.Runtime.Serialization.XmlObjectSerializerWriteContext.InternalSerialize(XmlWriterDelegator xmlWriter, Object obj, Boolean isDeclaredType, Boolean writeXsiType, Int32 declaredTypeID, RuntimeTypeHandle declaredTypeHandle)
+   at System.Runtime.Serialization.XmlObjectSerializerWriteContextComplex.InternalSerialize(XmlWriterDelegator xmlWriter, Object obj, Boolean isDeclaredType, Boolean writeXsiType, Int32 declaredTypeID, RuntimeTypeHandle declaredTypeHandle)
+   at System.Runtime.Serialization.XmlObjectSerializerWriteContext.InternalSerializeReference(XmlWriterDelegator xmlWriter, Object obj, Boolean isDeclaredType, Boolean writeXsiType, Int32 declaredTypeID, RuntimeTypeHandle declaredTypeHandle)
+   at System.Runtime.Serialization.ReflectionClassWriter.ReflectionInternalSerialize(XmlWriterDelegator xmlWriter, XmlObjectSerializerWriteContext context, Object obj, Boolean isDeclaredType, Boolean writeXsiType, Type memberType, Boolean isNullableOfT)
+   at System.Runtime.Serialization.ReflectionClassWriter.ReflectionWriteValue(XmlWriterDelegator xmlWriter, XmlObjectSerializerWriteContext context, Type type, Object value, Boolean writeXsiType, PrimitiveDataContract primitiveContractForParamType)
+   at System.Runtime.Serialization.Json.ReflectionJsonClassWriter.ReflectionWriteMembers(XmlWriterDelegator xmlWriter, Object obj, XmlObjectSerializerWriteContext context, ClassDataContract classContract, ClassDataContract derivedMostClassContract, Int32 childElementIndex, XmlDictionaryString[] memberNames)
+   at System.Runtime.Serialization.ReflectionClassWriter.ReflectionWriteClass(XmlWriterDelegator xmlWriter, Object obj, XmlObjectSerializerWriteContext context, ClassDataContract classContract, XmlDictionaryString[] memberNames)
+   at System.Runtime.Serialization.Json.ReflectionJsonFormatWriter.ReflectionWriteClass(XmlWriterDelegator xmlWriter, Object obj, XmlObjectSerializerWriteContextComplexJson context, ClassDataContract classContract, XmlDictionaryString[] memberNames)
+   at System.Runtime.Serialization.Json.JsonClassDataContract.WriteJsonValueCore(XmlWriterDelegator jsonWriter, Object obj, XmlObjectSerializerWriteContextComplexJson context, RuntimeTypeHandle declaredTypeHandle)
+   at System.Runtime.Serialization.Json.JsonDataContract.WriteJsonValue(XmlWriterDelegator jsonWriter, Object obj, XmlObjectSerializerWriteContextComplexJson context, RuntimeTypeHandle declaredTypeHandle)
+   at System.Runtime.Serialization.Json.DataContractJsonSerializer.WriteJsonValue(JsonDataContract contract, XmlWriterDelegator writer, Object graph, XmlObjectSerializerWriteContextComplexJson context, RuntimeTypeHandle declaredTypeHandle)
+   at System.Runtime.Serialization.Json.XmlObjectSerializerWriteContextComplexJson.WriteDataContractValue(DataContract dataContract, XmlWriterDelegator xmlWriter, Object obj, RuntimeTypeHandle declaredTypeHandle)
+   at System.Runtime.Serialization.XmlObjectSerializerWriteContext.SerializeWithoutXsiType(DataContract dataContract, XmlWriterDelegator xmlWriter, Object obj, RuntimeTypeHandle declaredTypeHandle)
+   at System.Runtime.Serialization.Json.DataContractJsonSerializer.InternalWriteObjectContent(XmlWriterDelegator writer, Object graph)
+   at System.Runtime.Serialization.Json.DataContractJsonSerializer.InternalWriteObject(XmlWriterDelegator writer, Object graph)
+   at System.Runtime.Serialization.XmlObjectSerializer.InternalWriteObject(XmlWriterDelegator writer, Object graph, DataContractResolver dataContractResolver)
+   at System.Runtime.Serialization.XmlObjectSerializer.WriteObjectHandleExceptions(XmlWriterDelegator writer, Object graph, DataContractResolver dataContractResolver)
+   at System.Runtime.Serialization.XmlObjectSerializer.WriteObjectHandleExceptions(XmlWriterDelegator writer, Object graph)
+   at System.Runtime.Serialization.Json.DataContractJsonSerializer.WriteObject(XmlDictionaryWriter writer, Object graph)
+   at DataContractJsonSerializerTests.VerifyIndentationOfSerializedXml[T](T value, String baseline, String indentChars, DataContractJsonSerializerSettings settings, Func`1 serializerFactory, Boolean skipStringCompare)
+   at DataContractJsonSerializerTests.DCJS_VerifyIndentation()
+   at System.RuntimeMethodHandle.InvokeMethod(ObjectHandleOnStack target, Void** arguments, ObjectHandleOnStack sig, BOOL isConstructor, ObjectHandleOnStack result)
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+[STRT] DataContractJsonSerializerTests.DCJS_BoolAsRoot
+[STRT] DataContractJsonSerializerTests.DCJS_KeyValuePairOfStringObject
+[STRT] DataContractJsonSerializerTests.DCJS_EnumAsMember
+[STRT] DataContractJsonSerializerTests.DCJS_DifferentDateTimeStylesForDeserialization
+[STRT] DataContractJsonSerializerTests.DCJS_DictionaryGenericRoot
+[STRT] DataContractJsonSerializerTests.DCJS_UshortAsRoot
+[STRT] DataContractJsonSerializerTests.DCJS_TypeWithXmlElementProperty
+[STRT] DataContractJsonSerializerTests.DCJS_ArrayOfBoolean
+[STRT] DataContractJsonSerializerTests.DCJS_ValidateExceptionOnUnspecifiedRootSerializationType
+[STRT] DataContractJsonSerializerTests.DCJS_ShortAsRoot
+[STRT] DataContractJsonSerializerTests.DCJS_TimeSpanAsRoot
+[STRT] DataContractJsonSerializerTests.DCJS_CreateJsonWriterTest
+[STRT] DataContractJsonSerializerTests.DCJS_VerifyDictionaryTypes
+[FAIL] DataContractJsonSerializerTests.DCJS_VerifyDictionaryTypes
+System.BadImageFormatException : An attempt was made to load a program with an incorrect format.
+ (0x8007000B)
+   at System.Signature.Init(ObjectHandleOnStack _this, Void* pCorSig, Int32 cCorSig, RuntimeFieldHandleInternal fieldHandle, RuntimeMethodHandleInternal methodHandle)
+   at System.Signature.Init(Void* pCorSig, Int32 cCorSig, RuntimeFieldHandleInternal fieldHandle, RuntimeMethodHandleInternal methodHandle)
+   at System.Signature..ctor(IRuntimeMethodInfo methodHandle, RuntimeType declaringType)
+   at System.Reflection.RuntimeMethodInfo.<get_Signature>g__LazyCreateSignature|27_0()
+   at System.Reflection.RuntimeMethodInfo.FetchNonReturnParameters()
+   at System.Reflection.RuntimeMethodInfo.GetParameters()
+   at System.Runtime.Serialization.DataContracts.ClassDataContract.ClassDataContractCriticalHelper.EnsureMethodsImported()
+   at System.Runtime.Serialization.DataContracts.ClassDataContract.ClassDataContractCriticalHelper..ctor(Type type, XmlDictionaryString ns, String[] memberNames)
+   at System.Runtime.Serialization.DataContracts.ClassDataContract..ctor(Type type, XmlDictionaryString ns, String[] memberNames)
+   at System.Runtime.Serialization.DataContracts.ClassDataContract.CreateClassDataContractForKeyValue(Type type, XmlDictionaryString ns, String[] memberNames)
+   at System.Runtime.Serialization.DataContracts.CollectionDataContract.CollectionDataContractCriticalHelper.get_ItemContract()
+   at System.Runtime.Serialization.DataContracts.CollectionDataContract.InitCollectionDataContract(DataContract sharedTypeContract)
+   at System.Runtime.Serialization.DataContracts.CollectionDataContract..ctor(Type type, CollectionKind kind, Type itemType, MethodInfo getEnumeratorMethod, MethodInfo addMethod, ConstructorInfo constructor, Boolean isConstructorCheckRequired)
+   at System.Runtime.Serialization.DataContracts.CollectionDataContract.IsCollectionOrTryCreate(Type type, Boolean tryCreate, DataContract& dataContract, Type& itemType, Boolean constructorRequired, Boolean skipIfReadOnlyContract)
+   at System.Runtime.Serialization.DataContracts.CollectionDataContract.TryCreate(Type type, DataContract& dataContract)
+   at System.Runtime.Serialization.DataContracts.DataContract.DataContractCriticalHelper.CreateDataContract(Type type)
+   at System.Runtime.Serialization.DataContracts.DataContract.DataContractCriticalHelper.CreateDataContract(Int32 id, RuntimeTypeHandle typeHandle, Type type)
+   at System.Runtime.Serialization.DataContracts.DataContract.DataContractCriticalHelper.GetDataContractSkipValidation(Int32 id, RuntimeTypeHandle typeHandle, Type type)
+   at System.Runtime.Serialization.DataContracts.DataContract.GetDataContractSkipValidation(Int32 id, RuntimeTypeHandle typeHandle, Type type)
+   at System.Runtime.Serialization.DataContracts.DataContract.GetDataContract(Int32 id, RuntimeTypeHandle typeHandle)
+   at System.Runtime.Serialization.XmlObjectSerializerContext.GetDataContract(Int32 id, RuntimeTypeHandle typeHandle)
+   at System.Runtime.Serialization.Json.XmlObjectSerializerWriteContextComplexJson.GetDataContract(Int32 id, RuntimeTypeHandle typeHandle)
+   at System.Runtime.Serialization.XmlObjectSerializerWriteContext.InternalSerialize(XmlWriterDelegator xmlWriter, Object obj, Boolean isDeclaredType, Boolean writeXsiType, Int32 declaredTypeID, RuntimeTypeHandle declaredTypeHandle)
+   at System.Runtime.Serialization.XmlObjectSerializerWriteContextComplex.InternalSerialize(XmlWriterDelegator xmlWriter, Object obj, Boolean isDeclaredType, Boolean writeXsiType, Int32 declaredTypeID, RuntimeTypeHandle declaredTypeHandle)
+   at System.Runtime.Serialization.XmlObjectSerializerWriteContext.InternalSerializeReference(XmlWriterDelegator xmlWriter, Object obj, Boolean isDeclaredType, Boolean writeXsiType, Int32 declaredTypeID, RuntimeTypeHandle declaredTypeHandle)
+   at System.Runtime.Serialization.ReflectionClassWriter.ReflectionInternalSerialize(XmlWriterDelegator xmlWriter, XmlObjectSerializerWriteContext context, Object obj, Boolean isDeclaredType, Boolean writeXsiType, Type memberType, Boolean isNullableOfT)
+   at System.Runtime.Serialization.ReflectionClassWriter.ReflectionWriteValue(XmlWriterDelegator xmlWriter, XmlObjectSerializerWriteContext context, Type type, Object value, Boolean writeXsiType, PrimitiveDataContract primitiveContractForParamType)
+   at System.Runtime.Serialization.Json.ReflectionJsonClassWriter.ReflectionWriteMembers(XmlWriterDelegator xmlWriter, Object obj, XmlObjectSerializerWriteContext context, ClassDataContract classContract, ClassDataContract derivedMostClassContract, Int32 childElementIndex, XmlDictionaryString[] memberNames)
+   at System.Runtime.Serialization.ReflectionClassWriter.ReflectionWriteClass(XmlWriterDelegator xmlWriter, Object obj, XmlObjectSerializerWriteContext context, ClassDataContract classContract, XmlDictionaryString[] memberNames)
+   at System.Runtime.Serialization.Json.ReflectionJsonFormatWriter.ReflectionWriteClass(XmlWriterDelegator xmlWriter, Object obj, XmlObjectSerializerWriteContextComplexJson context, ClassDataContract classContract, XmlDictionaryString[] memberNames)
+   at System.Runtime.Serialization.Json.JsonClassDataContract.WriteJsonValueCore(XmlWriterDelegator jsonWriter, Object obj, XmlObjectSerializerWriteContextComplexJson context, RuntimeTypeHandle declaredTypeHandle)
+   at System.Runtime.Serialization.Json.JsonDataContract.WriteJsonValue(XmlWriterDelegator jsonWriter, Object obj, XmlObjectSerializerWriteContextComplexJson context, RuntimeTypeHandle declaredTypeHandle)
+   at System.Runtime.Serialization.Json.DataContractJsonSerializer.WriteJsonValue(JsonDataContract contract, XmlWriterDelegator writer, Object graph, XmlObjectSerializerWriteContextComplexJson context, RuntimeTypeHandle declaredTypeHandle)
+   at System.Runtime.Serialization.Json.XmlObjectSerializerWriteContextComplexJson.WriteDataContractValue(DataContract dataContract, XmlWriterDelegator xmlWriter, Object obj, RuntimeTypeHandle declaredTypeHandle)
+   at System.Runtime.Serialization.XmlObjectSerializerWriteContext.SerializeWithoutXsiType(DataContract dataContract, XmlWriterDelegator xmlWriter, Object obj, RuntimeTypeHandle declaredTypeHandle)
+   at System.Runtime.Serialization.Json.DataContractJsonSerializer.InternalWriteObjectContent(XmlWriterDelegator writer, Object graph)
+   at System.Runtime.Serialization.Json.DataContractJsonSerializer.InternalWriteObject(XmlWriterDelegator writer, Object graph)
+   at System.Runtime.Serialization.XmlObjectSerializer.InternalWriteObject(XmlWriterDelegator writer, Object graph, DataContractResolver dataContractResolver)
+   at System.Runtime.Serialization.XmlObjectSerializer.WriteObjectHandleExceptions(XmlWriterDelegator writer, Object graph, DataContractResolver dataContractResolver)
+   at System.Runtime.Serialization.XmlObjectSerializer.WriteObjectHandleExceptions(XmlWriterDelegator writer, Object graph)
+   at System.Runtime.Serialization.Json.DataContractJsonSerializer.WriteObject(XmlDictionaryWriter writer, Object graph)
+   at System.Runtime.Serialization.Json.DataContractJsonSerializer.WriteObject(Stream stream, Object graph)
+   at DataContractJsonSerializerTests.SerializeAndDeserialize[T](T value, String baseline, DataContractJsonSerializerSettings settings, Func`1 serializerFactory, Boolean skipStringCompare)
+   at DataContractJsonSerializerTests.DCJS_VerifyDictionaryTypes()
+   at System.RuntimeMethodHandle.InvokeMethod(ObjectHandleOnStack target, Void** arguments, ObjectHandleOnStack sig, BOOL isConstructor, ObjectHandleOnStack result)
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+[STRT] DataContractJsonSerializerTests.DCJS_RecursiveCollection
+[STRT] DataContractJsonSerializerTests.DCJS_CustomType
+[STRT] DataContractJsonSerializerTests.DCJS_NonGenericDictionaryOfInt32String
+[STRT] DataContractJsonSerializerTests.DCJS_ArrayOfInt32
+[STRT] DataContractJsonSerializerTests.DCJS_CollectionDataContractWithCustomKeyNameDuplicate
+[STRT] DataContractJsonSerializerTests.DCJS_ObjectArrayAsObject
+[STRT] DataContractJsonSerializerTests.DCJS_StringAsRoot
+[STRT] DataContractJsonSerializerTests.DCJS_GenericStack
+[STRT] DataContractJsonSerializerTests.DCJS_IntAsRoot
+[STRT] DataContractJsonSerializerTests.DCJS_VerifyDateTimeForFormatStringDCJsonSerSettings
+[STRT] DataContractJsonSerializerTests.DCJS_GetOonlyDictionary_UseSimpleDictionaryFormat
+[STRT] DataContractJsonSerializerTests.DSJS_ThrowExceptionOnDispose
+[STRT] DataContractJsonSerializerTests.DCJS_ArrayAsGetOnly
+[STRT] DataContractJsonSerializerTests.DCJS_DeserializeTypeWithInnerInvalidDataContract
+[STRT] DataContractJsonSerializerTests.DCJS_FloatAsRoot
+[STRT] DataContractJsonSerializerTests.DCJS_CreateJsonReaderTest
+[STRT] DataContractJsonSerializerTests.DCJS_TypeWithAllPrimitiveProperties
+[STRT] DataContractJsonSerializerTests.DCJS_SquareWithDeserializationCallback
+[STRT] DataContractJsonSerializerTests.DCJS_Tuple
+[STRT] DataContractJsonSerializerTests.DCJS_DictionaryGenericMembers
+[STRT] DataContractJsonSerializerTests.DCJS_DataMemberNames
+[STRT] DataContractJsonSerializerTests.DCJS_GenericICollectionOfSingle
+[STRT] DataContractJsonSerializerTests.DCJS_ReadOnlyDictionaryCausingDuplicateInvalidDataContract
+[STRT] DataContractJsonSerializerTests.DCJS_TypeWithOptionalField
+[STRT] DataContractJsonSerializerTests.DCJS_StringAsRoot_BackwardCompatibility
+[STRT] DataContractJsonSerializerTests.DCJS_ListRoot
+[STRT] DataContractJsonSerializerTests.DCJS_ExtensionDataObjectTest
+[STRT] DataContractJsonSerializerTests.DCJS_InvalidDataContract_Write_Invalid_Types_Throws
+[STRT] DataContractJsonSerializerTests.DCJS_DataContractWithDotInName
+[STRT] DataContractJsonSerializerTests.DCJS_SerializationEvents
+[STRT] DataContractJsonSerializerTests.DCJS_EnumerableGenericRoot
+[STRT] DataContractJsonSerializerTests.DCJS_ArrayAsGetSet
+[STRT] DataContractJsonSerializerTests.DCJS_VerifyDateTimeForDateTimeFormat
+[STRT] DataContractJsonSerializerTests.DCJS_TypeWithCollectionWithoutDefaultConstructor
+[STRT] DataContractJsonSerializerTests.DCJS_NewLineChars
+[STRT] DataContractJsonSerializerTests.DCJS_ArrayOfSingle
+[STRT] DataContractJsonSerializerTests.DCJS_UlongAsRoot
+[STRT] DataContractJsonSerializerTests.DCJS_ReadOnlyCollection
+[STRT] DataContractJsonSerializerTests.DCJS_GenericICollectionOfInt64
+[STRT] DataContractJsonSerializerTests.DCJS_ArrayOfDouble
+[STRT] DataContractJsonSerializerTests.DCJS_CollectionRoot
+[STRT] DataContractJsonSerializerTests.DCJS_EmptyString_Throws
+[STRT] DataContractJsonSerializerTests.DCJS_DateTimeFormatIsNull
+[STRT] DataContractJsonSerializerTests.DCJS_EnumerableStruct
+[STRT] DataContractJsonSerializerTests.DCJS_SbyteAsRoot
+[STRT] DataContractJsonSerializerTests.DCJS_ExtensionDataObjectTest2
+[STRT] DataContractJsonSerializerTests.DCJS_DoubleAsRoot
+[STRT] DataContractJsonSerializerTests.DCJS_SystemVersion
+[STRT] DataContractJsonSerializerTests.DCJS_TypeWithNestedGenericClassImplementingIXmlSerializable
+[STRT] DataContractJsonSerializerTests.DCJS_MyISerializableType
+[STRT] DataContractJsonSerializerTests.DCJS_WithDuplicateNames
+[STRT] DataContractJsonSerializerTests.DCJS_CollectionGenericRoot
+[STRT] DataContractJsonSerializerTests.DCJS_ReadOnlyDictionary
+[STRT] DataContractJsonSerializerTests.DCJS_DataContractWithOtherSymbolsInName
+[STRT] DataContractJsonSerializerTests.DCJS_DCClassWithEnumAndStruct
+[STRT] DataContractJsonSerializerTests.DCJS_TypeWithNonSerializedField
+[STRT] DataContractJsonSerializerTests.DCJS_XElementAsRoot
+[STRT] DataContractJsonSerializerTests.DCJS_NegativeDateTimeStylesTest_IncorrectDateTimeStyles
+[STRT] DataContractJsonSerializerTests.DCJS_Stack
+[STRT] DataContractJsonSerializerTests.DCJS_SimpleCollectionDataContract
+[STRT] DataContractJsonSerializerTests.DCJS_XmlElementAsRoot
+[STRT] DataContractJsonSerializerTests.DCJS_ObjectAsRoot
+[STRT] DataContractJsonSerializerTests.DCJS_TypeWithEmitDefaultValueFalse
+[STRT] DataContractJsonSerializerTests.DCJS_PrivateTypeSerialization
+[STRT] DataContractJsonSerializerTests.DCJS_TypeWithPrimitiveFields
+[STRT] DataContractJsonSerializerTests.DCJS_DecimalAsRoot
+[STRT] DataContractJsonSerializerTests.DCJS_TimeOnlyAsRoot
+[STRT] DataContractJsonSerializerTests.DCJS_TypeWithDateTimeStringProperty
+[STRT] DataContractJsonSerializerTests.DCJS_GenericQueue
+[STRT] DataContractJsonSerializerTests.DCJS_IgnoreDataMemberAttribute
+[STRT] DataContractJsonSerializerTests.DCJS_TypeWithInternalDefaultConstructorWithoutDataContractAttribute
+[STRT] DataContractJsonSerializerTests.DCJS_XmlQualifiedNameAsRoot
+[STRT] DataContractJsonSerializerTests.DCJS_UintAsRoot
+[STRT] DataContractJsonSerializerTests.DCJS_ArrayOfTypeWithPrimitiveProperties
+[STRT] DataContractJsonSerializerTests.DCJS_VerifyDateTimeForFormatStringDCJsonSerSetting
+[STRT] DataContractJsonSerializerTests.DCJS_CollectionGenericMembers
+[STRT] DataContractJsonSerializerTests.DCJS_GenericDictionaryOfInt32Boolean
+[STRT] DataContractJsonSerializerTests.DCJS_GenericTypeWithNestedGenerics
+[STRT] DataContractJsonSerializerTests.DCJS_ArrayOfString
+[STRT] DataContractJsonSerializerTests.DCJS_CollectionMembers
+[STRT] DataContractJsonSerializerTests.DCJS_DictionaryMembers
+[STRT] DataContractJsonSerializerTests.DCJS_WithArrayOfXElement
+[STRT] DataContractJsonSerializerTests.DCJS_EnumFlags
+[STRT] DataContractJsonSerializerTests.DCJS_GenericICollectionOfDouble
+[STRT] DataContractJsonSerializerTests.DCJS_TypeNamesWithSpecialCharacters
+[STRT] DataContractJsonSerializerTests.DCJS_DateOnlyAsRoot
+[STRT] DataContractJsonSerializerTests.DCJS_Queue
+[STRT] DataContractJsonSerializerTests.DCJS_JaggedArrayAsRoot
+[STRT] DataContractJsonSerializerTests.DCJS_InternalTypeSerialization
+[STRT] DataContractJsonSerializerTests.DCJS_ArrayAsRoot
+[STRT] DataContractJsonSerializerTests.DCJS_TypeWithGenericDictionaryAsKnownType
+[FAIL] DataContractJsonSerializerTests.DCJS_TypeWithGenericDictionaryAsKnownType
+System.BadImageFormatException : An attempt was made to load a program with an incorrect format.
+ (0x8007000B)
+   at System.Signature.Init(ObjectHandleOnStack _this, Void* pCorSig, Int32 cCorSig, RuntimeFieldHandleInternal fieldHandle, RuntimeMethodHandleInternal methodHandle)
+   at System.Signature.Init(Void* pCorSig, Int32 cCorSig, RuntimeFieldHandleInternal fieldHandle, RuntimeMethodHandleInternal methodHandle)
+   at System.Signature..ctor(IRuntimeMethodInfo methodHandle, RuntimeType declaringType)
+   at System.Reflection.RuntimeMethodInfo.<get_Signature>g__LazyCreateSignature|27_0()
+   at System.Reflection.RuntimeMethodInfo.FetchNonReturnParameters()
+   at System.Reflection.RuntimeMethodInfo.GetParameters()
+   at System.Runtime.Serialization.DataContracts.ClassDataContract.ClassDataContractCriticalHelper.EnsureMethodsImported()
+   at System.Runtime.Serialization.DataContracts.ClassDataContract.ClassDataContractCriticalHelper..ctor(Type type, XmlDictionaryString ns, String[] memberNames)
+   at System.Runtime.Serialization.DataContracts.ClassDataContract..ctor(Type type, XmlDictionaryString ns, String[] memberNames)
+   at System.Runtime.Serialization.DataContracts.ClassDataContract.CreateClassDataContractForKeyValue(Type type, XmlDictionaryString ns, String[] memberNames)
+   at System.Runtime.Serialization.DataContracts.CollectionDataContract.CollectionDataContractCriticalHelper.get_ItemContract()
+   at System.Runtime.Serialization.DataContracts.CollectionDataContract.InitCollectionDataContract(DataContract sharedTypeContract)
+   at System.Runtime.Serialization.DataContracts.CollectionDataContract..ctor(Type type, CollectionKind kind, Type itemType, MethodInfo getEnumeratorMethod, MethodInfo addMethod, ConstructorInfo constructor, Boolean isConstructorCheckRequired)
+   at System.Runtime.Serialization.DataContracts.CollectionDataContract.IsCollectionOrTryCreate(Type type, Boolean tryCreate, DataContract& dataContract, Type& itemType, Boolean constructorRequired, Boolean skipIfReadOnlyContract)
+   at System.Runtime.Serialization.DataContracts.CollectionDataContract.TryCreate(Type type, DataContract& dataContract)
+   at System.Runtime.Serialization.DataContracts.DataContract.DataContractCriticalHelper.CreateDataContract(Type type)
+   at System.Runtime.Serialization.DataContracts.DataContract.DataContractCriticalHelper.CreateDataContract(Int32 id, RuntimeTypeHandle typeHandle, Type type)
+   at System.Runtime.Serialization.DataContracts.DataContract.DataContractCriticalHelper.GetDataContractSkipValidation(Int32 id, RuntimeTypeHandle typeHandle, Type type)
+   at System.Runtime.Serialization.DataContracts.DataContract.GetDataContractSkipValidation(Int32 id, RuntimeTypeHandle typeHandle, Type type)
+   at System.Runtime.Serialization.DataContracts.DataContract.GetDataContract(RuntimeTypeHandle typeHandle)
+   at System.Runtime.Serialization.DataContracts.DataContract.GetDataContract(Type type)
+   at System.Runtime.Serialization.DataContracts.DataContract.CheckAndAdd(Type type, Dictionary`2 typesChecked, Dictionary`2& nameToDataContractTable)
+   at System.Runtime.Serialization.DataContracts.DataContract.ImportKnownTypeAttributes(Type type, Dictionary`2 typesChecked, Dictionary`2& knownDataContracts)
+   at System.Runtime.Serialization.DataContracts.DataContract.ImportKnownTypeAttributes(Type type)
+   at System.Runtime.Serialization.DataContracts.ClassDataContract.ClassDataContractCriticalHelper.get_KnownDataContracts()
+   at System.Runtime.Serialization.DataContracts.ClassDataContract.get_KnownDataContracts()
+   at System.Runtime.Serialization.XmlObjectSerializerWriteContext.SerializeWithoutXsiType(DataContract dataContract, XmlWriterDelegator xmlWriter, Object obj, RuntimeTypeHandle declaredTypeHandle)
+   at System.Runtime.Serialization.Json.DataContractJsonSerializer.InternalWriteObjectContent(XmlWriterDelegator writer, Object graph)
+   at System.Runtime.Serialization.Json.DataContractJsonSerializer.InternalWriteObject(XmlWriterDelegator writer, Object graph)
+   at System.Runtime.Serialization.XmlObjectSerializer.InternalWriteObject(XmlWriterDelegator writer, Object graph, DataContractResolver dataContractResolver)
+   at System.Runtime.Serialization.XmlObjectSerializer.WriteObjectHandleExceptions(XmlWriterDelegator writer, Object graph, DataContractResolver dataContractResolver)
+   at System.Runtime.Serialization.XmlObjectSerializer.WriteObjectHandleExceptions(XmlWriterDelegator writer, Object graph)
+   at System.Runtime.Serialization.Json.DataContractJsonSerializer.WriteObject(XmlDictionaryWriter writer, Object graph)
+   at System.Runtime.Serialization.Json.DataContractJsonSerializer.WriteObject(Stream stream, Object graph)
+   at DataContractJsonSerializerTests.SerializeAndDeserialize[T](T value, String baseline, DataContractJsonSerializerSettings settings, Func`1 serializerFactory, Boolean skipStringCompare)
+   at DataContractJsonSerializerTests.DCJS_TypeWithGenericDictionaryAsKnownType()
+   at System.RuntimeMethodHandle.InvokeMethod(ObjectHandleOnStack target, Void** arguments, ObjectHandleOnStack sig, BOOL isConstructor, ObjectHandleOnStack result)
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+[STRT] DataContractJsonSerializerTests.DCJS_EnumerableRoot
+[STRT] DataContractJsonSerializerTests.DCJS_GuidAsRoot
+[STRT] DataContractJsonSerializerTests.DCJS_TypeWithKnownTypeAttributeAndInterfaceMember
+DOTNET: Unhandled error: RuntimeError: table index is out of bounds
+DOTNET: table index is out of bounds
+RuntimeError: table index is out of bounds
+    at http://127.0.0.1:45559/_framework/dotnet.native.yskk64yq6l.wasm:wasm-function[3233]:0x160519
+    at http://127.0.0.1:45559/_framework/dotnet.native.yskk64yq6l.wasm:wasm-function[2611]:0x11fe69
+    at http://127.0.0.1:45559/_framework/dotnet.native.yskk64yq6l.wasm:wasm-function[4005]:0x1d7784
+    at http://127.0.0.1:45559/_framework/dotnet.native.yskk64yq6l.wasm:wasm-function[1583]:0x91744
+    at http://127.0.0.1:45559/_framework/dotnet.native.yskk64yq6l.wasm:wasm-function[7288]:0x3133bc
+    at http://127.0.0.1:45559/_framework/dotnet.native.yskk64yq6l.wasm:wasm-function[5473]:0x254251
+    at http://127.0.0.1:45559/_framework/dotnet.native.yskk64yq6l.wasm:wasm-function[2611]:0x11f06f
+    at http://127.0.0.1:45559/_framework/dotnet.native.yskk64yq6l.wasm:wasm-function[4005]:0x1d7784
+    at http://127.0.0.1:45559/_framework/dotnet.native.yskk64yq6l.wasm:wasm-function[438]:0x1dbc5
+    at http://127.0.0.1:45559/_framework/dotnet.native.yskk64yq6l.wasm:wasm-function[3225]:0x15fecb
+    at SystemJS_ScheduleBackgroundJobTick (http://127.0.0.1:45559/_framework/dotnet.native.wd2dsb9iyb.js:8:99484)
+    at callUserCallback (http://127.0.0.1:45559/_framework/dotnet.native.wd2dsb9iyb.js:8:145083)
+    at http://127.0.0.1:45559/_framework/dotnet.native.wd2dsb9iyb.js:8:145294
+WASM EXIT 1

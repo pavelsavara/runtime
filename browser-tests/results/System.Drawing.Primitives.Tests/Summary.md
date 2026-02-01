@@ -1,49 +1,46 @@
-# System.Drawing.Primitives.Tests - Browser WASM Test Summary
+# System.Drawing.Primitives.Tests Summary
 
-## Test Configuration
-- **Runtime:** CoreCLR (interpreter, no JIT)
-- **Test Environment:** browser-wasm, Chrome via xharness
-- **Build Configuration:** Release
-- **Date:** 2026-01-30
+## Latest Run
+- **Date:** 2026-02-01
+- **CoreCLR:** Tests run: 1819, Passed: 1817, Failed: 0, Skipped: 2 + 574 disabled
+- **Mono Baseline:** Tests run: 2439, Passed: 2437, Failed: 0, Skipped: 2
+- **Status:** ⚠️ Tests disabled with ActiveIssue
 
-## Results
+## Test Set Comparison
 
-| Metric | Value |
-|--------|-------|
-| Total Tests | 2439 |
-| Passed | 1863 |
-| Failed | 574 |
-| Skipped | 2 |
+Run: `./browser-tests/compare-test-results.sh System.Drawing.Primitives.Tests`
 
-## Comparison with Mono Baseline
-- Mono tests: 2444
-- CoreCLR tests: 2444
-- Missing in CoreCLR: 0
-- Extra in CoreCLR: 0
+### Extra in CoreCLR (0 tests)
 
-✅ All Mono tests also ran on CoreCLR (but some failed).
+No extra tests in CoreCLR.
 
-## Failed Tests Analysis
+### Missing in CoreCLR (574 tests)
 
-The failures appear to be in two main categories:
+These tests were disabled due to KnownColor/Color.FromName/Color.FromKnownColor not working on CoreCLR Browser:
+- `ColorTests.ArgbValues` (144 test cases)
+- `ColorTests.GetHashCodeTest` (143 test cases)
+- `ColorTests.IsNamedColor` (1 test)
+- `ColorTests.IsSystemColor` (1 test)
+- `ColorTests.KnownNames` (145 test cases)
+- `ColorTests.ToStringNamed` (146 test cases)
+- `ColorTranslatorTests.FromHtml_String_ReturnsExpected` (partial - color name-based tests)
 
-### 1. ColorTests.GetHashCodeTest failures
-All `GetHashCodeTest` tests fail with hash code mismatches. The actual value is consistently `1896580171` instead of the expected values. This suggests a potential issue with the `Color.GetHashCode()` implementation on CoreCLR WASM.
+## Disabled Tests (ActiveIssue #123011)
 
-Example:
-```
-Assert.Equal() Failure: Values differ
-Expected: -679176371
-Actual:   1896580171
-```
+| Test Name | Failure Type | Category |
+|-----------|--------------|----------|
+| ColorTests.ArgbValues | assertion | enum/interpreter |
+| ColorTests.GetHashCodeTest | assertion | enum/interpreter |
+| ColorTests.IsNamedColor | assertion | enum/interpreter |
+| ColorTests.IsSystemColor | assertion | enum/interpreter |
+| ColorTests.KnownNames | assertion | enum/interpreter |
+| ColorTests.ToStringNamed | assertion | enum/interpreter |
+| ColorTranslatorTests.FromHtml_String_ReturnsExpected | assertion | enum/interpreter |
 
-### 2. ColorTranslatorTests.FromHtml_String_ReturnsExpected failures
-Color parsing from HTML strings fails for named colors:
-- `Blue` returns `Color [Empty]` instead of `Color [Blue]`
-- `"Blue"` (quoted) returns `Color [Empty]` instead of `Color [Blue]`
-- `255,0,0` returns `Color [A=255, R=255, G=0, B=0]` instead of `Color [Red]`
+## Failures and Asserts
 
-This suggests issues with the color name lookup table or parsing logic on CoreCLR WASM.
+See [KnownColor_Tests.md](../../failures/System.Drawing.Primitives.Tests/KnownColor_Tests.md) for details.
 
-## Conclusion
-**FAILED** - 574 test failures, primarily in Color hash code and HTML color parsing functionality. Needs ActiveIssue tracking.
+## Root Cause
+
+`Color.FromKnownColor(KnownColor)` and `Color.FromName(string)` return `Color.Empty` instead of the expected named color on CoreCLR Browser/WASM. This is likely related to the EnumComparer<T> bug also seen in System.Collections.Immutable.Tests.

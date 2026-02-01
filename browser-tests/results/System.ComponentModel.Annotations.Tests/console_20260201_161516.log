@@ -1,0 +1,892 @@
+Running in: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/143.0.0.0 Safari/537.36
+Running at: http://127.0.0.1:42705/index.html?arg=--setenv%3dXHARNESS_LOG_TEST_START%3dtrue&arg=--run&arg=WasmTestRunner.dll&arg=System.ComponentModel.Annotations.Tests.dll&arg=-notrait&arg=category%3dOuterLoop&arg=-notrait&arg=category%3dfailing&arg=-verbosity&arg=Info
+could not load /runArgs.json: 404. Ignoring
+Incoming arguments: --setenv=XHARNESS_LOG_TEST_START=true --run WasmTestRunner.dll System.ComponentModel.Annotations.Tests.dll -notrait category=OuterLoop -notrait category=failing -verbosity Info
+Application arguments: --run WasmTestRunner.dll System.ComponentModel.Annotations.Tests.dll -notrait category=OuterLoop -notrait category=failing -verbosity Info
+Initializing dotnet version 11.0.0 commit hash e31907b0fbca908ed525247a1dc38cc5fba7b0ff
+Using threadless Xunit runner
+Discovering: System.ComponentModel.Annotations.Tests.dll (method display = ClassAndMethod, method display options = None)
+Discovered:  System.ComponentModel.Annotations.Tests.dll (found 428 of 428 test cases)
+Starting:    System.ComponentModel.Annotations.Tests.dll
+[STRT] System.ComponentModel.DataAnnotations.Tests.ScaffoldColumnAttributeTests.Ctor_Bool(value: True)
+[STRT] System.ComponentModel.DataAnnotations.Tests.ScaffoldColumnAttributeTests.Ctor_Bool(value: False)
+[STRT] System.ComponentModel.DataAnnotations.Tests.MaxLengthAttributeTests.Validate_Invalid
+[STRT] System.ComponentModel.DataAnnotations.Tests.MaxLengthAttributeTests.GetValidationResult_ValueGenericIEnumerable_ThrowsInvalidCastException
+[STRT] System.ComponentModel.DataAnnotations.Tests.MaxLengthAttributeTests.Ctor
+[STRT] System.ComponentModel.DataAnnotations.Tests.MaxLengthAttributeTests.Validate_ICollection_Valid(attribute: MaxLengthAttribute { ErrorMessage = null, ErrorMessageResourceName = null, ErrorMessageResourceType = null, Length = -1, RequiresValidationContext = False, ··· }, value: [0, 0, 0, 0, 0, ···])
+[STRT] System.ComponentModel.DataAnnotations.Tests.MaxLengthAttributeTests.Validate_ICollection_Valid(attribute: MaxLengthAttribute { ErrorMessage = null, ErrorMessageResourceName = null, ErrorMessageResourceType = null, Length = 15, RequiresValidationContext = False, ··· }, value: [null, null, null, null, null, ···])
+[STRT] System.ComponentModel.DataAnnotations.Tests.MaxLengthAttributeTests.Validate_ICollection_Valid(attribute: MaxLengthAttribute { ErrorMessage = null, ErrorMessageResourceName = null, ErrorMessageResourceType = null, Length = 16, RequiresValidationContext = False, ··· }, value: [null, null, null, null, null, ···])
+[STRT] System.ComponentModel.DataAnnotations.Tests.MaxLengthAttributeTests.Validate_ICollection_Valid(attribute: MaxLengthAttribute { ErrorMessage = null, ErrorMessageResourceName = null, ErrorMessageResourceType = null, Length = -1, RequiresValidationContext = False, ··· }, value: [0, 0, 0, 0, 0, ···])
+[STRT] System.ComponentModel.DataAnnotations.Tests.MaxLengthAttributeTests.Validate_ICollection_Valid(attribute: MaxLengthAttribute { ErrorMessage = null, ErrorMessageResourceName = null, ErrorMessageResourceType = null, Length = 15, RequiresValidationContext = False, ··· }, value: [null, null, null, null, null, ···])
+[STRT] System.ComponentModel.DataAnnotations.Tests.MaxLengthAttributeTests.Validate_ICollection_Valid(attribute: MaxLengthAttribute { ErrorMessage = null, ErrorMessageResourceName = null, ErrorMessageResourceType = null, Length = 16, RequiresValidationContext = False, ··· }, value: [null, null, null, null, null, ···])
+[STRT] System.ComponentModel.DataAnnotations.Tests.MaxLengthAttributeTests.Validate_ICollection_Valid(attribute: MaxLengthAttribute { ErrorMessage = null, ErrorMessageResourceName = null, ErrorMessageResourceType = null, Length = -1, RequiresValidationContext = False, ··· }, value: [1, 2, 3, 4, 5, ···])
+[STRT] System.ComponentModel.DataAnnotations.Tests.MaxLengthAttributeTests.Validate_ICollection_Valid(attribute: MaxLengthAttribute { ErrorMessage = null, ErrorMessageResourceName = null, ErrorMessageResourceType = null, Length = 15, RequiresValidationContext = False, ··· }, value: ["1", "2", "3", "4", "5", ···])
+[STRT] System.ComponentModel.DataAnnotations.Tests.MaxLengthAttributeTests.Validate_ICollection_Valid(attribute: MaxLengthAttribute { ErrorMessage = null, ErrorMessageResourceName = null, ErrorMessageResourceType = null, Length = 16, RequiresValidationContext = False, ··· }, value: ["1", "2", "3", "4", "5", ···])
+[STRT] System.ComponentModel.DataAnnotations.Tests.MaxLengthAttributeTests.Validate_ICollection_Valid(attribute: MaxLengthAttribute { ErrorMessage = null, ErrorMessageResourceName = null, ErrorMessageResourceType = null, Length = -1, RequiresValidationContext = False, ··· }, value: [0, 0, 0, 0, 0, ···])
+[STRT] System.ComponentModel.DataAnnotations.Tests.MaxLengthAttributeTests.Validate_ICollection_Valid(attribute: MaxLengthAttribute { ErrorMessage = null, ErrorMessageResourceName = null, ErrorMessageResourceType = null, Length = 15, RequiresValidationContext = False, ··· }, value: [null, null, null, null, null, ···])
+[STRT] System.ComponentModel.DataAnnotations.Tests.MaxLengthAttributeTests.Validate_ICollection_Valid(attribute: MaxLengthAttribute { ErrorMessage = null, ErrorMessageResourceName = null, ErrorMessageResourceType = null, Length = 16, RequiresValidationContext = False, ··· }, value: [null, null, null, null, null, ···])
+[STRT] System.ComponentModel.DataAnnotations.Tests.MaxLengthAttributeTests.Validate_ICollection_Valid(attribute: MaxLengthAttribute { ErrorMessage = null, ErrorMessageResourceName = null, ErrorMessageResourceType = null, Length = 1, RequiresValidationContext = False, ··· }, value: NotSupportedException was thrown formatting an object of type "System.ComponentModel.DataAnnotations.Tests.MultiCollection")
+[STRT] System.ComponentModel.DataAnnotations.Tests.MaxLengthAttributeTests.Ctor_Int(length: -1)
+[STRT] System.ComponentModel.DataAnnotations.Tests.MaxLengthAttributeTests.Ctor_Int(length: 10)
+[STRT] System.ComponentModel.DataAnnotations.Tests.MaxLengthAttributeTests.Ctor_Int(length: 0)
+[STRT] System.ComponentModel.DataAnnotations.Tests.MaxLengthAttributeTests.Ctor_Int(length: -10)
+[STRT] System.ComponentModel.DataAnnotations.Tests.MaxLengthAttributeTests.GetValidationResult_ValueNotStringOrICollection_ThrowsInvalidCastException
+[STRT] System.ComponentModel.DataAnnotations.Tests.MaxLengthAttributeTests.ErrorMessage_Invalid_Throws
+[STRT] System.ComponentModel.DataAnnotations.Tests.MaxLengthAttributeTests.ErrorMessage_Valid
+[STRT] System.ComponentModel.DataAnnotations.Tests.MaxLengthAttributeTests.Validate_Valid
+[STRT] System.ComponentModel.DataAnnotations.Tests.MaxLengthAttributeTests.Validate_ICollection_Invalid(attribute: MaxLengthAttribute { ErrorMessage = null, ErrorMessageResourceName = null, ErrorMessageResourceType = null, Length = 12, RequiresValidationContext = False, ··· }, value: [0, 0, 0, 0, 0, ···])
+[STRT] System.ComponentModel.DataAnnotations.Tests.MaxLengthAttributeTests.Validate_ICollection_Invalid(attribute: MaxLengthAttribute { ErrorMessage = null, ErrorMessageResourceName = null, ErrorMessageResourceType = null, Length = 12, RequiresValidationContext = False, ··· }, value: [0, 0, 0, 0, 0, ···])
+[STRT] System.ComponentModel.DataAnnotations.Tests.MaxLengthAttributeTests.Validate_ICollection_Invalid(attribute: MaxLengthAttribute { ErrorMessage = null, ErrorMessageResourceName = null, ErrorMessageResourceType = null, Length = 12, RequiresValidationContext = False, ··· }, value: [1, 2, 3, 4, 5, ···])
+[STRT] System.ComponentModel.DataAnnotations.Tests.MaxLengthAttributeTests.GetValidationResult_InvalidLength_ThrowsInvalidOperationException(length: 0)
+[STRT] System.ComponentModel.DataAnnotations.Tests.MaxLengthAttributeTests.GetValidationResult_InvalidLength_ThrowsInvalidOperationException(length: -10)
+[STRT] System.ComponentModel.DataAnnotations.Schema.Tests.DatabaseGeneratedAttributeTests.Ctor_DatabaseGeneratedOption_UndefinedOption_ThrowsArgumentOutOfRangeException(databaseGeneratedOption: -1)
+[STRT] System.ComponentModel.DataAnnotations.Schema.Tests.DatabaseGeneratedAttributeTests.Ctor_DatabaseGeneratedOption_UndefinedOption_ThrowsArgumentOutOfRangeException(databaseGeneratedOption: 10)
+[STRT] System.ComponentModel.DataAnnotations.Schema.Tests.DatabaseGeneratedAttributeTests.Ctor_DatabaseGeneratedOption(databaseGeneratedOption: None)
+[STRT] System.ComponentModel.DataAnnotations.Schema.Tests.DatabaseGeneratedAttributeTests.Ctor_DatabaseGeneratedOption(databaseGeneratedOption: Identity)
+[STRT] System.ComponentModel.DataAnnotations.Schema.Tests.DatabaseGeneratedAttributeTests.Ctor_DatabaseGeneratedOption(databaseGeneratedOption: Computed)
+[STRT] System.ComponentModel.DataAnnotations.Tests.AllowedValuesAttributeTests.ErrorMessage_Invalid_Throws
+[STRT] System.ComponentModel.DataAnnotations.Tests.AllowedValuesAttributeTests.Validate_Invalid
+[STRT] System.ComponentModel.DataAnnotations.Tests.AllowedValuesAttributeTests.Ctor_NullParameter_ThrowsArgumentNullException
+[STRT] System.ComponentModel.DataAnnotations.Tests.AllowedValuesAttributeTests.Ctor_ValuesPropertyReturnsTheSameArray(inputs: [null])
+[STRT] System.ComponentModel.DataAnnotations.Tests.AllowedValuesAttributeTests.Ctor_ValuesPropertyReturnsTheSameArray(inputs: [1, 2, 3])
+[STRT] System.ComponentModel.DataAnnotations.Tests.AllowedValuesAttributeTests.Ctor_ValuesPropertyReturnsTheSameArray(inputs: ["apple", "banana", "mango", null])
+[STRT] System.ComponentModel.DataAnnotations.Tests.AllowedValuesAttributeTests.Ctor_ValuesPropertyReturnsTheSameArray(inputs: [null, False, 0, -0, 1.1000000000000001])
+[STRT] System.ComponentModel.DataAnnotations.Tests.AllowedValuesAttributeTests.Validate_Valid
+[STRT] System.ComponentModel.DataAnnotations.Tests.AllowedValuesAttributeTests.ErrorMessage_Valid
+[STRT] System.ComponentModel.DataAnnotations.Schema.Tests.ForeignKeyAttributeTests.Ctor_String_WhitespaceName_ThrowsArgumentException(name: "")
+[STRT] System.ComponentModel.DataAnnotations.Schema.Tests.ForeignKeyAttributeTests.Ctor_String_WhitespaceName_ThrowsArgumentException(name: " \t\r\n")
+[STRT] System.ComponentModel.DataAnnotations.Schema.Tests.ForeignKeyAttributeTests.Ctor_String_NullName_ThrowsArgumentException(name: null)
+[STRT] System.ComponentModel.DataAnnotations.Schema.Tests.ForeignKeyAttributeTests.Ctor_String(name: "Old Mother Dismass")
+[STRT] System.ComponentModel.DataAnnotations.Tests.DataTypeAttributeTests.ErrorMessage_Invalid_Throws
+[STRT] System.ComponentModel.DataAnnotations.Tests.DataTypeAttributeTests.Validate_Valid
+[STRT] System.ComponentModel.DataAnnotations.Tests.DataTypeAttributeTests.Ctor_DataType(dataType: -1)
+[STRT] System.ComponentModel.DataAnnotations.Tests.DataTypeAttributeTests.Ctor_DataType(dataType: 17)
+[STRT] System.ComponentModel.DataAnnotations.Tests.DataTypeAttributeTests.Ctor_DataType(dataType: Custom)
+[STRT] System.ComponentModel.DataAnnotations.Tests.DataTypeAttributeTests.Ctor_DataType(dataType: DateTime)
+[STRT] System.ComponentModel.DataAnnotations.Tests.DataTypeAttributeTests.Ctor_DataType(dataType: Date)
+[STRT] System.ComponentModel.DataAnnotations.Tests.DataTypeAttributeTests.Ctor_DataType(dataType: Time)
+[STRT] System.ComponentModel.DataAnnotations.Tests.DataTypeAttributeTests.Ctor_DataType(dataType: Duration)
+[STRT] System.ComponentModel.DataAnnotations.Tests.DataTypeAttributeTests.Ctor_DataType(dataType: PhoneNumber)
+[STRT] System.ComponentModel.DataAnnotations.Tests.DataTypeAttributeTests.Ctor_DataType(dataType: Currency)
+[STRT] System.ComponentModel.DataAnnotations.Tests.DataTypeAttributeTests.Ctor_DataType(dataType: Text)
+[STRT] System.ComponentModel.DataAnnotations.Tests.DataTypeAttributeTests.Ctor_DataType(dataType: Html)
+[STRT] System.ComponentModel.DataAnnotations.Tests.DataTypeAttributeTests.Ctor_DataType(dataType: MultilineText)
+[STRT] System.ComponentModel.DataAnnotations.Tests.DataTypeAttributeTests.Ctor_DataType(dataType: EmailAddress)
+[STRT] System.ComponentModel.DataAnnotations.Tests.DataTypeAttributeTests.Ctor_DataType(dataType: Password)
+[STRT] System.ComponentModel.DataAnnotations.Tests.DataTypeAttributeTests.Ctor_DataType(dataType: Url)
+[STRT] System.ComponentModel.DataAnnotations.Tests.DataTypeAttributeTests.Ctor_DataType(dataType: ImageUrl)
+[STRT] System.ComponentModel.DataAnnotations.Tests.DataTypeAttributeTests.Ctor_DataType(dataType: CreditCard)
+[STRT] System.ComponentModel.DataAnnotations.Tests.DataTypeAttributeTests.Ctor_DataType(dataType: PostalCode)
+[STRT] System.ComponentModel.DataAnnotations.Tests.DataTypeAttributeTests.Ctor_DataType(dataType: Upload)
+[STRT] System.ComponentModel.DataAnnotations.Tests.DataTypeAttributeTests.GetDataTypeName_ReturnsExpectedName(dataType: Custom)
+[STRT] System.ComponentModel.DataAnnotations.Tests.DataTypeAttributeTests.GetDataTypeName_ReturnsExpectedName(dataType: DateTime)
+[STRT] System.ComponentModel.DataAnnotations.Tests.DataTypeAttributeTests.GetDataTypeName_ReturnsExpectedName(dataType: Date)
+[STRT] System.ComponentModel.DataAnnotations.Tests.DataTypeAttributeTests.GetDataTypeName_ReturnsExpectedName(dataType: Time)
+[STRT] System.ComponentModel.DataAnnotations.Tests.DataTypeAttributeTests.GetDataTypeName_ReturnsExpectedName(dataType: Duration)
+[STRT] System.ComponentModel.DataAnnotations.Tests.DataTypeAttributeTests.GetDataTypeName_ReturnsExpectedName(dataType: PhoneNumber)
+[STRT] System.ComponentModel.DataAnnotations.Tests.DataTypeAttributeTests.GetDataTypeName_ReturnsExpectedName(dataType: Currency)
+[STRT] System.ComponentModel.DataAnnotations.Tests.DataTypeAttributeTests.GetDataTypeName_ReturnsExpectedName(dataType: Text)
+[STRT] System.ComponentModel.DataAnnotations.Tests.DataTypeAttributeTests.GetDataTypeName_ReturnsExpectedName(dataType: Html)
+[STRT] System.ComponentModel.DataAnnotations.Tests.DataTypeAttributeTests.GetDataTypeName_ReturnsExpectedName(dataType: MultilineText)
+[STRT] System.ComponentModel.DataAnnotations.Tests.DataTypeAttributeTests.GetDataTypeName_ReturnsExpectedName(dataType: EmailAddress)
+[STRT] System.ComponentModel.DataAnnotations.Tests.DataTypeAttributeTests.GetDataTypeName_ReturnsExpectedName(dataType: Password)
+[STRT] System.ComponentModel.DataAnnotations.Tests.DataTypeAttributeTests.GetDataTypeName_ReturnsExpectedName(dataType: Url)
+[STRT] System.ComponentModel.DataAnnotations.Tests.DataTypeAttributeTests.GetDataTypeName_ReturnsExpectedName(dataType: ImageUrl)
+[STRT] System.ComponentModel.DataAnnotations.Tests.DataTypeAttributeTests.GetDataTypeName_ReturnsExpectedName(dataType: CreditCard)
+[STRT] System.ComponentModel.DataAnnotations.Tests.DataTypeAttributeTests.GetDataTypeName_ReturnsExpectedName(dataType: PostalCode)
+[STRT] System.ComponentModel.DataAnnotations.Tests.DataTypeAttributeTests.GetDataTypeName_ReturnsExpectedName(dataType: Upload)
+[STRT] System.ComponentModel.DataAnnotations.Tests.DataTypeAttributeTests.GetDataTypeName_InvalidDataType_ThrowsIndexOutOfRangeException(dataType: -1)
+[STRT] System.ComponentModel.DataAnnotations.Tests.DataTypeAttributeTests.GetDataTypeName_InvalidDataType_ThrowsIndexOutOfRangeException(dataType: 17)
+[STRT] System.ComponentModel.DataAnnotations.Tests.DataTypeAttributeTests.DisplayFormat_ReturnsExpected(dataType: Date, dataFormatString: "{0:d}", applyFormatInEditMode: True)
+[STRT] System.ComponentModel.DataAnnotations.Tests.DataTypeAttributeTests.DisplayFormat_ReturnsExpected(dataType: Time, dataFormatString: "{0:t}", applyFormatInEditMode: True)
+[STRT] System.ComponentModel.DataAnnotations.Tests.DataTypeAttributeTests.DisplayFormat_ReturnsExpected(dataType: Currency, dataFormatString: "{0:C}", applyFormatInEditMode: False)
+[STRT] System.ComponentModel.DataAnnotations.Tests.DataTypeAttributeTests.ErrorMessage_Valid
+[STRT] System.ComponentModel.DataAnnotations.Tests.DataTypeAttributeTests.Validate_Invalid
+[STRT] System.ComponentModel.DataAnnotations.Tests.DataTypeAttributeTests.Ctor_String(customDataType: "CustomValue", valid: True)
+[STRT] System.ComponentModel.DataAnnotations.Tests.DataTypeAttributeTests.Ctor_String(customDataType: "", valid: False)
+[STRT] System.ComponentModel.DataAnnotations.Tests.DataTypeAttributeTests.Ctor_String(customDataType: null, valid: False)
+[STRT] System.ComponentModel.DataAnnotations.Tests.DataTypeAttributeTests.Ctor_String(customDataType: "   ", valid: False)
+[STRT] System.ComponentModel.DataAnnotations.Tests.RegularExpressionAttributeTests.Validate_Invalid
+[STRT] System.ComponentModel.DataAnnotations.Tests.RegularExpressionAttributeTests.Validate_InvalidPattern_ThrowsArgumentException
+[STRT] System.ComponentModel.DataAnnotations.Tests.RegularExpressionAttributeTests.Ctor_String(pattern: "SomePattern")
+[STRT] System.ComponentModel.DataAnnotations.Tests.RegularExpressionAttributeTests.Ctor_String(pattern: "foo(?<1bar)")
+[STRT] System.ComponentModel.DataAnnotations.Tests.RegularExpressionAttributeTests.Validate_InvalidPattern_ThrowsInvalidOperationException(pattern: null)
+[STRT] System.ComponentModel.DataAnnotations.Tests.RegularExpressionAttributeTests.Validate_InvalidPattern_ThrowsInvalidOperationException(pattern: "")
+[STRT] System.ComponentModel.DataAnnotations.Tests.RegularExpressionAttributeTests.MatchTimeoutInMilliseconds_GetSet_ReturnsExpected(newValue: 12345)
+[STRT] System.ComponentModel.DataAnnotations.Tests.RegularExpressionAttributeTests.MatchTimeoutInMilliseconds_GetSet_ReturnsExpected(newValue: -1)
+[STRT] System.ComponentModel.DataAnnotations.Tests.RegularExpressionAttributeTests.Validate_Valid
+[STRT] System.ComponentModel.DataAnnotations.Tests.RegularExpressionAttributeTests.ErrorMessage_Invalid_Throws
+[STRT] System.ComponentModel.DataAnnotations.Tests.RegularExpressionAttributeTests.ErrorMessage_Valid
+[STRT] System.ComponentModel.DataAnnotations.Tests.RegularExpressionAttributeTests.Validate_MatchingTimesOut_ThrowsRegexMatchTimeoutException
+[STRT] System.ComponentModel.DataAnnotations.Tests.RegularExpressionAttributeTests.Validate_InvalidMatchTimeoutInMilliseconds_ThrowsArgumentOutOfRangeException(timeout: 0)
+[STRT] System.ComponentModel.DataAnnotations.Tests.RegularExpressionAttributeTests.Validate_InvalidMatchTimeoutInMilliseconds_ThrowsArgumentOutOfRangeException(timeout: -2)
+[STRT] System.ComponentModel.DataAnnotations.Tests.UrlAttributeTests.ErrorMessage_Invalid_Throws
+[STRT] System.ComponentModel.DataAnnotations.Tests.UrlAttributeTests.Validate_Invalid
+[STRT] System.ComponentModel.DataAnnotations.Tests.UrlAttributeTests.DataType_CustomDataType_ReturnsExpected
+[STRT] System.ComponentModel.DataAnnotations.Tests.UrlAttributeTests.Validate_Valid
+[STRT] System.ComponentModel.DataAnnotations.Tests.UrlAttributeTests.ErrorMessage_Valid
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.Validate_ExclusiveEqualBounds_ThrowsInvalidOperationException(attribute: RangeAttribute { ConvertValueInInvariantCulture = False, ErrorMessage = null, ErrorMessageResourceName = null, ErrorMessageResourceType = null, Maximum = 0, ··· })
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.Validate_ExclusiveEqualBounds_ThrowsInvalidOperationException(attribute: RangeAttribute { ConvertValueInInvariantCulture = False, ErrorMessage = null, ErrorMessageResourceName = null, ErrorMessageResourceType = null, Maximum = 0, ··· })
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.Validate_ExclusiveEqualBounds_ThrowsInvalidOperationException(attribute: RangeAttribute { ConvertValueInInvariantCulture = False, ErrorMessage = null, ErrorMessageResourceName = null, ErrorMessageResourceType = null, Maximum = 0, ··· })
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.Validate_ExclusiveEqualBounds_ThrowsInvalidOperationException(attribute: RangeAttribute { ConvertValueInInvariantCulture = False, ErrorMessage = null, ErrorMessageResourceName = null, ErrorMessageResourceType = null, Maximum = 1.1000000000000001, ··· })
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.Validate_ExclusiveEqualBounds_ThrowsInvalidOperationException(attribute: RangeAttribute { ConvertValueInInvariantCulture = False, ErrorMessage = null, ErrorMessageResourceName = null, ErrorMessageResourceType = null, Maximum = 1.1000000000000001, ··· })
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.Validate_ExclusiveEqualBounds_ThrowsInvalidOperationException(attribute: RangeAttribute { ConvertValueInInvariantCulture = False, ErrorMessage = null, ErrorMessageResourceName = null, ErrorMessageResourceType = null, Maximum = 1.1000000000000001, ··· })
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.Validate_ExclusiveEqualBounds_ThrowsInvalidOperationException(attribute: RangeAttribute { ConvertValueInInvariantCulture = False, ErrorMessage = null, ErrorMessageResourceName = null, ErrorMessageResourceType = null, Maximum = "0.0", ··· })
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.Validate_ExclusiveEqualBounds_ThrowsInvalidOperationException(attribute: RangeAttribute { ConvertValueInInvariantCulture = False, ErrorMessage = null, ErrorMessageResourceName = null, ErrorMessageResourceType = null, Maximum = "0.0", ··· })
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.Validate_ExclusiveEqualBounds_ThrowsInvalidOperationException(attribute: RangeAttribute { ConvertValueInInvariantCulture = False, ErrorMessage = null, ErrorMessageResourceName = null, ErrorMessageResourceType = null, Maximum = "0.0", ··· })
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.Validate_CantConvertValueToTargetType_ThrowsException(type: typeof(int), minimum: "1", maximum: "3")
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.Validate_CantConvertValueToTargetType_ThrowsException(type: typeof(double), minimum: "1", maximum: "3")
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.ParseCommaSeparatorExtremaInCommaSeparatorCultures(type: typeof(decimal), min: "1,0", max: "3,0")
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.ParseCommaSeparatorExtremaInCommaSeparatorCultures(type: typeof(double), min: "1,0", max: "3,0")
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.DotDecimalExtremaAndValuesInvariantBoth(type: typeof(decimal), min: "1.0", max: "3.0", value: "1.0")
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.DotDecimalExtremaAndValuesInvariantBoth(type: typeof(decimal), min: "1.0", max: "3.0", value: "3.0")
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.DotDecimalExtremaAndValuesInvariantBoth(type: typeof(decimal), min: "1.0", max: "3.0", value: "2.9999999999999999999999999999999999999999999")
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.DotDecimalExtremaAndValuesInvariantBoth(type: typeof(decimal), min: "1.0", max: "3.0", value: "2.9999999999999999999999999999")
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.DotDecimalExtremaAndValuesInvariantBoth(type: typeof(double), min: "1.0", max: "3.0", value: "1.0")
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.DotDecimalExtremaAndValuesInvariantBoth(type: typeof(double), min: "1.0", max: "3.0", value: "3.0")
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.DotDecimalExtremaAndValuesInvariantBoth(type: typeof(double), min: "1.0", max: "3.0", value: "2.9999999999999999999999999999999999999999999")
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.DotDecimalExtremaAndValuesInvariantBoth(type: typeof(double), min: "1.0", max: "3.0", value: "2.99999999999999")
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.ParseCommaSeparatorInvariantExtremaInCommaSeparatorCultures(type: typeof(decimal), min: "1,0", max: "3,0")
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.ParseCommaSeparatorInvariantExtremaInCommaSeparatorCultures(type: typeof(double), min: "1,0", max: "3,0")
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.DotDecimalExtremaAndInvalidValuesInvariantBoth(type: typeof(decimal), min: "1.0", max: "3.0", value: "9.0")
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.DotDecimalExtremaAndInvalidValuesInvariantBoth(type: typeof(decimal), min: "1.0", max: "3.0", value: "0.1")
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.DotDecimalExtremaAndInvalidValuesInvariantBoth(type: typeof(decimal), min: "1.0", max: "3.0", value: "3.9999999999999999999999999999999999999999999")
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.DotDecimalExtremaAndInvalidValuesInvariantBoth(type: typeof(decimal), min: "1.0", max: "3.0", value: "3.9999999999999999999999999999")
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.DotDecimalExtremaAndInvalidValuesInvariantBoth(type: typeof(double), min: "1.0", max: "3.0", value: "9.0")
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.DotDecimalExtremaAndInvalidValuesInvariantBoth(type: typeof(double), min: "1.0", max: "3.0", value: "0.1")
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.DotDecimalExtremaAndInvalidValuesInvariantBoth(type: typeof(double), min: "1.0", max: "3.0", value: "3.9999999999999999999999999999999999999999999")
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.DotDecimalExtremaAndInvalidValuesInvariantBoth(type: typeof(double), min: "1.0", max: "3.0", value: "3.99999999999999")
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.ExclusiveBoundProperties_CanBeSet(attribute: RangeAttribute { ConvertValueInInvariantCulture = False, ErrorMessage = null, ErrorMessageResourceName = null, ErrorMessageResourceType = null, Maximum = 1, ··· })
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.ExclusiveBoundProperties_CanBeSet(attribute: RangeAttribute { ConvertValueInInvariantCulture = False, ErrorMessage = null, ErrorMessageResourceName = null, ErrorMessageResourceType = null, Maximum = 1, ··· })
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.ExclusiveBoundProperties_CanBeSet(attribute: RangeAttribute { ConvertValueInInvariantCulture = False, ErrorMessage = null, ErrorMessageResourceName = null, ErrorMessageResourceType = null, Maximum = "0.1", ··· })
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.Validate_MinimumOrMaximumNull_ThrowsInvalidOperationException(minimum: null, maximum: "3")
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.Validate_MinimumOrMaximumNull_ThrowsInvalidOperationException(minimum: "3", maximum: null)
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.Validate_InvalidOperandType_ThrowsInvalidOperationException(type: null)
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.Validate_InvalidOperandType_ThrowsInvalidOperationException(type: typeof(object))
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.ParseDotSeparatorExtremaInCommaSeparatorCultures(type: typeof(decimal), min: "1.0", max: "3.0")
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.ParseDotSeparatorExtremaInCommaSeparatorCultures(type: typeof(double), min: "1.0", max: "3.0")
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.Ctor_Int_Int
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.DotDecimalExtremaAndValues(type: typeof(decimal), min: "1.0", max: "3.0", value: "1.0")
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.DotDecimalExtremaAndValues(type: typeof(decimal), min: "1.0", max: "3.0", value: "3.0")
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.DotDecimalExtremaAndValues(type: typeof(decimal), min: "1.0", max: "3.0", value: "2.9999999999999999999999999999999999999999999")
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.DotDecimalExtremaAndValues(type: typeof(decimal), min: "1.0", max: "3.0", value: "2.9999999999999999999999999999")
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.DotDecimalExtremaAndValues(type: typeof(double), min: "1.0", max: "3.0", value: "1.0")
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.DotDecimalExtremaAndValues(type: typeof(double), min: "1.0", max: "3.0", value: "3.0")
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.DotDecimalExtremaAndValues(type: typeof(double), min: "1.0", max: "3.0", value: "2.9999999999999999999999999999999999999999999")
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.DotDecimalExtremaAndValues(type: typeof(double), min: "1.0", max: "3.0", value: "2.99999999999999")
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.CommaDecimalExtremaAndNonStringValuesInvariantConvert(type: typeof(decimal), min: "1,0", max: "3,0", value: 1.0)
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.CommaDecimalExtremaAndNonStringValuesInvariantConvert(type: typeof(decimal), min: "1,0", max: "3,0", value: 3.0)
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.CommaDecimalExtremaAndNonStringValuesInvariantConvert(type: typeof(decimal), min: "1,0", max: "3,0", value: 2.9999999999999999999999999999)
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.CommaDecimalExtremaAndNonStringValuesInvariantConvert(type: typeof(double), min: "1,0", max: "3,0", value: 1)
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.CommaDecimalExtremaAndNonStringValuesInvariantConvert(type: typeof(double), min: "1,0", max: "3,0", value: 3)
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.CommaDecimalExtremaAndNonStringValuesInvariantConvert(type: typeof(double), min: "1,0", max: "3,0", value: 2.9999999999999898)
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.Validate_MinimumOrMaximumCantBeConvertedToDateTime_ThrowsFormatException(type: typeof(System.DateTime), minimum: "Cannot Convert", maximum: "2014-03-19")
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.Validate_MinimumOrMaximumCantBeConvertedToDateTime_ThrowsFormatException(type: typeof(System.DateTime), minimum: "2014-03-19", maximum: "Cannot Convert")
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.Ctor_Type_String_String(type: null)
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.Ctor_Type_String_String(type: typeof(object))
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.Ctor_Double_Double
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.CommaDecimalExtremaAndInvalidValuesInvariantConvert(type: typeof(decimal), min: "1,0", max: "3,0", value: "9,0")
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.CommaDecimalExtremaAndInvalidValuesInvariantConvert(type: typeof(decimal), min: "1,0", max: "3,0", value: "0,1")
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.CommaDecimalExtremaAndInvalidValuesInvariantConvert(type: typeof(decimal), min: "1,0", max: "3,0", value: "3,9999999999999999999999999999999999999999999")
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.CommaDecimalExtremaAndInvalidValuesInvariantConvert(type: typeof(decimal), min: "1,0", max: "3,0", value: "3,9999999999999999999999999999")
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.CommaDecimalExtremaAndInvalidValuesInvariantConvert(type: typeof(double), min: "1,0", max: "3,0", value: "9,0")
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.CommaDecimalExtremaAndInvalidValuesInvariantConvert(type: typeof(double), min: "1,0", max: "3,0", value: "0,1")
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.CommaDecimalExtremaAndInvalidValuesInvariantConvert(type: typeof(double), min: "1,0", max: "3,0", value: "3,9999999999999999999999999999999999999999999")
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.CommaDecimalExtremaAndInvalidValuesInvariantConvert(type: typeof(double), min: "1,0", max: "3,0", value: "3,99999999999999")
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.Validate_MinimumOrMaximumCantBeConvertedToIntegralType_ThrowsException(type: typeof(int), minimum: "Cannot Convert", maximum: "3")
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.Validate_MinimumOrMaximumCantBeConvertedToIntegralType_ThrowsException(type: typeof(int), minimum: "1", maximum: "Cannot Convert")
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.Validate_MinimumOrMaximumCantBeConvertedToIntegralType_ThrowsException(type: typeof(double), minimum: "Cannot Convert", maximum: "3")
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.Validate_MinimumOrMaximumCantBeConvertedToIntegralType_ThrowsException(type: typeof(double), minimum: "1", maximum: "Cannot Convert")
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.Validate_IConvertibleThrowsCustomException_IsNotCaught
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.CommaDecimalExtremaAndNonStringValuesInvariantBoth(type: typeof(decimal), min: "1,0", max: "3,0", value: 1.0)
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.CommaDecimalExtremaAndNonStringValuesInvariantBoth(type: typeof(decimal), min: "1,0", max: "3,0", value: 3.0)
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.CommaDecimalExtremaAndNonStringValuesInvariantBoth(type: typeof(decimal), min: "1,0", max: "3,0", value: 2.9999999999999999999999999999)
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.CommaDecimalExtremaAndNonStringValuesInvariantBoth(type: typeof(double), min: "1,0", max: "3,0", value: 1)
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.CommaDecimalExtremaAndNonStringValuesInvariantBoth(type: typeof(double), min: "1,0", max: "3,0", value: 3)
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.CommaDecimalExtremaAndNonStringValuesInvariantBoth(type: typeof(double), min: "1,0", max: "3,0", value: 2.9999999999999898)
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.CommaDecimalExtremaAndInvalidValuesInvariantParse(type: typeof(decimal), min: "1,0", max: "3,0", value: "9,0")
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.CommaDecimalExtremaAndInvalidValuesInvariantParse(type: typeof(decimal), min: "1,0", max: "3,0", value: "0,1")
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.CommaDecimalExtremaAndInvalidValuesInvariantParse(type: typeof(decimal), min: "1,0", max: "3,0", value: "3,9999999999999999999999999999999999999999999")
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.CommaDecimalExtremaAndInvalidValuesInvariantParse(type: typeof(decimal), min: "1,0", max: "3,0", value: "3,9999999999999999999999999999")
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.CommaDecimalExtremaAndInvalidValuesInvariantParse(type: typeof(double), min: "1,0", max: "3,0", value: "9,0")
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.CommaDecimalExtremaAndInvalidValuesInvariantParse(type: typeof(double), min: "1,0", max: "3,0", value: "0,1")
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.CommaDecimalExtremaAndInvalidValuesInvariantParse(type: typeof(double), min: "1,0", max: "3,0", value: "3,9999999999999999999999999999999999999999999")
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.CommaDecimalExtremaAndInvalidValuesInvariantParse(type: typeof(double), min: "1,0", max: "3,0", value: "3,99999999999999")
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.DotDecimalExtremaAndValuesInvariantParse(type: typeof(decimal), min: "1.0", max: "3.0", value: "1.0")
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.DotDecimalExtremaAndValuesInvariantParse(type: typeof(decimal), min: "1.0", max: "3.0", value: "3.0")
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.DotDecimalExtremaAndValuesInvariantParse(type: typeof(decimal), min: "1.0", max: "3.0", value: "2.9999999999999999999999999999999999999999999")
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.DotDecimalExtremaAndValuesInvariantParse(type: typeof(decimal), min: "1.0", max: "3.0", value: "2.9999999999999999999999999999")
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.DotDecimalExtremaAndValuesInvariantParse(type: typeof(double), min: "1.0", max: "3.0", value: "1.0")
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.DotDecimalExtremaAndValuesInvariantParse(type: typeof(double), min: "1.0", max: "3.0", value: "3.0")
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.DotDecimalExtremaAndValuesInvariantParse(type: typeof(double), min: "1.0", max: "3.0", value: "2.9999999999999999999999999999999999999999999")
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.DotDecimalExtremaAndValuesInvariantParse(type: typeof(double), min: "1.0", max: "3.0", value: "2.99999999999999")
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.DotDecimalExtremaAndInvalidValuesInvariantConvert(type: typeof(decimal), min: "1.0", max: "3.0", value: "9.0")
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.DotDecimalExtremaAndInvalidValuesInvariantConvert(type: typeof(decimal), min: "1.0", max: "3.0", value: "0.1")
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.DotDecimalExtremaAndInvalidValuesInvariantConvert(type: typeof(decimal), min: "1.0", max: "3.0", value: "3.9999999999999999999999999999999999999999999")
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.DotDecimalExtremaAndInvalidValuesInvariantConvert(type: typeof(decimal), min: "1.0", max: "3.0", value: "3.9999999999999999999999999999")
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.DotDecimalExtremaAndInvalidValuesInvariantConvert(type: typeof(double), min: "1.0", max: "3.0", value: "9.0")
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.DotDecimalExtremaAndInvalidValuesInvariantConvert(type: typeof(double), min: "1.0", max: "3.0", value: "0.1")
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.DotDecimalExtremaAndInvalidValuesInvariantConvert(type: typeof(double), min: "1.0", max: "3.0", value: "3.9999999999999999999999999999999999999999999")
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.DotDecimalExtremaAndInvalidValuesInvariantConvert(type: typeof(double), min: "1.0", max: "3.0", value: "3.99999999999999")
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.Validate_MinimumGreaterThanMaximum_ThrowsInvalidOperationException
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.ErrorMessage_Invalid_Throws
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.CommaDecimalExtremaAndValuesInvariantParse(type: typeof(decimal), min: "1,0", max: "3,0", value: "1,0")
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.CommaDecimalExtremaAndValuesInvariantParse(type: typeof(decimal), min: "1,0", max: "3,0", value: "3,0")
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.CommaDecimalExtremaAndValuesInvariantParse(type: typeof(decimal), min: "1,0", max: "3,0", value: "2,9999999999999999999999999999999999999999999")
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.CommaDecimalExtremaAndValuesInvariantParse(type: typeof(decimal), min: "1,0", max: "3,0", value: "2,9999999999999999999999999999")
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.CommaDecimalExtremaAndValuesInvariantParse(type: typeof(double), min: "1,0", max: "3,0", value: "1,0")
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.CommaDecimalExtremaAndValuesInvariantParse(type: typeof(double), min: "1,0", max: "3,0", value: "3,0")
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.CommaDecimalExtremaAndValuesInvariantParse(type: typeof(double), min: "1,0", max: "3,0", value: "2,99999999999999")
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.ErrorMessage_Valid
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.CommaDecimalExtremaAndInvalidValuesInvariantBoth(type: typeof(decimal), min: "1,0", max: "3,0", value: "9,0")
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.CommaDecimalExtremaAndInvalidValuesInvariantBoth(type: typeof(decimal), min: "1,0", max: "3,0", value: "0,1")
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.CommaDecimalExtremaAndInvalidValuesInvariantBoth(type: typeof(decimal), min: "1,0", max: "3,0", value: "3,9999999999999999999999999999999999999999999")
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.CommaDecimalExtremaAndInvalidValuesInvariantBoth(type: typeof(decimal), min: "1,0", max: "3,0", value: "3,9999999999999999999999999999")
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.CommaDecimalExtremaAndInvalidValuesInvariantBoth(type: typeof(double), min: "1,0", max: "3,0", value: "9,0")
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.CommaDecimalExtremaAndInvalidValuesInvariantBoth(type: typeof(double), min: "1,0", max: "3,0", value: "0,1")
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.CommaDecimalExtremaAndInvalidValuesInvariantBoth(type: typeof(double), min: "1,0", max: "3,0", value: "3,9999999999999999999999999999999999999999999")
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.CommaDecimalExtremaAndInvalidValuesInvariantBoth(type: typeof(double), min: "1,0", max: "3,0", value: "3,99999999999999")
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.CommaDecimalExtremaAndInvalidValues(type: typeof(decimal), min: "1,0", max: "3,0", value: "9,0")
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.CommaDecimalExtremaAndInvalidValues(type: typeof(decimal), min: "1,0", max: "3,0", value: "0,1")
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.CommaDecimalExtremaAndInvalidValues(type: typeof(decimal), min: "1,0", max: "3,0", value: "3,9999999999999999999999999999999999999999999")
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.CommaDecimalExtremaAndInvalidValues(type: typeof(decimal), min: "1,0", max: "3,0", value: "3,9999999999999999999999999999")
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.CommaDecimalExtremaAndInvalidValues(type: typeof(double), min: "1,0", max: "3,0", value: "9,0")
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.CommaDecimalExtremaAndInvalidValues(type: typeof(double), min: "1,0", max: "3,0", value: "0,1")
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.CommaDecimalExtremaAndInvalidValues(type: typeof(double), min: "1,0", max: "3,0", value: "3,9999999999999999999999999999999999999999999")
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.CommaDecimalExtremaAndInvalidValues(type: typeof(double), min: "1,0", max: "3,0", value: "3,99999999999999")
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.DotDecimalExtremaAndValuesInvariantConvert(type: typeof(decimal), min: "1.0", max: "3.0", value: "1.0")
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.DotDecimalExtremaAndValuesInvariantConvert(type: typeof(decimal), min: "1.0", max: "3.0", value: "3.0")
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.DotDecimalExtremaAndValuesInvariantConvert(type: typeof(decimal), min: "1.0", max: "3.0", value: "2.9999999999999999999999999999999999999999999")
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.DotDecimalExtremaAndValuesInvariantConvert(type: typeof(decimal), min: "1.0", max: "3.0", value: "2.9999999999999999999999999999")
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.DotDecimalExtremaAndValuesInvariantConvert(type: typeof(double), min: "1.0", max: "3.0", value: "1.0")
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.DotDecimalExtremaAndValuesInvariantConvert(type: typeof(double), min: "1.0", max: "3.0", value: "3.0")
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.DotDecimalExtremaAndValuesInvariantConvert(type: typeof(double), min: "1.0", max: "3.0", value: "2.9999999999999999999999999999999999999999999")
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.DotDecimalExtremaAndValuesInvariantConvert(type: typeof(double), min: "1.0", max: "3.0", value: "2.99999999999999")
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.DotDecimalExtremaAndInvalidValues(type: typeof(decimal), min: "1.0", max: "3.0", value: "9.0")
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.DotDecimalExtremaAndInvalidValues(type: typeof(decimal), min: "1.0", max: "3.0", value: "0.1")
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.DotDecimalExtremaAndInvalidValues(type: typeof(decimal), min: "1.0", max: "3.0", value: "3.9999999999999999999999999999999999999999999")
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.DotDecimalExtremaAndInvalidValues(type: typeof(decimal), min: "1.0", max: "3.0", value: "3.9999999999999999999999999999")
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.DotDecimalExtremaAndInvalidValues(type: typeof(double), min: "1.0", max: "3.0", value: "9.0")
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.DotDecimalExtremaAndInvalidValues(type: typeof(double), min: "1.0", max: "3.0", value: "0.1")
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.DotDecimalExtremaAndInvalidValues(type: typeof(double), min: "1.0", max: "3.0", value: "3.9999999999999999999999999999999999999999999")
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.DotDecimalExtremaAndInvalidValues(type: typeof(double), min: "1.0", max: "3.0", value: "3.99999999999999")
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.CommaDecimalExtremaAndNonStringValues(type: typeof(decimal), min: "1,0", max: "3,0", value: 1.0)
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.CommaDecimalExtremaAndNonStringValues(type: typeof(decimal), min: "1,0", max: "3,0", value: 3.0)
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.CommaDecimalExtremaAndNonStringValues(type: typeof(decimal), min: "1,0", max: "3,0", value: 2.9999999999999999999999999999)
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.CommaDecimalExtremaAndNonStringValues(type: typeof(double), min: "1,0", max: "3,0", value: 1)
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.CommaDecimalExtremaAndNonStringValues(type: typeof(double), min: "1,0", max: "3,0", value: 3)
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.CommaDecimalExtremaAndNonStringValues(type: typeof(double), min: "1,0", max: "3,0", value: 2.9999999999999898)
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.Validate_Valid
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.CommaDecimalExtremaAndValuesInvariantBoth(type: typeof(decimal), min: "1,0", max: "3,0", value: "1,0")
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.CommaDecimalExtremaAndValuesInvariantBoth(type: typeof(decimal), min: "1,0", max: "3,0", value: "3,0")
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.CommaDecimalExtremaAndValuesInvariantBoth(type: typeof(decimal), min: "1,0", max: "3,0", value: "2,9999999999999999999999999999999999999999999")
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.CommaDecimalExtremaAndValuesInvariantBoth(type: typeof(decimal), min: "1,0", max: "3,0", value: "2,9999999999999999999999999999")
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.CommaDecimalExtremaAndValuesInvariantBoth(type: typeof(double), min: "1,0", max: "3,0", value: "1,0")
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.CommaDecimalExtremaAndValuesInvariantBoth(type: typeof(double), min: "1,0", max: "3,0", value: "3,0")
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.CommaDecimalExtremaAndValuesInvariantBoth(type: typeof(double), min: "1,0", max: "3,0", value: "2,99999999999999")
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.DotDecimalExtremaAndNonStringValues(type: typeof(decimal), min: "1.0", max: "3.0", value: 1.0)
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.DotDecimalExtremaAndNonStringValues(type: typeof(decimal), min: "1.0", max: "3.0", value: 3.0)
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.DotDecimalExtremaAndNonStringValues(type: typeof(decimal), min: "1.0", max: "3.0", value: 2.9999999999999999999999999999)
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.DotDecimalExtremaAndNonStringValues(type: typeof(double), min: "1.0", max: "3.0", value: 1)
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.DotDecimalExtremaAndNonStringValues(type: typeof(double), min: "1.0", max: "3.0", value: 3)
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.DotDecimalExtremaAndNonStringValues(type: typeof(double), min: "1.0", max: "3.0", value: 2.9999999999999898)
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.ParseDotSeparatorInvariantExtremaInCommaSeparatorCultures(type: typeof(decimal), min: "1.0", max: "3.0")
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.ParseDotSeparatorInvariantExtremaInCommaSeparatorCultures(type: typeof(double), min: "1.0", max: "3.0")
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.DotDecimalExtremaAndNonStringValuesInvariantParse(type: typeof(decimal), min: "1.0", max: "3.0", value: 1.0)
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.DotDecimalExtremaAndNonStringValuesInvariantParse(type: typeof(decimal), min: "1.0", max: "3.0", value: 3.0)
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.DotDecimalExtremaAndNonStringValuesInvariantParse(type: typeof(decimal), min: "1.0", max: "3.0", value: 2.9999999999999999999999999999)
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.DotDecimalExtremaAndNonStringValuesInvariantParse(type: typeof(double), min: "1.0", max: "3.0", value: 1)
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.DotDecimalExtremaAndNonStringValuesInvariantParse(type: typeof(double), min: "1.0", max: "3.0", value: 3)
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.DotDecimalExtremaAndNonStringValuesInvariantParse(type: typeof(double), min: "1.0", max: "3.0", value: 2.9999999999999898)
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.CommaDecimalExtremaAndValuesInvariantConvert(type: typeof(decimal), min: "1,0", max: "3,0", value: "1,0")
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.CommaDecimalExtremaAndValuesInvariantConvert(type: typeof(decimal), min: "1,0", max: "3,0", value: "3,0")
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.CommaDecimalExtremaAndValuesInvariantConvert(type: typeof(decimal), min: "1,0", max: "3,0", value: "2,9999999999999999999999999999999999999999999")
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.CommaDecimalExtremaAndValuesInvariantConvert(type: typeof(decimal), min: "1,0", max: "3,0", value: "2,9999999999999999999999999999")
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.CommaDecimalExtremaAndValuesInvariantConvert(type: typeof(double), min: "1,0", max: "3,0", value: "1,0")
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.CommaDecimalExtremaAndValuesInvariantConvert(type: typeof(double), min: "1,0", max: "3,0", value: "3,0")
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.CommaDecimalExtremaAndValuesInvariantConvert(type: typeof(double), min: "1,0", max: "3,0", value: "2,99999999999999")
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.CommaDecimalExtremaAndValues(type: typeof(decimal), min: "1,0", max: "3,0", value: "1,0")
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.CommaDecimalExtremaAndValues(type: typeof(decimal), min: "1,0", max: "3,0", value: "3,0")
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.CommaDecimalExtremaAndValues(type: typeof(decimal), min: "1,0", max: "3,0", value: "2,9999999999999999999999999999999999999999999")
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.CommaDecimalExtremaAndValues(type: typeof(decimal), min: "1,0", max: "3,0", value: "2,9999999999999999999999999999")
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.CommaDecimalExtremaAndValues(type: typeof(double), min: "1,0", max: "3,0", value: "1,0")
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.CommaDecimalExtremaAndValues(type: typeof(double), min: "1,0", max: "3,0", value: "3,0")
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.CommaDecimalExtremaAndValues(type: typeof(double), min: "1,0", max: "3,0", value: "2,99999999999999")
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.ExclusiveBoundProperties_DefaultToFalse(attribute: RangeAttribute { ConvertValueInInvariantCulture = False, ErrorMessage = null, ErrorMessageResourceName = null, ErrorMessageResourceType = null, Maximum = 1, ··· })
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.ExclusiveBoundProperties_DefaultToFalse(attribute: RangeAttribute { ConvertValueInInvariantCulture = False, ErrorMessage = null, ErrorMessageResourceName = null, ErrorMessageResourceType = null, Maximum = 1, ··· })
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.ExclusiveBoundProperties_DefaultToFalse(attribute: RangeAttribute { ConvertValueInInvariantCulture = False, ErrorMessage = null, ErrorMessageResourceName = null, ErrorMessageResourceType = null, Maximum = "0.1", ··· })
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.DotDecimalExtremaAndNonStringValuesInvariantConvert(type: typeof(decimal), min: "1.0", max: "3.0", value: 1.0)
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.DotDecimalExtremaAndNonStringValuesInvariantConvert(type: typeof(decimal), min: "1.0", max: "3.0", value: 3.0)
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.DotDecimalExtremaAndNonStringValuesInvariantConvert(type: typeof(decimal), min: "1.0", max: "3.0", value: 2.9999999999999999999999999999)
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.DotDecimalExtremaAndNonStringValuesInvariantConvert(type: typeof(double), min: "1.0", max: "3.0", value: 1)
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.DotDecimalExtremaAndNonStringValuesInvariantConvert(type: typeof(double), min: "1.0", max: "3.0", value: 3)
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.DotDecimalExtremaAndNonStringValuesInvariantConvert(type: typeof(double), min: "1.0", max: "3.0", value: 2.9999999999999898)
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.Validate_IntConversionOverflows_ReturnsFalse(minimum: 1, maximum: 2, value: "2147483648")
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.Validate_IntConversionOverflows_ReturnsFalse(minimum: 1, maximum: 2, value: "-2147483649")
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.Validate_IntConversionOverflows_ReturnsFalse(minimum: -50, maximum: 50, value: 2147483648)
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.Validate_IntConversionOverflows_ReturnsFalse(minimum: -50, maximum: 50, value: -2147483649)
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.DotDecimalExtremaAndInvalidValuesInvariantParse(type: typeof(decimal), min: "1.0", max: "3.0", value: "9.0")
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.DotDecimalExtremaAndInvalidValuesInvariantParse(type: typeof(decimal), min: "1.0", max: "3.0", value: "0.1")
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.DotDecimalExtremaAndInvalidValuesInvariantParse(type: typeof(decimal), min: "1.0", max: "3.0", value: "3.9999999999999999999999999999999999999999999")
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.DotDecimalExtremaAndInvalidValuesInvariantParse(type: typeof(decimal), min: "1.0", max: "3.0", value: "3.9999999999999999999999999999")
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.DotDecimalExtremaAndInvalidValuesInvariantParse(type: typeof(double), min: "1.0", max: "3.0", value: "9.0")
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.DotDecimalExtremaAndInvalidValuesInvariantParse(type: typeof(double), min: "1.0", max: "3.0", value: "0.1")
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.DotDecimalExtremaAndInvalidValuesInvariantParse(type: typeof(double), min: "1.0", max: "3.0", value: "3.9999999999999999999999999999999999999999999")
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.DotDecimalExtremaAndInvalidValuesInvariantParse(type: typeof(double), min: "1.0", max: "3.0", value: "3.99999999999999")
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.DotDecimalExtremaAndNonStringValuesInvariantBoth(type: typeof(decimal), min: "1.0", max: "3.0", value: 1.0)
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.DotDecimalExtremaAndNonStringValuesInvariantBoth(type: typeof(decimal), min: "1.0", max: "3.0", value: 3.0)
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.DotDecimalExtremaAndNonStringValuesInvariantBoth(type: typeof(decimal), min: "1.0", max: "3.0", value: 2.9999999999999999999999999999)
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.DotDecimalExtremaAndNonStringValuesInvariantBoth(type: typeof(double), min: "1.0", max: "3.0", value: 1)
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.DotDecimalExtremaAndNonStringValuesInvariantBoth(type: typeof(double), min: "1.0", max: "3.0", value: 3)
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.DotDecimalExtremaAndNonStringValuesInvariantBoth(type: typeof(double), min: "1.0", max: "3.0", value: 2.9999999999999898)
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.Validate_Invalid
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.CommaDecimalExtremaAndNonStringValuesInvariantParse(type: typeof(decimal), min: "1,0", max: "3,0", value: 1.0)
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.CommaDecimalExtremaAndNonStringValuesInvariantParse(type: typeof(decimal), min: "1,0", max: "3,0", value: 3.0)
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.CommaDecimalExtremaAndNonStringValuesInvariantParse(type: typeof(decimal), min: "1,0", max: "3,0", value: 2.9999999999999999999999999999)
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.CommaDecimalExtremaAndNonStringValuesInvariantParse(type: typeof(double), min: "1,0", max: "3,0", value: 1)
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.CommaDecimalExtremaAndNonStringValuesInvariantParse(type: typeof(double), min: "1,0", max: "3,0", value: 3)
+[STRT] System.ComponentModel.DataAnnotations.Tests.RangeAttributeTests.CommaDecimalExtremaAndNonStringValuesInvariantParse(type: typeof(double), min: "1,0", max: "3,0", value: 2.9999999999999898)
+[STRT] System.ComponentModel.Annotations.Tests.RegularExpressionAttributeTests.MatchTimeout_Get_ReturnsExpected(newValue: 12345)
+[STRT] System.ComponentModel.Annotations.Tests.RegularExpressionAttributeTests.MatchTimeout_Get_ReturnsExpected(newValue: -1)
+[STRT] System.ComponentModel.DataAnnotations.Tests.MetadataTypeAttributeTests.MetadataClassType_GetWithoutType_ThrowsInvalidOperationException
+[STRT] System.ComponentModel.DataAnnotations.Tests.MetadataTypeAttributeTests.Ctor_Type(metadataClassType: typeof(int))
+[STRT] System.ComponentModel.DataAnnotations.Schema.Tests.InversePropertyAttributeTests.Ctor_String_WhitespaceProperty_ThrowsArgumentException(property: "")
+[STRT] System.ComponentModel.DataAnnotations.Schema.Tests.InversePropertyAttributeTests.Ctor_String_WhitespaceProperty_ThrowsArgumentException(property: " \t\r\n")
+[STRT] System.ComponentModel.DataAnnotations.Schema.Tests.InversePropertyAttributeTests.Ctor_String_NullProperty_ThrowsArgumentException(property: null)
+[STRT] System.ComponentModel.DataAnnotations.Schema.Tests.InversePropertyAttributeTests.Ctor_String(property: "Gammer Brevis")
+[STRT] System.ComponentModel.DataAnnotations.Tests.DisplayAttributeTests.AutoGenerateFilter_Get_Set(value: True)
+[STRT] System.ComponentModel.DataAnnotations.Tests.DisplayAttributeTests.AutoGenerateFilter_Get_Set(value: False)
+[STRT] System.ComponentModel.DataAnnotations.Tests.DisplayAttributeTests.GroupName_Get_Set(value: "GroupName")
+[STRT] System.ComponentModel.DataAnnotations.Tests.DisplayAttributeTests.GroupName_Get_Set(value: "")
+[STRT] System.ComponentModel.DataAnnotations.Tests.DisplayAttributeTests.GroupName_Get_Set(value: " \r \t \n ")
+[STRT] System.ComponentModel.DataAnnotations.Tests.DisplayAttributeTests.GroupName_Get_Set(value: "abc")
+[STRT] System.ComponentModel.DataAnnotations.Tests.DisplayAttributeTests.Ctor
+[STRT] System.ComponentModel.DataAnnotations.Tests.DisplayAttributeTests.AutoGenerateFilter_Get_NotSet_ThrowsInvalidOperationException
+[STRT] System.ComponentModel.DataAnnotations.Tests.DisplayAttributeTests.AutoGenerateField_Get_NotSet_ThrowsInvalidOperationException
+[STRT] System.ComponentModel.DataAnnotations.Tests.DisplayAttributeTests.Description_Get_Set(value: "Description")
+[STRT] System.ComponentModel.DataAnnotations.Tests.DisplayAttributeTests.Description_Get_Set(value: "")
+[STRT] System.ComponentModel.DataAnnotations.Tests.DisplayAttributeTests.Description_Get_Set(value: " \r \t \n ")
+[STRT] System.ComponentModel.DataAnnotations.Tests.DisplayAttributeTests.Description_Get_Set(value: "abc")
+[STRT] System.ComponentModel.DataAnnotations.Tests.DisplayAttributeTests.AutoGenerateField_Get_Set(value: True)
+[STRT] System.ComponentModel.DataAnnotations.Tests.DisplayAttributeTests.AutoGenerateField_Get_Set(value: False)
+[STRT] System.ComponentModel.DataAnnotations.Tests.DisplayAttributeTests.Order_Get_Set(value: 0)
+[STRT] System.ComponentModel.DataAnnotations.Tests.DisplayAttributeTests.Order_Get_Set(value: -1)
+[STRT] System.ComponentModel.DataAnnotations.Tests.DisplayAttributeTests.Order_Get_Set(value: 1)
+[STRT] System.ComponentModel.DataAnnotations.Tests.DisplayAttributeTests.ResourceType_Get_Set(value: null)
+[STRT] System.ComponentModel.DataAnnotations.Tests.DisplayAttributeTests.ResourceType_Get_Set(value: typeof(string))
+[STRT] System.ComponentModel.DataAnnotations.Tests.DisplayAttributeTests.Order_Get_NotSet_ThrowsInvalidOperationException
+[STRT] System.ComponentModel.DataAnnotations.Tests.DisplayAttributeTests.Prompt_Get_Set(value: "Prompt")
+[STRT] System.ComponentModel.DataAnnotations.Tests.DisplayAttributeTests.Prompt_Get_Set(value: "")
+[STRT] System.ComponentModel.DataAnnotations.Tests.DisplayAttributeTests.Prompt_Get_Set(value: " \r \t \n ")
+[STRT] System.ComponentModel.DataAnnotations.Tests.DisplayAttributeTests.Prompt_Get_Set(value: "abc")
+[STRT] System.ComponentModel.DataAnnotations.Tests.DisplayAttributeTests.ShortName_Get_Set(value: "ShortName")
+[STRT] System.ComponentModel.DataAnnotations.Tests.DisplayAttributeTests.ShortName_Get_Set(value: "")
+[STRT] System.ComponentModel.DataAnnotations.Tests.DisplayAttributeTests.ShortName_Get_Set(value: " \r \t \n ")
+[STRT] System.ComponentModel.DataAnnotations.Tests.DisplayAttributeTests.ShortName_Get_Set(value: "abc")
+[STRT] System.ComponentModel.DataAnnotations.Tests.DisplayAttributeTests.Name_Get_Set(value: "Name")
+[STRT] System.ComponentModel.DataAnnotations.Tests.DisplayAttributeTests.Name_Get_Set(value: "")
+[STRT] System.ComponentModel.DataAnnotations.Tests.DisplayAttributeTests.Name_Get_Set(value: " \r \t \n ")
+[STRT] System.ComponentModel.DataAnnotations.Tests.DisplayAttributeTests.Name_Get_Set(value: "abc")
+[STRT] System.ComponentModel.DataAnnotations.Tests.DisplayAttributeTests.LocalizableString_WorksWithInternalResourceType
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidationContextTests.TestDisplayNameNoDisplayAttribute
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidationContextTests.Setting_DisplayName_to_null_or_empty_via_constructor_throws
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidationContextTests.Constructor_throws_if_passed_null_instance
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidationContextTests.Constructor_creates_new_instance_for_three_arg_constructor
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidationContextTests.Constructor_creates_new_instance_for_one_arg_constructor
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidationContextTests.Can_get_and_set_DisplayName_to_existent_and_non_existent_members
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidationContextTests.TestDisplayNameDisplayAttribute
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidationContextTests.DisplayName_NoSuchMemberName_ReturnsMemberName
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidationContextTests.TestDisplayName
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidationContextTests.Constructor_creates_new_instance_for_two_arg_constructor
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidationContextTests.Setting_DisplayName_to_null_or_empty_throws
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidationContextTests.Constructor_creates_new_instance_for_four_arg_constructor
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidationContextTests.Items_returns_new_Dictionary_with_same_keys_and_values
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidationContextTests.GetService_NullServiceProvider_ReturnsNull
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidationContextTests.Can_set_DisplayName_via_constructor
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidationContextTests.GetService_CustomServiceProvider_ReturnsNull
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidationContextTests.Can_get_and_set_MemberName_to_existent_and_non_existent_members_and_null
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidationContextTests.ObjectInstance_and_ObjectType_return_same_instance_and_type_as_passed
+[STRT] System.ComponentModel.DataAnnotations.Tests.PhoneAttributeTests.ErrorMessage_Invalid_Throws
+[STRT] System.ComponentModel.DataAnnotations.Tests.PhoneAttributeTests.Validate_Invalid
+[STRT] System.ComponentModel.DataAnnotations.Tests.PhoneAttributeTests.DataType_CustomDataType_ReturnsExpected
+[STRT] System.ComponentModel.DataAnnotations.Tests.PhoneAttributeTests.Validate_Valid
+[STRT] System.ComponentModel.DataAnnotations.Tests.PhoneAttributeTests.ErrorMessage_Valid
+[STRT] System.ComponentModel.DataAnnotations.Tests.MinLengthAttributeTests.Validate_Invalid
+[STRT] System.ComponentModel.DataAnnotations.Tests.MinLengthAttributeTests.GetValidationResult_ValueGenericIEnumerable_ThrowsInvalidCastException
+[STRT] System.ComponentModel.DataAnnotations.Tests.MinLengthAttributeTests.Ctor(length: 10)
+[STRT] System.ComponentModel.DataAnnotations.Tests.MinLengthAttributeTests.Ctor(length: 0)
+[STRT] System.ComponentModel.DataAnnotations.Tests.MinLengthAttributeTests.Ctor(length: -1)
+[STRT] System.ComponentModel.DataAnnotations.Tests.MinLengthAttributeTests.Validate_ICollection_Invalid(attribute: MinLengthAttribute { ErrorMessage = null, ErrorMessageResourceName = null, ErrorMessageResourceType = null, Length = 15, RequiresValidationContext = False, ··· }, value: [0, 0, 0, 0, 0, ···])
+[STRT] System.ComponentModel.DataAnnotations.Tests.MinLengthAttributeTests.Validate_ICollection_Invalid(attribute: MinLengthAttribute { ErrorMessage = null, ErrorMessageResourceName = null, ErrorMessageResourceType = null, Length = 15, RequiresValidationContext = False, ··· }, value: [0, 0, 0, 0, 0, ···])
+[STRT] System.ComponentModel.DataAnnotations.Tests.MinLengthAttributeTests.Validate_ICollection_Valid(attribute: MinLengthAttribute { ErrorMessage = null, ErrorMessageResourceName = null, ErrorMessageResourceType = null, Length = 0, RequiresValidationContext = False, ··· }, value: [])
+[STRT] System.ComponentModel.DataAnnotations.Tests.MinLengthAttributeTests.Validate_ICollection_Valid(attribute: MinLengthAttribute { ErrorMessage = null, ErrorMessageResourceName = null, ErrorMessageResourceType = null, Length = 12, RequiresValidationContext = False, ··· }, value: [0, 0, 0, 0, 0, ···])
+[STRT] System.ComponentModel.DataAnnotations.Tests.MinLengthAttributeTests.Validate_ICollection_Valid(attribute: MinLengthAttribute { ErrorMessage = null, ErrorMessageResourceName = null, ErrorMessageResourceType = null, Length = 16, RequiresValidationContext = False, ··· }, value: [null, null, null, null, null, ···])
+[STRT] System.ComponentModel.DataAnnotations.Tests.MinLengthAttributeTests.Validate_ICollection_Valid(attribute: MinLengthAttribute { ErrorMessage = null, ErrorMessageResourceName = null, ErrorMessageResourceType = null, Length = 0, RequiresValidationContext = False, ··· }, value: [])
+[STRT] System.ComponentModel.DataAnnotations.Tests.MinLengthAttributeTests.Validate_ICollection_Valid(attribute: MinLengthAttribute { ErrorMessage = null, ErrorMessageResourceName = null, ErrorMessageResourceType = null, Length = 12, RequiresValidationContext = False, ··· }, value: [0, 0, 0, 0, 0, ···])
+[STRT] System.ComponentModel.DataAnnotations.Tests.MinLengthAttributeTests.Validate_ICollection_Valid(attribute: MinLengthAttribute { ErrorMessage = null, ErrorMessageResourceName = null, ErrorMessageResourceType = null, Length = 16, RequiresValidationContext = False, ··· }, value: [null, null, null, null, null, ···])
+[STRT] System.ComponentModel.DataAnnotations.Tests.MinLengthAttributeTests.Validate_ICollection_Valid(attribute: MinLengthAttribute { ErrorMessage = null, ErrorMessageResourceName = null, ErrorMessageResourceType = null, Length = 0, RequiresValidationContext = False, ··· }, value: [])
+[STRT] System.ComponentModel.DataAnnotations.Tests.MinLengthAttributeTests.Validate_ICollection_Valid(attribute: MinLengthAttribute { ErrorMessage = null, ErrorMessageResourceName = null, ErrorMessageResourceType = null, Length = 12, RequiresValidationContext = False, ··· }, value: [1, 2, 3, 4, 5, ···])
+[STRT] System.ComponentModel.DataAnnotations.Tests.MinLengthAttributeTests.Validate_ICollection_Valid(attribute: MinLengthAttribute { ErrorMessage = null, ErrorMessageResourceName = null, ErrorMessageResourceType = null, Length = 16, RequiresValidationContext = False, ··· }, value: ["1", "2", "3", "4", "5", ···])
+[STRT] System.ComponentModel.DataAnnotations.Tests.MinLengthAttributeTests.Validate_ICollection_Valid(attribute: MinLengthAttribute { ErrorMessage = null, ErrorMessageResourceName = null, ErrorMessageResourceType = null, Length = 0, RequiresValidationContext = False, ··· }, value: [])
+[STRT] System.ComponentModel.DataAnnotations.Tests.MinLengthAttributeTests.Validate_ICollection_Valid(attribute: MinLengthAttribute { ErrorMessage = null, ErrorMessageResourceName = null, ErrorMessageResourceType = null, Length = 12, RequiresValidationContext = False, ··· }, value: [0, 0, 0, 0, 0, ···])
+[STRT] System.ComponentModel.DataAnnotations.Tests.MinLengthAttributeTests.Validate_ICollection_Valid(attribute: MinLengthAttribute { ErrorMessage = null, ErrorMessageResourceName = null, ErrorMessageResourceType = null, Length = 16, RequiresValidationContext = False, ··· }, value: [null, null, null, null, null, ···])
+[STRT] System.ComponentModel.DataAnnotations.Tests.MinLengthAttributeTests.Validate_ICollection_Valid(attribute: MinLengthAttribute { ErrorMessage = null, ErrorMessageResourceName = null, ErrorMessageResourceType = null, Length = 0, RequiresValidationContext = False, ··· }, value: NotSupportedException was thrown formatting an object of type "System.ComponentModel.DataAnnotations.Tests.MultiCollection")
+[STRT] System.ComponentModel.DataAnnotations.Tests.MinLengthAttributeTests.Validate_Valid
+[STRT] System.ComponentModel.DataAnnotations.Tests.MinLengthAttributeTests.ErrorMessage_Invalid_Throws
+[STRT] System.ComponentModel.DataAnnotations.Tests.MinLengthAttributeTests.ErrorMessage_Valid
+[STRT] System.ComponentModel.DataAnnotations.Tests.MinLengthAttributeTests.GetValidationResult_ValueNotStringOrICollection_ThrowsInvalidCastException
+[STRT] System.ComponentModel.DataAnnotations.Tests.MinLengthAttributeTests.GetValidationResult_InvalidLength_ThrowsInvalidOperationException
+[STRT] System.ComponentModel.DataAnnotations.Tests.EnumDataTypeAttributeTests.ErrorMessage_Invalid_Throws
+[STRT] System.ComponentModel.DataAnnotations.Tests.EnumDataTypeAttributeTests.Validate_Invalid
+[STRT] System.ComponentModel.DataAnnotations.Tests.EnumDataTypeAttributeTests.Ctor(enumType: null)
+[STRT] System.ComponentModel.DataAnnotations.Tests.EnumDataTypeAttributeTests.Ctor(enumType: typeof(string))
+[STRT] System.ComponentModel.DataAnnotations.Tests.EnumDataTypeAttributeTests.Ctor(enumType: typeof(System.ComponentModel.DataAnnotations.Tests.EnumDataTypeAttributeTests+NonFlagsEnumType))
+[STRT] System.ComponentModel.DataAnnotations.Tests.EnumDataTypeAttributeTests.Ctor(enumType: typeof(System.ComponentModel.DataAnnotations.Tests.EnumDataTypeAttributeTests+FlagsEnumType))
+[STRT] System.ComponentModel.DataAnnotations.Tests.EnumDataTypeAttributeTests.Validate_InvalidEnumType_ThrowsInvalidOperationException(enumType: null)
+[STRT] System.ComponentModel.DataAnnotations.Tests.EnumDataTypeAttributeTests.Validate_InvalidEnumType_ThrowsInvalidOperationException(enumType: typeof(string))
+[STRT] System.ComponentModel.DataAnnotations.Tests.EnumDataTypeAttributeTests.Validate_InvalidEnumType_ThrowsInvalidOperationException(enumType: typeof(NonFlagsEnumType?))
+[STRT] System.ComponentModel.DataAnnotations.Tests.EnumDataTypeAttributeTests.Validate_InvalidEnumType_ThrowsInvalidOperationException(enumType: typeof(FlagsEnumType?))
+[STRT] System.ComponentModel.DataAnnotations.Tests.EnumDataTypeAttributeTests.Validate_Valid
+[STRT] System.ComponentModel.DataAnnotations.Tests.EnumDataTypeAttributeTests.ErrorMessage_Valid
+[STRT] System.ComponentModel.DataAnnotations.Tests.StringLengthAttributeTests.ErrorMessage_Invalid_Throws
+[STRT] System.ComponentModel.DataAnnotations.Tests.StringLengthAttributeTests.Validate_Valid
+[STRT] System.ComponentModel.DataAnnotations.Tests.StringLengthAttributeTests.Ctor_Int(maximumLength: 42)
+[STRT] System.ComponentModel.DataAnnotations.Tests.StringLengthAttributeTests.Ctor_Int(maximumLength: -1)
+[STRT] System.ComponentModel.DataAnnotations.Tests.StringLengthAttributeTests.MinimumLength_GetSet_RetunsExpected(newValue: 29)
+[STRT] System.ComponentModel.DataAnnotations.Tests.StringLengthAttributeTests.Validate_NegativeMaximumLength_ThrowsInvalidOperationException
+[STRT] System.ComponentModel.DataAnnotations.Tests.StringLengthAttributeTests.Validate_ValueNotString_ThrowsInvalidCastException
+[STRT] System.ComponentModel.DataAnnotations.Tests.StringLengthAttributeTests.ErrorMessage_Valid
+[STRT] System.ComponentModel.DataAnnotations.Tests.StringLengthAttributeTests.Validate_Invalid
+[STRT] System.ComponentModel.DataAnnotations.Tests.StringLengthAttributeTests.Validate_MinimumLengthGreaterThanMaximumLength_ThrowsInvalidOperationException
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidationExceptionTests.Ctor_String_ValidationAttribute_Object(errorMessage: "ErrorMessage")
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidationExceptionTests.Ctor_ValidationResult_ValidationAttribute_Object
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidationExceptionTests.Ctor_Empty
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidationExceptionTests.Ctor_String(errorMessage: "ErrorMessage")
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidationExceptionTests.Ctor_String_Exception(errorMessage: "ErrorMessage")
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidationExceptionTests.Ctor_SerializationInfo_StreamingContext
+[STRT] System.ComponentModel.DataAnnotations.Tests.AssociationAttributeTests.IsForeignKey_GetSet_ReturnsExpected
+[STRT] System.ComponentModel.DataAnnotations.Tests.AssociationAttributeTests.Ctor_String_String_String(name: "TestName", thisKey: "TestThisKey", otherKey: "TestOtherKey", expectedThisKeyMembers: ["TestThisKey"], expectedOtherKeyMembers: ["TestOtherKey"])
+[STRT] System.ComponentModel.DataAnnotations.Tests.AssociationAttributeTests.Ctor_String_String_String(name: null, thisKey: "", otherKey: " \t \r \n", expectedThisKeyMembers: [""], expectedOtherKeyMembers: ["\t\r\n"])
+[STRT] System.ComponentModel.DataAnnotations.Tests.AssociationAttributeTests.Ctor_String_String_String(name: null, thisKey: null, otherKey: null, expectedThisKeyMembers: [], expectedOtherKeyMembers: [])
+[STRT] System.ComponentModel.DataAnnotations.Tests.AssociationAttributeTests.Ctor_String_String_String(name: "Name", thisKey: "ThisKey1,  ThisKey2, ThisKey3", otherKey: "OtherKey1,  OtherKey2", expectedThisKeyMembers: ["ThisKey1", "ThisKey2", "ThisKey3"], expectedOtherKeyMembers: ["OtherKey1", "OtherKey2"])
+[STRT] System.ComponentModel.DataAnnotations.Tests.EmailAddressAttributeTests.ErrorMessage_Invalid_Throws
+[STRT] System.ComponentModel.DataAnnotations.Tests.EmailAddressAttributeTests.Validate_Invalid
+[STRT] System.ComponentModel.DataAnnotations.Tests.EmailAddressAttributeTests.DataType_CustomDataType_ReturnExpected
+[STRT] System.ComponentModel.DataAnnotations.Tests.EmailAddressAttributeTests.Validate_Valid
+[STRT] System.ComponentModel.DataAnnotations.Tests.EmailAddressAttributeTests.ErrorMessage_Valid
+[STRT] System.ComponentModel.DataAnnotations.Schema.Tests.TableAttributeTests.Schema_Set_NullValue_ThrowsArgumentException(value: null)
+[STRT] System.ComponentModel.DataAnnotations.Schema.Tests.TableAttributeTests.Schema_Set_ReturnsExpected(value: "Mrs Letice Earwig")
+[STRT] System.ComponentModel.DataAnnotations.Schema.Tests.TableAttributeTests.Ctor_String(name: "Black Aliss")
+[STRT] System.ComponentModel.DataAnnotations.Schema.Tests.TableAttributeTests.Ctor_String_NullName_ThrowsArgumentException(name: null)
+[STRT] System.ComponentModel.DataAnnotations.Schema.Tests.TableAttributeTests.Ctor_String_WhitespaceName_ThrowsArgumentException(name: "")
+[STRT] System.ComponentModel.DataAnnotations.Schema.Tests.TableAttributeTests.Ctor_String_WhitespaceName_ThrowsArgumentException(name: " \t\r\n")
+[STRT] System.ComponentModel.DataAnnotations.Schema.Tests.TableAttributeTests.Schema_Set_WhitespaceValue_ThrowsArgumentException(value: "")
+[STRT] System.ComponentModel.DataAnnotations.Schema.Tests.TableAttributeTests.Schema_Set_WhitespaceValue_ThrowsArgumentException(value: " \t\r\n")
+[STRT] System.ComponentModel.DataAnnotations.Tests.CreditCardAttributeTests.ErrorMessage_Invalid_Throws
+[STRT] System.ComponentModel.DataAnnotations.Tests.CreditCardAttributeTests.Validate_Invalid
+[STRT] System.ComponentModel.DataAnnotations.Tests.CreditCardAttributeTests.DataType_CustomDataType
+[STRT] System.ComponentModel.DataAnnotations.Tests.CreditCardAttributeTests.Validate_Valid
+[STRT] System.ComponentModel.DataAnnotations.Tests.CreditCardAttributeTests.ErrorMessage_Valid
+[STRT] System.ComponentModel.DataAnnotations.Tests.RequiredAttributeTests.ErrorMessage_Invalid_Throws
+[STRT] System.ComponentModel.DataAnnotations.Tests.RequiredAttributeTests.Validate_Invalid
+[STRT] System.ComponentModel.DataAnnotations.Tests.RequiredAttributeTests.AllowEmptyStrings_GetSet_ReturnsExpectected
+[STRT] System.ComponentModel.DataAnnotations.Tests.RequiredAttributeTests.Validate_Valid
+[STRT] System.ComponentModel.DataAnnotations.Tests.RequiredAttributeTests.ErrorMessage_Valid
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidatorTests.ValidateProperty_returns_false_if_all_properties_are_valid_but_metadatatype_class_property_attribute_fails_validation
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidatorTests.TryValidateProperty_returns_false_if_validation_fails_when_class_references_itself_as_a_metadatatype
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidatorTests.TryValidateObject_collection_can_have_multiple_results
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidatorTests.TryValidateObject_RequiredNull_Error
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidatorTests.TestTryValidateObjectSuccessEvenWithOtherErrors
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidatorTests.ValidateObject_returns_false_if_property_attribute_is_not_removed_by_metadatatype_class
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidatorTests.ValidatePropertyThrowsIf_null_passed_to_non_nullable_property
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidatorTests.ValidateProperty_returns_false_if_property_has_attributes_from_base_and_metadatatype_classes
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidatorTests.ValidateProperty_throws_ValidationException_if_errors
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidatorTests.TestTryValidateObjectThrowsIfInstanceNotMatch
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidatorTests.ValidatePropertyThrowsIf_ValidationContext_is_null
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidatorTests.TryValidateObject_returns_false_if_errors
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidatorTests.TestValidateObjectNotThrowIfvalidateAllPropertiesFalse
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidatorTests.TryValidateValueThrowsIf_ValidationAttributeEnumerable_is_null
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidatorTests.ValidatePropertyThrowsIf_value_passed_is_of_wrong_type_to_be_assigned_to_property
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidatorTests.ValidatePropertyThrowsIf_ValidationContext_MemberName_is_for_a_public_indexer
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidatorTests.TryValidateProperty_returns_true_if_property_has_attributes_from_base_and_metadatatype_classes
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidatorTests.ValidateProperty_returns_false_if_all_properties_are_valid_but_metadatatype_class_property_required_attribute_fails_validation
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidatorTests.TryValidateValue_collection_can_have_multiple_results
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidatorTests.ValidateObject_IValidatableObject_Error
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidatorTests.ValidatePropertyThrowsIf_ValidationContext_MemberName_is_null_or_empty
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidatorTests.TryValidateObject_returns_true_if_validateAllProperties_is_true_and_all_attributes_are_valid
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidatorTests.ValidateObject_returns_false_if_validation_fails_when_class_references_itself_as_a_metadatatype
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidatorTests.ValidateProperty_throws_ValidationException_if_Required_attribute_test_fails
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidatorTests.ValidateValueThrowsIf_ValidationAttributeEnumerable_is_null
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidatorTests.TryValidatePropertyThrowsIf_value_passed_is_of_wrong_type_to_be_assigned_to_property
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidatorTests.TestValidateValueThrowsIfNoRequiredAttribute
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidatorTests.ValidateProperty_succeeds_if_null_passed_to_nullable_property
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidatorTests.ValidateProperty_succeeds_if_no_attributes_to_validate
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidatorTests.TryValidateObject_IValidatableObject_Success
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidatorTests.TryValidatePropertyThrowsIf_ValidationContext_is_null
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidatorTests.ValidateObject_IValidatableObject_Success
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidatorTests.TryValidateValue_returns_false_if_Property_has_no_RequiredAttribute_and_value_is_invalid
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidatorTests.ValidatePropertyThrowsIf_value_is_null
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidatorTests.TryValidateObject_IValidatableObject_Error
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidatorTests.TryValidateObject_returns_true_if_no_errors
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidatorTests.TryValidateObject_returns_false_if_all_properties_are_valid_but_class_is_invalid
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidatorTests.TryValidateProperty_returns_true_if_no_attributes_to_validate
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidatorTests.TryValidateProperty_returns_true_if_null_passed_to_nullable_property
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidatorTests.TryValidateProperty_collection_can_have_multiple_results
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidatorTests.TryValidateObjectThrowsIf_instance_is_null
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidatorTests.ValidatePropertyThrowsIf_ValidationContext_MemberName_is_not_public
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidatorTests.TryValidatePropertyThrowsIf_ValidationContext_MemberName_is_for_a_public_indexer
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidatorTests.ValidateObject_throws_ValidationException_if_errors
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidatorTests.TryValidateProperty_returns_true_if_property_attribute_is_not_removed_by_metadatatype_class
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidatorTests.TryValidateValueThrowsIf_ValidationContext_is_null
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidatorTests.TryValidatePropertyThrowsIf_ValidationContext_MemberName_does_not_exist_on_object
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidatorTests.ValidateObject_succeeds_if_no_errors
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidatorTests.TryValidateObject_returns_false_if_validation_fails_when_class_references_itself_as_a_metadatatype
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidatorTests.TryValidateObject_returns_false_if_all_properties_are_valid_but_metadatatype_class_property_attribute_fails_validation
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidatorTests.ValidateObjectThrowsIf_instance_does_not_match_ValidationContext_ObjectInstance
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidatorTests.TryValidateValue_returns_false_if_Property_has_RequiredAttribute_and_value_is_null
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidatorTests.ValidateProperty_succeeds_if_all_attributes_are_valid
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidatorTests.ValidatePropertyThrowsIf_ValidationContext_MemberName_does_not_exist_on_object
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidatorTests.ValidateValue_succeeds_if_Property_has_no_RequiredAttribute_and_value_is_valid
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidatorTests.TryValidateProperty_returns_false_if_all_properties_are_valid_but_metadatatype_class_property_attribute_fails_validation
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidatorTests.TryValidateObject_returns_false_if_property_attribute_is_not_removed_by_metadatatype_class
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidatorTests.TestValidateObjectThrowsIfRequiredTestFails
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidatorTests.ValidateObjectThrowsIf_ValidationContext_is_null
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidatorTests.TestTryValidatePropertyThrowsIfNullOrEmptyValidationContextMemberName
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidatorTests.ValidateObject_returns_false_if_all_properties_are_valid_but_metadatatype_class_type_attribute_fails_validation
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidatorTests.TestValidateValueThrowsIfRequiredAttributeInvalid
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidatorTests.TryValidateObject_collection_can_have_multiple_results_from_type_attributes
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidatorTests.TryValidateProperty_returns_true_if_all_attributes_are_valid
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidatorTests.TryValidatePropertyThrowsIf_ValidationContext_MemberName_is_not_public
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidatorTests.ValidateObjectThrowsIf_instance_is_null
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidatorTests.TryValidateObject_returns_false_if_all_properties_are_valid_but_metadatatype_class_property_required_attribute_fails_validation
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidatorTests.TryValidateProperty_returns_false_if_errors
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidatorTests.ValidateProperty_returns_false_if_validation_fails_when_class_references_itself_as_a_metadatatype
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidatorTests.ValidateProperty_returns_false_if_property_attribute_is_not_removed_by_metadatatype_class
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidatorTests.TryValidateProperty_returns_false_if_Required_attribute_test_fails
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidatorTests.TryValidateObject_returns_false_if_validateAllProperties_is_true_and_Required_test_fails
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidatorTests.TryValidateObject_returns_false_if_property_has_attributes_from_base_and_metadatatype_classes
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidatorTests.ValidateObject_succeeds_if_validateAllProperties_is_true_and_all_attributes_are_valid
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidatorTests.ValidateObject_returns_false_if_all_properties_are_valid_but_metadatatype_class_property_required_attribute_fails_validation
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidatorTests.ValidateValue_succeeds_if_Property_has_RequiredAttribute_and_value_is_valid
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidatorTests.TryValidatePropertyThrowsIf_value_is_null
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidatorTests.TryValidateObject_RequiredNonNull_Success
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidatorTests.TryValidateObject_IValidatableObject_Null
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidatorTests.TryValidateObject_for_JObject_does_not_throw
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidatorTests.TestValidateValueThrowsIfNullRequiredAttribute
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidatorTests.TryValidateValue_returns_true_if_no_attributes_to_validate_regardless_of_value
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidatorTests.TryValidatePropertyThrowsIf_null_passed_to_non_nullable_property
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidatorTests.TryValidateProperty_returns_false_if_all_properties_are_valid_but_metadatatype_class_property_required_attribute_fails_validation
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidatorTests.TryValidateValue_returns_true_if_Property_has_no_RequiredAttribute_and_value_is_valid
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidatorTests.TryValidateValue_returns_false_if_Property_has_RequiredAttribute_and_value_is_invalid
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidatorTests.ValidateObject_returns_false_if_property_has_attributes_from_base_and_metadatatype_classes
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidatorTests.TryValidateObject_returns_false_if_all_properties_are_valid_but_metadatatype_class_has_unmatched_property_name
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidatorTests.TryValidateValue_returns_true_if_Property_has_RequiredAttribute_and_value_is_valid
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidatorTests.ValidateObject_IValidatableObject_Null
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidatorTests.ValidateValue_succeeds_if_no_attributes_to_validate_regardless_of_value
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidatorTests.ValidateObject_returns_false_if_all_properties_are_valid_but_metadatatype_class_has_unmatched_property_name
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidatorTests.ValidateObject_throws_ValidationException_if_all_properties_are_valid_but_class_is_invalid
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidatorTests.TryValidateObjectThrowsIf_ValidationContext_is_null
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidatorTests.ValidateObject_returns_false_if_all_properties_are_valid_but_metadatatype_class_property_attribute_fails_validation
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidatorTests.ValidateValueThrowsIf_ValidationContext_is_null
+[STRT] System.ComponentModel.DataAnnotations.Tests.DisplayColumnAttributeTests.Ctor_DisplayColumn_SortColumn_SortDescending(displayColumn: null, sortColumn: null, sortDescending: False)
+[STRT] System.ComponentModel.DataAnnotations.Tests.DisplayColumnAttributeTests.Ctor_DisplayColumn_SortColumn_SortDescending(displayColumn: "", sortColumn: "", sortDescending: False)
+[STRT] System.ComponentModel.DataAnnotations.Tests.DisplayColumnAttributeTests.Ctor_DisplayColumn_SortColumn_SortDescending(displayColumn: "DisplayColumn", sortColumn: "SortColumn", sortDescending: True)
+[STRT] System.ComponentModel.DataAnnotations.Tests.DisplayColumnAttributeTests.Ctor_DisplayColumn_SortColumn(displayColumn: null, sortColumn: null)
+[STRT] System.ComponentModel.DataAnnotations.Tests.DisplayColumnAttributeTests.Ctor_DisplayColumn_SortColumn(displayColumn: "", sortColumn: "")
+[STRT] System.ComponentModel.DataAnnotations.Tests.DisplayColumnAttributeTests.Ctor_DisplayColumn_SortColumn(displayColumn: "DisplayColumn", sortColumn: "SortColumn")
+[STRT] System.ComponentModel.DataAnnotations.Tests.DisplayColumnAttributeTests.Ctor_DisplayColumn(displayColumn: null)
+[STRT] System.ComponentModel.DataAnnotations.Tests.DisplayColumnAttributeTests.Ctor_DisplayColumn(displayColumn: "")
+[STRT] System.ComponentModel.DataAnnotations.Tests.DisplayColumnAttributeTests.Ctor_DisplayColumn(displayColumn: "DisplayColumn")
+[STRT] System.ComponentModel.DataAnnotations.Tests.DeniedValuesAttributeTests.ErrorMessage_Invalid_Throws
+[STRT] System.ComponentModel.DataAnnotations.Tests.DeniedValuesAttributeTests.Validate_Invalid
+[STRT] System.ComponentModel.DataAnnotations.Tests.DeniedValuesAttributeTests.Ctor_NullParameter_ThrowsArgumentNullException
+[STRT] System.ComponentModel.DataAnnotations.Tests.DeniedValuesAttributeTests.Ctor_ValuesPropertyReturnsTheSameArray(inputs: [null])
+[STRT] System.ComponentModel.DataAnnotations.Tests.DeniedValuesAttributeTests.Ctor_ValuesPropertyReturnsTheSameArray(inputs: [1, 2, 3])
+[STRT] System.ComponentModel.DataAnnotations.Tests.DeniedValuesAttributeTests.Ctor_ValuesPropertyReturnsTheSameArray(inputs: ["apple", "banana", "mango", null])
+[STRT] System.ComponentModel.DataAnnotations.Tests.DeniedValuesAttributeTests.Ctor_ValuesPropertyReturnsTheSameArray(inputs: [null, False, 0, -0, 1.1000000000000001])
+[STRT] System.ComponentModel.DataAnnotations.Tests.DeniedValuesAttributeTests.Validate_Valid
+[STRT] System.ComponentModel.DataAnnotations.Tests.DeniedValuesAttributeTests.ErrorMessage_Valid
+[STRT] System.ComponentModel.DataAnnotations.Tests.EditableAttributeTests.Properties_ChangingOneProperty_DoesNotAffectTheOther(value: True)
+[STRT] System.ComponentModel.DataAnnotations.Tests.EditableAttributeTests.Properties_ChangingOneProperty_DoesNotAffectTheOther(value: False)
+[STRT] System.ComponentModel.DataAnnotations.Tests.EditableAttributeTests.Ctor(value: True)
+[STRT] System.ComponentModel.DataAnnotations.Tests.EditableAttributeTests.Ctor(value: False)
+[STRT] System.ComponentModel.DataAnnotations.Tests.FileExtensionsAttributeTests.ErrorMessage_Invalid_Throws
+[STRT] System.ComponentModel.DataAnnotations.Tests.FileExtensionsAttributeTests.Validate_Invalid
+[STRT] System.ComponentModel.DataAnnotations.Tests.FileExtensionsAttributeTests.Ctor
+[STRT] System.ComponentModel.DataAnnotations.Tests.FileExtensionsAttributeTests.Extensions_Get_Set(newValue: "test1, test2, test3", expected: "test1, test2, test3")
+[STRT] System.ComponentModel.DataAnnotations.Tests.FileExtensionsAttributeTests.Extensions_Get_Set(newValue: "", expected: "png,jpg,jpeg,gif")
+[STRT] System.ComponentModel.DataAnnotations.Tests.FileExtensionsAttributeTests.Extensions_Get_Set(newValue: null, expected: "png,jpg,jpeg,gif")
+[STRT] System.ComponentModel.DataAnnotations.Tests.FileExtensionsAttributeTests.Validate_Valid
+[STRT] System.ComponentModel.DataAnnotations.Tests.FileExtensionsAttributeTests.ErrorMessage_Valid
+[STRT] System.ComponentModel.DataAnnotations.Tests.AssociatedMetadataTypeTypeDescriptionProviderTests.GetTypeDescriptorGetPropertiesWrappedPropertyDescriptor_ResetValue_Success
+[STRT] System.ComponentModel.DataAnnotations.Tests.AssociatedMetadataTypeTypeDescriptionProviderTests.GetTypeDescriptorGetProperties_WithMetadataTypeAttribute_ReturnsExpected
+[STRT] System.ComponentModel.DataAnnotations.Tests.AssociatedMetadataTypeTypeDescriptionProviderTests.Ctor_NullType_ThrowsArgumentNullException
+[STRT] System.ComponentModel.DataAnnotations.Tests.AssociatedMetadataTypeTypeDescriptionProviderTests.GetTypeDescriptorGetAttributes_NoAssociatedMetadataTypeWithoutMetadataTypeAttribute_ReturnsExpected
+[STRT] System.ComponentModel.DataAnnotations.Tests.AssociatedMetadataTypeTypeDescriptionProviderTests.GetTypeDescriptor_MetadataHasFieldsNotPresentOnClass_ThrowsInvalidOperationException
+[STRT] System.ComponentModel.DataAnnotations.Tests.AssociatedMetadataTypeTypeDescriptionProviderTests.GetTypeDescriptorGetProperties_NoAssociatedMetadataTypeWithoutMetadataTypeAttribute_ReturnsExpected
+[STRT] System.ComponentModel.DataAnnotations.Tests.AssociatedMetadataTypeTypeDescriptionProviderTests.GetTypeDescriptorGetPropertiesWrappedPropertyDescriptor_CanResetValue_Success
+[STRT] System.ComponentModel.DataAnnotations.Tests.AssociatedMetadataTypeTypeDescriptionProviderTests.GetTypeDescriptorGetPropertiesWrappedPropertyDescriptor_ShouldSerializeValue_Success
+[STRT] System.ComponentModel.DataAnnotations.Tests.AssociatedMetadataTypeTypeDescriptionProviderTests.GetTypeDescriptorGetPropertiesWrappedPropertyDescriptor_SetValue_Success
+[STRT] System.ComponentModel.DataAnnotations.Tests.AssociatedMetadataTypeTypeDescriptionProviderTests.Ctor_NullAssociatedMetadataType_ThrowsArgumentNullException
+[STRT] System.ComponentModel.DataAnnotations.Tests.AssociatedMetadataTypeTypeDescriptionProviderTests.GetTypeDescriptorGetProperties_WithAssociatedMetadataType_ReturnsExpected(associatedMetadataType: typeof(System.ComponentModel.DataAnnotations.Tests.AssociatedMetadataTypeTypeDescriptionProviderTests+ClassWithSelfAssociatedMetadata), expectedLastName: "Last name")
+[STRT] System.ComponentModel.DataAnnotations.Tests.AssociatedMetadataTypeTypeDescriptionProviderTests.GetTypeDescriptorGetProperties_WithAssociatedMetadataType_ReturnsExpected(associatedMetadataType: typeof(System.ComponentModel.DataAnnotations.Tests.AssociatedMetadataTypeTypeDescriptionProviderTests+ClassWithMetadata), expectedLastName: "LastName")
+[STRT] System.ComponentModel.DataAnnotations.Tests.AssociatedMetadataTypeTypeDescriptionProviderTests.GetTypeDescriptorGetProperties_WithAssociatedMetadataType_ReturnsExpected(associatedMetadataType: typeof(System.ComponentModel.DataAnnotations.Tests.AssociatedMetadataTypeTypeDescriptionProviderTests+EmptyClass), expectedLastName: "LastName")
+[STRT] System.ComponentModel.DataAnnotations.Tests.AssociatedMetadataTypeTypeDescriptionProviderTests.GetTypeDescriptorGetAttributes_NoAssociatedMetadataTypeWithMetadataTypeAttribute_ReturnsExpected
+[STRT] System.ComponentModel.DataAnnotations.Tests.AssociatedMetadataTypeTypeDescriptionProviderTests.GetTypeDescriptorGetAttributes_SameAssociatedMetadataType_ReturnsExpected
+[STRT] System.ComponentModel.DataAnnotations.Tests.AssociatedMetadataTypeTypeDescriptionProviderTests.GetTypeDescriptorGetPropertiesWrappedPropertyDescriptor_AddValueChanged_Success
+[STRT] System.ComponentModel.DataAnnotations.Tests.AssociatedMetadataTypeTypeDescriptionProviderTests.GetTypeDescriptorGetPropertiesWrappedPropertyDescriptor_GetValue_Success
+[STRT] System.ComponentModel.DataAnnotations.Tests.AssociatedMetadataTypeTypeDescriptionProviderTests.GetTypeDescriptorGetProperties_NoAssociatedMetadataTypeWithMetadataTypeAttribute_ReturnsExpected
+[STRT] System.ComponentModel.DataAnnotations.Tests.AssociatedMetadataTypeTypeDescriptionProviderTests.GetTypeDescriptorGetAttributes_SelfAssociatedMetadataType_ReturnsExpected
+[STRT] System.ComponentModel.DataAnnotations.Tests.AssociatedMetadataTypeTypeDescriptionProviderTests.GetTypeDescriptorGetPropertiesWrappedPropertyDescriptor_RemoveValueChanged_Success
+[STRT] System.ComponentModel.DataAnnotations.Tests.AssociatedMetadataTypeTypeDescriptionProviderTests.GetTypeDescriptorGetAttributes_WithAssociatedMetadataType_ReturnsExpected
+[STRT] System.ComponentModel.DataAnnotations.Tests.FilterUIHintAttributeTests.EqualsTest(attribute: FilterUIHintAttribute { ControlParameters = [["1"] = 2], FilterUIHint = "abc", PresentationLayer = "def", TypeId = typeof(System.ComponentModel.DataAnnotations.FilterUIHintAttribute) }, obj: FilterUIHintAttribute { ControlParameters = [["1"] = 2], FilterUIHint = "abc", PresentationLayer = "def", TypeId = typeof(System.ComponentModel.DataAnnotations.FilterUIHintAttribute) }, expected: True)
+[STRT] System.ComponentModel.DataAnnotations.Tests.FilterUIHintAttributeTests.EqualsTest(attribute: FilterUIHintAttribute { ControlParameters = [], FilterUIHint = null, PresentationLayer = null, TypeId = typeof(System.ComponentModel.DataAnnotations.FilterUIHintAttribute) }, obj: FilterUIHintAttribute { ControlParameters = [], FilterUIHint = null, PresentationLayer = null, TypeId = typeof(System.ComponentModel.DataAnnotations.FilterUIHintAttribute) }, expected: True)
+[STRT] System.ComponentModel.DataAnnotations.Tests.FilterUIHintAttributeTests.EqualsTest(attribute: FilterUIHintAttribute { ControlParameters = [], FilterUIHint = "abc", PresentationLayer = "def", TypeId = typeof(System.ComponentModel.DataAnnotations.FilterUIHintAttribute) }, obj: FilterUIHintAttribute { ControlParameters = [], FilterUIHint = "xyz", PresentationLayer = "def", TypeId = typeof(System.ComponentModel.DataAnnotations.FilterUIHintAttribute) }, expected: False)
+[STRT] System.ComponentModel.DataAnnotations.Tests.FilterUIHintAttributeTests.EqualsTest(attribute: FilterUIHintAttribute { ControlParameters = [], FilterUIHint = "abc", PresentationLayer = "def", TypeId = typeof(System.ComponentModel.DataAnnotations.FilterUIHintAttribute) }, obj: FilterUIHintAttribute { ControlParameters = [], FilterUIHint = "abc", PresentationLayer = "xyz", TypeId = typeof(System.ComponentModel.DataAnnotations.FilterUIHintAttribute) }, expected: False)
+[STRT] System.ComponentModel.DataAnnotations.Tests.FilterUIHintAttributeTests.EqualsTest(attribute: FilterUIHintAttribute { ControlParameters = [], FilterUIHint = "abc", PresentationLayer = "def", TypeId = typeof(System.ComponentModel.DataAnnotations.FilterUIHintAttribute) }, obj: FilterUIHintAttribute { ControlParameters = [["1"] = 2], FilterUIHint = "abc", PresentationLayer = "def", TypeId = typeof(System.ComponentModel.DataAnnotations.FilterUIHintAttribute) }, expected: False)
+[STRT] System.ComponentModel.DataAnnotations.Tests.FilterUIHintAttributeTests.EqualsTest(attribute: FilterUIHintAttribute { ControlParameters = [["1"] = 2], FilterUIHint = "abc", PresentationLayer = "def", TypeId = typeof(System.ComponentModel.DataAnnotations.FilterUIHintAttribute) }, obj: FilterUIHintAttribute { ControlParameters = (throws InvalidOperationException), FilterUIHint = "abc", PresentationLayer = "def", TypeId = typeof(System.ComponentModel.DataAnnotations.FilterUIHintAttribute) }, expected: False)
+[STRT] System.ComponentModel.DataAnnotations.Tests.FilterUIHintAttributeTests.EqualsTest(attribute: FilterUIHintAttribute { ControlParameters = [["1"] = 2], FilterUIHint = "abc", PresentationLayer = "def", TypeId = typeof(System.ComponentModel.DataAnnotations.FilterUIHintAttribute) }, obj: FilterUIHintAttribute { ControlParameters = [["1"] = 2, ["3"] = 4], FilterUIHint = "abc", PresentationLayer = "def", TypeId = typeof(System.ComponentModel.DataAnnotations.FilterUIHintAttribute) }, expected: False)
+[STRT] System.ComponentModel.DataAnnotations.Tests.FilterUIHintAttributeTests.EqualsTest(attribute: FilterUIHintAttribute { ControlParameters = [], FilterUIHint = "abc", PresentationLayer = "def", TypeId = typeof(System.ComponentModel.DataAnnotations.FilterUIHintAttribute) }, obj: Object { }, expected: False)
+[STRT] System.ComponentModel.DataAnnotations.Tests.FilterUIHintAttributeTests.EqualsTest(attribute: FilterUIHintAttribute { ControlParameters = [], FilterUIHint = "abc", PresentationLayer = "def", TypeId = typeof(System.ComponentModel.DataAnnotations.FilterUIHintAttribute) }, obj: null, expected: False)
+[STRT] System.ComponentModel.DataAnnotations.Tests.FilterUIHintAttributeTests.InvalidControlParameters_Get_ThrowsInvalidOperationException(controlParameters: [1])
+[STRT] System.ComponentModel.DataAnnotations.Tests.FilterUIHintAttributeTests.InvalidControlParameters_Get_ThrowsInvalidOperationException(controlParameters: [null, 1])
+[STRT] System.ComponentModel.DataAnnotations.Tests.FilterUIHintAttributeTests.InvalidControlParameters_Get_ThrowsInvalidOperationException(controlParameters: [1, 1])
+[STRT] System.ComponentModel.DataAnnotations.Tests.FilterUIHintAttributeTests.InvalidControlParameters_Get_ThrowsInvalidOperationException(controlParameters: ["abc", 1, "abc", 2])
+[STRT] System.ComponentModel.DataAnnotations.Tests.FilterUIHintAttributeTests.Ctor(filterUIHint: "abc", presentationLayer: null, controlParameters: [], expectedControlParameters: [])
+[STRT] System.ComponentModel.DataAnnotations.Tests.FilterUIHintAttributeTests.Ctor(filterUIHint: null, presentationLayer: "abc", controlParameters: [], expectedControlParameters: [])
+[STRT] System.ComponentModel.DataAnnotations.Tests.FilterUIHintAttributeTests.Ctor(filterUIHint: "abc", presentationLayer: "def", controlParameters: [], expectedControlParameters: [])
+[STRT] System.ComponentModel.DataAnnotations.Tests.FilterUIHintAttributeTests.Ctor(filterUIHint: "abc", presentationLayer: "def", controlParameters: ["abc", 5], expectedControlParameters: [["abc"] = 5])
+[STRT] System.ComponentModel.DataAnnotations.Tests.FilterUIHintAttributeTests.Ctor(filterUIHint: "abc", presentationLayer: "def", controlParameters: ["abc", 5, "", 6], expectedControlParameters: [["abc"] = 5, [""] = 6])
+[STRT] System.ComponentModel.DataAnnotations.Tests.FilterUIHintAttributeTests.Ctor(filterUIHint: "abc", presentationLayer: "def", controlParameters: null, expectedControlParameters: [])
+[STRT] System.ComponentModel.DataAnnotations.Tests.UIHintAttributeTests.EqualsTest(attribute: UIHintAttribute { ControlParameters = [["1"] = 2], PresentationLayer = "def", TypeId = typeof(System.ComponentModel.DataAnnotations.UIHintAttribute), UIHint = "abc" }, obj: UIHintAttribute { ControlParameters = [["1"] = 2], PresentationLayer = "def", TypeId = typeof(System.ComponentModel.DataAnnotations.UIHintAttribute), UIHint = "abc" }, expected: True)
+[STRT] System.ComponentModel.DataAnnotations.Tests.UIHintAttributeTests.EqualsTest(attribute: UIHintAttribute { ControlParameters = [], PresentationLayer = null, TypeId = typeof(System.ComponentModel.DataAnnotations.UIHintAttribute), UIHint = null }, obj: UIHintAttribute { ControlParameters = [], PresentationLayer = null, TypeId = typeof(System.ComponentModel.DataAnnotations.UIHintAttribute), UIHint = null }, expected: True)
+[STRT] System.ComponentModel.DataAnnotations.Tests.UIHintAttributeTests.EqualsTest(attribute: UIHintAttribute { ControlParameters = [], PresentationLayer = "def", TypeId = typeof(System.ComponentModel.DataAnnotations.UIHintAttribute), UIHint = "abc" }, obj: UIHintAttribute { ControlParameters = [], PresentationLayer = "def", TypeId = typeof(System.ComponentModel.DataAnnotations.UIHintAttribute), UIHint = "xyz" }, expected: False)
+[STRT] System.ComponentModel.DataAnnotations.Tests.UIHintAttributeTests.EqualsTest(attribute: UIHintAttribute { ControlParameters = [], PresentationLayer = "def", TypeId = typeof(System.ComponentModel.DataAnnotations.UIHintAttribute), UIHint = "abc" }, obj: UIHintAttribute { ControlParameters = [], PresentationLayer = "xyz", TypeId = typeof(System.ComponentModel.DataAnnotations.UIHintAttribute), UIHint = "abc" }, expected: False)
+[STRT] System.ComponentModel.DataAnnotations.Tests.UIHintAttributeTests.EqualsTest(attribute: UIHintAttribute { ControlParameters = [], PresentationLayer = "def", TypeId = typeof(System.ComponentModel.DataAnnotations.UIHintAttribute), UIHint = "abc" }, obj: UIHintAttribute { ControlParameters = [["1"] = 2], PresentationLayer = "def", TypeId = typeof(System.ComponentModel.DataAnnotations.UIHintAttribute), UIHint = "abc" }, expected: False)
+[STRT] System.ComponentModel.DataAnnotations.Tests.UIHintAttributeTests.EqualsTest(attribute: UIHintAttribute { ControlParameters = [["1"] = 2], PresentationLayer = "def", TypeId = typeof(System.ComponentModel.DataAnnotations.UIHintAttribute), UIHint = "abc" }, obj: UIHintAttribute { ControlParameters = (throws InvalidOperationException), PresentationLayer = "def", TypeId = typeof(System.ComponentModel.DataAnnotations.UIHintAttribute), UIHint = "abc" }, expected: False)
+[STRT] System.ComponentModel.DataAnnotations.Tests.UIHintAttributeTests.EqualsTest(attribute: UIHintAttribute { ControlParameters = [["1"] = 2], PresentationLayer = "def", TypeId = typeof(System.ComponentModel.DataAnnotations.UIHintAttribute), UIHint = "abc" }, obj: UIHintAttribute { ControlParameters = [["1"] = 2, ["3"] = 4], PresentationLayer = "def", TypeId = typeof(System.ComponentModel.DataAnnotations.UIHintAttribute), UIHint = "abc" }, expected: False)
+[STRT] System.ComponentModel.DataAnnotations.Tests.UIHintAttributeTests.EqualsTest(attribute: UIHintAttribute { ControlParameters = [], PresentationLayer = "def", TypeId = typeof(System.ComponentModel.DataAnnotations.UIHintAttribute), UIHint = "abc" }, obj: Object { }, expected: False)
+[STRT] System.ComponentModel.DataAnnotations.Tests.UIHintAttributeTests.EqualsTest(attribute: UIHintAttribute { ControlParameters = [], PresentationLayer = "def", TypeId = typeof(System.ComponentModel.DataAnnotations.UIHintAttribute), UIHint = "abc" }, obj: null, expected: False)
+[STRT] System.ComponentModel.DataAnnotations.Tests.UIHintAttributeTests.InvalidControlParameters_Get_ThrowsInvalidOperationException(controlParameters: [1])
+[STRT] System.ComponentModel.DataAnnotations.Tests.UIHintAttributeTests.InvalidControlParameters_Get_ThrowsInvalidOperationException(controlParameters: [null, 1])
+[STRT] System.ComponentModel.DataAnnotations.Tests.UIHintAttributeTests.InvalidControlParameters_Get_ThrowsInvalidOperationException(controlParameters: [1, 1])
+[STRT] System.ComponentModel.DataAnnotations.Tests.UIHintAttributeTests.InvalidControlParameters_Get_ThrowsInvalidOperationException(controlParameters: ["abc", 1, "abc", 2])
+[STRT] System.ComponentModel.DataAnnotations.Tests.UIHintAttributeTests.Ctor(filterUIHint: "abc", presentationLayer: null, controlParameters: [], expectedControlParameters: [])
+[STRT] System.ComponentModel.DataAnnotations.Tests.UIHintAttributeTests.Ctor(filterUIHint: null, presentationLayer: "abc", controlParameters: [], expectedControlParameters: [])
+[STRT] System.ComponentModel.DataAnnotations.Tests.UIHintAttributeTests.Ctor(filterUIHint: "abc", presentationLayer: "def", controlParameters: [], expectedControlParameters: [])
+[STRT] System.ComponentModel.DataAnnotations.Tests.UIHintAttributeTests.Ctor(filterUIHint: "abc", presentationLayer: "def", controlParameters: ["abc", 5], expectedControlParameters: [["abc"] = 5])
+[STRT] System.ComponentModel.DataAnnotations.Tests.UIHintAttributeTests.Ctor(filterUIHint: "abc", presentationLayer: "def", controlParameters: ["abc", 5, "", 6], expectedControlParameters: [["abc"] = 5, [""] = 6])
+[STRT] System.ComponentModel.DataAnnotations.Tests.UIHintAttributeTests.Ctor(filterUIHint: "abc", presentationLayer: "def", controlParameters: null, expectedControlParameters: [])
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidationResultTests.Ctor_ValidationResult_ReturnsClone
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidationResultTests.MemberNames_can_be_set_through_two_args_constructor
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidationResultTests.ValidationResult_Success_is_null
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidationResultTests.Can_construct_get_and_set_ErrorMessage
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidationResultTests.MemberNames_are_empty_for_one_arg_constructor
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidationResultTests.ToString_ReturnsExpected(errorMessage: null, expected: "System.ComponentModel.DataAnnotations.ValidationRe"···)
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidationResultTests.ToString_ReturnsExpected(errorMessage: "", expected: "")
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidationResultTests.ToString_ReturnsExpected(errorMessage: "ErrorMessage", expected: "ErrorMessage")
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidationResultTests.Ctor_ValidationResult_NullValidationResult_ThrowsArgumentNullException
+[STRT] System.ComponentModel.DataAnnotations.Tests.DisplayFormatAttributeTests.GetNullDisplayText_ValidResource_ReturnsExpected
+[STRT] System.ComponentModel.DataAnnotations.Tests.DisplayFormatAttributeTests.NullDisplayTextResourceType_GetDefault_ReturnsNull
+[STRT] System.ComponentModel.DataAnnotations.Tests.DisplayFormatAttributeTests.Ctor_Default
+[STRT] System.ComponentModel.DataAnnotations.Tests.DisplayFormatAttributeTests.ConvertEmptyStringToNull_Set_GetReturnsExpected
+[STRT] System.ComponentModel.DataAnnotations.Tests.DisplayFormatAttributeTests.DataFormatString_Set_GetReturnsExpected(input: null)
+[STRT] System.ComponentModel.DataAnnotations.Tests.DisplayFormatAttributeTests.DataFormatString_Set_GetReturnsExpected(input: "")
+[STRT] System.ComponentModel.DataAnnotations.Tests.DisplayFormatAttributeTests.DataFormatString_Set_GetReturnsExpected(input: "{0:C}")
+[STRT] System.ComponentModel.DataAnnotations.Tests.DisplayFormatAttributeTests.DataFormatString_Set_GetReturnsExpected(input: "{0:d}")
+[STRT] System.ComponentModel.DataAnnotations.Tests.DisplayFormatAttributeTests.NullDisplayText_Get_Set(input: "")
+[STRT] System.ComponentModel.DataAnnotations.Tests.DisplayFormatAttributeTests.NullDisplayText_Get_Set(input: " \r \t \n ")
+[STRT] System.ComponentModel.DataAnnotations.Tests.DisplayFormatAttributeTests.NullDisplayText_Get_Set(input: "abc")
+[STRT] System.ComponentModel.DataAnnotations.Tests.DisplayFormatAttributeTests.NullDisplayText_Get_Set(input: "NullDisplayText")
+[STRT] System.ComponentModel.DataAnnotations.Tests.DisplayFormatAttributeTests.GetNullDisplayText_InvalidResourceType_ThrowsInvalidOperationException(nullDisplayTextResourceType: typeof(System.ComponentModel.DataAnnotations.Tests.DisplayFormatAttributeTests+FakeResourceType), nullDisplayText: "Resource3")
+[STRT] System.ComponentModel.DataAnnotations.Tests.DisplayFormatAttributeTests.GetNullDisplayText_InvalidResourceType_ThrowsInvalidOperationException(nullDisplayTextResourceType: typeof(System.ComponentModel.DataAnnotations.Tests.DisplayFormatAttributeTests+FakeResourceType), nullDisplayText: "IntProperty")
+[STRT] System.ComponentModel.DataAnnotations.Tests.DisplayFormatAttributeTests.GetNullDisplayText_InvalidResourceType_ThrowsInvalidOperationException(nullDisplayTextResourceType: typeof(System.ComponentModel.DataAnnotations.Tests.DisplayFormatAttributeTests+FakeResourceType), nullDisplayText: "InstanceProperty")
+[STRT] System.ComponentModel.DataAnnotations.Tests.DisplayFormatAttributeTests.GetNullDisplayText_InvalidResourceType_ThrowsInvalidOperationException(nullDisplayTextResourceType: typeof(System.ComponentModel.DataAnnotations.Tests.DisplayFormatAttributeTests+FakeResourceType), nullDisplayText: "PrivateInstanceProperty")
+[STRT] System.ComponentModel.DataAnnotations.Tests.DisplayFormatAttributeTests.GetNullDisplayText_InvalidResourceType_ThrowsInvalidOperationException(nullDisplayTextResourceType: typeof(System.ComponentModel.DataAnnotations.Tests.DisplayFormatAttributeTests+FakeResourceType), nullDisplayText: "ProtectedInstanceProperty")
+[STRT] System.ComponentModel.DataAnnotations.Tests.DisplayFormatAttributeTests.GetNullDisplayText_InvalidResourceType_ThrowsInvalidOperationException(nullDisplayTextResourceType: typeof(System.ComponentModel.DataAnnotations.Tests.DisplayFormatAttributeTests+FakeResourceType), nullDisplayText: "InternalInstanceProperty")
+[STRT] System.ComponentModel.DataAnnotations.Tests.DisplayFormatAttributeTests.GetNullDisplayText_InvalidResourceType_ThrowsInvalidOperationException(nullDisplayTextResourceType: typeof(System.ComponentModel.DataAnnotations.Tests.DisplayFormatAttributeTests+FakeResourceType), nullDisplayText: "ProtectedInternalInstanceProperty")
+[STRT] System.ComponentModel.DataAnnotations.Tests.DisplayFormatAttributeTests.GetNullDisplayText_InvalidResourceType_ThrowsInvalidOperationException(nullDisplayTextResourceType: typeof(System.ComponentModel.DataAnnotations.Tests.DisplayFormatAttributeTests+FakeResourceType), nullDisplayText: "SetOnlyProperty")
+[STRT] System.ComponentModel.DataAnnotations.Tests.DisplayFormatAttributeTests.GetNullDisplayText_InvalidResourceType_ThrowsInvalidOperationException(nullDisplayTextResourceType: typeof(System.ComponentModel.DataAnnotations.Tests.DisplayFormatAttributeTests+FakeResourceType), nullDisplayText: "PrivateGetProperty")
+[STRT] System.ComponentModel.DataAnnotations.Tests.DisplayFormatAttributeTests.GetNullDisplayText_InvalidResourceType_ThrowsInvalidOperationException(nullDisplayTextResourceType: typeof(System.ComponentModel.DataAnnotations.Tests.DisplayFormatAttributeTests+FakeResourceType), nullDisplayText: "NonPublicGetProperty")
+[STRT] System.ComponentModel.DataAnnotations.Tests.DisplayFormatAttributeTests.GetNullDisplayText_InvalidResourceType_ThrowsInvalidOperationException(nullDisplayTextResourceType: typeof(string), nullDisplayText: "foo")
+[STRT] System.ComponentModel.DataAnnotations.Tests.DisplayFormatAttributeTests.NullDisplayTextResourceType_Set_GetReturnsExpected
+[STRT] System.ComponentModel.DataAnnotations.Tests.DisplayFormatAttributeTests.NullDisplayText_Set_GetReturnsExpected(input: "")
+[STRT] System.ComponentModel.DataAnnotations.Tests.DisplayFormatAttributeTests.NullDisplayText_Set_GetReturnsExpected(input: " \r \t \n ")
+[STRT] System.ComponentModel.DataAnnotations.Tests.DisplayFormatAttributeTests.NullDisplayText_Set_GetReturnsExpected(input: "abc")
+[STRT] System.ComponentModel.DataAnnotations.Tests.DisplayFormatAttributeTests.NullDisplayText_Set_GetReturnsExpected(input: "NullDisplayText")
+[STRT] System.ComponentModel.DataAnnotations.Tests.DisplayFormatAttributeTests.ApplyFormatInEditMode_Set_GetReturnsExpected
+[STRT] System.ComponentModel.DataAnnotations.Tests.DisplayFormatAttributeTests.GetNullDisplayText_NullDisplayText_ReturnsNull(input: null)
+[STRT] System.ComponentModel.DataAnnotations.Tests.DisplayFormatAttributeTests.GetNullDisplayText_NullDisplayText_ReturnsNull(input: typeof(System.ComponentModel.DataAnnotations.Tests.DisplayFormatAttributeTests+FakeResourceType))
+[STRT] System.ComponentModel.DataAnnotations.Tests.DisplayFormatAttributeTests.HtmlEncode_Set_GetReturnsExpected
+[STRT] System.ComponentModel.DataAnnotations.Schema.Tests.ColumnAttributeTests.TypeName_Set_NullValue_ThrowsArgumentException(value: null)
+[STRT] System.ComponentModel.DataAnnotations.Schema.Tests.ColumnAttributeTests.Order_Set_NegativeValue_ThrowsArgumentOutOfRangeException
+[STRT] System.ComponentModel.DataAnnotations.Schema.Tests.ColumnAttributeTests.Ctor_Default
+[STRT] System.ComponentModel.DataAnnotations.Schema.Tests.ColumnAttributeTests.Ctor_String(name: "Granny Weatherwax")
+[STRT] System.ComponentModel.DataAnnotations.Schema.Tests.ColumnAttributeTests.Ctor_String_NullName_ThrowsArgumentException(name: null)
+[STRT] System.ComponentModel.DataAnnotations.Schema.Tests.ColumnAttributeTests.Order_Set_ReturnsExpected(value: 0)
+[STRT] System.ComponentModel.DataAnnotations.Schema.Tests.ColumnAttributeTests.Order_Set_ReturnsExpected(value: 1)
+[STRT] System.ComponentModel.DataAnnotations.Schema.Tests.ColumnAttributeTests.TypeName_Set_WhitespaceValue_ThrowsArgumentException(value: "")
+[STRT] System.ComponentModel.DataAnnotations.Schema.Tests.ColumnAttributeTests.TypeName_Set_WhitespaceValue_ThrowsArgumentException(value: " \t\r\n")
+[STRT] System.ComponentModel.DataAnnotations.Schema.Tests.ColumnAttributeTests.TypeName_Set_ReturnsExpected(value: "Nanny Ogg")
+[STRT] System.ComponentModel.DataAnnotations.Schema.Tests.ColumnAttributeTests.Ctor_String_WhitespaceName_ThrowsArgumentException(name: "")
+[STRT] System.ComponentModel.DataAnnotations.Schema.Tests.ColumnAttributeTests.Ctor_String_WhitespaceName_ThrowsArgumentException(name: " \t\r\n")
+[STRT] System.ComponentModel.DataAnnotations.Tests.Base64StringAttributeTests.ErrorMessage_Valid
+[STRT] System.ComponentModel.DataAnnotations.Tests.Base64StringAttributeTests.Validate_Invalid
+[STRT] System.ComponentModel.DataAnnotations.Tests.Base64StringAttributeTests.Validate_Valid
+[STRT] System.ComponentModel.DataAnnotations.Tests.Base64StringAttributeTests.ErrorMessage_Invalid_Throws
+[STRT] System.ComponentModel.DataAnnotations.Tests.LengthAttributeTests.Validate_Invalid
+[STRT] System.ComponentModel.DataAnnotations.Tests.LengthAttributeTests.GetValidationResult_ValueGenericIEnumerable_ThrowsInvalidCastException
+[STRT] System.ComponentModel.DataAnnotations.Tests.LengthAttributeTests.Ctor(minimumLength: -2, maximumLength: -3)
+[STRT] System.ComponentModel.DataAnnotations.Tests.LengthAttributeTests.Ctor(minimumLength: 21, maximumLength: 1)
+[STRT] System.ComponentModel.DataAnnotations.Tests.LengthAttributeTests.Ctor(minimumLength: 128, maximumLength: -1)
+[STRT] System.ComponentModel.DataAnnotations.Tests.LengthAttributeTests.Ctor(minimumLength: -1, maximumLength: 12)
+[STRT] System.ComponentModel.DataAnnotations.Tests.LengthAttributeTests.Ctor(minimumLength: 0, maximumLength: 0)
+[STRT] System.ComponentModel.DataAnnotations.Tests.LengthAttributeTests.Ctor(minimumLength: 0, maximumLength: 10)
+[STRT] System.ComponentModel.DataAnnotations.Tests.LengthAttributeTests.Validate_ICollection_Invalid(attribute: LengthAttribute { ErrorMessage = null, ErrorMessageResourceName = null, ErrorMessageResourceType = null, MaximumLength = 20, MinimumLength = 15, ··· }, value: [0, 0, 0, 0, 0, ···])
+[STRT] System.ComponentModel.DataAnnotations.Tests.LengthAttributeTests.Validate_ICollection_Invalid(attribute: LengthAttribute { ErrorMessage = null, ErrorMessageResourceName = null, ErrorMessageResourceType = null, MaximumLength = 20, MinimumLength = 15, ··· }, value: [0, 0, 0, 0, 0, ···])
+[STRT] System.ComponentModel.DataAnnotations.Tests.LengthAttributeTests.Validate_ICollection_Invalid(attribute: LengthAttribute { ErrorMessage = null, ErrorMessageResourceName = null, ErrorMessageResourceType = null, MaximumLength = 20, MinimumLength = 15, ··· }, value: [0, 0, 0, 0, 0, ···])
+[STRT] System.ComponentModel.DataAnnotations.Tests.LengthAttributeTests.Validate_ICollection_Invalid(attribute: LengthAttribute { ErrorMessage = null, ErrorMessageResourceName = null, ErrorMessageResourceType = null, MaximumLength = 20, MinimumLength = 15, ··· }, value: [0, 0, 0, 0, 0, ···])
+[STRT] System.ComponentModel.DataAnnotations.Tests.LengthAttributeTests.Validate_ICollection_Valid(attribute: LengthAttribute { ErrorMessage = null, ErrorMessageResourceName = null, ErrorMessageResourceType = null, MaximumLength = 0, MinimumLength = 0, ··· }, value: [])
+[STRT] System.ComponentModel.DataAnnotations.Tests.LengthAttributeTests.Validate_ICollection_Valid(attribute: LengthAttribute { ErrorMessage = null, ErrorMessageResourceName = null, ErrorMessageResourceType = null, MaximumLength = 16, MinimumLength = 12, ··· }, value: [0, 0, 0, 0, 0, ···])
+[STRT] System.ComponentModel.DataAnnotations.Tests.LengthAttributeTests.Validate_ICollection_Valid(attribute: LengthAttribute { ErrorMessage = null, ErrorMessageResourceName = null, ErrorMessageResourceType = null, MaximumLength = 20, MinimumLength = 16, ··· }, value: [null, null, null, null, null, ···])
+[STRT] System.ComponentModel.DataAnnotations.Tests.LengthAttributeTests.Validate_ICollection_Valid(attribute: LengthAttribute { ErrorMessage = null, ErrorMessageResourceName = null, ErrorMessageResourceType = null, MaximumLength = 2, MinimumLength = 0, ··· }, value: [])
+[STRT] System.ComponentModel.DataAnnotations.Tests.LengthAttributeTests.Validate_ICollection_Valid(attribute: LengthAttribute { ErrorMessage = null, ErrorMessageResourceName = null, ErrorMessageResourceType = null, MaximumLength = 16, MinimumLength = 12, ··· }, value: [0, 0, 0, 0, 0, ···])
+[STRT] System.ComponentModel.DataAnnotations.Tests.LengthAttributeTests.Validate_ICollection_Valid(attribute: LengthAttribute { ErrorMessage = null, ErrorMessageResourceName = null, ErrorMessageResourceType = null, MaximumLength = 16, MinimumLength = 16, ··· }, value: [null, null, null, null, null, ···])
+[STRT] System.ComponentModel.DataAnnotations.Tests.LengthAttributeTests.Validate_ICollection_Valid(attribute: LengthAttribute { ErrorMessage = null, ErrorMessageResourceName = null, ErrorMessageResourceType = null, MaximumLength = 5, MinimumLength = 0, ··· }, value: [])
+[STRT] System.ComponentModel.DataAnnotations.Tests.LengthAttributeTests.Validate_ICollection_Valid(attribute: LengthAttribute { ErrorMessage = null, ErrorMessageResourceName = null, ErrorMessageResourceType = null, MaximumLength = 14, MinimumLength = 12, ··· }, value: [1, 2, 3, 4, 5, ···])
+[STRT] System.ComponentModel.DataAnnotations.Tests.LengthAttributeTests.Validate_ICollection_Valid(attribute: LengthAttribute { ErrorMessage = null, ErrorMessageResourceName = null, ErrorMessageResourceType = null, MaximumLength = 20, MinimumLength = 16, ··· }, value: ["1", "2", "3", "4", "5", ···])
+[STRT] System.ComponentModel.DataAnnotations.Tests.LengthAttributeTests.Validate_ICollection_Valid(attribute: LengthAttribute { ErrorMessage = null, ErrorMessageResourceName = null, ErrorMessageResourceType = null, MaximumLength = 1, MinimumLength = 0, ··· }, value: [])
+[STRT] System.ComponentModel.DataAnnotations.Tests.LengthAttributeTests.Validate_ICollection_Valid(attribute: LengthAttribute { ErrorMessage = null, ErrorMessageResourceName = null, ErrorMessageResourceType = null, MaximumLength = 16, MinimumLength = 12, ··· }, value: [0, 0, 0, 0, 0, ···])
+[STRT] System.ComponentModel.DataAnnotations.Tests.LengthAttributeTests.Validate_ICollection_Valid(attribute: LengthAttribute { ErrorMessage = null, ErrorMessageResourceName = null, ErrorMessageResourceType = null, MaximumLength = 16, MinimumLength = 16, ··· }, value: [null, null, null, null, null, ···])
+[STRT] System.ComponentModel.DataAnnotations.Tests.LengthAttributeTests.Validate_ICollection_Valid(attribute: LengthAttribute { ErrorMessage = null, ErrorMessageResourceName = null, ErrorMessageResourceType = null, MaximumLength = 0, MinimumLength = 0, ··· }, value: NotSupportedException was thrown formatting an object of type "System.ComponentModel.DataAnnotations.Tests.MultiCollection")
+[STRT] System.ComponentModel.DataAnnotations.Tests.LengthAttributeTests.Validate_Valid
+[STRT] System.ComponentModel.DataAnnotations.Tests.LengthAttributeTests.ErrorMessage_Invalid_Throws
+[STRT] System.ComponentModel.DataAnnotations.Tests.LengthAttributeTests.ErrorMessage_Valid
+[STRT] System.ComponentModel.DataAnnotations.Tests.LengthAttributeTests.GetValidationResult_ValueNotStringOrICollection_ThrowsInvalidCastException
+[STRT] System.ComponentModel.DataAnnotations.Tests.LengthAttributeTests.GetValidationResult_InvalidLength_ThrowsInvalidOperationException(minimumLength: -1, maximumLength: 0)
+[STRT] System.ComponentModel.DataAnnotations.Tests.LengthAttributeTests.GetValidationResult_InvalidLength_ThrowsInvalidOperationException(minimumLength: 0, maximumLength: -1)
+[STRT] System.ComponentModel.DataAnnotations.Tests.LengthAttributeTests.GetValidationResult_InvalidLength_ThrowsInvalidOperationException(minimumLength: 10, maximumLength: 5)
+[STRT] System.ComponentModel.DataAnnotations.Tests.CustomValidationAttributeTests.Validate_Valid
+[STRT] System.ComponentModel.DataAnnotations.Tests.CustomValidationAttributeTests.Validate_MethodThrowsCustomException_IsNotCaught
+[STRT] System.ComponentModel.DataAnnotations.Tests.CustomValidationAttributeTests.Ctor_Type_String(validatorType: typeof(System.ComponentModel.DataAnnotations.Tests.CustomValidationAttributeTests+CustomValidator), method: "SomeMethod")
+[STRT] System.ComponentModel.DataAnnotations.Tests.CustomValidationAttributeTests.Ctor_Type_String(validatorType: null, method: null)
+[STRT] System.ComponentModel.DataAnnotations.Tests.CustomValidationAttributeTests.Ctor_Type_String(validatorType: typeof(string), method: "")
+[STRT] System.ComponentModel.DataAnnotations.Tests.CustomValidationAttributeTests.Ctor_Type_String(validatorType: typeof(int), method: " \t\r\n")
+[STRT] System.ComponentModel.DataAnnotations.Tests.CustomValidationAttributeTests.Ctor_Type_String(validatorType: typeof(System.ComponentModel.DataAnnotations.Tests.CustomValidationAttributeTests+CustomValidator), method: "ValidationMethodDerivedReturnTypeReturnsSomeError")
+[STRT] System.ComponentModel.DataAnnotations.Tests.CustomValidationAttributeTests.FormatErrorMessage_PerformedValidation_DoesNotContainName
+[STRT] System.ComponentModel.DataAnnotations.Tests.CustomValidationAttributeTests.FormatErrorMessage_NotPerformedValidation_ContainsName
+[STRT] System.ComponentModel.DataAnnotations.Tests.CustomValidationAttributeTests.Validate_IConvertibleThrowsCustomException_IsNotCaught
+[STRT] System.ComponentModel.DataAnnotations.Tests.CustomValidationAttributeTests.Validate_Invalid
+[STRT] System.ComponentModel.DataAnnotations.Tests.CustomValidationAttributeTests.ErrorMessage_Invalid_Throws
+[STRT] System.ComponentModel.DataAnnotations.Tests.CustomValidationAttributeTests.AllowMultiple
+[STRT] System.ComponentModel.DataAnnotations.Tests.CustomValidationAttributeTests.RequiresValidationContext_Get_ReturnsExpected(method: "CorrectValidationMethodOneArg", expected: False)
+[STRT] System.ComponentModel.DataAnnotations.Tests.CustomValidationAttributeTests.RequiresValidationContext_Get_ReturnsExpected(method: "CorrectValidationMethodOneArgStronglyTyped", expected: False)
+[STRT] System.ComponentModel.DataAnnotations.Tests.CustomValidationAttributeTests.RequiresValidationContext_Get_ReturnsExpected(method: "CorrectValidationMethodTwoArgs", expected: True)
+[STRT] System.ComponentModel.DataAnnotations.Tests.CustomValidationAttributeTests.RequiresValidationContext_Get_ReturnsExpected(method: "CorrectValidationMethodTwoArgsStronglyTyped", expected: True)
+[STRT] System.ComponentModel.DataAnnotations.Tests.CustomValidationAttributeTests.GetValidationResult_MethodReturnDerivedValidationResult_ReturnsExpected
+[STRT] System.ComponentModel.DataAnnotations.Tests.CustomValidationAttributeTests.RequiresValidationContext_BadlyFormed_ThrowsInvalidOperationException(validatorType: null, method: "Does not matter")
+[STRT] System.ComponentModel.DataAnnotations.Tests.CustomValidationAttributeTests.RequiresValidationContext_BadlyFormed_ThrowsInvalidOperationException(validatorType: typeof(System.ComponentModel.DataAnnotations.Tests.CustomValidationAttributeTests+NonPublicCustomValidator), method: "Does not matter")
+[STRT] System.ComponentModel.DataAnnotations.Tests.CustomValidationAttributeTests.RequiresValidationContext_BadlyFormed_ThrowsInvalidOperationException(validatorType: typeof(System.ComponentModel.DataAnnotations.Tests.CustomValidationAttributeTests+CustomValidator), method: null)
+[STRT] System.ComponentModel.DataAnnotations.Tests.CustomValidationAttributeTests.RequiresValidationContext_BadlyFormed_ThrowsInvalidOperationException(validatorType: typeof(System.ComponentModel.DataAnnotations.Tests.CustomValidationAttributeTests+CustomValidator), method: "")
+[STRT] System.ComponentModel.DataAnnotations.Tests.CustomValidationAttributeTests.RequiresValidationContext_BadlyFormed_ThrowsInvalidOperationException(validatorType: typeof(System.ComponentModel.DataAnnotations.Tests.CustomValidationAttributeTests+CustomValidator), method: "NonExistentMethod")
+[STRT] System.ComponentModel.DataAnnotations.Tests.CustomValidationAttributeTests.RequiresValidationContext_BadlyFormed_ThrowsInvalidOperationException(validatorType: typeof(System.ComponentModel.DataAnnotations.Tests.CustomValidationAttributeTests+CustomValidator), method: "NonPublicValidationMethod")
+[STRT] System.ComponentModel.DataAnnotations.Tests.CustomValidationAttributeTests.RequiresValidationContext_BadlyFormed_ThrowsInvalidOperationException(validatorType: typeof(System.ComponentModel.DataAnnotations.Tests.CustomValidationAttributeTests+CustomValidator), method: "NonStaticValidationMethod")
+[STRT] System.ComponentModel.DataAnnotations.Tests.CustomValidationAttributeTests.RequiresValidationContext_BadlyFormed_ThrowsInvalidOperationException(validatorType: typeof(System.ComponentModel.DataAnnotations.Tests.CustomValidationAttributeTests+CustomValidator), method: "ValidationMethodDoesNotReturnValidationResult")
+[STRT] System.ComponentModel.DataAnnotations.Tests.CustomValidationAttributeTests.RequiresValidationContext_BadlyFormed_ThrowsInvalidOperationException(validatorType: typeof(System.ComponentModel.DataAnnotations.Tests.CustomValidationAttributeTests+CustomValidator), method: "ValidationMethodWithNoArgs")
+[STRT] System.ComponentModel.DataAnnotations.Tests.CustomValidationAttributeTests.RequiresValidationContext_BadlyFormed_ThrowsInvalidOperationException(validatorType: typeof(System.ComponentModel.DataAnnotations.Tests.CustomValidationAttributeTests+CustomValidator), method: "ValidationMethodWithByRefArg")
+[STRT] System.ComponentModel.DataAnnotations.Tests.CustomValidationAttributeTests.RequiresValidationContext_BadlyFormed_ThrowsInvalidOperationException(validatorType: typeof(System.ComponentModel.DataAnnotations.Tests.CustomValidationAttributeTests+CustomValidator), method: "ValidationMethodTwoArgsButSecondIsNotValidationCon"···)
+[STRT] System.ComponentModel.DataAnnotations.Tests.CustomValidationAttributeTests.RequiresValidationContext_BadlyFormed_ThrowsInvalidOperationException(validatorType: typeof(System.ComponentModel.DataAnnotations.Tests.CustomValidationAttributeTests+CustomValidator), method: "ValidationMethodThreeArgs")
+[STRT] System.ComponentModel.DataAnnotations.Tests.CustomValidationAttributeTests.Validate_BadlyFormed_ThrowsInvalidOperationException(validatorType: null, method: "Does not matter")
+[STRT] System.ComponentModel.DataAnnotations.Tests.CustomValidationAttributeTests.Validate_BadlyFormed_ThrowsInvalidOperationException(validatorType: typeof(System.ComponentModel.DataAnnotations.Tests.CustomValidationAttributeTests+NonPublicCustomValidator), method: "Does not matter")
+[STRT] System.ComponentModel.DataAnnotations.Tests.CustomValidationAttributeTests.Validate_BadlyFormed_ThrowsInvalidOperationException(validatorType: typeof(System.ComponentModel.DataAnnotations.Tests.CustomValidationAttributeTests+CustomValidator), method: null)
+[STRT] System.ComponentModel.DataAnnotations.Tests.CustomValidationAttributeTests.Validate_BadlyFormed_ThrowsInvalidOperationException(validatorType: typeof(System.ComponentModel.DataAnnotations.Tests.CustomValidationAttributeTests+CustomValidator), method: "")
+[STRT] System.ComponentModel.DataAnnotations.Tests.CustomValidationAttributeTests.Validate_BadlyFormed_ThrowsInvalidOperationException(validatorType: typeof(System.ComponentModel.DataAnnotations.Tests.CustomValidationAttributeTests+CustomValidator), method: "NonExistentMethod")
+[STRT] System.ComponentModel.DataAnnotations.Tests.CustomValidationAttributeTests.Validate_BadlyFormed_ThrowsInvalidOperationException(validatorType: typeof(System.ComponentModel.DataAnnotations.Tests.CustomValidationAttributeTests+CustomValidator), method: "NonPublicValidationMethod")
+[STRT] System.ComponentModel.DataAnnotations.Tests.CustomValidationAttributeTests.Validate_BadlyFormed_ThrowsInvalidOperationException(validatorType: typeof(System.ComponentModel.DataAnnotations.Tests.CustomValidationAttributeTests+CustomValidator), method: "NonStaticValidationMethod")
+[STRT] System.ComponentModel.DataAnnotations.Tests.CustomValidationAttributeTests.Validate_BadlyFormed_ThrowsInvalidOperationException(validatorType: typeof(System.ComponentModel.DataAnnotations.Tests.CustomValidationAttributeTests+CustomValidator), method: "ValidationMethodDoesNotReturnValidationResult")
+[STRT] System.ComponentModel.DataAnnotations.Tests.CustomValidationAttributeTests.Validate_BadlyFormed_ThrowsInvalidOperationException(validatorType: typeof(System.ComponentModel.DataAnnotations.Tests.CustomValidationAttributeTests+CustomValidator), method: "ValidationMethodWithNoArgs")
+[STRT] System.ComponentModel.DataAnnotations.Tests.CustomValidationAttributeTests.Validate_BadlyFormed_ThrowsInvalidOperationException(validatorType: typeof(System.ComponentModel.DataAnnotations.Tests.CustomValidationAttributeTests+CustomValidator), method: "ValidationMethodWithByRefArg")
+[STRT] System.ComponentModel.DataAnnotations.Tests.CustomValidationAttributeTests.Validate_BadlyFormed_ThrowsInvalidOperationException(validatorType: typeof(System.ComponentModel.DataAnnotations.Tests.CustomValidationAttributeTests+CustomValidator), method: "ValidationMethodTwoArgsButSecondIsNotValidationCon"···)
+[STRT] System.ComponentModel.DataAnnotations.Tests.CustomValidationAttributeTests.Validate_BadlyFormed_ThrowsInvalidOperationException(validatorType: typeof(System.ComponentModel.DataAnnotations.Tests.CustomValidationAttributeTests+CustomValidator), method: "ValidationMethodThreeArgs")
+[STRT] System.ComponentModel.DataAnnotations.Tests.CustomValidationAttributeTests.ErrorMessage_Valid
+[STRT] System.ComponentModel.DataAnnotations.Tests.CustomValidationAttributeTests.FormatErrorMessage_BadlyFormed_ThrowsInvalidOperationException(validatorType: null, method: "Does not matter")
+[STRT] System.ComponentModel.DataAnnotations.Tests.CustomValidationAttributeTests.FormatErrorMessage_BadlyFormed_ThrowsInvalidOperationException(validatorType: typeof(System.ComponentModel.DataAnnotations.Tests.CustomValidationAttributeTests+NonPublicCustomValidator), method: "Does not matter")
+[STRT] System.ComponentModel.DataAnnotations.Tests.CustomValidationAttributeTests.FormatErrorMessage_BadlyFormed_ThrowsInvalidOperationException(validatorType: typeof(System.ComponentModel.DataAnnotations.Tests.CustomValidationAttributeTests+CustomValidator), method: null)
+[STRT] System.ComponentModel.DataAnnotations.Tests.CustomValidationAttributeTests.FormatErrorMessage_BadlyFormed_ThrowsInvalidOperationException(validatorType: typeof(System.ComponentModel.DataAnnotations.Tests.CustomValidationAttributeTests+CustomValidator), method: "")
+[STRT] System.ComponentModel.DataAnnotations.Tests.CustomValidationAttributeTests.FormatErrorMessage_BadlyFormed_ThrowsInvalidOperationException(validatorType: typeof(System.ComponentModel.DataAnnotations.Tests.CustomValidationAttributeTests+CustomValidator), method: "NonExistentMethod")
+[STRT] System.ComponentModel.DataAnnotations.Tests.CustomValidationAttributeTests.FormatErrorMessage_BadlyFormed_ThrowsInvalidOperationException(validatorType: typeof(System.ComponentModel.DataAnnotations.Tests.CustomValidationAttributeTests+CustomValidator), method: "NonPublicValidationMethod")
+[STRT] System.ComponentModel.DataAnnotations.Tests.CustomValidationAttributeTests.FormatErrorMessage_BadlyFormed_ThrowsInvalidOperationException(validatorType: typeof(System.ComponentModel.DataAnnotations.Tests.CustomValidationAttributeTests+CustomValidator), method: "NonStaticValidationMethod")
+[STRT] System.ComponentModel.DataAnnotations.Tests.CustomValidationAttributeTests.FormatErrorMessage_BadlyFormed_ThrowsInvalidOperationException(validatorType: typeof(System.ComponentModel.DataAnnotations.Tests.CustomValidationAttributeTests+CustomValidator), method: "ValidationMethodDoesNotReturnValidationResult")
+[STRT] System.ComponentModel.DataAnnotations.Tests.CustomValidationAttributeTests.FormatErrorMessage_BadlyFormed_ThrowsInvalidOperationException(validatorType: typeof(System.ComponentModel.DataAnnotations.Tests.CustomValidationAttributeTests+CustomValidator), method: "ValidationMethodWithNoArgs")
+[STRT] System.ComponentModel.DataAnnotations.Tests.CustomValidationAttributeTests.FormatErrorMessage_BadlyFormed_ThrowsInvalidOperationException(validatorType: typeof(System.ComponentModel.DataAnnotations.Tests.CustomValidationAttributeTests+CustomValidator), method: "ValidationMethodWithByRefArg")
+[STRT] System.ComponentModel.DataAnnotations.Tests.CustomValidationAttributeTests.FormatErrorMessage_BadlyFormed_ThrowsInvalidOperationException(validatorType: typeof(System.ComponentModel.DataAnnotations.Tests.CustomValidationAttributeTests+CustomValidator), method: "ValidationMethodTwoArgsButSecondIsNotValidationCon"···)
+[STRT] System.ComponentModel.DataAnnotations.Tests.CustomValidationAttributeTests.FormatErrorMessage_BadlyFormed_ThrowsInvalidOperationException(validatorType: typeof(System.ComponentModel.DataAnnotations.Tests.CustomValidationAttributeTests+CustomValidator), method: "ValidationMethodThreeArgs")
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidationAttributeTests.Validate_NullValidationContext_ThrowsArgumentNullException
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidationAttributeTests.FormatErrorMessage_InvalidResourceNameAndResourceType_ThrowsInvalidOperationException(resourceName: "ResourceName", resourceType: null)
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidationAttributeTests.FormatErrorMessage_InvalidResourceNameAndResourceType_ThrowsInvalidOperationException(resourceName: null, resourceType: typeof(int))
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidationAttributeTests.FormatErrorMessage_InvalidResourceNameAndResourceType_ThrowsInvalidOperationException(resourceName: "", resourceType: typeof(int))
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidationAttributeTests.FormatErrorMessage_InvalidResourceNameAndResourceType_ThrowsInvalidOperationException(resourceName: "NoSuchProperty", resourceType: typeof(int))
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidationAttributeTests.FormatErrorMessage_InvalidResourceNameAndResourceType_ThrowsInvalidOperationException(resourceName: "GetSetProperty", resourceType: typeof(System.ComponentModel.DataAnnotations.Tests.ValidationAttributeTests+ValidationAttributeOverrideBothIsValids))
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidationAttributeTests.FormatErrorMessage_InvalidResourceNameAndResourceType_ThrowsInvalidOperationException(resourceName: "GetOnlyProperty", resourceType: typeof(System.ComponentModel.DataAnnotations.Tests.ValidationAttributeTests+ValidationAttributeOverrideBothIsValids))
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidationAttributeTests.FormatErrorMessage_InvalidResourceNameAndResourceType_ThrowsInvalidOperationException(resourceName: "SetOnlyProperty", resourceType: typeof(System.ComponentModel.DataAnnotations.Tests.ValidationAttributeTests+ValidationAttributeOverrideBothIsValids))
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidationAttributeTests.FormatErrorMessage_InvalidResourceNameAndResourceType_ThrowsInvalidOperationException(resourceName: "StaticSetOnlyProperty", resourceType: typeof(System.ComponentModel.DataAnnotations.Tests.ValidationAttributeTests+ValidationAttributeOverrideBothIsValids))
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidationAttributeTests.FormatErrorMessage_InvalidResourceNameAndResourceType_ThrowsInvalidOperationException(resourceName: "StaticIntProperty", resourceType: typeof(System.ComponentModel.DataAnnotations.Tests.ValidationAttributeTests+ValidationAttributeOverrideBothIsValids))
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidationAttributeTests.FormatErrorMessage_InvalidResourceNameAndResourceType_ThrowsInvalidOperationException(resourceName: "StaticPrivateProperty", resourceType: typeof(System.ComponentModel.DataAnnotations.Tests.ValidationAttributeTests+ValidationAttributeOverrideBothIsValids))
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidationAttributeTests.FormatErrorMessage_InvalidResourceNameAndResourceType_ThrowsInvalidOperationException(resourceName: "StaticProtectedProperty", resourceType: typeof(System.ComponentModel.DataAnnotations.Tests.ValidationAttributeTests+ValidationAttributeOverrideBothIsValids))
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidationAttributeTests.FormatErrorMessage_InvalidResourceNameAndResourceType_ThrowsInvalidOperationException(resourceName: "StaticProtectedInternalProperty", resourceType: typeof(System.ComponentModel.DataAnnotations.Tests.ValidationAttributeTests+ValidationAttributeOverrideBothIsValids))
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidationAttributeTests.Can_get_and_set_ErrorMessage
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidationAttributeTests.TestThrowIfNoOverrideIsValid01
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidationAttributeTests.Can_get_and_set_ErrorMessageResourceName
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidationAttributeTests.FormatErrorMessage_HasErrorMessage_ReturnsExpected(errorMessage: "SomeErrorMessage", expected: "SomeErrorMessage")
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidationAttributeTests.FormatErrorMessage_HasErrorMessage_ReturnsExpected(errorMessage: "SomeErrorMessage with name <{0}>", expected: "SomeErrorMessage with name <name>")
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidationAttributeTests.TestThrowIfNullValidationContext
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidationAttributeTests.TestTwoArgsIsValidValidatesSuccessfully
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidationAttributeTests.TestFormatErrorMessage05
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidationAttributeTests.Default_value_of_RequiresValidationContext_is_false
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidationAttributeTests.FormatErrorMessage_BothErrorMessageAndResourceType_ThrowsInvalidOperationException
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidationAttributeTests.Can_get_and_set_ErrorMessageResourceType
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidationAttributeTests.TestNoThrowIfOverrideIsValid03
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidationAttributeTests.TestReturnPresetErrorMessage
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidationAttributeTests.TestThrowWithValidationResultErrorMessage01
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidationAttributeTests.TestThrowWithValidationResultErrorMessage
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidationAttributeTests.FormatErrorMessage_BothErrorMessageAndResourceName_ThrowsInvalidOperationException
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidationAttributeTests.TestOneArgsIsValidValidatesSuccessfully
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidationAttributeTests.GetValidationResult_NullErrorMessage_ProvidesErrorMessage
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidationAttributeTests.TestNoThrowIfOverrideIsValid01
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidationAttributeTests.FormatErrorMessage_HasResourceProperty_ReturnsExpected(resourceName: "PublicErrorMessageTestProperty", resourceType: typeof(System.ComponentModel.DataAnnotations.Tests.ValidationAttributeTests+ValidationAttributeOverrideBothIsValids), expected: "Error Message from PublicErrorMessageTestProperty")
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidationAttributeTests.FormatErrorMessage_HasResourceProperty_ReturnsExpected(resourceName: "PublicErrorMessageTestPropertyWithName", resourceType: typeof(System.ComponentModel.DataAnnotations.Tests.ValidationAttributeTests+ValidationAttributeOverrideBothIsValids), expected: "Error Message from PublicErrorMessageTestProperty "···)
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidationAttributeTests.FormatErrorMessage_HasResourceProperty_ReturnsExpected(resourceName: "StaticInternalProperty", resourceType: typeof(System.ComponentModel.DataAnnotations.Tests.ValidationAttributeTests+ValidationAttributeOverrideBothIsValids), expected: "ErrorMessage")
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidationAttributeTests.TestThrowIfNoOverrideIsValid
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidationAttributeTests.TestNoThrowIfOverrideIsValid04
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidationAttributeTests.TestReturnErrorMessageInIsValid
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidationAttributeTests.GetValidationResult_EmptyErrorMessage_ProvidesErrorMessage
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidationAttributeTests.TestNoThrowIfOverrideIsValid02
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidationAttributeTests.FormatErrorMessage_NullOrEmptyErrorMessageAndName_ThrowsInvalidOperationException(value: null)
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidationAttributeTests.FormatErrorMessage_NullOrEmptyErrorMessageAndName_ThrowsInvalidOperationException(value: "")
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidationAttributeTests.TestNoThrowIfOverrideIsValid05
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidationAttributeTests.TestNoThrowIfOverrideIsValid
+[STRT] System.ComponentModel.DataAnnotations.Tests.ValidationAttributeTests.TestThrowIfNoOverrideIsValid02
+[STRT] System.ComponentModel.DataAnnotations.Tests.CompareAttributeTests.Validate_Invalid
+[STRT] System.ComponentModel.DataAnnotations.Tests.CompareAttributeTests.Validate_PropertyHasDisplayName_UpdatesFormatErrorMessageToContainDisplayName
+[STRT] System.ComponentModel.DataAnnotations.Tests.CompareAttributeTests.Constructor_NullOtherProperty_ThrowsArgumentNullException
+[STRT] System.ComponentModel.DataAnnotations.Tests.CompareAttributeTests.Validate_Indexer_ThrowsArgumentException
+[STRT] System.ComponentModel.DataAnnotations.Tests.CompareAttributeTests.Constructor(otherProperty: "OtherProperty")
+[STRT] System.ComponentModel.DataAnnotations.Tests.CompareAttributeTests.Constructor(otherProperty: "")
+[STRT] System.ComponentModel.DataAnnotations.Tests.CompareAttributeTests.Validate_PrivateProperty_ThrowsArgumentException
+[STRT] System.ComponentModel.DataAnnotations.Tests.CompareAttributeTests.Validate_Valid
+[STRT] System.ComponentModel.DataAnnotations.Tests.CompareAttributeTests.ErrorMessage_Invalid_Throws
+[STRT] System.ComponentModel.DataAnnotations.Tests.CompareAttributeTests.IsValid_ValidationContextNull_ThrowsArgumentNullException
+[STRT] System.ComponentModel.DataAnnotations.Tests.CompareAttributeTests.Validate_SetOnlyProperty_ThrowsArgumentException
+[STRT] System.ComponentModel.DataAnnotations.Tests.CompareAttributeTests.Validate_IncludesMemberName
+[STRT] System.ComponentModel.DataAnnotations.Tests.CompareAttributeTests.Validate_LowerAndUpperPropertyName_Success
+[STRT] System.ComponentModel.DataAnnotations.Tests.CompareAttributeTests.ErrorMessage_Valid
+Finished:    System.ComponentModel.Annotations.Tests.dll
+Finished uploading 318413 bytes of RESULTXML
+Xml file was written to the provided writer.
+
+=== TEST EXECUTION SUMMARY ===
+Tests run: 872 Passed: 871 Inconclusive: 0 Failed: 0 Ignored: 0 Skipped: 1
+
+test-main.js exiting WasmTestRunner.dll System.ComponentModel.Annotations.Tests.dll after 0.04928333333333333 minutes with result 0 and linear memory 231997440 bytes
+DOTNET: forceDisposeProxies done: 14 imports, 0 exports, 0 GCHandles, 0 JSHandles.
+WASM EXIT 0

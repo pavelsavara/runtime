@@ -1,0 +1,158 @@
+Running in: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/143.0.0.0 Safari/537.36
+Running at: http://127.0.0.1:39971/index.html?arg=--setenv%3dXHARNESS_LOG_TEST_START%3dtrue&arg=--run&arg=WasmTestRunner.dll&arg=System.Composition.Tests.dll&arg=-notrait&arg=category%3dOuterLoop&arg=-notrait&arg=category%3dfailing&arg=-verbosity&arg=Info
+could not load /runArgs.json: 404. Ignoring
+Incoming arguments: --setenv=XHARNESS_LOG_TEST_START=true --run WasmTestRunner.dll System.Composition.Tests.dll -notrait category=OuterLoop -notrait category=failing -verbosity Info
+Application arguments: --run WasmTestRunner.dll System.Composition.Tests.dll -notrait category=OuterLoop -notrait category=failing -verbosity Info
+Initializing dotnet version 11.0.0 commit hash e31907b0fbca908ed525247a1dc38cc5fba7b0ff
+Using threadless Xunit runner
+Discovering: System.Composition.Tests.dll (method display = ClassAndMethod, method display options = None)
+Discovered:  System.Composition.Tests.dll (found 138 of 139 test cases)
+Starting:    System.Composition.Tests.dll
+[STRT] System.Composition.UnitTests.MetadataConstraintTests.ConstraintsCanBeAppliedToGenerics
+[STRT] System.Composition.UnitTests.MetadataConstraintTests.ItemEqualityIsUsedWhenMatchingMetadataValuesThatAreArrays
+[STRT] System.Composition.UnitTests.MetadataConstraintTests.AnImportMetadataConstraintMatchesMetadataOnTheExportEvenIfDiscoveryHasCompletedForTheExport
+[STRT] System.Composition.UnitTests.MetadataConstraintTests.ImportMetadataConstraintsComposeWithOtherRelationshipTypes
+[STRT] System.Composition.UnitTests.MetadataConstraintTests.AnImportMetadataConstraintMatchesMetadataOnTheExport
+[STRT] System.Composition.UnitTests.MetadataTests.MultiplePiecesOfMetadataAreCombinedIntoAnArray
+[STRT] System.Composition.UnitTests.MetadataTests.StandaloneExportMetadataAppliesToAllExportsOnAMember
+[STRT] System.Composition.UnitTests.MetadataTests.DiscoversStandaloneExportMetadata
+[STRT] System.Composition.UnitTests.MetadataTests.IfMetadataIsSpecifiedOnAnExportAttributeOtherExportsDoNotHaveIt
+[STRT] System.Composition.UnitTests.MetadataTests.HandlesMetadataCircularity
+[STRT] System.Composition.UnitTests.MetadataTests.DiscoversMetadataSpecifiedUsingMetadataAttributeOnExportAttribute
+[STRT] System.Composition.UnitTests.MetadataTests.SupportsExportMetadata
+[STRT] System.Composition.UnitTests.MetadataTests.DiscoversStandaloneExportMetadataUsingMetadataAttributes
+[STRT] System.Composition.UnitTests.MetadataTests.MultipleMetadataAttributesWithAPropertyThatReturnsNull
+[STRT] System.Composition.UnitTests.ExportMetadataDiscoveryTests.MultiplePiecesOfMetadataAreCombinedIntoAnArray
+[STRT] System.Composition.UnitTests.ExportMetadataDiscoveryTests.StandaloneExportMetadataAppliesToAllExportsOnAMember
+[STRT] System.Composition.UnitTests.ExportMetadataDiscoveryTests.DiscoversStandaloneExportMetadataUsingMetadataAttributes
+[STRT] System.Composition.UnitTests.ExportMetadataDiscoveryTests.DiscoversStandaloneExportMetadata
+[STRT] System.Composition.UnitTests.ExportMetadataDiscoveryTests.DiscoversMetadataSpecifiedUsingMetadataAttributeOnExportAttribute
+[STRT] System.Composition.UnitTests.ExportMetadataDiscoveryTests.IfMetadataIsSpecifiedOnAnExportAttributeOtherExportsDoNotHaveIt
+[STRT] System.Composition.UnitTests.ExportMetadataDiscoveryTests.MultipleExportsCanBeRetrievedWhenANonDefaultConstructorExists
+[STRT] System.Composition.UnitTests.ErrorMessageQualityTests.CycleMessageIsInformative
+[STRT] System.Composition.UnitTests.ErrorMessageQualityTests.CardinalityViolationMessageIsInformative
+[STRT] System.Composition.UnitTests.ErrorMessageQualityTests.MissingTopLevelNamedExportMessageIsInformative
+[STRT] System.Composition.UnitTests.ErrorMessageQualityTests.MissingDependencyMessageIsInformative
+[STRT] System.Composition.UnitTests.ErrorMessageQualityTests.MissingTopLevelExportMessageIsInformative
+[STRT] System.Composition.Lightweight.UnitTests.CustomerReportedMetadataBug.SampleServicesCorrectlyImported
+[STRT] System.Composition.UnitTests.CompositionContextExtensionsTests.GettingAnOptionalExportThatDoesntExistReturnsNull
+[STRT] System.Composition.UnitTests.OpenGenericsTests.TypesWithNonGenericExportsAreDetectedDuringDiscovery
+[STRT] System.Composition.UnitTests.OpenGenericsTests.OpenGenericsCanExportSelf
+[STRT] System.Composition.UnitTests.OpenGenericsTests.MultipleGenericExportsCanBeSpecifiedAtTheClassLevel
+[STRT] System.Composition.UnitTests.OpenGenericsTests.APartWithMultipleGenericExportsIsOnlyDiscoveredOnce
+[STRT] System.Composition.UnitTests.OpenGenericsTests.CanExportBasicOpenGeneric
+[STRT] System.Composition.UnitTests.OpenGenericsTests.CanExportOpenGenericProperty
+[STRT] System.Composition.UnitTests.OpenGenericsTests.OpenGenericsCanExportBase
+[STRT] System.Composition.UnitTests.OpenGenericsTests.TypesWithMismatchedGenericParameterListsAreDetectedDuringDiscovery
+[STRT] System.Composition.UnitTests.OpenGenericsTests.OpenGenericProvidesMultipleInstantiations
+[STRT] System.Composition.UnitTests.OpenGenericsTests.ASharedOpenGenericWithTwoExportsIsProvidedByASingleInstance
+[STRT] System.Composition.UnitTests.OptionalImportTests.MissingOptionalPropertyImportsAreIgnored
+[STRT] System.Composition.UnitTests.OptionalImportTests.MissingOptionalConstructorParametersAreSuppliedTheirDefaultValue
+[STRT] System.Composition.UnitTests.ActivationEventOrderingTests.OnImportsSatisfiedIsCalledAfterPropertyInjection
+[STRT] System.Composition.Lightweight.UnitTests.ExportDescriptorProviderTests.ProvidersCanDetectAbsenceOfAContractItSupports
+[STRT] System.Composition.Lightweight.UnitTests.ExportDescriptorProviderTests.ProvidersCanLocateImplementationsOfAContractItSupports
+[STRT] System.Composition.UnitTests.ImportManyTests.ImportsManyProperties
+[STRT] System.Composition.UnitTests.ImportManyTests.ImportsMany
+[STRT] System.Composition.UnitTests.ExportFactoryTests.ExportFactoryCanBeComposedWithImportManyAndNames
+[STRT] System.Composition.UnitTests.ExportFactoryTests.TheProductOfAnExportFactoryCanBeDisposedDuringDisposalOfTheParent
+[STRT] System.Composition.UnitTests.ExportFactoryTests.DependenciesOfSharedPartsAreResolvedInTheGlobalScope
+[STRT] System.Composition.UnitTests.ExportFactoryTests.NonSharedInstancesCreatedByAnExportFactoryAreControlledByTheirExportLifetimeContext
+[STRT] System.Composition.UnitTests.ExportFactoryTests.SharedPartsAreSharedBetweenAllScopes
+[STRT] System.Composition.UnitTests.ExportFactoryTests.WhenABoundaryIsPresentBoundedPartsCannotBeCreatedOutsideIt
+[STRT] System.Composition.UnitTests.ExportFactoryTests.WhenReleasingAnExportFromAnExportFactoryItsNonSharedDependenciesAreDisposed
+[STRT] System.Composition.UnitTests.ExportFactoryTests.TheSameSharedInstanceIsReusedWithinItsSharingBoundary
+[STRT] System.Composition.UnitTests.SharingTest.ClassWithExportFactoryAndSharedExport
+[STRT] System.Composition.UnitTests.SharingTest.ClassWithNonSharedExportFactoryCreatesSharedInstances
+[STRT] System.Composition.UnitTests.SharingTest.GetExportsCreatesSharedObjectsWhenSpecified
+[STRT] System.Composition.UnitTests.SharingTest.GetExportsCreatesInstancedObjectByDefault
+[STRT] System.Composition.UnitTests.SharingTest.BoundaryExposedBoundaryButNoneImported
+[STRT] System.Composition.UnitTests.SharingTest.MultipleBoundarySpecified
+[STRT] System.Composition.UnitTests.SharingTest.ClassWithExportFactoryAsAProperty
+[STRT] System.Composition.UnitTests.SharingTest.ConsistentResultsAreReturneWhenResolvingLargeNumbersOfSharedParts
+[STRT] System.Composition.UnitTests.SharingTest.BoundarySharingTest
+[STRT] System.Composition.UnitTests.SharingTest.CircularBoundarySharingTest
+[STRT] System.Composition.UnitTests.SharingTest.ExportFactoryCreatesNewInstances
+[STRT] System.Composition.UnitTests.SharingTest.SharedPartExportingMultipleContractsSharesAnInstance
+[STRT] System.Composition.UnitTests.LightContainerTests.VerifyAssemblyNameCanBeUsedWithContainer
+[STRT] System.Composition.UnitTests.LightContainerTests.InjectsPropertyImports
+[STRT] System.Composition.UnitTests.LightContainerTests.CanSpecifyExportsWithConventionBuilder
+[STRT] System.Composition.UnitTests.LightContainerTests.Composes
+[STRT] System.Composition.UnitTests.LightContainerTests.CreatesInstanceWithNoDependencies
+[STRT] System.Composition.UnitTests.LightContainerTests.CanSpecifyLifetimeWithConventionBuilder
+[STRT] System.Composition.UnitTests.LightContainerTests.VerifyAssemblyWithTwoBaseTypeWithOnlyOneExportedWorks
+[STRT] System.Composition.UnitTests.LightContainerTests.DefaultLifetimeIsNonShared
+[STRT] System.Composition.Lightweight.UnitTests.MetadataViewGenerationTests.UnsupportedMetadataViewMessageIsInformative
+[STRT] System.Composition.Lightweight.UnitTests.MetadataViewGenerationTests.ReadOnlyPropertiesOnMetadataViewsAreIgnored
+[STRT] System.Composition.Lightweight.UnitTests.MetadataViewGenerationTests.AConcreteTypeWithDictionaryConstructorIsAMetadataView
+[STRT] System.Composition.Lightweight.UnitTests.MetadataViewGenerationTests.MetadataViewsCanCarryDefaultValues
+[STRT] System.Composition.Lightweight.UnitTests.MetadataViewGenerationTests.AConcreteTypeWithWritablePropertiesIsAMetadataView
+[STRT] System.Composition.Lightweight.UnitTests.MetadataViewGenerationTests.AConcreteTypeWithUnsupportedConstructorsCannotBeUsedAsAMetadataView
+[STRT] System.Composition.UnitTests.DiscoveryTests.SatisfiesImportsAppliedToBase
+[STRT] System.Composition.UnitTests.DiscoveryTests.DoesNotDiscoverExportAttributesFromBase
+[STRT] System.Composition.UnitTests.DiscoveryTests.PropertyExportsOfIncompatibleContractsAreDetected
+[STRT] System.Composition.UnitTests.DiscoveryTests.InstanceExportsOfIncompatibleContractsAreDetected
+[STRT] System.Composition.UnitTests.DiscoveryTests.DiscoversCustomExportAttributes
+[STRT] System.Composition.UnitTests.DiscoveryTests.ANonDiscoverablePartIsIgnored
+[STRT] System.Composition.UnitTests.DiscoveryTests.MultipleImportAttributesAreDetected
+[STRT] System.Composition.UnitTests.DiscoveryTests.DiscoversCustomExportAttributesUnderConventions
+[STRT] System.Composition.UnitTests.ImportOrderingTests.IfAnItemIsMissingMetadataAnInformativeExceptionIsThrown
+[STRT] System.Composition.UnitTests.ImportOrderingTests.CollectionsImportedWithAnOrderingAttributeComeInOrder
+[STRT] System.Composition.UnitTests.DictionaryImportTests.WhenAMetadataValueIsOfTheWrongTypeAnInformativeExceptionIsThrown
+[STRT] System.Composition.UnitTests.DictionaryImportTests.DictionaryImportsCompatibleWithConventionBuilder
+[STRT] System.Composition.UnitTests.DictionaryImportTests.WhenAMetadataKeyIsDuplicatedAnInformativeExceptionIsThrown
+[STRT] System.Composition.UnitTests.DictionaryImportTests.DictionaryImportsReceiveMetadataFromNestedAdapters
+[STRT] System.Composition.UnitTests.DictionaryImportTests.DictionaryImportsKeyedByMetadata
+[STRT] System.Composition.UnitTests.DictionaryImportTests.WhenAMetadataKeyIsMissingAnInformativeExceptionIsThrown
+[STRT] System.Composition.UnitTests.PropertyExportTests.ExportedPropertiesShareTheSameSharedPartInstance
+[STRT] System.Composition.UnitTests.PropertyExportTests.CanExportProperty
+[STRT] System.Composition.Lightweight.UnitTests.LooseImportsTests.SatisfyImportsSetsLooseImportsOnAttributedPart
+[STRT] System.Composition.Lightweight.UnitTests.InheritanceTests.OnImportsSatisfiedAttributeIsInherited
+[STRT] System.Composition.Lightweight.UnitTests.InheritanceTests.MetadataIsOnlyDrawnFromTheTypeToWhichItIsApplied
+[STRT] System.Composition.Lightweight.UnitTests.InheritanceTests.LooseImportsOnBaseAreInherited
+[STRT] System.Composition.Lightweight.UnitTests.InheritanceTests.ImportsOnBaseAreInherited
+[STRT] System.Composition.Lightweight.UnitTests.InheritanceTests.ClassExportsAreNotInherited
+[STRT] System.Composition.Lightweight.UnitTests.InheritanceTests.ImportsOnOverriddenPropertiesOverrideImportsOnTheBase
+[STRT] System.Composition.Lightweight.UnitTests.InheritanceTests.PartMetadataIsNotInherited
+[STRT] System.Composition.Lightweight.UnitTests.InheritanceTests.ExportsOnOverridePropertiesOverrideExportsOnTheBase
+[STRT] System.Composition.Lightweight.UnitTests.InheritanceTests.PropertyExportsAreNotInherited
+[STRT] System.Composition.Lightweight.UnitTests.InheritanceTests.ExportsAtTheClassLevelAreAppliedIgnoringBaseExports
+[STRT] System.Composition.Lightweight.UnitTests.InheritanceTests.PartNotDiscoverableAttributeIsNotInherited
+[STRT] System.Composition.Lightweight.UnitTests.InheritanceTests.LooseImportsOnDerivedPropertiesOverrideImportsOnTheBase
+[STRT] System.Composition.UnitTests.ConcurrencyTests.SharedInstancesAreNotVisibleUntilActivationCompletes
+[STRT] System.Composition.UnitTests.LazyTests.LazyCanBeComposedWithImportManyAndNames
+[STRT] System.Composition.UnitTests.LazyTests.ReturnsExportMetadataAsADictionary
+[STRT] System.Composition.UnitTests.LazyTests.SupportsExportMetadata
+[STRT] System.Composition.UnitTests.LazyTests.ComposesLazily
+[STRT] System.Composition.UnitTests.CircularityTests.SharedPartCanHaveNonPrereqDependencyOnSelf
+[STRT] System.Composition.UnitTests.CircularityTests.HandlesMetadataCircularity
+[STRT] System.Composition.UnitTests.CircularityTests.HandlesConstructorPropertyCircularity
+[STRT] System.Composition.UnitTests.CircularityTests.HandlesPropertyPropertyCircularityReversed
+[STRT] System.Composition.UnitTests.CircularityTests.CanHandleDefinitionCircularity
+[STRT] System.Composition.UnitTests.CircularityTests.HandlesPropertyPropertyCircularity
+[STRT] System.Composition.UnitTests.CircularityTests.PrerequisiteCircularitiesAreDetected
+[STRT] System.Composition.UnitTests.CircularityTests.HandlesConstructorPropertyCircularityReversed
+[STRT] System.Composition.UnitTests.CircularityTests.CanHandleDefinitionCircularity2
+[STRT] System.Composition.UnitTests.ContractTests.FormattingTheContractPrintsNameAndDiscriminator
+[STRT] System.Composition.UnitTests.ContractTests.FormattingTheContractPrintsConstraintKeysAndValues
+[STRT] System.Composition.UnitTests.ContractTests.ConstraintsWithEquivalentKeysAndValuesAreEqual
+[STRT] System.Composition.UnitTests.ContractTests.ChangingTheTypeOfAContractChangesTheContractType
+[STRT] System.Composition.UnitTests.ContractTests.FormattingAContractWithNoDiscriminatorShowsTheSimpleTypeName
+[STRT] System.Composition.UnitTests.ContractTests.ChangingTheTypeOfAContractPreservesTheContractName
+[STRT] System.Composition.UnitTests.ContractTests.AContractWithConstraintIsNotEqualToAContractWithoutConstraint
+[STRT] System.Composition.UnitTests.ContractTests.ConstraintsWithEquivalentKeysAndValuesHaveTheSameHashCode
+[STRT] System.Composition.UnitTests.ContractTests.FormattingAContractWithAStringDiscriminatorShowsTheDiscriminatorInQuotes
+[STRT] System.Composition.UnitTests.ConstraintTests.GetExport_ComplexConstraint_ExportSuccessful
+[STRT] System.Composition.UnitTests.ConstraintTests.GenericPartDiscoveryIncludesAPartWhenItsConstraintOnTypeParameterIsAssignableFromTheExportTarget
+[STRT] System.Composition.UnitTests.ConstraintTests.GenericPartDiscoveryIgnoresAPartAndDoesntThrowAnExceptionWhenItsConstraintOnTypeParameterIsNotAssignableFromTheExportTarget
+[STRT] System.Composition.UnitTests.CardinalityTests.ImportingOneWhereMultipleArePresentFails
+[STRT] System.Composition.UnitTests.CardinalityTests.RequestingOneWhereMultipleArePresentFails
+Finished:    System.Composition.Tests.dll
+Finished uploading 40467 bytes of RESULTXML
+Xml file was written to the provided writer.
+
+=== TEST EXECUTION SUMMARY ===
+Tests run: 138 Passed: 137 Inconclusive: 0 Failed: 0 Ignored: 0 Skipped: 1
+
+test-main.js exiting WasmTestRunner.dll System.Composition.Tests.dll after 0.0382 minutes with result 0 and linear memory 193331200 bytes
+DOTNET: forceDisposeProxies done: 14 imports, 0 exports, 0 GCHandles, 0 JSHandles.
+WASM EXIT 0

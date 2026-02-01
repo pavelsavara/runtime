@@ -1,0 +1,41 @@
+Running in: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/143.0.0.0 Safari/537.36
+Running at: http://127.0.0.1:33529/index.html?arg=--setenv%3dXHARNESS_LOG_TEST_START%3dtrue&arg=--run&arg=WasmTestRunner.dll&arg=System.Threading.Tasks.Tests.dll&arg=-notrait&arg=category%3dOuterLoop&arg=-notrait&arg=category%3dfailing&arg=-verbosity&arg=Info
+could not load /runArgs.json: 404. Ignoring
+Incoming arguments: --setenv=XHARNESS_LOG_TEST_START=true --run WasmTestRunner.dll System.Threading.Tasks.Tests.dll -notrait category=OuterLoop -notrait category=failing -verbosity Info
+Application arguments: --run WasmTestRunner.dll System.Threading.Tasks.Tests.dll -notrait category=OuterLoop -notrait category=failing -verbosity Info
+Initializing dotnet version 11.0.0 commit hash e31907b0fbca908ed525247a1dc38cc5fba7b0ff
+Using threadless Xunit runner
+Discovering: System.Threading.Tasks.Tests.dll (method display = ClassAndMethod, method display options = None)
+Discovered:  System.Threading.Tasks.Tests.dll (found 572 of 812 test cases)
+Starting:    System.Threading.Tasks.Tests.dll
+[STRT] System.Threading.Tasks.Tests.TaskPropertiesTests.TaskOptionsTestAsync
+[STRT] System.Threading.Tasks.Tests.TaskPropertiesTests.TaskOptionsTestSync
+[STRT] System.Threading.Tasks.Tests.TaskPropertiesTests.TaskIDTest
+[STRT] System.Threading.Tasks.Tests.Status.TaskCompletionSourceTests.SetCanceled_Token_CompletesSuccessfully(tryMethod: False)
+[STRT] System.Threading.Tasks.Tests.Status.TaskCompletionSourceTests.SetCanceled_Token_CompletesSuccessfully(tryMethod: True)
+[STRT] System.Threading.Tasks.Tests.Status.TaskCompletionSourceTests.SetFromTask_Canceled(tryMethod: False)
+[STRT] System.Threading.Tasks.Tests.Status.TaskCompletionSourceTests.SetFromTask_Canceled(tryMethod: True)
+[STRT] System.Threading.Tasks.Tests.Status.TaskCompletionSourceTests.SetFromTask_CompletedSuccessfully(tryMethod: False)
+[STRT] System.Threading.Tasks.Tests.Status.TaskCompletionSourceTests.SetFromTask_CompletedSuccessfully(tryMethod: True)
+[STRT] System.Threading.Tasks.Tests.Status.TaskCompletionSourceTests.SetFromTask_InvalidArgument_Throws
+[STRT] System.Threading.Tasks.Tests.Status.TaskCompletionSourceTests.Ctor_ArgumentsRoundtrip
+[STRT] System.Threading.Tasks.Tests.Status.TaskCompletionSourceTests.SetFromTask_Faulted(tryMethod: False)
+[STRT] System.Threading.Tasks.Tests.Status.TaskCompletionSourceTests.SetFromTask_Faulted(tryMethod: True)
+[STRT] System.Threading.Tasks.Tests.Status.TaskCompletionSourceTests.SetResult_CompletesSuccessfully(tryMethod: False)
+[STRT] System.Threading.Tasks.Tests.Status.TaskCompletionSourceTests.SetResult_CompletesSuccessfully(tryMethod: True)
+[STRT] System.Threading.Tasks.Tests.Status.TaskCompletionSourceTests.SetException_Enumerable_CompletesSuccessfully(tryMethod: False)
+[STRT] System.Threading.Tasks.Tests.Status.TaskCompletionSourceTests.SetException_Enumerable_CompletesSuccessfully(tryMethod: True)
+[STRT] System.Threading.Tasks.Tests.Status.TaskCompletionSourceTests.SetCanceled_CompletesSuccessfully(tryMethod: False)
+[STRT] System.Threading.Tasks.Tests.Status.TaskCompletionSourceTests.SetCanceled_CompletesSuccessfully(tryMethod: True)
+[STRT] System.Threading.Tasks.Tests.Status.TaskCompletionSourceTests.SetFromTask_AlreadyCompleted_ReturnsFalseOrThrows
+[STRT] System.Threading.Tasks.Tests.Status.TaskCompletionSourceTests.Ctor_InvalidArguments_Throws
+[STRT] System.Threading.Tasks.Tests.Status.TaskCompletionSourceTests.SetException_Exception_CompletesSuccessfully(tryMethod: False)
+[STRT] System.Threading.Tasks.Tests.Status.TaskCompletionSourceTests.SetException_Exception_CompletesSuccessfully(tryMethod: True)
+[STRT] System.Threading.Tasks.Tests.TaskDisposeTests.Dispose_InContinuation
+[STRT] System.Threading.Tasks.Tests.TaskDisposeTests.Dispose_ThenUseTaskCompletionSource
+[STRT] System.Threading.Tasks.Tests.TaskDisposeTests.Dispose_ThenAddContinuation
+[STRT] System.Threading.Tasks.Tests.TaskDisposeTests.Dispose_BeforeComplete
+[STRT] System.Threading.Tasks.Tests.TaskFactory_FromAsyncTests.RunAPMFactoryTests
+[STRT] System.Threading.Tasks.Tests.TaskFactory_FromAsyncTests.FromAsync_CompletedSynchronouslyIAsyncResult_CompletesSynchronously(invokesCallback: False)
+[STRT] System.Threading.Tasks.Tests.TaskFactory_FromAsyncTests.FromAsync_CompletedSynchronouslyIAsyncResult_CompletesSynchronously(invokesCallback: True)
+[STRT] TaskCoverage.Coverage.Task_WaitAll_NullTaskElement_Throws
