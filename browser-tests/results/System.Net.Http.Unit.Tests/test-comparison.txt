@@ -1,9 +1,21 @@
 Test Comparison: System.Net.Http.Unit.Tests
-Generated: 2026-02-01T23:04:02+01:00
+Generated: 2026-02-01T23:17:58+01:00
 
 Mono tests:    2598
-CoreCLR tests: 2598
+CoreCLR tests: 2586
 
 === Extra in CoreCLR (0) ===
 
-=== Missing in CoreCLR (0) ===
+=== Missing in CoreCLR (12) ===
+System.Net.Http.Tests.CacheControlHeaderParserTest.TryParse_SetOfValidValueStrings_ParsedCorrectly
+System.Net.Http.Tests.CacheControlHeaderValueTest.Clone_Call_CloneFieldsMatchSourceFields
+System.Net.Http.Tests.CacheControlHeaderValueTest.Equals_CompareCollectionFieldsSet_MatchExpectation
+System.Net.Http.Tests.CacheControlHeaderValueTest.GetCacheControlLength_DifferentValidScenariosAndExistingCacheControl_AllReturnNonZero
+System.Net.Http.Tests.CacheControlHeaderValueTest.GetCacheControlLength_DifferentValidScenariosAndNoExistingCacheControl_AllReturnNonZero
+System.Net.Http.Tests.CacheControlHeaderValueTest.Parse_SetOfValidValueStrings_ParsedCorrectly
+System.Net.Http.Tests.CacheControlHeaderValueTest.TryParse_SetOfValidValueStrings_ParsedCorrectly
+System.Net.Http.Tests.HttpRequestHeadersTest.CacheControl_UseAddMethod_AddedValueCanBeRetrievedUsingProperty
+System.Net.Http.Tests.HttpRequestHeadersTest.Range_UseAddMethod_AddedValueCanBeRetrievedUsingProperty
+System.Net.Http.Tests.RangeHeaderValueTest.Equals_UseSameAndDifferentRanges_EqualOrNotEqualNoExceptions
+System.Net.Http.Tests.RangeHeaderValueTest.Parse_SetOfValidValueStrings_ParsedCorrectly
+System.Net.Http.Tests.RangeParserTest.TryParse_SetOfValidValueStrings_ParsedCorrectly

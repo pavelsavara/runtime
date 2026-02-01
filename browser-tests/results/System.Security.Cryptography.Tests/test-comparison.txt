@@ -1,0 +1,34 @@
+Test Comparison: System.Security.Cryptography.Tests
+Generated: 2026-02-01T23:30:21+01:00
+
+Mono tests:    4955
+CoreCLR tests: 4980
+
+=== Extra in CoreCLR (25) ===
+System.Security.Cryptography.Tests.HashDerivedTests.HashSize_SetForDerived_MD5
+System.Security.Cryptography.Tests.OidTests.LookupOidByFriendlyName_Ctor(oidValue: \&quot;1.2.840.113549.2.5\&quot;, friendlyName: \&quot;md5\&quot;)
+System.Security.Cryptography.Tests.OidTests.LookupOidByFriendlyName_Ctor(oidValue: \&quot;1.2.840.113549.3.7\&quot;, friendlyName: \&quot;3des\&quot;)
+System.Security.Cryptography.Tests.OidTests.LookupOidByFriendlyName_Ctor(oidValue: \&quot;1.3.14.3.2.26\&quot;, friendlyName: \&quot;sha1\&quot;)
+System.Security.Cryptography.Tests.OidTests.LookupOidByFriendlyName_Ctor(oidValue: \&quot;2.16.840.1.101.3.4.2.1\&quot;, friendlyName: \&quot;sha256\&quot;)
+System.Security.Cryptography.Tests.OidTests.LookupOidByFriendlyName_Ctor(oidValue: \&quot;2.16.840.1.101.3.4.2.2\&quot;, friendlyName: \&quot;sha384\&quot;)
+System.Security.Cryptography.Tests.OidTests.LookupOidByFriendlyName_Ctor(oidValue: \&quot;2.16.840.1.101.3.4.2.3\&quot;, friendlyName: \&quot;sha512\&quot;)
+System.Security.Cryptography.Tests.OidTests.LookupOidByFriendlyName_Method_InverseCase(oidValue: \&quot;1.2.840.113549.2.5\&quot;, friendlyName: \&quot;md5\&quot;)
+System.Security.Cryptography.Tests.OidTests.LookupOidByFriendlyName_Method_InverseCase(oidValue: \&quot;1.2.840.113549.3.7\&quot;, friendlyName: \&quot;3des\&quot;)
+System.Security.Cryptography.Tests.OidTests.LookupOidByFriendlyName_Method_InverseCase(oidValue: \&quot;1.3.14.3.2.26\&quot;, friendlyName: \&quot;sha1\&quot;)
+System.Security.Cryptography.Tests.OidTests.LookupOidByFriendlyName_Method_InverseCase(oidValue: \&quot;2.16.840.1.101.3.4.2.1\&quot;, friendlyName: \&quot;sha256\&quot;)
+System.Security.Cryptography.Tests.OidTests.LookupOidByFriendlyName_Method_InverseCase(oidValue: \&quot;2.16.840.1.101.3.4.2.2\&quot;, friendlyName: \&quot;sha384\&quot;)
+System.Security.Cryptography.Tests.OidTests.LookupOidByFriendlyName_Method_InverseCase(oidValue: \&quot;2.16.840.1.101.3.4.2.3\&quot;, friendlyName: \&quot;sha512\&quot;)
+System.Security.Cryptography.Tests.OidTests.LookupOidByValue_Ctor(oidValue: \&quot;1.2.840.113549.2.5\&quot;, friendlyName: \&quot;md5\&quot;)
+System.Security.Cryptography.Tests.OidTests.LookupOidByValue_Ctor(oidValue: \&quot;1.2.840.113549.3.7\&quot;, friendlyName: \&quot;3des\&quot;)
+System.Security.Cryptography.Tests.OidTests.LookupOidByValue_Ctor(oidValue: \&quot;1.3.14.3.2.26\&quot;, friendlyName: \&quot;sha1\&quot;)
+System.Security.Cryptography.Tests.OidTests.LookupOidByValue_Ctor(oidValue: \&quot;2.16.840.1.101.3.4.2.1\&quot;, friendlyName: \&quot;sha256\&quot;)
+System.Security.Cryptography.Tests.OidTests.LookupOidByValue_Ctor(oidValue: \&quot;2.16.840.1.101.3.4.2.2\&quot;, friendlyName: \&quot;sha384\&quot;)
+System.Security.Cryptography.Tests.OidTests.LookupOidByValue_Ctor(oidValue: \&quot;2.16.840.1.101.3.4.2.3\&quot;, friendlyName: \&quot;sha512\&quot;)
+System.Security.Cryptography.Tests.OidTests.Oid_StringString_NullFriendlyName(oidValue: \&quot;1.2.840.113549.2.5\&quot;, expectedFriendlyName: \&quot;md5\&quot;)
+System.Security.Cryptography.Tests.OidTests.Oid_StringString_NullFriendlyName(oidValue: \&quot;1.2.840.113549.3.7\&quot;, expectedFriendlyName: \&quot;3des\&quot;)
+System.Security.Cryptography.Tests.OidTests.Oid_StringString_NullFriendlyName(oidValue: \&quot;1.3.14.3.2.26\&quot;, expectedFriendlyName: \&quot;sha1\&quot;)
+System.Security.Cryptography.Tests.OidTests.Oid_StringString_NullFriendlyName(oidValue: \&quot;2.16.840.1.101.3.4.2.1\&quot;, expectedFriendlyName: \&quot;sha256\&quot;)
+System.Security.Cryptography.Tests.OidTests.Oid_StringString_NullFriendlyName(oidValue: \&quot;2.16.840.1.101.3.4.2.2\&quot;, expectedFriendlyName: \&quot;sha384\&quot;)
+System.Security.Cryptography.Tests.OidTests.Oid_StringString_NullFriendlyName(oidValue: \&quot;2.16.840.1.101.3.4.2.3\&quot;, expectedFriendlyName: \&quot;sha512\&quot;)
+
+=== Missing in CoreCLR (0) ===
