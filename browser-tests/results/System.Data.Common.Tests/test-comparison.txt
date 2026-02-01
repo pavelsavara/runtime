@@ -1,0 +1,10 @@
+Test Comparison: System.Data.Common.Tests
+Generated: 2026-02-01T22:49:25+01:00
+
+Mono tests:    11809
+CoreCLR tests: 11810
+
+=== Extra in CoreCLR (1) ===
+System.Data.Common.Tests.DbConnectionTests.ProviderFactoryTest
+
+=== Missing in CoreCLR (0) ===

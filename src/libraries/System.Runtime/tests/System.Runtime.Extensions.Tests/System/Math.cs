@@ -2487,6 +2487,7 @@ namespace System.Tests
 
         [Theory]
         [MemberData(nameof(Round_Digits_TestData))]
+        [ActiveIssue("https://github.com/dotnet/runtime/issues/123011", typeof(PlatformDetection), nameof(PlatformDetection.IsBrowser), nameof(PlatformDetection.IsCoreCLR))]
         public static void Round_Decimal_Digits(decimal x, decimal expected, int digits, MidpointRounding mode)
         {
             Assert.Equal(expected, Math.Round(x, digits, mode));
