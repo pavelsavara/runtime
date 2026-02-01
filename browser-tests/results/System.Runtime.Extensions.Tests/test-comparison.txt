@@ -1,0 +1,27 @@
+Test Comparison: System.Runtime.Extensions.Tests
+Generated: 2026-02-01T20:58:57+01:00
+
+Mono tests:    8097
+CoreCLR tests: 8107
+
+=== Extra in CoreCLR (14) ===
+System.Runtime.Tests.ProfileOptimizationTest.ProfileOptimization_CheckFileExists
+System.Tests.AppDomainTests.AssemblyResolve_ExceptionPropagatesCorrectly(throwOnError: False)
+System.Tests.AppDomainTests.AssemblyResolve_ExceptionPropagatesCorrectly(throwOnError: True)
+System.Tests.AppDomainTests.AssemblyResolve_FirstChanceException
+System.Tests.ConvertBoxedObjectCheckTests.ChangeTypeIdentity(testValue: 2026-02-01T19:39:38.6390000+00:00)
+System.Tests.ConvertBoxedObjectCheckTests.TestConvertedCopies(testValue: 2026-02-01T19:39:38.6770000+00:00)
+System.Tests.EnvironmentStackTrace.StackTraceTest
+System.Tests.EnvironmentTests.FailFast_ExceptionStackTrace_ArgumentException
+System.Tests.EnvironmentTests.FailFast_ExceptionStackTrace_InnerException
+System.Tests.EnvironmentTests.FailFast_ExceptionStackTrace_StackOverflowException
+System.Tests.MathTests.Clamp_Decimal(value: 0, min: -1, max: 1, expected: -1)
+System.Tests.MathTests.Round_Decimal_Modes(x: 0, expected: 11, mode: ToEven)
+Test collection for System.Runtime.Tests.ProfileOptimizationTest
+category
+
+=== Missing in CoreCLR (4) ===
+System.Tests.ConvertBoxedObjectCheckTests.ChangeTypeIdentity(testValue: 2026-01-28T02:17:54.4570000+00:00)
+System.Tests.ConvertBoxedObjectCheckTests.TestConvertedCopies(testValue: 2026-01-28T02:17:54.4890000+00:00)
+System.Tests.MathTests.Clamp_Decimal(value: -1, min: -1, max: 1, expected: -1)
+System.Tests.MathTests.Round_Decimal_Modes(x: 11.4, expected: 11, mode: ToEven)

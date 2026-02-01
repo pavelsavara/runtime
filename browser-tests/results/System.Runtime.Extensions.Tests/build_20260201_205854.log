@@ -1,0 +1,10 @@
+
+  Determining projects to restore...
+  All projects are up-to-date for restore.
+  TestUtilities -> /home/pavelsavara/dev/runtime/artifacts/bin/TestUtilities/Release/net10.0/TestUtilities.dll
+  VoidMainWithExitCodeApp -> /home/pavelsavara/dev/runtime/artifacts/bin/VoidMainWithExitCodeApp/Release/net11.0/VoidMainWithExitCodeApp.dll
+  TargetFrameworkNameTestApp -> /home/pavelsavara/dev/runtime/artifacts/bin/TargetFrameworkNameTestApp/Release/net11.0/TargetFrameworkNameTestApp.dll
+  TestApp -> /home/pavelsavara/dev/runtime/artifacts/bin/TestApp/Release/net11.0/TestApp.dll
+  Microsoft.Interop.SourceGeneration -> /home/pavelsavara/dev/runtime/artifacts/bin/Microsoft.Interop.SourceGeneration/Release/netstandard2.0/Microsoft.Interop.SourceGeneration.dll
+  DownlevelLibraryImportGenerator -> /home/pavelsavara/dev/runtime/artifacts/bin/DownlevelLibraryImportGenerator/Release/netstandard2.0/Microsoft.Interop.LibraryImportGenerator.Downlevel.dll
+  AssemblyResolveTestApp -> /home/pavelsavara/dev/runtime/artifacts/bin/AssemblyResolveTestApp/Release/netstandard2.0/AssemblyResolveTestApp.dll
