@@ -1,0 +1,223 @@
+Running in: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/143.0.0.0 Safari/537.36
+Running at: http://127.0.0.1:46647/index.html?arg=--setenv%3dXHARNESS_LOG_TEST_START%3dtrue&arg=--run&arg=WasmTestRunner.dll&arg=System.IO.Packaging.Tests.dll&arg=-notrait&arg=category%3dOuterLoop&arg=-notrait&arg=category%3dfailing&arg=-verbosity&arg=Info
+could not load /runArgs.json: 404. Ignoring
+Incoming arguments: --setenv=XHARNESS_LOG_TEST_START=true --run WasmTestRunner.dll System.IO.Packaging.Tests.dll -notrait category=OuterLoop -notrait category=failing -verbosity Info
+Application arguments: --run WasmTestRunner.dll System.IO.Packaging.Tests.dll -notrait category=OuterLoop -notrait category=failing -verbosity Info
+Initializing dotnet version 11.0.0 commit hash e31907b0fbca908ed525247a1dc38cc5fba7b0ff
+Using threadless Xunit runner
+Discovering: System.IO.Packaging.Tests.dll (method display = ClassAndMethod, method display options = None)
+Discovered:  System.IO.Packaging.Tests.dll (found 171 of 173 test cases)
+Starting:    System.IO.Packaging.Tests.dll
+[STRT] System.IO.Packaging.Tests.Tests.T127_String_Open_ReadWrite_Open_Read_Write_ReadWrite
+[STRT] System.IO.Packaging.Tests.Tests.T204_FileFormatException
+[STRT] System.IO.Packaging.Tests.Tests.ComparePackUriDifferentPack
+[STRT] System.IO.Packaging.Tests.Tests.T163_FileFormatExceptionUriProperty
+[STRT] System.IO.Packaging.Tests.Tests.T118_String_CreateNew_ReadWrite_Truncate_ReadWrite
+[STRT] System.IO.Packaging.Tests.Tests.T024_DeleteRootRelsPart
+[STRT] System.IO.Packaging.Tests.Tests.T026_PackageFlush
+[STRT] System.IO.Packaging.Tests.Tests.T001_AddParagraphToDocument
+[STRT] System.IO.Packaging.Tests.Tests.T169_DeleteAllRelationshipOfMainDocPart
+[STRT] System.IO.Packaging.Tests.Tests.T149_CreatePart_InvalidContentType
+[STRT] System.IO.Packaging.Tests.Tests.T115_String_CreateNew_ReadWrite_Open_ReadAndWrite
+[STRT] System.IO.Packaging.Tests.Tests.T145_CreatePart_ContentTypeWithInvalidSubtype
+[STRT] System.IO.Packaging.Tests.Tests.T205_FileFormatException
+[STRT] System.IO.Packaging.Tests.Tests.T124_String_Open_Read_Create_Write
+[STRT] System.IO.Packaging.Tests.Tests.T035_ModifyAllPackageProperties
+[STRT] System.IO.Packaging.Tests.Tests.T036_CreateRelationshipWithId
+[STRT] System.IO.Packaging.Tests.Tests.T018_GetMainDocPartAndStyleDefPart
+[STRT] System.IO.Packaging.Tests.Tests.T158_ParameterWithInvalidChar
+[STRT] System.IO.Packaging.Tests.Tests.T012_PackageOpenStream
+[STRT] System.IO.Packaging.Tests.Tests.T135_String_OpenOrCreate_ReadWrite_OpenOrCreate_Read_Write
+[STRT] System.IO.Packaging.Tests.Tests.T003_CreateExternalRelationship
+[STRT] System.IO.Packaging.Tests.Tests.T201_FileFormatException
+[STRT] System.IO.Packaging.Tests.Tests.T166_GetPartRelationshipById_InvalidId
+[STRT] System.IO.Packaging.Tests.Tests.OpenPropertyStream
+[STRT] System.IO.Packaging.Tests.Tests.T004_CreateInternalRelationship
+[STRT] System.IO.Packaging.Tests.Tests.T114_String_CreateNew_ReadWrite_Open_ReadAndWrite
+[STRT] System.IO.Packaging.Tests.Tests.T144_CreatePart_ContentTypeWithInvalidSubtype
+[STRT] System.IO.Packaging.Tests.Tests.T168_InvalidRelationshipId
+[STRT] System.IO.Packaging.Tests.Tests.T143_CreatePart_ContentTypeWithInvalidSubtype
+[STRT] System.IO.Packaging.Tests.Tests.T141_CreatePart_ContentTypeWithSubtypes
+[STRT] System.IO.Packaging.Tests.Tests.T008_PackageProperties
+[STRT] System.IO.Packaging.Tests.Tests.T156_CreatePart_ContentTypeWithInvalidSubtype
+[STRT] System.IO.Packaging.Tests.Tests.T146_CreatePart_ContentTypeWithInvalidSubtype
+[STRT] System.IO.Packaging.Tests.Tests.T013_PackageOpenStream
+[STRT] System.IO.Packaging.Tests.Tests.T133_String_OpenOrCreate_ReadWrite_Star
+[STRT] System.IO.Packaging.Tests.Tests.SetEmptyPropertyToNull
+[STRT] System.IO.Packaging.Tests.Tests.T045_PackageRelationshipSelectorFromPackageUsingId
+[STRT] System.IO.Packaging.Tests.Tests.T112_String_CreateNew_Read_Create_Read
+[STRT] System.IO.Packaging.Tests.Tests.T037_DeleteRootRelationship
+[STRT] System.IO.Packaging.Tests.Tests.T117_String_CreateNew_ReadWrite_CreateNew_Star
+[STRT] System.IO.Packaging.Tests.Tests.Can_Create_Package_On_Unseekable_Stream
+[STRT] System.IO.Packaging.Tests.Tests.GetPartCallsGetPartCore
+[STRT] System.IO.Packaging.Tests.Tests.PackageOpen_CreateNew_NonEmptyStream_Throws
+[STRT] System.IO.Packaging.Tests.Tests.T160_InvalidContentType
+[STRT] System.IO.Packaging.Tests.Tests.T148_CreatePart_ContentTypeWithTwoSubtypes
+[STRT] System.IO.Packaging.Tests.Tests.T007_PackageProperties
+[STRT] System.IO.Packaging.Tests.Tests.T030_GetRootRelationshipById
+[STRT] System.IO.Packaging.Tests.Tests.T203A_FileFormatException
+[STRT] System.IO.Packaging.Tests.Tests.T131_String_OpenOrCreate_ReadWrite_Star
+[STRT] System.IO.Packaging.Tests.Tests.T023_DeleteRelsPart
+[STRT] System.IO.Packaging.Tests.Tests.T019_GetPartFromRelativeUri
+[STRT] System.IO.Packaging.Tests.Tests.T011_PackageOpen
+[STRT] System.IO.Packaging.Tests.Tests.T119_String_CreateNew_ReadWrite_OpenOrCreate_ReadWrite
+[STRT] System.IO.Packaging.Tests.Tests.T109_String_Create_ReadWrite_OpenOrCreate_ReadWrite
+[STRT] System.IO.Packaging.Tests.Tests.T129_String_OpenOrCreate_Read_Star
+[STRT] System.IO.Packaging.Tests.Tests.T128_String_Open_ReadWrite_OpenOrCreate_Read_Write_ReadWrite
+[STRT] System.IO.Packaging.Tests.Tests.T101_String_Create_ReadWrite_Create_Read
+[STRT] System.IO.Packaging.Tests.Tests.T208_InvalidParameter
+[STRT] System.IO.Packaging.Tests.Tests.T025_PackageClose
+[STRT] System.IO.Packaging.Tests.Tests.Cannot_Modify_Package_On_Unseekable_Stream
+[STRT] System.IO.Packaging.Tests.Tests.T151_InvalidDocProps
+[STRT] System.IO.Packaging.Tests.Tests.T042_DeletePartRelationship
+[STRT] System.IO.Packaging.Tests.Tests.T040_InvalidRelationshipId
+[STRT] System.IO.Packaging.Tests.Tests.T108_String_Create_ReadWrite_OpenOrCreate_Read
+[STRT] System.IO.Packaging.Tests.Tests.T005_CreateInternalRelationship
+[STRT] System.IO.Packaging.Tests.Tests.T009_PackageOpen
+[STRT] System.IO.Packaging.Tests.Tests.WriteRelationsTwice
+[STRT] System.IO.Packaging.Tests.Tests.T029_DeletePackageRelationship
+[STRT] System.IO.Packaging.Tests.Tests.T171_IterateExternalRelationship
+[STRT] System.IO.Packaging.Tests.Tests.T022_DeletePartInvalidArgument
+[STRT] System.IO.Packaging.Tests.Tests.T170_InvalidRelationshipId
+[STRT] System.IO.Packaging.Tests.Tests.T126_String_Open_Write_Star
+[STRT] System.IO.Packaging.Tests.Tests.T116_String_CreateNew_ReadWrite_Open_ReadAndWrite
+[STRT] System.IO.Packaging.Tests.Tests.T121_String_Open_Read_Open_Write
+[STRT] System.IO.Packaging.Tests.Tests.T137_String_Truncate_Write_Star
+[STRT] System.IO.Packaging.Tests.Tests.T136_String_Truncate_Read_Star
+[STRT] System.IO.Packaging.Tests.Tests.ZipPackage_CreateWithFileAccessWrite
+[STRT] System.IO.Packaging.Tests.Tests.ComparePackUriSamePackDifferentPart
+[STRT] System.IO.Packaging.Tests.Tests.T006_CreateExternalRelationshipInvalidUri
+[STRT] System.IO.Packaging.Tests.Tests.T205A_FileFormatException
+[STRT] System.IO.Packaging.Tests.Tests.T047_PackUriHelper_IsRelationshipPartUri
+[STRT] System.IO.Packaging.Tests.Tests.T153_NoDocProps
+[STRT] System.IO.Packaging.Tests.Tests.T038_DisposePackage
+[STRT] System.IO.Packaging.Tests.Tests.T120_String_Open_Read_Open_Read
+[STRT] System.IO.Packaging.Tests.Tests.T125_String_Open_Read_OpenOrCreate
+[STRT] System.IO.Packaging.Tests.Tests.T203_FileFormatException
+[STRT] System.IO.Packaging.Tests.Tests.T041_PartExists
+[STRT] System.IO.Packaging.Tests.Tests.OpenInternalTargetRelationships
+[STRT] System.IO.Packaging.Tests.Tests.T106_String_Create_ReadWrite_Open_ReadWrite
+[STRT] System.IO.Packaging.Tests.Tests.CreateWithFileAccessWrite
+[STRT] System.IO.Packaging.Tests.Tests.T202_FileFormatException
+[STRT] System.IO.Packaging.Tests.Tests.T147_CreatePart_ContentTypeWithTwoSubtypes
+[STRT] System.IO.Packaging.Tests.Tests.T139_Access_Length_Prop_of_Stream
+[STRT] System.IO.Packaging.Tests.Tests.T043_PackageRelationshipSelector
+[STRT] System.IO.Packaging.Tests.Tests.T017_CreatePartTwice
+[STRT] System.IO.Packaging.Tests.Tests.PackageOpenStream_VerifyDefaultAccess
+[STRT] System.IO.Packaging.Tests.Tests.T020_GetNonExistentPart
+[STRT] System.IO.Packaging.Tests.Tests.T155_BadDateTimeDocProps
+[STRT] System.IO.Packaging.Tests.Tests.T027_ModifyPackageProperties
+[STRT] System.IO.Packaging.Tests.Tests.T010_PackageOpen
+[STRT] System.IO.Packaging.Tests.Tests.T014_PackageOpenStream
+[STRT] System.IO.Packaging.Tests.Tests.ComparePackUriSamePackSamePart
+[STRT] System.IO.Packaging.Tests.Tests.T100_String_Create_Read_Star
+[STRT] System.IO.Packaging.Tests.Tests.T161_ParameterWithInvalidChar
+[STRT] System.IO.Packaging.Tests.Tests.T046_PackageRelationshipSelectorFromPartUsingId
+[STRT] System.IO.Packaging.Tests.Tests.T111_String_Create_Write_Star
+[STRT] System.IO.Packaging.Tests.Tests.T122_String_Open_Read_Open_ReadWrite
+[STRT] System.IO.Packaging.Tests.Tests.T206_FileFormatException
+[STRT] System.IO.Packaging.Tests.Tests.T162_ParameterWithUnquotedQuote
+[STRT] System.IO.Packaging.Tests.Tests.PackageOpen_Open_InvalidContent_Throws
+[STRT] System.IO.Packaging.Tests.Tests.T113_String_CreateNew_Write_Open_Read
+[STRT] System.IO.Packaging.Tests.Tests.CreatePackUriWithFragment
+[STRT] System.IO.Packaging.Tests.Tests.T044_PackageRelationshipSelectorFromPackage
+[STRT] System.IO.Packaging.Tests.Tests.T032_DeletePartRelationship
+[STRT] System.IO.Packaging.Tests.Tests.T002_IterateParts
+[STRT] System.IO.Packaging.Tests.Tests.PackageOpen_Open_EmptyStream_Throws
+[STRT] System.IO.Packaging.Tests.Tests.T102_String_Create_ReadWrite_Open_Read
+[STRT] System.IO.Packaging.Tests.Tests.T016_CreatePartInvalidArg
+[STRT] System.IO.Packaging.Tests.Tests.T165_DeleteNonExistentPart
+[STRT] System.IO.Packaging.Tests.Tests.T015_CreatePart
+[STRT] System.IO.Packaging.Tests.Tests.T152_InvalidDocProps
+[STRT] System.IO.Packaging.Tests.Tests.T021_DeletePartThatContainsRelationships
+[STRT] System.IO.Packaging.Tests.Tests.T134_String_OpenOrCreate_ReadWrite_OpenOrCreate_Read_Write
+[STRT] System.IO.Packaging.Tests.Tests.T159_EmptyParameter
+[STRT] System.IO.Packaging.Tests.Tests.T033_GetStreamOverload
+[STRT] System.IO.Packaging.Tests.Tests.T107_String_Create_ReadWrite_Open_ReadWrite
+[STRT] System.IO.Packaging.Tests.Tests.T048_PackUriHelper_GetRelativeUri
+[STRT] System.IO.Packaging.Tests.Tests.T049_PackUriHelper_GetRelationshipPartUri
+[STRT] System.IO.Packaging.Tests.Tests.T154_CreatedModifiedDocProps
+[STRT] System.IO.Packaging.Tests.Tests.T172_EmptyRelationshipPart
+[STRT] System.IO.Packaging.Tests.Tests.T157_ParameterWithWhiteSpace
+[STRT] System.IO.Packaging.Tests.Tests.T123_String_Open_Read_Create_Star
+[STRT] System.IO.Packaging.Tests.Tests.T031_DeleteMainDocumentPart
+[STRT] System.IO.Packaging.Tests.Tests.T167_DeleteNonExistentRelationship
+[STRT] System.IO.Packaging.Tests.Tests.T028_ModifyPackagePropertiesAndFlush
+[STRT] System.IO.Packaging.Tests.Tests.T034_GetPartRelationshipById
+[STRT] System.IO.Packaging.Tests.Tests.T140_CreatePart_SpaceAtBeginningOfContentType
+[STRT] System.IO.Packaging.Tests.Tests.T142_CreatePart_ContentTypeWithSubtypesDoubleSemicolon
+[STRT] System.IO.Packaging.Tests.Tests.T132_String_OpenOrCreate_ReadWrite_Star
+[STRT] System.IO.Packaging.Tests.Tests.Roundtrip_Compression_Option(createdCompressionOption: NotCompressed, expectedCompressionOption: Normal, expectedZipFileBitFlags: 0)
+[STRT] System.IO.Packaging.Tests.Tests.Roundtrip_Compression_Option(createdCompressionOption: Normal, expectedCompressionOption: Normal, expectedZipFileBitFlags: 0)
+[STRT] System.IO.Packaging.Tests.Tests.Roundtrip_Compression_Option(createdCompressionOption: Maximum, expectedCompressionOption: Normal, expectedZipFileBitFlags: 2)
+[STRT] System.IO.Packaging.Tests.Tests.Roundtrip_Compression_Option(createdCompressionOption: Fast, expectedCompressionOption: Normal, expectedZipFileBitFlags: 6)
+[STRT] System.IO.Packaging.Tests.Tests.Roundtrip_Compression_Option(createdCompressionOption: SuperFast, expectedCompressionOption: Normal, expectedZipFileBitFlags: 6)
+[STRT] System.IO.Packaging.Tests.Tests.T039_OpenStreamThreeArgs
+[STRT] System.IO.Packaging.Tests.Tests.T130_String_OpenOrCreate_Write_Star
+[STRT] System.IO.Packaging.Tests.Tests.T150_CreatePart_InvalidContentType
+[STRT] System.IO.Packaging.Tests.Tests.T104_String_Create_ReadWrite_Open_Write
+[STRT] System.IO.Packaging.Tests.Tests.T164_InvalidPartUri
+[STRT] System.IO.Packaging.Tests.Tests.T138_String_Truncate_ReadWrite_OpenOrCreate_Read_Write
+[STRT] System.IO.Packaging.Tests.Tests.T103_String_Create_ReadWrite_Open_Read
+[STRT] System.IO.Packaging.Tests.Tests.T105_String_Create_ReadWrite_Open_Write
+[STRT] System.IO.Packaging.Tests.Tests.T110_String_Create_ReadWrite_OpenOrCreate_ReadWrite
+[STRT] System.IO.Packaging.Tests.ReflectionTests.Verify_GeneralPurposeBitFlag_NotSetTo_Unicode
+[STRT] System.IO.Packaging.Tests.PartPieceTests.CanReadPartData(partName: "/ReadableAtomicPartEntry.bin", position: 100, dataLength: 10)
+[STRT] System.IO.Packaging.Tests.PartPieceTests.CanReadPartData(partName: "/ReadablePartPieceEntry.bin", position: 11, dataLength: 10)
+[STRT] System.IO.Packaging.Tests.PartPieceTests.CanReadPartData(partName: "/ReadablePartPieceEntry.bin", position: 11, dataLength: 25)
+[STRT] System.IO.Packaging.Tests.PartPieceTests.ValidPartPiecesAreParsable(partPieceName: "FixedDocumentSequence.bin/[0].piece")
+[STRT] System.IO.Packaging.Tests.PartPieceTests.ValidPartPiecesAreParsable(partPieceName: "child/childEntry.bin/[0].piece")
+[STRT] System.IO.Packaging.Tests.PartPieceTests.ValidPartPiecesAreParsable(partPieceName: "FixedDocumentSequence.bin/[3].last.piece")
+[STRT] System.IO.Packaging.Tests.PartPieceTests.ValidPartPiecesAreParsable(partPieceName: "child/childEntry.bin/[3].last.piece")
+[STRT] System.IO.Packaging.Tests.PartPieceTests.ValidPartPiecesAreParsable(partPieceName: "UPPERCASEFIXEDDOCUMENTSEQUENCEONEPIECE.BIN/[2].PIE"···)
+[STRT] System.IO.Packaging.Tests.PartPieceTests.ValidPartPiecesAreParsable(partPieceName: "CHILD/UPPERCASECHILDENTRY.BIN/[2].PIECE")
+[STRT] System.IO.Packaging.Tests.PartPieceTests.ValidPartPiecesAreParsable(partPieceName: "UPPERCASEFIXEDDOCUMENTSEQUENCEONEPIECE.BIN/[3].LAS"···)
+[STRT] System.IO.Packaging.Tests.PartPieceTests.ValidPartPiecesAreParsable(partPieceName: "CHILD/UPPERCASECHILDENTRY.BIN/[3].LAST.PIECE")
+[STRT] System.IO.Packaging.Tests.PartPieceTests.SetLengthRemovesPartPieces(partName: "ReadablePartPieceEntry.bin", newLength: 30, remainingPieces: "[0].piece,[1].piece,[2].last.piece", removedPieces: "[2].piece,[3].last.piece")
+[STRT] System.IO.Packaging.Tests.PartPieceTests.SetLengthRemovesPartPieces(partName: "ReadablePartPieceEntry.bin", newLength: 0, remainingPieces: "[0].last.piece", removedPieces: "[0].piece,[1].piece,[2].piece,[3].last.piece")
+[STRT] System.IO.Packaging.Tests.PartPieceTests.InvalidPartsDoNotAppearInSamplePackage(partName: "/invalidPieces/missingLast.bin")
+[STRT] System.IO.Packaging.Tests.PartPieceTests.InvalidPartsDoNotAppearInSamplePackage(partName: "/invalidPieces/missingFirst.bin")
+[STRT] System.IO.Packaging.Tests.PartPieceTests.InvalidPartsDoNotAppearInSamplePackage(partName: "/SkippingPartSequence.bin")
+[STRT] System.IO.Packaging.Tests.PartPieceTests.CanSeekAndReadDataFromTwoPartPieces
+[STRT] System.IO.Packaging.Tests.PartPieceTests.DuplicatePartsDifferingOnlyByCaseAreNotAllowed
+[STRT] System.IO.Packaging.Tests.PartPieceTests.CanCreateAtomicPart
+[STRT] System.IO.Packaging.Tests.PartPieceTests.CannotNameAtomicPartAsInvalidPartPiece
+[STRT] System.IO.Packaging.Tests.PartPieceTests.ValidPartsAppearInSamplePackage(partName: "/AtomicPartEntry.bin")
+[STRT] System.IO.Packaging.Tests.PartPieceTests.ValidPartsAppearInSamplePackage(partName: "/child/childEntry.bin")
+[STRT] System.IO.Packaging.Tests.PartPieceTests.ValidPartsAppearInSamplePackage(partName: "/child/OutOfOrder.bin")
+[STRT] System.IO.Packaging.Tests.PartPieceTests.ValidPartsAppearInSamplePackage(partName: "/CHILD/UPPERCASECHILDENTRY.BIN")
+[STRT] System.IO.Packaging.Tests.PartPieceTests.ValidPartsAppearInSamplePackage(partName: "/FixedDocumentSequence.bin")
+[STRT] System.IO.Packaging.Tests.PartPieceTests.ValidPartsAppearInSamplePackage(partName: "/FixedDocumentSequenceOnePiece.bin")
+[STRT] System.IO.Packaging.Tests.PartPieceTests.ValidPartsAppearInSamplePackage(partName: "/OutOfOrder.bin")
+[STRT] System.IO.Packaging.Tests.PartPieceTests.ValidPartsAppearInSamplePackage(partName: "/ReadableAtomicPartEntry.bin")
+[STRT] System.IO.Packaging.Tests.PartPieceTests.ValidPartsAppearInSamplePackage(partName: "/ReadablePartPieceEntry.bin")
+[STRT] System.IO.Packaging.Tests.PartPieceTests.ValidPartsAppearInSamplePackage(partName: "/UPPERCASEFIXEDDOCUMENTSEQUENCEONEPIECE.BIN")
+[STRT] System.IO.Packaging.Tests.PartPieceTests.CanParseInterleavedContentTypesFile
+[STRT] System.IO.Packaging.Tests.PartPieceTests.CannotReadPastEndOfPartPieceSequence
+[STRT] System.IO.Packaging.Tests.PartPieceTests.OutOfOrderPartPiecesAreParsable(partPieceLists: "OutOfOrder.bin/[2].piece,OutOfOrder.bin/[0].piece,"···, expectedCount: 4)
+[STRT] System.IO.Packaging.Tests.PartPieceTests.OutOfOrderPartPiecesAreParsable(partPieceLists: "child/OutOfOrder.bin/[3].piece,child/OutOfOrder.bi"···, expectedCount: 5)
+[STRT] System.IO.Packaging.Tests.PartPieceTests.InvalidPartPiecesAreNotParsable(partPieceName: "[0].piece")
+[STRT] System.IO.Packaging.Tests.PartPieceTests.InvalidPartPiecesAreNotParsable(partPieceName: "[0].last.piece")
+[STRT] System.IO.Packaging.Tests.PartPieceTests.InvalidPartPiecesAreNotParsable(partPieceName: "AtomicPartEntry.bin")
+[STRT] System.IO.Packaging.Tests.PartPieceTests.CanWritePartData(partName: "/ReadableAtomicPartEntry.bin", startIndex: 5, count: 10)
+[STRT] System.IO.Packaging.Tests.PartPieceTests.CanWritePartData(partName: "/ReadablePartPieceEntry.bin", startIndex: 10, count: 10)
+[STRT] System.IO.Packaging.Tests.PartPieceTests.CanWritePartData(partName: "/ReadablePartPieceEntry.bin", startIndex: 60, count: 8)
+[STRT] System.IO.Packaging.Tests.PartPieceTests.PartNamesAreCaseInsensitive
+[STRT] System.IO.Packaging.Tests.PartPieceTests.CannotCreatePartWithDuplicateName
+[STRT] System.IO.Packaging.Tests.PartPieceTests.CannotNameAtomicPartAsValidPartPiece(partName: "/InvalidPartEntry.bin/[0].piece")
+[STRT] System.IO.Packaging.Tests.PartPieceTests.CannotNameAtomicPartAsValidPartPiece(partName: "/InvalidPartEntry.bin/[10].piece")
+[STRT] System.IO.Packaging.Tests.PartPieceTests.CanParseAtomicContentTypesFile
+[STRT] System.IO.Packaging.Tests.PartPieceTests.CanDeleteParts(partToDelete: "/AtomicPartEntry.bin", zipEntriesToCheck: "AtomicPartEntry.bin")
+[STRT] System.IO.Packaging.Tests.PartPieceTests.CanDeleteParts(partToDelete: "/FixedDocumentSequence.bin", zipEntriesToCheck: "FixedDocumentSequence.bin/[0].piece,FixedDocumentS"···)
+[STRT] System.IO.Packaging.Tests.PartPieceTests.CanSeekAndWriteDataToTwoPartPieces
+[STRT] System.IO.Packaging.Tests.PartPieceTests.UppercaseContentTypePartPieceSequenceIsFound
+Finished:    System.IO.Packaging.Tests.dll
+Finished uploading 44685 bytes of RESULTXML
+Xml file was written to the provided writer.
+
+=== TEST EXECUTION SUMMARY ===
+Tests run: 203 Passed: 203 Inconclusive: 0 Failed: 0 Ignored: 0 Skipped: 0
+
+test-main.js exiting WasmTestRunner.dll System.IO.Packaging.Tests.dll after 0.048516666666666666 minutes with result 0 and linear memory 193331200 bytes
+DOTNET: forceDisposeProxies done: 14 imports, 0 exports, 0 GCHandles, 0 JSHandles.
+WASM EXIT 0

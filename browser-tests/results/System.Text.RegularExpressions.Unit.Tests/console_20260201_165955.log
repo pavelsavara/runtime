@@ -1,0 +1,73 @@
+Running in: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/143.0.0.0 Safari/537.36
+Running at: http://127.0.0.1:40317/index.html?arg=--setenv%3dXHARNESS_LOG_TEST_START%3dtrue&arg=--run&arg=WasmTestRunner.dll&arg=System.Text.RegularExpressions.Unit.Tests.dll&arg=-notrait&arg=category%3dOuterLoop&arg=-notrait&arg=category%3dfailing&arg=-verbosity&arg=Info
+could not load /runArgs.json: 404. Ignoring
+Incoming arguments: --setenv=XHARNESS_LOG_TEST_START=true --run WasmTestRunner.dll System.Text.RegularExpressions.Unit.Tests.dll -notrait category=OuterLoop -notrait category=failing -verbosity Info
+Application arguments: --run WasmTestRunner.dll System.Text.RegularExpressions.Unit.Tests.dll -notrait category=OuterLoop -notrait category=failing -verbosity Info
+Initializing dotnet version 11.0.0 commit hash e31907b0fbca908ed525247a1dc38cc5fba7b0ff
+Using threadless Xunit runner
+Discovering: System.Text.RegularExpressions.Unit.Tests.dll (method display = ClassAndMethod, method display options = None)
+Discovered:  System.Text.RegularExpressions.Unit.Tests.dll (found 25 of 25 test cases)
+Starting:    System.Text.RegularExpressions.Unit.Tests.dll
+[STRT] System.Text.RegularExpressions.Tests.RegexTreeAnalyzerTests.AtomicGroupAroundBacktracking
+[STRT] System.Text.RegularExpressions.Tests.RegexTreeAnalyzerTests.LoopsAroundVariousConstructs
+[STRT] System.Text.RegularExpressions.Tests.RegexTreeAnalyzerTests.LoopsReducedWithAutoAtomic
+[STRT] System.Text.RegularExpressions.Tests.RegexTreeAnalyzerTests.SimpleString
+[STRT] System.Text.RegularExpressions.Tests.RegexTreeAnalyzerTests.AlternationWithCaptures
+[STRT] System.Text.RegularExpressions.Tests.SymbolicRegexTests.UnsafeThresholdTests(node: ⌊₀(ab){0,9000}⁰⌉)
+[STRT] System.Text.RegularExpressions.Tests.SymbolicRegexTests.UnsafeThresholdTests(node: ⌊₀(ab){5000}⁰⌉)
+[STRT] System.Text.RegularExpressions.Tests.SymbolicRegexTests.UnsafeThresholdTests(node: ⌊₀(ab){100,5000}⁰⌉)
+[STRT] System.Text.RegularExpressions.Tests.SymbolicRegexTests.UnsafeThresholdTests(node: ⌊₀a{2147483646,}⁰⌉)
+[STRT] System.Text.RegularExpressions.Tests.SymbolicRegexTests.UnsafeThresholdTests(node: ⌊₀(((ab){10}){10}){50}⁰⌉)
+[STRT] System.Text.RegularExpressions.Tests.SymbolicRegexTests.UnsafeThresholdTests(node: ⌊₀(((((abcd){4}){4}){4}){4}){10}⁰⌉)
+[STRT] System.Text.RegularExpressions.Tests.SymbolicRegexTests.UnsafeThresholdTests(node: ⌊₀((ab){1000}){1000}⁰⌉)
+[STRT] System.Text.RegularExpressions.Tests.SymbolicRegexTests.UnsafeThresholdTests(node: ⌊₀((ab){99999999}){99999999}⁰⌉)
+[STRT] System.Text.RegularExpressions.Tests.SymbolicRegexTests.UnsafeThresholdTests(node: ⌊₀((ab){0,1234567890}|(cd){1234567890,})⁰⌉)
+[STRT] System.Text.RegularExpressions.Tests.SymbolicRegexTests.SafeThresholdConfigTest(newThresholdData: 200, expectedThreshold: 200)
+[STRT] System.Text.RegularExpressions.Tests.SymbolicRegexTests.SafeThresholdConfigTest(newThresholdData: 10000, expectedThreshold: 10000)
+[STRT] System.Text.RegularExpressions.Tests.SymbolicRegexTests.SafeThresholdConfigTest(newThresholdData: 2147483647, expectedThreshold: 2147483647)
+[STRT] System.Text.RegularExpressions.Tests.SymbolicRegexTests.SafeThresholdConfigTest(newThresholdData: 0, expectedThreshold: 10000)
+[STRT] System.Text.RegularExpressions.Tests.SymbolicRegexTests.SafeThresholdConfigTest(newThresholdData: -47, expectedThreshold: 10000)
+[STRT] System.Text.RegularExpressions.Tests.SymbolicRegexTests.SafeThresholdConfigTest(newThresholdData: "tmp", expectedThreshold: 10000)
+[STRT] System.Text.RegularExpressions.Tests.SymbolicRegexTests.SafeThresholdConfigTest(newThresholdData: null, expectedThreshold: 10000)
+[STRT] System.Text.RegularExpressions.Tests.SymbolicRegexTests.SafeThresholdTests(builderObj: SymbolicRegexBuilder`1 { }, nodeObj: ⌊₀⁰⌉, expectedSafeSize: 1)
+[STRT] System.Text.RegularExpressions.Tests.SymbolicRegexTests.SafeThresholdTests(builderObj: SymbolicRegexBuilder`1 { }, nodeObj: ⌊₀⁰⌉, expectedSafeSize: 1)
+[STRT] System.Text.RegularExpressions.Tests.SymbolicRegexTests.SafeThresholdTests(builderObj: SymbolicRegexBuilder`1 { }, nodeObj: ⌊₀a⁰⌉, expectedSafeSize: 2)
+[STRT] System.Text.RegularExpressions.Tests.SymbolicRegexTests.SafeThresholdTests(builderObj: SymbolicRegexBuilder`1 { }, nodeObj: ⌊₀[ab]⁰⌉, expectedSafeSize: 2)
+[STRT] System.Text.RegularExpressions.Tests.SymbolicRegexTests.SafeThresholdTests(builderObj: SymbolicRegexBuilder`1 { }, nodeObj: ⌊₀a*⁰⌉, expectedSafeSize: 2)
+[STRT] System.Text.RegularExpressions.Tests.SymbolicRegexTests.SafeThresholdTests(builderObj: SymbolicRegexBuilder`1 { }, nodeObj: ⌊₀a?⁰⌉, expectedSafeSize: 2)
+[STRT] System.Text.RegularExpressions.Tests.SymbolicRegexTests.SafeThresholdTests(builderObj: SymbolicRegexBuilder`1 { }, nodeObj: ⌊₀ab⁰⌉, expectedSafeSize: 3)
+[STRT] System.Text.RegularExpressions.Tests.SymbolicRegexTests.SafeThresholdTests(builderObj: SymbolicRegexBuilder`1 { }, nodeObj: ⌊₀a+⁰⌉, expectedSafeSize: 3)
+[STRT] System.Text.RegularExpressions.Tests.SymbolicRegexTests.SafeThresholdTests(builderObj: SymbolicRegexBuilder`1 { }, nodeObj: ⌊₀abc⁰⌉, expectedSafeSize: 4)
+[STRT] System.Text.RegularExpressions.Tests.SymbolicRegexTests.SafeThresholdTests(builderObj: SymbolicRegexBuilder`1 { }, nodeObj: ⌊₀(ab|c)⁰⌉, expectedSafeSize: 4)
+[STRT] System.Text.RegularExpressions.Tests.SymbolicRegexTests.SafeThresholdTests(builderObj: SymbolicRegexBuilder`1 { }, nodeObj: ⌊₀a{3,6}⁰⌉, expectedSafeSize: 7)
+[STRT] System.Text.RegularExpressions.Tests.SymbolicRegexTests.SafeThresholdTests(builderObj: SymbolicRegexBuilder`1 { }, nodeObj: ⌊₀(ab){10}⁰⌉, expectedSafeSize: 21)
+[STRT] System.Text.RegularExpressions.Tests.SymbolicRegexTests.SafeThresholdTests(builderObj: SymbolicRegexBuilder`1 { }, nodeObj: ⌊₀(ab){10,}⁰⌉, expectedSafeSize: 23)
+[STRT] System.Text.RegularExpressions.Tests.SymbolicRegexTests.SafeThresholdTests(builderObj: SymbolicRegexBuilder`1 { }, nodeObj: ⌊₀(ab){0,10}⁰⌉, expectedSafeSize: 21)
+[STRT] System.Text.RegularExpressions.Tests.SymbolicRegexTests.SafeThresholdTests(builderObj: SymbolicRegexBuilder`1 { }, nodeObj: ⌊₀((ab){10}){10}⁰⌉, expectedSafeSize: 201)
+[STRT] System.Text.RegularExpressions.Tests.SymbolicRegexTests.SafeThresholdTests(builderObj: SymbolicRegexBuilder`1 { }, nodeObj: ⌊₀((ab){10}){0,10}⁰⌉, expectedSafeSize: 201)
+[STRT] System.Text.RegularExpressions.Tests.SymbolicRegexTests.SafeThresholdTests(builderObj: SymbolicRegexBuilder`1 { }, nodeObj: ⌊₀(((ab){10}){10}|(cd){10})⁰⌉, expectedSafeSize: 221)
+[STRT] System.Text.RegularExpressions.Tests.SymbolicRegexTests.SafeThresholdTests(builderObj: SymbolicRegexBuilder`1 { }, nodeObj: ⌊₀(((ab){10,}c){10}|(cd){9,})⁰⌉, expectedSafeSize: 251)
+[STRT] System.Text.RegularExpressions.Tests.SymbolicRegexTests.SafeThresholdTests(builderObj: SymbolicRegexBuilder`1 { }, nodeObj: ⌊₀(((ab){10,}c){10,}|(cd){0,10})⁰⌉, expectedSafeSize: 274)
+[STRT] System.Text.RegularExpressions.Tests.SymbolicRegexTests.SafeThresholdTests(builderObj: SymbolicRegexBuilder`1 { }, nodeObj: ⌊₀a{2147483647,}⁰⌉, expectedSafeSize: 2)
+[STRT] System.Text.RegularExpressions.Tests.SymbolicRegexTests.SafeThresholdTests(builderObj: SymbolicRegexBuilder`1 { }, nodeObj: ⌊₀a[^\n]{100}b⁰⌉, expectedSafeSize: 103)
+[STRT] System.Text.RegularExpressions.Tests.SymbolicRegexTests.SafeThresholdTests(builderObj: SymbolicRegexBuilder`1 { }, nodeObj: ⌊₀[^\n]*?⁰⌉, expectedSafeSize: 2)
+[STRT] System.Text.RegularExpressions.Tests.SymbolicRegexTests.SafeThresholdTests(builderObj: SymbolicRegexBuilder`1 { }, nodeObj: ⌊₀[^\n]*?⁰⌉, expectedSafeSize: 2)
+[STRT] System.Text.RegularExpressions.Tests.SymbolicRegexTests.SafeThresholdTests(builderObj: SymbolicRegexBuilder`1 { }, nodeObj: ⌊₀[^\n]*?a⁰⌉, expectedSafeSize: 3)
+[STRT] System.Text.RegularExpressions.Tests.SymbolicRegexTests.SafeThresholdTests(builderObj: SymbolicRegexBuilder`1 { }, nodeObj: ⌊₀[^\n]*?[ab]⁰⌉, expectedSafeSize: 3)
+[STRT] System.Text.RegularExpressions.Tests.SymbolicRegexTests.SafeThresholdTests(builderObj: SymbolicRegexBuilder`1 { }, nodeObj: ⌊₀[^\n]*?a*⁰⌉, expectedSafeSize: 3)
+[STRT] System.Text.RegularExpressions.Tests.SymbolicRegexTests.SafeThresholdTests(builderObj: SymbolicRegexBuilder`1 { }, nodeObj: ⌊₀[^\n]*?a?⁰⌉, expectedSafeSize: 3)
+[STRT] System.Text.RegularExpressions.Tests.SymbolicRegexTests.SafeThresholdTests(builderObj: SymbolicRegexBuilder`1 { }, nodeObj: ⌊₀[^\n]*?ab⁰⌉, expectedSafeSize: 4)
+[STRT] System.Text.RegularExpressions.Tests.SymbolicRegexTests.SafeThresholdTests(builderObj: SymbolicRegexBuilder`1 { }, nodeObj: ⌊₀[^\n]*?a+⁰⌉, expectedSafeSize: 4)
+[STRT] System.Text.RegularExpressions.Tests.SymbolicRegexTests.SafeThresholdTests(builderObj: SymbolicRegexBuilder`1 { }, nodeObj: ⌊₀[^\n]*?abc⁰⌉, expectedSafeSize: 5)
+[STRT] System.Text.RegularExpressions.Tests.SymbolicRegexTests.SafeThresholdTests(builderObj: SymbolicRegexBuilder`1 { }, nodeObj: ⌊₀([^\n]*?ab|c)⁰⌉, expectedSafeSize: 5)
+[STRT] System.Text.RegularExpressions.Tests.SymbolicRegexTests.SafeThresholdTests(builderObj: SymbolicRegexBuilder`1 { }, nodeObj: ⌊₀[^\n]*?a{3,6}⁰⌉, expectedSafeSize: 8)
+[STRT] System.Text.RegularExpressions.Tests.SymbolicRegexTests.SafeThresholdTests(builderObj: SymbolicRegexBuilder`1 { }, nodeObj: ⌊₀[^\n]*?(ab){10}⁰⌉, expectedSafeSize: 22)
+[STRT] System.Text.RegularExpressions.Tests.SymbolicRegexTests.SafeThresholdTests(builderObj: SymbolicRegexBuilder`1 { }, nodeObj: ⌊₀[^\n]*?(ab){10,}⁰⌉, expectedSafeSize: 24)
+[STRT] System.Text.RegularExpressions.Tests.SymbolicRegexTests.SafeThresholdTests(builderObj: SymbolicRegexBuilder`1 { }, nodeObj: ⌊₀[^\n]*?(ab){0,10}⁰⌉, expectedSafeSize: 22)
+[STRT] System.Text.RegularExpressions.Tests.SymbolicRegexTests.SafeThresholdTests(builderObj: SymbolicRegexBuilder`1 { }, nodeObj: ⌊₀[^\n]*?((ab){10}){10}⁰⌉, expectedSafeSize: 202)
+[STRT] System.Text.RegularExpressions.Tests.SymbolicRegexTests.SafeThresholdTests(builderObj: SymbolicRegexBuilder`1 { }, nodeObj: ⌊₀[^\n]*?((ab){10}){0,10}⁰⌉, expectedSafeSize: 202)
+[STRT] System.Text.RegularExpressions.Tests.SymbolicRegexTests.SafeThresholdTests(builderObj: SymbolicRegexBuilder`1 { }, nodeObj: ⌊₀([^\n]*?((ab){10}){10}|(cd){10})⁰⌉, expectedSafeSize: 222)
+[STRT] System.Text.RegularExpressions.Tests.SymbolicRegexTests.SafeThresholdTests(builderObj: SymbolicRegexBuilder`1 { }, nodeObj: ⌊₀([^\n]*?((ab){10,}c){10}|(cd){9,})⁰⌉, expectedSafeSize: 252)
+[STRT] System.Text.RegularExpressions.Tests.SymbolicRegexTests.SafeThresholdTests(builderObj: SymbolicRegexBuilder`1 { }, nodeObj: ⌊₀([^\n]*?((ab){10,}c){10,}|(cd){0,10})⁰⌉, expectedSafeSize: 275)
+[STRT] System.Text.RegularExpressions.Tests.SymbolicRegexTests.SafeThresholdTests(builderObj: SymbolicRegexBuilder`1 { }, nodeObj: ⌊₀[^\n]*?a{2147483647,}⁰⌉, expectedSafeSize: 3)
+[STRT] System.Text.RegularExpressions.Tests.SymbolicRegexTests.SafeThresholdTests(builderObj: SymbolicRegexBuilder`1 { }, nodeObj: ⌊₀[^\n]*?a[^\n]{100}b⁰⌉, expectedSafeSize: 104)

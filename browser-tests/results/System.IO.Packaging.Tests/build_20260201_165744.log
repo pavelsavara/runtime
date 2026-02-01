@@ -1,0 +1,280 @@
+
+  Determining projects to restore...
+  Restored /home/pavelsavara/dev/runtime/src/libraries/System.IO.Packaging/tests/System.IO.Packaging.Tests.csproj (in 2.09 sec).
+  10 of 11 projects are up-to-date for restore.
+  TestUtilities -> /home/pavelsavara/dev/runtime/artifacts/bin/TestUtilities/Release/net10.0/TestUtilities.dll
+  ILLink.RoslynAnalyzer -> /home/pavelsavara/dev/runtime/artifacts/bin/ILLink.RoslynAnalyzer/Release/netstandard2.0/ILLink.RoslynAnalyzer.dll
+  ILLink.CodeFixProvider -> /home/pavelsavara/dev/runtime/artifacts/bin/ILLink.CodeFixProvider/Release/netstandard2.0/ILLink.CodeFixProvider.dll
+  Mono.Linker -> /home/pavelsavara/dev/runtime/artifacts/bin/Mono.Linker/ref/Release/net11.0/illink.dll
+  Mono.Linker -> /home/pavelsavara/dev/runtime/artifacts/bin/Mono.Linker/Release/net11.0/illink.dll
+  ILLink.Tasks -> /home/pavelsavara/dev/runtime/artifacts/bin/ILLink.Tasks/Release/net/ILLink.Tasks.dll
+  System.IO.Packaging -> /home/pavelsavara/dev/runtime/artifacts/bin/System.IO.Packaging/ref/Release/net11.0/System.IO.Packaging.dll
+  System.IO.Packaging -> /home/pavelsavara/dev/runtime/artifacts/bin/System.IO.Packaging/Release/net11.0/System.IO.Packaging.dll
+  WasmTriggerPublishApp for CoreCLR not implemented
+  System.IO.Packaging.Tests -> /home/pavelsavara/dev/runtime/artifacts/bin/System.IO.Packaging.Tests/Release/net11.0/browser-wasm/System.IO.Packaging.Tests.dll
+  export SCENARIO=WasmTestOnChrome
+  export XUNIT_HIDE_PASSING_OUTPUT_DIAGNOSTICS=1
+  export PREPEND_PATH=/home/pavelsavara/dev/runtime/artifacts/bin/chromedriver/chromedriver_linux64
+  export RuntimeIdentifier=browser-wasm
+  PATH=/home/pavelsavara/dev/runtime/artifacts/bin/chromedriver/chromedriver_linux64:/home/pavelsavara/.jsvu/bin:/home/pavelsavara/dev/runtime/.dotnet:/home/pavelsavara/dev/runtime/.dotnet:/home/pavelsavara/dev/runtime/.dotnet:/home/pavelsavara/dev/runtime/.dotnet:/home/pavelsavara/dev/runtime/.dotnet:/home/pavelsavara/dev/runtime/.dotnet:/home/pavelsavara/dev/runtime/.dotnet:/home/pavelsavara/bin:/home/pavelsavara/dev/.dotnet:/home/pavelsavara/.vscode-server/data/User/globalStorage/github.copilot-chat/debugCommand:/home/pavelsavara/.vscode-server/data/User/globalStorage/github.copilot-chat/copilotCli:/home/pavelsavara/.vscode-server/bin/c9d77990917f3102ada88be140d28b038d1dd7c7/bin/remote-cli:/home/pavelsavara/bin:/home/pavelsavara/bin:/home/pavelsavara/dev/.dotnet:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/windows/system32:/mnt/c/windows:/mnt/d/.dotnet/:/mnt/c/windows/System32/Wbem:/mnt/c/windows/System32/WindowsPowerShell/v1.0/:/mnt/c/windows/System32/OpenSSH/:/mnt/c/Program Files/HP/HP One Agent:/mnt/c/Program Files/nodejs/:/mnt/c/Program Files/Meld/:/mnt/c/Program Files/dotnet/:/mnt/c/Program Files/Git/cmd:/mnt/c/Program Files/PuTTY/:/mnt/c/Program Files/PowerShell/7/:/mnt/c/Program Files/Microsoft SQL Server/170/Tools/Binn/:/mnt/c/Program Files/GitExtensions/:/mnt/c/Program Files/GitHub CLI/:/mnt/d/bin:/mnt/d/.dotnet/:/mnt/c/Users/pavelsavara/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/pavelsavara/AppData/Local/Programs/MicrosoftVSCode/bin:/mnt/c/Users/pavelsavara/AppData/Roaming/npm:/mnt/c/Users/pavelsavara/AppData/Local/Programs/Python/Python310/:/mnt/c/Users/pavelsavara/AppData/Local/Programs/Python/Python310/Scripts/:/mnt/c/Users/pavelsavara/AppData/Local/Microsoft/WinGet/Packages/GitHub.Copilot.Prerelease_Microsoft.Winget.Source_8wekyb3d8bbwe:/mnt/c/Users/pavelsavara/.dotnet/tools:/snap/bin
+  EXECUTION_DIR=/home/pavelsavara/dev/runtime/artifacts/bin/System.IO.Packaging.Tests/Release/net11.0/browser-wasm/wwwroot
+  SCENARIO=WasmTestOnChrome
+  XHARNESS_OUT=/home/pavelsavara/dev/runtime/artifacts/bin/System.IO.Packaging.Tests/Release/net11.0/browser-wasm/wwwroot/xharness-output
+  XHARNESS_CLI_PATH=
+  HARNESS_RUNNER=dotnet xharness
+  XHARNESS_COMMAND=test-browser
+  MAIN_JS=
+  JS_ENGINE=
+  JS_ENGINE_ARGS=--browser-arg=--js-flags=--stack-trace-limit=1000
+  XHARNESS_ARGS= --browser-arg=--js-flags=--stack-trace-limit=1000
+  ~/dev/runtime/artifacts/bin/System.IO.Packaging.Tests/Release/net11.0/browser-wasm/wwwroot ~/dev/runtime/src/libraries/System.IO.Packaging/tests
+  ----- start Sun Feb 1 16:57:52 CET 2026 =============== To repro directly: =====================================================
+  pushd /home/pavelsavara/dev/runtime/artifacts/bin/System.IO.Packaging.Tests/Release/net11.0/browser-wasm/wwwroot
+  dotnet xharness wasm test-browser --app=. --output-directory=/home/pavelsavara/dev/runtime/artifacts/bin/System.IO.Packaging.Tests/Release/net11.0/browser-wasm/wwwroot/xharness-output -s dotnet.native.js.symbols --symbol-patterns wasm-symbol-patterns.txt --symbolicator WasmSymbolicator.dll,Microsoft.WebAssembly.Internal.SymbolicatorWrapperForXHarness --browser-path=/home/pavelsavara/dev/runtime/artifacts/bin/chrome/chrome-linux/chrome --timeout=00:30:00  --browser-arg=--js-flags=--stack-trace-limit=1000   --  --setenv=XHARNESS_LOG_TEST_START=true  --run WasmTestRunner.dll System.IO.Packaging.Tests.dll  -notrait category=OuterLoop -notrait category=failing 
+  popd
+  ===========================================================================================================
+  ~/dev/runtime/artifacts/bin/System.IO.Packaging.Tests/Release/net11.0/browser-wasm/wwwroot ~/dev/runtime/artifacts/bin/System.IO.Packaging.Tests/Release/net11.0/browser-wasm/wwwroot ~/dev/runtime/src/libraries/System.IO.Packaging/tests
+  [11.0.0-prerelease.26064.3+31e0b8e08f57890f7b7004b93361d69cd4b21079] XHarness command issued: wasm test-browser --app=. --output-directory=/home/pavelsavara/dev/runtime/artifacts/bin/System.IO.Packaging.Tests/Release/net11.0/browser-wasm/wwwroot/xharness-output -s dotnet.native.js.symbols --symbol-patterns wasm-symbol-patterns.txt --symbolicator WasmSymbolicator.dll,Microsoft.WebAssembly.Internal.SymbolicatorWrapperForXHarness --browser-path=/home/pavelsavara/dev/runtime/artifacts/bin/chrome/chrome-linux/chrome --timeout=00:30:00 --browser-arg=--js-flags=--stack-trace-limit=1000 -- --setenv=XHARNESS_LOG_TEST_START=true --run WasmTestRunner.dll System.IO.Packaging.Tests.dll -notrait category=OuterLoop -notrait category=failing
+  [40m[1m[33mwarn[39m[22m[49m: Cannot find symbols file dotnet.native.js.symbols
+  [40m[32minfo[39m[22m[49m: Using Chrome from /home/pavelsavara/dev/runtime/artifacts/bin/chrome/chrome-linux/chrome
+  [40m[32minfo[39m[22m[49m: Starting chromedriver with args: --js-flags=--stack-trace-limit=1000 --headless --incognito --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-renderer-backgrounding --enable-features=NetworkService,NetworkServiceInProcess --allow-insecure-localhost --disable-breakpad --disable-component-extensions-with-background-pages --disable-dev-shm-usage --disable-extensions --disable-features=TranslateUI --disable-ipc-flooding-protection --force-color-profile=srgb --metrics-recording-only and load strategy: Normal
+  Starting ChromeDriver 143.0.7499.0 (0000000000000000000000000000000000000000-0000000000000000000000000000000000000000) on port 41761
+  Only local connections are allowed.
+  Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
+  ChromeDriver was started successfully on port 41761.
+  [40m[32minfo[39m[22m[49m: Running in: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/143.0.0.0 Safari/537.36
+  [40m[32minfo[39m[22m[49m: Running at: http://127.0.0.1:46647/index.html?arg=--setenv%3dXHARNESS_LOG_TEST_START%3dtrue&arg=--run&arg=WasmTestRunner.dll&arg=System.IO.Packaging.Tests.dll&arg=-notrait&arg=category%3dOuterLoop&arg=-notrait&arg=category%3dfailing&arg=-verbosity&arg=Info
+  [40m[32minfo[39m[22m[49m: could not load /runArgs.json: 404. Ignoring
+  [40m[32minfo[39m[22m[49m: Incoming arguments: --setenv=XHARNESS_LOG_TEST_START=true --run WasmTestRunner.dll System.IO.Packaging.Tests.dll -notrait category=OuterLoop -notrait category=failing -verbosity Info
+  [40m[32minfo[39m[22m[49m: Application arguments: --run WasmTestRunner.dll System.IO.Packaging.Tests.dll -notrait category=OuterLoop -notrait category=failing -verbosity Info
+  [40m[32minfo[39m[22m[49m: Initializing dotnet version 11.0.0 commit hash e31907b0fbca908ed525247a1dc38cc5fba7b0ff
+  [40m[32minfo[39m[22m[49m: Using threadless Xunit runner
+  [40m[32minfo[39m[22m[49m: Discovering: System.IO.Packaging.Tests.dll (method display = ClassAndMethod, method display options = None)
+  [40m[32minfo[39m[22m[49m: Discovered:  System.IO.Packaging.Tests.dll (found 171 of 173 test cases)
+  [40m[32minfo[39m[22m[49m: Starting:    System.IO.Packaging.Tests.dll
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.Tests.T127_String_Open_ReadWrite_Open_Read_Write_ReadWrite
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.Tests.T204_FileFormatException
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.Tests.ComparePackUriDifferentPack
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.Tests.T163_FileFormatExceptionUriProperty
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.Tests.T118_String_CreateNew_ReadWrite_Truncate_ReadWrite
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.Tests.T024_DeleteRootRelsPart
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.Tests.T026_PackageFlush
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.Tests.T001_AddParagraphToDocument
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.Tests.T169_DeleteAllRelationshipOfMainDocPart
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.Tests.T149_CreatePart_InvalidContentType
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.Tests.T115_String_CreateNew_ReadWrite_Open_ReadAndWrite
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.Tests.T145_CreatePart_ContentTypeWithInvalidSubtype
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.Tests.T205_FileFormatException
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.Tests.T124_String_Open_Read_Create_Write
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.Tests.T035_ModifyAllPackageProperties
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.Tests.T036_CreateRelationshipWithId
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.Tests.T018_GetMainDocPartAndStyleDefPart
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.Tests.T158_ParameterWithInvalidChar
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.Tests.T012_PackageOpenStream
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.Tests.T135_String_OpenOrCreate_ReadWrite_OpenOrCreate_Read_Write
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.Tests.T003_CreateExternalRelationship
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.Tests.T201_FileFormatException
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.Tests.T166_GetPartRelationshipById_InvalidId
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.Tests.OpenPropertyStream
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.Tests.T004_CreateInternalRelationship
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.Tests.T114_String_CreateNew_ReadWrite_Open_ReadAndWrite
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.Tests.T144_CreatePart_ContentTypeWithInvalidSubtype
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.Tests.T168_InvalidRelationshipId
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.Tests.T143_CreatePart_ContentTypeWithInvalidSubtype
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.Tests.T141_CreatePart_ContentTypeWithSubtypes
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.Tests.T008_PackageProperties
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.Tests.T156_CreatePart_ContentTypeWithInvalidSubtype
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.Tests.T146_CreatePart_ContentTypeWithInvalidSubtype
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.Tests.T013_PackageOpenStream
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.Tests.T133_String_OpenOrCreate_ReadWrite_Star
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.Tests.SetEmptyPropertyToNull
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.Tests.T045_PackageRelationshipSelectorFromPackageUsingId
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.Tests.T112_String_CreateNew_Read_Create_Read
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.Tests.T037_DeleteRootRelationship
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.Tests.T117_String_CreateNew_ReadWrite_CreateNew_Star
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.Tests.Can_Create_Package_On_Unseekable_Stream
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.Tests.GetPartCallsGetPartCore
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.Tests.PackageOpen_CreateNew_NonEmptyStream_Throws
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.Tests.T160_InvalidContentType
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.Tests.T148_CreatePart_ContentTypeWithTwoSubtypes
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.Tests.T007_PackageProperties
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.Tests.T030_GetRootRelationshipById
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.Tests.T203A_FileFormatException
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.Tests.T131_String_OpenOrCreate_ReadWrite_Star
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.Tests.T023_DeleteRelsPart
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.Tests.T019_GetPartFromRelativeUri
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.Tests.T011_PackageOpen
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.Tests.T119_String_CreateNew_ReadWrite_OpenOrCreate_ReadWrite
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.Tests.T109_String_Create_ReadWrite_OpenOrCreate_ReadWrite
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.Tests.T129_String_OpenOrCreate_Read_Star
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.Tests.T128_String_Open_ReadWrite_OpenOrCreate_Read_Write_ReadWrite
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.Tests.T101_String_Create_ReadWrite_Create_Read
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.Tests.T208_InvalidParameter
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.Tests.T025_PackageClose
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.Tests.Cannot_Modify_Package_On_Unseekable_Stream
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.Tests.T151_InvalidDocProps
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.Tests.T042_DeletePartRelationship
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.Tests.T040_InvalidRelationshipId
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.Tests.T108_String_Create_ReadWrite_OpenOrCreate_Read
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.Tests.T005_CreateInternalRelationship
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.Tests.T009_PackageOpen
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.Tests.WriteRelationsTwice
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.Tests.T029_DeletePackageRelationship
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.Tests.T171_IterateExternalRelationship
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.Tests.T022_DeletePartInvalidArgument
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.Tests.T170_InvalidRelationshipId
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.Tests.T126_String_Open_Write_Star
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.Tests.T116_String_CreateNew_ReadWrite_Open_ReadAndWrite
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.Tests.T121_String_Open_Read_Open_Write
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.Tests.T137_String_Truncate_Write_Star
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.Tests.T136_String_Truncate_Read_Star
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.Tests.ZipPackage_CreateWithFileAccessWrite
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.Tests.ComparePackUriSamePackDifferentPart
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.Tests.T006_CreateExternalRelationshipInvalidUri
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.Tests.T205A_FileFormatException
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.Tests.T047_PackUriHelper_IsRelationshipPartUri
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.Tests.T153_NoDocProps
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.Tests.T038_DisposePackage
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.Tests.T120_String_Open_Read_Open_Read
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.Tests.T125_String_Open_Read_OpenOrCreate
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.Tests.T203_FileFormatException
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.Tests.T041_PartExists
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.Tests.OpenInternalTargetRelationships
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.Tests.T106_String_Create_ReadWrite_Open_ReadWrite
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.Tests.CreateWithFileAccessWrite
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.Tests.T202_FileFormatException
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.Tests.T147_CreatePart_ContentTypeWithTwoSubtypes
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.Tests.T139_Access_Length_Prop_of_Stream
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.Tests.T043_PackageRelationshipSelector
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.Tests.T017_CreatePartTwice
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.Tests.PackageOpenStream_VerifyDefaultAccess
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.Tests.T020_GetNonExistentPart
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.Tests.T155_BadDateTimeDocProps
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.Tests.T027_ModifyPackageProperties
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.Tests.T010_PackageOpen
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.Tests.T014_PackageOpenStream
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.Tests.ComparePackUriSamePackSamePart
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.Tests.T100_String_Create_Read_Star
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.Tests.T161_ParameterWithInvalidChar
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.Tests.T046_PackageRelationshipSelectorFromPartUsingId
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.Tests.T111_String_Create_Write_Star
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.Tests.T122_String_Open_Read_Open_ReadWrite
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.Tests.T206_FileFormatException
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.Tests.T162_ParameterWithUnquotedQuote
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.Tests.PackageOpen_Open_InvalidContent_Throws
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.Tests.T113_String_CreateNew_Write_Open_Read
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.Tests.CreatePackUriWithFragment
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.Tests.T044_PackageRelationshipSelectorFromPackage
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.Tests.T032_DeletePartRelationship
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.Tests.T002_IterateParts
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.Tests.PackageOpen_Open_EmptyStream_Throws
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.Tests.T102_String_Create_ReadWrite_Open_Read
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.Tests.T016_CreatePartInvalidArg
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.Tests.T165_DeleteNonExistentPart
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.Tests.T015_CreatePart
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.Tests.T152_InvalidDocProps
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.Tests.T021_DeletePartThatContainsRelationships
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.Tests.T134_String_OpenOrCreate_ReadWrite_OpenOrCreate_Read_Write
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.Tests.T159_EmptyParameter
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.Tests.T033_GetStreamOverload
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.Tests.T107_String_Create_ReadWrite_Open_ReadWrite
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.Tests.T048_PackUriHelper_GetRelativeUri
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.Tests.T049_PackUriHelper_GetRelationshipPartUri
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.Tests.T154_CreatedModifiedDocProps
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.Tests.T172_EmptyRelationshipPart
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.Tests.T157_ParameterWithWhiteSpace
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.Tests.T123_String_Open_Read_Create_Star
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.Tests.T031_DeleteMainDocumentPart
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.Tests.T167_DeleteNonExistentRelationship
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.Tests.T028_ModifyPackagePropertiesAndFlush
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.Tests.T034_GetPartRelationshipById
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.Tests.T140_CreatePart_SpaceAtBeginningOfContentType
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.Tests.T142_CreatePart_ContentTypeWithSubtypesDoubleSemicolon
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.Tests.T132_String_OpenOrCreate_ReadWrite_Star
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.Tests.Roundtrip_Compression_Option(createdCompressionOption: NotCompressed, expectedCompressionOption: Normal, expectedZipFileBitFlags: 0)
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.Tests.Roundtrip_Compression_Option(createdCompressionOption: Normal, expectedCompressionOption: Normal, expectedZipFileBitFlags: 0)
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.Tests.Roundtrip_Compression_Option(createdCompressionOption: Maximum, expectedCompressionOption: Normal, expectedZipFileBitFlags: 2)
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.Tests.Roundtrip_Compression_Option(createdCompressionOption: Fast, expectedCompressionOption: Normal, expectedZipFileBitFlags: 6)
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.Tests.Roundtrip_Compression_Option(createdCompressionOption: SuperFast, expectedCompressionOption: Normal, expectedZipFileBitFlags: 6)
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.Tests.T039_OpenStreamThreeArgs
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.Tests.T130_String_OpenOrCreate_Write_Star
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.Tests.T150_CreatePart_InvalidContentType
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.Tests.T104_String_Create_ReadWrite_Open_Write
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.Tests.T164_InvalidPartUri
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.Tests.T138_String_Truncate_ReadWrite_OpenOrCreate_Read_Write
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.Tests.T103_String_Create_ReadWrite_Open_Read
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.Tests.T105_String_Create_ReadWrite_Open_Write
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.Tests.T110_String_Create_ReadWrite_OpenOrCreate_ReadWrite
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.ReflectionTests.Verify_GeneralPurposeBitFlag_NotSetTo_Unicode
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.PartPieceTests.CanReadPartData(partName: "/ReadableAtomicPartEntry.bin", position: 100, dataLength: 10)
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.PartPieceTests.CanReadPartData(partName: "/ReadablePartPieceEntry.bin", position: 11, dataLength: 10)
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.PartPieceTests.CanReadPartData(partName: "/ReadablePartPieceEntry.bin", position: 11, dataLength: 25)
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.PartPieceTests.ValidPartPiecesAreParsable(partPieceName: "FixedDocumentSequence.bin/[0].piece")
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.PartPieceTests.ValidPartPiecesAreParsable(partPieceName: "child/childEntry.bin/[0].piece")
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.PartPieceTests.ValidPartPiecesAreParsable(partPieceName: "FixedDocumentSequence.bin/[3].last.piece")
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.PartPieceTests.ValidPartPiecesAreParsable(partPieceName: "child/childEntry.bin/[3].last.piece")
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.PartPieceTests.ValidPartPiecesAreParsable(partPieceName: "UPPERCASEFIXEDDOCUMENTSEQUENCEONEPIECE.BIN/[2].PIE"···)
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.PartPieceTests.ValidPartPiecesAreParsable(partPieceName: "CHILD/UPPERCASECHILDENTRY.BIN/[2].PIECE")
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.PartPieceTests.ValidPartPiecesAreParsable(partPieceName: "UPPERCASEFIXEDDOCUMENTSEQUENCEONEPIECE.BIN/[3].LAS"···)
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.PartPieceTests.ValidPartPiecesAreParsable(partPieceName: "CHILD/UPPERCASECHILDENTRY.BIN/[3].LAST.PIECE")
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.PartPieceTests.SetLengthRemovesPartPieces(partName: "ReadablePartPieceEntry.bin", newLength: 30, remainingPieces: "[0].piece,[1].piece,[2].last.piece", removedPieces: "[2].piece,[3].last.piece")
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.PartPieceTests.SetLengthRemovesPartPieces(partName: "ReadablePartPieceEntry.bin", newLength: 0, remainingPieces: "[0].last.piece", removedPieces: "[0].piece,[1].piece,[2].piece,[3].last.piece")
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.PartPieceTests.InvalidPartsDoNotAppearInSamplePackage(partName: "/invalidPieces/missingLast.bin")
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.PartPieceTests.InvalidPartsDoNotAppearInSamplePackage(partName: "/invalidPieces/missingFirst.bin")
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.PartPieceTests.InvalidPartsDoNotAppearInSamplePackage(partName: "/SkippingPartSequence.bin")
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.PartPieceTests.CanSeekAndReadDataFromTwoPartPieces
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.PartPieceTests.DuplicatePartsDifferingOnlyByCaseAreNotAllowed
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.PartPieceTests.CanCreateAtomicPart
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.PartPieceTests.CannotNameAtomicPartAsInvalidPartPiece
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.PartPieceTests.ValidPartsAppearInSamplePackage(partName: "/AtomicPartEntry.bin")
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.PartPieceTests.ValidPartsAppearInSamplePackage(partName: "/child/childEntry.bin")
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.PartPieceTests.ValidPartsAppearInSamplePackage(partName: "/child/OutOfOrder.bin")
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.PartPieceTests.ValidPartsAppearInSamplePackage(partName: "/CHILD/UPPERCASECHILDENTRY.BIN")
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.PartPieceTests.ValidPartsAppearInSamplePackage(partName: "/FixedDocumentSequence.bin")
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.PartPieceTests.ValidPartsAppearInSamplePackage(partName: "/FixedDocumentSequenceOnePiece.bin")
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.PartPieceTests.ValidPartsAppearInSamplePackage(partName: "/OutOfOrder.bin")
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.PartPieceTests.ValidPartsAppearInSamplePackage(partName: "/ReadableAtomicPartEntry.bin")
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.PartPieceTests.ValidPartsAppearInSamplePackage(partName: "/ReadablePartPieceEntry.bin")
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.PartPieceTests.ValidPartsAppearInSamplePackage(partName: "/UPPERCASEFIXEDDOCUMENTSEQUENCEONEPIECE.BIN")
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.PartPieceTests.CanParseInterleavedContentTypesFile
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.PartPieceTests.CannotReadPastEndOfPartPieceSequence
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.PartPieceTests.OutOfOrderPartPiecesAreParsable(partPieceLists: "OutOfOrder.bin/[2].piece,OutOfOrder.bin/[0].piece,"···, expectedCount: 4)
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.PartPieceTests.OutOfOrderPartPiecesAreParsable(partPieceLists: "child/OutOfOrder.bin/[3].piece,child/OutOfOrder.bi"···, expectedCount: 5)
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.PartPieceTests.InvalidPartPiecesAreNotParsable(partPieceName: "[0].piece")
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.PartPieceTests.InvalidPartPiecesAreNotParsable(partPieceName: "[0].last.piece")
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.PartPieceTests.InvalidPartPiecesAreNotParsable(partPieceName: "AtomicPartEntry.bin")
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.PartPieceTests.CanWritePartData(partName: "/ReadableAtomicPartEntry.bin", startIndex: 5, count: 10)
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.PartPieceTests.CanWritePartData(partName: "/ReadablePartPieceEntry.bin", startIndex: 10, count: 10)
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.PartPieceTests.CanWritePartData(partName: "/ReadablePartPieceEntry.bin", startIndex: 60, count: 8)
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.PartPieceTests.PartNamesAreCaseInsensitive
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.PartPieceTests.CannotCreatePartWithDuplicateName
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.PartPieceTests.CannotNameAtomicPartAsValidPartPiece(partName: "/InvalidPartEntry.bin/[0].piece")
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.PartPieceTests.CannotNameAtomicPartAsValidPartPiece(partName: "/InvalidPartEntry.bin/[10].piece")
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.PartPieceTests.CanParseAtomicContentTypesFile
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.PartPieceTests.CanDeleteParts(partToDelete: "/AtomicPartEntry.bin", zipEntriesToCheck: "AtomicPartEntry.bin")
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.PartPieceTests.CanDeleteParts(partToDelete: "/FixedDocumentSequence.bin", zipEntriesToCheck: "FixedDocumentSequence.bin/[0].piece,FixedDocumentS"···)
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.PartPieceTests.CanSeekAndWriteDataToTwoPartPieces
+  [40m[32minfo[39m[22m[49m: [STRT] System.IO.Packaging.Tests.PartPieceTests.UppercaseContentTypePartPieceSequenceIsFound
+  [40m[32minfo[39m[22m[49m: Finished:    System.IO.Packaging.Tests.dll
+  [40m[32minfo[39m[22m[49m: Stored /home/pavelsavara/dev/runtime/artifacts/bin/System.IO.Packaging.Tests/Release/net11.0/browser-wasm/wwwroot/xharness-output/testResults.xml results 44685 bytes
+  [40m[32minfo[39m[22m[49m: Finished uploading 44685 bytes of RESULTXML
+  [40m[32minfo[39m[22m[49m: Xml file was written to the provided writer.
+  [40m[32minfo[39m[22m[49m: 
+  [40m[32minfo[39m[22m[49m: === TEST EXECUTION SUMMARY ===
+  [40m[32minfo[39m[22m[49m: Tests run: 203 Passed: 203 Inconclusive: 0 Failed: 0 Ignored: 0 Skipped: 0
+  [40m[32minfo[39m[22m[49m: 
+  [40m[32minfo[39m[22m[49m: test-main.js exiting WasmTestRunner.dll System.IO.Packaging.Tests.dll after 0.048516666666666666 minutes with result 0 and linear memory 193331200 bytes
+  [40m[32minfo[39m[22m[49m: DOTNET: forceDisposeProxies done: 14 imports, 0 exports, 0 GCHandles, 0 JSHandles.
+  [40m[32minfo[39m[22m[49m: WASM EXIT 0
+  [40m[32minfo[39m[22m[49m: Waiting to flush log messages with a timeout of 120 secs ..
+  [40m[32minfo[39m[22m[49m: Closing 1 browser tabs before setting the main tab to config page and quitting.
+  XHarness exit code: 0
+  ~/dev/runtime/artifacts/bin/System.IO.Packaging.Tests/Release/net11.0/browser-wasm/wwwroot ~/dev/runtime/src/libraries/System.IO.Packaging/tests
+  ----- end Sun Feb 1 16:57:57 CET 2026 ----- exit code 0 ----------------------------------------------------------
+  XHarness artifacts: /home/pavelsavara/dev/runtime/artifacts/bin/System.IO.Packaging.Tests/Release/net11.0/browser-wasm/wwwroot/xharness-output
+
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:13.09

@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<assemblies>
+  <assembly name="System.Diagnostics.Tracing.Tests.dll" environment="32-bit .NET .NET 11.0 [collection-per-assembly, non-parallel]" test-framework="xUnit.net 2.9.3.0" run-date="2026-02-01" run-time="15:57:14" total="39" passed="32" failed="5" skipped="2" time="2.680" errors="0">
+    <errors />
+    <collection total="39" passed="32" failed="5" skipped="2" name="Test collection for System.Diagnostics.Tracing.Tests.dll" time="2.530">
+      <test name="BasicEventSourceTests.ActivityTracking.ActivityFlowsAsync" type="BasicEventSourceTests.ActivityTracking" method="ActivityFlowsAsync" time="0.0371999" result="Fail">
+        <failure exception-type="Xunit.Sdk.NotEqualException">
+          <message><![CDATA[Assert.NotEqual() Failure: Values are equal\nExpected: Not 00000000-0000-0000-0000-000000000000\nActual:       00000000-0000-0000-0000-000000000000]]></message>
+          <stack-trace><![CDATA[   at BasicEventSourceTests.ActivityTracking.ActivityFlowsAsync()
+--- End of stack trace from previous location ---]]></stack-trace>
+        </failure>
+      </test>
+      <test name="BasicEventSourceTests.ActivityTracking.SetCurrentActivityIdAfterEventDoesNotFlowAsync" type="BasicEventSourceTests.ActivityTracking" method="SetCurrentActivityIdAfterEventDoesNotFlowAsync" time="0.0056" result="Fail">
+        <failure exception-type="Xunit.Sdk.EqualException">
+          <message><![CDATA[Assert.Equal() Failure: Values differ\nExpected: 900d8b94-2b76-426c-82aa-4588a2d8e7c9\nActual:   00000000-0000-0000-0000-000000000000]]></message>
+          <stack-trace><![CDATA[   at BasicEventSourceTests.ActivityTracking.SetCurrentActivityIdAfterEventDoesNotFlowAsync()
+--- End of stack trace from previous location ---]]></stack-trace>
+        </failure>
+      </test>
+      <test name="BasicEventSourceTests.ActivityTracking.ActivityIdIsZeroedOnThreadSwitchOut" type="BasicEventSourceTests.ActivityTracking" method="ActivityIdIsZeroedOnThreadSwitchOut" time="0" result="Skip">
+        <reason><![CDATA[Condition(s) not met: \"IsThreadingSupported\"]]></reason>
+      </test>
+      <test name="BasicEventSourceTests.ActivityTracking.IsSupported" type="BasicEventSourceTests.ActivityTracking" method="IsSupported" time="0.0013" result="Pass" />
+      <test name="BasicEventSourceTests.ActivityTracking.SetCurrentActivityIdBeforeEventFlowsAsync" type="BasicEventSourceTests.ActivityTracking" method="SetCurrentActivityIdBeforeEventFlowsAsync" time="0.0022999" result="Fail">
+        <failure exception-type="Xunit.Sdk.EqualException">
+          <message><![CDATA[Assert.Equal() Failure: Values differ\nExpected: 7647ae38-8825-4914-bf15-8ab6e93121eb\nActual:   00000000-0000-0000-0000-000000000000]]></message>
+          <stack-trace><![CDATA[   at BasicEventSourceTests.ActivityTracking.SetCurrentActivityIdBeforeEventFlowsAsync()
+--- End of stack trace from previous location ---]]></stack-trace>
+        </failure>
+      </test>
+      <test name="BasicEventSourceTests.ActivityTracking.StartStopCreatesActivity" type="BasicEventSourceTests.ActivityTracking" method="StartStopCreatesActivity" time="0.0032" result="Fail">
+        <failure exception-type="Xunit.Sdk.NotEqualException">
+          <message><![CDATA[Assert.NotEqual() Failure: Values are equal\nExpected: Not 00000000-0000-0000-0000-000000000000\nActual:       00000000-0000-0000-0000-000000000000]]></message>
+          <stack-trace><![CDATA[   at BasicEventSourceTests.ActivityTracking.StartStopCreatesActivity()
+   at System.RuntimeMethodHandle.InvokeMethod(ObjectHandleOnStack target, Void** arguments, ObjectHandleOnStack sig, BOOL isConstructor, ObjectHandleOnStack result)
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)]]></stack-trace>
+        </failure>
+      </test>
+      <test name="BasicEventSourceTests.TestFilter.TestFilterEvent" type="BasicEventSourceTests.TestFilter" method="TestFilterEvent" time="0.0025999" result="Pass" />
+      <test name="BasicEventSourceTests.TestNotSupported.TestBasicOperations_IsSupported_False" type="BasicEventSourceTests.TestNotSupported" method="TestBasicOperations_IsSupported_False" time="0" result="Skip">
+        <reason><![CDATA[Condition(s) not met: \"IsSupported\"]]></reason>
+      </test>
+      <test name="BasicEventSourceTests.TestsManifestGeneration.Test_EventSource_NamedEventSource" type="BasicEventSourceTests.TestsManifestGeneration" method="Test_EventSource_NamedEventSource" time="0.0022" result="Pass" />
+      <test name="BasicEventSourceTests.TestsManifestNegative.Test_GenerateManifest_InvalidEventSources" type="BasicEventSourceTests.TestsManifestNegative" method="Test_GenerateManifest_InvalidEventSources" time="0.0684" result="Pass" />
+      <test name="BasicEventSourceTests.TestsTraits.Test_EventSource_Traits_Dynamic" type="BasicEventSourceTests.TestsTraits" method="Test_EventSource_Traits_Dynamic" time="0.0056" result="Pass" />
+      <test name="BasicEventSourceTests.TestsTraits.Test_EventSource_Traits_Dynamic_Guid" type="BasicEventSourceTests.TestsTraits" method="Test_EventSource_Traits_Dynamic_Guid" time="0.0002999" result="Pass" />
+      <test name="BasicEventSourceTests.TestsTraits.Test_EventSource_Traits_Contract_Guid" type="BasicEventSourceTests.TestsTraits" method="Test_EventSource_Traits_Contract_Guid" time="0.0002" result="Pass" />
+      <test name="BasicEventSourceTests.TestsTraits.Test_EventSource_Traits_Contract" type="BasicEventSourceTests.TestsTraits" method="Test_EventSource_Traits_Contract" time="0.0011" result="Pass" />
+      <test name="BasicEventSourceTests.TestsTraits.Test_EventSource_Traits_Contract_Guid_Manifest" type="BasicEventSourceTests.TestsTraits" method="Test_EventSource_Traits_Contract_Guid_Manifest" time="0.0003" result="Pass" />
+      <test name="BasicEventSourceTests.TestsWriteEvent.Test_WriteEvent(listener: EventListener(UseEventsToListen=False), useSelfDescribingEvents: False)" type="BasicEventSourceTests.TestsWriteEvent" method="Test_WriteEvent" time="0.0692999" result="Pass" />
+      <test name="BasicEventSourceTests.TestsWriteEvent.Test_WriteEvent(listener: EventListener(UseEventsToListen=True), useSelfDescribingEvents: False)" type="BasicEventSourceTests.TestsWriteEvent" method="Test_WriteEvent" time="0.0277" result="Pass" />
+      <test name="BasicEventSourceTests.TestsWriteEvent.Test_WriteEvent(listener: EventListener(UseEventsToListen=False), useSelfDescribingEvents: True)" type="BasicEventSourceTests.TestsWriteEvent" method="Test_WriteEvent" time="0.0207999" result="Pass" />
+      <test name="BasicEventSourceTests.TestsWriteEvent.Test_WriteEvent(listener: EventListener(UseEventsToListen=True), useSelfDescribingEvents: True)" type="BasicEventSourceTests.TestsWriteEvent" method="Test_WriteEvent" time="0.0203" result="Pass" />
+      <test name="BasicEventSourceTests.TestsWriteEvent.Test_WriteEvent_ByteArray(listener: EventListener(UseEventsToListen=False), useSelfDescribingEvents: False)" type="BasicEventSourceTests.TestsWriteEvent" method="Test_WriteEvent_ByteArray" time="0.0086999" result="Pass" />
+      <test name="BasicEventSourceTests.TestsWriteEvent.Test_WriteEvent_ByteArray(listener: EventListener(UseEventsToListen=True), useSelfDescribingEvents: False)" type="BasicEventSourceTests.TestsWriteEvent" method="Test_WriteEvent_ByteArray" time="0.0052998" result="Pass" />
+      <test name="BasicEventSourceTests.TestsWriteEvent.Test_WriteEvent_ByteArray(listener: EventListener(UseEventsToListen=False), useSelfDescribingEvents: True)" type="BasicEventSourceTests.TestsWriteEvent" method="Test_WriteEvent_ByteArray" time="0.0041" result="Pass" />
+      <test name="BasicEventSourceTests.TestsWriteEvent.Test_WriteEvent_ByteArray(listener: EventListener(UseEventsToListen=True), useSelfDescribingEvents: True)" type="BasicEventSourceTests.TestsWriteEvent" method="Test_WriteEvent_ByteArray" time="0.0041999" result="Pass" />
+      <test name="BasicEventSourceTests.TestsWriteEvent.Test_WriteEvent_ComplexData_SelfDescribing(listener: EventListener(UseEventsToListen=False))" type="BasicEventSourceTests.TestsWriteEvent" method="Test_WriteEvent_ComplexData_SelfDescribing" time="0.0125" result="Pass" />
+      <test name="BasicEventSourceTests.TestsWriteEvent.Test_WriteEvent_ComplexData_SelfDescribing(listener: EventListener(UseEventsToListen=True))" type="BasicEventSourceTests.TestsWriteEvent" method="Test_WriteEvent_ComplexData_SelfDescribing" time="0.0065" result="Pass" />
+      <test name="BasicEventSourceTests.TestsWriteEvent.Test_WriteEvent_NoAttribute" type="BasicEventSourceTests.TestsWriteEvent" method="Test_WriteEvent_NoAttribute" time="0.0078999" result="Pass" />
+      <test name="BasicEventSourceTests.TestsWriteEventToListener.Test_WriteEvent_ToChannel_Coverage" type="BasicEventSourceTests.TestsWriteEventToListener" method="Test_WriteEvent_ToChannel_Coverage" time="0.0062999" result="Pass" />
+      <test name="BasicEventSourceTests.TestsWriteEventToListener.Test_EventListenerThrows_ExceptionIsNotRethrownToCaller(setThrowOnEventWriteErrorsFlag: True)" type="BasicEventSourceTests.TestsWriteEventToListener" method="Test_EventListenerThrows_ExceptionIsNotRethrownToCaller" time="0.0228" result="Pass" />
+      <test name="BasicEventSourceTests.TestsWriteEventToListener.Test_EventListenerThrows_ExceptionIsNotRethrownToCaller(setThrowOnEventWriteErrorsFlag: False)" type="BasicEventSourceTests.TestsWriteEventToListener" method="Test_EventListenerThrows_ExceptionIsNotRethrownToCaller" time="0.0203999" result="Pass" />
+      <test name="BasicEventSourceTests.TestsWriteEventToListener.Test_WriteEvent_ZeroKwds" type="BasicEventSourceTests.TestsWriteEventToListener" method="Test_WriteEvent_ZeroKwds" time="0.0213999" result="Pass" />
+      <test name="BasicEventSourceTests.TestsWriteEventToListener.Test_WriteEvent_ArgsBasicTypes" type="BasicEventSourceTests.TestsWriteEventToListener" method="Test_WriteEvent_ArgsBasicTypes" time="0.0397" result="Pass" />
+      <test name="BasicEventSourceTests.TestsWriteEventToListener.Test_EventSourceCreatedEvents_BeforeListener" type="BasicEventSourceTests.TestsWriteEventToListener" method="Test_EventSourceCreatedEvents_BeforeListener" time="1.0018999" result="Pass" />
+      <test name="BasicEventSourceTests.TestsWriteEventToListener.Test_WriteEvent_ArgsCornerCases" type="BasicEventSourceTests.TestsWriteEventToListener" method="Test_WriteEvent_ArgsCornerCases" time="0.0210999" result="Pass" />
+      <test name="BasicEventSourceTests.TestsWriteEventToListener.Test_EventSourceCreatedEvents_AfterListener" type="BasicEventSourceTests.TestsWriteEventToListener" method="Test_EventSourceCreatedEvents_AfterListener" time="1.0012" result="Pass" />
+      <test name="BasicEventSourceTests.TestsWriteEventToListener.Test_WriteEvent_InvalidCalls" type="BasicEventSourceTests.TestsWriteEventToListener" method="Test_WriteEvent_InvalidCalls" time="0.0023999" result="Pass" />
+      <test name="BasicEventSourceTests.TestsWrite.Test_Write_T(listener: EventListener(UseEventsToListen=False))" type="BasicEventSourceTests.TestsWrite" method="Test_Write_T" time="0.044" result="Fail">
+        <failure exception-type="Xunit.Sdk.EqualException">
+          <message><![CDATA[Assert.Equal() Failure: Values differ\nExpected: 42\nActual:   3]]></message>
+          <stack-trace><![CDATA[   at BasicEventSourceTests.EventTestHarness.RunTests(List`1 tests, Listener listener, EventSource source, FilteringOptions options)
+   at BasicEventSourceTests.TestsWrite.Test_Write_T_Helper(Listener listener)
+   at BasicEventSourceTests.TestsWrite.Test_Write_T(Listener listener)
+   at System.RuntimeMethodHandle.InvokeMethod(ObjectHandleOnStack target, Void** arguments, ObjectHandleOnStack sig, BOOL isConstructor, ObjectHandleOnStack result)
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeDirectByRefWithFewArgs(Object obj, Span`1 copyOfArgs, BindingFlags invokeAttr)]]></stack-trace>
+        </failure>
+      </test>
+      <test name="BasicEventSourceTests.TestsWrite.Test_Write_T(listener: EventListener(UseEventsToListen=True))" type="BasicEventSourceTests.TestsWrite" method="Test_Write_T" time="0.0207" result="Pass" />
+      <test name="BasicEventSourceTests.TestsUserErrors.Test_BadTypes_Manifest_UserClass" type="BasicEventSourceTests.TestsUserErrors" method="Test_BadTypes_Manifest_UserClass" time="0.0021" result="Pass" />
+      <test name="BasicEventSourceTests.TestsUserErrors.Test_BadEventSource_MismatchedIds" type="BasicEventSourceTests.TestsUserErrors" method="Test_BadEventSource_MismatchedIds" time="0.0081999" result="Pass" />
+    </collection>
+  </assembly>
+</assemblies>

@@ -1,0 +1,9 @@
+Test Comparison: System.IO.Packaging.Tests
+Generated: 2026-02-01T16:57:57+01:00
+
+Mono tests:    205
+CoreCLR tests: 205
+
+=== Extra in CoreCLR (0) ===
+
+=== Missing in CoreCLR (0) ===

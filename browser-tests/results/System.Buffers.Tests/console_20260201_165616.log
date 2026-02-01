@@ -1,0 +1,97 @@
+Running in: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/143.0.0.0 Safari/537.36
+Running at: http://127.0.0.1:43971/index.html?arg=--setenv%3dXHARNESS_LOG_TEST_START%3dtrue&arg=--run&arg=WasmTestRunner.dll&arg=System.Buffers.Tests.dll&arg=-parallelThreads&arg=1&arg=-notrait&arg=category%3dOuterLoop&arg=-notrait&arg=category%3dfailing&arg=-verbosity&arg=Info
+could not load /runArgs.json: 404. Ignoring
+Incoming arguments: --setenv=XHARNESS_LOG_TEST_START=true --run WasmTestRunner.dll System.Buffers.Tests.dll -parallelThreads 1 -notrait category=OuterLoop -notrait category=failing -verbosity Info
+Application arguments: --run WasmTestRunner.dll System.Buffers.Tests.dll -parallelThreads 1 -notrait category=OuterLoop -notrait category=failing -verbosity Info
+Initializing dotnet version 11.0.0 commit hash e31907b0fbca908ed525247a1dc38cc5fba7b0ff
+Using threadless Xunit runner
+Discovering: System.Buffers.Tests.dll (method display = ClassAndMethod, method display options = None)
+Discovered:  System.Buffers.Tests.dll (found 43 of 47 test cases)
+Starting:    System.Buffers.Tests.dll
+[STRT] System.Buffers.ArrayPool.Tests.ArrayPoolUnitTests.RentingBufferOverConfiguredMaximumSizeFiresDiagnosticEvent
+[STRT] System.Buffers.ArrayPool.Tests.ArrayPoolUnitTests.CallingReturnWithoutClearingDoesNotClearTheBuffer(pool: ConfigurableArrayPool`1 { })
+[STRT] System.Buffers.ArrayPool.Tests.ArrayPoolUnitTests.CallingReturnWithoutClearingDoesNotClearTheBuffer(pool: ConfigurableArrayPool`1 { })
+[STRT] System.Buffers.ArrayPool.Tests.ArrayPoolUnitTests.CallingReturnWithoutClearingDoesNotClearTheBuffer(pool: ConfigurableArrayPool`1 { })
+[STRT] System.Buffers.ArrayPool.Tests.ArrayPoolUnitTests.CallingReturnWithoutClearingDoesNotClearTheBuffer(pool: SharedArrayPool`1 { })
+[STRT] System.Buffers.ArrayPool.Tests.ArrayPoolUnitTests.ConfigurablePool_AllocatedArraysAreCleared_byte
+[STRT] System.Buffers.ArrayPool.Tests.ArrayPoolUnitTests.CallingReturnOnReferenceTypeArrayAndClearingSetsTypesToNull
+[STRT] System.Buffers.ArrayPool.Tests.ArrayPoolUnitTests.ReturningANonPooledBufferOfDifferentSizeToThePoolThrows(pool: ConfigurableArrayPool`1 { })
+[STRT] System.Buffers.ArrayPool.Tests.ArrayPoolUnitTests.ReturningANonPooledBufferOfDifferentSizeToThePoolThrows(pool: ConfigurableArrayPool`1 { })
+[STRT] System.Buffers.ArrayPool.Tests.ArrayPoolUnitTests.ReturningANonPooledBufferOfDifferentSizeToThePoolThrows(pool: ConfigurableArrayPool`1 { })
+[STRT] System.Buffers.ArrayPool.Tests.ArrayPoolUnitTests.ReturningANonPooledBufferOfDifferentSizeToThePoolThrows(pool: SharedArrayPool`1 { })
+[STRT] System.Buffers.ArrayPool.Tests.ArrayPoolUnitTests.SharedInstanceOnlyCreatesOneInstanceOfOneTypep
+[STRT] System.Buffers.ArrayPool.Tests.ArrayPoolUnitTests.Renting0LengthArrayReturnsSingleton(pool: ConfigurableArrayPool`1 { })
+[STRT] System.Buffers.ArrayPool.Tests.ArrayPoolUnitTests.Renting0LengthArrayReturnsSingleton(pool: ConfigurableArrayPool`1 { })
+[STRT] System.Buffers.ArrayPool.Tests.ArrayPoolUnitTests.Renting0LengthArrayReturnsSingleton(pool: ConfigurableArrayPool`1 { })
+[STRT] System.Buffers.ArrayPool.Tests.ArrayPoolUnitTests.Renting0LengthArrayReturnsSingleton(pool: SharedArrayPool`1 { })
+[STRT] System.Buffers.ArrayPool.Tests.ArrayPoolUnitTests.RentingAllBuffersAndCallingRentAgainWillAllocateBufferAndReturnIt
+[STRT] System.Buffers.ArrayPool.Tests.ArrayPoolUnitTests.ConfigurablePool_AllocatedArraysAreCleared_string
+[STRT] System.Buffers.ArrayPool.Tests.ArrayPoolUnitTests.CallingReturnOnReferenceTypeArrayDoesNotClearTheArray
+[STRT] System.Buffers.ArrayPool.Tests.ArrayPoolUnitTests.RentCanReturnBiggerArraySizeThanRequested
+[STRT] System.Buffers.ArrayPool.Tests.ArrayPoolUnitTests.RentingMoreArraysThanSpecifiedInCreateWillStillSucceed
+[STRT] System.Buffers.ArrayPool.Tests.ArrayPoolUnitTests.RentingMultipleArraysGivesBackDifferentInstances
+[STRT] System.Buffers.ArrayPool.Tests.ArrayPoolUnitTests.CallingReturnBufferWithNullBufferThrows(pool: ConfigurableArrayPool`1 { })
+[STRT] System.Buffers.ArrayPool.Tests.ArrayPoolUnitTests.CallingReturnBufferWithNullBufferThrows(pool: ConfigurableArrayPool`1 { })
+[STRT] System.Buffers.ArrayPool.Tests.ArrayPoolUnitTests.CallingReturnBufferWithNullBufferThrows(pool: ConfigurableArrayPool`1 { })
+[STRT] System.Buffers.ArrayPool.Tests.ArrayPoolUnitTests.CallingReturnBufferWithNullBufferThrows(pool: SharedArrayPool`1 { })
+[STRT] System.Buffers.ArrayPool.Tests.ArrayPoolUnitTests.RentingAfterPoolExhaustionReturnsSizeForCorrespondingBucket_SmallerThanLimit
+[STRT] System.Buffers.ArrayPool.Tests.ArrayPoolUnitTests.CreatingAPoolWithValidMaximumArraySizeSucceeds(length: 1)
+[STRT] System.Buffers.ArrayPool.Tests.ArrayPoolUnitTests.CreatingAPoolWithValidMaximumArraySizeSucceeds(length: 16)
+[STRT] System.Buffers.ArrayPool.Tests.ArrayPoolUnitTests.CreatingAPoolWithValidMaximumArraySizeSucceeds(length: 1073741824)
+[STRT] System.Buffers.ArrayPool.Tests.ArrayPoolUnitTests.CreatingAPoolWithValidMaximumArraySizeSucceeds(length: 2147483647)
+[STRT] System.Buffers.ArrayPool.Tests.ArrayPoolUnitTests.RentingAfterPoolExhaustionReturnsSizeForCorrespondingBucket_AtLimit
+[STRT] System.Buffers.ArrayPool.Tests.ArrayPoolUnitTests.ReturningToCreatePoolABufferGreaterThanMaxSizeDoesNotThrow
+[STRT] System.Buffers.ArrayPool.Tests.ArrayPoolUnitTests.RentingWithInvalidLengthThrows(pool: ConfigurableArrayPool`1 { })
+[STRT] System.Buffers.ArrayPool.Tests.ArrayPoolUnitTests.RentingWithInvalidLengthThrows(pool: ConfigurableArrayPool`1 { })
+[STRT] System.Buffers.ArrayPool.Tests.ArrayPoolUnitTests.RentingWithInvalidLengthThrows(pool: ConfigurableArrayPool`1 { })
+[STRT] System.Buffers.ArrayPool.Tests.ArrayPoolUnitTests.RentingWithInvalidLengthThrows(pool: SharedArrayPool`1 { })
+[STRT] System.Buffers.ArrayPool.Tests.ArrayPoolUnitTests.CreateWillCreateMultipleInstancesOfTheSameType
+[STRT] System.Buffers.ArrayPool.Tests.ArrayPoolUnitTests.RentingGiganticArraySucceedsOrOOMs
+[STRT] System.Buffers.ArrayPool.Tests.ArrayPoolUnitTests.CreatingAPoolWithInvalidMaximumArraySizeThrows(length: 0)
+[STRT] System.Buffers.ArrayPool.Tests.ArrayPoolUnitTests.CreatingAPoolWithInvalidMaximumArraySizeThrows(length: -1)
+[STRT] System.Buffers.ArrayPool.Tests.ArrayPoolUnitTests.ReturnBufferWhenFullFiresDroppedDiagnosticEvent
+[STRT] System.Buffers.ArrayPool.Tests.ArrayPoolUnitTests.RentingAfterPoolExhaustionReturnsSizeForCorrespondingBucket_JustBelowLimit
+[STRT] System.Buffers.ArrayPool.Tests.ArrayPoolUnitTests.CreatingAPoolWithInvalidArrayCountThrows(length: 0)
+[STRT] System.Buffers.ArrayPool.Tests.ArrayPoolUnitTests.CreatingAPoolWithInvalidArrayCountThrows(length: -1)
+[STRT] System.Buffers.ArrayPool.Tests.ArrayPoolUnitTests.RentingManyBuffersFiresExpectedDiagnosticEvents
+[STRT] System.Buffers.ArrayPool.Tests.ArrayPoolUnitTests.ConfigurablePool_AllocatedArraysAreCleared_DateTime
+[STRT] System.Buffers.ArrayPool.Tests.ArrayPoolUnitTests.TakingAllBuffersFromABucketPlusAnAllocatedOneShouldAllowReturningAllBuffers
+[STRT] System.Buffers.ArrayPool.Tests.ArrayPoolUnitTests.RentingSpecificLengthsYieldsExpectedLengths(requestedMinimum: 1, expectedLength: 16)
+[STRT] System.Buffers.ArrayPool.Tests.ArrayPoolUnitTests.RentingSpecificLengthsYieldsExpectedLengths(requestedMinimum: 15, expectedLength: 16)
+[STRT] System.Buffers.ArrayPool.Tests.ArrayPoolUnitTests.RentingSpecificLengthsYieldsExpectedLengths(requestedMinimum: 16, expectedLength: 16)
+[STRT] System.Buffers.ArrayPool.Tests.ArrayPoolUnitTests.RentingSpecificLengthsYieldsExpectedLengths(requestedMinimum: 1023, expectedLength: 1024)
+[STRT] System.Buffers.ArrayPool.Tests.ArrayPoolUnitTests.RentingSpecificLengthsYieldsExpectedLengths(requestedMinimum: 1024, expectedLength: 1024)
+[STRT] System.Buffers.ArrayPool.Tests.ArrayPoolUnitTests.RentingSpecificLengthsYieldsExpectedLengths(requestedMinimum: 4096, expectedLength: 4096)
+[STRT] System.Buffers.ArrayPool.Tests.ArrayPoolUnitTests.RentingSpecificLengthsYieldsExpectedLengths(requestedMinimum: 1048576, expectedLength: 1048576)
+[STRT] System.Buffers.ArrayPool.Tests.ArrayPoolUnitTests.RentingSpecificLengthsYieldsExpectedLengths(requestedMinimum: 1048577, expectedLength: 2097152)
+[STRT] System.Buffers.ArrayPool.Tests.ArrayPoolUnitTests.RentingSpecificLengthsYieldsExpectedLengths(requestedMinimum: 2097152, expectedLength: 2097152)
+[STRT] System.Buffers.ArrayPool.Tests.ArrayPoolUnitTests.SharedInstanceCreatesAnInstanceOnFirstCall
+[STRT] System.Buffers.ArrayPool.Tests.ArrayPoolUnitTests.ReturnBufferFiresDiagnosticEvent
+[STRT] System.Buffers.ArrayPool.Tests.ArrayPoolUnitTests.RentingNonExistentBufferFiresAllocatedDiagnosticEvent
+[STRT] System.Buffers.ArrayPool.Tests.ArrayPoolUnitTests.CallingReturnWithClearingDoesClearTheBuffer(pool: ConfigurableArrayPool`1 { })
+[STRT] System.Buffers.ArrayPool.Tests.ArrayPoolUnitTests.CallingReturnWithClearingDoesClearTheBuffer(pool: ConfigurableArrayPool`1 { })
+[STRT] System.Buffers.ArrayPool.Tests.ArrayPoolUnitTests.CallingReturnWithClearingDoesClearTheBuffer(pool: ConfigurableArrayPool`1 { })
+[STRT] System.Buffers.ArrayPool.Tests.ArrayPoolUnitTests.CallingReturnWithClearingDoesClearTheBuffer(pool: SharedArrayPool`1 { })
+[STRT] System.Buffers.ArrayPool.Tests.ArrayPoolUnitTests.RentBufferFiresRentedDiagnosticEvent
+[STRT] System.Buffers.ArrayPool.Tests.ArrayPoolUnitTests.SharedPool_SetEnvironmentVariables_ValuesRespected
+[STRT] System.Buffers.ArrayPool.Tests.ArrayPoolUnitTests.RentingReturningThenRentingABufferShouldNotAllocate
+[STRT] System.Buffers.ArrayPool.Tests.ArrayPoolUnitTests.NewDefaultArrayPoolWithSmallBufferSizeRoundsToOurSmallestSupportedSize
+[STRT] System.Buffers.ArrayPool.Tests.ArrayPoolUnitTests.CallingReturnOnValueTypeWithInternalReferenceTypesAndClearingSetsValueTypeToDefault
+[STRT] System.Buffers.ArrayPool.Tests.ArrayPoolUnitTests.RentAndReturnManyOfTheSameSize_NoneAreSame(pool: ConfigurableArrayPool`1 { })
+[STRT] System.Buffers.ArrayPool.Tests.ArrayPoolUnitTests.RentAndReturnManyOfTheSameSize_NoneAreSame(pool: ConfigurableArrayPool`1 { })
+[STRT] System.Buffers.ArrayPool.Tests.ArrayPoolUnitTests.RentAndReturnManyOfTheSameSize_NoneAreSame(pool: ConfigurableArrayPool`1 { })
+[STRT] System.Buffers.ArrayPool.Tests.ArrayPoolUnitTests.RentAndReturnManyOfTheSameSize_NoneAreSame(pool: SharedArrayPool`1 { })
+[STRT] System.Buffers.ArrayPool.Tests.ArrayPoolUnitTests.CanRentManySizedBuffers
+[STRT] System.Buffers.ArrayPool.Tests.ArrayPoolUnitTests.RentingAnArrayWithLengthGreaterThanSpecifiedInCreateStillSucceeds
+[STRT] System.Buffers.ArrayPool.Tests.ArrayPoolUnitTests.UsePoolInParallel
+[STRT] System.Buffers.ArrayPool.Tests.CollectionTests.ThreadLocalIsCollectedUnderHighPressure
+Finished:    System.Buffers.Tests.dll
+Finished uploading 23212 bytes of RESULTXML
+Xml file was written to the provided writer.
+
+=== TEST EXECUTION SUMMARY ===
+Tests run: 77 Passed: 66 Inconclusive: 0 Failed: 0 Ignored: 0 Skipped: 11
+
+test-main.js exiting WasmTestRunner.dll System.Buffers.Tests.dll after 0.21336666666666668 minutes with result 0 and linear memory 334102528 bytes
+DOTNET: forceDisposeProxies done: 14 imports, 0 exports, 0 GCHandles, 0 JSHandles.
+WASM EXIT 0

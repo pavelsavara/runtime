@@ -1,0 +1,29 @@
+
+  Determining projects to restore...
+  Restored /home/pavelsavara/dev/runtime/src/libraries/System.Reflection.MetadataLoadContext/tests/System.Reflection.MetadataLoadContext.Tests.csproj (in 205 ms).
+  50 of 51 projects are up-to-date for restore.
+  TestUtilities -> /home/pavelsavara/dev/runtime/artifacts/bin/TestUtilities/Release/net10.0/TestUtilities.dll
+  ILLink.RoslynAnalyzer -> /home/pavelsavara/dev/runtime/artifacts/bin/ILLink.RoslynAnalyzer/Release/netstandard2.0/ILLink.RoslynAnalyzer.dll
+  ILLink.CodeFixProvider -> /home/pavelsavara/dev/runtime/artifacts/bin/ILLink.CodeFixProvider/Release/netstandard2.0/ILLink.CodeFixProvider.dll
+  Mono.Linker -> /home/pavelsavara/dev/runtime/artifacts/bin/Mono.Linker/ref/Release/net11.0/illink.dll
+  Mono.Linker -> /home/pavelsavara/dev/runtime/artifacts/bin/Mono.Linker/Release/net11.0/illink.dll
+  ILLink.Tasks -> /home/pavelsavara/dev/runtime/artifacts/bin/ILLink.Tasks/Release/net/ILLink.Tasks.dll
+  System.Reflection.MetadataLoadContext -> /home/pavelsavara/dev/runtime/artifacts/bin/System.Reflection.MetadataLoadContext/ref/Release/net11.0/System.Reflection.MetadataLoadContext.dll
+  System.Reflection.MetadataLoadContext -> /home/pavelsavara/dev/runtime/artifacts/bin/System.Reflection.MetadataLoadContext/Release/net11.0/System.Reflection.MetadataLoadContext.dll
+  TestILAssembly -> /home/pavelsavara/dev/runtime/artifacts/bin/TestILAssembly/Release/netstandard2.0/TestILAssembly.dll
+  WasmTriggerPublishApp for CoreCLR not implemented
+/home/pavelsavara/dev/runtime/eng/testing/tests.browser.targets(263,5): error : System.InvalidOperationException: No file exists for the asset at either location '/home/pavelsavara/dev/runtime/artifacts/bin/System.Reflection.MetadataLoadContext.Tests/Release/net11.0/browser-wasm/publish/System.Private.CoreLib.dll' or '/home/pavelsavara/dev/runtime/artifacts/bin/System.Reflection.MetadataLoadContext.Tests/Release/net11.0/browser-wasm/publish/System.Private.CoreLib.dll'. [/home/pavelsavara/dev/runtime/src/libraries/System.Reflection.MetadataLoadContext/tests/System.Reflection.MetadataLoadContext.Tests.csproj::TargetFramework=net11.0]
+/home/pavelsavara/dev/runtime/eng/testing/tests.browser.targets(263,5): error :    at Microsoft.AspNetCore.StaticWebAssets.Tasks.StaticWebAsset.ResolveFile(String identity, String originalItemSpec) [/home/pavelsavara/dev/runtime/src/libraries/System.Reflection.MetadataLoadContext/tests/System.Reflection.MetadataLoadContext.Tests.csproj::TargetFramework=net11.0]
+/home/pavelsavara/dev/runtime/eng/testing/tests.browser.targets(263,5): error :    at Microsoft.AspNetCore.StaticWebAssets.Tasks.DefineStaticWebAssets.ResolveFileDetails(String originalItemSpec, String identity) [/home/pavelsavara/dev/runtime/src/libraries/System.Reflection.MetadataLoadContext/tests/System.Reflection.MetadataLoadContext.Tests.csproj::TargetFramework=net11.0]
+/home/pavelsavara/dev/runtime/eng/testing/tests.browser.targets(263,5): error :    at Microsoft.AspNetCore.StaticWebAssets.Tasks.DefineStaticWebAssets.Execute() [/home/pavelsavara/dev/runtime/src/libraries/System.Reflection.MetadataLoadContext/tests/System.Reflection.MetadataLoadContext.Tests.csproj::TargetFramework=net11.0]
+
+Build FAILED.
+
+/home/pavelsavara/dev/runtime/eng/testing/tests.browser.targets(263,5): error : System.InvalidOperationException: No file exists for the asset at either location '/home/pavelsavara/dev/runtime/artifacts/bin/System.Reflection.MetadataLoadContext.Tests/Release/net11.0/browser-wasm/publish/System.Private.CoreLib.dll' or '/home/pavelsavara/dev/runtime/artifacts/bin/System.Reflection.MetadataLoadContext.Tests/Release/net11.0/browser-wasm/publish/System.Private.CoreLib.dll'. [/home/pavelsavara/dev/runtime/src/libraries/System.Reflection.MetadataLoadContext/tests/System.Reflection.MetadataLoadContext.Tests.csproj::TargetFramework=net11.0]
+/home/pavelsavara/dev/runtime/eng/testing/tests.browser.targets(263,5): error :    at Microsoft.AspNetCore.StaticWebAssets.Tasks.StaticWebAsset.ResolveFile(String identity, String originalItemSpec) [/home/pavelsavara/dev/runtime/src/libraries/System.Reflection.MetadataLoadContext/tests/System.Reflection.MetadataLoadContext.Tests.csproj::TargetFramework=net11.0]
+/home/pavelsavara/dev/runtime/eng/testing/tests.browser.targets(263,5): error :    at Microsoft.AspNetCore.StaticWebAssets.Tasks.DefineStaticWebAssets.ResolveFileDetails(String originalItemSpec, String identity) [/home/pavelsavara/dev/runtime/src/libraries/System.Reflection.MetadataLoadContext/tests/System.Reflection.MetadataLoadContext.Tests.csproj::TargetFramework=net11.0]
+/home/pavelsavara/dev/runtime/eng/testing/tests.browser.targets(263,5): error :    at Microsoft.AspNetCore.StaticWebAssets.Tasks.DefineStaticWebAssets.Execute() [/home/pavelsavara/dev/runtime/src/libraries/System.Reflection.MetadataLoadContext/tests/System.Reflection.MetadataLoadContext.Tests.csproj::TargetFramework=net11.0]
+    0 Warning(s)
+    1 Error(s)
+
+Time Elapsed 00:00:04.97

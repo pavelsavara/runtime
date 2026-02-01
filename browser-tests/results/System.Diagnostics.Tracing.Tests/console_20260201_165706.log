@@ -1,0 +1,96 @@
+Running in: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/143.0.0.0 Safari/537.36
+Running at: http://127.0.0.1:42957/index.html?arg=--setenv%3dXHARNESS_LOG_TEST_START%3dtrue&arg=--run&arg=WasmTestRunner.dll&arg=System.Diagnostics.Tracing.Tests.dll&arg=-notrait&arg=category%3dOuterLoop&arg=-notrait&arg=category%3dfailing&arg=-verbosity&arg=Info
+could not load /runArgs.json: 404. Ignoring
+Incoming arguments: --setenv=XHARNESS_LOG_TEST_START=true --run WasmTestRunner.dll System.Diagnostics.Tracing.Tests.dll -notrait category=OuterLoop -notrait category=failing -verbosity Info
+Application arguments: --run WasmTestRunner.dll System.Diagnostics.Tracing.Tests.dll -notrait category=OuterLoop -notrait category=failing -verbosity Info
+Initializing dotnet version 11.0.0 commit hash e31907b0fbca908ed525247a1dc38cc5fba7b0ff
+Using threadless Xunit runner
+Discovering: System.Diagnostics.Tracing.Tests.dll (method display = ClassAndMethod, method display options = None)
+Discovered:  System.Diagnostics.Tracing.Tests.dll (found 30 of 35 test cases)
+Starting:    System.Diagnostics.Tracing.Tests.dll
+[STRT] BasicEventSourceTests.ActivityTracking.ActivityFlowsAsync
+[FAIL] BasicEventSourceTests.ActivityTracking.ActivityFlowsAsync
+Assert.NotEqual() Failure: Values are equal
+Expected: Not 00000000-0000-0000-0000-000000000000
+Actual:       00000000-0000-0000-0000-000000000000
+   at BasicEventSourceTests.ActivityTracking.ActivityFlowsAsync()
+--- End of stack trace from previous location ---
+[STRT] BasicEventSourceTests.ActivityTracking.SetCurrentActivityIdAfterEventDoesNotFlowAsync
+[FAIL] BasicEventSourceTests.ActivityTracking.SetCurrentActivityIdAfterEventDoesNotFlowAsync
+Assert.Equal() Failure: Values differ
+Expected: 900d8b94-2b76-426c-82aa-4588a2d8e7c9
+Actual:   00000000-0000-0000-0000-000000000000
+   at BasicEventSourceTests.ActivityTracking.SetCurrentActivityIdAfterEventDoesNotFlowAsync()
+--- End of stack trace from previous location ---
+[STRT] BasicEventSourceTests.ActivityTracking.ActivityIdIsZeroedOnThreadSwitchOut
+[STRT] BasicEventSourceTests.ActivityTracking.IsSupported
+[STRT] BasicEventSourceTests.ActivityTracking.SetCurrentActivityIdBeforeEventFlowsAsync
+[FAIL] BasicEventSourceTests.ActivityTracking.SetCurrentActivityIdBeforeEventFlowsAsync
+Assert.Equal() Failure: Values differ
+Expected: 7647ae38-8825-4914-bf15-8ab6e93121eb
+Actual:   00000000-0000-0000-0000-000000000000
+   at BasicEventSourceTests.ActivityTracking.SetCurrentActivityIdBeforeEventFlowsAsync()
+--- End of stack trace from previous location ---
+[STRT] BasicEventSourceTests.ActivityTracking.StartStopCreatesActivity
+[FAIL] BasicEventSourceTests.ActivityTracking.StartStopCreatesActivity
+Assert.NotEqual() Failure: Values are equal
+Expected: Not 00000000-0000-0000-0000-000000000000
+Actual:       00000000-0000-0000-0000-000000000000
+   at BasicEventSourceTests.ActivityTracking.StartStopCreatesActivity()
+   at System.RuntimeMethodHandle.InvokeMethod(ObjectHandleOnStack target, Void** arguments, ObjectHandleOnStack sig, BOOL isConstructor, ObjectHandleOnStack result)
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+[STRT] BasicEventSourceTests.TestFilter.TestFilterEvent
+[STRT] BasicEventSourceTests.TestNotSupported.TestBasicOperations_IsSupported_False
+[STRT] BasicEventSourceTests.TestsManifestGeneration.Test_EventSource_NamedEventSource
+[STRT] BasicEventSourceTests.TestsManifestNegative.Test_GenerateManifest_InvalidEventSources
+[STRT] BasicEventSourceTests.TestsTraits.Test_EventSource_Traits_Dynamic
+[STRT] BasicEventSourceTests.TestsTraits.Test_EventSource_Traits_Dynamic_Guid
+[STRT] BasicEventSourceTests.TestsTraits.Test_EventSource_Traits_Contract_Guid
+[STRT] BasicEventSourceTests.TestsTraits.Test_EventSource_Traits_Contract
+[STRT] BasicEventSourceTests.TestsTraits.Test_EventSource_Traits_Contract_Guid_Manifest
+[STRT] BasicEventSourceTests.TestsWriteEvent.Test_WriteEvent(listener: EventListener(UseEventsToListen=False), useSelfDescribingEvents: False)
+[STRT] BasicEventSourceTests.TestsWriteEvent.Test_WriteEvent(listener: EventListener(UseEventsToListen=True), useSelfDescribingEvents: False)
+[STRT] BasicEventSourceTests.TestsWriteEvent.Test_WriteEvent(listener: EventListener(UseEventsToListen=False), useSelfDescribingEvents: True)
+[STRT] BasicEventSourceTests.TestsWriteEvent.Test_WriteEvent(listener: EventListener(UseEventsToListen=True), useSelfDescribingEvents: True)
+[STRT] BasicEventSourceTests.TestsWriteEvent.Test_WriteEvent_ByteArray(listener: EventListener(UseEventsToListen=False), useSelfDescribingEvents: False)
+[STRT] BasicEventSourceTests.TestsWriteEvent.Test_WriteEvent_ByteArray(listener: EventListener(UseEventsToListen=True), useSelfDescribingEvents: False)
+[STRT] BasicEventSourceTests.TestsWriteEvent.Test_WriteEvent_ByteArray(listener: EventListener(UseEventsToListen=False), useSelfDescribingEvents: True)
+[STRT] BasicEventSourceTests.TestsWriteEvent.Test_WriteEvent_ByteArray(listener: EventListener(UseEventsToListen=True), useSelfDescribingEvents: True)
+[STRT] BasicEventSourceTests.TestsWriteEvent.Test_WriteEvent_ComplexData_SelfDescribing(listener: EventListener(UseEventsToListen=False))
+[STRT] BasicEventSourceTests.TestsWriteEvent.Test_WriteEvent_ComplexData_SelfDescribing(listener: EventListener(UseEventsToListen=True))
+[STRT] BasicEventSourceTests.TestsWriteEvent.Test_WriteEvent_NoAttribute
+[STRT] BasicEventSourceTests.TestsWriteEventToListener.Test_WriteEvent_ToChannel_Coverage
+[STRT] BasicEventSourceTests.TestsWriteEventToListener.Test_EventListenerThrows_ExceptionIsNotRethrownToCaller(setThrowOnEventWriteErrorsFlag: True)
+[STRT] BasicEventSourceTests.TestsWriteEventToListener.Test_EventListenerThrows_ExceptionIsNotRethrownToCaller(setThrowOnEventWriteErrorsFlag: False)
+[STRT] BasicEventSourceTests.TestsWriteEventToListener.Test_WriteEvent_ZeroKwds
+[STRT] BasicEventSourceTests.TestsWriteEventToListener.Test_WriteEvent_ArgsBasicTypes
+[STRT] BasicEventSourceTests.TestsWriteEventToListener.Test_EventSourceCreatedEvents_BeforeListener
+[STRT] BasicEventSourceTests.TestsWriteEventToListener.Test_WriteEvent_ArgsCornerCases
+[STRT] BasicEventSourceTests.TestsWriteEventToListener.Test_EventSourceCreatedEvents_AfterListener
+[STRT] BasicEventSourceTests.TestsWriteEventToListener.Test_WriteEvent_InvalidCalls
+[STRT] BasicEventSourceTests.TestsWrite.Test_Write_T(listener: EventListener(UseEventsToListen=False))
+[FAIL] BasicEventSourceTests.TestsWrite.Test_Write_T(listener: EventListener(UseEventsToListen=False))
+Assert.Equal() Failure: Values differ
+Expected: 42
+Actual:   3
+   at BasicEventSourceTests.EventTestHarness.RunTests(List`1 tests, Listener listener, EventSource source, FilteringOptions options)
+   at BasicEventSourceTests.TestsWrite.Test_Write_T_Helper(Listener listener)
+   at BasicEventSourceTests.TestsWrite.Test_Write_T(Listener listener)
+   at System.RuntimeMethodHandle.InvokeMethod(ObjectHandleOnStack target, Void** arguments, ObjectHandleOnStack sig, BOOL isConstructor, ObjectHandleOnStack result)
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeDirectByRefWithFewArgs(Object obj, Span`1 copyOfArgs, BindingFlags invokeAttr)
+[STRT] BasicEventSourceTests.TestsWrite.Test_Write_T(listener: EventListener(UseEventsToListen=True))
+[STRT] BasicEventSourceTests.TestsUserErrors.Test_BadTypes_Manifest_UserClass
+[STRT] BasicEventSourceTests.TestsUserErrors.Test_BadEventSource_MismatchedIds
+Finished:    System.Diagnostics.Tracing.Tests.dll
+Finished uploading 13089 bytes of RESULTXML
+Xml file was written to the provided writer.
+
+=== TEST EXECUTION SUMMARY ===
+Tests run: 39 Passed: 32 Inconclusive: 0 Failed: 5 Ignored: 0 Skipped: 2
+
+test-main.js exiting WasmTestRunner.dll System.Diagnostics.Tracing.Tests.dll after 0.05591666666666667 minutes with result 1 and linear memory 193331200 bytes
+WASM EXIT 1

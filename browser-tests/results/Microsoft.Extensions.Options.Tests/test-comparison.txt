@@ -1,5 +1,5 @@
 Test Comparison: Microsoft.Extensions.Options.Tests
-Generated: 2026-01-30T10:51:12+01:00
+Generated: 2026-02-01T16:53:54+01:00
 
 Mono tests:    115
 CoreCLR tests: 113
