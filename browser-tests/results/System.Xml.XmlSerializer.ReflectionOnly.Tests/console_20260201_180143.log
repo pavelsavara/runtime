@@ -1,0 +1,346 @@
+Running in: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/143.0.0.0 Safari/537.36
+Running at: http://127.0.0.1:32813/index.html?arg=--setenv%3dXHARNESS_LOG_TEST_START%3dtrue&arg=--run&arg=WasmTestRunner.dll&arg=System.Xml.XmlSerializer.ReflectionOnly.Tests.dll&arg=-notrait&arg=category%3dOuterLoop&arg=-notrait&arg=category%3dfailing&arg=-verbosity&arg=Info
+could not load /runArgs.json: 404. Ignoring
+Incoming arguments: --setenv=XHARNESS_LOG_TEST_START=true --run WasmTestRunner.dll System.Xml.XmlSerializer.ReflectionOnly.Tests.dll -notrait category=OuterLoop -notrait category=failing -verbosity Info
+Application arguments: --run WasmTestRunner.dll System.Xml.XmlSerializer.ReflectionOnly.Tests.dll -notrait category=OuterLoop -notrait category=failing -verbosity Info
+Initializing dotnet version 11.0.0 commit hash e31907b0fbca908ed525247a1dc38cc5fba7b0ff
+Using threadless Xunit runner
+Discovering: System.Xml.XmlSerializer.ReflectionOnly.Tests.dll (method display = ClassAndMethod, method display options = None)
+Discovered:  System.Xml.XmlSerializer.ReflectionOnly.Tests.dll (found 266 of 279 test cases)
+Starting:    System.Xml.XmlSerializer.ReflectionOnly.Tests.dll
+[STRT] XmlSerializerTests.Xml_Soap_TypeWithMyCollectionField
+[STRT] XmlSerializerTests.Xml_XmlAttributes_RemoveXmlElementAttribute
+[STRT] XmlSerializerTests.XmlSerializationReaderWriterTest
+[STRT] XmlSerializerTests.Xml_Soap_TypeWithXmlQualifiedName
+[STRT] XmlSerializerTests.Xml_ByteArrayNull
+[STRT] XmlSerializerTests.Xml_UintAsRoot
+[STRT] XmlSerializerTests.Xml_DefaultValueAttributeSetToNaNTest
+[STRT] XmlSerializerTests.Xml_XmlAttributes_CtorWithNullArgument
+[STRT] XmlSerializerTests.Xml_SerializedFormat
+[STRT] XmlSerializerTests.Xml_XmlQualifiedNameAsRoot
+[STRT] XmlSerializerTests.Xml_NamespaceTypeNameClashTest
+[STRT] XmlSerializerTests.Xml_Soap_TypeWithNullableFields
+[STRT] XmlSerializerTests.XmlUnknownNodeAndEventHandlerTest
+[STRT] XmlSerializerTests.Xml_XmlAttributes_RemoveXmlAnyElementAttributeThrowsOnMissingItem
+[STRT] XmlSerializerTests.Xml_VerifyCompilationIssueOnly
+[STRT] XmlSerializerTests.Xml_WithArrayOfXElement
+[STRT] XmlSerializerTests.Xml_DeserializeHiddenMembersTest
+[FAIL] XmlSerializerTests.Xml_DeserializeHiddenMembersTest
+System.InvalidOperationException : There is an error in XML document (1, 59).
+---- System.NullReferenceException : Object reference not set to an instance of an object.
+   at System.Xml.Serialization.XmlSerializer.Deserialize(XmlReader xmlReader, String encodingStyle, XmlDeserializationEvents events)
+   at System.Xml.Serialization.XmlSerializer.Deserialize(XmlReader xmlReader, String encodingStyle)
+   at System.Xml.Serialization.XmlSerializer.Deserialize(TextReader textReader)
+   at XmlSerializerTests.Xml_DeserializeHiddenMembersTest()
+   at System.RuntimeMethodHandle.InvokeMethod(ObjectHandleOnStack target, Void** arguments, ObjectHandleOnStack sig, BOOL isConstructor, ObjectHandleOnStack result)
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+----- Inner Stack Trace -----
+   at System.Text.ValueStringBuilder.AppendFormatHelper(IFormatProvider provider, String format, ReadOnlySpan`1 args)
+   at System.String.FormatHelper(IFormatProvider provider, String format, ReadOnlySpan`1 args)
+   at System.String.Format(String format, Object arg0, Object arg1)
+   at System.SR.Format(String resourceFormat, Object p1, Object p2)
+   at System.Xml.Schema.XsdDateTime..ctor(String text, XsdDateTimeFlags kinds)
+   at System.Xml.XmlConvert.ToDateTime(String s, XmlDateTimeSerializationMode dateTimeOption)
+   at System.Xml.Serialization.XmlCustomFormatter.ToDateTime(String value)
+   at System.Xml.Serialization.XmlSerializationReader.ToDateTime(String value)
+   at System.RuntimeMethodHandle.InvokeMethod(ObjectHandleOnStack target, Void** arguments, ObjectHandleOnStack sig, BOOL isConstructor, ObjectHandleOnStack result)
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeDirectByRefWithFewArgs(Object obj, Span`1 copyOfArgs, BindingFlags invokeAttr)
+[STRT] XmlSerializerTests.Xml_Enums
+[STRT] XmlSerializerTests.Xml_Soap_Enum_With_SoapEnumOverrides
+[STRT] XmlSerializerTests.Xml_Soap_ComplexField
+[STRT] XmlSerializerTests.Xml_DeserializeOutOfRangeByteProperty
+[STRT] XmlSerializerTests.Xml_XsdValidationAndDeserialization
+[STRT] XmlSerializerTests.Xml_XmlTextAttributeTest
+[STRT] XmlSerializerTests.XML_TypeWithXmlTextAttributeOnArray
+[STRT] XmlSerializerTests.Xml_TimeSpanAsRoot
+[STRT] XmlSerializerTests.Xml_XSCoverTest
+[STRT] XmlSerializerTests.Xml_EnumerableGenericRoot
+[STRT] XmlSerializerTests.Xml_HighScoreManager
+[STRT] XmlSerializerTests.Xml_CharAsRoot
+[STRT] XmlSerializerTests.Xml_Soap_Basic_FromMappings
+[STRT] XmlSerializerTests.XML_TypeWithByteArrayAsXmlAttribute
+[STRT] XmlSerializerTests.XmlMembersMapping_Member_With_XmlAnyAttribute
+[STRT] XmlSerializerTests.Xml_IntAsRoot
+[STRT] XmlSerializerTests.XmlMembersMapping_IntList
+[STRT] XmlSerializerTests.Xml_KnownTypesThroughConstructor
+[STRT] XmlSerializerTests.Xml_EnumFlags
+[STRT] XmlSerializerTests.Xml_PublicTypeWithNestedPublicTypeWithNestedPublicType
+[STRT] XmlSerializerTests.Xml_TypeWithNonParameterlessConstructor
+[STRT] XmlSerializerTests.XmlMembersMapping_Soap_CompositeType
+[STRT] XmlSerializerTests.Xml_ObjectAsRoot
+[STRT] XmlSerializerTests.Xml_WithXElement
+[STRT] XmlSerializerTests.Xml_TypeNamesWithSpecialCharacters
+[STRT] XmlSerializerTests.Xml_DCClassWithEnumAndStruct
+[STRT] XmlSerializerTests.Xml_FloatAsRoot
+[STRT] XmlSerializerTests.XmlMembersMapping_Member_With_XmlAnyAttribute_Specified_True
+[STRT] XmlSerializerTests.Xml_DeserializeEmptyDateTimeOffsetType
+[STRT] XmlSerializerTests.SerializeWithDefaultValueSetToPositiveInfinityTest
+[STRT] XmlSerializerTests.Xml_EnumerableRoot
+[STRT] XmlSerializerTests.Xml_DifferentSerializeDeserializeOverloads
+[STRT] XmlSerializerTests.Xml_XmlIncludedTypesInCollectionSingle
+[STRT] XmlSerializerTests.VerifyRestrictionElementForTimeSpanTest
+[STRT] XmlSerializerTests.Xml_TypeWithFieldNameEndBySpecified
+[STRT] XmlSerializerTests.XmlUnknownElementAndEventHandlerTest
+[STRT] XmlSerializerTests.Xml_HiddenMembersChangeMappings
+[STRT] XmlSerializerTests.Xml_CollectionRoot
+[STRT] XmlSerializerTests.Xml_ValidateExceptionOnUnspecifiedRootSerializationType
+[STRT] XmlSerializerTests.Xml_TypeWithShouldSerializeMethod_WithNonDefaultValue
+[STRT] XmlSerializerTests.Xml_Soap_With_SoapType
+[STRT] XmlSerializerTests.XmlSchemaTest
+[STRT] XmlSerializerTests.XML_TypeWithXmlSchemaFormAttribute
+[STRT] XmlSerializerTests.Xml_DefaultNamespaceChange_ObjectAsRoot
+[STRT] XmlSerializerTests.XmlSerializerVersionAttributeTest
+[STRT] XmlSerializerTests.Xml_ConstructorWithTypeMapping
+[STRT] XmlSerializerTests.XML_XmlSchemaWithNamespacesWriteWithNamespaceManager
+[STRT] XmlSerializerTests.Xml_FromMappings
+[STRT] XmlSerializerTests.Xml_DateOnlyParseErrors(badDateString: "1-1-1")
+[STRT] XmlSerializerTests.Xml_DateOnlyParseErrors(badDateString: "0079-08-24+02:00")
+[STRT] XmlSerializerTests.Xml_DateOnlyParseErrors(badDateString: "1912-04-15Z")
+[STRT] XmlSerializerTests.Xml_DateOnlyParseErrors(badDateString: "1917-12-6")
+[STRT] XmlSerializerTests.Xml_DateOnlyParseErrors(badDateString: "1937-5-06")
+[STRT] XmlSerializerTests.Xml_DateOnlyParseErrors(badDateString: "98-01-01")
+[STRT] XmlSerializerTests.XmlDeserializationEventsTest
+[STRT] XmlSerializerTests.Xml_SbyteAsRoot
+[STRT] XmlSerializerTests.Xml_TypeWithNestedPublicType
+[STRT] XmlSerializerTests.XmlMembersMapping_Soap_MemberSpecified_True
+[STRT] XmlSerializerTests.XmlMembersMapping_MultipleMembers_IsReturnValue
+[STRT] XmlSerializerTests.Xml_Soap_Dictionary
+[STRT] XmlSerializerTests.Xml_SimpleType
+[STRT] XmlSerializerTests.Xml_NullRefInXmlSerializerCtorTest
+[STRT] XmlSerializerTests.Xml_TypeWithPropertiesHavingDefaultValue_DefaultValue
+[STRT] XmlSerializerTests.Xml_TestIgnoreWhitespaceForDeserialization
+[STRT] XmlSerializerTests.Xml_TypeWithMyCollectionField
+[STRT] XmlSerializerTests.Xml_ConstructorWithXmlAttributeOverrides
+[STRT] XmlSerializerTests.Xml_TypeWithArrayPropertyHavingComplexChoice
+[STRT] XmlSerializerTests.Xml_CollectionGenericRoot
+[STRT] XmlSerializerTests.Xml_DefaultNamespaceChange_SimpleArray_ObjectAsRoot
+[STRT] XmlSerializerTests.SerializeXmlTextAttributeOnDerivedClass
+[STRT] XmlSerializerTests.Xml_UshortAsRoot
+[STRT] XmlSerializerTests.XML_TypeWithTypeNameInXmlTypeAttribute
+[STRT] XmlSerializerTests.SoapEncodedSerialization_SoapAttribute
+[FAIL] XmlSerializerTests.SoapEncodedSerialization_SoapAttribute
+System.InvalidOperationException : There is an error in XML document (2, 148).
+---- System.FormatException : String '' was not recognized as a valid DateTime.
+   at System.Xml.Serialization.XmlSerializer.Deserialize(XmlReader xmlReader, String encodingStyle, XmlDeserializationEvents events)
+   at System.Xml.Serialization.XmlSerializer.Deserialize(XmlReader xmlReader, String encodingStyle)
+   at System.Xml.Serialization.XmlSerializer.Deserialize(Stream stream)
+   at XmlSerializerTests.SerializeAndDeserialize[T](T value, String baseline, Func`1 serializerFactory, Boolean skipStringCompare, XmlSerializerNamespaces xns)
+   at XmlSerializerTests.SoapEncodedSerialization_SoapAttribute()
+   at System.RuntimeMethodHandle.InvokeMethod(ObjectHandleOnStack target, Void** arguments, ObjectHandleOnStack sig, BOOL isConstructor, ObjectHandleOnStack result)
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+----- Inner Stack Trace -----
+   at System.DateTimeParse.ParseExactMultiple(ReadOnlySpan`1 s, String[] formats, DateTimeFormatInfo dtfi, DateTimeStyles style)
+   at System.DateTime.ParseExact(String s, String[] formats, IFormatProvider provider, DateTimeStyles style)
+   at System.Xml.XmlConvert.ToDateTime(String s, String[] formats)
+   at System.Xml.Serialization.XmlCustomFormatter.ToDateTime(String value, String[] formats)
+   at System.Xml.Serialization.XmlCustomFormatter.ToDate(String value)
+   at System.Xml.Serialization.XmlSerializationReader.ToDate(String value)
+   at System.RuntimeMethodHandle.InvokeMethod(ObjectHandleOnStack target, Void** arguments, ObjectHandleOnStack sig, BOOL isConstructor, ObjectHandleOnStack result)
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeDirectByRefWithFewArgs(Object obj, Span`1 copyOfArgs, BindingFlags invokeAttr)
+[STRT] XmlSerializerTests.Xml_FromTypes
+[STRT] XmlSerializerTests.Xml_TypeWithMultiNamedXmlAnyElementAndOtherFields
+[STRT] XmlSerializerTests.XmlMembersMapping_With_ChoiceIdentifier
+[STRT] XmlSerializerTests.Xml_FloatAsRoot_NotNetFramework
+[STRT] XmlSerializerTests.Xml_XmlAttributesTest
+[STRT] XmlSerializerTests.XmlMembersMapping_IntArray
+[STRT] XmlSerializerTests.Xml_XmlIncludedTypesInTypedCollectionSingle
+[STRT] XmlSerializerTests.XmlMembersMapping_MultipleMembers_XmlAnyElement
+[STRT] XmlSerializerTests.XmlMembersMapping_SimpleType
+[STRT] XmlSerializerTests.Xml_StringAsRoot
+[STRT] XmlSerializerTests.Xml_Soap_Array
+[STRT] XmlSerializerTests.XML_TypeWithTypeNameInXmlTypeAttribute_WithValue
+[STRT] XmlSerializerTests.XML_TypeWithMemberWithXmlNamespaceDeclarationsAttribute
+[STRT] XmlSerializerTests.Xml_TypeWithMultiXmlAnyElement
+[STRT] XmlSerializerTests.SoapEncodedSerialization_CircularLink
+[STRT] XmlSerializerTests.XmlMembersMapping_With_ChoiceErrors
+[STRT] XmlSerializerTests.XmlMembersMapping_MultipleMembers
+[STRT] XmlSerializerTests.XmlMembersMapping_Soap_PrimitiveValue_HasWrapperElement
+[STRT] XmlSerializerTests.Xml_TypeWithStringPropertyWithDefaultValue_NonDefaultValue
+[STRT] XmlSerializerTests.ValidateXElement
+[STRT] XmlSerializerTests.Xml_TypeWithArrayPropertyHavingChoice
+[STRT] XmlSerializerTests.Xml_XmlIncludedTypesInTypedCollection
+[STRT] XmlSerializerTests.Xml_NookTypes
+[STRT] XmlSerializerTests.ValidateXElementStruct
+[STRT] XmlSerializerTests.Xml_TypeWithMismatchBetweenAttributeAndPropertyType
+[STRT] XmlSerializerTests.Xml_Soap_With_SoapElement
+[STRT] XmlSerializerTests.XmlSchema_DateOnly_TimeOnly_Primitives_And_Time_Override
+[STRT] XmlSerializerTests.Xml_LongAsRoot
+[STRT] XmlSerializerTests.Xml_TypeWithTwoDimensionalArrayProperty2
+[STRT] XmlSerializerTests.Xml_ClassImplementingIXmlSerializable
+[STRT] XmlSerializerTests.SerializePrimitiveXmlTextAttributeOnDerivedClass
+[STRT] XmlSerializerTests.DeserializeIDREFSIntoStringTest
+[STRT] XmlSerializerTests.SoapEncodedSerialization_IncludeTypes_NullProvider
+[STRT] XmlSerializerTests.XmlMembersMapping_SimpleType_HasWrapperElement
+[STRT] XmlSerializerTests.Xml_KnownTypesThroughConstructorWithEnumFlags
+[STRT] XmlSerializerTests.Xml_XmlDocumentAsRoot
+[STRT] XmlSerializerTests.Xml_DateTimeAsRoot
+[STRT] XmlSerializerTests.Xml_ArraylikeMembers
+[STRT] XmlSerializerTests.Xml_WithXElementWithNestedXElement
+[STRT] XmlSerializerTests.Xml_TypesWithArrayOfOtherTypes
+[STRT] XmlSerializerTests.Xml_EnumAsRoot
+[STRT] XmlSerializerTests.CodeIdentifierNullArgumentTest
+[STRT] XmlSerializerTests.ObsoleteAttribute_IsError_ThrowsException
+[STRT] XmlSerializerTests.XmlMembersMapping_SimpleType_SpecifiedField_True_IgnoreSpecifiedField_Wrapper
+[STRT] XmlSerializerTests.Xml_WithXElementWithEmptyNestedElement
+[STRT] XmlSerializerTests.XmlMembersMapping_SimpleType_SpecifiedField_False_Wrapper
+[STRT] XmlSerializerTests.XmlReflectionImporterTest
+[STRT] XmlSerializerTests.Xml_Soap_TypeWithReadOnlyMyCollectionProperty
+[STRT] XmlSerializerTests.Xml_SimpleCollectionDataContract
+[STRT] XmlSerializerTests.Xml_TestDeserializingUnknownNode
+[STRT] XmlSerializerTests.Xml_TypeWithSchemaFormInXmlAttribute
+[STRT] XmlSerializerTests.Xml_SerializeClassThatImplementsInterface
+[STRT] XmlSerializerTests.Xml_TypeWithShouldSerializeMethod_WithDefaultValue
+[STRT] XmlSerializerTests.Xml_Soap_Enums
+[STRT] XmlSerializerTests.Xml_ShortAsRoot
+[STRT] XmlSerializerTests.XML_TypeWithQNameArrayAsXmlAttribute
+[STRT] XmlSerializerTests.XML_TypeWithArrayLikeXmlAttribute
+[STRT] XmlSerializerTests.Xml_DefaultNamespaceChange_SimpleTypeAsRoot_WithXmlSerializerNamespaces
+[STRT] XmlSerializerTests.Xml_BaseClassAndDerivedClassWithSameProperty
+[STRT] XmlSerializerTests.Xml_BoolAsRoot
+[STRT] XmlSerializerTests.Xml_TypeWithByteArrayAsXmlText
+[STRT] XmlSerializerTests.Xml_XElementAsRoot
+[STRT] XmlSerializerTests.Xml_Soap_ObjectAsRoot
+[STRT] XmlSerializerTests.Xml_Soap_MyCollection
+[STRT] XmlSerializerTests.Xml_StringWithNullChar
+[STRT] XmlSerializerTests.Xml_ByteArrayAsRoot
+[STRT] XmlSerializerTests.Xml_ConstructorWithXmlRootAttr
+[STRT] XmlSerializerTests.Xml_Soap_With_SoapIgnore
+[STRT] XmlSerializerTests.Xml_TypeWithSpecialCharacterInStringMember
+[STRT] XmlSerializerTests.Xml_DeserializeDateTimeOffsetType
+[STRT] XmlSerializerTests.Xml_JaggedArrayAsRoot
+[STRT] XmlSerializerTests.Xml_TypeWithArrayPropertyHavingChoiceErrors
+[STRT] XmlSerializerTests.Xml_ArrayAsRoot
+[STRT] XmlSerializerTests.Xml_DeserializeTypeWithEmptyTimeSpanProperty
+[STRT] XmlSerializerTests.Xml_AliasedPropertyTest
+[STRT] XmlSerializerTests.Xml_WithListOfXElement
+[STRT] XmlSerializerTests.Xml_XmlAttributes_RemoveXmlArrayItemAttribute
+[STRT] XmlSerializerTests.Xml_TypeWithBinaryProperty
+[STRT] XmlSerializerTests.XmlMembersMapping_With_ComplexChoiceIdentifier
+[STRT] XmlSerializerTests.Xml_DefaultNamespaceChangeTest
+[STRT] XmlSerializerTests.Xml_TypeWithReadOnlyMyCollectionProperty
+[STRT] XmlSerializerTests.Xml_Soap_List
+[STRT] XmlSerializerTests.XmlMembersMapping_Soap_PrimitiveValue
+[STRT] XmlSerializerTests.XML_TypeWithByteArrayArrayAsXmlAttribute
+[STRT] XmlSerializerTests.Xml_ArrayAsGetOnly
+[STRT] XmlSerializerTests.XmlMembersMapping_Soap_MemberSpecified_False
+[STRT] XmlSerializerTests.Xml_TypeWithXmlDocumentProperty
+[STRT] XmlSerializerTests.Xml_TypeWithIndirectReferencedAssembly
+[STRT] XmlSerializerTests.Xml_DecimalAsRoot
+[STRT] XmlSerializerTests.Xml_TypeWithXmlElementsAndUnnamedXmlAny
+[STRT] XmlSerializerTests.XmlMembersMapping_Soap_PrimitiveValue_HasWrapperElement_Validate
+[STRT] XmlSerializerTests.XmlMembersMapping_SimpleType_SpecifiedField_True_Wrapper
+[STRT] XmlSerializerTests.XmlMembersMapping_Soap_SoapComplexType
+[STRT] XmlSerializerTests.Xml_XmlAnyAttributeTest
+[STRT] XmlSerializerTests.XmlMembersMapping_SimpleType_SpecifiedField_MissingSpecifiedValue
+[STRT] XmlSerializerTests.Xml_TestTypeWithListPropertiesWithoutPublicSetters
+[STRT] XmlSerializerTests.Xml_EnumAsMember
+[STRT] XmlSerializerTests.XML_TypeWithArrayLikeXmlAttributeWithFields
+[STRT] XmlSerializerTests.ObsoleteAttribute_WithAppContextSwitch_IgnoresObsoleteMembers
+[STRT] XmlSerializerTests.Xml_TypeWithXmlElementProperty
+[STRT] XmlSerializerTests.XmlSerializerImplementationTest
+[STRT] XmlSerializerTests.Xml_TypeWithNonPublicDefaultConstructor
+[STRT] XmlSerializerTests.Xml_XmlAttributes_RemoveXmlAnyElementAttribute
+[STRT] XmlSerializerTests.Xml_TypeInCollectibleALC
+[STRT] XmlSerializerTests.Xml_BuiltInTypes
+[STRT] XmlSerializerTests.Xml_Soap_TypeWithEnumFlagPropertyHavingDefaultValue
+[STRT] XmlSerializerTests.SoapAttributeTests
+[STRT] XmlSerializerTests.Xml_DeserializeTypeWithEmptyDateTimeOffsetProperties
+[STRT] XmlSerializerTests.Xml_UlongAsRoot
+[STRT] XmlSerializerTests.XmlMembersMapping_Soap_SoapComplexTypeWithArray
+[STRT] XmlSerializerTests.Xml_DateOnlyAsRoot(dateString: "0001-01-01")
+[STRT] XmlSerializerTests.Xml_DateOnlyAsRoot(dateString: "2002-06-17")
+[STRT] XmlSerializerTests.Xml_DateOnlyAsRoot(dateString: "2345-12-1")
+[STRT] XmlSerializerTests.Xml_DefaultNamespaceChange_ArrayAsRoot
+[STRT] XmlSerializerTests.Xml_Soap_Basic
+[STRT] XmlSerializerTests.XML_TypeWithNullableByteArray
+[STRT] XmlSerializerTests.Xml_GuidAsRoot
+[STRT] XmlSerializerTests.Xml_GenericBase
+[STRT] XmlSerializerTests.Xml_TypeWithTwoDimensionalArrayProperty1
+[STRT] XmlSerializerTests.Xml_DeserializeEmptyTimeSpanType
+[STRT] XmlSerializerTests.XmlSchemaExporter_ExportMembersMapping_NotSupportedDefaultValue
+[STRT] XmlSerializerTests.XML_TypeWithMemberWithXmlNamespaceDeclarationsAttribute_WithInitialValue
+[STRT] XmlSerializerTests.Xml_HiddenDerivedFieldTest
+[STRT] XmlSerializerTests.XML_TypeWithEnumArrayAsXmlAttribute
+[STRT] XmlSerializerTests.Xml_KnownTypesThroughConstructorWithEnumFlagsXmlQualifiedName
+[STRT] XmlSerializerTests.IXmlTextParserTest
+[STRT] XmlSerializerTests.Xml_TypeWithXmlQualifiedName
+[STRT] XmlSerializerTests.Xml_Soap_Enum
+[STRT] XmlSerializerTests.XmlMembersMapping_Soap_MultipleMembers_IsReturnValue
+[STRT] XmlSerializerTests.Xml_DefaultValueAttributeSetToNegativeInfinityTest
+[STRT] XmlSerializerTests.Xml_TypeWithTypesHavingCustomFormatter
+[STRT] XmlSerializerTests.XmlSerializerAssemblyAttributeTest
+[STRT] XmlSerializerTests.ObsoleteAttribute_DoesNotAffectSerialization
+[STRT] XmlSerializerTests.XmlMembersMapping_Member_With_XmlAnyAttribute_Specified_False
+[STRT] XmlSerializerTests.Xml_Soap_ObjectAsRoot_Nullable
+[STRT] XmlSerializerTests.XmlSerializationGeneratedCodeTest
+[STRT] XmlSerializerTests.Xml_TypeWithByteProperty
+[STRT] XmlSerializerTests.XmlMembersMapping_SimpleType_SpecifiedField_False
+[STRT] XmlSerializerTests.Xml_TypeWithTimeSpanProperty
+[STRT] XmlSerializerTests.Xml_DefaultNamespaceChange_SimpleTypeAsRoot
+[STRT] XmlSerializerTests.Xml_TestTypeWithPrivateOrNoSetters
+[STRT] XmlSerializerTests.XmlMembersMapping_PrimitiveValue
+[STRT] XmlSerializerTests.XmlSerializerFactoryTest
+[STRT] XmlSerializerTests.DerivedTypeWithDifferentOverrides2
+[STRT] XmlSerializerTests.Xml_XmlElementAsRoot
+[STRT] XmlSerializerTests.Xml_ByteAsRoot
+[STRT] XmlSerializerTests.Xml_ListGenericRoot
+[STRT] XmlSerializerTests.SerializeWithDefaultValueSetToNegativeInfinityTest
+[STRT] XmlSerializerTests.Xml_TypeWithEnumPropertyHavingDefaultValue
+[STRT] XmlSerializerTests.Xml_SerializeClassNestedInStaticClassTest
+[STRT] XmlSerializerTests.SoapEncodedSerialization_ImportMembersMapping_NullMembers
+[STRT] XmlSerializerTests.Xml_DefaultValueAttributeSetToPositiveInfinityTest
+[STRT] XmlSerializerTests.DerivedTypeWithDifferentOverrides
+[STRT] XmlSerializerTests.XmlMembersMapping_Soap_SimpleType
+[STRT] XmlSerializerTests.XmlMembersMapping_TypeHavingIntArray
+[STRT] XmlSerializerTests.XmlMembersMapping_CompositeType
+[STRT] XmlSerializerTests.XmlReflectionMember_NullXmlAttributes
+[STRT] XmlSerializerTests.Xml_Soap_Nullable
+[STRT] XmlSerializerTests.XmlReflectionMember_NullSoapAttributes
+[STRT] XmlSerializerTests.CodeIdentifierTest
+[STRT] XmlSerializerTests.Xml_ImmutableCollections(type: typeof(System.Collections.Immutable.ImmutableArray<int>), collection: [42], createException: null, addException: typeof(System.InvalidOperationException), expectedXml: "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<Array"···, exMsg: "Specified method is not supported.")
+[STRT] XmlSerializerTests.Xml_ImmutableCollections(type: typeof(System.Collections.Immutable.ImmutableArray<object>), collection: [Object { }], createException: null, addException: typeof(System.InvalidOperationException), expectedXml: "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<Array"···, exMsg: "Specified method is not supported.")
+[STRT] XmlSerializerTests.Xml_ImmutableCollections(type: typeof(System.Collections.Immutable.ImmutableList<int>), collection: [42], createException: null, addException: typeof(System.InvalidOperationException), expectedXml: "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<Array"···, exMsg: "Specified method is not supported.")
+[STRT] XmlSerializerTests.Xml_ImmutableCollections(type: typeof(System.Collections.Immutable.ImmutableStack<int>), collection: [···], createException: typeof(System.InvalidOperationException), addException: null, expectedXml: "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<Array"···, exMsg: "To be XML serializable, types which inherit from I"···)
+[STRT] XmlSerializerTests.Xml_ImmutableCollections(type: typeof(System.Collections.Immutable.ImmutableQueue<int>), collection: [···], createException: typeof(System.InvalidOperationException), addException: null, expectedXml: "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<Array"···, exMsg: "To be XML serializable, types which inherit from I"···)
+[STRT] XmlSerializerTests.Xml_ImmutableCollections(type: typeof(System.Collections.Immutable.ImmutableDictionary<string, int>), collection: [["one"] = 1], createException: typeof(System.InvalidOperationException), addException: null, expectedXml: null, exMsg: "is not supported because it implements IDictionary"···)
+[STRT] XmlSerializerTests.Xml_XmlIncludedTypesInCollection
+[STRT] XmlSerializerTests.Xml_ArrayOfXmlNodeProperty
+[STRT] XmlSerializerTests.Xml_BaseClassAndDerivedClass2WithSameProperty
+[STRT] XmlSerializerTests.SoapSchemaMemberTest
+[STRT] XmlSerializerTests.Xml_XmlAttributes_RemoveXmlArrayItemAttribute_ThrowsOnMissingItem
+[STRT] XmlSerializerTests.Xml_DoubleAsRoot
+[STRT] XmlSerializerTests.Xml_EnumAsObject
+[STRT] XmlSerializerTests.Xml_Soap_NestedPublicType
+[STRT] XmlSerializerTests.SoapEncodedSerialization_IncludeType
+[STRT] XmlSerializerTests.Xml_KnownTypesThroughConstructorWithArrayProperties
+[STRT] XmlSerializerTests.Xml_CollectionRoot_MorePrimitiveTypes
+[STRT] XmlSerializerTests.Xml_TypeWithEnumFlagPropertyHavingDefaultValue
+[STRT] XmlSerializerTests.Xml_ArrayAsGetSet
+[STRT] XmlSerializerTests.ValidateXElementArray
+[STRT] XmlSerializerTests.Xml_DefaultNamespaceChange_XmlAttributesTestAsRoot
+[STRT] XmlSerializerTests.Xml_ReadOnlyCollection
+[STRT] XmlSerializerTests.Xml_TimeOnlyAsRoot(timeString: "20:17:40")
+[STRT] XmlSerializerTests.Xml_TimeOnlyAsRoot(timeString: "10:35 AM")
+[STRT] XmlSerializerTests.Xml_TimeOnlyAsRoot(timeString: "10:45 PM")
+[STRT] XmlSerializerTests.Xml_ListRoot
+[STRT] XmlSerializerTests.XmlMembersMapping_Xmlns_True
+[STRT] XmlSerializerTests.XmlUnknownAttributeAndEventHandlerTest
+[STRT] XmlSerializerTests.XmlSchema_Import_DateOnly_TimeOnly_And_XsdTime
+[STRT] XmlSerializerTests.Xml_XmlAttributes_RemoveXmlElementAttribute_ThrowsOnMissingItem
+Finished:    System.Xml.XmlSerializer.ReflectionOnly.Tests.dll
+Finished uploading 56181 bytes of RESULTXML
+Xml file was written to the provided writer.
+
+=== TEST EXECUTION SUMMARY ===
+Tests run: 280 Passed: 277 Inconclusive: 0 Failed: 2 Ignored: 0 Skipped: 1
+
+test-main.js exiting WasmTestRunner.dll System.Xml.XmlSerializer.ReflectionOnly.Tests.dll after 0.058416666666666665 minutes with result 1 and linear memory 278396928 bytes
+WASM EXIT 1

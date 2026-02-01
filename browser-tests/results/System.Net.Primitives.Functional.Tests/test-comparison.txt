@@ -1,0 +1,9 @@
+Test Comparison: System.Net.Primitives.Functional.Tests
+Generated: 2026-02-01T18:10:49+01:00
+
+Mono tests:    6238
+CoreCLR tests: 6238
+
+=== Extra in CoreCLR (0) ===
+
+=== Missing in CoreCLR (0) ===

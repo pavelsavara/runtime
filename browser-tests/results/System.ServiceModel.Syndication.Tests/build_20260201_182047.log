@@ -1,0 +1,117 @@
+
+  Determining projects to restore...
+  All projects are up-to-date for restore.
+  TestUtilities -> /home/pavelsavara/dev/runtime/artifacts/bin/TestUtilities/Release/net10.0/TestUtilities.dll
+  ILLink.RoslynAnalyzer -> /home/pavelsavara/dev/runtime/artifacts/bin/ILLink.RoslynAnalyzer/Release/netstandard2.0/ILLink.RoslynAnalyzer.dll
+  ILLink.CodeFixProvider -> /home/pavelsavara/dev/runtime/artifacts/bin/ILLink.CodeFixProvider/Release/netstandard2.0/ILLink.CodeFixProvider.dll
+  Mono.Linker -> /home/pavelsavara/dev/runtime/artifacts/bin/Mono.Linker/ref/Release/net11.0/illink.dll
+  Mono.Linker -> /home/pavelsavara/dev/runtime/artifacts/bin/Mono.Linker/Release/net11.0/illink.dll
+  ILLink.Tasks -> /home/pavelsavara/dev/runtime/artifacts/bin/ILLink.Tasks/Release/net/ILLink.Tasks.dll
+  System.ServiceModel.Syndication -> /home/pavelsavara/dev/runtime/artifacts/bin/System.ServiceModel.Syndication/ref/Release/net11.0/System.ServiceModel.Syndication.dll
+  System.ServiceModel.Syndication -> /home/pavelsavara/dev/runtime/artifacts/bin/System.ServiceModel.Syndication/Release/net11.0/System.ServiceModel.Syndication.dll
+  WasmTriggerPublishApp for CoreCLR not implemented
+  System.ServiceModel.Syndication.Tests -> /home/pavelsavara/dev/runtime/artifacts/bin/System.ServiceModel.Syndication.Tests/Release/net11.0/browser-wasm/System.ServiceModel.Syndication.Tests.dll
+  export SCENARIO=WasmTestOnChrome
+  export XUNIT_HIDE_PASSING_OUTPUT_DIAGNOSTICS=1
+  export PREPEND_PATH=/home/pavelsavara/dev/runtime/artifacts/bin/chromedriver/chromedriver_linux64
+  export RuntimeIdentifier=browser-wasm
+  PATH=/home/pavelsavara/dev/runtime/artifacts/bin/chromedriver/chromedriver_linux64:/home/pavelsavara/.jsvu/bin:/home/pavelsavara/dev/runtime/.dotnet:/home/pavelsavara/dev/runtime/.dotnet:/home/pavelsavara/dev/runtime/.dotnet:/home/pavelsavara/dev/runtime/.dotnet:/home/pavelsavara/dev/runtime/.dotnet:/home/pavelsavara/dev/runtime/.dotnet:/home/pavelsavara/dev/runtime/.dotnet:/home/pavelsavara/dev/runtime/.dotnet:/home/pavelsavara/dev/runtime/.dotnet:/home/pavelsavara/dev/runtime/.dotnet:/home/pavelsavara/dev/runtime/.dotnet:/home/pavelsavara/dev/runtime/.dotnet:/home/pavelsavara/dev/runtime/.dotnet:/home/pavelsavara/dev/runtime/.dotnet:/home/pavelsavara/dev/runtime/.dotnet:/home/pavelsavara/dev/runtime/.dotnet:/home/pavelsavara/dev/runtime/.dotnet:/home/pavelsavara/dev/runtime/.dotnet:/home/pavelsavara/dev/runtime/.dotnet:/home/pavelsavara/dev/runtime/.dotnet:/home/pavelsavara/dev/runtime/.dotnet:/home/pavelsavara/dev/runtime/.dotnet:/home/pavelsavara/dev/runtime/.dotnet:/home/pavelsavara/dev/runtime/.dotnet:/home/pavelsavara/dev/runtime/.dotnet:/home/pavelsavara/dev/runtime/.dotnet:/home/pavelsavara/bin:/home/pavelsavara/dev/.dotnet:/home/pavelsavara/.vscode-server/data/User/globalStorage/github.copilot-chat/debugCommand:/home/pavelsavara/.vscode-server/data/User/globalStorage/github.copilot-chat/copilotCli:/home/pavelsavara/.vscode-server/bin/c9d77990917f3102ada88be140d28b038d1dd7c7/bin/remote-cli:/home/pavelsavara/bin:/home/pavelsavara/bin:/home/pavelsavara/dev/.dotnet:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/windows/system32:/mnt/c/windows:/mnt/d/.dotnet/:/mnt/c/windows/System32/Wbem:/mnt/c/windows/System32/WindowsPowerShell/v1.0/:/mnt/c/windows/System32/OpenSSH/:/mnt/c/Program Files/HP/HP One Agent:/mnt/c/Program Files/nodejs/:/mnt/c/Program Files/Meld/:/mnt/c/Program Files/dotnet/:/mnt/c/Program Files/Git/cmd:/mnt/c/Program Files/PuTTY/:/mnt/c/Program Files/PowerShell/7/:/mnt/c/Program Files/Microsoft SQL Server/170/Tools/Binn/:/mnt/c/Program Files/GitExtensions/:/mnt/c/Program Files/GitHub CLI/:/mnt/d/bin:/mnt/d/.dotnet/:/mnt/c/Users/pavelsavara/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/pavelsavara/AppData/Local/Programs/MicrosoftVSCode/bin:/mnt/c/Users/pavelsavara/AppData/Roaming/npm:/mnt/c/Users/pavelsavara/AppData/Local/Programs/Python/Python310/:/mnt/c/Users/pavelsavara/AppData/Local/Programs/Python/Python310/Scripts/:/mnt/c/Users/pavelsavara/AppData/Local/Microsoft/WinGet/Packages/GitHub.Copilot.Prerelease_Microsoft.Winget.Source_8wekyb3d8bbwe:/mnt/c/Users/pavelsavara/.dotnet/tools:/snap/bin
+  EXECUTION_DIR=/home/pavelsavara/dev/runtime/artifacts/bin/System.ServiceModel.Syndication.Tests/Release/net11.0/browser-wasm/wwwroot
+  SCENARIO=WasmTestOnChrome
+  XHARNESS_OUT=/home/pavelsavara/dev/runtime/artifacts/bin/System.ServiceModel.Syndication.Tests/Release/net11.0/browser-wasm/wwwroot/xharness-output
+  XHARNESS_CLI_PATH=
+  HARNESS_RUNNER=dotnet xharness
+  XHARNESS_COMMAND=test-browser
+  MAIN_JS=
+  JS_ENGINE=
+  JS_ENGINE_ARGS=--browser-arg=--js-flags=--stack-trace-limit=1000
+  XHARNESS_ARGS= --browser-arg=--js-flags=--stack-trace-limit=1000
+  ~/dev/runtime/artifacts/bin/System.ServiceModel.Syndication.Tests/Release/net11.0/browser-wasm/wwwroot ~/dev/runtime/src/libraries/System.ServiceModel.Syndication/tests
+  ----- start Sun Feb 1 18:20:51 CET 2026 =============== To repro directly: =====================================================
+  pushd /home/pavelsavara/dev/runtime/artifacts/bin/System.ServiceModel.Syndication.Tests/Release/net11.0/browser-wasm/wwwroot
+  dotnet xharness wasm test-browser --app=. --output-directory=/home/pavelsavara/dev/runtime/artifacts/bin/System.ServiceModel.Syndication.Tests/Release/net11.0/browser-wasm/wwwroot/xharness-output -s dotnet.native.js.symbols --symbol-patterns wasm-symbol-patterns.txt --symbolicator WasmSymbolicator.dll,Microsoft.WebAssembly.Internal.SymbolicatorWrapperForXHarness --browser-path=/home/pavelsavara/dev/runtime/artifacts/bin/chrome/chrome-linux/chrome --timeout=00:30:00  --browser-arg=--js-flags=--stack-trace-limit=1000   --  --setenv=XHARNESS_LOG_TEST_START=true  --run WasmTestRunner.dll System.ServiceModel.Syndication.Tests.dll  -notrait category=OuterLoop -notrait category=failing 
+  popd
+  ===========================================================================================================
+  ~/dev/runtime/artifacts/bin/System.ServiceModel.Syndication.Tests/Release/net11.0/browser-wasm/wwwroot ~/dev/runtime/artifacts/bin/System.ServiceModel.Syndication.Tests/Release/net11.0/browser-wasm/wwwroot ~/dev/runtime/src/libraries/System.ServiceModel.Syndication/tests
+  [11.0.0-prerelease.26064.3+31e0b8e08f57890f7b7004b93361d69cd4b21079] XHarness command issued: wasm test-browser --app=. --output-directory=/home/pavelsavara/dev/runtime/artifacts/bin/System.ServiceModel.Syndication.Tests/Release/net11.0/browser-wasm/wwwroot/xharness-output -s dotnet.native.js.symbols --symbol-patterns wasm-symbol-patterns.txt --symbolicator WasmSymbolicator.dll,Microsoft.WebAssembly.Internal.SymbolicatorWrapperForXHarness --browser-path=/home/pavelsavara/dev/runtime/artifacts/bin/chrome/chrome-linux/chrome --timeout=00:30:00 --browser-arg=--js-flags=--stack-trace-limit=1000 -- --setenv=XHARNESS_LOG_TEST_START=true --run WasmTestRunner.dll System.ServiceModel.Syndication.Tests.dll -notrait category=OuterLoop -notrait category=failing
+  [40m[1m[33mwarn[39m[22m[49m: Cannot find symbols file dotnet.native.js.symbols
+  [40m[32minfo[39m[22m[49m: Using Chrome from /home/pavelsavara/dev/runtime/artifacts/bin/chrome/chrome-linux/chrome
+  [40m[32minfo[39m[22m[49m: Starting chromedriver with args: --js-flags=--stack-trace-limit=1000 --headless --incognito --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-renderer-backgrounding --enable-features=NetworkService,NetworkServiceInProcess --allow-insecure-localhost --disable-breakpad --disable-component-extensions-with-background-pages --disable-dev-shm-usage --disable-extensions --disable-features=TranslateUI --disable-ipc-flooding-protection --force-color-profile=srgb --metrics-recording-only and load strategy: Normal
+  Starting ChromeDriver 143.0.7499.0 (0000000000000000000000000000000000000000-0000000000000000000000000000000000000000) on port 34729
+  Only local connections are allowed.
+  Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
+  ChromeDriver was started successfully on port 34729.
+  [40m[32minfo[39m[22m[49m: Running in: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/143.0.0.0 Safari/537.36
+  [40m[32minfo[39m[22m[49m: Running at: http://127.0.0.1:37397/index.html?arg=--setenv%3dXHARNESS_LOG_TEST_START%3dtrue&arg=--run&arg=WasmTestRunner.dll&arg=System.ServiceModel.Syndication.Tests.dll&arg=-notrait&arg=category%3dOuterLoop&arg=-notrait&arg=category%3dfailing&arg=-verbosity&arg=Info
+  [40m[32minfo[39m[22m[49m: could not load /runArgs.json: 404. Ignoring
+  [40m[32minfo[39m[22m[49m: Incoming arguments: --setenv=XHARNESS_LOG_TEST_START=true --run WasmTestRunner.dll System.ServiceModel.Syndication.Tests.dll -notrait category=OuterLoop -notrait category=failing -verbosity Info
+  [40m[32minfo[39m[22m[49m: Application arguments: --run WasmTestRunner.dll System.ServiceModel.Syndication.Tests.dll -notrait category=OuterLoop -notrait category=failing -verbosity Info
+  [40m[32minfo[39m[22m[49m: Initializing dotnet version 11.0.0 commit hash e31907b0fbca908ed525247a1dc38cc5fba7b0ff
+  [40m[32minfo[39m[22m[49m: Using threadless Xunit runner
+  [40m[32minfo[39m[22m[49m: Discovering: System.ServiceModel.Syndication.Tests.dll (method display = ClassAndMethod, method display options = None)
+  [40m[32minfo[39m[22m[49m: Discovered:  System.ServiceModel.Syndication.Tests.dll (found 779 of 779 test cases)
+  [40m[32minfo[39m[22m[49m: Starting:    System.ServiceModel.Syndication.Tests.dll
+  [40m[32minfo[39m[22m[49m: [STRT] System.ServiceModel.Syndication.Tests.SyndicationItemTests.CreateCategory_Invoke_ReturnsExpected
+  [40m[32minfo[39m[22m[49m: [STRT] System.ServiceModel.Syndication.Tests.SyndicationItemTests.WriteAttributeExtensions_Invoke_ReturnsExpected(version: null)
+  [40m[32minfo[39m[22m[49m: [STRT] System.ServiceModel.Syndication.Tests.SyndicationItemTests.WriteAttributeExtensions_Invoke_ReturnsExpected(version: "")
+  [40m[32minfo[39m[22m[49m: [STRT] System.ServiceModel.Syndication.Tests.SyndicationItemTests.WriteAttributeExtensions_Invoke_ReturnsExpected(version: "version")
+  [40m[32minfo[39m[22m[49m: [STRT] System.ServiceModel.Syndication.Tests.SyndicationItemTests.Load_NullReader_ThrowsArgumentNullException
+  [40m[32minfo[39m[22m[49m: [STRT] System.ServiceModel.Syndication.Tests.SyndicationItemTests.AddPermalink_ValidPermalink_AddsToLinks
+  [40m[32minfo[39m[22m[49m: [STRT] System.ServiceModel.Syndication.Tests.SyndicationItemTests.Ctor_SyndicationItem_Empty
+  [40m[32minfo[39m[22m[49m: [STRT] System.ServiceModel.Syndication.Tests.SyndicationItemTests.GetAtom10Formatter_Invoke_ReturnsExpected
+  [40m[32minfo[39m[22m[49m: [STRT] System.ServiceModel.Syndication.Tests.SyndicationItemTests.TryParseElement_Invoke_ReturnsFalse(reader: null, version: null)
+  [40m[32minfo[39m[22m[49m: [STRT] System.ServiceModel.Syndication.Tests.SyndicationItemTests.TryParseElement_Invoke_ReturnsFalse(reader: XNodeReader { AttributeCount = 0, BaseURI = "", CanReadBinaryContent = False, CanReadValueChunk = False, CanResolveEntity = False, ··· }, version: "")
+  [40m[32minfo[39m[22m[49m: [STRT] System.ServiceModel.Syndication.Tests.SyndicationItemTests.TryParseElement_Invoke_ReturnsFalse(reader: XNodeReader { AttributeCount = 0, BaseURI = "", CanReadBinaryContent = False, CanReadValueChunk = False, CanResolveEntity = False, ··· }, version: "version")
+  [40m[32minfo[39m[22m[49m: [STRT] System.ServiceModel.Syndication.Tests.SyndicationItemTests.Ctor_SyndicationItem_Full
+  [40m[32minfo[39m[22m[49m: [STRT] System.ServiceModel.Syndication.Tests.SyndicationItemTests.TryParseContent_Invoke_ReturnsFalse(reader: null, contentType: null, version: null)
+  [40m[32minfo[39m[22m[49m: [STRT] System.ServiceModel.Syndication.Tests.SyndicationItemTests.TryParseContent_Invoke_ReturnsFalse(reader: XNodeReader { AttributeCount = 0, BaseURI = "", CanReadBinaryContent = False, CanReadValueChunk = False, CanResolveEntity = False, ··· }, contentType: "", version: "")
+  [40m[32minfo[39m[22m[49m: [STRT] System.ServiceModel.Syndication.Tests.SyndicationItemTests.TryParseContent_Invoke_ReturnsFalse(reader: XNodeReader { AttributeCount = 0, BaseURI = "", CanReadBinaryContent = False, CanReadValueChunk = False, CanResolveEntity = False, ··· }, contentType: "contentType", version: "version")
+  [40m[32minfo[39m[22m[49m: [STRT] System.ServiceModel.Syndication.Tests.SyndicationItemTests.Ctor_String_SyndicationContent_Uri_String_DateTimeOffset(title: null, content: null, itemAlternateLink: null, id: null, lastUpdatedTime: 0001-01-01T00:00:00.0000000+00:00)
+  [40m[32minfo[39m[22m[49m: [STRT] System.ServiceModel.Syndication.Tests.SyndicationItemTests.Ctor_String_SyndicationContent_Uri_String_DateTimeOffset(title: "", content: TextSyndicationContent { AttributeExtensions = [], Text = "text", Type = "text" }, itemAlternateLink: http://microsoft.com/, id: "", lastUpdatedTime: 2026-02-01T17:20:54.4550000+00:00)
+  [40m[32minfo[39m[22m[49m: [STRT] System.ServiceModel.Syndication.Tests.SyndicationItemTests.Ctor_String_SyndicationContent_Uri_String_DateTimeOffset(title: "title", content: TextSyndicationContent { AttributeExtensions = [], Text = "text", Type = "xhtml" }, itemAlternateLink: /relative, id: "id", lastUpdatedTime: 2026-02-03T17:20:54.4580000+00:00)
+  [40m[32minfo[39m[22m[49m: [STRT] System.ServiceModel.Syndication.Tests.SyndicationItemTests.Ctor_NullSource_ThrowsArgumentNullException
+  [40m[32minfo[39m[22m[49m: [STRT] System.ServiceModel.Syndication.Tests.SyndicationItemTests.GetRss20Formatter_Invoke_ReturnsExpected(serializeExtensionsAsAtom: True)
+  [40m[32minfo[39m[22m[49m: [STRT] System.ServiceModel.Syndication.Tests.SyndicationItemTests.GetRss20Formatter_Invoke_ReturnsExpected(serializeExtensionsAsAtom: False)
+  [40m[32minfo[39m[22m[49m: [STRT] System.ServiceModel.Syndication.Tests.SyndicationItemTests.AddPermalink_NullPermalink_ThrowsArgumentNullException
+  [40m[32minfo[39m[22m[49m: [STRT] System.ServiceModel.Syndication.Tests.SyndicationItemTests.Ctor_String_String_Uri(title: null, content: null, itemAlternateLink: null)
+  [40m[32minfo[39m[22m[49m: [STRT] System.ServiceModel.Syndication.Tests.SyndicationItemTests.Ctor_String_String_Uri(title: "", content: "", itemAlternateLink: http://microsoft.com/)
+  [40m[32minfo[39m[22m[49m: [STRT] System.ServiceModel.Syndication.Tests.SyndicationItemTests.Ctor_String_String_Uri(title: "title", content: "content", itemAlternateLink: /relative)
+  [40m[32minfo[39m[22m[49m: [STRT] System.ServiceModel.Syndication.Tests.SyndicationItemTests.Ctor_Default
+  [40m[32minfo[39m[22m[49m: [STRT] System.ServiceModel.Syndication.Tests.SyndicationItemTests.Clone_Empty_ReturnsExpected
+  [40m[32minfo[39m[22m[49m: [STRT] System.ServiceModel.Syndication.Tests.SyndicationItemTests.WriteAttributeExtensions_NullWriter_ThrowsArgumentNullException
+  [40m[32minfo[39m[22m[49m: [STRT] System.ServiceModel.Syndication.Tests.SyndicationItemTests.TryParseAttribute_Invoke_ReturnsFalse(name: null, ns: null, value: null, version: null)
+  [40m[32minfo[39m[22m[49m: [STRT] System.ServiceModel.Syndication.Tests.SyndicationItemTests.TryParseAttribute_Invoke_ReturnsFalse(name: "", ns: "", value: "", version: "")
+  [40m[32minfo[39m[22m[49m: [STRT] System.ServiceModel.Syndication.Tests.SyndicationItemTests.TryParseAttribute_Invoke_ReturnsFalse(name: "name", ns: "ns", value: "value", version: "version")
+  [40m[32minfo[39m[22m[49m: [STRT] System.ServiceModel.Syndication.Tests.SyndicationItemTests.TryParseAttribute_Invoke_ReturnsFalse(name: "xmlns", ns: "ns", value: "value", version: "version")
+  [40m[32minfo[39m[22m[49m: [STRT] System.ServiceModel.Syndication.Tests.SyndicationItemTests.TryParseAttribute_Invoke_ReturnsFalse(name: "name", ns: "http://www.w3.org/2000/xmlns/", value: "value", version: "version")
+  [40m[32minfo[39m[22m[49m: [STRT] System.ServiceModel.Syndication.Tests.SyndicationItemTests.TryParseAttribute_Invoke_ReturnsFalse(name: "type", ns: "ns", value: "value", version: "version")
+  [40m[32minfo[39m[22m[49m: [STRT] System.ServiceModel.Syndication.Tests.SyndicationItemTests.TryParseAttribute_Invoke_ReturnsFalse(name: "name", ns: "http://www.w3.org/2001/XMLSchema-instance", value: "value", version: "version")
+  [40m[32minfo[39m[22m[49m: [STRT] System.ServiceModel.Syndication.Tests.SyndicationItemTests.WriteElementExtensions_NullWriter_ThrowsArgumentNullException
+  [40m[32minfo[39m[22m[49m: [STRT] System.ServiceModel.Syndication.Tests.SyndicationItemTests.CreateLink_Invoke_ReturnsExpected
+  [40m[32minfo[39m[22m[49m: [STRT] System.ServiceModel.Syndication.Tests.SyndicationItemTests.CreatePerson_Invoke_ReturnsExpected
+  [40m[32minfo[39m[22m[49m: [STRT] System.ServiceModel.Syndication.Tests.SyndicationItemTests.AddPermalink_RelativePermalink_ThrowsInvalidOperationException
+  [40m[32minfo[39m[22m[49m: [STRT] System.ServiceModel.Syndication.Tests.SyndicationItemTests.WriteElementExtensions_Invoke_ReturnsExpected(version: null)
+  [40m[32minfo[39m[22m[49m: [STRT] System.ServiceModel.Syndication.Tests.SyndicationItemTests.WriteElementExtensions_Invoke_ReturnsExpected(version: "")
+  [40m[32minfo[39m[22m[49m: [STRT] System.ServiceModel.Syndication.Tests.SyndicationItemTests.WriteElementExtensions_Invoke_ReturnsExpected(version: "version")
+  [40m[32minfo[39m[22m[49m: [STRT] System.ServiceModel.Syndication.Tests.SyndicationItemTests.Ctor_String_String_Uri_String_DateTimeOffset(title: null, content: null, itemAlternateLink: null, id: null, lastUpdatedTime: 0001-01-01T00:00:00.0000000+00:00)
+  [40m[32minfo[39m[22m[49m: [STRT] System.ServiceModel.Syndication.Tests.SyndicationItemTests.Ctor_String_String_Uri_String_DateTimeOffset(title: "", content: "", itemAlternateLink: http://microsoft.com/, id: "", lastUpdatedTime: 2026-02-01T17:20:54.5570000+00:00)
+  [40m[32minfo[39m[22m[49m: [STRT] System.ServiceModel.Syndication.Tests.SyndicationItemTests.Ctor_String_String_Uri_String_DateTimeOffset(title: "title", content: "content", itemAlternateLink: /relative, id: "id", lastUpdatedTime: 2026-02-03T17:20:54.5570000+00:00)
+  [40m[32minfo[39m[22m[49m: [STRT] System.ServiceModel.Syndication.Tests.SyndicationItemTests.Clone_Full_ReturnsExpected
+  [40m[32minfo[39m[22m[49m: [STRT] System.ServiceModel.Syndication.Tests.SyndicationVersionsTests.Rss20_Get_ReturnsExpected
+  [40m[32minfo[39m[22m[49m: [STRT] System.ServiceModel.Syndication.Tests.SyndicationVersionsTests.Atom10_Get_ReturnsExpected
+  [40m[32minfo[39m[22m[49m: [STRT] System.ServiceModel.Syndication.Tests.ReferencedCategoriesDocumentTests.Categories_SetNullItem_ThrowsArgumentNullException
+  [40m[32minfo[39m[22m[49m: [STRT] System.ServiceModel.Syndication.Tests.ReferencedCategoriesDocumentTests.WriteAttributeExtensions_NullWriter_ThrowsArgumentNullException
+  [40m[32minfo[39m[22m[49m: [STRT] System.ServiceModel.Syndication.Tests.ReferencedCategoriesDocumentTests.Accepts_SetNullItem_ThrowsArgumentNullException
+  [40m[32minfo[39m[22m[49m: [STRT] System.ServiceModel.Syndication.Tests.ReferencedCategoriesDocumentTests.Accepts_AddNullItem_ThrowsArgumentNullException
+  [40m[32minfo[39m[22m[49m: [STRT] System.ServiceModel.Syndication.Tests.ReferencedCategoriesDocumentTests.Accepts_AddNonNullItem_Success
+  [40m[32minfo[39m[22m[49m: [STRT] System.ServiceModel.Syndication.Tests.ReferencedCategoriesDocumentTests.Categories_SetNonNullItem_GetReturnsExpected
+  [40m[32minfo[39m[22m[49m: [STRT] System.ServiceModel.Syndication.Tests.ReferencedCategoriesDocumentTests.WriteElementExtensions_Invoke_ReturnsExpected(version: null)
+  [40m[32minfo[39m[22m[49m: [STRT] System.ServiceModel.Syndication.Tests.ReferencedCategoriesDocumentTests.WriteElementExtensions_Invoke_ReturnsExpected(version: "")
+  [40m[32minfo[39m[22m[49m: [STRT] System.ServiceModel.Syndication.Tests.ReferencedCategoriesDocumentTests.WriteElementExtensions_Invoke_ReturnsExpected(version: "version")
+  [40m[32minfo[39m[22m[49m: [STRT] System.ServiceModel.Syndication.Tests.ReferencedCategoriesDocumentTests.Ctor_NullLink_ThrowsArgumentNullException
+  [40m[32minfo[39m[22m[49m: [STRT] System.ServiceModel.Syndication.Tests.ReferencedCategoriesDocumentTests.WriteAttributeExtensions_Invoke_ReturnsExpected(version: null)
+  [40m[32minfo[39m[22m[49m: [STRT] System.ServiceModel.Syndication.Tests.ReferencedCategoriesDocumentTests.WriteAttributeExtensions_Invoke_ReturnsExpected(version: "")
+  [40m[32minfo[39m[22m[49m: [STRT] System.ServiceModel.Syndication.Tests.ReferencedCategoriesDocumentTests.WriteAttributeExtensions_Invoke_ReturnsExpected(version: "version")
+  [40m[32minfo[39m[22m[49m: [STRT] System.ServiceModel.Syndication.Tests.ReferencedCategoriesDocumentTests.Ctor_Uri(link: http://microsoft.com/)
+  [40m[32minfo[39m[22m[49m: [STRT] System.ServiceModel.Syndication.Tests.ReferencedCategoriesDocumentTests.Ctor_Uri(link: /relative)
+  [40m[32minfo[39m[22m[49m: [STRT] System.ServiceModel.Syndication.Tests.ReferencedCategoriesDocumentTests.Accepts_SetNonNullItem_GetReturnsExpected

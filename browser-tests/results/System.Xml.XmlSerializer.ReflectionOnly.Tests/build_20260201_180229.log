@@ -1,0 +1,399 @@
+
+  Determining projects to restore...
+  All projects are up-to-date for restore.
+  TestUtilities -> /home/pavelsavara/dev/runtime/artifacts/bin/TestUtilities/Release/net10.0/TestUtilities.dll
+  SerializableAssembly -> /home/pavelsavara/dev/runtime/artifacts/bin/SerializableAssembly/Release/net11.0/SerializableAssembly.dll
+  WasmTriggerPublishApp for CoreCLR not implemented
+  System.Xml.XmlSerializer.ReflectionOnly.Tests -> /home/pavelsavara/dev/runtime/artifacts/bin/System.Xml.XmlSerializer.ReflectionOnly.Tests/Release/net11.0/browser-wasm/System.Xml.XmlSerializer.ReflectionOnly.Tests.dll
+  export SCENARIO=WasmTestOnChrome
+  export XUNIT_HIDE_PASSING_OUTPUT_DIAGNOSTICS=1
+  export PREPEND_PATH=/home/pavelsavara/dev/runtime/artifacts/bin/chromedriver/chromedriver_linux64
+  export RuntimeIdentifier=browser-wasm
+  PATH=/home/pavelsavara/dev/runtime/artifacts/bin/chromedriver/chromedriver_linux64:/home/pavelsavara/.jsvu/bin:/home/pavelsavara/dev/runtime/.dotnet:/home/pavelsavara/dev/runtime/.dotnet:/home/pavelsavara/dev/runtime/.dotnet:/home/pavelsavara/dev/runtime/.dotnet:/home/pavelsavara/dev/runtime/.dotnet:/home/pavelsavara/bin:/home/pavelsavara/dev/.dotnet:/home/pavelsavara/.vscode-server/data/User/globalStorage/github.copilot-chat/debugCommand:/home/pavelsavara/.vscode-server/data/User/globalStorage/github.copilot-chat/copilotCli:/home/pavelsavara/.vscode-server/bin/c9d77990917f3102ada88be140d28b038d1dd7c7/bin/remote-cli:/home/pavelsavara/bin:/home/pavelsavara/bin:/home/pavelsavara/dev/.dotnet:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/windows/system32:/mnt/c/windows:/mnt/d/.dotnet/:/mnt/c/windows/System32/Wbem:/mnt/c/windows/System32/WindowsPowerShell/v1.0/:/mnt/c/windows/System32/OpenSSH/:/mnt/c/Program Files/HP/HP One Agent:/mnt/c/Program Files/nodejs/:/mnt/c/Program Files/Meld/:/mnt/c/Program Files/dotnet/:/mnt/c/Program Files/Git/cmd:/mnt/c/Program Files/PuTTY/:/mnt/c/Program Files/PowerShell/7/:/mnt/c/Program Files/Microsoft SQL Server/170/Tools/Binn/:/mnt/c/Program Files/GitExtensions/:/mnt/c/Program Files/GitHub CLI/:/mnt/d/bin:/mnt/d/.dotnet/:/mnt/c/Users/pavelsavara/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/pavelsavara/AppData/Local/Programs/MicrosoftVSCode/bin:/mnt/c/Users/pavelsavara/AppData/Roaming/npm:/mnt/c/Users/pavelsavara/AppData/Local/Programs/Python/Python310/:/mnt/c/Users/pavelsavara/AppData/Local/Programs/Python/Python310/Scripts/:/mnt/c/Users/pavelsavara/AppData/Local/Microsoft/WinGet/Packages/GitHub.Copilot.Prerelease_Microsoft.Winget.Source_8wekyb3d8bbwe:/mnt/c/Users/pavelsavara/.dotnet/tools:/snap/bin
+  EXECUTION_DIR=/home/pavelsavara/dev/runtime/artifacts/bin/System.Xml.XmlSerializer.ReflectionOnly.Tests/Release/net11.0/browser-wasm/wwwroot
+  SCENARIO=WasmTestOnChrome
+  XHARNESS_OUT=/home/pavelsavara/dev/runtime/artifacts/bin/System.Xml.XmlSerializer.ReflectionOnly.Tests/Release/net11.0/browser-wasm/wwwroot/xharness-output
+  XHARNESS_CLI_PATH=
+  HARNESS_RUNNER=dotnet xharness
+  XHARNESS_COMMAND=test-browser
+  MAIN_JS=
+  JS_ENGINE=
+  JS_ENGINE_ARGS=--browser-arg=--js-flags=--stack-trace-limit=1000
+  XHARNESS_ARGS= --browser-arg=--js-flags=--stack-trace-limit=1000
+  ~/dev/runtime/artifacts/bin/System.Xml.XmlSerializer.ReflectionOnly.Tests/Release/net11.0/browser-wasm/wwwroot ~/dev/runtime/src/libraries/System.Private.Xml/tests/XmlSerializer/ReflectionOnly
+  ----- start Sun Feb 1 18:02:32 CET 2026 =============== To repro directly: =====================================================
+  pushd /home/pavelsavara/dev/runtime/artifacts/bin/System.Xml.XmlSerializer.ReflectionOnly.Tests/Release/net11.0/browser-wasm/wwwroot
+  dotnet xharness wasm test-browser --app=. --output-directory=/home/pavelsavara/dev/runtime/artifacts/bin/System.Xml.XmlSerializer.ReflectionOnly.Tests/Release/net11.0/browser-wasm/wwwroot/xharness-output -s dotnet.native.js.symbols --symbol-patterns wasm-symbol-patterns.txt --symbolicator WasmSymbolicator.dll,Microsoft.WebAssembly.Internal.SymbolicatorWrapperForXHarness --browser-path=/home/pavelsavara/dev/runtime/artifacts/bin/chrome/chrome-linux/chrome --timeout=00:30:00  --browser-arg=--js-flags=--stack-trace-limit=1000   --  --setenv=XHARNESS_LOG_TEST_START=true  --run WasmTestRunner.dll System.Xml.XmlSerializer.ReflectionOnly.Tests.dll  -notrait category=OuterLoop -notrait category=failing 
+  popd
+  ===========================================================================================================
+  ~/dev/runtime/artifacts/bin/System.Xml.XmlSerializer.ReflectionOnly.Tests/Release/net11.0/browser-wasm/wwwroot ~/dev/runtime/artifacts/bin/System.Xml.XmlSerializer.ReflectionOnly.Tests/Release/net11.0/browser-wasm/wwwroot ~/dev/runtime/src/libraries/System.Private.Xml/tests/XmlSerializer/ReflectionOnly
+  [11.0.0-prerelease.26064.3+31e0b8e08f57890f7b7004b93361d69cd4b21079] XHarness command issued: wasm test-browser --app=. --output-directory=/home/pavelsavara/dev/runtime/artifacts/bin/System.Xml.XmlSerializer.ReflectionOnly.Tests/Release/net11.0/browser-wasm/wwwroot/xharness-output -s dotnet.native.js.symbols --symbol-patterns wasm-symbol-patterns.txt --symbolicator WasmSymbolicator.dll,Microsoft.WebAssembly.Internal.SymbolicatorWrapperForXHarness --browser-path=/home/pavelsavara/dev/runtime/artifacts/bin/chrome/chrome-linux/chrome --timeout=00:30:00 --browser-arg=--js-flags=--stack-trace-limit=1000 -- --setenv=XHARNESS_LOG_TEST_START=true --run WasmTestRunner.dll System.Xml.XmlSerializer.ReflectionOnly.Tests.dll -notrait category=OuterLoop -notrait category=failing
+  [40m[1m[33mwarn[39m[22m[49m: Cannot find symbols file dotnet.native.js.symbols
+  [40m[32minfo[39m[22m[49m: Using Chrome from /home/pavelsavara/dev/runtime/artifacts/bin/chrome/chrome-linux/chrome
+  [40m[32minfo[39m[22m[49m: Starting chromedriver with args: --js-flags=--stack-trace-limit=1000 --headless --incognito --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-renderer-backgrounding --enable-features=NetworkService,NetworkServiceInProcess --allow-insecure-localhost --disable-breakpad --disable-component-extensions-with-background-pages --disable-dev-shm-usage --disable-extensions --disable-features=TranslateUI --disable-ipc-flooding-protection --force-color-profile=srgb --metrics-recording-only and load strategy: Normal
+  Starting ChromeDriver 143.0.7499.0 (0000000000000000000000000000000000000000-0000000000000000000000000000000000000000) on port 34315
+  Only local connections are allowed.
+  Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
+  ChromeDriver was started successfully on port 34315.
+  [40m[32minfo[39m[22m[49m: Running in: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/143.0.0.0 Safari/537.36
+  [40m[32minfo[39m[22m[49m: Running at: http://127.0.0.1:38797/index.html?arg=--setenv%3dXHARNESS_LOG_TEST_START%3dtrue&arg=--run&arg=WasmTestRunner.dll&arg=System.Xml.XmlSerializer.ReflectionOnly.Tests.dll&arg=-notrait&arg=category%3dOuterLoop&arg=-notrait&arg=category%3dfailing&arg=-verbosity&arg=Info
+  [40m[32minfo[39m[22m[49m: could not load /runArgs.json: 404. Ignoring
+  [40m[32minfo[39m[22m[49m: Incoming arguments: --setenv=XHARNESS_LOG_TEST_START=true --run WasmTestRunner.dll System.Xml.XmlSerializer.ReflectionOnly.Tests.dll -notrait category=OuterLoop -notrait category=failing -verbosity Info
+  [40m[32minfo[39m[22m[49m: Application arguments: --run WasmTestRunner.dll System.Xml.XmlSerializer.ReflectionOnly.Tests.dll -notrait category=OuterLoop -notrait category=failing -verbosity Info
+  [40m[32minfo[39m[22m[49m: Initializing dotnet version 11.0.0 commit hash e31907b0fbca908ed525247a1dc38cc5fba7b0ff
+  [40m[32minfo[39m[22m[49m: Using threadless Xunit runner
+  [40m[32minfo[39m[22m[49m: Discovering: System.Xml.XmlSerializer.ReflectionOnly.Tests.dll (method display = ClassAndMethod, method display options = None)
+  [40m[32minfo[39m[22m[49m: Discovered:  System.Xml.XmlSerializer.ReflectionOnly.Tests.dll (found 264 of 279 test cases)
+  [40m[32minfo[39m[22m[49m: Starting:    System.Xml.XmlSerializer.ReflectionOnly.Tests.dll
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.XmlReflectionMember_NullXmlAttributes
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_XmlIncludedTypesInCollectionSingle
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_TypeWithXmlElementsAndUnnamedXmlAny
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_FloatAsRoot
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_XElementAsRoot
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_TypeWithMismatchBetweenAttributeAndPropertyType
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_XmlAttributes_RemoveXmlElementAttribute_ThrowsOnMissingItem
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.IXmlTextParserTest
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_SerializeClassThatImplementsInterface
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_TypeWithArrayPropertyHavingComplexChoice
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_ReadOnlyCollection
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.XmlMembersMapping_SimpleType_SpecifiedField_MissingSpecifiedValue
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_XmlAttributes_RemoveXmlAnyElementAttribute
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.XML_TypeWithMemberWithXmlNamespaceDeclarationsAttribute_WithInitialValue
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_NamespaceTypeNameClashTest
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_TypeWithNestedPublicType
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_DefaultNamespaceChange_SimpleTypeAsRoot
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_Soap_Dictionary
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_Soap_ComplexField
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_KnownTypesThroughConstructorWithEnumFlagsXmlQualifiedName
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.ObsoleteAttribute_IsError_ThrowsException
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.XML_TypeWithXmlSchemaFormAttribute
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.XmlMembersMapping_Soap_MemberSpecified_False
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_DeserializeOutOfRangeByteProperty
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_TypeWithByteArrayAsXmlText
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.XmlSerializerVersionAttributeTest
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_TypeWithXmlQualifiedName
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_Soap_Enums
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.ObsoleteAttribute_DoesNotAffectSerialization
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.XmlMembersMapping_SimpleType
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_TypeWithShouldSerializeMethod_WithDefaultValue
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_TypeWithShouldSerializeMethod_WithNonDefaultValue
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.XmlMembersMapping_MultipleMembers_XmlAnyElement
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_TypeWithPropertiesHavingDefaultValue_DefaultValue
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_Soap_With_SoapElement
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_Soap_Nullable
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_ImmutableCollections(type: typeof(System.Collections.Immutable.ImmutableArray<int>), collection: [42], createException: null, addException: typeof(System.InvalidOperationException), expectedXml: "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<Array"···, exMsg: "Specified method is not supported.")
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_ImmutableCollections(type: typeof(System.Collections.Immutable.ImmutableArray<object>), collection: [Object { }], createException: null, addException: typeof(System.InvalidOperationException), expectedXml: "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<Array"···, exMsg: "Specified method is not supported.")
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_ImmutableCollections(type: typeof(System.Collections.Immutable.ImmutableList<int>), collection: [42], createException: null, addException: typeof(System.InvalidOperationException), expectedXml: "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<Array"···, exMsg: "Specified method is not supported.")
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_ImmutableCollections(type: typeof(System.Collections.Immutable.ImmutableStack<int>), collection: [···], createException: typeof(System.InvalidOperationException), addException: null, expectedXml: "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<Array"···, exMsg: "To be XML serializable, types which inherit from I"···)
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_ImmutableCollections(type: typeof(System.Collections.Immutable.ImmutableQueue<int>), collection: [···], createException: typeof(System.InvalidOperationException), addException: null, expectedXml: "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<Array"···, exMsg: "To be XML serializable, types which inherit from I"···)
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_ImmutableCollections(type: typeof(System.Collections.Immutable.ImmutableDictionary<string, int>), collection: [["one"] = 1], createException: typeof(System.InvalidOperationException), addException: null, expectedXml: null, exMsg: "is not supported because it implements IDictionary"···)
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_TypeWithTwoDimensionalArrayProperty2
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.XmlMembersMapping_TypeHavingIntArray
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_TypeWithStringPropertyWithDefaultValue_NonDefaultValue
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_Soap_List
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_ArraylikeMembers
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.XmlMembersMapping_Soap_SimpleType
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_GuidAsRoot
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_TypeWithTimeSpanProperty
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.CodeIdentifierNullArgumentTest
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_EnumAsMember
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_XmlAttributes_RemoveXmlElementAttribute
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_TypeNamesWithSpecialCharacters
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.XmlMembersMapping_Soap_PrimitiveValue_HasWrapperElement
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.ValidateXElementArray
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_KnownTypesThroughConstructorWithArrayProperties
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_EnumerableGenericRoot
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_XmlDocumentAsRoot
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_TypeWithEnumPropertyHavingDefaultValue
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_Soap_With_SoapIgnore
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_DecimalAsRoot
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_CollectionRoot
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.XmlSerializerFactoryTest
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_Soap_MyCollection
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_DeserializeTypeWithEmptyTimeSpanProperty
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.XmlMembersMapping_With_ComplexChoiceIdentifier
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_StringWithNullChar
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_AliasedPropertyTest
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_BuiltInTypes
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.XmlMembersMapping_SimpleType_HasWrapperElement
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.XmlMembersMapping_MultipleMembers_IsReturnValue
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_ShortAsRoot
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.XmlMembersMapping_Member_With_XmlAnyAttribute_Specified_True
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_XsdValidationAndDeserialization
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_HighScoreManager
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.ValidateXElementStruct
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.XmlMembersMapping_Soap_PrimitiveValue_HasWrapperElement_Validate
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_WithXElement
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.XML_TypeWithMemberWithXmlNamespaceDeclarationsAttribute
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_ByteArrayNull
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_SerializedFormat
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_SimpleCollectionDataContract
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_KnownTypesThroughConstructor
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_XmlQualifiedNameAsRoot
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.XmlReflectionImporterTest
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_XmlAnyAttributeTest
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.SoapEncodedSerialization_IncludeType
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_GenericBase
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_WithXElementWithNestedXElement
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_EnumAsObject
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.XmlSerializationGeneratedCodeTest
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_DateTimeAsRoot
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_ListRoot
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_ArrayAsGetSet
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_DefaultValueAttributeSetToNegativeInfinityTest
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_XmlAttributes_RemoveXmlArrayItemAttribute
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.DerivedTypeWithDifferentOverrides2
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_DeserializeEmptyTimeSpanType
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_TypeWithSchemaFormInXmlAttribute
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_XmlIncludedTypesInTypedCollection
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_TypeWithMultiXmlAnyElement
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.XML_TypeWithEnumArrayAsXmlAttribute
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_DoubleAsRoot
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_TypeWithSpecialCharacterInStringMember
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.XmlMembersMapping_MultipleMembers
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.XML_TypeWithNullableByteArray
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.SerializeWithDefaultValueSetToPositiveInfinityTest
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_Soap_NestedPublicType
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_ByteArrayAsRoot
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_ArrayAsGetOnly
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_DefaultValueAttributeSetToPositiveInfinityTest
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.VerifyRestrictionElementForTimeSpanTest
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_TypesWithArrayOfOtherTypes
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.XmlMembersMapping_IntList
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.XML_XmlSchemaWithNamespacesWriteWithNamespaceManager
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_TypeWithArrayPropertyHavingChoiceErrors
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_UshortAsRoot
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.XmlMembersMapping_SimpleType_SpecifiedField_False
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_VerifyCompilationIssueOnly
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_TypeWithXmlElementProperty
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_ArrayOfXmlNodeProperty
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.DerivedTypeWithDifferentOverrides
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.XmlMembersMapping_PrimitiveValue
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_DCClassWithEnumAndStruct
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_Enums
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_PublicTypeWithNestedPublicTypeWithNestedPublicType
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_SbyteAsRoot
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.XmlMembersMapping_Member_With_XmlAnyAttribute
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_EnumFlags
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_DefaultNamespaceChange_ObjectAsRoot
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_ObjectAsRoot
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.CodeIdentifierTest
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_UintAsRoot
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.XmlSchema_DateOnly_TimeOnly_Primitives_And_Time_Override
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.XmlReflectionMember_NullSoapAttributes
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_ConstructorWithXmlRootAttr
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_XmlAttributes_CtorWithNullArgument
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.SoapEncodedSerialization_IncludeTypes_NullProvider
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_TestTypeWithListPropertiesWithoutPublicSetters
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_DateOnlyParseErrors(badDateString: "1-1-1")
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_DateOnlyParseErrors(badDateString: "0079-08-24+02:00")
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_DateOnlyParseErrors(badDateString: "1912-04-15Z")
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_DateOnlyParseErrors(badDateString: "1917-12-6")
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_DateOnlyParseErrors(badDateString: "1937-5-06")
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_DateOnlyParseErrors(badDateString: "98-01-01")
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_Soap_ObjectAsRoot
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_ValidateExceptionOnUnspecifiedRootSerializationType
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_DeserializeDateTimeOffsetType
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_WithXElementWithEmptyNestedElement
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.SoapEncodedSerialization_ImportMembersMapping_NullMembers
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_FromMappings
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.ObsoleteAttribute_WithAppContextSwitch_IgnoresObsoleteMembers
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_KnownTypesThroughConstructorWithEnumFlags
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_DefaultNamespaceChange_ArrayAsRoot
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_ListGenericRoot
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_SimpleType
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_TimeOnlyAsRoot(timeString: "20:17:40")
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_TimeOnlyAsRoot(timeString: "10:35 AM")
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_TimeOnlyAsRoot(timeString: "10:45 PM")
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_BaseClassAndDerivedClass2WithSameProperty
+  [40m[32minfo[39m[22m[49m: [FAIL] XmlSerializerTests.Xml_BaseClassAndDerivedClass2WithSameProperty
+  [40m[32minfo[39m[22m[49m: System.InvalidOperationException : There is an error in XML document (6, 4).
+  [40m[32minfo[39m[22m[49m: ---- System.NullReferenceException : Object reference not set to an instance of an object.
+  [40m[32minfo[39m[22m[49m:    at System.Xml.Serialization.XmlSerializer.Deserialize(XmlReader xmlReader, String encodingStyle, XmlDeserializationEvents events)
+  [40m[32minfo[39m[22m[49m:    at System.Xml.Serialization.XmlSerializer.Deserialize(XmlReader xmlReader, String encodingStyle)
+  [40m[32minfo[39m[22m[49m:    at System.Xml.Serialization.XmlSerializer.Deserialize(Stream stream)
+  [40m[32minfo[39m[22m[49m:    at XmlSerializerTests.SerializeAndDeserialize[T](T value, String baseline, Func`1 serializerFactory, Boolean skipStringCompare, XmlSerializerNamespaces xns)
+  [40m[32minfo[39m[22m[49m:    at XmlSerializerTests.Xml_BaseClassAndDerivedClass2WithSameProperty()
+  [40m[32minfo[39m[22m[49m:    at System.RuntimeMethodHandle.InvokeMethod(ObjectHandleOnStack target, Void** arguments, ObjectHandleOnStack sig, BOOL isConstructor, ObjectHandleOnStack result)
+  [40m[32minfo[39m[22m[49m:    at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+  [40m[32minfo[39m[22m[49m:    at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+  [40m[32minfo[39m[22m[49m:    at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+  [40m[32minfo[39m[22m[49m: ----- Inner Stack Trace -----
+  [40m[32minfo[39m[22m[49m:    at System.Text.ValueStringBuilder.AppendFormatHelper(IFormatProvider provider, String format, ReadOnlySpan`1 args)
+  [40m[32minfo[39m[22m[49m:    at System.String.FormatHelper(IFormatProvider provider, String format, ReadOnlySpan`1 args)
+  [40m[32minfo[39m[22m[49m:    at System.String.Format(String format, Object arg0, Object arg1)
+  [40m[32minfo[39m[22m[49m:    at System.SR.Format(String resourceFormat, Object p1, Object p2)
+  [40m[32minfo[39m[22m[49m:    at System.Xml.Schema.XsdDateTime..ctor(String text, XsdDateTimeFlags kinds)
+  [40m[32minfo[39m[22m[49m:    at System.Xml.XmlConvert.ToDateTime(String s, XmlDateTimeSerializationMode dateTimeOption)
+  [40m[32minfo[39m[22m[49m:    at System.Xml.Serialization.XmlCustomFormatter.ToDateTime(String value)
+  [40m[32minfo[39m[22m[49m:    at System.Xml.Serialization.XmlSerializationReader.ToDateTime(String value)
+  [40m[32minfo[39m[22m[49m:    at System.RuntimeMethodHandle.InvokeMethod(ObjectHandleOnStack target, Void** arguments, ObjectHandleOnStack sig, BOOL isConstructor, ObjectHandleOnStack result)
+  [40m[32minfo[39m[22m[49m:    at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+  [40m[32minfo[39m[22m[49m:    at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+  [40m[32minfo[39m[22m[49m:    at System.Reflection.MethodBaseInvoker.InvokeDirectByRefWithFewArgs(Object obj, Span`1 copyOfArgs, BindingFlags invokeAttr)
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.SerializePrimitiveXmlTextAttributeOnDerivedClass
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_Soap_Enum
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.XML_TypeWithByteArrayAsXmlAttribute
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.XmlMembersMapping_IntArray
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_BoolAsRoot
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_TypeWithMyCollectionField
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_CharAsRoot
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.XmlUnknownNodeAndEventHandlerTest
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_DefaultNamespaceChangeTest
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_Soap_Enum_With_SoapEnumOverrides
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_FloatAsRoot_NotNetFramework
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.XML_TypeWithByteArrayArrayAsXmlAttribute
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_TestDeserializingUnknownNode
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_TypeWithTwoDimensionalArrayProperty1
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_ByteAsRoot
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.XML_TypeWithTypeNameInXmlTypeAttribute
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.XmlMembersMapping_Soap_SoapComplexTypeWithArray
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_Soap_ObjectAsRoot_Nullable
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_Soap_With_SoapType
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_SerializeClassNestedInStaticClassTest
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.XmlMembersMapping_With_ChoiceErrors
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.SerializeWithDefaultValueSetToNegativeInfinityTest
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_Soap_TypeWithEnumFlagPropertyHavingDefaultValue
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_XmlIncludedTypesInTypedCollectionSingle
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_TypeInCollectibleALC
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_NullRefInXmlSerializerCtorTest
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.XmlUnknownAttributeAndEventHandlerTest
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_TypeWithByteProperty
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.XML_TypeWithTypeNameInXmlTypeAttribute_WithValue
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_IntAsRoot
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.XML_TypeWithArrayLikeXmlAttribute
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.XmlMembersMapping_With_ChoiceIdentifier
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_HiddenDerivedFieldTest
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.SoapAttributeTests
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_CollectionRoot_MorePrimitiveTypes
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_DefaultNamespaceChange_XmlAttributesTestAsRoot
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_DeserializeTypeWithEmptyDateTimeOffsetProperties
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.XmlSerializerAssemblyAttributeTest
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.XmlMembersMapping_SimpleType_SpecifiedField_True_Wrapper
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_EnumerableRoot
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_TypeWithEnumFlagPropertyHavingDefaultValue
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_Soap_TypeWithReadOnlyMyCollectionProperty
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_XmlIncludedTypesInCollection
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_Soap_TypeWithMyCollectionField
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.XmlSchemaExporter_ExportMembersMapping_NotSupportedDefaultValue
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.XmlMembersMapping_Member_With_XmlAnyAttribute_Specified_False
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_Soap_TypeWithXmlQualifiedName
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_TypeWithTypesHavingCustomFormatter
+  [40m[32minfo[39m[22m[49m: [FAIL] XmlSerializerTests.Xml_TypeWithTypesHavingCustomFormatter
+  [40m[32minfo[39m[22m[49m: System.InvalidOperationException : There is an error in XML document (6, 4).
+  [40m[32minfo[39m[22m[49m: ---- System.FormatException : String '' was not recognized as a valid DateTime.
+  [40m[32minfo[39m[22m[49m:    at System.Xml.Serialization.XmlSerializer.Deserialize(XmlReader xmlReader, String encodingStyle, XmlDeserializationEvents events)
+  [40m[32minfo[39m[22m[49m:    at System.Xml.Serialization.XmlSerializer.Deserialize(XmlReader xmlReader, String encodingStyle)
+  [40m[32minfo[39m[22m[49m:    at System.Xml.Serialization.XmlSerializer.Deserialize(Stream stream)
+  [40m[32minfo[39m[22m[49m:    at XmlSerializerTests.SerializeAndDeserialize[T](T value, String baseline, Func`1 serializerFactory, Boolean skipStringCompare, XmlSerializerNamespaces xns)
+  [40m[32minfo[39m[22m[49m:    at XmlSerializerTests.Xml_TypeWithTypesHavingCustomFormatter()
+  [40m[32minfo[39m[22m[49m:    at System.RuntimeMethodHandle.InvokeMethod(ObjectHandleOnStack target, Void** arguments, ObjectHandleOnStack sig, BOOL isConstructor, ObjectHandleOnStack result)
+  [40m[32minfo[39m[22m[49m:    at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+  [40m[32minfo[39m[22m[49m:    at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+  [40m[32minfo[39m[22m[49m:    at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+  [40m[32minfo[39m[22m[49m: ----- Inner Stack Trace -----
+  [40m[32minfo[39m[22m[49m:    at System.DateTimeParse.ParseExactMultiple(ReadOnlySpan`1 s, String[] formats, DateTimeFormatInfo dtfi, DateTimeStyles style)
+  [40m[32minfo[39m[22m[49m:    at System.DateTime.ParseExact(String s, String[] formats, IFormatProvider provider, DateTimeStyles style)
+  [40m[32minfo[39m[22m[49m:    at System.Xml.XmlConvert.ToDateTime(String s, String[] formats)
+  [40m[32minfo[39m[22m[49m:    at System.Xml.Serialization.XmlCustomFormatter.ToDateTime(String value, String[] formats)
+  [40m[32minfo[39m[22m[49m:    at System.Xml.Serialization.XmlCustomFormatter.ToDate(String value)
+  [40m[32minfo[39m[22m[49m:    at System.Xml.Serialization.XmlSerializationReader.ToDate(String value)
+  [40m[32minfo[39m[22m[49m:    at System.RuntimeMethodHandle.InvokeMethod(ObjectHandleOnStack target, Void** arguments, ObjectHandleOnStack sig, BOOL isConstructor, ObjectHandleOnStack result)
+  [40m[32minfo[39m[22m[49m:    at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+  [40m[32minfo[39m[22m[49m:    at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+  [40m[32minfo[39m[22m[49m:    at System.Reflection.MethodBaseInvoker.InvokeDirectByRefWithFewArgs(Object obj, Span`1 copyOfArgs, BindingFlags invokeAttr)
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.SerializeXmlTextAttributeOnDerivedClass
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_TestIgnoreWhitespaceForDeserialization
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_XmlAttributes_RemoveXmlAnyElementAttributeThrowsOnMissingItem
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.SoapEncodedSerialization_CircularLink
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_DefaultNamespaceChange_SimpleTypeAsRoot_WithXmlSerializerNamespaces
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.XmlMembersMapping_Xmlns_True
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_DefaultValueAttributeSetToNaNTest
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_Soap_Basic
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_FromTypes
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_ConstructorWithTypeMapping
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_XmlElementAsRoot
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_ClassImplementingIXmlSerializable
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_XmlAttributesTest
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_DateOnlyAsRoot(dateString: "0001-01-01")
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_DateOnlyAsRoot(dateString: "2002-06-17")
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_DateOnlyAsRoot(dateString: "2345-12-1")
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_EnumAsRoot
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_DifferentSerializeDeserializeOverloads
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_TypeWithBinaryProperty
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_XmlAttributes_RemoveXmlArrayItemAttribute_ThrowsOnMissingItem
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_CollectionGenericRoot
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_TypeWithReadOnlyMyCollectionProperty
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.XmlDeserializationEventsTest
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_TestTypeWithPrivateOrNoSetters
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.XmlMembersMapping_Soap_SoapComplexType
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.XmlSerializerImplementationTest
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_TypeWithIndirectReferencedAssembly
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_LongAsRoot
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_TypeWithNonPublicDefaultConstructor
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_XmlTextAttributeTest
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.XML_TypeWithXmlTextAttributeOnArray
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.XmlMembersMapping_Soap_CompositeType
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_TypeWithArrayPropertyHavingChoice
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_TypeWithMultiNamedXmlAnyElementAndOtherFields
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_DeserializeEmptyDateTimeOffsetType
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_TypeWithFieldNameEndBySpecified
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.ValidateXElement
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.XmlUnknownElementAndEventHandlerTest
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.XmlMembersMapping_CompositeType
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.XmlMembersMapping_Soap_MemberSpecified_True
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_TypeWithNonParameterlessConstructor
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_ConstructorWithXmlAttributeOverrides
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_JaggedArrayAsRoot
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.XmlSerializationReaderWriterTest
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_TimeSpanAsRoot
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_HiddenMembersChangeMappings
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_UlongAsRoot
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.SoapSchemaMemberTest
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_WithListOfXElement
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_DefaultNamespaceChange_SimpleArray_ObjectAsRoot
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.XmlMembersMapping_Soap_MultipleMembers_IsReturnValue
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_XSCoverTest
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.DeserializeIDREFSIntoStringTest
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_ArrayAsRoot
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.XmlSchema_Import_DateOnly_TimeOnly_And_XsdTime
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.XML_TypeWithArrayLikeXmlAttributeWithFields
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_BaseClassAndDerivedClassWithSameProperty
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_Soap_Basic_FromMappings
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_WithArrayOfXElement
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.XmlSchemaTest
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.XmlMembersMapping_Soap_PrimitiveValue
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_StringAsRoot
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.XmlMembersMapping_SimpleType_SpecifiedField_False_Wrapper
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_Soap_TypeWithNullableFields
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.XmlMembersMapping_SimpleType_SpecifiedField_True_IgnoreSpecifiedField_Wrapper
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_Soap_Array
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.XML_TypeWithQNameArrayAsXmlAttribute
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_NookTypes
+  [40m[32minfo[39m[22m[49m: [STRT] XmlSerializerTests.Xml_TypeWithXmlDocumentProperty
+  [40m[32minfo[39m[22m[49m: Finished:    System.Xml.XmlSerializer.ReflectionOnly.Tests.dll
+  [40m[32minfo[39m[22m[49m: Stored /home/pavelsavara/dev/runtime/artifacts/bin/System.Xml.XmlSerializer.ReflectionOnly.Tests/Release/net11.0/browser-wasm/wwwroot/xharness-output/testResults.xml results 55857 bytes
+  [40m[32minfo[39m[22m[49m: Finished uploading 55857 bytes of RESULTXML
+  [40m[32minfo[39m[22m[49m: Xml file was written to the provided writer.
+  [40m[32minfo[39m[22m[49m: 
+  [40m[32minfo[39m[22m[49m: === TEST EXECUTION SUMMARY ===
+  [40m[32minfo[39m[22m[49m: Tests run: 278 Passed: 275 Inconclusive: 0 Failed: 2 Ignored: 0 Skipped: 1
+  [40m[32minfo[39m[22m[49m: 
+  [40m[32minfo[39m[22m[49m: test-main.js exiting WasmTestRunner.dll System.Xml.XmlSerializer.ReflectionOnly.Tests.dll after 0.05698333333333333 minutes with result 1 and linear memory 278396928 bytes
+  [40m[32minfo[39m[22m[49m: WASM EXIT 1
+  [40m[32minfo[39m[22m[49m: Waiting to flush log messages with a timeout of 120 secs ..
+  [41m[30mfail[39m[22m[49m: Application has finished with exit code TESTS_FAILED but 0 was expected
+  [40m[32minfo[39m[22m[49m: Closing 1 browser tabs before setting the main tab to config page and quitting.
+  XHarness exit code: 71 (GENERAL_FAILURE)
+  ~/dev/runtime/artifacts/bin/System.Xml.XmlSerializer.ReflectionOnly.Tests/Release/net11.0/browser-wasm/wwwroot ~/dev/runtime/src/libraries/System.Private.Xml/tests/XmlSerializer/ReflectionOnly
+  ----- end Sun Feb 1 18:02:38 CET 2026 ----- exit code 71 ----------------------------------------------------------
+  XHarness artifacts: /home/pavelsavara/dev/runtime/artifacts/bin/System.Xml.XmlSerializer.ReflectionOnly.Tests/Release/net11.0/browser-wasm/wwwroot/xharness-output
+/home/pavelsavara/dev/runtime/eng/testing/tests.targets(206,5): error : One or more tests failed while running tests from 'System.Xml.XmlSerializer.ReflectionOnly.Tests'. [/home/pavelsavara/dev/runtime/src/libraries/System.Private.Xml/tests/XmlSerializer/ReflectionOnly/System.Xml.XmlSerializer.ReflectionOnly.Tests.csproj]
+
+Build FAILED.
+
+/home/pavelsavara/dev/runtime/eng/testing/tests.targets(206,5): error : One or more tests failed while running tests from 'System.Xml.XmlSerializer.ReflectionOnly.Tests'. [/home/pavelsavara/dev/runtime/src/libraries/System.Private.Xml/tests/XmlSerializer/ReflectionOnly/System.Xml.XmlSerializer.ReflectionOnly.Tests.csproj]
+    0 Warning(s)
+    1 Error(s)
+
+Time Elapsed 00:00:08.82

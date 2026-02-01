@@ -1,0 +1,289 @@
+Running in: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/143.0.0.0 Safari/537.36
+Running at: http://127.0.0.1:43687/index.html?arg=--setenv%3dXHARNESS_LOG_TEST_START%3dtrue&arg=--run&arg=WasmTestRunner.dll&arg=System.Threading.Tasks.Extensions.Tests.dll&arg=-notrait&arg=category%3dOuterLoop&arg=-notrait&arg=category%3dfailing&arg=-verbosity&arg=Info
+could not load /runArgs.json: 404. Ignoring
+Incoming arguments: --setenv=XHARNESS_LOG_TEST_START=true --run WasmTestRunner.dll System.Threading.Tasks.Extensions.Tests.dll -notrait category=OuterLoop -notrait category=failing -verbosity Info
+Application arguments: --run WasmTestRunner.dll System.Threading.Tasks.Extensions.Tests.dll -notrait category=OuterLoop -notrait category=failing -verbosity Info
+Initializing dotnet version 11.0.0 commit hash e31907b0fbca908ed525247a1dc38cc5fba7b0ff
+Using threadless Xunit runner
+Discovering: System.Threading.Tasks.Extensions.Tests.dll (method display = ClassAndMethod, method display options = None)
+Discovered:  System.Threading.Tasks.Extensions.Tests.dll (found 141 of 147 test cases)
+Starting:    System.Threading.Tasks.Extensions.Tests.dll
+[STRT] System.Threading.Tasks.Tests.AsyncValueTaskMethodBuilderTests.NonGeneric_SetException_OperationCanceledException_CancelsTask
+[STRT] System.Threading.Tasks.Tests.AsyncValueTaskMethodBuilderTests.Generic_SetException_AfterAccessTask_FaultsTask
+[STRT] System.Threading.Tasks.Tests.AsyncValueTaskMethodBuilderTests.NonGeneric_Start_InvokesMoveNext
+[STRT] System.Threading.Tasks.Tests.AsyncValueTaskMethodBuilderTests.Generic_SetStateMachine_InvalidArgument_ThrowsException
+[STRT] System.Threading.Tasks.Tests.AsyncValueTaskMethodBuilderTests.NonGeneric_Start_ExecutionContextChangesInMoveNextDontFlowOut
+[STRT] System.Threading.Tasks.Tests.AsyncValueTaskMethodBuilderTests.NonGeneric_ConcurrentBuilders_WorkCorrectly
+[STRT] System.Threading.Tasks.Tests.AsyncValueTaskMethodBuilderTests.Generic_AwaitOnCompleted_ForcesTaskCreation(numAwaits: 1, awaitUnsafe: False)
+[STRT] System.Threading.Tasks.Tests.AsyncValueTaskMethodBuilderTests.Generic_AwaitOnCompleted_ForcesTaskCreation(numAwaits: 2, awaitUnsafe: False)
+[STRT] System.Threading.Tasks.Tests.AsyncValueTaskMethodBuilderTests.Generic_AwaitOnCompleted_ForcesTaskCreation(numAwaits: 1, awaitUnsafe: True)
+[STRT] System.Threading.Tasks.Tests.AsyncValueTaskMethodBuilderTests.Generic_AwaitOnCompleted_ForcesTaskCreation(numAwaits: 2, awaitUnsafe: True)
+[STRT] System.Threading.Tasks.Tests.AsyncValueTaskMethodBuilderTests.Generic_SetException_BeforeAccessTask_FaultsTask
+[STRT] System.Threading.Tasks.Tests.AsyncValueTaskMethodBuilderTests.NonGeneric_SetException_AfterAccessTask_FaultsTask
+[STRT] System.Threading.Tasks.Tests.AsyncValueTaskMethodBuilderTests.NonGeneric_SetException_BeforeAccessTask_FaultsTask
+[STRT] System.Threading.Tasks.Tests.AsyncValueTaskMethodBuilderTests.Generic_SetResult_AfterAccessTask_ValueTaskContainsValue
+[STRT] System.Threading.Tasks.Tests.AsyncValueTaskMethodBuilderTests.Generic_SetExceptionWithNullException_Throws
+[STRT] System.Threading.Tasks.Tests.AsyncValueTaskMethodBuilderTests.NonGeneric_SetStateMachine_InvalidArgument_ThrowsException
+[STRT] System.Threading.Tasks.Tests.AsyncValueTaskMethodBuilderTests.AwaitTasksAndValueTasks_InTaskAndValueTaskMethods
+[STRT] System.Threading.Tasks.Tests.AsyncValueTaskMethodBuilderTests.Generic_Start_ExecutionContextChangesInMoveNextDontFlowOut
+[STRT] System.Threading.Tasks.Tests.AsyncValueTaskMethodBuilderTests.Generic_SetException_OperationCanceledException_CancelsTask
+[STRT] System.Threading.Tasks.Tests.AsyncValueTaskMethodBuilderTests.NonGeneric_SetResult_BeforeAccessTask_ValueTaskIsDefault
+[STRT] System.Threading.Tasks.Tests.AsyncValueTaskMethodBuilderTests.NonGeneric_UsedWithAsyncMethod_CompletesSuccessfully(yields: 0)
+[STRT] System.Threading.Tasks.Tests.AsyncValueTaskMethodBuilderTests.NonGeneric_UsedWithAsyncMethod_CompletesSuccessfully(yields: 1)
+[STRT] System.Threading.Tasks.Tests.AsyncValueTaskMethodBuilderTests.NonGeneric_UsedWithAsyncMethod_CompletesSuccessfully(yields: 2)
+[STRT] System.Threading.Tasks.Tests.AsyncValueTaskMethodBuilderTests.NonGeneric_UsedWithAsyncMethod_CompletesSuccessfully(yields: 10)
+[STRT] System.Threading.Tasks.Tests.AsyncValueTaskMethodBuilderTests.Generic_Start_InvokesMoveNext
+[STRT] System.Threading.Tasks.Tests.AsyncValueTaskMethodBuilderTests.Generic_UsedWithAsyncMethod_CompletesSuccessfully(yields: 0)
+[STRT] System.Threading.Tasks.Tests.AsyncValueTaskMethodBuilderTests.Generic_UsedWithAsyncMethod_CompletesSuccessfully(yields: 1)
+[STRT] System.Threading.Tasks.Tests.AsyncValueTaskMethodBuilderTests.Generic_UsedWithAsyncMethod_CompletesSuccessfully(yields: 2)
+[STRT] System.Threading.Tasks.Tests.AsyncValueTaskMethodBuilderTests.Generic_UsedWithAsyncMethod_CompletesSuccessfully(yields: 10)
+[STRT] System.Threading.Tasks.Tests.AsyncValueTaskMethodBuilderTests.Create_ReturnsDefaultInstance
+[STRT] System.Threading.Tasks.Tests.AsyncValueTaskMethodBuilderTests.NonGeneric_SetExceptionWithNullException_Throws
+[STRT] System.Threading.Tasks.Tests.AsyncValueTaskMethodBuilderTests.NonGeneric_SetResult_AfterAccessTask_ValueTaskContainsValue
+[STRT] System.Threading.Tasks.Tests.AsyncValueTaskMethodBuilderTests.Generic_ConcurrentBuilders_WorkCorrectly
+[STRT] System.Threading.Tasks.Tests.AsyncValueTaskMethodBuilderTests.Generic_SetResult_BeforeAccessTask_ValueTaskContainsValue
+[STRT] System.Threading.Tasks.Tests.AsyncValueTaskMethodBuilderTests.NonGeneric_AwaitOnCompleted_ForcesTaskCreation(numAwaits: 1, awaitUnsafe: False)
+[STRT] System.Threading.Tasks.Tests.AsyncValueTaskMethodBuilderTests.NonGeneric_AwaitOnCompleted_ForcesTaskCreation(numAwaits: 2, awaitUnsafe: False)
+[STRT] System.Threading.Tasks.Tests.AsyncValueTaskMethodBuilderTests.NonGeneric_AwaitOnCompleted_ForcesTaskCreation(numAwaits: 1, awaitUnsafe: True)
+[STRT] System.Threading.Tasks.Tests.AsyncValueTaskMethodBuilderTests.NonGeneric_AwaitOnCompleted_ForcesTaskCreation(numAwaits: 2, awaitUnsafe: True)
+[STRT] System.Threading.Tasks.Tests.PoolingAsyncValueTaskMethodBuilderTests.NonGeneric_SetException_AfterAccessTask_FaultsTask
+[STRT] System.Threading.Tasks.Tests.PoolingAsyncValueTaskMethodBuilderTests.Generic_SetException_AfterAccessTask_FaultsTask
+[STRT] System.Threading.Tasks.Tests.PoolingAsyncValueTaskMethodBuilderTests.NonGeneric_SetExceptionWithNullException_Throws
+[STRT] System.Threading.Tasks.Tests.PoolingAsyncValueTaskMethodBuilderTests.Generic_Start_InvokesMoveNext
+[STRT] System.Threading.Tasks.Tests.PoolingAsyncValueTaskMethodBuilderTests.NonGeneric_AwaitOnCompleted_ForcesTaskCreation(numAwaits: 1, awaitUnsafe: False)
+[STRT] System.Threading.Tasks.Tests.PoolingAsyncValueTaskMethodBuilderTests.NonGeneric_AwaitOnCompleted_ForcesTaskCreation(numAwaits: 2, awaitUnsafe: False)
+[STRT] System.Threading.Tasks.Tests.PoolingAsyncValueTaskMethodBuilderTests.NonGeneric_AwaitOnCompleted_ForcesTaskCreation(numAwaits: 1, awaitUnsafe: True)
+[STRT] System.Threading.Tasks.Tests.PoolingAsyncValueTaskMethodBuilderTests.NonGeneric_AwaitOnCompleted_ForcesTaskCreation(numAwaits: 2, awaitUnsafe: True)
+[STRT] System.Threading.Tasks.Tests.PoolingAsyncValueTaskMethodBuilderTests.NonGeneric_Start_ExecutionContextChangesInMoveNextDontFlowOut
+[STRT] System.Threading.Tasks.Tests.PoolingAsyncValueTaskMethodBuilderTests.NonGeneric_Start_InvokesMoveNext
+[STRT] System.Threading.Tasks.Tests.PoolingAsyncValueTaskMethodBuilderTests.Generic_SetResult_AfterAccessTask_ValueTaskContainsValue
+[STRT] System.Threading.Tasks.Tests.PoolingAsyncValueTaskMethodBuilderTests.NonGeneric_SetException_BeforeAccessTask_FaultsTask
+[STRT] System.Threading.Tasks.Tests.PoolingAsyncValueTaskMethodBuilderTests.Generic_SetException_BeforeAccessTask_FaultsTask
+[STRT] System.Threading.Tasks.Tests.PoolingAsyncValueTaskMethodBuilderTests.NonGeneric_SetResult_AfterAccessTask_ValueTaskContainsValue
+[STRT] System.Threading.Tasks.Tests.PoolingAsyncValueTaskMethodBuilderTests.Generic_SetException_OperationCanceledException_CancelsTask
+[STRT] System.Threading.Tasks.Tests.PoolingAsyncValueTaskMethodBuilderTests.Generic_AwaitOnCompleted_ForcesTaskCreation(numAwaits: 1, awaitUnsafe: False)
+[STRT] System.Threading.Tasks.Tests.PoolingAsyncValueTaskMethodBuilderTests.Generic_AwaitOnCompleted_ForcesTaskCreation(numAwaits: 2, awaitUnsafe: False)
+[STRT] System.Threading.Tasks.Tests.PoolingAsyncValueTaskMethodBuilderTests.Generic_AwaitOnCompleted_ForcesTaskCreation(numAwaits: 1, awaitUnsafe: True)
+[STRT] System.Threading.Tasks.Tests.PoolingAsyncValueTaskMethodBuilderTests.Generic_AwaitOnCompleted_ForcesTaskCreation(numAwaits: 2, awaitUnsafe: True)
+[STRT] System.Threading.Tasks.Tests.PoolingAsyncValueTaskMethodBuilderTests.Generic_SetStateMachine_InvalidArgument_ThrowsException
+[STRT] System.Threading.Tasks.Tests.PoolingAsyncValueTaskMethodBuilderTests.NonGeneric_SetStateMachine_InvalidArgument_ThrowsException
+[STRT] System.Threading.Tasks.Tests.PoolingAsyncValueTaskMethodBuilderTests.Generic_SetResult_BeforeAccessTask_ValueTaskContainsValue
+[STRT] System.Threading.Tasks.Tests.PoolingAsyncValueTaskMethodBuilderTests.Create_ReturnsDefaultInstance
+[STRT] System.Threading.Tasks.Tests.PoolingAsyncValueTaskMethodBuilderTests.Generic_SetExceptionWithNullException_Throws
+[STRT] System.Threading.Tasks.Tests.PoolingAsyncValueTaskMethodBuilderTests.NonGeneric_SetException_OperationCanceledException_CancelsTask
+[STRT] System.Threading.Tasks.Tests.PoolingAsyncValueTaskMethodBuilderTests.Generic_Start_ExecutionContextChangesInMoveNextDontFlowOut
+[STRT] System.Threading.Tasks.Tests.PoolingAsyncValueTaskMethodBuilderTests.NonGeneric_SetResult_BeforeAccessTask_ValueTaskIsDefault
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.Generic_Preserve_FromResult_EqualityMaintained
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.NonGeneric_Preserve_FromValueTaskSource_TransitionedToTask
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.NonGeneric_Awaiter_UnsafeOnCompleted(mode: Result)
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.NonGeneric_Awaiter_UnsafeOnCompleted(mode: Task)
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.NonGeneric_Awaiter_UnsafeOnCompleted(mode: ValueTaskSource)
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.NonGeneric_GetHashCode_FromObject_MatchesObjectHashCode(mode: Task)
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.NonGeneric_GetHashCode_FromObject_MatchesObjectHashCode(mode: ValueTaskSource)
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.NonGeneric_OperatorEquals
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.Generic_OnCompleted_ValueTaskSourcePassesInvalidStateToOnCompleted_Throws
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.Generic_GetHashCode_FromResult_ContainsResult
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.NonGeneric_CreateFromValueTaskSource_Canceled(sync: False)
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.NonGeneric_CreateFromValueTaskSource_Canceled(sync: True)
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.NonGeneric_Preserve_FromTask_EqualityMaintained
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.Generic_CreateFromValueTaskSource_Canceled(sync: False)
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.Generic_CreateFromValueTaskSource_Canceled(sync: True)
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.NonGeneric_CreateFromValueTaskSource_Success(sync: False)
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.NonGeneric_CreateFromValueTaskSource_Success(sync: True)
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.Generic_CreateFromTask_Await_Normal(continueOnCapturedContext: null)
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.Generic_CreateFromTask_Await_Normal(continueOnCapturedContext: False)
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.Generic_CreateFromTask_Await_Normal(continueOnCapturedContext: True)
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.Generic_Awaiter_ContinuesOnCapturedContext(mode: Task, sync: False)
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.Generic_Awaiter_ContinuesOnCapturedContext(mode: ValueTaskSource, sync: False)
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.Generic_Awaiter_ContinuesOnCapturedContext(mode: Result, sync: True)
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.Generic_Awaiter_ContinuesOnCapturedContext(mode: Task, sync: True)
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.Generic_Awaiter_ContinuesOnCapturedContext(mode: ValueTaskSource, sync: True)
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.Generic_AsyncMethodBuilderAttribute_ValueTaskAttributed(valueTaskType: typeof(System.Threading.Tasks.ValueTask<>))
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.Generic_AsyncMethodBuilderAttribute_ValueTaskAttributed(valueTaskType: typeof(System.Threading.Tasks.ValueTask<int>))
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.Generic_AsyncMethodBuilderAttribute_ValueTaskAttributed(valueTaskType: typeof(System.Threading.Tasks.ValueTask<string>))
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.NonGeneric_Equals_ValueTask
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.Generic_CreateFromCompleted_Await(mode: Result)
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.Generic_CreateFromCompleted_Await(mode: Task)
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.Generic_CreateFromCompleted_Await(mode: ValueTaskSource)
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.NonGeneric_CreateFromNullTask_Throws
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.NonGeneric_OperatorNotEquals
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.NonGeneric_ConfiguredAwaiter_OnCompleted(mode: Result, continueOnCapturedContext: True)
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.NonGeneric_ConfiguredAwaiter_OnCompleted(mode: Task, continueOnCapturedContext: True)
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.NonGeneric_ConfiguredAwaiter_OnCompleted(mode: ValueTaskSource, continueOnCapturedContext: True)
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.NonGeneric_ConfiguredAwaiter_OnCompleted(mode: Result, continueOnCapturedContext: False)
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.NonGeneric_ConfiguredAwaiter_OnCompleted(mode: Task, continueOnCapturedContext: False)
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.NonGeneric_ConfiguredAwaiter_OnCompleted(mode: ValueTaskSource, continueOnCapturedContext: False)
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.NonGeneric_AsTask_ValueTaskSourcePassesInvalidStateToOnCompleted_Throws
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.NonGeneric_CreateFromFaulted_IsFaulted(mode: Task)
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.NonGeneric_CreateFromFaulted_IsFaulted(mode: ValueTaskSource)
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.Generic_Awaiter_UnsafeOnCompleted(mode: Result)
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.Generic_Awaiter_UnsafeOnCompleted(mode: Task)
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.Generic_Awaiter_UnsafeOnCompleted(mode: ValueTaskSource)
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.Generic_Preserve_FromValueTaskSource_TransitionedToTask
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.Generic_OperatorEquals
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.NonGeneric_DefaultValueTask_DefaultValue
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.NonGeneric_OnCompleted_ValueTaskSourcePassesInvalidStateToOnCompleted_Throws
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.NonGeneric_CreateFromValueTaskSource_Faulted(sync: False)
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.NonGeneric_CreateFromValueTaskSource_Faulted(sync: True)
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.Generic_CreateFromNotCompleted_ThenCompleteSuccessfully(mode: Task)
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.Generic_CreateFromNotCompleted_ThenCompleteSuccessfully(mode: ValueTaskSource)
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.Generic_CreateFromNullTask_Throws
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.FromResult_CreateSuccessfulTask
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.NonGeneric_CreateFromSuccessfullyCompleted_IsCompletedSuccessfully(mode: Result)
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.NonGeneric_CreateFromSuccessfullyCompleted_IsCompletedSuccessfully(mode: Task)
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.NonGeneric_CreateFromSuccessfullyCompleted_IsCompletedSuccessfully(mode: ValueTaskSource)
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.FromException_CreatesFaultedTask
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.NonGeneric_Awaiter_OnCompleted(mode: Result)
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.NonGeneric_Awaiter_OnCompleted(mode: Task)
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.NonGeneric_Awaiter_OnCompleted(mode: ValueTaskSource)
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.Generic_OperatorNotEquals
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.Generic_CreateFromValueTaskSource_Await_Normal(continueOnCapturedContext: null)
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.Generic_CreateFromValueTaskSource_Await_Normal(continueOnCapturedContext: False)
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.Generic_CreateFromValueTaskSource_Await_Normal(continueOnCapturedContext: True)
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.NonGeneric_CreateFromValueTaskSource_AsTaskIdempotent
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.Generic_Preserve_FromTask_EqualityMaintained
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.NonGeneric_Preserve_FromResult_NoChanges
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.Generic_ConfiguredAwaiter_UnsafeOnCompleted(mode: Result, continueOnCapturedContext: True)
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.Generic_ConfiguredAwaiter_UnsafeOnCompleted(mode: Task, continueOnCapturedContext: True)
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.Generic_ConfiguredAwaiter_UnsafeOnCompleted(mode: ValueTaskSource, continueOnCapturedContext: True)
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.Generic_ConfiguredAwaiter_UnsafeOnCompleted(mode: Result, continueOnCapturedContext: False)
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.Generic_ConfiguredAwaiter_UnsafeOnCompleted(mode: Task, continueOnCapturedContext: False)
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.Generic_ConfiguredAwaiter_UnsafeOnCompleted(mode: ValueTaskSource, continueOnCapturedContext: False)
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.Generic_CreateFromValueTaskSource_Success(sync: False)
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.Generic_CreateFromValueTaskSource_Success(sync: True)
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.NonGeneric_CreateFromNotCompleted_ThenFault(mode: Task)
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.NonGeneric_CreateFromNotCompleted_ThenFault(mode: ValueTaskSource)
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.NonGeneric_GetHashCode_FromDefault_0
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.NonGeneric_Awaiter_ContinuesOnCapturedContext(mode: Result)
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.NonGeneric_Awaiter_ContinuesOnCapturedContext(mode: Task)
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.NonGeneric_Awaiter_ContinuesOnCapturedContext(mode: ValueTaskSource)
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.Generic_CreateFromNotCompleted_ThenFault(mode: Task)
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.Generic_CreateFromNotCompleted_ThenFault(mode: ValueTaskSource)
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.NonGeneric_CreateFromDefault_AsTaskIdempotent
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.CompletedTask_EqualsDefault
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.Generic_AsTask_ValueTaskSourcePassesInvalidStateToOnCompleted_Throws
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.Generic_ToString_Success
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.NonGeneric_TornRead_DoesNotCrashOrHang
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.Generic_CreateFromValueTaskSource_AsTaskNotIdempotent
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.Generic_CreateFromValue_AsTaskNotIdempotent
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.Generic_ConfiguredAwaiter_OnCompleted(mode: Result, continueOnCapturedContext: True)
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.Generic_ConfiguredAwaiter_OnCompleted(mode: Task, continueOnCapturedContext: True)
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.Generic_ConfiguredAwaiter_OnCompleted(mode: ValueTaskSource, continueOnCapturedContext: True)
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.Generic_ConfiguredAwaiter_OnCompleted(mode: Result, continueOnCapturedContext: False)
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.Generic_ConfiguredAwaiter_OnCompleted(mode: Task, continueOnCapturedContext: False)
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.Generic_ConfiguredAwaiter_OnCompleted(mode: ValueTaskSource, continueOnCapturedContext: False)
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.Generic_ConfiguredAwaiter_ContinuesOnCapturedContext(mode: Task, continueOnCapturedContext: True, sync: False)
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.Generic_ConfiguredAwaiter_ContinuesOnCapturedContext(mode: ValueTaskSource, continueOnCapturedContext: True, sync: False)
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.Generic_ConfiguredAwaiter_ContinuesOnCapturedContext(mode: Task, continueOnCapturedContext: False, sync: False)
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.Generic_ConfiguredAwaiter_ContinuesOnCapturedContext(mode: ValueTaskSource, continueOnCapturedContext: False, sync: False)
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.Generic_ConfiguredAwaiter_ContinuesOnCapturedContext(mode: Result, continueOnCapturedContext: True, sync: True)
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.Generic_ConfiguredAwaiter_ContinuesOnCapturedContext(mode: Task, continueOnCapturedContext: True, sync: True)
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.Generic_ConfiguredAwaiter_ContinuesOnCapturedContext(mode: ValueTaskSource, continueOnCapturedContext: True, sync: True)
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.Generic_ConfiguredAwaiter_ContinuesOnCapturedContext(mode: Result, continueOnCapturedContext: False, sync: True)
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.Generic_ConfiguredAwaiter_ContinuesOnCapturedContext(mode: Task, continueOnCapturedContext: False, sync: True)
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.Generic_ConfiguredAwaiter_ContinuesOnCapturedContext(mode: ValueTaskSource, continueOnCapturedContext: False, sync: True)
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.NonGeneric_Equals_Object
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.Generic_CreateFromSuccessfullyCompleted_IsCompletedSuccessfully(mode: Result)
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.Generic_CreateFromSuccessfullyCompleted_IsCompletedSuccessfully(mode: Task)
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.Generic_CreateFromSuccessfullyCompleted_IsCompletedSuccessfully(mode: ValueTaskSource)
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.NonGeneric_ToString_Success
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.Generic_TornRead_DoesNotCrashOrHang
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.Generic_Equals_ValueTask
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.NonGeneric_ConfiguredAwaiter_UnsafeOnCompleted(mode: Result, continueOnCapturedContext: True)
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.NonGeneric_ConfiguredAwaiter_UnsafeOnCompleted(mode: Task, continueOnCapturedContext: True)
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.NonGeneric_ConfiguredAwaiter_UnsafeOnCompleted(mode: ValueTaskSource, continueOnCapturedContext: True)
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.NonGeneric_ConfiguredAwaiter_UnsafeOnCompleted(mode: Result, continueOnCapturedContext: False)
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.NonGeneric_ConfiguredAwaiter_UnsafeOnCompleted(mode: Task, continueOnCapturedContext: False)
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.NonGeneric_ConfiguredAwaiter_UnsafeOnCompleted(mode: ValueTaskSource, continueOnCapturedContext: False)
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.Generic_Equals_Object
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.NonGeneric_CreateFromTask_Await_Normal(continueOnCapturedContext: null)
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.NonGeneric_CreateFromTask_Await_Normal(continueOnCapturedContext: False)
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.NonGeneric_CreateFromTask_Await_Normal(continueOnCapturedContext: True)
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.CreateFromValueTaskSource_Await_Normal(continueOnCapturedContext: null)
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.CreateFromValueTaskSource_Await_Normal(continueOnCapturedContext: False)
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.CreateFromValueTaskSource_Await_Normal(continueOnCapturedContext: True)
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.Generic_CreateFromFaulted_IsFaulted(mode: Task)
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.Generic_CreateFromFaulted_IsFaulted(mode: ValueTaskSource)
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.Generic_CreateFromValueTaskSource_Faulted(sync: False)
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.Generic_CreateFromValueTaskSource_Faulted(sync: True)
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.Generic_CreateFromTask_AsTaskIdempotent
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.NonGeneric_CreateFromTask_AsTaskIdempotent
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.FromCanceled_CreatesCanceledTask
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.NonGeneric_AsyncMethodBuilderAttribute_ValueTaskAttributed(valueTaskType: typeof(System.Threading.Tasks.ValueTask))
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.NonGeneric_CreateFromCompleted_Await(mode: Result)
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.NonGeneric_CreateFromCompleted_Await(mode: Task)
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.NonGeneric_CreateFromCompleted_Await(mode: ValueTaskSource)
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.Generic_Awaiter_OnCompleted(mode: Result)
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.Generic_Awaiter_OnCompleted(mode: Task)
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.Generic_Awaiter_OnCompleted(mode: ValueTaskSource)
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.Generic_DefaultValueTask_DefaultValue
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.Generic_GetHashCode_FromObject_MatchesObjectHashCode(mode: Task)
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.Generic_GetHashCode_FromObject_MatchesObjectHashCode(mode: ValueTaskSource)
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.NonGeneric_CreateFromNotCompleted_ThenCompleteSuccessfully(mode: Task)
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.NonGeneric_CreateFromNotCompleted_ThenCompleteSuccessfully(mode: ValueTaskSource)
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.NonGeneric_ConfiguredAwaiter_ContinuesOnCapturedContext(mode: Task, continueOnCapturedContext: True, sync: False)
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.NonGeneric_ConfiguredAwaiter_ContinuesOnCapturedContext(mode: ValueTaskSource, continueOnCapturedContext: True, sync: False)
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.NonGeneric_ConfiguredAwaiter_ContinuesOnCapturedContext(mode: Task, continueOnCapturedContext: False, sync: False)
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.NonGeneric_ConfiguredAwaiter_ContinuesOnCapturedContext(mode: ValueTaskSource, continueOnCapturedContext: False, sync: False)
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.NonGeneric_ConfiguredAwaiter_ContinuesOnCapturedContext(mode: Result, continueOnCapturedContext: True, sync: True)
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.NonGeneric_ConfiguredAwaiter_ContinuesOnCapturedContext(mode: Task, continueOnCapturedContext: True, sync: True)
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.NonGeneric_ConfiguredAwaiter_ContinuesOnCapturedContext(mode: ValueTaskSource, continueOnCapturedContext: True, sync: True)
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.NonGeneric_ConfiguredAwaiter_ContinuesOnCapturedContext(mode: Result, continueOnCapturedContext: False, sync: True)
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.NonGeneric_ConfiguredAwaiter_ContinuesOnCapturedContext(mode: Task, continueOnCapturedContext: False, sync: True)
+[STRT] System.Threading.Tasks.Tests.ValueTaskTests.NonGeneric_ConfiguredAwaiter_ContinuesOnCapturedContext(mode: ValueTaskSource, continueOnCapturedContext: False, sync: True)
+[STRT] System.Runtime.CompilerServices.Tests.AsyncMethodBuilderAttributeTests.Ctor_BuilderType_Roundtrip(builderType: typeof(string))
+[STRT] System.Runtime.CompilerServices.Tests.AsyncMethodBuilderAttributeTests.Ctor_BuilderType_Roundtrip(builderType: typeof(int))
+[STRT] System.Runtime.CompilerServices.Tests.AsyncMethodBuilderAttributeTests.Ctor_BuilderType_Roundtrip(builderType: typeof(System.Runtime.CompilerServices.AsyncValueTaskMethodBuilder))
+[STRT] System.Runtime.CompilerServices.Tests.AsyncMethodBuilderAttributeTests.Ctor_BuilderType_Roundtrip(builderType: typeof(System.Runtime.CompilerServices.AsyncValueTaskMethodBuilder<>))
+[STRT] System.Runtime.CompilerServices.Tests.AsyncMethodBuilderAttributeTests.Ctor_BuilderType_Roundtrip(builderType: typeof(System.Runtime.CompilerServices.AsyncValueTaskMethodBuilder<int>))
+[STRT] System.Runtime.CompilerServices.Tests.AsyncMethodBuilderAttributeTests.Ctor_BuilderType_Roundtrip(builderType: typeof(System.Runtime.CompilerServices.AsyncValueTaskMethodBuilder<string>))
+[STRT] System.Threading.Tasks.Sources.Tests.ManualResetValueTaskSourceTests.SetException_AfterOnCompleted_ResultAvailableAsynchronously
+[STRT] System.Threading.Tasks.Sources.Tests.ManualResetValueTaskSourceTests.SetException_BeforeOnCompleted_ResultAvailableSynchronously
+[STRT] System.Threading.Tasks.Sources.Tests.ManualResetValueTaskSourceTests.FlowContext_SetAfterOnCompleted_FlowsIfExpected(flowContext: False)
+[STRT] System.Threading.Tasks.Sources.Tests.ManualResetValueTaskSourceTests.FlowContext_SetAfterOnCompleted_FlowsIfExpected(flowContext: True)
+[STRT] System.Threading.Tasks.Sources.Tests.ManualResetValueTaskSourceTests.OnCompleted_UnknownFlagsIgnored
+[STRT] System.Threading.Tasks.Sources.Tests.ManualResetValueTaskSourceTests.OnCompleted_ContinuationAlwaysInvokedAsynchronously(runContinuationsAsynchronously: False)
+[STRT] System.Threading.Tasks.Sources.Tests.ManualResetValueTaskSourceTests.OnCompleted_ContinuationAlwaysInvokedAsynchronously(runContinuationsAsynchronously: True)
+[STRT] System.Threading.Tasks.Sources.Tests.ManualResetValueTaskSourceTests.TaskScheduler_CaptureIfRequested(runContinuationsAsynchronously: False, captureTaskScheduler: False, setBeforeOnCompleted: False)
+[STRT] System.Threading.Tasks.Sources.Tests.ManualResetValueTaskSourceTests.TaskScheduler_CaptureIfRequested(runContinuationsAsynchronously: False, captureTaskScheduler: False, setBeforeOnCompleted: True)
+[STRT] System.Threading.Tasks.Sources.Tests.ManualResetValueTaskSourceTests.TaskScheduler_CaptureIfRequested(runContinuationsAsynchronously: False, captureTaskScheduler: True, setBeforeOnCompleted: False)
+[STRT] System.Threading.Tasks.Sources.Tests.ManualResetValueTaskSourceTests.TaskScheduler_CaptureIfRequested(runContinuationsAsynchronously: False, captureTaskScheduler: True, setBeforeOnCompleted: True)
+[STRT] System.Threading.Tasks.Sources.Tests.ManualResetValueTaskSourceTests.TaskScheduler_CaptureIfRequested(runContinuationsAsynchronously: True, captureTaskScheduler: False, setBeforeOnCompleted: False)
+[STRT] System.Threading.Tasks.Sources.Tests.ManualResetValueTaskSourceTests.TaskScheduler_CaptureIfRequested(runContinuationsAsynchronously: True, captureTaskScheduler: False, setBeforeOnCompleted: True)
+[STRT] System.Threading.Tasks.Sources.Tests.ManualResetValueTaskSourceTests.TaskScheduler_CaptureIfRequested(runContinuationsAsynchronously: True, captureTaskScheduler: True, setBeforeOnCompleted: False)
+[STRT] System.Threading.Tasks.Sources.Tests.ManualResetValueTaskSourceTests.TaskScheduler_CaptureIfRequested(runContinuationsAsynchronously: True, captureTaskScheduler: True, setBeforeOnCompleted: True)
+[STRT] System.Threading.Tasks.Sources.Tests.ManualResetValueTaskSourceTests.OnCompleted_NullDelegate_Throws
+[STRT] System.Threading.Tasks.Sources.Tests.ManualResetValueTaskSourceTests.SetResult_BeforeOnCompleted_ResultAvailableSynchronously
+[STRT] System.Threading.Tasks.Sources.Tests.ManualResetValueTaskSourceTests.SetResult_AfterOnCompleted_ResultAvailableAsynchronously
+[STRT] System.Threading.Tasks.Sources.Tests.ManualResetValueTaskSourceTests.GetResult_BeforeCompleted_Fails
+[STRT] System.Threading.Tasks.Sources.Tests.ManualResetValueTaskSourceTests.SetTwice_Fails
+[STRT] System.Threading.Tasks.Sources.Tests.ManualResetValueTaskSourceTests.FlowContext_SetBeforeOnCompleted_FlowsIfExpected(flowContext: False)
+[STRT] System.Threading.Tasks.Sources.Tests.ManualResetValueTaskSourceTests.FlowContext_SetBeforeOnCompleted_FlowsIfExpected(flowContext: True)
+[STRT] System.Threading.Tasks.Sources.Tests.ManualResetValueTaskSourceTests.SetResult_RunContinuationsAsynchronously_ContinuationInvokedAccordingly(runContinuationsAsynchronously: False)
+[STRT] System.Threading.Tasks.Sources.Tests.ManualResetValueTaskSourceTests.SetResult_RunContinuationsAsynchronously_ContinuationInvokedAccordingly(runContinuationsAsynchronously: True)
+[STRT] System.Threading.Tasks.Sources.Tests.ManualResetValueTaskSourceTests.AsyncEnumerable_Success(awaitForeach: False, asyncIterator: False)
+[STRT] System.Threading.Tasks.Sources.Tests.ManualResetValueTaskSourceTests.AsyncEnumerable_Success(awaitForeach: False, asyncIterator: True)
+[STRT] System.Threading.Tasks.Sources.Tests.ManualResetValueTaskSourceTests.AsyncEnumerable_Success(awaitForeach: True, asyncIterator: False)
+[STRT] System.Threading.Tasks.Sources.Tests.ManualResetValueTaskSourceTests.AsyncEnumerable_Success(awaitForeach: True, asyncIterator: True)
+[STRT] System.Threading.Tasks.Sources.Tests.ManualResetValueTaskSourceTests.OnCompleted_UsedTwiceBeforeCompletion_Throws
+[STRT] System.Threading.Tasks.Sources.Tests.ManualResetValueTaskSourceTests.AccessWrongVersion_Fails
+[STRT] System.Threading.Tasks.Sources.Tests.ManualResetValueTaskSourceTests.ReuseInstanceWithResets_Success
+[STRT] System.Threading.Tasks.Sources.Tests.ManualResetValueTaskSourceTests.SynchronizationContext_CaptureIfRequested(runContinuationsAsynchronously: False, captureSyncCtx: False, setBeforeOnCompleted: False)
+[STRT] System.Threading.Tasks.Sources.Tests.ManualResetValueTaskSourceTests.SynchronizationContext_CaptureIfRequested(runContinuationsAsynchronously: False, captureSyncCtx: False, setBeforeOnCompleted: True)
+[STRT] System.Threading.Tasks.Sources.Tests.ManualResetValueTaskSourceTests.SynchronizationContext_CaptureIfRequested(runContinuationsAsynchronously: False, captureSyncCtx: True, setBeforeOnCompleted: False)
+[STRT] System.Threading.Tasks.Sources.Tests.ManualResetValueTaskSourceTests.SynchronizationContext_CaptureIfRequested(runContinuationsAsynchronously: False, captureSyncCtx: True, setBeforeOnCompleted: True)
+[STRT] System.Threading.Tasks.Sources.Tests.ManualResetValueTaskSourceTests.SynchronizationContext_CaptureIfRequested(runContinuationsAsynchronously: True, captureSyncCtx: False, setBeforeOnCompleted: False)
+[STRT] System.Threading.Tasks.Sources.Tests.ManualResetValueTaskSourceTests.SynchronizationContext_CaptureIfRequested(runContinuationsAsynchronously: True, captureSyncCtx: False, setBeforeOnCompleted: True)
+[STRT] System.Threading.Tasks.Sources.Tests.ManualResetValueTaskSourceTests.SynchronizationContext_CaptureIfRequested(runContinuationsAsynchronously: True, captureSyncCtx: True, setBeforeOnCompleted: False)
+[STRT] System.Threading.Tasks.Sources.Tests.ManualResetValueTaskSourceTests.SynchronizationContext_CaptureIfRequested(runContinuationsAsynchronously: True, captureSyncCtx: True, setBeforeOnCompleted: True)
+[STRT] System.Threading.Tasks.Sources.Tests.ManualResetValueTaskSourceTests.SetException_OperationCanceledException_StatusIsCanceled
+Finished:    System.Threading.Tasks.Extensions.Tests.dll
+Finished uploading 78853 bytes of RESULTXML
+Xml file was written to the provided writer.
+
+=== TEST EXECUTION SUMMARY ===
+Tests run: 269 Passed: 269 Inconclusive: 0 Failed: 0 Ignored: 0 Skipped: 0
+
+test-main.js exiting WasmTestRunner.dll System.Threading.Tasks.Extensions.Tests.dll after 0.06171666666666667 minutes with result 0 and linear memory 193331200 bytes
+DOTNET: forceDisposeProxies done: 14 imports, 0 exports, 0 GCHandles, 0 JSHandles.
+WASM EXIT 0

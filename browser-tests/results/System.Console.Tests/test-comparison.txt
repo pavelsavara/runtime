@@ -1,0 +1,10 @@
+Test Comparison: System.Console.Tests
+Generated: 2026-02-01T18:08:11+01:00
+
+Mono tests:    3374
+CoreCLR tests: 3375
+
+=== Extra in CoreCLR (1) ===
+CancelKeyPressTests.HandlerInvokedForSigQuit
+
+=== Missing in CoreCLR (0) ===

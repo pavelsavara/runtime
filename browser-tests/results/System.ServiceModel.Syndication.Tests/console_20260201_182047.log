@@ -1,0 +1,74 @@
+Running in: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/143.0.0.0 Safari/537.36
+Running at: http://127.0.0.1:37397/index.html?arg=--setenv%3dXHARNESS_LOG_TEST_START%3dtrue&arg=--run&arg=WasmTestRunner.dll&arg=System.ServiceModel.Syndication.Tests.dll&arg=-notrait&arg=category%3dOuterLoop&arg=-notrait&arg=category%3dfailing&arg=-verbosity&arg=Info
+could not load /runArgs.json: 404. Ignoring
+Incoming arguments: --setenv=XHARNESS_LOG_TEST_START=true --run WasmTestRunner.dll System.ServiceModel.Syndication.Tests.dll -notrait category=OuterLoop -notrait category=failing -verbosity Info
+Application arguments: --run WasmTestRunner.dll System.ServiceModel.Syndication.Tests.dll -notrait category=OuterLoop -notrait category=failing -verbosity Info
+Initializing dotnet version 11.0.0 commit hash e31907b0fbca908ed525247a1dc38cc5fba7b0ff
+Using threadless Xunit runner
+Discovering: System.ServiceModel.Syndication.Tests.dll (method display = ClassAndMethod, method display options = None)
+Discovered:  System.ServiceModel.Syndication.Tests.dll (found 779 of 779 test cases)
+Starting:    System.ServiceModel.Syndication.Tests.dll
+[STRT] System.ServiceModel.Syndication.Tests.SyndicationItemTests.CreateCategory_Invoke_ReturnsExpected
+[STRT] System.ServiceModel.Syndication.Tests.SyndicationItemTests.WriteAttributeExtensions_Invoke_ReturnsExpected(version: null)
+[STRT] System.ServiceModel.Syndication.Tests.SyndicationItemTests.WriteAttributeExtensions_Invoke_ReturnsExpected(version: "")
+[STRT] System.ServiceModel.Syndication.Tests.SyndicationItemTests.WriteAttributeExtensions_Invoke_ReturnsExpected(version: "version")
+[STRT] System.ServiceModel.Syndication.Tests.SyndicationItemTests.Load_NullReader_ThrowsArgumentNullException
+[STRT] System.ServiceModel.Syndication.Tests.SyndicationItemTests.AddPermalink_ValidPermalink_AddsToLinks
+[STRT] System.ServiceModel.Syndication.Tests.SyndicationItemTests.Ctor_SyndicationItem_Empty
+[STRT] System.ServiceModel.Syndication.Tests.SyndicationItemTests.GetAtom10Formatter_Invoke_ReturnsExpected
+[STRT] System.ServiceModel.Syndication.Tests.SyndicationItemTests.TryParseElement_Invoke_ReturnsFalse(reader: null, version: null)
+[STRT] System.ServiceModel.Syndication.Tests.SyndicationItemTests.TryParseElement_Invoke_ReturnsFalse(reader: XNodeReader { AttributeCount = 0, BaseURI = "", CanReadBinaryContent = False, CanReadValueChunk = False, CanResolveEntity = False, ··· }, version: "")
+[STRT] System.ServiceModel.Syndication.Tests.SyndicationItemTests.TryParseElement_Invoke_ReturnsFalse(reader: XNodeReader { AttributeCount = 0, BaseURI = "", CanReadBinaryContent = False, CanReadValueChunk = False, CanResolveEntity = False, ··· }, version: "version")
+[STRT] System.ServiceModel.Syndication.Tests.SyndicationItemTests.Ctor_SyndicationItem_Full
+[STRT] System.ServiceModel.Syndication.Tests.SyndicationItemTests.TryParseContent_Invoke_ReturnsFalse(reader: null, contentType: null, version: null)
+[STRT] System.ServiceModel.Syndication.Tests.SyndicationItemTests.TryParseContent_Invoke_ReturnsFalse(reader: XNodeReader { AttributeCount = 0, BaseURI = "", CanReadBinaryContent = False, CanReadValueChunk = False, CanResolveEntity = False, ··· }, contentType: "", version: "")
+[STRT] System.ServiceModel.Syndication.Tests.SyndicationItemTests.TryParseContent_Invoke_ReturnsFalse(reader: XNodeReader { AttributeCount = 0, BaseURI = "", CanReadBinaryContent = False, CanReadValueChunk = False, CanResolveEntity = False, ··· }, contentType: "contentType", version: "version")
+[STRT] System.ServiceModel.Syndication.Tests.SyndicationItemTests.Ctor_String_SyndicationContent_Uri_String_DateTimeOffset(title: null, content: null, itemAlternateLink: null, id: null, lastUpdatedTime: 0001-01-01T00:00:00.0000000+00:00)
+[STRT] System.ServiceModel.Syndication.Tests.SyndicationItemTests.Ctor_String_SyndicationContent_Uri_String_DateTimeOffset(title: "", content: TextSyndicationContent { AttributeExtensions = [], Text = "text", Type = "text" }, itemAlternateLink: http://microsoft.com/, id: "", lastUpdatedTime: 2026-02-01T17:20:54.4550000+00:00)
+[STRT] System.ServiceModel.Syndication.Tests.SyndicationItemTests.Ctor_String_SyndicationContent_Uri_String_DateTimeOffset(title: "title", content: TextSyndicationContent { AttributeExtensions = [], Text = "text", Type = "xhtml" }, itemAlternateLink: /relative, id: "id", lastUpdatedTime: 2026-02-03T17:20:54.4580000+00:00)
+[STRT] System.ServiceModel.Syndication.Tests.SyndicationItemTests.Ctor_NullSource_ThrowsArgumentNullException
+[STRT] System.ServiceModel.Syndication.Tests.SyndicationItemTests.GetRss20Formatter_Invoke_ReturnsExpected(serializeExtensionsAsAtom: True)
+[STRT] System.ServiceModel.Syndication.Tests.SyndicationItemTests.GetRss20Formatter_Invoke_ReturnsExpected(serializeExtensionsAsAtom: False)
+[STRT] System.ServiceModel.Syndication.Tests.SyndicationItemTests.AddPermalink_NullPermalink_ThrowsArgumentNullException
+[STRT] System.ServiceModel.Syndication.Tests.SyndicationItemTests.Ctor_String_String_Uri(title: null, content: null, itemAlternateLink: null)
+[STRT] System.ServiceModel.Syndication.Tests.SyndicationItemTests.Ctor_String_String_Uri(title: "", content: "", itemAlternateLink: http://microsoft.com/)
+[STRT] System.ServiceModel.Syndication.Tests.SyndicationItemTests.Ctor_String_String_Uri(title: "title", content: "content", itemAlternateLink: /relative)
+[STRT] System.ServiceModel.Syndication.Tests.SyndicationItemTests.Ctor_Default
+[STRT] System.ServiceModel.Syndication.Tests.SyndicationItemTests.Clone_Empty_ReturnsExpected
+[STRT] System.ServiceModel.Syndication.Tests.SyndicationItemTests.WriteAttributeExtensions_NullWriter_ThrowsArgumentNullException
+[STRT] System.ServiceModel.Syndication.Tests.SyndicationItemTests.TryParseAttribute_Invoke_ReturnsFalse(name: null, ns: null, value: null, version: null)
+[STRT] System.ServiceModel.Syndication.Tests.SyndicationItemTests.TryParseAttribute_Invoke_ReturnsFalse(name: "", ns: "", value: "", version: "")
+[STRT] System.ServiceModel.Syndication.Tests.SyndicationItemTests.TryParseAttribute_Invoke_ReturnsFalse(name: "name", ns: "ns", value: "value", version: "version")
+[STRT] System.ServiceModel.Syndication.Tests.SyndicationItemTests.TryParseAttribute_Invoke_ReturnsFalse(name: "xmlns", ns: "ns", value: "value", version: "version")
+[STRT] System.ServiceModel.Syndication.Tests.SyndicationItemTests.TryParseAttribute_Invoke_ReturnsFalse(name: "name", ns: "http://www.w3.org/2000/xmlns/", value: "value", version: "version")
+[STRT] System.ServiceModel.Syndication.Tests.SyndicationItemTests.TryParseAttribute_Invoke_ReturnsFalse(name: "type", ns: "ns", value: "value", version: "version")
+[STRT] System.ServiceModel.Syndication.Tests.SyndicationItemTests.TryParseAttribute_Invoke_ReturnsFalse(name: "name", ns: "http://www.w3.org/2001/XMLSchema-instance", value: "value", version: "version")
+[STRT] System.ServiceModel.Syndication.Tests.SyndicationItemTests.WriteElementExtensions_NullWriter_ThrowsArgumentNullException
+[STRT] System.ServiceModel.Syndication.Tests.SyndicationItemTests.CreateLink_Invoke_ReturnsExpected
+[STRT] System.ServiceModel.Syndication.Tests.SyndicationItemTests.CreatePerson_Invoke_ReturnsExpected
+[STRT] System.ServiceModel.Syndication.Tests.SyndicationItemTests.AddPermalink_RelativePermalink_ThrowsInvalidOperationException
+[STRT] System.ServiceModel.Syndication.Tests.SyndicationItemTests.WriteElementExtensions_Invoke_ReturnsExpected(version: null)
+[STRT] System.ServiceModel.Syndication.Tests.SyndicationItemTests.WriteElementExtensions_Invoke_ReturnsExpected(version: "")
+[STRT] System.ServiceModel.Syndication.Tests.SyndicationItemTests.WriteElementExtensions_Invoke_ReturnsExpected(version: "version")
+[STRT] System.ServiceModel.Syndication.Tests.SyndicationItemTests.Ctor_String_String_Uri_String_DateTimeOffset(title: null, content: null, itemAlternateLink: null, id: null, lastUpdatedTime: 0001-01-01T00:00:00.0000000+00:00)
+[STRT] System.ServiceModel.Syndication.Tests.SyndicationItemTests.Ctor_String_String_Uri_String_DateTimeOffset(title: "", content: "", itemAlternateLink: http://microsoft.com/, id: "", lastUpdatedTime: 2026-02-01T17:20:54.5570000+00:00)
+[STRT] System.ServiceModel.Syndication.Tests.SyndicationItemTests.Ctor_String_String_Uri_String_DateTimeOffset(title: "title", content: "content", itemAlternateLink: /relative, id: "id", lastUpdatedTime: 2026-02-03T17:20:54.5570000+00:00)
+[STRT] System.ServiceModel.Syndication.Tests.SyndicationItemTests.Clone_Full_ReturnsExpected
+[STRT] System.ServiceModel.Syndication.Tests.SyndicationVersionsTests.Rss20_Get_ReturnsExpected
+[STRT] System.ServiceModel.Syndication.Tests.SyndicationVersionsTests.Atom10_Get_ReturnsExpected
+[STRT] System.ServiceModel.Syndication.Tests.ReferencedCategoriesDocumentTests.Categories_SetNullItem_ThrowsArgumentNullException
+[STRT] System.ServiceModel.Syndication.Tests.ReferencedCategoriesDocumentTests.WriteAttributeExtensions_NullWriter_ThrowsArgumentNullException
+[STRT] System.ServiceModel.Syndication.Tests.ReferencedCategoriesDocumentTests.Accepts_SetNullItem_ThrowsArgumentNullException
+[STRT] System.ServiceModel.Syndication.Tests.ReferencedCategoriesDocumentTests.Accepts_AddNullItem_ThrowsArgumentNullException
+[STRT] System.ServiceModel.Syndication.Tests.ReferencedCategoriesDocumentTests.Accepts_AddNonNullItem_Success
+[STRT] System.ServiceModel.Syndication.Tests.ReferencedCategoriesDocumentTests.Categories_SetNonNullItem_GetReturnsExpected
+[STRT] System.ServiceModel.Syndication.Tests.ReferencedCategoriesDocumentTests.WriteElementExtensions_Invoke_ReturnsExpected(version: null)
+[STRT] System.ServiceModel.Syndication.Tests.ReferencedCategoriesDocumentTests.WriteElementExtensions_Invoke_ReturnsExpected(version: "")
+[STRT] System.ServiceModel.Syndication.Tests.ReferencedCategoriesDocumentTests.WriteElementExtensions_Invoke_ReturnsExpected(version: "version")
+[STRT] System.ServiceModel.Syndication.Tests.ReferencedCategoriesDocumentTests.Ctor_NullLink_ThrowsArgumentNullException
+[STRT] System.ServiceModel.Syndication.Tests.ReferencedCategoriesDocumentTests.WriteAttributeExtensions_Invoke_ReturnsExpected(version: null)
+[STRT] System.ServiceModel.Syndication.Tests.ReferencedCategoriesDocumentTests.WriteAttributeExtensions_Invoke_ReturnsExpected(version: "")
+[STRT] System.ServiceModel.Syndication.Tests.ReferencedCategoriesDocumentTests.WriteAttributeExtensions_Invoke_ReturnsExpected(version: "version")
+[STRT] System.ServiceModel.Syndication.Tests.ReferencedCategoriesDocumentTests.Ctor_Uri(link: http://microsoft.com/)
+[STRT] System.ServiceModel.Syndication.Tests.ReferencedCategoriesDocumentTests.Ctor_Uri(link: /relative)
+[STRT] System.ServiceModel.Syndication.Tests.ReferencedCategoriesDocumentTests.Accepts_SetNonNullItem_GetReturnsExpected

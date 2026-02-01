@@ -1,0 +1,395 @@
+
+  Determining projects to restore...
+  Restored /home/pavelsavara/dev/runtime/src/libraries/System.Threading.RateLimiting/tests/System.Threading.RateLimiting.Tests.csproj (in 256 ms).
+  11 of 12 projects are up-to-date for restore.
+  TestUtilities -> /home/pavelsavara/dev/runtime/artifacts/bin/TestUtilities/Release/net10.0/TestUtilities.dll
+  ILLink.RoslynAnalyzer -> /home/pavelsavara/dev/runtime/artifacts/bin/ILLink.RoslynAnalyzer/Release/netstandard2.0/ILLink.RoslynAnalyzer.dll
+  ILLink.CodeFixProvider -> /home/pavelsavara/dev/runtime/artifacts/bin/ILLink.CodeFixProvider/Release/netstandard2.0/ILLink.CodeFixProvider.dll
+  Mono.Linker -> /home/pavelsavara/dev/runtime/artifacts/bin/Mono.Linker/ref/Release/net11.0/illink.dll
+  Mono.Linker -> /home/pavelsavara/dev/runtime/artifacts/bin/Mono.Linker/Release/net11.0/illink.dll
+  ILLink.Tasks -> /home/pavelsavara/dev/runtime/artifacts/bin/ILLink.Tasks/Release/net/ILLink.Tasks.dll
+  System.Threading.RateLimiting -> /home/pavelsavara/dev/runtime/artifacts/bin/System.Threading.RateLimiting/ref/Release/net11.0/System.Threading.RateLimiting.dll
+  System.Threading.RateLimiting -> /home/pavelsavara/dev/runtime/artifacts/bin/System.Threading.RateLimiting/Release/net11.0/System.Threading.RateLimiting.dll
+  WasmTriggerPublishApp for CoreCLR not implemented
+  System.Threading.RateLimiting.Tests -> /home/pavelsavara/dev/runtime/artifacts/bin/System.Threading.RateLimiting.Tests/Release/net11.0/browser-wasm/System.Threading.RateLimiting.Tests.dll
+  export SCENARIO=WasmTestOnChrome
+  export XUNIT_HIDE_PASSING_OUTPUT_DIAGNOSTICS=1
+  export PREPEND_PATH=/home/pavelsavara/dev/runtime/artifacts/bin/chromedriver/chromedriver_linux64
+  export RuntimeIdentifier=browser-wasm
+  PATH=/home/pavelsavara/dev/runtime/artifacts/bin/chromedriver/chromedriver_linux64:/home/pavelsavara/.jsvu/bin:/home/pavelsavara/dev/runtime/.dotnet:/home/pavelsavara/dev/runtime/.dotnet:/home/pavelsavara/dev/runtime/.dotnet:/home/pavelsavara/dev/runtime/.dotnet:/home/pavelsavara/dev/runtime/.dotnet:/home/pavelsavara/dev/runtime/.dotnet:/home/pavelsavara/dev/runtime/.dotnet:/home/pavelsavara/dev/runtime/.dotnet:/home/pavelsavara/dev/runtime/.dotnet:/home/pavelsavara/dev/runtime/.dotnet:/home/pavelsavara/dev/runtime/.dotnet:/home/pavelsavara/dev/runtime/.dotnet:/home/pavelsavara/dev/runtime/.dotnet:/home/pavelsavara/dev/runtime/.dotnet:/home/pavelsavara/dev/runtime/.dotnet:/home/pavelsavara/dev/runtime/.dotnet:/home/pavelsavara/dev/runtime/.dotnet:/home/pavelsavara/dev/runtime/.dotnet:/home/pavelsavara/bin:/home/pavelsavara/dev/.dotnet:/home/pavelsavara/.vscode-server/data/User/globalStorage/github.copilot-chat/debugCommand:/home/pavelsavara/.vscode-server/data/User/globalStorage/github.copilot-chat/copilotCli:/home/pavelsavara/.vscode-server/bin/c9d77990917f3102ada88be140d28b038d1dd7c7/bin/remote-cli:/home/pavelsavara/bin:/home/pavelsavara/bin:/home/pavelsavara/dev/.dotnet:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/windows/system32:/mnt/c/windows:/mnt/d/.dotnet/:/mnt/c/windows/System32/Wbem:/mnt/c/windows/System32/WindowsPowerShell/v1.0/:/mnt/c/windows/System32/OpenSSH/:/mnt/c/Program Files/HP/HP One Agent:/mnt/c/Program Files/nodejs/:/mnt/c/Program Files/Meld/:/mnt/c/Program Files/dotnet/:/mnt/c/Program Files/Git/cmd:/mnt/c/Program Files/PuTTY/:/mnt/c/Program Files/PowerShell/7/:/mnt/c/Program Files/Microsoft SQL Server/170/Tools/Binn/:/mnt/c/Program Files/GitExtensions/:/mnt/c/Program Files/GitHub CLI/:/mnt/d/bin:/mnt/d/.dotnet/:/mnt/c/Users/pavelsavara/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/pavelsavara/AppData/Local/Programs/MicrosoftVSCode/bin:/mnt/c/Users/pavelsavara/AppData/Roaming/npm:/mnt/c/Users/pavelsavara/AppData/Local/Programs/Python/Python310/:/mnt/c/Users/pavelsavara/AppData/Local/Programs/Python/Python310/Scripts/:/mnt/c/Users/pavelsavara/AppData/Local/Microsoft/WinGet/Packages/GitHub.Copilot.Prerelease_Microsoft.Winget.Source_8wekyb3d8bbwe:/mnt/c/Users/pavelsavara/.dotnet/tools:/snap/bin
+  EXECUTION_DIR=/home/pavelsavara/dev/runtime/artifacts/bin/System.Threading.RateLimiting.Tests/Release/net11.0/browser-wasm/wwwroot
+  SCENARIO=WasmTestOnChrome
+  XHARNESS_OUT=/home/pavelsavara/dev/runtime/artifacts/bin/System.Threading.RateLimiting.Tests/Release/net11.0/browser-wasm/wwwroot/xharness-output
+  XHARNESS_CLI_PATH=
+  HARNESS_RUNNER=dotnet xharness
+  XHARNESS_COMMAND=test-browser
+  MAIN_JS=
+  JS_ENGINE=
+  JS_ENGINE_ARGS=--browser-arg=--js-flags=--stack-trace-limit=1000
+  XHARNESS_ARGS= --browser-arg=--js-flags=--stack-trace-limit=1000
+  ~/dev/runtime/artifacts/bin/System.Threading.RateLimiting.Tests/Release/net11.0/browser-wasm/wwwroot ~/dev/runtime/src/libraries/System.Threading.RateLimiting/tests
+  ----- start Sun Feb 1 18:14:22 CET 2026 =============== To repro directly: =====================================================
+  pushd /home/pavelsavara/dev/runtime/artifacts/bin/System.Threading.RateLimiting.Tests/Release/net11.0/browser-wasm/wwwroot
+  dotnet xharness wasm test-browser --app=. --output-directory=/home/pavelsavara/dev/runtime/artifacts/bin/System.Threading.RateLimiting.Tests/Release/net11.0/browser-wasm/wwwroot/xharness-output -s dotnet.native.js.symbols --symbol-patterns wasm-symbol-patterns.txt --symbolicator WasmSymbolicator.dll,Microsoft.WebAssembly.Internal.SymbolicatorWrapperForXHarness --browser-path=/home/pavelsavara/dev/runtime/artifacts/bin/chrome/chrome-linux/chrome --timeout=00:30:00  --browser-arg=--js-flags=--stack-trace-limit=1000   --  --setenv=XHARNESS_LOG_TEST_START=true  --run WasmTestRunner.dll System.Threading.RateLimiting.Tests.dll  -notrait category=OuterLoop -notrait category=failing 
+  popd
+  ===========================================================================================================
+  ~/dev/runtime/artifacts/bin/System.Threading.RateLimiting.Tests/Release/net11.0/browser-wasm/wwwroot ~/dev/runtime/artifacts/bin/System.Threading.RateLimiting.Tests/Release/net11.0/browser-wasm/wwwroot ~/dev/runtime/src/libraries/System.Threading.RateLimiting/tests
+  [11.0.0-prerelease.26064.3+31e0b8e08f57890f7b7004b93361d69cd4b21079] XHarness command issued: wasm test-browser --app=. --output-directory=/home/pavelsavara/dev/runtime/artifacts/bin/System.Threading.RateLimiting.Tests/Release/net11.0/browser-wasm/wwwroot/xharness-output -s dotnet.native.js.symbols --symbol-patterns wasm-symbol-patterns.txt --symbolicator WasmSymbolicator.dll,Microsoft.WebAssembly.Internal.SymbolicatorWrapperForXHarness --browser-path=/home/pavelsavara/dev/runtime/artifacts/bin/chrome/chrome-linux/chrome --timeout=00:30:00 --browser-arg=--js-flags=--stack-trace-limit=1000 -- --setenv=XHARNESS_LOG_TEST_START=true --run WasmTestRunner.dll System.Threading.RateLimiting.Tests.dll -notrait category=OuterLoop -notrait category=failing
+  [40m[1m[33mwarn[39m[22m[49m: Cannot find symbols file dotnet.native.js.symbols
+  [40m[32minfo[39m[22m[49m: Using Chrome from /home/pavelsavara/dev/runtime/artifacts/bin/chrome/chrome-linux/chrome
+  [40m[32minfo[39m[22m[49m: Starting chromedriver with args: --js-flags=--stack-trace-limit=1000 --headless --incognito --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-renderer-backgrounding --enable-features=NetworkService,NetworkServiceInProcess --allow-insecure-localhost --disable-breakpad --disable-component-extensions-with-background-pages --disable-dev-shm-usage --disable-extensions --disable-features=TranslateUI --disable-ipc-flooding-protection --force-color-profile=srgb --metrics-recording-only and load strategy: Normal
+  Starting ChromeDriver 143.0.7499.0 (0000000000000000000000000000000000000000-0000000000000000000000000000000000000000) on port 38625
+  Only local connections are allowed.
+  Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
+  ChromeDriver was started successfully on port 38625.
+  [40m[32minfo[39m[22m[49m: Running in: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/143.0.0.0 Safari/537.36
+  [40m[32minfo[39m[22m[49m: Running at: http://127.0.0.1:33361/index.html?arg=--setenv%3dXHARNESS_LOG_TEST_START%3dtrue&arg=--run&arg=WasmTestRunner.dll&arg=System.Threading.RateLimiting.Tests.dll&arg=-notrait&arg=category%3dOuterLoop&arg=-notrait&arg=category%3dfailing&arg=-verbosity&arg=Info
+  [40m[32minfo[39m[22m[49m: could not load /runArgs.json: 404. Ignoring
+  [40m[32minfo[39m[22m[49m: Incoming arguments: --setenv=XHARNESS_LOG_TEST_START=true --run WasmTestRunner.dll System.Threading.RateLimiting.Tests.dll -notrait category=OuterLoop -notrait category=failing -verbosity Info
+  [40m[32minfo[39m[22m[49m: Application arguments: --run WasmTestRunner.dll System.Threading.RateLimiting.Tests.dll -notrait category=OuterLoop -notrait category=failing -verbosity Info
+  [40m[32minfo[39m[22m[49m: Initializing dotnet version 11.0.0 commit hash e31907b0fbca908ed525247a1dc38cc5fba7b0ff
+  [40m[32minfo[39m[22m[49m: Using threadless Xunit runner
+  [40m[32minfo[39m[22m[49m: Discovering: System.Threading.RateLimiting.Tests.dll (method display = ClassAndMethod, method display options = None)
+  [40m[32minfo[39m[22m[49m: Discovered:  System.Threading.RateLimiting.Tests.dll (found 318 of 318 test cases)
+  [40m[32minfo[39m[22m[49m: Starting:    System.Threading.RateLimiting.Tests.dll
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Tests.PartitionedChainedLimiterTests.AcquireWorksWithSingleLimiter
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Tests.PartitionedChainedLimiterTests.DisposeMakesMethodsThrow
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Tests.PartitionedChainedLimiterTests.AcquireAsyncFailsWhenOneLimiterDoesNotHaveEnoughResources
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Tests.PartitionedChainedLimiterTests.AcquireAsyncSucceedsDisposeThrowsAndReleasesResources
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Tests.PartitionedChainedLimiterTests.AcquireAsyncForwardsCorrectPermitCount
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Tests.PartitionedChainedLimiterTests.GetStatisticsReturnsNewInstances
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Tests.PartitionedChainedLimiterTests.MetadataIsCombined
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Tests.PartitionedChainedLimiterTests.AcquireAsyncFailsDisposeThrows
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Tests.PartitionedChainedLimiterTests.AcquireAsyncThrowsDisposeThrowsMultipleLimitersThrow
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Tests.PartitionedChainedLimiterTests.AcquireFailsDisposeThrowsMultipleLimitersThrow
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Tests.PartitionedChainedLimiterTests.DuplicateMetadataUsesFirstOne
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Tests.PartitionedChainedLimiterTests.AcquireThrows_SingleLimiter
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Tests.PartitionedChainedLimiterTests.AcquireFailsDisposeThrows
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Tests.PartitionedChainedLimiterTests.AcquireSucceedsDisposeThrowsAndReleasesResources
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Tests.PartitionedChainedLimiterTests.AcquireAsyncFailsAndReleasesAcquiredResources
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Tests.PartitionedChainedLimiterTests.GetStatisticsReturnsLowestOrAggregateValues
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Tests.PartitionedChainedLimiterTests.AcquireAsyncWorksWithMultipleLimiters
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Tests.PartitionedChainedLimiterTests.LeasesAreDisposedInReverseOrderWhenAcquireAsyncThrows
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Tests.PartitionedChainedLimiterTests.LeasesAreDisposedInReverseOrderWhenAcquireThrows
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Tests.PartitionedChainedLimiterTests.AcquireAsyncThrowsAndReleasesAcquiredResources
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Tests.PartitionedChainedLimiterTests.ThrowsWhenNullPassedIn
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Tests.PartitionedChainedLimiterTests.AcquireForwardsCorrectPermitCount
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Tests.PartitionedChainedLimiterTests.AcquireFailsWhenOneLimiterDoesNotHaveEnoughResources
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Tests.PartitionedChainedLimiterTests.AcquireAsyncCanceledReleasesAcquiredResources
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Tests.PartitionedChainedLimiterTests.AcquireAsyncCanBeCanceled
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Tests.PartitionedChainedLimiterTests.AcquireAsyncThrows_SingleLimiter
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Tests.PartitionedChainedLimiterTests.AcquireWorksWithMultipleLimiters
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Tests.PartitionedChainedLimiterTests.GetStatisticsHasCorrectValues
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Tests.PartitionedChainedLimiterTests.ThrowsWhenNoLimitersProvided
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Tests.PartitionedChainedLimiterTests.AcquireLeaseCorrectlyDisposesWithSingleLimiter
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Tests.PartitionedChainedLimiterTests.AcquireAsyncLeaseCorrectlyDisposesWithMultipleLimiters
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Tests.PartitionedChainedLimiterTests.AcquireThrowsAndReleasesAcquiredResources
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Tests.PartitionedChainedLimiterTests.AcquireAsyncLeaseCorrectlyDisposesWithSingleLimiter
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Tests.PartitionedChainedLimiterTests.AcquireAsyncWorksWithSingleLimiter
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Tests.PartitionedChainedLimiterTests.AcquireAsyncWaitsForResourcesBeforeCallingNextLimiter
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Tests.PartitionedChainedLimiterTests.AcquireAsyncForwardsCorrectResource
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Tests.PartitionedChainedLimiterTests.GetStatisticsWithSingleLimiterWorks
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Tests.PartitionedChainedLimiterTests.AcquireThrowsDisposeThrowsMultipleLimitersThrow
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Tests.PartitionedChainedLimiterTests.AcquireForwardsCorrectResource
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Tests.PartitionedChainedLimiterTests.AcquireLeaseCorrectlyDisposesWithMultipleLimiters
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Tests.PartitionedChainedLimiterTests.ArrayChangesAreIgnored
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Tests.PartitionedChainedLimiterTests.AcquireAsyncFailsDisposeThrowsMultipleLimitersThrow
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Tests.PartitionedChainedLimiterTests.AcquireFailsAndReleasesAcquiredResources
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Tests.PartitionedChainedLimiterTests.DisposeAsyncMakesMethodsThrow
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Tests.PartitionedChainedLimiterTests.LeasesAreDisposedInReverseOrder
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Tests.ChainedLimiterTests.IdleDurationReturnsLowestValue
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Tests.ChainedLimiterTests.DisposeMakesMethodsThrow
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Tests.ChainedLimiterTests.AcquireFailsWhenOneLimiterDoesNotHaveEnoughResources
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Tests.ChainedLimiterTests.AcquireAsyncThrowsDisposeThrowsMultipleLimitersThrow
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Tests.ChainedLimiterTests.AcquireAsyncSucceedsDisposeThrowsAndReleasesResources
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Tests.ChainedLimiterTests.GetStatisticsReturnsNewInstances
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Tests.ChainedLimiterTests.MetadataIsCombined
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Tests.ChainedLimiterTests.AcquireAsyncThrows_SingleLimiter
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Tests.ChainedLimiterTests.AcquireAsyncFailsDisposeThrowsMultipleLimitersThrow
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Tests.ChainedLimiterTests.AcquireAsyncFailsDisposeThrows
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Tests.ChainedLimiterTests.DuplicateMetadataUsesFirstOne
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Tests.ChainedLimiterTests.AcquireThrowsAndReleasesAcquiredResources
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Tests.ChainedLimiterTests.AcquireThrows_SingleLimiter
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Tests.ChainedLimiterTests.AcquireThrowsDisposeThrowsMultipleLimitersThrow
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Tests.ChainedLimiterTests.AcquireFailsAndReleasesAcquiredResources
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Tests.ChainedLimiterTests.GetStatisticsReturnsLowestOrAggregateValues
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Tests.ChainedLimiterTests.AcquireWorksWithMultipleLimiters
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Tests.ChainedLimiterTests.LeasesAreDisposedInReverseOrderWhenAcquireAsyncThrows
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Tests.ChainedLimiterTests.LeasesAreDisposedInReverseOrderWhenAcquireThrows
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Tests.ChainedLimiterTests.AcquireAsyncFailsAndReleasesAcquiredResources
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Tests.ChainedLimiterTests.ThrowsWhenNullPassedIn
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Tests.ChainedLimiterTests.AcquireSucceedsDisposeThrowsAndReleasesResources
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Tests.ChainedLimiterTests.AcquireAsyncLeaseCorrectlyDisposesWithSingleLimiter
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Tests.ChainedLimiterTests.AcquireAsyncCanceledReleasesAcquiredResources
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Tests.ChainedLimiterTests.AcquireAsyncCanBeCanceled
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Tests.ChainedLimiterTests.AcquireAsyncThrowsAndReleasesAcquiredResources
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Tests.ChainedLimiterTests.AcquireAsyncWorksWithSingleLimiter
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Tests.ChainedLimiterTests.GetStatisticsHasCorrectValues
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Tests.ChainedLimiterTests.ThrowsWhenNoLimitersProvided
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Tests.ChainedLimiterTests.AcquireLeaseCorrectlyDisposesWithMultipleLimiters
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Tests.ChainedLimiterTests.AcquireAsyncLeaseCorrectlyDisposesWithMultipleLimiters
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Tests.ChainedLimiterTests.AcquireFailsDisposeThrows
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Tests.ChainedLimiterTests.AcquireAsyncWorksWithMultipleLimiters
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Tests.ChainedLimiterTests.AcquireWorksWithSingleLimiter
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Tests.ChainedLimiterTests.AcquireAsyncWaitsForResourcesBeforeCallingNextLimiter
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Tests.ChainedLimiterTests.AcquireAsyncForwardsCorrectPermitCount
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Tests.ChainedLimiterTests.GetStatisticsWithSingleLimiterWorks
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Tests.ChainedLimiterTests.AcquireFailsDisposeThrowsMultipleLimitersThrow
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Tests.ChainedLimiterTests.AcquireForwardsCorrectPermitCount
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Tests.ChainedLimiterTests.AcquireLeaseCorrectlyDisposesWithSingleLimiter
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Tests.ChainedLimiterTests.DisposeAsyncMakesMethodsThrow
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Tests.ChainedLimiterTests.AcquireAsyncFailsWhenOneLimiterDoesNotHaveEnoughResources
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Tests.ChainedLimiterTests.LeasesAreDisposedInReverseOrder
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Tests.ChainedLimiterTests.ArrayChangesAreIgnored
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.ConcurrencyLimiterTests.LargeAcquiresAndQueuesDoNotIntegerOverflow
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.ConcurrencyLimiterTests.CanAcquireResource
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.ConcurrencyLimiterTests.AcquireAsyncZero_WithAvailability
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.ConcurrencyLimiterTests.NoMetadataOnAcquiredLease
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.ConcurrencyLimiterTests.MetadataNamesContainsAllMetadata
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.ConcurrencyLimiterTests.DropsMultipleOldestWhenQueuingMoreThanLimit_NewestFirst
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.ConcurrencyLimiterTests.GetStatisticsWithZeroPermitCount
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.ConcurrencyLimiterTests.CanCancelAcquireAsyncAfterQueuing
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.ConcurrencyLimiterTests.CanFillQueueWithNewestFirstAfterCancelingQueuedRequestWithAnotherQueuedRequest
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.ConcurrencyLimiterTests.CanFillQueueWithOldestFirstAfterCancelingFirstQueuedRequestManually
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.ConcurrencyLimiterTests.GetStatisticsThrowsAfterDispose
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.ConcurrencyLimiterTests.CannotAcquireResourcesWithAcquireAsyncWithQueuedItemsIfOldestFirst
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.ConcurrencyLimiterTests.CannotAcquireResourcesWithAcquireWithQueuedItemsIfOldestFirst
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.ConcurrencyLimiterTests.CanDisposeAfterCancelingQueuedRequest
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.ConcurrencyLimiterTests.AcquireAsyncZero_WithoutAvailabilityWaitsForAvailability
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.ConcurrencyLimiterTests.CanAcquireResourceAsync_QueuesAndGrabsNewest
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.ConcurrencyLimiterTests.ThrowsWhenAcquiringMoreThanLimit
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.ConcurrencyLimiterTests.GetStatisticsHasCorrectValues
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.ConcurrencyLimiterTests.GetStatisticsReturnsNewInstances
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.ConcurrencyLimiterTests.CanAcquireResourcesWithAcquireAsyncWithQueuedItemsIfNewestFirst
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.ConcurrencyLimiterTests.CanAcquireResourceAsync
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.ConcurrencyLimiterTests.DisposeReleasesQueuedAcquires
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.ConcurrencyLimiterTests.AcquireZero_WithoutAvailability
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.ConcurrencyLimiterTests.NullIdleDurationWhenActive
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.ConcurrencyLimiterTests.ReasonMetadataOnFailedWaitAsync
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.ConcurrencyLimiterTests.CanAcquireResourcesWithAcquireWithQueuedItemsIfNewestFirst
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.ConcurrencyLimiterTests.QueueAvailableAfterQueueLimitHitAndResources_BecomeAvailable
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.ConcurrencyLimiterTests.DropsOldestWhenQueuingMoreThanLimit_NewestFirst
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.ConcurrencyLimiterTests.InvalidOptionsThrows
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.ConcurrencyLimiterTests.ThrowsWhenAcquiringLessThanZero
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.ConcurrencyLimiterTests.ThrowsWhenWaitingForLessThanZero
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.ConcurrencyLimiterTests.CanDequeueMultipleResourcesAtOnce
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.ConcurrencyLimiterTests.AcquireZero_WithAvailability
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.ConcurrencyLimiterTests.DropsRequestedLeaseIfPermitCountGreaterThanQueueLimitAndNoAvailability_NewestFirst
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.ConcurrencyLimiterTests.IdleDurationUpdatesWhenIdle
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.ConcurrencyLimiterTests.IdleDurationUpdatesWhenChangingFromActive
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.ConcurrencyLimiterTests.FailsWhenQueuingMoreThanLimit_OldestFirst
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.ConcurrencyLimiterTests.CancelUpdatesQueueLimit
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.ConcurrencyLimiterTests.CanCancelAcquireAsyncBeforeQueuing
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.ConcurrencyLimiterTests.ThrowsWhenWaitingForMoreThanLimit
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.ConcurrencyLimiterTests.CanAcquireResourceAsync_QueuesAndGrabsOldest
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.ConcurrencyLimiterTests.DisposeAsyncReleasesQueuedAcquires
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.SlidingWindowRateLimiterTests.QueueAvailableAfterQueueLimitHitAndResources_BecomeAvailable
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.SlidingWindowRateLimiterTests.CanAcquireResourceAsync
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.SlidingWindowRateLimiterTests.AcquireAsyncZero_WithoutAvailabilityWaitsForAvailability
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.SlidingWindowRateLimiterTests.CanAcquireResourcesWithAcquireWithQueuedItemsIfNewestFirst
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.SlidingWindowRateLimiterTests.CannotAcquireResourcesWithAcquireWithQueuedItemsIfOldestFirst
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.SlidingWindowRateLimiterTests.DropsMultipleOldestWhenQueuingMoreThanLimit_NewestFirst
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.SlidingWindowRateLimiterTests.GetStatisticsThrowsAfterDispose
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.SlidingWindowRateLimiterTests.MetadataNamesContainsAllMetadata
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.SlidingWindowRateLimiterTests.CanAcquireResourcesWithAcquireAsyncWithQueuedItemsIfNewestFirst
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.SlidingWindowRateLimiterTests.DisposeAsyncReleasesQueuedAcquires
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.SlidingWindowRateLimiterTests.AutoReplenishIgnoresTimerJitter
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.SlidingWindowRateLimiterTests.CanCancelAcquireAsyncBeforeQueuing
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.SlidingWindowRateLimiterTests.NoMetadataOnAcquiredLease
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.SlidingWindowRateLimiterTests.CannotAcquireResourcesWithAcquireAsyncWithQueuedItemsIfOldestFirst
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.SlidingWindowRateLimiterTests.CanCancelAcquireAsyncAfterQueuing
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.SlidingWindowRateLimiterTests.CanAcquireResourceAsync_QueuesAndGrabsNewest
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.SlidingWindowRateLimiterTests.ThrowsWhenWaitingForMoreThanLimit
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.SlidingWindowRateLimiterTests.GetStatisticsWithZeroPermitCount
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.SlidingWindowRateLimiterTests.GetStatisticsHasCorrectValues
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.SlidingWindowRateLimiterTests.CanFillQueueWithOldestFirstAfterCancelingFirstQueuedRequestManually
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.SlidingWindowRateLimiterTests.InvalidOptionsThrows
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.SlidingWindowRateLimiterTests.NullIdleDurationWhenActive
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.SlidingWindowRateLimiterTests.AcquireAsyncZero_WithAvailability
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.SlidingWindowRateLimiterTests.CanFillQueueWithNewestFirstAfterCancelingQueuedRequestWithAnotherQueuedRequest
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.SlidingWindowRateLimiterTests.ReplenishingRateLimiterPropertiesHaveCorrectValues
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.SlidingWindowRateLimiterTests.DisposeReleasesQueuedAcquires
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.SlidingWindowRateLimiterTests.LargeAcquiresAndQueuesDoNotIntegerOverflow
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.SlidingWindowRateLimiterTests.DropsOldestWhenQueuingMoreThanLimit_NewestFirst
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.SlidingWindowRateLimiterTests.CanAcquireResource
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.SlidingWindowRateLimiterTests.ThrowsWhenWaitingForLessThanZero
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.SlidingWindowRateLimiterTests.AcquireZero_WithAvailability
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.SlidingWindowRateLimiterTests.CancelUpdatesQueueLimit
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.SlidingWindowRateLimiterTests.ThrowsWhenAcquiringLessThanZero
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.SlidingWindowRateLimiterTests.ThrowsWhenAcquiringMoreThanLimit
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.SlidingWindowRateLimiterTests.IdleDurationUpdatesWhenChangingFromActive
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.SlidingWindowRateLimiterTests.CanDisposeAfterCancelingQueuedRequest
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.SlidingWindowRateLimiterTests.DropsRequestedLeaseIfPermitCountGreaterThanQueueLimitAndNoAvailability_NewestFirst
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.SlidingWindowRateLimiterTests.TryReplenishWithAutoReplenish_ReturnsFalse
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.SlidingWindowRateLimiterTests.AutoReplenish_ReplenishesCounters
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.SlidingWindowRateLimiterTests.AcquireZero_WithoutAvailability
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.SlidingWindowRateLimiterTests.CanAcquireResourceAsync_QueuesAndGrabsOldest
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.SlidingWindowRateLimiterTests.CanDequeueMultipleResourcesAtOnce
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.SlidingWindowRateLimiterTests.IdleDurationUpdatesWhenIdle
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.SlidingWindowRateLimiterTests.CanAcquireMultipleRequestsAsync
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.SlidingWindowRateLimiterTests.FailsWhenQueuingMoreThanLimit_OldestFirst
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.SlidingWindowRateLimiterTests.GetStatisticsReturnsNewInstances
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.FixedWindowRateLimiterTests.LargeAcquiresAndQueuesDoNotIntegerOverflow
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.FixedWindowRateLimiterTests.CanAcquireResourceAsync
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.FixedWindowRateLimiterTests.CanDequeueMultipleResourcesAtOnce
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.FixedWindowRateLimiterTests.CannotAcquireResourcesWithAcquireAsyncWithQueuedItemsIfOldestFirst
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.FixedWindowRateLimiterTests.CannotAcquireResourcesWithAcquireWithQueuedItemsIfOldestFirst
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.FixedWindowRateLimiterTests.DropsRequestedLeaseIfPermitCountGreaterThanQueueLimitAndNoAvailability_NewestFirst
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.FixedWindowRateLimiterTests.GetStatisticsThrowsAfterDispose
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.FixedWindowRateLimiterTests.DisposeAsyncReleasesQueuedAcquires
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.FixedWindowRateLimiterTests.AutoReplenish_ReplenishesCounters
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.FixedWindowRateLimiterTests.CorrectRetryMetadataWithQueuedItem
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.FixedWindowRateLimiterTests.GetStatisticsWithZeroPermitCount
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.FixedWindowRateLimiterTests.NoMetadataOnAcquiredLease
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.FixedWindowRateLimiterTests.DisposeReleasesQueuedAcquires
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.FixedWindowRateLimiterTests.CanAcquireResourcesWithAcquireAsyncWithQueuedItemsIfNewestFirst
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.FixedWindowRateLimiterTests.CanCancelAcquireAsyncBeforeQueuing
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.FixedWindowRateLimiterTests.FailsWhenQueuingMoreThanLimit_OldestFirst
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.FixedWindowRateLimiterTests.ThrowsWhenAcquiringLessThanZero
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.FixedWindowRateLimiterTests.AutoReplenishIgnoresTimerJitter
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.FixedWindowRateLimiterTests.GetStatisticsHasCorrectValues
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.FixedWindowRateLimiterTests.CancelUpdatesQueueLimit
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.FixedWindowRateLimiterTests.InvalidOptionsThrows
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.FixedWindowRateLimiterTests.CanAcquireResourcesWithAcquireWithQueuedItemsIfNewestFirst
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.FixedWindowRateLimiterTests.CanCancelAcquireAsyncAfterQueuing
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.FixedWindowRateLimiterTests.CanFillQueueWithNewestFirstAfterCancelingQueuedRequestWithAnotherQueuedRequest
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.FixedWindowRateLimiterTests.ReplenishingRateLimiterPropertiesHaveCorrectValues
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.FixedWindowRateLimiterTests.RetryMetadataOnFailedWaitAsync
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.FixedWindowRateLimiterTests.ThrowsWhenWaitingForMoreThanLimit
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.FixedWindowRateLimiterTests.QueueAvailableAfterQueueLimitHitAndResources_BecomeAvailable
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.FixedWindowRateLimiterTests.CanAcquireResource
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.FixedWindowRateLimiterTests.AcquireZero_WithoutAvailability
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.FixedWindowRateLimiterTests.AcquireZero_WithAvailability
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.FixedWindowRateLimiterTests.MetadataNamesContainsAllMetadata
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.FixedWindowRateLimiterTests.AcquireAsyncZero_WithAvailability
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.FixedWindowRateLimiterTests.ThrowsWhenAcquiringMoreThanLimit
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.FixedWindowRateLimiterTests.IdleDurationUpdatesWhenChangingFromActive
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.FixedWindowRateLimiterTests.CanDisposeAfterCancelingQueuedRequest
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.FixedWindowRateLimiterTests.DropsMultipleOldestWhenQueuingMoreThanLimit_NewestFirst
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.FixedWindowRateLimiterTests.TryReplenishWithAutoReplenish_ReturnsFalse
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.FixedWindowRateLimiterTests.NullIdleDurationWhenActive
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.FixedWindowRateLimiterTests.AcquireAsyncZero_WithoutAvailabilityWaitsForAvailability
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.FixedWindowRateLimiterTests.CanAcquireResourceAsync_QueuesAndGrabsNewest
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.FixedWindowRateLimiterTests.CanFillQueueWithOldestFirstAfterCancelingFirstQueuedRequestManually
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.FixedWindowRateLimiterTests.CorrectRetryMetadataWithNonZeroAvailableItems
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.FixedWindowRateLimiterTests.DropsOldestWhenQueuingMoreThanLimit_NewestFirst
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.FixedWindowRateLimiterTests.ThrowsWhenWaitingForLessThanZero
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.FixedWindowRateLimiterTests.CanAcquireResourceAsync_QueuesAndGrabsOldest
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.FixedWindowRateLimiterTests.IdleDurationUpdatesWhenIdle
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.FixedWindowRateLimiterTests.GetStatisticsReturnsNewInstances
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Tests.PartitionedRateLimiterTests.Create_MultiplePartitionsWork
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Tests.PartitionedRateLimiterTests.ThrowsWhenWaitingForLessThanZero
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Tests.PartitionedRateLimiterTests.Create_DisposeWithThrowingDisposes_DisposesAllLimiters
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Tests.PartitionedRateLimiterTests.ThrowingTryReplenishDoesNotPreventIdleLimiterBeingCleanedUp
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Tests.PartitionedRateLimiterTests.Translate_AcquirePassesThroughToInnerLimiter
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Tests.PartitionedRateLimiterTests.Create_GetStatisticsCallsUnderlyingPartitionsLimiter
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Tests.PartitionedRateLimiterTests.Translate_DisposeAsyncDoesDisposeInnerLimiter
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Tests.PartitionedRateLimiterTests.Create_WithReplenishingLimiterReplenishesAutomatically
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Tests.PartitionedRateLimiterTests.IdleLimiterIsCleanedUp
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Tests.PartitionedRateLimiterTests.Create_MultipleReplenishingLimitersReplenishAutomatically
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Tests.PartitionedRateLimiterTests.Translate_GetStatisticsCallsUnderlyingLimiter
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Tests.PartitionedRateLimiterTests.Create_DisposeAsyncDisposesAllLimiters
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Tests.PartitionedRateLimiterTests.Create_WithTokenBucketReplenishesAutomatically
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Tests.PartitionedRateLimiterTests.AllIdleLimitersCleanedUp_DisposeThrows
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Tests.PartitionedRateLimiterTests.Create_DisposeDisposesAllLimiters
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Tests.PartitionedRateLimiterTests.Create_AcquireCallsUnderlyingPartitionsLimiter
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Tests.PartitionedRateLimiterTests.Create_BlockingWaitDoesNotBlockOtherPartitions
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Tests.PartitionedRateLimiterTests.Translate_DisposeAsyncDoesNotDisposeInnerLimiter
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Tests.PartitionedRateLimiterTests.Translate_DisposeDoesDisposeInnerLimiter
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Tests.PartitionedRateLimiterTests.Create_DisposeThrowsForFutureMethodCalls
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Tests.PartitionedRateLimiterTests.ThrowsWhenAcquiringLessThanZero
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Tests.PartitionedRateLimiterTests.Translate_WaitAsyncPassesThroughToInnerLimiter
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Tests.PartitionedRateLimiterTests.Create_DisposeWithoutLimitersNoops
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Tests.PartitionedRateLimiterTests.Translate_GetAvailablePermitsPassesThroughToInnerLimiter
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Tests.PartitionedRateLimiterTests.Translate_DisposeDoesNotDisposeInnerLimiter
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Tests.PartitionedRateLimiterTests.Create_PassedInEqualityComparerIsUsed
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Tests.PartitionedRateLimiterTests.Create_PartitionIsCached
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Tests.PartitionedRateLimiterTests.Create_WaitAsyncCallsUnderlyingPartitionsLimiter
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Tests.PartitionedRateLimiterTests.WaitAsyncThrowsWhenPassedACanceledToken
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Tests.PartitionedRateLimiterTests.Create_DisposeAsyncWithThrowingDisposes_DisposesAllLimiters
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Tests.PartitionedRateLimiterTests.Create_BlockingFactoryDoesNotBlockOtherPartitions
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Tests.PartitionedRateLimiterTests.Create_CancellationTokenPassedToUnderlyingLimiter
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.TokenBucketRateLimiterTests.ThrowsWhenAcquiringMoreThanLimit
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.TokenBucketRateLimiterTests.CanAcquireResourceAsync
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.TokenBucketRateLimiterTests.CanFillQueueWithNewestFirstAfterCancelingQueuedRequestWithAnotherQueuedRequest
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.TokenBucketRateLimiterTests.AutoReplenish_ReplenishesTokens
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.TokenBucketRateLimiterTests.CannotAcquireResourcesWithAcquireAsyncWithQueuedItemsIfOldestFirst
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.TokenBucketRateLimiterTests.QueueAvailableAfterQueueLimitHitAndResources_BecomeAvailable
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.TokenBucketRateLimiterTests.GetStatisticsThrowsAfterDispose
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.TokenBucketRateLimiterTests.CorrectRetryMetadataWithQueuedItem
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.TokenBucketRateLimiterTests.TryReplenishWithAllTokensAvailable_Noops
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.TokenBucketRateLimiterTests.CorrectRetryMetadataWithLargeTokensPerPeriod
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.TokenBucketRateLimiterTests.AutoReplenishIgnoresTimerJitter
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.TokenBucketRateLimiterTests.DisposeReleasesQueuedAcquires
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.TokenBucketRateLimiterTests.RetryMetadataOnFailedWaitAsync
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.TokenBucketRateLimiterTests.TryReplenishWithAutoReplenish_ReturnsFalse
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.TokenBucketRateLimiterTests.CancelUpdatesQueueLimit
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.TokenBucketRateLimiterTests.DropsOldestWhenQueuingMoreThanLimit_NewestFirst
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.TokenBucketRateLimiterTests.AcquireZero_WithAvailability
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.TokenBucketRateLimiterTests.ManualReplenishPreservesTimeWithTimerJitter
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.TokenBucketRateLimiterTests.GetStatisticsWithZeroPermitCount
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.TokenBucketRateLimiterTests.MetadataNamesContainsAllMetadata
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.TokenBucketRateLimiterTests.CanAcquireResourceAsync_QueuesAndGrabsOldest
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.TokenBucketRateLimiterTests.CanAcquireResourcesWithAcquireWithQueuedItemsIfNewestFirst
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.TokenBucketRateLimiterTests.CanDisposeAfterCancelingQueuedRequest
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.TokenBucketRateLimiterTests.IdleDurationUpdatesWhenChangingFromActive
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.TokenBucketRateLimiterTests.IdleDurationUpdatesWhenIdle
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.TokenBucketRateLimiterTests.CorrectRetryMetadataWithMultipleTokensPerPeriod
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.TokenBucketRateLimiterTests.ThrowsWhenWaitingForLessThanZero
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.TokenBucketRateLimiterTests.LargeAcquiresAndQueuesDoNotIntegerOverflow
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.TokenBucketRateLimiterTests.CanAcquireResource
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.TokenBucketRateLimiterTests.AcquireAsyncZero_WithoutAvailabilityWaitsForAvailability
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.TokenBucketRateLimiterTests.CanDequeueMultipleResourcesAtOnce
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.TokenBucketRateLimiterTests.NoMetadataOnAcquiredLease
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.TokenBucketRateLimiterTests.CanCancelAcquireAsyncAfterQueuing
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.TokenBucketRateLimiterTests.ThrowsWhenAcquiringLessThanZero
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.TokenBucketRateLimiterTests.NullIdleDurationWhenActive
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.TokenBucketRateLimiterTests.ReplenishingRateLimiterPropertiesHaveCorrectValues
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.TokenBucketRateLimiterTests.ThrowsWhenWaitingForMoreThanLimit
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.TokenBucketRateLimiterTests.ReplenishHonorsTokensPerPeriod
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.TokenBucketRateLimiterTests.CanAcquireResourcesWithAcquireAsyncWithQueuedItemsIfNewestFirst
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.TokenBucketRateLimiterTests.AcquireAsyncZero_WithAvailability
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.TokenBucketRateLimiterTests.DropsMultipleOldestWhenQueuingMoreThanLimit_NewestFirst
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.TokenBucketRateLimiterTests.CanCancelAcquireAsyncBeforeQueuing
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.TokenBucketRateLimiterTests.DisposeAsyncReleasesQueuedAcquires
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.TokenBucketRateLimiterTests.FailsWhenQueuingMoreThanLimit_OldestFirst
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.TokenBucketRateLimiterTests.AcquireZero_WithoutAvailability
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.TokenBucketRateLimiterTests.CanAcquireResourceAsync_QueuesAndGrabsNewest
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.TokenBucketRateLimiterTests.CanFillQueueWithOldestFirstAfterCancelingFirstQueuedRequestManually
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.TokenBucketRateLimiterTests.GetStatisticsReturnsNewInstances
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.TokenBucketRateLimiterTests.ReplenishWorksWithTicksOverInt32Max
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.TokenBucketRateLimiterTests.GetStatisticsHasCorrectValues
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.TokenBucketRateLimiterTests.CorrectRetryMetadataWithNonZeroAvailableItems
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.TokenBucketRateLimiterTests.InvalidOptionsThrows
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.TokenBucketRateLimiterTests.CannotAcquireResourcesWithAcquireWithQueuedItemsIfOldestFirst
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Test.TokenBucketRateLimiterTests.DropsRequestedLeaseIfPermitCountGreaterThanQueueLimitAndNoAvailability_NewestFirst
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Tests.RateLimiterPartitionTests.Create_TokenBucket
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Tests.RateLimiterPartitionTests.Create_Concurrency
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Tests.RateLimiterPartitionTests.NoLimiter_GetStatistics
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Tests.RateLimiterPartitionTests.Create_FixedWindow
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Tests.RateLimiterPartitionTests.Create_SlidingWindow
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Tests.RateLimiterPartitionTests.Create_NoLimiter
+  [40m[32minfo[39m[22m[49m: [STRT] System.Threading.RateLimiting.Tests.RateLimiterPartitionTests.Create_AnyLimiter
+  [40m[32minfo[39m[22m[49m: Finished:    System.Threading.RateLimiting.Tests.dll
+  [40m[32minfo[39m[22m[49m: Stored /home/pavelsavara/dev/runtime/artifacts/bin/System.Threading.RateLimiting.Tests/Release/net11.0/browser-wasm/wwwroot/xharness-output/testResults.xml results 88214 bytes
+  [40m[32minfo[39m[22m[49m: Finished uploading 88214 bytes of RESULTXML
+  [40m[32minfo[39m[22m[49m: Xml file was written to the provided writer.
+  [40m[32minfo[39m[22m[49m: 
+  [40m[32minfo[39m[22m[49m: === TEST EXECUTION SUMMARY ===
+  [40m[32minfo[39m[22m[49m: Tests run: 318 Passed: 317 Inconclusive: 0 Failed: 0 Ignored: 0 Skipped: 1
+  [40m[32minfo[39m[22m[49m: 
+  [40m[32minfo[39m[22m[49m: test-main.js exiting WasmTestRunner.dll System.Threading.RateLimiting.Tests.dll after 0.10863333333333333 minutes with result 0 and linear memory 193331200 bytes
+  [40m[32minfo[39m[22m[49m: DOTNET: forceDisposeProxies done: 14 imports, 0 exports, 0 GCHandles, 0 JSHandles.
+  [40m[32minfo[39m[22m[49m: WASM EXIT 0
+  [40m[32minfo[39m[22m[49m: Waiting to flush log messages with a timeout of 120 secs ..
+  [40m[32minfo[39m[22m[49m: Closing 1 browser tabs before setting the main tab to config page and quitting.
+  XHarness exit code: 0
+  ~/dev/runtime/artifacts/bin/System.Threading.RateLimiting.Tests/Release/net11.0/browser-wasm/wwwroot ~/dev/runtime/src/libraries/System.Threading.RateLimiting/tests
+  ----- end Sun Feb 1 18:14:32 CET 2026 ----- exit code 0 ----------------------------------------------------------
+  XHarness artifacts: /home/pavelsavara/dev/runtime/artifacts/bin/System.Threading.RateLimiting.Tests/Release/net11.0/browser-wasm/wwwroot/xharness-output
+
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:16.16

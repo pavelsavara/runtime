@@ -1,0 +1,118 @@
+Test Comparison: System.Runtime.InteropServices.Tests
+Generated: 2026-02-01T18:20:04+01:00
+
+Mono tests:    2517
+CoreCLR tests: 2606
+
+=== Extra in CoreCLR (99) ===
+System.Runtime.InteropServices.Tests.ByteTests.ReadByte_BlittableObject_ReturnsExpected
+System.Runtime.InteropServices.Tests.ByteTests.ReadByte_NotReadable_ThrowsArgumentException
+System.Runtime.InteropServices.Tests.ByteTests.ReadByte_NullObject_ThrowsAccessViolationException
+System.Runtime.InteropServices.Tests.ByteTests.ReadByte_StructWithReferenceTypes_ReturnsExpected
+System.Runtime.InteropServices.Tests.ByteTests.WriteByte_BlittableObject_Roundtrips
+System.Runtime.InteropServices.Tests.ByteTests.WriteByte_NotReadable_ThrowsArgumentException
+System.Runtime.InteropServices.Tests.ByteTests.WriteByte_NullObject_ThrowsAccessViolationException
+System.Runtime.InteropServices.Tests.ByteTests.WriteByte_StructWithReferenceTypes_ReturnsExpected
+System.Runtime.InteropServices.Tests.DestroyStructureTests.DestroyStructure_NonRuntimeType_ThrowsArgumentException(invalidType: typeof(System.Int32&amp;))
+System.Runtime.InteropServices.Tests.DestroyStructureTests.DestroyStructure_NonRuntimeType_ThrowsArgumentException(invalidType: typeof(System.Runtime.InteropServices.Tests.Common.AbstractClass))
+System.Runtime.InteropServices.Tests.DestroyStructureTests.DestroyStructure_NonRuntimeType_ThrowsArgumentException(invalidType: typeof(System.Runtime.InteropServices.Tests.Common.GenericClass&lt;&gt;))
+System.Runtime.InteropServices.Tests.DestroyStructureTests.DestroyStructure_NonRuntimeType_ThrowsArgumentException(invalidType: typeof(System.Runtime.InteropServices.Tests.Common.GenericClass&lt;string&gt;))
+System.Runtime.InteropServices.Tests.DestroyStructureTests.DestroyStructure_NonRuntimeType_ThrowsArgumentException(invalidType: typeof(System.Runtime.InteropServices.Tests.Common.GenericStruct&lt;&gt;))
+System.Runtime.InteropServices.Tests.DestroyStructureTests.DestroyStructure_NonRuntimeType_ThrowsArgumentException(invalidType: typeof(System.Runtime.InteropServices.Tests.Common.GenericStruct&lt;string&gt;))
+System.Runtime.InteropServices.Tests.DestroyStructureTests.DestroyStructure_NonRuntimeType_ThrowsArgumentException(invalidType: typeof(System.Runtime.InteropServices.Tests.Common.IGenericInterface&lt;&gt;))
+System.Runtime.InteropServices.Tests.DestroyStructureTests.DestroyStructure_NonRuntimeType_ThrowsArgumentException(invalidType: typeof(System.Runtime.InteropServices.Tests.Common.IGenericInterface&lt;string&gt;))
+System.Runtime.InteropServices.Tests.DestroyStructureTests.DestroyStructure_NonRuntimeType_ThrowsArgumentException(invalidType: typeof(System.Runtime.InteropServices.Tests.Common.NonGenericClass))
+System.Runtime.InteropServices.Tests.DestroyStructureTests.DestroyStructure_NonRuntimeType_ThrowsArgumentException(invalidType: typeof(T))
+System.Runtime.InteropServices.Tests.DestroyStructureTests.DestroyStructure_NonRuntimeType_ThrowsArgumentException(invalidType: typeof(Type))
+System.Runtime.InteropServices.Tests.DestroyStructureTests.DestroyStructure_NonRuntimeType_ThrowsArgumentException(invalidType: typeof(string))
+System.Runtime.InteropServices.Tests.GetExceptionCodeTests.GetExceptionCode_ComExceptionInsideCatch_ReturnsExpected(errorCode: -1)
+System.Runtime.InteropServices.Tests.GetExceptionCodeTests.GetExceptionCode_ComExceptionInsideCatch_ReturnsExpected(errorCode: 10)
+System.Runtime.InteropServices.Tests.GetExceptionCodeTests.GetExceptionCode_NoException_ReturnsZero
+System.Runtime.InteropServices.Tests.GetExceptionCodeTests.GetExceptionCode_NormalExceptionInsideCatch_ReturnsExpected(hresult: -1)
+System.Runtime.InteropServices.Tests.GetExceptionCodeTests.GetExceptionCode_NormalExceptionInsideCatch_ReturnsExpected(hresult: 10)
+System.Runtime.InteropServices.Tests.GetExceptionForHRTests.GetExceptionForHR_ErrorInfo_ReturnsValidException(errorCode: -2147352319, errorInfo: -1)
+System.Runtime.InteropServices.Tests.GetExceptionForHRTests.GetExceptionForHR_ErrorInfo_ReturnsValidException(errorCode: -2147352319, errorInfo: 0)
+System.Runtime.InteropServices.Tests.GetExceptionForHRTests.GetExceptionForHR_ErrorInfo_ReturnsValidException(errorCode: -2147352570, errorInfo: -1)
+System.Runtime.InteropServices.Tests.GetExceptionForHRTests.GetExceptionForHR_ErrorInfo_ReturnsValidException(errorCode: -2147352570, errorInfo: 0)
+System.Runtime.InteropServices.Tests.GetExceptionForHRTests.GetExceptionForHR_NoErrorInfo_ReturnsValidException(errorCode: -2147352319)
+System.Runtime.InteropServices.Tests.GetExceptionForHRTests.GetExceptionForHR_NoErrorInfo_ReturnsValidException(errorCode: -2147352570)
+System.Runtime.InteropServices.Tests.GetFunctionPointerForDelegateTests.GetFunctionPointer_GenericDelegate_ThrowsArgumentException
+System.Runtime.InteropServices.Tests.Int16Tests.ReadInt16_BlittableObject_ReturnsExpected
+System.Runtime.InteropServices.Tests.Int16Tests.ReadInt16_NotReadable_ThrowsArgumentException
+System.Runtime.InteropServices.Tests.Int16Tests.ReadInt16_NullObject_ThrowsAccessViolationException
+System.Runtime.InteropServices.Tests.Int16Tests.ReadInt16_StructWithReferenceTypes_ReturnsExpected
+System.Runtime.InteropServices.Tests.Int16Tests.WriteInt16_BlittableObject_Roundtrips
+System.Runtime.InteropServices.Tests.Int16Tests.WriteInt16_NotReadable_ThrowsArgumentException
+System.Runtime.InteropServices.Tests.Int16Tests.WriteInt16_NullObject_ThrowsAccessViolationException
+System.Runtime.InteropServices.Tests.Int16Tests.WriteInt16_StructWithReferenceTypes_ReturnsExpected
+System.Runtime.InteropServices.Tests.Int32Tests.ReadInt32_BlittableObject_ReturnsExpected
+System.Runtime.InteropServices.Tests.Int32Tests.ReadInt32_NotReadable_ThrowsArgumentException
+System.Runtime.InteropServices.Tests.Int32Tests.ReadInt32_NullObject_ThrowsAccessViolationException
+System.Runtime.InteropServices.Tests.Int32Tests.ReadInt32_StructWithReferenceTypes_ReturnsExpected
+System.Runtime.InteropServices.Tests.Int32Tests.WriteInt32_BlittableObject_Roundtrips
+System.Runtime.InteropServices.Tests.Int32Tests.WriteInt32_NotReadable_ThrowsArgumentException
+System.Runtime.InteropServices.Tests.Int32Tests.WriteInt32_NullObject_ThrowsAccessViolationException
+System.Runtime.InteropServices.Tests.Int32Tests.WriteInt32_StructWithReferenceTypes_ReturnsExpected
+System.Runtime.InteropServices.Tests.Int64Tests.ReadInt64_BlittableObject_ReturnsExpected
+System.Runtime.InteropServices.Tests.Int64Tests.ReadInt64_NotReadable_ThrowsArgumentException
+System.Runtime.InteropServices.Tests.Int64Tests.ReadInt64_NullObject_ThrowsAccessViolationException
+System.Runtime.InteropServices.Tests.Int64Tests.ReadInt64_StructWithReferenceTypes_ReturnsExpected
+System.Runtime.InteropServices.Tests.Int64Tests.WriteInt64_BlittableObject_Roundtrips
+System.Runtime.InteropServices.Tests.Int64Tests.WriteInt64_NotReadable_ThrowsArgumentException
+System.Runtime.InteropServices.Tests.Int64Tests.WriteInt64_NullObject_ThrowsAccessViolationException
+System.Runtime.InteropServices.Tests.Int64Tests.WriteInt64_StructWithReferenceTypes_ReturnsExpected
+System.Runtime.InteropServices.Tests.IntPtrTests.ReadIntPtr_BlittableObject_ReturnsExpected
+System.Runtime.InteropServices.Tests.IntPtrTests.ReadIntPtr_NotReadable_ThrowsArgumentException
+System.Runtime.InteropServices.Tests.IntPtrTests.ReadIntPtr_NullObject_ThrowsAccessViolationException
+System.Runtime.InteropServices.Tests.IntPtrTests.ReadIntPtr_StructWithReferenceTypes_ReturnsExpected
+System.Runtime.InteropServices.Tests.IntPtrTests.WriteIntPtr_BlittableObject_Roundtrips
+System.Runtime.InteropServices.Tests.IntPtrTests.WriteIntPtr_NotReadable_ThrowsArgumentException
+System.Runtime.InteropServices.Tests.IntPtrTests.WriteIntPtr_NullObject_ThrowsAccessViolationException
+System.Runtime.InteropServices.Tests.IntPtrTests.WriteIntPtr_StructWithReferenceTypes_ReturnsExpected
+System.Runtime.InteropServices.Tests.NFloatTests_GenericMath.CreateCheckedFromUIntPtrTest
+System.Runtime.InteropServices.Tests.NFloatTests_GenericMath.CreateSaturatingFromUIntPtrTest
+System.Runtime.InteropServices.Tests.NFloatTests_GenericMath.CreateTruncatingFromUIntPtrTest
+System.Runtime.InteropServices.Tests.OffsetOfTests.OffsetOf_NotMarshallable_ThrowsArgumentException(t: typeof(System.Runtime.InteropServices.Tests.StructWithFxdLPSTRSAFld), fieldName: \&quot;Arr\&quot;)
+System.Runtime.InteropServices.Tests.SecureStringToBSTRTests.SecureStringToBSTR_InvokePtrToStringBSTR_ReturnsExpected(data: \&quot;���\&quot;)
+System.Runtime.InteropServices.Tests.SecureStringToCoTaskMemAnsiTests.SecureStringToCoTaskMemAnsi_InvokePtrToStringAnsi_Roundtrips(s: \&quot;���\&quot;)
+System.Runtime.InteropServices.Tests.SecureStringToCoTaskMemUnicodeTests.SecureStringToCoTaskMemUnicode_PtrToStringUni_Roundtrips(s: \&quot;���\&quot;)
+System.Runtime.InteropServices.Tests.SecureStringToGlobalAllocAnsiTests.SecureStringToGlobalAllocAnsi_InvokePtrToStringAnsi_Roundtrips(s: \&quot;���\&quot;)
+System.Runtime.InteropServices.Tests.SecureStringToGlobalAllocUnicodeTests.SecureStringToGlobalAllocUnicode_InvokePtrToStringUni_Roundtrips(s: \&quot;���\&quot;)
+System.Runtime.InteropServices.Tests.SizeOfTests.SizeOf_InvalidType_ThrowsArgumentException(type: typeof(System.Int32&amp;), paramName: null)
+System.Runtime.InteropServices.Tests.SizeOfTests.SizeOf_InvalidType_ThrowsArgumentException(type: typeof(System.Runtime.InteropServices.Tests.Common.GenericClass&lt;&gt;), paramName: \&quot;t\&quot;)
+System.Runtime.InteropServices.Tests.SizeOfTests.SizeOf_InvalidType_ThrowsArgumentException(type: typeof(System.Runtime.InteropServices.Tests.Common.GenericClass&lt;string&gt;), paramName: \&quot;t\&quot;)
+System.Runtime.InteropServices.Tests.SizeOfTests.SizeOf_InvalidType_ThrowsArgumentException(type: typeof(System.Runtime.InteropServices.Tests.Common.IGenericInterface&lt;&gt;), paramName: \&quot;t\&quot;)
+System.Runtime.InteropServices.Tests.SizeOfTests.SizeOf_InvalidType_ThrowsArgumentException(type: typeof(System.Runtime.InteropServices.Tests.Common.IGenericInterface&lt;string&gt;), paramName: \&quot;t\&quot;)
+System.Runtime.InteropServices.Tests.SizeOfTests.SizeOf_InvalidType_ThrowsArgumentException(type: typeof(System.Runtime.InteropServices.Tests.SizeOfTests+GenericStruct&lt;&gt;), paramName: \&quot;t\&quot;)
+System.Runtime.InteropServices.Tests.SizeOfTests.SizeOf_InvalidType_ThrowsArgumentException(type: typeof(System.Runtime.InteropServices.Tests.SizeOfTests+GenericStruct&lt;string&gt;), paramName: \&quot;t\&quot;)
+System.Runtime.InteropServices.Tests.SizeOfTests.SizeOf_InvalidType_ThrowsArgumentException(type: typeof(System.Runtime.InteropServices.Tests.SizeOfTests+TestStructWithFxdLPSTRSAFld), paramName: null)
+System.Runtime.InteropServices.Tests.SizeOfTests.SizeOf_InvalidType_ThrowsArgumentException(type: typeof(T), paramName: null)
+System.Runtime.InteropServices.Tests.SizeOfTests.SizeOf_InvalidType_ThrowsArgumentException(type: typeof(Type), paramName: \&quot;t\&quot;)
+System.Runtime.InteropServices.Tests.SizeOfTests.SizeOf_InvalidType_ThrowsArgumentException(type: typeof(int[]), paramName: null)
+System.Runtime.InteropServices.Tests.StringToBSTRTests.StringToBSTR_InvokePtrToStringBSTR_ReturnsExpected(s: \&quot;���\&quot;)
+System.Runtime.InteropServices.Tests.StringToCoTaskMemAnsiTests.StringToCoTaskMemAnsi_InvokePtrToStringAnsi_Roundtrips(s: \&quot;���\&quot;)
+System.Runtime.InteropServices.Tests.StringToCoTaskMemUniTests.StringToCoTaskMemUni_PtrToStringUni_Roundtrips(s: \&quot;���\&quot;)
+System.Runtime.InteropServices.Tests.StringToHGlobalAnsiTests.StringToHGlobalAnsi_InvokePtrToStringAnsi_Roundtrips(s: \&quot;���\&quot;)
+System.Runtime.InteropServices.Tests.StringToHGlobalUniTests.StringToHGlobalUni_InvokePtrToStringUni_Roundtrips(s: \&quot;���\&quot;)
+System.Runtime.InteropServices.Tests.StructureToPtrTests.StructureToPtr_ByValBoolArray_Success
+System.Runtime.InteropServices.Tests.StructureToPtrTests.StructureToPtr_ByValDateArray_Success
+System.Runtime.InteropServices.Tests.StructureToPtrTests.StructureToPtr_InvalidLengthByValArrayInStruct_ThrowsArgumentException
+System.Runtime.InteropServices.Tests.ThrowExceptionForHRTests.ThrowExceptionForHR_ErrorInfo_ReturnsValidException(errorCode: -2147352319, errorInfo: -1)
+System.Runtime.InteropServices.Tests.ThrowExceptionForHRTests.ThrowExceptionForHR_ErrorInfo_ReturnsValidException(errorCode: -2147352319, errorInfo: 0)
+System.Runtime.InteropServices.Tests.ThrowExceptionForHRTests.ThrowExceptionForHR_ErrorInfo_ReturnsValidException(errorCode: -2147352570, errorInfo: -1)
+System.Runtime.InteropServices.Tests.ThrowExceptionForHRTests.ThrowExceptionForHR_ErrorInfo_ReturnsValidException(errorCode: -2147352570, errorInfo: 0)
+System.Runtime.InteropServices.Tests.ThrowExceptionForHRTests.ThrowExceptionForHR_NoErrorInfo_ReturnsValidException(errorCode: -2147352319)
+System.Runtime.InteropServices.Tests.ThrowExceptionForHRTests.ThrowExceptionForHR_NoErrorInfo_ReturnsValidException(errorCode: -2147352570)
+Test collection for System.Runtime.InteropServices.Tests.GetExceptionCodeTests
+
+=== Missing in CoreCLR (10) ===
+System.Runtime.InteropServices.Tests.SecureStringToBSTRTests.SecureStringToBSTR_InvokePtrToStringBSTR_ReturnsExpected(data: \&quot;��\&quot;)
+System.Runtime.InteropServices.Tests.SecureStringToCoTaskMemAnsiTests.SecureStringToCoTaskMemAnsi_InvokePtrToStringAnsi_Roundtrips(s: \&quot;��\&quot;)
+System.Runtime.InteropServices.Tests.SecureStringToCoTaskMemUnicodeTests.SecureStringToCoTaskMemUnicode_PtrToStringUni_Roundtrips(s: \&quot;��\&quot;)
+System.Runtime.InteropServices.Tests.SecureStringToGlobalAllocAnsiTests.SecureStringToGlobalAllocAnsi_InvokePtrToStringAnsi_Roundtrips(s: \&quot;��\&quot;)
+System.Runtime.InteropServices.Tests.SecureStringToGlobalAllocUnicodeTests.SecureStringToGlobalAllocUnicode_InvokePtrToStringUni_Roundtrips(s: \&quot;��\&quot;)
+System.Runtime.InteropServices.Tests.StringToBSTRTests.StringToBSTR_InvokePtrToStringBSTR_ReturnsExpected(s: \&quot;��\&quot;)
+System.Runtime.InteropServices.Tests.StringToCoTaskMemAnsiTests.StringToCoTaskMemAnsi_InvokePtrToStringAnsi_Roundtrips(s: \&quot;��\&quot;)
+System.Runtime.InteropServices.Tests.StringToCoTaskMemUniTests.StringToCoTaskMemUni_PtrToStringUni_Roundtrips(s: \&quot;��\&quot;)
+System.Runtime.InteropServices.Tests.StringToHGlobalAnsiTests.StringToHGlobalAnsi_InvokePtrToStringAnsi_Roundtrips(s: \&quot;��\&quot;)
+System.Runtime.InteropServices.Tests.StringToHGlobalUniTests.StringToHGlobalUni_InvokePtrToStringUni_Roundtrips(s: \&quot;��\&quot;)

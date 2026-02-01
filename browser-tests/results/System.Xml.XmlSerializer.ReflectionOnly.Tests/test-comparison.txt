@@ -1,0 +1,35 @@
+Test Comparison: System.Xml.XmlSerializer.ReflectionOnly.Tests
+Generated: 2026-02-01T18:05:30+01:00
+
+Mono tests:    299
+CoreCLR tests: 275
+
+=== Extra in CoreCLR (1) ===
+XmlSerializerTests.Xml_TypeInCollectibleALC
+
+=== Missing in CoreCLR (25) ===
+XmlSerializerTests.SoapEncodedSerialization_SoapAttribute
+XmlSerializerTests.XML_EnumerableCollection
+XmlSerializerTests.XmlMembersMapping_TypeWithXmlAttributes
+XmlSerializerTests.Xml_BaseClassAndDerivedClass2WithSameProperty
+XmlSerializerTests.Xml_BaseClassAndDerivedClassWithSameProperty
+XmlSerializerTests.Xml_DerivedClasses
+XmlSerializerTests.Xml_DeserializeHiddenMembersTest
+XmlSerializerTests.Xml_NookTypes
+XmlSerializerTests.Xml_Nullables
+XmlSerializerTests.Xml_Soap_WithNullables
+XmlSerializerTests.Xml_Struct
+XmlSerializerTests.Xml_TimeOnlyParseErrors(timeString: \&quot;02:38:23.40Z\&quot;, succeedsWithCompat: True, expected: \&quot;02:38:23.4\&quot;)
+XmlSerializerTests.Xml_TimeOnlyParseErrors(timeString: \&quot;07:25:13.45-04:00\&quot;, succeedsWithCompat: True, expected: \&quot;07:25:13.45\&quot;)
+XmlSerializerTests.Xml_TimeOnlyParseErrors(timeString: \&quot;08:32 AM\&quot;, succeedsWithCompat: False, expected: \&quot;\&quot;)
+XmlSerializerTests.Xml_TimeOnlyParseErrors(timeString: \&quot;7:48:07\&quot;, succeedsWithCompat: False, expected: \&quot;\&quot;)
+XmlSerializerTests.Xml_TypeWithDateOnlyAndTimeOnly
+XmlSerializerTests.Xml_TypeWithDateTimeOffsetProperty
+XmlSerializerTests.Xml_TypeWithDateTimePropertyAsXmlTime
+XmlSerializerTests.Xml_TypeWithDefaultTimeSpanProperty
+XmlSerializerTests.Xml_TypeWithTypesHavingCustomFormatter
+XmlSerializerTests.Xml_XmlTextAttributeTest
+XmlSerializerTests.Xml_XsdDate_With_DateOnly_And_DateTime
+XmlSerializerTests.Xml_XsdTime_With_TimeOnly_And_DateTime(dateTimeString: \&quot;02:38:23.40\&quot;, kind: Utc)
+XmlSerializerTests.Xml_XsdTime_With_TimeOnly_And_DateTime(dateTimeString: \&quot;08:32:00\&quot;, kind: Local)
+XmlSerializerTests.Xml_XsdTime_With_TimeOnly_And_DateTime(dateTimeString: \&quot;12:34:56.789\&quot;, kind: Unspecified)

@@ -1,0 +1,625 @@
+Running in: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/143.0.0.0 Safari/537.36
+Running at: http://127.0.0.1:36245/index.html?arg=--setenv%3dXHARNESS_LOG_TEST_START%3dtrue&arg=--run&arg=WasmTestRunner.dll&arg=System.Xml.XmlSerializer.ReflectionOnly.Tests.dll&arg=-notrait&arg=category%3dOuterLoop&arg=-notrait&arg=category%3dfailing&arg=-verbosity&arg=Info
+could not load /runArgs.json: 404. Ignoring
+Incoming arguments: --setenv=XHARNESS_LOG_TEST_START=true --run WasmTestRunner.dll System.Xml.XmlSerializer.ReflectionOnly.Tests.dll -notrait category=OuterLoop -notrait category=failing -verbosity Info
+Application arguments: --run WasmTestRunner.dll System.Xml.XmlSerializer.ReflectionOnly.Tests.dll -notrait category=OuterLoop -notrait category=failing -verbosity Info
+Initializing dotnet version 11.0.0 commit hash e31907b0fbca908ed525247a1dc38cc5fba7b0ff
+Using threadless Xunit runner
+Discovering: System.Xml.XmlSerializer.ReflectionOnly.Tests.dll (method display = ClassAndMethod, method display options = None)
+Discovered:  System.Xml.XmlSerializer.ReflectionOnly.Tests.dll (found 279 of 279 test cases)
+Starting:    System.Xml.XmlSerializer.ReflectionOnly.Tests.dll
+[STRT] XmlSerializerTests.SoapEncodedSerialization_CircularLink
+[STRT] XmlSerializerTests.Xml_Soap_MyCollection
+[STRT] XmlSerializerTests.XML_TypeWithMemberWithXmlNamespaceDeclarationsAttribute_WithInitialValue
+[STRT] XmlSerializerTests.Xml_ConstructorWithXmlRootAttr
+[STRT] XmlSerializerTests.Xml_XsdValidationAndDeserialization
+[STRT] XmlSerializerTests.XmlSerializerVersionAttributeTest
+[STRT] XmlSerializerTests.Xml_EnumAsMember
+[STRT] XmlSerializerTests.Xml_Struct
+[FAIL] XmlSerializerTests.Xml_Struct
+XML comparison is also failing
+Test failed for input: SerializationTypes.WithStruct
+Expected: <?xml version="1.0"?>
+<WithStruct xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Some>
+    <A>1</A>
+    <B>2</B>
+  </Some>
+</WithStruct>
+Actual: <?xml version="1.0" encoding="utf-8"?>
+<WithStruct xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Some>
+    <A>0</A>
+    <B>0</B>
+  </Some>
+</WithStruct>
+   at XmlSerializerTests.SerializeAndDeserialize[T](T value, String baseline, Func`1 serializerFactory, Boolean skipStringCompare, XmlSerializerNamespaces xns)
+   at XmlSerializerTests.Xml_Struct()
+   at System.RuntimeMethodHandle.InvokeMethod(ObjectHandleOnStack target, Void** arguments, ObjectHandleOnStack sig, BOOL isConstructor, ObjectHandleOnStack result)
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+[STRT] XmlSerializerTests.Xml_TypeWithArrayPropertyHavingChoice
+[STRT] XmlSerializerTests.XmlUnknownElementAndEventHandlerTest
+[STRT] XmlSerializerTests.Xml_XmlAttributes_RemoveXmlArrayItemAttribute_ThrowsOnMissingItem
+[STRT] XmlSerializerTests.XML_EnumerableCollection
+[FAIL] XmlSerializerTests.XML_EnumerableCollection
+System.InvalidOperationException : There is an error in XML document (4, 4).
+---- System.NullReferenceException : Object reference not set to an instance of an object.
+   at System.Xml.Serialization.XmlSerializer.Deserialize(XmlReader xmlReader, String encodingStyle, XmlDeserializationEvents events)
+   at System.Xml.Serialization.XmlSerializer.Deserialize(XmlReader xmlReader, String encodingStyle)
+   at System.Xml.Serialization.XmlSerializer.Deserialize(Stream stream)
+   at XmlSerializerTests.SerializeAndDeserialize[T](T value, String baseline, Func`1 serializerFactory, Boolean skipStringCompare, XmlSerializerNamespaces xns)
+   at XmlSerializerTests.XML_EnumerableCollection()
+   at System.RuntimeMethodHandle.InvokeMethod(ObjectHandleOnStack target, Void** arguments, ObjectHandleOnStack sig, BOOL isConstructor, ObjectHandleOnStack result)
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+----- Inner Stack Trace -----
+   at System.Text.ValueStringBuilder.AppendFormatHelper(IFormatProvider provider, String format, ReadOnlySpan`1 args)
+   at System.String.FormatHelper(IFormatProvider provider, String format, ReadOnlySpan`1 args)
+   at System.String.Format(String format, Object arg0, Object arg1)
+   at System.SR.Format(String resourceFormat, Object p1, Object p2)
+   at System.Xml.Schema.XsdDateTime..ctor(String text, XsdDateTimeFlags kinds)
+   at System.Xml.XmlConvert.ToDateTime(String s, XmlDateTimeSerializationMode dateTimeOption)
+   at System.Xml.Serialization.XmlCustomFormatter.ToDateTime(String value)
+   at System.Xml.Serialization.XmlSerializationReader.ToDateTime(String value)
+   at System.RuntimeMethodHandle.InvokeMethod(ObjectHandleOnStack target, Void** arguments, ObjectHandleOnStack sig, BOOL isConstructor, ObjectHandleOnStack result)
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeDirectByRefWithFewArgs(Object obj, Span`1 copyOfArgs, BindingFlags invokeAttr)
+[STRT] XmlSerializerTests.Xml_Soap_TypeWithXmlQualifiedName
+[STRT] XmlSerializerTests.XmlMembersMapping_SimpleType_SpecifiedField_True_IgnoreSpecifiedField_Wrapper
+[STRT] XmlSerializerTests.Xml_XmlAnyAttributeTest
+[STRT] XmlSerializerTests.Xml_ListRoot
+[STRT] XmlSerializerTests.Xml_XmlAttributes_RemoveXmlAnyElementAttribute
+[STRT] XmlSerializerTests.XmlMembersMapping_Member_With_XmlAnyAttribute_Specified_False
+[STRT] XmlSerializerTests.XmlReflectionMember_NullSoapAttributes
+[STRT] XmlSerializerTests.Xml_DeserializeEmptyTimeSpanType
+[STRT] XmlSerializerTests.XmlMembersMapping_MultipleMembers
+[STRT] XmlSerializerTests.Xml_Nullables
+[FAIL] XmlSerializerTests.Xml_Nullables
+XML comparison is also failing
+Test failed for input: SerializationTypes.WithNullables
+Expected: <?xml version="1.0"?>
+<WithNullables xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Optional>Option1</Optional>
+  <Optionull xsi:nil="true" />
+  <OptionalInt>42</OptionalInt>
+  <OptionullInt xsi:nil="true" />
+  <Struct1>
+    <A>1</A>
+    <B>2</B>
+  </Struct1>
+  <Struct2 xsi:nil="true" />
+</WithNullables>
+Actual: <?xml version="1.0" encoding="utf-8"?>
+<WithNullables xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Optional xsi:nil="true" />
+  <Optionull xsi:nil="true" />
+  <OptionalInt xsi:nil="true" />
+  <OptionullInt xsi:nil="true" />
+  <Struct1 xsi:nil="true" />
+  <Struct2 xsi:nil="true" />
+</WithNullables>
+   at XmlSerializerTests.SerializeAndDeserialize[T](T value, String baseline, Func`1 serializerFactory, Boolean skipStringCompare, XmlSerializerNamespaces xns)
+   at XmlSerializerTests.Xml_Nullables()
+   at System.RuntimeMethodHandle.InvokeMethod(ObjectHandleOnStack target, Void** arguments, ObjectHandleOnStack sig, BOOL isConstructor, ObjectHandleOnStack result)
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+[STRT] XmlSerializerTests.XmlMembersMapping_IntArray
+[STRT] XmlSerializerTests.Xml_TypeWithByteArrayAsXmlText
+[STRT] XmlSerializerTests.Xml_XsdTime_With_TimeOnly_And_DateTime(dateTimeString: "12:34:56.789", kind: Unspecified)
+[FAIL] XmlSerializerTests.Xml_XsdTime_With_TimeOnly_And_DateTime(dateTimeString: "12:34:56.789", kind: Unspecified)
+XML comparison is also failing
+Test failed for input: TimeOnlyWrapper
+Expected: <?xml version="1.0" encoding="utf-8"?>
+<DateAndTimeTest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <TestValue>12:34:56.789</TestValue>
+</DateAndTimeTest>
+Actual: <?xml version="1.0" encoding="utf-8"?>
+<DateAndTimeTest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <TestValue>00:00:00</TestValue>
+</DateAndTimeTest>
+   at XmlSerializerTests.Serialize[T](T value, String baseline, Func`1 serializerFactory, Boolean skipStringCompare, XmlSerializerNamespaces xns)
+   at XmlSerializerTests.Xml_XsdTime_With_TimeOnly_And_DateTime(String dateTimeString, DateTimeKind kind)
+   at System.RuntimeMethodHandle.InvokeMethod(ObjectHandleOnStack target, Void** arguments, ObjectHandleOnStack sig, BOOL isConstructor, ObjectHandleOnStack result)
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeDirectByRefWithFewArgs(Object obj, Span`1 copyOfArgs, BindingFlags invokeAttr)
+[STRT] XmlSerializerTests.Xml_XsdTime_With_TimeOnly_And_DateTime(dateTimeString: "02:38:23.40", kind: Utc)
+[FAIL] XmlSerializerTests.Xml_XsdTime_With_TimeOnly_And_DateTime(dateTimeString: "02:38:23.40", kind: Utc)
+System.InvalidOperationException : There is an error in XML document (4, 3).
+---- System.FormatException : String '' was not recognized as a valid DateTime.
+   at System.Xml.Serialization.XmlSerializer.Deserialize(XmlReader xmlReader, String encodingStyle, XmlDeserializationEvents events)
+   at System.Xml.Serialization.XmlSerializer.Deserialize(XmlReader xmlReader, String encodingStyle)
+   at System.Xml.Serialization.XmlSerializer.Deserialize(Stream stream)
+   at XmlSerializerTests.Deserialize(XmlSerializer serializer, String xmlInput)
+   at XmlSerializerTests.Xml_XsdTime_With_TimeOnly_And_DateTime(String dateTimeString, DateTimeKind kind)
+   at InvokeStub_XmlSerializerTests.Xml_XsdTime_With_TimeOnly_And_DateTime(Object, Span`1)
+   at System.Reflection.MethodBaseInvoker.InvokeWithFewArgs(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+----- Inner Stack Trace -----
+   at System.DateTimeParse.ParseExactMultiple(ReadOnlySpan`1 s, String[] formats, DateTimeFormatInfo dtfi, DateTimeStyles style)
+   at System.DateTime.ParseExact(String s, String[] formats, IFormatProvider provider, DateTimeStyles style)
+   at System.Xml.Serialization.XmlCustomFormatter.ToTime(String value)
+   at System.Xml.Serialization.XmlSerializationReader.ToTime(String value)
+   at System.RuntimeMethodHandle.InvokeMethod(ObjectHandleOnStack target, Void** arguments, ObjectHandleOnStack sig, BOOL isConstructor, ObjectHandleOnStack result)
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeDirectByRefWithFewArgs(Object obj, Span`1 copyOfArgs, BindingFlags invokeAttr)
+[STRT] XmlSerializerTests.Xml_XsdTime_With_TimeOnly_And_DateTime(dateTimeString: "08:32:00", kind: Local)
+[FAIL] XmlSerializerTests.Xml_XsdTime_With_TimeOnly_And_DateTime(dateTimeString: "08:32:00", kind: Local)
+XML comparison is also failing
+Test failed for input: DateTimeTimeWrapper
+Expected: <?xml version="1.0" encoding="utf-8"?>
+<DateAndTimeTest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <TestValue>08:32:00.0000000+00:00</TestValue>
+</DateAndTimeTest>
+Actual: <?xml version="1.0" encoding="utf-8"?>
+<DateAndTimeTest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <TestValue>00:00:00.0000000+00:00</TestValue>
+</DateAndTimeTest>
+   at XmlSerializerTests.Serialize[T](T value, String baseline, Func`1 serializerFactory, Boolean skipStringCompare, XmlSerializerNamespaces xns)
+   at XmlSerializerTests.Xml_XsdTime_With_TimeOnly_And_DateTime(String dateTimeString, DateTimeKind kind)
+   at InvokeStub_XmlSerializerTests.Xml_XsdTime_With_TimeOnly_And_DateTime(Object, Span`1)
+   at System.Reflection.MethodBaseInvoker.InvokeWithFewArgs(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+[STRT] XmlSerializerTests.XmlMembersMapping_Xmlns_True
+[STRT] XmlSerializerTests.Xml_TypeWithDateTimePropertyAsXmlTime
+[FAIL] XmlSerializerTests.Xml_TypeWithDateTimePropertyAsXmlTime
+XML comparison is also failing
+Test failed for input: SerializationTypes.TypeWithDateTimePropertyAsXmlTime
+Expected: <?xml version="1.0" encoding="utf-8"?>
+<TypeWithDateTimePropertyAsXmlTime xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">15:15:26.9870000+00:00</TypeWithDateTimePropertyAsXmlTime>
+Actual: <?xml version="1.0" encoding="utf-8"?>
+<TypeWithDateTimePropertyAsXmlTime xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">00:00:00.0000000+00:00</TypeWithDateTimePropertyAsXmlTime>
+   at XmlSerializerTests.SerializeAndDeserialize[T](T value, String baseline, Func`1 serializerFactory, Boolean skipStringCompare, XmlSerializerNamespaces xns)
+   at XmlSerializerTests.Xml_TypeWithDateTimePropertyAsXmlTime()
+   at System.RuntimeMethodHandle.InvokeMethod(ObjectHandleOnStack target, Void** arguments, ObjectHandleOnStack sig, BOOL isConstructor, ObjectHandleOnStack result)
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+[STRT] XmlSerializerTests.Xml_VerifyCompilationIssueOnly
+[STRT] XmlSerializerTests.XmlMembersMapping_SimpleType_HasWrapperElement
+[STRT] XmlSerializerTests.Xml_HighScoreManager
+[STRT] XmlSerializerTests.Xml_Soap_Basic
+[STRT] XmlSerializerTests.Xml_ValidateExceptionOnUnspecifiedRootSerializationType
+[STRT] XmlSerializerTests.Xml_TypeWithEnumFlagPropertyHavingDefaultValue
+[STRT] XmlSerializerTests.Xml_Soap_TypeWithReadOnlyMyCollectionProperty
+[STRT] XmlSerializerTests.Xml_Soap_Enum_With_SoapEnumOverrides
+[STRT] XmlSerializerTests.Xml_XmlIncludedTypesInTypedCollection
+[STRT] XmlSerializerTests.Xml_Soap_Nullable
+[STRT] XmlSerializerTests.XmlMembersMapping_SimpleType_SpecifiedField_False
+[STRT] XmlSerializerTests.Xml_TypeWithDateOnlyAndTimeOnly
+[FAIL] XmlSerializerTests.Xml_TypeWithDateOnlyAndTimeOnly
+XML comparison is also failing
+Test failed for input: TypeWithDateAndTimeOnlyProperties
+Expected: <?xml version="1.0" encoding="utf-8"?>
+<DateAndTime xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Today>2026-02-01</Today>
+  <MyDate>2026-02-01</MyDate>
+  <NullableDate xsi:nil="true" />
+  <NullableDateWithValue>2026-02-01</NullableDateWithValue>
+  <NullableDefaultDate xsi:nil="true" />
+  <Now>16:58:29.381</Now>
+  <MyTime>16:58:29.381</MyTime>
+  <NullableTime xsi:nil="true" />
+  <NullableTimeWithValue>16:58:29.381</NullableTimeWithValue>
+  <NullableDefaultTime xsi:nil="true" />
+</DateAndTime>
+Actual: <?xml version="1.0" encoding="utf-8"?>
+<DateAndTime xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Today>0001-01-01</Today>
+  <MyDate>0001-01-01</MyDate>
+  <DefaultDate>0001-01-01</DefaultDate>
+  <NullableDate xsi:nil="true" />
+  <NullableDateWithValue xsi:nil="true" />
+  <NullableDefaultDate xsi:nil="true" />
+  <Now>00:00:00</Now>
+  <MyTime>00:00:00</MyTime>
+  <DefaultTime>00:00:00</DefaultTime>
+  <NullableTime xsi:nil="true" />
+  <NullableTimeWithValue xsi:nil="true" />
+  <NullableDefaultTime xsi:nil="true" />
+</DateAndTime>
+   at XmlSerializerTests.SerializeAndDeserialize[T](T value, String baseline, Func`1 serializerFactory, Boolean skipStringCompare, XmlSerializerNamespaces xns)
+   at XmlSerializerTests.Xml_TypeWithDateOnlyAndTimeOnly()
+   at System.RuntimeMethodHandle.InvokeMethod(ObjectHandleOnStack target, Void** arguments, ObjectHandleOnStack sig, BOOL isConstructor, ObjectHandleOnStack result)
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+[STRT] XmlSerializerTests.XmlMembersMapping_SimpleType_SpecifiedField_False_Wrapper
+[STRT] XmlSerializerTests.Xml_ByteAsRoot
+[STRT] XmlSerializerTests.Xml_DifferentSerializeDeserializeOverloads
+[STRT] XmlSerializerTests.Xml_TypeWithIndirectReferencedAssembly
+[STRT] XmlSerializerTests.Xml_ArrayAsGetSet
+[STRT] XmlSerializerTests.Xml_ArrayAsGetOnly
+[STRT] XmlSerializerTests.Xml_XmlIncludedTypesInCollection
+[STRT] XmlSerializerTests.Xml_ClassImplementingIXmlSerializable
+[STRT] XmlSerializerTests.Xml_Soap_ObjectAsRoot_Nullable
+[STRT] XmlSerializerTests.XmlMembersMapping_MultipleMembers_XmlAnyElement
+[STRT] XmlSerializerTests.Xml_LongAsRoot
+[STRT] XmlSerializerTests.DerivedTypeWithDifferentOverrides
+[STRT] XmlSerializerTests.Xml_DefaultNamespaceChange_SimpleArray_ObjectAsRoot
+[STRT] XmlSerializerTests.Xml_TypeInCollectibleALC
+[STRT] XmlSerializerTests.ValidateXElementArray
+[STRT] XmlSerializerTests.XML_XmlSchemaWithNamespacesWriteWithNamespaceManager
+[STRT] XmlSerializerTests.Xml_TypeWithMultiNamedXmlAnyElementAndOtherFields
+[STRT] XmlSerializerTests.XmlMembersMapping_With_ComplexChoiceIdentifier
+[STRT] XmlSerializerTests.SerializeWithDefaultValueSetToPositiveInfinityTest
+[STRT] XmlSerializerTests.Xml_DoubleAsRoot
+[STRT] XmlSerializerTests.Xml_CollectionRoot_MorePrimitiveTypes
+[STRT] XmlSerializerTests.Xml_Soap_NestedPublicType
+[STRT] XmlSerializerTests.Xml_BaseClassAndDerivedClassWithSameProperty
+[STRT] XmlSerializerTests.Xml_TypeWithShouldSerializeMethod_WithDefaultValue
+[STRT] XmlSerializerTests.XML_TypeWithQNameArrayAsXmlAttribute
+[STRT] XmlSerializerTests.Xml_TestTypeWithPrivateOrNoSetters
+[STRT] XmlSerializerTests.Xml_XmlAttributes_RemoveXmlElementAttribute_ThrowsOnMissingItem
+[STRT] XmlSerializerTests.Xml_DeserializeHiddenMembersTest
+[STRT] XmlSerializerTests.Xml_HiddenDerivedFieldTest
+[STRT] XmlSerializerTests.Xml_TypeWithXmlDocumentProperty
+[STRT] XmlSerializerTests.Xml_TypeWithByteProperty
+[STRT] XmlSerializerTests.Xml_AliasedPropertyTest
+[STRT] XmlSerializerTests.Xml_Soap_Array
+[STRT] XmlSerializerTests.XmlSchema_DateOnly_TimeOnly_Primitives_And_Time_Override
+[STRT] XmlSerializerTests.XmlMembersMapping_Soap_PrimitiveValue_HasWrapperElement_Validate
+[STRT] XmlSerializerTests.Xml_Soap_With_SoapElement
+[STRT] XmlSerializerTests.Xml_Soap_WithNullables
+[FAIL] XmlSerializerTests.Xml_Soap_WithNullables
+XML comparison is also failing
+Test failed for input: SerializationTypes.WithNullables
+Expected: <root><WithNullables xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" id="id1"><Optional xsi:type="IntEnum">Option1</Optional><OptionalInt xsi:type="xsd:int">42</OptionalInt><Struct1 href="#id2" /></WithNullables><SomeStruct id="id2" d2p1:type="SomeStruct" xmlns:d2p1="http://www.w3.org/2001/XMLSchema-instance"><A xmlns:q1="http://www.w3.org/2001/XMLSchema" d2p1:type="q1:int">1</A><B xmlns:q2="http://www.w3.org/2001/XMLSchema" d2p1:type="q2:int">2</B></SomeStruct></root>
+Actual: <root><WithNullables xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" id="id1" /></root>
+   at XmlSerializerTests.SerializeAndDeserializeWithWrapper[T](T value, XmlSerializer serializer, String baseline)
+   at XmlSerializerTests.Xml_Soap_WithNullables()
+   at System.RuntimeMethodHandle.InvokeMethod(ObjectHandleOnStack target, Void** arguments, ObjectHandleOnStack sig, BOOL isConstructor, ObjectHandleOnStack result)
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+[STRT] XmlSerializerTests.Xml_TypeWithNonPublicDefaultConstructor
+[STRT] XmlSerializerTests.XmlMembersMapping_PrimitiveValue
+[STRT] XmlSerializerTests.Xml_ArrayOfXmlNodeProperty
+[STRT] XmlSerializerTests.XmlMembersMapping_With_ChoiceIdentifier
+[STRT] XmlSerializerTests.Xml_Soap_ObjectAsRoot
+[STRT] XmlSerializerTests.Xml_TypeWithPropertiesHavingDefaultValue_DefaultValue
+[STRT] XmlSerializerTests.Xml_KnownTypesThroughConstructor
+[STRT] XmlSerializerTests.Xml_ByteArrayAsRoot
+[STRT] XmlSerializerTests.Xml_TestDeserializingUnknownNode
+[STRT] XmlSerializerTests.Xml_Soap_ComplexField
+[STRT] XmlSerializerTests.Xml_TypeWithNestedPublicType
+[STRT] XmlSerializerTests.XmlMembersMapping_CompositeType
+[STRT] XmlSerializerTests.Xml_TypeWithSpecialCharacterInStringMember
+[STRT] XmlSerializerTests.Xml_Enums
+[STRT] XmlSerializerTests.SerializePrimitiveXmlTextAttributeOnDerivedClass
+[STRT] XmlSerializerTests.DeserializeIDREFSIntoStringTest
+[STRT] XmlSerializerTests.Xml_IntAsRoot
+[STRT] XmlSerializerTests.XML_TypeWithArrayLikeXmlAttribute
+[STRT] XmlSerializerTests.Xml_DerivedClasses
+[FAIL] XmlSerializerTests.Xml_DerivedClasses
+XML comparison is also failing
+Test failed for input: SimpleDerivedClass
+Expected: <?xml version="1.0" encoding="utf-8"?>
+<SimpleBaseClass xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="SimpleDerivedClass" AttributeString="derivedClassTest" DateTimeValue="1999-12-31T00:00:00" BoolValue="true" />
+Actual: <?xml version="1.0" encoding="utf-8"?>
+<SimpleBaseClass xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="SimpleDerivedClass" AttributeString="derivedClassTest" DateTimeValue="0001-01-01T00:00:00" BoolValue="true" />
+   at XmlSerializerTests.SerializeAndDeserialize[T](T value, String baseline, Func`1 serializerFactory, Boolean skipStringCompare, XmlSerializerNamespaces xns)
+   at XmlSerializerTests.Xml_DerivedClasses()
+   at System.RuntimeMethodHandle.InvokeMethod(ObjectHandleOnStack target, Void** arguments, ObjectHandleOnStack sig, BOOL isConstructor, ObjectHandleOnStack result)
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+[STRT] XmlSerializerTests.ValidateXElement
+[STRT] XmlSerializerTests.XmlMembersMapping_With_ChoiceErrors
+[STRT] XmlSerializerTests.XML_TypeWithTypeNameInXmlTypeAttribute_WithValue
+[STRT] XmlSerializerTests.Xml_FloatAsRoot
+[STRT] XmlSerializerTests.ObsoleteAttribute_DoesNotAffectSerialization
+[STRT] XmlSerializerTests.Xml_NookTypes
+[STRT] XmlSerializerTests.Xml_Soap_Enums
+[STRT] XmlSerializerTests.XML_TypeWithByteArrayAsXmlAttribute
+[STRT] XmlSerializerTests.SoapEncodedSerialization_IncludeType
+[STRT] XmlSerializerTests.Xml_DeserializeTypeWithEmptyTimeSpanProperty
+[STRT] XmlSerializerTests.Xml_SerializedFormat
+[STRT] XmlSerializerTests.XmlUnknownNodeAndEventHandlerTest
+[STRT] XmlSerializerTests.Xml_SbyteAsRoot
+[STRT] XmlSerializerTests.Xml_XmlAttributes_RemoveXmlAnyElementAttributeThrowsOnMissingItem
+[STRT] XmlSerializerTests.CodeIdentifierNullArgumentTest
+[STRT] XmlSerializerTests.Xml_WithArrayOfXElement
+[STRT] XmlSerializerTests.Xml_TypeNamesWithSpecialCharacters
+[STRT] XmlSerializerTests.Xml_DeserializeEmptyDateTimeOffsetType
+[STRT] XmlSerializerTests.Xml_WithXElementWithEmptyNestedElement
+[STRT] XmlSerializerTests.Xml_Soap_With_SoapIgnore
+[STRT] XmlSerializerTests.Xml_DefaultNamespaceChange_SimpleTypeAsRoot
+[STRT] XmlSerializerTests.SerializeXmlTextAttributeOnDerivedClass
+[STRT] XmlSerializerTests.XmlMembersMapping_SimpleType_SpecifiedField_MissingSpecifiedValue
+[STRT] XmlSerializerTests.Xml_SerializeClassThatImplementsInterface
+[STRT] XmlSerializerTests.XmlMembersMapping_TypeWithXmlAttributes
+[FAIL] XmlSerializerTests.XmlMembersMapping_TypeWithXmlAttributes
+System.InvalidOperationException : There is an error in XML document (3, 29).
+---- System.FormatException : String '' was not recognized as a valid DateTime.
+   at System.Xml.Serialization.XmlSerializer.Deserialize(XmlReader xmlReader, String encodingStyle, XmlDeserializationEvents events)
+   at System.Xml.Serialization.XmlSerializer.Deserialize(XmlReader xmlReader, String encodingStyle)
+   at System.Xml.Serialization.XmlSerializer.Deserialize(Stream stream)
+   at XmlSerializerTests.RoundTripWithXmlMembersMapping(Object[] value, String baseline, Boolean skipStringCompare, XmlReflectionMember[] members, String ns, String wrapperName, Boolean rpc)
+   at XmlSerializerTests.RoundTripWithXmlMembersMapping[T](Object requestBodyValue, String memberName, String baseline, Boolean skipStringCompare, String wrapperName)
+   at XmlSerializerTests.XmlMembersMapping_TypeWithXmlAttributes()
+   at System.RuntimeMethodHandle.InvokeMethod(ObjectHandleOnStack target, Void** arguments, ObjectHandleOnStack sig, BOOL isConstructor, ObjectHandleOnStack result)
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+----- Inner Stack Trace -----
+   at System.DateTimeParse.ParseExactMultiple(ReadOnlySpan`1 s, String[] formats, DateTimeFormatInfo dtfi, DateTimeStyles style)
+   at System.DateTime.ParseExact(String s, String[] formats, IFormatProvider provider, DateTimeStyles style)
+   at System.Xml.XmlConvert.ToDateTime(String s, String[] formats)
+   at System.Xml.Serialization.XmlCustomFormatter.ToDateTime(String value, String[] formats)
+   at System.Xml.Serialization.XmlCustomFormatter.ToDate(String value)
+   at System.Xml.Serialization.XmlSerializationReader.ToDate(String value)
+   at System.RuntimeMethodHandle.InvokeMethod(ObjectHandleOnStack target, Void** arguments, ObjectHandleOnStack sig, BOOL isConstructor, ObjectHandleOnStack result)
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeDirectByRefWithFewArgs(Object obj, Span`1 copyOfArgs, BindingFlags invokeAttr)
+[STRT] XmlSerializerTests.Xml_ImmutableCollections(type: typeof(System.Collections.Immutable.ImmutableArray<int>), collection: [42], createException: null, addException: typeof(System.InvalidOperationException), expectedXml: "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<Array"···, exMsg: "Specified method is not supported.")
+[STRT] XmlSerializerTests.Xml_ImmutableCollections(type: typeof(System.Collections.Immutable.ImmutableArray<object>), collection: [Object { }], createException: null, addException: typeof(System.InvalidOperationException), expectedXml: "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<Array"···, exMsg: "Specified method is not supported.")
+[STRT] XmlSerializerTests.Xml_ImmutableCollections(type: typeof(System.Collections.Immutable.ImmutableList<int>), collection: [42], createException: null, addException: typeof(System.InvalidOperationException), expectedXml: "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<Array"···, exMsg: "Specified method is not supported.")
+[STRT] XmlSerializerTests.Xml_ImmutableCollections(type: typeof(System.Collections.Immutable.ImmutableStack<int>), collection: [···], createException: typeof(System.InvalidOperationException), addException: null, expectedXml: "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<Array"···, exMsg: "To be XML serializable, types which inherit from I"···)
+[STRT] XmlSerializerTests.Xml_ImmutableCollections(type: typeof(System.Collections.Immutable.ImmutableQueue<int>), collection: [···], createException: typeof(System.InvalidOperationException), addException: null, expectedXml: "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<Array"···, exMsg: "To be XML serializable, types which inherit from I"···)
+[STRT] XmlSerializerTests.Xml_ImmutableCollections(type: typeof(System.Collections.Immutable.ImmutableDictionary<string, int>), collection: [["one"] = 1], createException: typeof(System.InvalidOperationException), addException: null, expectedXml: null, exMsg: "is not supported because it implements IDictionary"···)
+[STRT] XmlSerializerTests.Xml_UintAsRoot
+[STRT] XmlSerializerTests.XmlMembersMapping_Soap_MemberSpecified_False
+[STRT] XmlSerializerTests.Xml_DCClassWithEnumAndStruct
+[STRT] XmlSerializerTests.Xml_DeserializeOutOfRangeByteProperty
+[STRT] XmlSerializerTests.Xml_TypeWithReadOnlyMyCollectionProperty
+[STRT] XmlSerializerTests.Xml_XSCoverTest
+[STRT] XmlSerializerTests.Xml_EnumAsRoot
+[STRT] XmlSerializerTests.Xml_ConstructorWithTypeMapping
+[STRT] XmlSerializerTests.Xml_TypeWithMismatchBetweenAttributeAndPropertyType
+[STRT] XmlSerializerTests.XmlMembersMapping_TypeHavingIntArray
+[STRT] XmlSerializerTests.CodeIdentifierTest
+[STRT] XmlSerializerTests.Xml_FloatAsRoot_NotNetFramework
+[STRT] XmlSerializerTests.XmlSerializerAssemblyAttributeTest
+[STRT] XmlSerializerTests.XmlMembersMapping_Soap_SimpleType
+[STRT] XmlSerializerTests.Xml_ArraylikeMembers
+[STRT] XmlSerializerTests.Xml_WithXElement
+[STRT] XmlSerializerTests.XmlDeserializationEventsTest
+[STRT] XmlSerializerTests.Xml_KnownTypesThroughConstructorWithEnumFlags
+[STRT] XmlSerializerTests.Xml_CharAsRoot
+[STRT] XmlSerializerTests.Xml_ObjectAsRoot
+[STRT] XmlSerializerTests.Xml_TimeOnlyParseErrors(timeString: "07:25:13.45-04:00", succeedsWithCompat: True, expected: "07:25:13.45")
+[FAIL] XmlSerializerTests.Xml_TimeOnlyParseErrors(timeString: "07:25:13.45-04:00", succeedsWithCompat: True, expected: "07:25:13.45")
+Assert.Null() Failure: Value is not null
+Expected: null
+Actual:   System.InvalidOperationException: There is an error in XML document (2, 69).
+ ---> System.FormatException: String '' was not recognized as a valid DateTime.
+   at System.DateTimeParse.ParseExactMultiple(ReadOnlySpan`1 s, String[] formats, DateTimeFormatInfo dtfi, DateTimeStyles style, TimeSpan& offset)
+   at System.DateTimeOffset.ParseExact(String input, String[] formats, IFormatProvider formatProvider, DateTimeStyles styles)
+   at System.Xml.Serialization.XmlCustomFormatter.ToTimeOnlyIgnoreOffset(String value)
+   at System.Xml.Serialization.XmlSerializationReader.ToTimeOnlyIgnoreOffset(String value)
+   at System.RuntimeMethodHandle.InvokeMethod(ObjectHandleOnStack target, Void** arguments, ObjectHandleOnStack sig, BOOL isConstructor, ObjectHandleOnStack result)
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeDirectByRefWithFewArgs(Object obj, Span`1 copyOfArgs, BindingFlags invokeAttr)
+   --- End of inner exception stack trace ---
+   at System.Xml.Serialization.XmlSerializer.Deserialize(XmlReader xmlReader, String encodingStyle, XmlDeserializationEvents events)
+   at System.Xml.Serialization.XmlSerializer.Deserialize(XmlReader xmlReader, String encodingStyle)
+   at System.Xml.Serialization.XmlSerializer.Deserialize(Stream stream)
+   at XmlSerializerTests.DeserializeFromXmlString[T](String xmlString)
+   at XmlSerializerTests.<>c__DisplayClass54_0.<Xml_TimeOnlyParseErrors>b__1()
+   at Xunit.Record.Exception(Action testCode)
+   at XmlSerializerTests.Xml_TimeOnlyParseErrors(String timeString, Boolean succeedsWithCompat, String expected)
+   at System.RuntimeMethodHandle.InvokeMethod(ObjectHandleOnStack target, Void** arguments, ObjectHandleOnStack sig, BOOL isConstructor, ObjectHandleOnStack result)
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeDirectByRefWithFewArgs(Object obj, Span`1 copyOfArgs, BindingFlags invokeAttr)
+[STRT] XmlSerializerTests.Xml_TimeOnlyParseErrors(timeString: "02:38:23.40Z", succeedsWithCompat: True, expected: "02:38:23.4")
+[STRT] XmlSerializerTests.Xml_TimeOnlyParseErrors(timeString: "7:48:07", succeedsWithCompat: False, expected: "")
+[STRT] XmlSerializerTests.Xml_TimeOnlyParseErrors(timeString: "08:32 AM", succeedsWithCompat: False, expected: "")
+[STRT] XmlSerializerTests.Xml_TypeWithTwoDimensionalArrayProperty2
+[STRT] XmlSerializerTests.Xml_DefaultNamespaceChange_ArrayAsRoot
+[STRT] XmlSerializerTests.Xml_XElementAsRoot
+[STRT] XmlSerializerTests.XmlMembersMapping_Soap_MultipleMembers_IsReturnValue
+[STRT] XmlSerializerTests.Xml_SimpleType
+[STRT] XmlSerializerTests.Xml_TypeWithArrayPropertyHavingChoiceErrors
+[STRT] XmlSerializerTests.XmlMembersMapping_MultipleMembers_IsReturnValue
+[STRT] XmlSerializerTests.Xml_CollectionRoot
+[STRT] XmlSerializerTests.SerializeWithDefaultValueSetToNegativeInfinityTest
+[STRT] XmlSerializerTests.Xml_EnumFlags
+[STRT] XmlSerializerTests.Xml_TypeWithEnumPropertyHavingDefaultValue
+[STRT] XmlSerializerTests.Xml_DefaultNamespaceChangeTest
+[STRT] XmlSerializerTests.Xml_DefaultValueAttributeSetToPositiveInfinityTest
+[STRT] XmlSerializerTests.Xml_EnumerableGenericRoot
+[STRT] XmlSerializerTests.SoapSchemaMemberTest
+[STRT] XmlSerializerTests.Xml_XmlAttributes_RemoveXmlArrayItemAttribute
+[STRT] XmlSerializerTests.Xml_XmlElementAsRoot
+[STRT] XmlSerializerTests.Xml_TimeOnlyAsRoot(timeString: "20:17:40")
+[STRT] XmlSerializerTests.Xml_TimeOnlyAsRoot(timeString: "10:35 AM")
+[STRT] XmlSerializerTests.Xml_TimeOnlyAsRoot(timeString: "10:45 PM")
+[STRT] XmlSerializerTests.XmlMembersMapping_Member_With_XmlAnyAttribute_Specified_True
+[STRT] XmlSerializerTests.Xml_TypeWithTypesHavingCustomFormatter
+[STRT] XmlSerializerTests.Xml_HiddenMembersChangeMappings
+[STRT] XmlSerializerTests.XmlSerializerImplementationTest
+[STRT] XmlSerializerTests.XmlMembersMapping_Soap_MemberSpecified_True
+[STRT] XmlSerializerTests.XmlSchema_Import_DateOnly_TimeOnly_And_XsdTime
+[STRT] XmlSerializerTests.Xml_ConstructorWithXmlAttributeOverrides
+[STRT] XmlSerializerTests.Xml_SerializeClassNestedInStaticClassTest
+[STRT] XmlSerializerTests.Xml_FromTypes
+[STRT] XmlSerializerTests.SoapAttributeTests
+[STRT] XmlSerializerTests.Xml_EnumAsObject
+[STRT] XmlSerializerTests.XML_TypeWithEnumArrayAsXmlAttribute
+[STRT] XmlSerializerTests.Xml_SimpleCollectionDataContract
+[STRT] XmlSerializerTests.Xml_TypeWithMultiXmlAnyElement
+[STRT] XmlSerializerTests.Xml_XmlQualifiedNameAsRoot
+[STRT] XmlSerializerTests.Xml_FromMappings
+[STRT] XmlSerializerTests.Xml_KnownTypesThroughConstructorWithEnumFlagsXmlQualifiedName
+[STRT] XmlSerializerTests.Xml_DefaultValueAttributeSetToNegativeInfinityTest
+[STRT] XmlSerializerTests.Xml_ListGenericRoot
+[STRT] XmlSerializerTests.Xml_BaseClassAndDerivedClass2WithSameProperty
+[STRT] XmlSerializerTests.SoapEncodedSerialization_IncludeTypes_NullProvider
+[STRT] XmlSerializerTests.Xml_DateTimeAsRoot
+[STRT] XmlSerializerTests.XML_TypeWithTypeNameInXmlTypeAttribute
+[STRT] XmlSerializerTests.Xml_TypeWithMyCollectionField
+[STRT] XmlSerializerTests.VerifyRestrictionElementForTimeSpanTest
+[STRT] XmlSerializerTests.IXmlTextParserTest
+[STRT] XmlSerializerTests.Xml_PublicTypeWithNestedPublicTypeWithNestedPublicType
+[STRT] XmlSerializerTests.XmlMembersMapping_Member_With_XmlAnyAttribute
+[STRT] XmlSerializerTests.Xml_StringWithNullChar
+[STRT] XmlSerializerTests.Xml_BoolAsRoot
+[STRT] XmlSerializerTests.Xml_TypeWithDateTimeOffsetProperty
+[FAIL] XmlSerializerTests.Xml_TypeWithDateTimeOffsetProperty
+XML comparison is also failing
+Test failed for input: TypeWithDateTimeOffsetProperties
+Expected: <?xml version="1.0"?>
+<TypeWithDateTimeOffsetProperties xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <DTO>2026-02-01T16:58:30.833Z</DTO>
+  <DTO2>0001-01-01T00:00:00Z</DTO2>
+  <NullableDTO xsi:nil="true" />
+  <NullableDefaultDTO xsi:nil="true" />
+</TypeWithDateTimeOffsetProperties>
+Actual: <?xml version="1.0" encoding="utf-8"?>
+<TypeWithDateTimeOffsetProperties xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <DTO>0001-01-01T00:00:00Z</DTO>
+  <DTO2>0001-01-01T00:00:00Z</DTO2>
+  <NullableDTO xsi:nil="true" />
+  <NullableDefaultDTO xsi:nil="true" />
+</TypeWithDateTimeOffsetProperties>
+   at XmlSerializerTests.SerializeAndDeserialize[T](T value, String baseline, Func`1 serializerFactory, Boolean skipStringCompare, XmlSerializerNamespaces xns)
+   at XmlSerializerTests.Xml_TypeWithDateTimeOffsetProperty()
+   at System.RuntimeMethodHandle.InvokeMethod(ObjectHandleOnStack target, Void** arguments, ObjectHandleOnStack sig, BOOL isConstructor, ObjectHandleOnStack result)
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+[STRT] XmlSerializerTests.Xml_XmlIncludedTypesInTypedCollectionSingle
+[STRT] XmlSerializerTests.Xml_Soap_Basic_FromMappings
+[STRT] XmlSerializerTests.XML_TypeWithXmlSchemaFormAttribute
+[STRT] XmlSerializerTests.Xml_CollectionGenericRoot
+[STRT] XmlSerializerTests.Xml_DeserializeTypeWithEmptyDateTimeOffsetProperties
+[STRT] XmlSerializerTests.Xml_DefaultNamespaceChange_SimpleTypeAsRoot_WithXmlSerializerNamespaces
+[STRT] XmlSerializerTests.XmlMembersMapping_Soap_PrimitiveValue
+[STRT] XmlSerializerTests.Xml_TypeWithNonParameterlessConstructor
+[STRT] XmlSerializerTests.XmlSerializationReaderWriterTest
+[STRT] XmlSerializerTests.Xml_TypeWithArrayPropertyHavingComplexChoice
+[STRT] XmlSerializerTests.XmlMembersMapping_SimpleType_SpecifiedField_True_Wrapper
+[STRT] XmlSerializerTests.Xml_Soap_TypeWithEnumFlagPropertyHavingDefaultValue
+[STRT] XmlSerializerTests.Xml_XmlAttributes_RemoveXmlElementAttribute
+[STRT] XmlSerializerTests.Xml_UlongAsRoot
+[STRT] XmlSerializerTests.XML_TypeWithArrayLikeXmlAttributeWithFields
+[STRT] XmlSerializerTests.Xml_DecimalAsRoot
+[STRT] XmlSerializerTests.Xml_WithXElementWithNestedXElement
+[STRT] XmlSerializerTests.XML_TypeWithXmlTextAttributeOnArray
+[STRT] XmlSerializerTests.Xml_ArrayAsRoot
+[STRT] XmlSerializerTests.Xml_DateOnlyParseErrors(badDateString: "1-1-1")
+[STRT] XmlSerializerTests.Xml_DateOnlyParseErrors(badDateString: "0079-08-24+02:00")
+[STRT] XmlSerializerTests.Xml_DateOnlyParseErrors(badDateString: "1912-04-15Z")
+[STRT] XmlSerializerTests.Xml_DateOnlyParseErrors(badDateString: "1917-12-6")
+[STRT] XmlSerializerTests.Xml_DateOnlyParseErrors(badDateString: "1937-5-06")
+[STRT] XmlSerializerTests.Xml_DateOnlyParseErrors(badDateString: "98-01-01")
+[STRT] XmlSerializerTests.Xml_ShortAsRoot
+[STRT] XmlSerializerTests.Xml_TestIgnoreWhitespaceForDeserialization
+[STRT] XmlSerializerTests.Xml_NullRefInXmlSerializerCtorTest
+[STRT] XmlSerializerTests.Xml_GuidAsRoot
+[STRT] XmlSerializerTests.Xml_EnumerableRoot
+[STRT] XmlSerializerTests.Xml_DeserializeDateTimeOffsetType
+[STRT] XmlSerializerTests.Xml_TypeWithXmlQualifiedName
+[STRT] XmlSerializerTests.XmlUnknownAttributeAndEventHandlerTest
+[STRT] XmlSerializerTests.Xml_TypeWithFieldNameEndBySpecified
+[STRT] XmlSerializerTests.Xml_TypeWithSchemaFormInXmlAttribute
+[STRT] XmlSerializerTests.Xml_Soap_Dictionary
+[STRT] XmlSerializerTests.XmlMembersMapping_IntList
+[STRT] XmlSerializerTests.Xml_XmlAttributes_CtorWithNullArgument
+[STRT] XmlSerializerTests.Xml_TimeSpanAsRoot
+[STRT] XmlSerializerTests.Xml_TypeWithTimeSpanProperty
+[STRT] XmlSerializerTests.DerivedTypeWithDifferentOverrides2
+[STRT] XmlSerializerTests.XML_TypeWithMemberWithXmlNamespaceDeclarationsAttribute
+[STRT] XmlSerializerTests.Xml_TypeWithDefaultTimeSpanProperty
+[FAIL] XmlSerializerTests.Xml_TypeWithDefaultTimeSpanProperty
+XML comparison is also failing
+Test failed for input: TypeWithDefaultTimeSpanProperty
+Expected: <?xml version="1.0" encoding="utf-8"?>
+<TypeWithDefaultTimeSpanProperty xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"><TimeSpanProperty2>PT1M</TimeSpanProperty2></TypeWithDefaultTimeSpanProperty>
+Actual: <?xml version="1.0" encoding="utf-8"?>
+<TypeWithDefaultTimeSpanProperty xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <TimeSpanProperty>PT0S</TimeSpanProperty>
+  <TimeSpanProperty2>PT0S</TimeSpanProperty2>
+</TypeWithDefaultTimeSpanProperty>
+   at XmlSerializerTests.SerializeAndDeserialize[T](T value, String baseline, Func`1 serializerFactory, Boolean skipStringCompare, XmlSerializerNamespaces xns)
+   at XmlSerializerTests.Xml_TypeWithDefaultTimeSpanProperty()
+   at System.RuntimeMethodHandle.InvokeMethod(ObjectHandleOnStack target, Void** arguments, ObjectHandleOnStack sig, BOOL isConstructor, ObjectHandleOnStack result)
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+[STRT] XmlSerializerTests.Xml_Soap_TypeWithMyCollectionField
+[STRT] XmlSerializerTests.Xml_XmlIncludedTypesInCollectionSingle
+[STRT] XmlSerializerTests.Xml_StringAsRoot
+[STRT] XmlSerializerTests.XmlReflectionImporterTest
+[STRT] XmlSerializerTests.SoapEncodedSerialization_SoapAttribute
+[STRT] XmlSerializerTests.XmlMembersMapping_Soap_SoapComplexTypeWithArray
+[STRT] XmlSerializerTests.XmlMembersMapping_Soap_CompositeType
+[STRT] XmlSerializerTests.Xml_TypeWithBinaryProperty
+[STRT] XmlSerializerTests.XmlSerializationGeneratedCodeTest
+[STRT] XmlSerializerTests.XmlMembersMapping_SimpleType
+[STRT] XmlSerializerTests.ValidateXElementStruct
+[STRT] XmlSerializerTests.Xml_ByteArrayNull
+[STRT] XmlSerializerTests.Xml_BuiltInTypes
+[STRT] XmlSerializerTests.Xml_Soap_List
+[STRT] XmlSerializerTests.Xml_DefaultNamespaceChange_XmlAttributesTestAsRoot
+[STRT] XmlSerializerTests.Xml_XsdDate_With_DateOnly_And_DateTime
+[FAIL] XmlSerializerTests.Xml_XsdDate_With_DateOnly_And_DateTime
+XML comparison is also failing
+Test failed for input: DateOnlyWrapper
+Expected: <?xml version="1.0" encoding="utf-8"?>
+<DateAndTimeTest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <TestValue>2026-02-01</TestValue>
+</DateAndTimeTest>
+Actual: <?xml version="1.0" encoding="utf-8"?>
+<DateAndTimeTest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <TestValue>0001-01-01</TestValue>
+</DateAndTimeTest>
+   at XmlSerializerTests.Serialize[T](T value, String baseline, Func`1 serializerFactory, Boolean skipStringCompare, XmlSerializerNamespaces xns)
+   at XmlSerializerTests.Xml_XsdDate_With_DateOnly_And_DateTime()
+   at System.RuntimeMethodHandle.InvokeMethod(ObjectHandleOnStack target, Void** arguments, ObjectHandleOnStack sig, BOOL isConstructor, ObjectHandleOnStack result)
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+[STRT] XmlSerializerTests.XmlSchemaTest
+[STRT] XmlSerializerTests.Xml_Soap_Enum
+[STRT] XmlSerializerTests.ObsoleteAttribute_WithAppContextSwitch_IgnoresObsoleteMembers
+[STRT] XmlSerializerTests.XML_TypeWithNullableByteArray
+[STRT] XmlSerializerTests.Xml_ReadOnlyCollection
+[STRT] XmlSerializerTests.Xml_DefaultNamespaceChange_ObjectAsRoot
+[STRT] XmlSerializerTests.Xml_DefaultValueAttributeSetToNaNTest
+[STRT] XmlSerializerTests.Xml_TypeWithTwoDimensionalArrayProperty1
+[STRT] XmlSerializerTests.Xml_JaggedArrayAsRoot
+[STRT] XmlSerializerTests.Xml_Soap_TypeWithNullableFields
+[STRT] XmlSerializerTests.Xml_XmlDocumentAsRoot
+[STRT] XmlSerializerTests.Xml_NamespaceTypeNameClashTest
+[STRT] XmlSerializerTests.Xml_XmlAttributesTest
+[STRT] XmlSerializerTests.Xml_Soap_With_SoapType
+[STRT] XmlSerializerTests.ObsoleteAttribute_IsError_ThrowsException
+[STRT] XmlSerializerTests.SoapEncodedSerialization_ImportMembersMapping_NullMembers
+[STRT] XmlSerializerTests.XmlMembersMapping_Soap_SoapComplexType
+[STRT] XmlSerializerTests.XmlSerializerFactoryTest
+[STRT] XmlSerializerTests.XmlSchemaExporter_ExportMembersMapping_NotSupportedDefaultValue
+[STRT] XmlSerializerTests.Xml_TypeWithStringPropertyWithDefaultValue_NonDefaultValue
+[STRT] XmlSerializerTests.XmlReflectionMember_NullXmlAttributes
+[STRT] XmlSerializerTests.Xml_TypeWithXmlElementsAndUnnamedXmlAny
+[STRT] XmlSerializerTests.Xml_UshortAsRoot
+[STRT] XmlSerializerTests.Xml_KnownTypesThroughConstructorWithArrayProperties
+[STRT] XmlSerializerTests.Xml_WithListOfXElement
+[STRT] XmlSerializerTests.Xml_DateOnlyAsRoot(dateString: "0001-01-01")
+[STRT] XmlSerializerTests.Xml_DateOnlyAsRoot(dateString: "2002-06-17")
+[STRT] XmlSerializerTests.Xml_DateOnlyAsRoot(dateString: "2345-12-1")
+[STRT] XmlSerializerTests.Xml_TypeWithShouldSerializeMethod_WithNonDefaultValue
+[STRT] XmlSerializerTests.Xml_GenericBase
+[STRT] XmlSerializerTests.Xml_XmlTextAttributeTest
+[STRT] XmlSerializerTests.XML_TypeWithByteArrayArrayAsXmlAttribute
+[STRT] XmlSerializerTests.Xml_TypesWithArrayOfOtherTypes
+[STRT] XmlSerializerTests.XmlMembersMapping_Soap_PrimitiveValue_HasWrapperElement
+[STRT] XmlSerializerTests.Xml_TestTypeWithListPropertiesWithoutPublicSetters
+[STRT] XmlSerializerTests.Xml_TypeWithXmlElementProperty
+Finished:    System.Xml.XmlSerializer.ReflectionOnly.Tests.dll
+Finished uploading 81822 bytes of RESULTXML
+Xml file was written to the provided writer.
+
+=== TEST EXECUTION SUMMARY ===
+Tests run: 298 Passed: 282 Inconclusive: 0 Failed: 15 Ignored: 0 Skipped: 1
+
+test-main.js exiting WasmTestRunner.dll System.Xml.XmlSerializer.ReflectionOnly.Tests.dll after 0.0608 minutes with result 1 and linear memory 278396928 bytes
+WASM EXIT 1

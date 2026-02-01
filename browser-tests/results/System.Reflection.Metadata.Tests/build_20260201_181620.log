@@ -1,0 +1,67 @@
+
+  Determining projects to restore...
+  All projects are up-to-date for restore.
+  TestUtilities -> /home/pavelsavara/dev/runtime/artifacts/bin/TestUtilities/Release/net10.0/TestUtilities.dll
+  ILLink.RoslynAnalyzer -> /home/pavelsavara/dev/runtime/artifacts/bin/ILLink.RoslynAnalyzer/Release/netstandard2.0/ILLink.RoslynAnalyzer.dll
+  ILLink.CodeFixProvider -> /home/pavelsavara/dev/runtime/artifacts/bin/ILLink.CodeFixProvider/Release/netstandard2.0/ILLink.CodeFixProvider.dll
+  Mono.Linker -> /home/pavelsavara/dev/runtime/artifacts/bin/Mono.Linker/ref/Release/net11.0/illink.dll
+  Mono.Linker -> /home/pavelsavara/dev/runtime/artifacts/bin/Mono.Linker/Release/net11.0/illink.dll
+  ILLink.Tasks -> /home/pavelsavara/dev/runtime/artifacts/bin/ILLink.Tasks/Release/net/ILLink.Tasks.dll
+  System.Runtime.Serialization.Formatters -> /home/pavelsavara/dev/runtime/artifacts/bin/System.Runtime.Serialization.Formatters/ref/Release/net10.0/System.Runtime.Serialization.Formatters.dll
+  System.Runtime.Serialization.Formatters -> /home/pavelsavara/dev/runtime/artifacts/bin/System.Runtime.Serialization.Formatters/Release/net10.0/System.Runtime.Serialization.Formatters.dll
+  System.Private.CoreLib.Generators -> /home/pavelsavara/dev/runtime/artifacts/bin/System.Private.CoreLib.Generators/Release/netstandard2.0/System.Private.CoreLib.Generators.dll
+  System.Private.CoreLib -> /home/pavelsavara/dev/runtime/artifacts/bin/System.Private.CoreLib/ref/Release/net11.0/System.Private.CoreLib.dll
+  EventSourceGenerator -> /home/pavelsavara/dev/runtime/artifacts/bin/EventSourceGenerator/Release/netstandard2.0/EventSourceGenerator.dll
+  Microsoft.Interop.SourceGeneration -> /home/pavelsavara/dev/runtime/artifacts/bin/Microsoft.Interop.SourceGeneration/Release/netstandard2.0/Microsoft.Interop.SourceGeneration.dll
+  LibraryImportGenerator -> /home/pavelsavara/dev/runtime/artifacts/bin/LibraryImportGenerator/Release/netstandard2.0/Microsoft.Interop.LibraryImportGenerator.dll
+  System.Private.CoreLib -> /home/pavelsavara/dev/runtime/artifacts/bin/coreclr/browser.wasm.Release/IL/System.Private.CoreLib.dll
+  System.Private.Uri -> /home/pavelsavara/dev/runtime/artifacts/bin/System.Private.Uri/Release/net11.0/System.Private.Uri.dll
+  System.Runtime -> /home/pavelsavara/dev/runtime/artifacts/bin/System.Runtime/ref/Release/net11.0/System.Runtime.dll
+  System.Diagnostics.Tracing -> /home/pavelsavara/dev/runtime/artifacts/bin/System.Diagnostics.Tracing/ref/Release/net11.0/System.Diagnostics.Tracing.dll
+  System.Threading -> /home/pavelsavara/dev/runtime/artifacts/bin/System.Threading/ref/Release/net11.0/System.Threading.dll
+  System.Memory -> /home/pavelsavara/dev/runtime/artifacts/bin/System.Memory/ref/Release/net11.0/System.Memory.dll
+  System.Collections -> /home/pavelsavara/dev/runtime/artifacts/bin/System.Collections/ref/Release/net11.0/System.Collections.dll
+  System.Numerics.Vectors -> /home/pavelsavara/dev/runtime/artifacts/bin/System.Numerics.Vectors/ref/Release/net11.0/System.Numerics.Vectors.dll
+  System.Threading.Thread -> /home/pavelsavara/dev/runtime/artifacts/bin/System.Threading.Thread/ref/Release/net11.0/System.Threading.Thread.dll
+  System.Runtime.Intrinsics -> /home/pavelsavara/dev/runtime/artifacts/bin/System.Runtime.Intrinsics/ref/Release/net11.0/System.Runtime.Intrinsics.dll
+  System.Diagnostics.Tracing -> /home/pavelsavara/dev/runtime/artifacts/bin/System.Diagnostics.Tracing/Release/net11.0/System.Diagnostics.Tracing.dll
+  System.Threading -> /home/pavelsavara/dev/runtime/artifacts/bin/System.Threading/Release/net11.0/System.Threading.dll
+  System.Memory -> /home/pavelsavara/dev/runtime/artifacts/bin/System.Memory/Release/net11.0/System.Memory.dll
+  System.Runtime -> /home/pavelsavara/dev/runtime/artifacts/bin/System.Runtime/Release/net11.0/System.Runtime.dll
+  System.Numerics.Vectors -> /home/pavelsavara/dev/runtime/artifacts/bin/System.Numerics.Vectors/Release/net11.0/System.Numerics.Vectors.dll
+  System.Collections -> /home/pavelsavara/dev/runtime/artifacts/bin/System.Collections/Release/net11.0/System.Collections.dll
+  System.Runtime.Intrinsics -> /home/pavelsavara/dev/runtime/artifacts/bin/System.Runtime.Intrinsics/Release/net11.0/System.Runtime.Intrinsics.dll
+  System.Threading.Thread -> /home/pavelsavara/dev/runtime/artifacts/bin/System.Threading.Thread/Release/net11.0/System.Threading.Thread.dll
+  System.Collections.Concurrent -> /home/pavelsavara/dev/runtime/artifacts/bin/System.Collections.Concurrent/ref/Release/net11.0/System.Collections.Concurrent.dll
+  System.Collections.Concurrent -> /home/pavelsavara/dev/runtime/artifacts/bin/System.Collections.Concurrent/Release/net11.0/System.Collections.Concurrent.dll
+  System.Runtime.InteropServices -> /home/pavelsavara/dev/runtime/artifacts/bin/System.Runtime.InteropServices/ref/Release/net11.0/System.Runtime.InteropServices.dll
+  System.Runtime.InteropServices -> /home/pavelsavara/dev/runtime/artifacts/bin/System.Runtime.InteropServices/Release/net11.0/System.Runtime.InteropServices.dll
+  System.IO.MemoryMappedFiles -> /home/pavelsavara/dev/runtime/artifacts/bin/System.IO.MemoryMappedFiles/ref/Release/net11.0/System.IO.MemoryMappedFiles.dll
+  System.Linq -> /home/pavelsavara/dev/runtime/artifacts/bin/System.Linq/ref/Release/net11.0/System.Linq.dll
+  System.IO.Compression -> /home/pavelsavara/dev/runtime/artifacts/bin/System.IO.Compression/ref/Release/net11.0/System.IO.Compression.dll
+  ComInterfaceGenerator -> /home/pavelsavara/dev/runtime/artifacts/bin/ComInterfaceGenerator/Release/netstandard2.0/Microsoft.Interop.ComInterfaceGenerator.dll
+  System.Linq -> /home/pavelsavara/dev/runtime/artifacts/bin/System.Linq/Release/net11.0/System.Linq.dll
+  System.IO.MemoryMappedFiles -> /home/pavelsavara/dev/runtime/artifacts/bin/System.IO.MemoryMappedFiles/Release/net11.0/System.IO.MemoryMappedFiles.dll
+  System.IO.Compression -> /home/pavelsavara/dev/runtime/artifacts/bin/System.IO.Compression/Release/net11.0/System.IO.Compression.dll
+  System.Collections.Immutable -> /home/pavelsavara/dev/runtime/artifacts/bin/System.Collections.Immutable/ref/Release/net11.0/System.Collections.Immutable.dll
+  System.Collections.Immutable -> /home/pavelsavara/dev/runtime/artifacts/bin/System.Collections.Immutable/Release/net11.0/System.Collections.Immutable.dll
+  System.Text.Encoding.Extensions -> /home/pavelsavara/dev/runtime/artifacts/bin/System.Text.Encoding.Extensions/ref/Release/net11.0/System.Text.Encoding.Extensions.dll
+  System.Text.Encoding.Extensions -> /home/pavelsavara/dev/runtime/artifacts/bin/System.Text.Encoding.Extensions/Release/net11.0/System.Text.Encoding.Extensions.dll
+  System.Reflection.Metadata -> /home/pavelsavara/dev/runtime/artifacts/bin/System.Reflection.Metadata/ref/Release/net11.0/System.Reflection.Metadata.dll
+  System.Reflection.Metadata -> /home/pavelsavara/dev/runtime/artifacts/bin/System.Reflection.Metadata/Release/net11.0/System.Reflection.Metadata.dll
+  WasmTriggerPublishApp for CoreCLR not implemented
+/home/pavelsavara/dev/runtime/eng/testing/tests.browser.targets(263,5): error : System.InvalidOperationException: No file exists for the asset at either location '/home/pavelsavara/dev/runtime/artifacts/bin/System.Reflection.Metadata.Tests/Release/net11.0/browser-wasm/publish/System.Reflection.Metadata.Tests.dll' or '/home/pavelsavara/dev/runtime/artifacts/bin/System.Reflection.Metadata.Tests/Release/net11.0/browser-wasm/publish/System.Reflection.Metadata.Tests.dll'. [/home/pavelsavara/dev/runtime/src/libraries/System.Reflection.Metadata/tests/System.Reflection.Metadata.Tests.csproj::TargetFramework=net11.0]
+/home/pavelsavara/dev/runtime/eng/testing/tests.browser.targets(263,5): error :    at Microsoft.AspNetCore.StaticWebAssets.Tasks.StaticWebAsset.ResolveFile(String identity, String originalItemSpec) [/home/pavelsavara/dev/runtime/src/libraries/System.Reflection.Metadata/tests/System.Reflection.Metadata.Tests.csproj::TargetFramework=net11.0]
+/home/pavelsavara/dev/runtime/eng/testing/tests.browser.targets(263,5): error :    at Microsoft.AspNetCore.StaticWebAssets.Tasks.DefineStaticWebAssets.ResolveFileDetails(String originalItemSpec, String identity) [/home/pavelsavara/dev/runtime/src/libraries/System.Reflection.Metadata/tests/System.Reflection.Metadata.Tests.csproj::TargetFramework=net11.0]
+/home/pavelsavara/dev/runtime/eng/testing/tests.browser.targets(263,5): error :    at Microsoft.AspNetCore.StaticWebAssets.Tasks.DefineStaticWebAssets.Execute() [/home/pavelsavara/dev/runtime/src/libraries/System.Reflection.Metadata/tests/System.Reflection.Metadata.Tests.csproj::TargetFramework=net11.0]
+
+Build FAILED.
+
+/home/pavelsavara/dev/runtime/eng/testing/tests.browser.targets(263,5): error : System.InvalidOperationException: No file exists for the asset at either location '/home/pavelsavara/dev/runtime/artifacts/bin/System.Reflection.Metadata.Tests/Release/net11.0/browser-wasm/publish/System.Reflection.Metadata.Tests.dll' or '/home/pavelsavara/dev/runtime/artifacts/bin/System.Reflection.Metadata.Tests/Release/net11.0/browser-wasm/publish/System.Reflection.Metadata.Tests.dll'. [/home/pavelsavara/dev/runtime/src/libraries/System.Reflection.Metadata/tests/System.Reflection.Metadata.Tests.csproj::TargetFramework=net11.0]
+/home/pavelsavara/dev/runtime/eng/testing/tests.browser.targets(263,5): error :    at Microsoft.AspNetCore.StaticWebAssets.Tasks.StaticWebAsset.ResolveFile(String identity, String originalItemSpec) [/home/pavelsavara/dev/runtime/src/libraries/System.Reflection.Metadata/tests/System.Reflection.Metadata.Tests.csproj::TargetFramework=net11.0]
+/home/pavelsavara/dev/runtime/eng/testing/tests.browser.targets(263,5): error :    at Microsoft.AspNetCore.StaticWebAssets.Tasks.DefineStaticWebAssets.ResolveFileDetails(String originalItemSpec, String identity) [/home/pavelsavara/dev/runtime/src/libraries/System.Reflection.Metadata/tests/System.Reflection.Metadata.Tests.csproj::TargetFramework=net11.0]
+/home/pavelsavara/dev/runtime/eng/testing/tests.browser.targets(263,5): error :    at Microsoft.AspNetCore.StaticWebAssets.Tasks.DefineStaticWebAssets.Execute() [/home/pavelsavara/dev/runtime/src/libraries/System.Reflection.Metadata/tests/System.Reflection.Metadata.Tests.csproj::TargetFramework=net11.0]
+    0 Warning(s)
+    1 Error(s)
+
+Time Elapsed 00:00:08.45

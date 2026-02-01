@@ -1,0 +1,1518 @@
+
+  Determining projects to restore...
+  Restored /home/pavelsavara/dev/runtime/src/libraries/System.Linq.Queryable/tests/System.Linq.Queryable.Tests.csproj (in 152 ms).
+  3 of 4 projects are up-to-date for restore.
+  TestUtilities -> /home/pavelsavara/dev/runtime/artifacts/bin/TestUtilities/Release/net10.0/TestUtilities.dll
+  WasmTriggerPublishApp for CoreCLR not implemented
+  System.Linq.Queryable.Tests -> /home/pavelsavara/dev/runtime/artifacts/bin/System.Linq.Queryable.Tests/Release/net11.0/browser-wasm/System.Linq.Queryable.Tests.dll
+  export SCENARIO=WasmTestOnChrome
+  export XUNIT_HIDE_PASSING_OUTPUT_DIAGNOSTICS=1
+  export PREPEND_PATH=/home/pavelsavara/dev/runtime/artifacts/bin/chromedriver/chromedriver_linux64
+  export RuntimeIdentifier=browser-wasm
+  PATH=/home/pavelsavara/dev/runtime/artifacts/bin/chromedriver/chromedriver_linux64:/home/pavelsavara/.jsvu/bin:/home/pavelsavara/dev/runtime/.dotnet:/home/pavelsavara/dev/runtime/.dotnet:/home/pavelsavara/bin:/home/pavelsavara/dev/.dotnet:/home/pavelsavara/.vscode-server/data/User/globalStorage/github.copilot-chat/debugCommand:/home/pavelsavara/.vscode-server/data/User/globalStorage/github.copilot-chat/copilotCli:/home/pavelsavara/.vscode-server/bin/c9d77990917f3102ada88be140d28b038d1dd7c7/bin/remote-cli:/home/pavelsavara/bin:/home/pavelsavara/bin:/home/pavelsavara/dev/.dotnet:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/windows/system32:/mnt/c/windows:/mnt/d/.dotnet/:/mnt/c/windows/System32/Wbem:/mnt/c/windows/System32/WindowsPowerShell/v1.0/:/mnt/c/windows/System32/OpenSSH/:/mnt/c/Program Files/HP/HP One Agent:/mnt/c/Program Files/nodejs/:/mnt/c/Program Files/Meld/:/mnt/c/Program Files/dotnet/:/mnt/c/Program Files/Git/cmd:/mnt/c/Program Files/PuTTY/:/mnt/c/Program Files/PowerShell/7/:/mnt/c/Program Files/Microsoft SQL Server/170/Tools/Binn/:/mnt/c/Program Files/GitExtensions/:/mnt/c/Program Files/GitHub CLI/:/mnt/d/bin:/mnt/d/.dotnet/:/mnt/c/Users/pavelsavara/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/pavelsavara/AppData/Local/Programs/MicrosoftVSCode/bin:/mnt/c/Users/pavelsavara/AppData/Roaming/npm:/mnt/c/Users/pavelsavara/AppData/Local/Programs/Python/Python310/:/mnt/c/Users/pavelsavara/AppData/Local/Programs/Python/Python310/Scripts/:/mnt/c/Users/pavelsavara/AppData/Local/Microsoft/WinGet/Packages/GitHub.Copilot.Prerelease_Microsoft.Winget.Source_8wekyb3d8bbwe:/mnt/c/Users/pavelsavara/.dotnet/tools:/snap/bin
+  EXECUTION_DIR=/home/pavelsavara/dev/runtime/artifacts/bin/System.Linq.Queryable.Tests/Release/net11.0/browser-wasm/wwwroot
+  SCENARIO=WasmTestOnChrome
+  XHARNESS_OUT=/home/pavelsavara/dev/runtime/artifacts/bin/System.Linq.Queryable.Tests/Release/net11.0/browser-wasm/wwwroot/xharness-output
+  XHARNESS_CLI_PATH=
+  HARNESS_RUNNER=dotnet xharness
+  XHARNESS_COMMAND=test-browser
+  MAIN_JS=
+  JS_ENGINE=
+  JS_ENGINE_ARGS=--browser-arg=--js-flags=--stack-trace-limit=1000
+  XHARNESS_ARGS= --browser-arg=--js-flags=--stack-trace-limit=1000
+  ~/dev/runtime/artifacts/bin/System.Linq.Queryable.Tests/Release/net11.0/browser-wasm/wwwroot ~/dev/runtime/src/libraries/System.Linq.Queryable/tests
+  ----- start Sun Feb 1 17:57:49 CET 2026 =============== To repro directly: =====================================================
+  pushd /home/pavelsavara/dev/runtime/artifacts/bin/System.Linq.Queryable.Tests/Release/net11.0/browser-wasm/wwwroot
+  dotnet xharness wasm test-browser --app=. --output-directory=/home/pavelsavara/dev/runtime/artifacts/bin/System.Linq.Queryable.Tests/Release/net11.0/browser-wasm/wwwroot/xharness-output -s dotnet.native.js.symbols --symbol-patterns wasm-symbol-patterns.txt --symbolicator WasmSymbolicator.dll,Microsoft.WebAssembly.Internal.SymbolicatorWrapperForXHarness --browser-path=/home/pavelsavara/dev/runtime/artifacts/bin/chrome/chrome-linux/chrome --timeout=00:30:00  --browser-arg=--js-flags=--stack-trace-limit=1000   --  --setenv=XHARNESS_LOG_TEST_START=true  --run WasmTestRunner.dll System.Linq.Queryable.Tests.dll  -notrait category=OuterLoop -notrait category=failing 
+  popd
+  ===========================================================================================================
+  ~/dev/runtime/artifacts/bin/System.Linq.Queryable.Tests/Release/net11.0/browser-wasm/wwwroot ~/dev/runtime/artifacts/bin/System.Linq.Queryable.Tests/Release/net11.0/browser-wasm/wwwroot ~/dev/runtime/src/libraries/System.Linq.Queryable/tests
+  [11.0.0-prerelease.26064.3+31e0b8e08f57890f7b7004b93361d69cd4b21079] XHarness command issued: wasm test-browser --app=. --output-directory=/home/pavelsavara/dev/runtime/artifacts/bin/System.Linq.Queryable.Tests/Release/net11.0/browser-wasm/wwwroot/xharness-output -s dotnet.native.js.symbols --symbol-patterns wasm-symbol-patterns.txt --symbolicator WasmSymbolicator.dll,Microsoft.WebAssembly.Internal.SymbolicatorWrapperForXHarness --browser-path=/home/pavelsavara/dev/runtime/artifacts/bin/chrome/chrome-linux/chrome --timeout=00:30:00 --browser-arg=--js-flags=--stack-trace-limit=1000 -- --setenv=XHARNESS_LOG_TEST_START=true --run WasmTestRunner.dll System.Linq.Queryable.Tests.dll -notrait category=OuterLoop -notrait category=failing
+  [40m[1m[33mwarn[39m[22m[49m: Cannot find symbols file dotnet.native.js.symbols
+  [40m[32minfo[39m[22m[49m: Using Chrome from /home/pavelsavara/dev/runtime/artifacts/bin/chrome/chrome-linux/chrome
+  [40m[32minfo[39m[22m[49m: Starting chromedriver with args: --js-flags=--stack-trace-limit=1000 --headless --incognito --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-renderer-backgrounding --enable-features=NetworkService,NetworkServiceInProcess --allow-insecure-localhost --disable-breakpad --disable-component-extensions-with-background-pages --disable-dev-shm-usage --disable-extensions --disable-features=TranslateUI --disable-ipc-flooding-protection --force-color-profile=srgb --metrics-recording-only and load strategy: Normal
+  Starting ChromeDriver 143.0.7499.0 (0000000000000000000000000000000000000000-0000000000000000000000000000000000000000) on port 39347
+  Only local connections are allowed.
+  Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
+  ChromeDriver was started successfully on port 39347.
+  [40m[32minfo[39m[22m[49m: Running in: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/143.0.0.0 Safari/537.36
+  [40m[32minfo[39m[22m[49m: Running at: http://127.0.0.1:38199/index.html?arg=--setenv%3dXHARNESS_LOG_TEST_START%3dtrue&arg=--run&arg=WasmTestRunner.dll&arg=System.Linq.Queryable.Tests.dll&arg=-notrait&arg=category%3dOuterLoop&arg=-notrait&arg=category%3dfailing&arg=-verbosity&arg=Info
+  [40m[32minfo[39m[22m[49m: could not load /runArgs.json: 404. Ignoring
+  [40m[32minfo[39m[22m[49m: Incoming arguments: --setenv=XHARNESS_LOG_TEST_START=true --run WasmTestRunner.dll System.Linq.Queryable.Tests.dll -notrait category=OuterLoop -notrait category=failing -verbosity Info
+  [40m[32minfo[39m[22m[49m: Application arguments: --run WasmTestRunner.dll System.Linq.Queryable.Tests.dll -notrait category=OuterLoop -notrait category=failing -verbosity Info
+  [40m[32minfo[39m[22m[49m: Initializing dotnet version 11.0.0 commit hash e31907b0fbca908ed525247a1dc38cc5fba7b0ff
+  [40m[32minfo[39m[22m[49m: Using threadless Xunit runner
+  [40m[32minfo[39m[22m[49m: Discovering: System.Linq.Queryable.Tests.dll (method display = ClassAndMethod, method display options = None)
+  [40m[32minfo[39m[22m[49m: Discovered:  System.Linq.Queryable.Tests.dll (found 838 of 838 test cases)
+  [40m[32minfo[39m[22m[49m: Starting:    System.Linq.Queryable.Tests.dll
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.LastTests.EmptySourcePredicate
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.LastTests.Last2
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.LastTests.ManyElementsLastIsNotDefault
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.LastTests.ManyElementsLastIsDefault
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.LastTests.OneElement
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.LastTests.Last1
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.LastTests.Empty
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.LastTests.NullSourcePredicateUsed
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.LastTests.NullPredicate
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.LastTests.NullSource
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.LastTests.PredicateTrueForSome
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.LegacyTests.LastOrDefaultTests.ManyElementsPredicateFalseForAll
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.LegacyTests.LastOrDefaultTests.LastOrDefault_OverloadResolution_Regression
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.LegacyTests.LastOrDefaultTests.ManyElementsLastIsNotDefault
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.LegacyTests.LastOrDefaultTests.ManyElementsLastIsDefault
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.LegacyTests.LastOrDefaultTests.OneElement
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.LegacyTests.LastOrDefaultTests.LastOrDefault2
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.LegacyTests.LastOrDefaultTests.Empty
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.LegacyTests.LastOrDefaultTests.NullSource
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.LegacyTests.LastOrDefaultTests.NullPredicate
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.LegacyTests.LastOrDefaultTests.LastOrDefault1
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.LegacyTests.LastOrDefaultTests.PredicateTrueForSome
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.LegacyTests.LastOrDefaultTests.EmptyDefault
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.LegacyTests.LastOrDefaultTests.NullSourcePredicateUsed
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.LegacyTests.LastOrDefaultTests.OneElementFalsePredicate
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.JoinTests.InnerKeySelectorNull
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.JoinTests.Join2
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.JoinTests.ResultSelectorNull
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.JoinTests.InnerNull
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.JoinTests.CustomComparer
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.JoinTests.Join1
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.JoinTests.FirstOuterMatchesLastInnerLastOuterMatchesFirstInnerSameNumberElements
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.JoinTests.InnerNullNoComparer
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.JoinTests.InnerKeySelectorNullNoComparer
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.JoinTests.SelectorsReturnNull
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.JoinTests.OuterKeySelectorNullNoComparer
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.JoinTests.NullComparer
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.JoinTests.OuterNullNoComparer
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.JoinTests.OuterNull
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.JoinTests.OuterKeySelectorNull
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.JoinTests.ResultSelectorNullNoComparer
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.GroupByTests.DuplicateKeysCustomComparer
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.GroupByTests.GroupBy8
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.GroupByTests.EmptySourceWithResultSelector
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.GroupByTests.ResultSelectorNullNoElementSelector
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.GroupByTests.ElementSelectorNull
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.GroupByTests.GroupBy6
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.GroupByTests.SingleNullKeySingleNullElement
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.GroupByTests.AllElementsSameKey
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.GroupByTests.GroupBy1
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.GroupByTests.GroupBy4
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.GroupByTests.GroupBy2
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.GroupByTests.EmptySource
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.GroupByTests.AllElementsSameKeyResultSelectorUsed
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.GroupByTests.SourceIsNull
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.GroupByTests.ResultSelectorNullNoElementSelectorCustomComparer
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.GroupByTests.GroupBy5
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.GroupByTests.ResultSelectorNull
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.GroupByTests.GroupBy7
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.GroupByTests.ResultSelectorNullNoComparer
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.GroupByTests.NullComparer
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.GroupByTests.KeySelectorNull
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.GroupByTests.GroupBy3
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.GroupByTests.SingleNonNullElement
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.GroupByTests.NullComparerResultSelectorUsed
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.DefaultIfEmptyTests.EmptyNullableDefaultValuePassed
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.DefaultIfEmptyTests.DefaultIfEmpty2
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.DefaultIfEmptyTests.SeveralElementsNoDefaultPassed
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.DefaultIfEmptyTests.EmptyNonNullableSourceNoDefaultPassed
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.DefaultIfEmptyTests.EmptyNullableSourceNoDefaultPassed
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.DefaultIfEmptyTests.DefaultIfEmpty1
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.DefaultIfEmptyTests.EmptyNonNullableDefaultValuePassed
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.DefaultIfEmptyTests.NullSource
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.WhereTests.ReturnsExpectedValues_False
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.WhereTests.Where2
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.WhereTests.ReturnsExpectedValues_True
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.WhereTests.Where_PredicateIsNull_ArgumentNullExceptionThrown
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.WhereTests.Where_SourceIsNull_ArgumentNullExceptionThrown
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.WhereTests.Where1
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.WhereTests.ReturnsExpectedValuesIndexed_True
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.WhereTests.ReturnsExpectedValuesIndexed_False
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.AllTests.NullSource
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.AllTests.All
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.AllTests.PredicateTrueAllExceptLast
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.AllTests.NullPredicateUsed
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.OfTypeTests.HeterogenousSourceOnlyFirstOfType
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.OfTypeTests.OfType
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.OfTypeTests.EmptySource
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.OfTypeTests.NullSource
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SelectTests.Select_SelectorIsNull_ArgumentNullExceptionThrown_Indexed
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SelectTests.Select2
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SelectTests.Select_SourceIsNull_ArgumentNullExceptionThrown
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SelectTests.SelectPropertyUsingIndex
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SelectTests.SelectProperty
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SelectTests.Select1
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SelectTests.Select_SourceIsNull_ArgumentNullExceptionThrown_Indexed
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SelectTests.Select_SelectorIsNull_ArgumentNullExceptionThrown
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeWhileTests.ThrowsOnNullPredicate
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeWhileTests.TakeWhile2
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeWhileTests.ThrowsOnNullSource
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeWhileTests.SourceNonEmptyPredicateTrueSomeFalseSecondWithIndex
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeWhileTests.SourceNonEmptyPredicateTrueSomeFalseSecond
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeWhileTests.TakeWhile1
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeWhileTests.ThrowsOnNullSourceIndexed
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeWhileTests.ThrowsOnNullPredicateIndexed
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SingleTests.ManyElementsPredicateFalseForAll
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SingleTests.Single2
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SingleTests.EmptySourceWithPredicate
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SingleTests.ManyElement
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SingleTests.SingleElement
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SingleTests.Single1
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SingleTests.Empty
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SingleTests.ThrowsOnNullSource
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SingleTests.ThrowsOnNullPredicate
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SingleTests.FindSingleMatch(target: 1, range: 100)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SingleTests.FindSingleMatch(target: 42, range: 100)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SingleTests.ManyElementsPredicateTrueForLast
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.AverageTests.NullNDoubleSource
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.AverageTests.Average18
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.AverageTests.MultipleDoubleFromSelector
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.AverageTests.NullableLongFromSelector
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.AverageTests.MultipleNullableIntSource
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.AverageTests.Average15
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.AverageTests.NullNFloatSourceWithFunc
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.AverageTests.NullDecimalFunc
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.AverageTests.NullFloatFunc
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.AverageTests.Average10
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.AverageTests.Average2
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.AverageTests.NullIntSource
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.AverageTests.NullNDecimalSourceWithFunc
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.AverageTests.NullNFloatFunc
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.AverageTests.NullNLongSourceWithFunc
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.AverageTests.Average12
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.AverageTests.NullNIntSourceWithFunc
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.AverageTests.Average19
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.AverageTests.NullNLongFunc
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.AverageTests.MultipleLongFromSelector
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.AverageTests.NullNIntFunc
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.AverageTests.Average8
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.AverageTests.NullableFloatFromSelector
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.AverageTests.NullNDecimalSource
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.AverageTests.Average5
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.AverageTests.Average20
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.AverageTests.NullIntSourceWithFunc
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.AverageTests.NullFloatSource
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.AverageTests.NullDoubleSourceWithFunc
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.AverageTests.NullFloatSourceWithFunc
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.AverageTests.NullNLongSource
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.AverageTests.MultipleDoubleValues
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.AverageTests.MultipleFloatValues
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.AverageTests.MultipleIntFromSelector
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.AverageTests.MultipleDecimalFromSelector
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.AverageTests.Average1
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.AverageTests.MultipleLongValues
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.AverageTests.NullNDoubleSourceWithFunc
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.AverageTests.Average6
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.AverageTests.MultipleNullableeDecimalSource
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.AverageTests.Average11
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.AverageTests.NullNFloatSource
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.AverageTests.MultipleNullableDoubleSource
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.AverageTests.NullLongFunc
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.AverageTests.NullNIntSource
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.AverageTests.Average9
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.AverageTests.Average16
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.AverageTests.NullLongSource
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.AverageTests.NullDoubleFunc
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.AverageTests.MultipleIntSource
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.AverageTests.NullableDecimalFromSelector
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.AverageTests.NullIntFunc
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.AverageTests.MultipleNullableFloatSource
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.AverageTests.NullNDoubleFunc
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.AverageTests.NullDecimalSourceWithFunc
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.AverageTests.MultipleFloatFromSelector
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.AverageTests.Average14
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.AverageTests.Average13
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.AverageTests.MultipleDecimalValues
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.AverageTests.MultipleNullableLongSource
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.AverageTests.Average7
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.AverageTests.NullableDoubleFromSelector
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.AverageTests.NullLongSourceWithFunc
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.AverageTests.NullableIntFromSelector
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.AverageTests.Average3
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.AverageTests.NullDecimalSource
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.AverageTests.NullNDecimalFunc
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.AverageTests.Average4
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.AverageTests.NullDoubleSource
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.AverageTests.Average17
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.OrderTests.NullSource
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.OrderTests.Order2
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.OrderTests.FirstAndLastAreDuplicatesNullPassedAsComparer
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.OrderTests.NullSourceComparer
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.OrderTests.FirstAndLastAreDuplicatesCustomComparer
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.OrderTests.Order1
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.AnyTests.NullSource
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.AnyTests.Any2
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.AnyTests.RangeWithinRange
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.AnyTests.OnlyLastTrue
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.AnyTests.NoPredicateNullElements
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.AnyTests.Any1
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.AnyTests.NullSourcePredicateUsed
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.AnyTests.NullPredicateUsed
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.FirstOrDefaultTests.OneElementFalsePredicateDefault
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.FirstOrDefaultTests.FirstOrDefault_OverloadResolution_Regression
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.FirstOrDefaultTests.ManyElementsPredicateFalseForAll
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.FirstOrDefaultTests.OneElementTruePredicateDefault
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.FirstOrDefaultTests.ManyElementsFirstIsDefault
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.FirstOrDefaultTests.FirstOrDefault2
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.FirstOrDefaultTests.Empty
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.FirstOrDefaultTests.PredicateTrueForSome
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.FirstOrDefaultTests.NullSource
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.FirstOrDefaultTests.NullPredicate
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.FirstOrDefaultTests.PredicateTrueForSomeDefault
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.FirstOrDefaultTests.EmptyDefault
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.FirstOrDefaultTests.ManyElementsPredicateFalseForAllDefault
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.FirstOrDefaultTests.ManyELementsFirstIsNotDefault
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.FirstOrDefaultTests.OneElementFalsePredicate
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.FirstOrDefaultTests.FirstOrDefault1
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.FirstOrDefaultTests.OneElementTruePredicate
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.FirstOrDefaultTests.NullSourcePredicateUsed
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.ThenByDescendingTests.NullSourceComparer
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.ThenByDescendingTests.ThenByDescending2
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.ThenByDescendingTests.NullKeySelector
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.ThenByDescendingTests.NullSource
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.ThenByDescendingTests.AscendingKeyThenDescendingKey
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.ThenByDescendingTests.ThenByDescending1
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.ThenByDescendingTests.NullKeySelectorComparer
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.AggregateByTests.NullFunc_ThrowsArgumentNullException
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.AggregateByTests.AggregateBy_CustomComparison
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.AggregateByTests.NullSeedSelector_ThrowsArgumentNullException
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.AggregateByTests.NullKeySelector_ThrowsArgumentNullException
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.AggregateByTests.NullSource_ThrowsArgumentNullException
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.AggregateByTests.AggregateBy_CustomKeySelector
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.AggregateByTests.EmptySource
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.AggregateByTests.AggregateBy
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.LegacyTests.SelectManyTests.NullIndexedCollectionSelector
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.LegacyTests.SelectManyTests.SelectMany4
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.LegacyTests.SelectManyTests.NullSource
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.LegacyTests.SelectManyTests.NullSourceWithResultSelector
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.LegacyTests.SelectManyTests.ResultSelector
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.LegacyTests.SelectManyTests.SelectMany3
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.LegacyTests.SelectManyTests.ResultsSelected
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.LegacyTests.SelectManyTests.NullSourceIndexedSelectorWithResultSelector
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.LegacyTests.SelectManyTests.NullIndexedSelector
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.LegacyTests.SelectManyTests.SelectMany1
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.LegacyTests.SelectManyTests.NullSelector
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.LegacyTests.SelectManyTests.ResultsSelectedIndexUsed
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.LegacyTests.SelectManyTests.NullSourceIndexedSelector
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.LegacyTests.SelectManyTests.NullResultSelector
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.LegacyTests.SelectManyTests.NullCollectionSelector
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.LegacyTests.SelectManyTests.SelectMany2
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.LegacyTests.SelectManyTests.NullResultSelectorIndexedSelector
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.LegacyTests.SelectManyTests.IndexCausingLastToBeSelectedWithResultSelector
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.FirstTests.ManyElementsPredicateFalseForAll
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.FirstTests.First2
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.FirstTests.OneElementTruePredicate
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.FirstTests.ManyELementsFirstIsNotDefault
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.FirstTests.ManyElementsFirstIsDefault
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.FirstTests.First1
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.FirstTests.Empty
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.FirstTests.NullSourcePredicateUsed
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.FirstTests.NullPredicate
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.FirstTests.NullSource
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.FirstTests.PredicateTrueForSome
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.EnumerableQueryTests.CreateQueryNull
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.EnumerableQueryTests.NullEnumerable
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.EnumerableQueryTests.CreateQueryNonGeneric
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.EnumerableQueryTests.ElementType
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.EnumerableQueryTests.IsOwnProvider
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.EnumerableQueryTests.ToStringFromConstantExpression
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.EnumerableQueryTests.NullExpressionAllowed
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.EnumerableQueryTests.CreateQueryInvalidTypeNonGeneric
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.EnumerableQueryTests.ExecuteNonGeneric
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.EnumerableQueryTests.ExecuteNotAssignable
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.EnumerableQueryTests.ExecuteNull
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.EnumerableQueryTests.NullEnumerableConstantNullExpression
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.EnumerableQueryTests.Execute
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.EnumerableQueryTests.InappropriateExpressionType
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.EnumerableQueryTests.CreateQuery
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.EnumerableQueryTests.ToStringFromEnumerable
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.EnumerableQueryTests.FromExpressionReturnsSameExpression
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.EnumerableQueryTests.ToStringNotConstantExpression
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.EnumerableQueryTests.FromEnumerableReturnsSameEnumerable
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.EnumerableQueryTests.CreateQueryNullNonGeneric
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.EnumerableQueryTests.WrapsEnumerableInExpression
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.EnumerableQueryTests.ExecuteNullNonGeneric
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.EnumerableQueryTests.CreateQueryInvalidType
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.EnumerableQueryTests.ExecuteAssignable
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.CountTests.PredicateTrueFirstAndLast
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.CountTests.Count2
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.CountTests.NullSource
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.CountTests.NonEmpty
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.CountTests.EmptySourceWithPredicate
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.CountTests.Count1
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.CountTests.Empty
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.CountTests.NullPredicateUsed
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.CountTests.NullSourcePredicateUsed
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SumTests.SumOfNullableOfInt_SourceIsEmptyCollection_ZeroReturned
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SumTests.Sum19
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SumTests.SumOfLong_SourceIsEmptyCollection_ZeroReturned
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SumTests.SumOfNullableOfDouble_SelectorIsNull_ArgumentNullExceptionThrown
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SumTests.SumOfNullableOfDecimal_SourceIsNull_ArgumentNullExceptionThrown
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SumTests.Sum17
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SumTests.SumOfInt_SourceIsNull_ArgumentNullExceptionThrown
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SumTests.SumOfNullableOfDouble_SourceIsEmptyCollection_ZeroReturned
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SumTests.Sum5
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SumTests.Sum13
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SumTests.Sum7
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SumTests.SumOfNullableOfLong_SourceIsNull_ArgumentNullExceptionThrown
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SumTests.SumOfNullableOfDecimal_SourceIsEmptyCollection_ZeroReturned
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SumTests.SumOfLong_SourceIsNull_ArgumentNullExceptionThrown
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SumTests.SumOfNullableOfFloat_SelectorIsNull_ArgumentNullExceptionThrown
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SumTests.Sum14
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SumTests.SumOfDecimal_SourceIsNull_ArgumentNullExceptionThrown
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SumTests.Sum20
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SumTests.SumOfDouble_SelectorIsNull_ArgumentNullExceptionThrown
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SumTests.SumOfNullableOfLong_SelectorIsNull_ArgumentNullExceptionThrown
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SumTests.SumOfNullableOfDouble_SourceIsNull_ArgumentNullExceptionThrown
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SumTests.Sum11
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SumTests.SumOfFloat_SourceIsNull_ArgumentNullExceptionThrown
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SumTests.Sum1
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SumTests.Sum9
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SumTests.Sum18
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SumTests.SumOfNullableOfFloat_SourceIsNull_ArgumentNullExceptionThrown
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SumTests.Sum3
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SumTests.SumOfNullableOfDecimal_SelectorIsNull_ArgumentNullExceptionThrown
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SumTests.Sum4
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SumTests.SumOfFloat_SelectorIsNull_ArgumentNullExceptionThrown
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SumTests.SumOfNullableOfLong_SourceIsEmptyCollection_ZeroReturned
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SumTests.Sum2
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SumTests.SumOfDouble_SourceIsNull_ArgumentNullExceptionThrown
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SumTests.SumOfDecimal_SourceIsEmptyCollection_ZeroReturned
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SumTests.Sum8
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SumTests.SumOfLong_SelectorIsNull_ArgumentNullExceptionThrown
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SumTests.SumOfInt_SourceIsEmptyCollection_ZeroReturned
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SumTests.Sum12
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SumTests.SumOfDouble_SourceIsEmptyCollection_ZeroReturned
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SumTests.Sum15
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SumTests.SumOfNullableOfInt_SourceIsNull_ArgumentNullExceptionThrown
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SumTests.SumOfFloat_SourceIsEmptyCollection_ZeroReturned
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SumTests.SumOfNullableOfInt_SelectorIsNull_ArgumentNullExceptionThrown
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SumTests.SumOfInt_SelectorIsNull_ArgumentNullExceptionThrown
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SumTests.Sum16
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SumTests.Sum10
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SumTests.SumOfDecimal_SelectorIsNull_ArgumentNullExceptionThrown
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SumTests.SumOfNullableOfFloat_SourceIsEmptyCollection_ZeroReturned
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SumTests.Sum6
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.AppendPrependTests.PrependOnce<Int32>(source: [···], element: 11)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.AppendPrependTests.PrependOnce<Object>(source: [···], element: null)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.AppendPrependTests.BothAppendPrepend(source: [···], appends: [11], prepends: [12])
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.AppendPrependTests.BothAppendPrepend(source: [···], appends: [···], prepends: [···])
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.AppendPrependTests.BothAppendPrepend(source: [···], appends: [···], prepends: [···])
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.AppendPrependTests.AppendOnce<Int32>(source: [···], element: 11)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.AppendPrependTests.AppendOnce<Object>(source: [···], element: null)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.AppendPrependTests.AppendMany(source: [···], appends: [···])
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.AppendPrependTests.AppendMany(source: [···], appends: [···])
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.AppendPrependTests.SourceNull
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.AppendPrependTests.PrependMany(source: [···], prepends: [···])
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.AppendPrependTests.PrependMany(source: [···], prepends: [···])
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.OrderDescendingTests.NullSource
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.OrderDescendingTests.OrderDescending2
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.OrderDescendingTests.FirstAndLastAreDuplicatesNullPassedAsComparer
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.OrderDescendingTests.NullSourceComparer
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.OrderDescendingTests.FirstAndLastAreDuplicatesCustomComparer
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.OrderDescendingTests.OrderDescending1
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipTests.SkipExcessive
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipTests.Skip
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipTests.SkipSome
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipTests.SkipThrowsOnNull
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.LegacyTests.ThenByTests.NullSourceComparer
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.LegacyTests.ThenByTests.ThenBy2
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.LegacyTests.ThenByTests.NullKeySelector
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.LegacyTests.ThenByTests.NullSource
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.LegacyTests.ThenByTests.SecondaryKeysAreUnique
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.LegacyTests.ThenByTests.ThenBy1
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.LegacyTests.ThenByTests.NullKeySelectorComparer
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.CastTests.ThrowOnHeterogenousSource
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.CastTests.Cast
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.CastTests.ThrowCastingIntToDouble
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.CastTests.NullableIntFromAppropriateObjectsIncludingNull
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.CastTests.NullableIntFromAppropriateObjects
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.CastTests.CastingNullToNonnullableIsNullReferenceException
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.CastTests.CastIntToLongThrows
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.CastTests.FirstElementInvalidForCast
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.CastTests.ThrowCastingIntToLong
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.CastTests.ThrowCastingNullableIntToNullableLong
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.CastTests.NullableIntFromNullsAndInts
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.CastTests.CastByteToUShortThrows
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.CastTests.ArrayConversionThrows
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.CastTests.EmptySource
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.CastTests.ThrowOnUncastableItem
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.CastTests.NullSource
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.CastTests.LongFromNullableIntInObjectsThrows
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.CastTests.ThrowCastingNullableIntToLong
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.CastTests.CastToString
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.CastTests.LongFromNullableIntInObjectsIncludingNullThrows
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.CastTests.LastElementInvalidForCast
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.CastTests.ThrowCastingIntToNullableLong
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.ReverseTests.ReverseMatches(input: [])
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.ReverseTests.ReverseMatches(input: [1])
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.ReverseTests.ReverseMatches(input: [5])
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.ReverseTests.ReverseMatches(input: [1, 3, 5])
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.ReverseTests.ReverseMatches(input: [2, 4, 6, 8])
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.ReverseTests.Reverse
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.ReverseTests.InvalidArguments
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.ReverseTests.SomeRepeatedElements
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.IndexTests.ThrowsOnNullSource
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.IndexTests.Index
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.LeftJoinTests.InnerKeySelectorNull
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.LeftJoinTests.Join2
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.LeftJoinTests.ResultSelectorNull
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.LeftJoinTests.InnerNull
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.LeftJoinTests.CustomComparer
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.LeftJoinTests.Join1
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.LeftJoinTests.FirstOuterMatchesLastInnerLastOuterMatchesFirstInnerSameNumberElements
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.LeftJoinTests.InnerNullNoComparer
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.LeftJoinTests.InnerKeySelectorNullNoComparer
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.LeftJoinTests.SelectorsReturnNull
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.LeftJoinTests.OuterKeySelectorNullNoComparer
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.LeftJoinTests.NullComparer
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.LeftJoinTests.OuterNullNoComparer
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.LeftJoinTests.OuterNull
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.LeftJoinTests.OuterKeySelectorNull
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.LeftJoinTests.ResultSelectorNullNoComparer
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.ExceptTests.SecondNullNoComparer
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.ExceptTests.ExceptBy_CustomComparison
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.ExceptTests.FirstNullNoComparer
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.ExceptTests.SecondNullCustomComparer
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.ExceptTests.NullEqualityComparer
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.ExceptTests.ExceptBy
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.ExceptTests.BothEmpty
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.ExceptTests.Except2
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.ExceptTests.ExceptBy_NullSource2_ThrowsArgumentNullException
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.ExceptTests.ExceptBy_NullKeySelector_ThrowsArgumentNullException
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.ExceptTests.Except1
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.ExceptTests.EachHasRepeatsBetweenAndAmongstThemselves
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.ExceptTests.ExceptBy_NullSource1_ThrowsArgumentNullException
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.ExceptTests.FirstNullCustomComparer
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.ShuffleTests.ProducesAllElements
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.ShuffleTests.ElementsAreRandomized
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.ShuffleTests.InvalidArguments
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.QueryFromExpressionTests.MemberInit
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.QueryFromExpressionTests.ReturnNonQueryable
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.QueryFromExpressionTests.TypeIs
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.QueryFromExpressionTests.CoalesceShifts
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.QueryFromExpressionTests.ConditionalNotNotEqualAddCheckedPlusConstantNegateCheckedConstant
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.QueryFromExpressionTests.ReturnOrderedAfterAsQueryable
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.QueryFromExpressionTests.ExpressionToQueryFromProvider
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.QueryFromExpressionTests.ParameterMethodCallViaLambda
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.QueryFromExpressionTests.EnumerableQueryableAsInternalArgumentToInstanceMethodNoMatch
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.QueryFromExpressionTests.Return
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.QueryFromExpressionTests.NonGeneric
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.QueryFromExpressionTests.ConditionalEqualModuloConstantConstant
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.QueryFromExpressionTests.EnumerableQueryableAsInternalArgumentToMethod
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.QueryFromExpressionTests.ExpressionToQueryByConstructor
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.QueryFromExpressionTests.DivisionAndPower
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.QueryFromExpressionTests.ReturnArray
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.QueryFromExpressionTests.ConditionalLogicalOperators
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.QueryFromExpressionTests.ReturnNonQueryableUntyped
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.QueryFromExpressionTests.ConvertsNewArrayAndArrayLength
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.QueryFromExpressionTests.MultiplicationAndCalls
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.QueryFromExpressionTests.ConditionalNotNotEqualAddPlusConstantNegateConstant
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.QueryFromExpressionTests.Block
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.QueryFromExpressionTests.PropertyAccess
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.QueryFromExpressionTests.EnumerableQueryableAsInternalArgumentToMethodNoMatch
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.QueryFromExpressionTests.ExplicitlyTypedConditional
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.QueryFromExpressionTests.ReturnOrdered
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.QueryFromExpressionTests.ArrayIndex
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.QueryFromExpressionTests.EnumerableQueryableAsInternalArgumentToMethodNoArgumentMatch
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.QueryFromExpressionTests.InvokeAndMemberAccess
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.QueryFromExpressionTests.SimpleMethodCall
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.QueryFromExpressionTests.TypeAs
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.QueryFromExpressionTests.QueryWrappedAsConstant
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.QueryFromExpressionTests.EnumerableQueryAsInternalArgumentToQueryableMethod
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.QueryFromExpressionTests.SubtractionAndCalls
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.QueryFromExpressionTests.ExplicitlyTypedBlock
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.QueryFromExpressionTests.UnknownExpressionType
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.ConcatTests.FirstNull
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.ConcatTests.Concat
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.ConcatTests.NonEmptyAndNonEmpty
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.ConcatTests.BothEmpty
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.ConcatTests.SecondNull
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.OrderByTests.NullSource
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.OrderByTests.OrderBy2
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.OrderByTests.NullKeySelector
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.OrderByTests.FirstAndLastAreDuplicatesNullPassedAsComparer
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.OrderByTests.FirstAndLastAreDuplicatesCustomComparer
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.OrderByTests.OrderBy1
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.OrderByTests.KeySelectorCalled
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.OrderByTests.NullKeySelectorComparer
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.OrderByTests.NullSourceComparer
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: 1)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: 2)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: 3)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: 5)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: 8)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: 13)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: 21)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: 34)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: 55)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: 89)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: 100)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: 250)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: 500)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: 2147483647)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: -1)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: -2)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: -3)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: -5)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: -8)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: -13)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: -21)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: -34)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: -55)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: -89)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: -100)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: -250)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: -500)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: -2147483647)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: 0)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: -2147483648)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: 1)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: 2)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: 3)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: 5)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: 8)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: 13)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: 21)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: 34)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: 55)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: 89)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: 100)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: 250)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: 500)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: 2147483647)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: -1)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: -2)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: -3)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: -5)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: -8)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: -13)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: -21)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: -34)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: -55)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: -89)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: -100)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: -250)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: -500)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: -2147483647)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: 0)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: -2147483648)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: 1)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: 2)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: 3)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: 5)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: 8)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: 13)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: 21)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: 34)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: 55)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: 89)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: 100)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: 250)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: 500)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: 2147483647)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: -1)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: -2)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: -3)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: -5)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: -8)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: -13)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: -21)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: -34)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: -55)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: -89)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: -100)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: -250)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: -500)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: -2147483647)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: 0)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: -2147483648)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: 1)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: 2)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: 3)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: 5)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: 8)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: 13)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: 21)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: 34)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: 55)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: 89)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: 100)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: 250)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: 500)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: 2147483647)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: -1)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: -2)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: -3)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: -5)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: -8)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: -13)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: -21)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: -34)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: -55)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: -89)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: -100)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: -250)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: -500)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: -2147483647)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: 0)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: -2147483648)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: 1)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: 2)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: 3)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: 5)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: 8)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: 13)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: 21)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: 34)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: 55)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: 89)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: 100)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: 250)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: 500)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: 2147483647)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: -1)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: -2)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: -3)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: -5)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: -8)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: -13)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: -21)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: -34)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: -55)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: -89)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: -100)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: -250)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: -500)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: -2147483647)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: 0)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: -2147483648)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: 1)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: 2)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: 3)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: 5)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: 8)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: 13)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: 21)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: 34)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: 55)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: 89)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: 100)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: 250)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: 500)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: 2147483647)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: -1)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: -2)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: -3)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: -5)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: -8)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: -13)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: -21)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: -34)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: -55)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: -89)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: -100)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: -250)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: -500)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: -2147483647)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: 0)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: -2147483648)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: 1)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: 2)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: 3)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: 5)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: 8)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: 13)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: 21)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: 34)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: 55)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: 89)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: 100)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: 250)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: 500)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: 2147483647)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: -1)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: -2)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: -3)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: -5)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: -8)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: -13)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: -21)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: -34)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: -55)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: -89)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: -100)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: -250)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: -500)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: -2147483647)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: 0)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: -2147483648)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: 1)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: 2)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: 3)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: 5)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: 8)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: 13)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: 21)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: 34)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: 55)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: 89)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: 100)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: 250)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: 500)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: 2147483647)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: -1)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: -2)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: -3)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: -5)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: -8)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: -13)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: -21)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: -34)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: -55)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: -89)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: -100)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: -250)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: -500)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: -2147483647)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: 0)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: -2147483648)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: 1)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: 2)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: 3)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: 5)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: 8)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: 13)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: 21)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: 34)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: 55)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: 89)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: 100)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: 250)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: 500)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: 2147483647)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: -1)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: -2)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: -3)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: -5)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: -8)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: -13)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: -21)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: -34)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: -55)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: -89)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: -100)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: -250)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: -500)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: -2147483647)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: 0)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: -2147483648)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: 1)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: 2)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: 3)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: 5)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: 8)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: 13)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: 21)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: 34)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: 55)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: 89)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: 100)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: 250)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: 500)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: 2147483647)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: -1)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: -2)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: -3)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: -5)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: -8)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: -13)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: -21)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: -34)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: -55)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: -89)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: -100)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: -250)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: -500)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: -2147483647)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: 0)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLast(source: [···], count: -2147483648)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipLastTests.SkipLastThrowsOnNull
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.ElementAtTests.SingleElementIndexZero
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.ElementAtTests.ElementAt
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.ElementAtTests.EmptyIndexZero
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.ElementAtTests.IndexEqualsCount
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.ElementAtTests.IndexNegative
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.ElementAtTests.NullSource
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.ElementAtTests.ManyElementsIndexTargetsLast
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.RightJoinTests.InnerKeySelectorNull
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.RightJoinTests.Join2
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.RightJoinTests.ResultSelectorNull
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.RightJoinTests.InnerNull
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.RightJoinTests.CustomComparer
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.RightJoinTests.Join1
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.RightJoinTests.FirstOuterMatchesLastInnerLastOuterMatchesFirstInnerSameNumberElements
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.RightJoinTests.InnerNullNoComparer
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.RightJoinTests.InnerKeySelectorNullNoComparer
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.RightJoinTests.SelectorsReturnNull
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.RightJoinTests.OuterKeySelectorNullNoComparer
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.RightJoinTests.NullComparer
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.RightJoinTests.OuterNullNoComparer
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.RightJoinTests.OuterNull
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.RightJoinTests.OuterKeySelectorNull
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.RightJoinTests.ResultSelectorNullNoComparer
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: 1)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: 2)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: 3)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: 5)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: 8)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: 13)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: 21)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: 34)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: 55)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: 89)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: 100)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: 250)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: 500)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: 2147483647)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: -1)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: -2)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: -3)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: -5)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: -8)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: -13)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: -21)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: -34)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: -55)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: -89)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: -100)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: -250)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: -500)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: -2147483647)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: 0)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: -2147483648)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: 1)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: 2)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: 3)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: 5)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: 8)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: 13)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: 21)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: 34)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: 55)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: 89)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: 100)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: 250)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: 500)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: 2147483647)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: -1)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: -2)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: -3)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: -5)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: -8)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: -13)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: -21)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: -34)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: -55)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: -89)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: -100)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: -250)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: -500)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: -2147483647)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: 0)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: -2147483648)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: 1)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: 2)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: 3)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: 5)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: 8)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: 13)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: 21)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: 34)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: 55)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: 89)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: 100)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: 250)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: 500)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: 2147483647)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: -1)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: -2)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: -3)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: -5)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: -8)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: -13)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: -21)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: -34)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: -55)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: -89)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: -100)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: -250)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: -500)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: -2147483647)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: 0)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: -2147483648)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: 1)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: 2)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: 3)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: 5)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: 8)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: 13)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: 21)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: 34)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: 55)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: 89)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: 100)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: 250)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: 500)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: 2147483647)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: -1)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: -2)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: -3)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: -5)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: -8)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: -13)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: -21)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: -34)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: -55)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: -89)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: -100)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: -250)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: -500)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: -2147483647)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: 0)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: -2147483648)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: 1)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: 2)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: 3)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: 5)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: 8)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: 13)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: 21)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: 34)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: 55)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: 89)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: 100)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: 250)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: 500)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: 2147483647)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: -1)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: -2)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: -3)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: -5)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: -8)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: -13)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: -21)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: -34)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: -55)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: -89)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: -100)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: -250)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: -500)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: -2147483647)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: 0)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: -2147483648)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: 1)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: 2)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: 3)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: 5)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: 8)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: 13)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: 21)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: 34)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: 55)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: 89)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: 100)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: 250)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: 500)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: 2147483647)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: -1)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: -2)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: -3)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: -5)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: -8)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: -13)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: -21)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: -34)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: -55)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: -89)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: -100)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: -250)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: -500)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: -2147483647)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: 0)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: -2147483648)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: 1)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: 2)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: 3)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: 5)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: 8)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: 13)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: 21)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: 34)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: 55)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: 89)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: 100)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: 250)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: 500)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: 2147483647)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: -1)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: -2)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: -3)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: -5)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: -8)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: -13)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: -21)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: -34)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: -55)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: -89)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: -100)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: -250)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: -500)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: -2147483647)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: 0)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: -2147483648)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: 1)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: 2)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: 3)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: 5)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: 8)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: 13)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: 21)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: 34)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: 55)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: 89)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: 100)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: 250)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: 500)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: 2147483647)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: -1)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: -2)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: -3)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: -5)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: -8)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: -13)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: -21)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: -34)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: -55)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: -89)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: -100)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: -250)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: -500)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: -2147483647)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: 0)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: -2147483648)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: 1)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: 2)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: 3)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: 5)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: 8)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: 13)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: 21)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: 34)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: 55)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: 89)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: 100)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: 250)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: 500)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: 2147483647)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: -1)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: -2)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: -3)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: -5)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: -8)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: -13)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: -21)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: -34)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: -55)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: -89)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: -100)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: -250)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: -500)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: -2147483647)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: 0)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: -2147483648)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: 1)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: 2)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: 3)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: 5)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: 8)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: 13)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: 21)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: 34)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: 55)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: 89)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: 100)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: 250)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: 500)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: 2147483647)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: -1)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: -2)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: -3)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: -5)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: -8)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: -13)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: -21)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: -34)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: -55)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: -89)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: -100)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: -250)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: -500)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: -2147483647)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: 0)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLast(equivalent: [···], count: -2147483648)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeLastTests.TakeLastThrowsOnNull
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.QueryableTests.NullAsQueryable
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.QueryableTests.MatchSequencePattern
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.QueryableTests.NonGenericToQueryable
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.QueryableTests.NullAsQueryableT
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.QueryableTests.AsQueryableT
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.QueryableTests.QueryableOfQueryable
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.QueryableTests.AsQueryable
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.QueryableTests.ReturnsSelfIfPossibleNonGeneric
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.QueryableTests.ReturnsSelfIfPossible
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TrimCompatibilityTests.QueryableMethodsContainCorrectDynamicDependency
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TrimCompatibilityTests.EnumerableMethodsNoAnnotations
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.AggregateTests.NullSource
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.AggregateTests.Aggregate3
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.AggregateTests.NullFunc
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.AggregateTests.MultipleElementsSeedResultSelector
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.AggregateTests.MultipleElementsAndSeed
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.AggregateTests.Aggregate2
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.AggregateTests.MultipleElements
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.AggregateTests.Aggregate1
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.AggregateTests.NullResultSelector
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.LongCountTests.PredicateTrueFirstAndLast
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.LongCountTests.LongCount2
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.LongCountTests.NullSource
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.LongCountTests.MultipleElements
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.LongCountTests.EmptySourceWithPredicate
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.LongCountTests.LongCount1
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.LongCountTests.EmptySource
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.LongCountTests.NullPredicateUsed
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.LongCountTests.NullSourcePredicateUsed
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.ElementAtOrDefaultTests.SingleElementIndexZero
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.ElementAtOrDefaultTests.ElementAtOrDefault
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.ElementAtOrDefaultTests.EmptyIndexZero
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.ElementAtOrDefaultTests.IndexEqualsCount
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.ElementAtOrDefaultTests.IndexInvalid
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.ElementAtOrDefaultTests.NullSource
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.ElementAtOrDefaultTests.ManyElementsIndexTargetsLast
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.CountByTests.EmptySource
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.CountByTests.CountBy_CustomComparison
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.CountByTests.NullKeySelector_ThrowsArgumentNullException
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.CountByTests.CountBy
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.CountByTests.NullSource_ThrowsArgumentNullException
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.CountByTests.CountBy_CustomKeySelector
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeTests.ThrowsOnNullSource
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeTests.Take
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.TakeTests.SourceNonEmptyTakeAllButOne
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.ZipTests.Zip2_FirstIsNull
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.ZipTests.Zip3_TupleNames
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.ZipTests.Zip2_CorrectResults
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.ZipTests.Zip
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.ZipTests.SecondIsNull
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.ZipTests.Zip3_ThirdIsNull
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.ZipTests.CorrectResults
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.ZipTests.TupleNames
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.ZipTests.Zip3_CorrectResults
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.ZipTests.Zip3_SecondIsNull
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.ZipTests.Zip2
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.ZipTests.FirstIsNull
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.ZipTests.Zip2_SecondIsNull
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.ZipTests.FuncIsNull
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.ZipTests.Zip3_FirstIsNull
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.DistinctTests.NullSource
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.DistinctTests.DistinctBy_CustomComparison
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.DistinctTests.AllUnique
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.DistinctTests.SourceAllDuplicates
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.DistinctTests.SingleNullElementExplicitlyUseDefaultComparer
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.DistinctTests.DistinctBy
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.DistinctTests.EmptySource
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.DistinctTests.Distinct2
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.DistinctTests.DistinctBy_NullSource_ThrowsArgumentNullException
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.DistinctTests.DistinctBy_NullKeySelector_ThrowsArgumentNullException
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.DistinctTests.Distinct1
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.DistinctTests.EmptyStringDistinctFromNull
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.DistinctTests.NullSourceCustomComparer
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.IntersectTests.CustomComparer
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.IntersectTests.IntersectBy_CustomComparison
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.IntersectTests.SingleNullWithEmpty
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.IntersectTests.SecondNullNoComparer
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.IntersectTests.SecondNullCustomComparer
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.IntersectTests.IntersectBy
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.IntersectTests.BothEmpty
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.IntersectTests.Intersect2
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.IntersectTests.IntersectBy_NullSource2_ThrowsArgumentNullException
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.IntersectTests.IntersectBy_NullKeySelector_ThrowsArgumentNullException
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.IntersectTests.Intersect1
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.IntersectTests.FirstNullCustomComparer
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.IntersectTests.IntersectBy_NullSource1_ThrowsArgumentNullException
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.IntersectTests.FirstNullNoComparer
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.ContainsTests.DefaultComparerFromNull
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.ContainsTests.Contains2
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.ContainsTests.MultipleMatches
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.ContainsTests.NotPresent
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.ContainsTests.Empty
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.ContainsTests.Contains1
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.ContainsTests.CustomComparerFromNull
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.ContainsTests.NullSource
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SequenceEqualTests.FirstSourceNull
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SequenceEqualTests.SequenceEqual2
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SequenceEqualTests.CustomComparer
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SequenceEqualTests.NullComparer
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SequenceEqualTests.MismatchInMiddle
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SequenceEqualTests.SequenceEqual1
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SequenceEqualTests.SecondSourceNull
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.ChunkTests.ThrowsOnNullSource
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.ChunkTests.Chunk
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.GroupJoinTests.ResultSelectorNull
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.GroupJoinTests.GroupJoin2
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.GroupJoinTests.InnerKeySelectorNull
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.GroupJoinTests.OuterKeySelectorNull
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.GroupJoinTests.OuterNull
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.GroupJoinTests.GroupJoin1
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.GroupJoinTests.OuterEmptyInnerNonEmpty
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.GroupJoinTests.OuterKeySelectorNullNoComparer
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.GroupJoinTests.InnerKeySelectorNullNoComparer
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.GroupJoinTests.NullComparer
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.GroupJoinTests.InnerNullNoComparer
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.GroupJoinTests.CustomComparer
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.GroupJoinTests.OuterNullNoComparer
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.GroupJoinTests.InnerNull
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.GroupJoinTests.ResultSelectorNullNoComparer
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MinTests.EmptyInt32WithSelector
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MinTests.MinBy_NullKeySelector_ThrowsArgumentNullException
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MinTests.NullInt32SourceWithSelector
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MinTests.NullableDecimalMinimumRepeated
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MinTests.EmptyNullableInt64Source
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MinTests.Min_CustomComparer_NullSource_ThrowsArgumentNullException
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MinTests.NullInt32Source
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MinTests.MinSingleWithSelectorAccessingProperty
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MinTests.NullNullableInt64SourceWithSelector
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MinTests.MinStringWitSelectorAccessingProperty
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MinTests.NullableSingleSourceWithNullSelector
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MinTests.NullSingleSource
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MinTests.MinDecimalWithSelectorAccessingProperty
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MinTests.EmptyInt64Source
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MinTests.NullableDoubleNullsThenNaN
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MinTests.StringSourceWithNullSelector
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MinTests.NullDecimalSource
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MinTests.MinBy_CustomComparer
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MinTests.EmptyNullableDecimalSource
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MinTests.NullNullableDoubleSource
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MinTests.DecimalMinimumRepeated
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MinTests.EmptyDateTimeWithSelector
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MinTests.Int64MinimumRepeated
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MinTests.NullDoubleSourceWithSelector
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MinTests.MinNullableDecimalWithSelectorAccessingProperty
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MinTests.MinBy_CustomComparer_DistinctTypes
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MinTests.EmptySingle
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MinTests.NullNullableInt32SourceWithSelector
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MinTests.NullNullableDateTimeSource
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MinTests.NullableInt32SourceWithNullSelector
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MinTests.NullableDoubleNaNThenNulls
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MinTests.StringMinimumRepeated
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MinTests.MinNullableInt64WithSelectorAccessingProperty
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MinTests.NullDoubleSource
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MinTests.EmptyDoubleWithSelector
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MinTests.NullNullableSingleSourceWithSelector
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MinTests.EmptyNullableDoubleSource
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MinTests.MinInt32WithSelectorAccessingProperty
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MinTests.NullNullableDecimalSourceWithSelector
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MinTests.DecimalSourceWithNullSelector
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MinTests.NullStringSourceWithSelector
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MinTests.Int32MinimumRepeated
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MinTests.MinInt64WithSelectorAccessingProperty
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MinTests.NullableSingleMinimumRepated
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MinTests.EmptyDecimalSource
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MinTests.DateTimeSourceWithNullSelector
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MinTests.Min_CustomComparer
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MinTests.NullNullableInt64Source
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MinTests.EmptyStringSource
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MinTests.DoubleMinimumRepeated
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MinTests.NullDecimalSourceWithSelector
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MinTests.SingleMinimumRepeated
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MinTests.EmptyInt32Source
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MinTests.EmptyDateTimeSource
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MinTests.EmptySingleWithSelector
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MinTests.MinNullableInt32WithSelectorAccessingProperty
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MinTests.Min2
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MinTests.EmptyBooleanSource
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MinTests.DoubleSourceWithNullSelector
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MinTests.EmptyNullableSingleSource
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MinTests.Min1
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MinTests.Int32SourceWithNullSelector
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MinTests.NullableInt64MinimumRepeated
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MinTests.NullInt64Source
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MinTests.EmptyDecimalWithSelector
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MinTests.NullInt64SourceWithSelector
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MinTests.Int64SourceWithNullSelector
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MinTests.MinDoubleWithSelectorAccessingProperty
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MinTests.NullSingleSourceWithSelector
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MinTests.MinNullableDoubleWithSelectorAccessingProperty
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MinTests.NullNullableDoubleSourceWithSelector
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MinTests.NullableDecimalSourceWithNullSelector
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MinTests.NullableInt32MinimumRepeated
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MinTests.NullableDoubleSourceWithNullSelector
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MinTests.NullStringSource
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MinTests.EmptyNullableInt32Source
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MinTests.EmptyInt64WithSelector
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MinTests.MinBy_NullSource_ThrowsArgumentNullException
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MinTests.NullNullableDecimalSource
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MinTests.MinBy
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MinTests.EmptyDoubleSource
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MinTests.NullDateTimeSourceWithSelector
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MinTests.NullableDoubleMinimumRepeated
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MinTests.NullableInt64SourceWithNullSelector
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MinTests.MinNullableSingleWithSelectorAccessingProperty
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SingleOrDefaultTests.EmptySourceWithPredicateDefault
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SingleOrDefaultTests.SingleOrDefault_OverloadResolution_Regression
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SingleOrDefaultTests.EmptySourceWithPredicate
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SingleOrDefaultTests.EmptyDefault
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SingleOrDefaultTests.Empty
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SingleOrDefaultTests.SingleOrDefault2
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SingleOrDefaultTests.ManyMatch
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SingleOrDefaultTests.ThrowsOnNullPredicate
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SingleOrDefaultTests.SingleOrDefault1
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SingleOrDefaultTests.ThrowsOnNullSource
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SingleOrDefaultTests.FindSingleMatch(target: 1, range: 100)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SingleOrDefaultTests.FindSingleMatch(target: 42, range: 100)
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipWhileTests.SkipWhileThrowsOnNull
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipWhileTests.SkipWhile2
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipWhileTests.SkipWhileAllFalse
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipWhileTests.SkipWhileAllTrue
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.SkipWhileTests.SkipWhile1
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.UnionTests.CommonElementsShared
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.UnionTests.UnionBy_CustomComparison
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.UnionTests.SecondNullNoComparer
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.UnionTests.FirstNullNoComparer
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.UnionTests.FirstNullCustomComparer
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.UnionTests.UnionBy
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.UnionTests.CustomComparer
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.UnionTests.UnionBy_NullSource1_ThrowsArgumentNullException
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.UnionTests.UnionBy_NullSource2_ThrowsArgumentNullException
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.UnionTests.UnionBy_NullKeySelector_ThrowsArgumentNullException
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.UnionTests.Union2
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.UnionTests.SecondNullCustomComparer
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.UnionTests.Union1
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.OrderByDescendingTests.NullSource
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.OrderByDescendingTests.OrderByDescending2
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.OrderByDescendingTests.NullKeySelector
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.OrderByDescendingTests.FirstAndLastAreDuplicatesNullPassedAsComparer
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.OrderByDescendingTests.FirstAndLastAreDuplicatesCustomComparer
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.OrderByDescendingTests.OrderByDescending1
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.OrderByDescendingTests.KeySelectorCalled
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.OrderByDescendingTests.NullKeySelectorComparer
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.OrderByDescendingTests.NullSourceComparer
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MaxTests.NullInt64SourceWithSelector
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MaxTests.MaxBy_NullKeySelector_ThrowsArgumentNullException
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MaxTests.Int64SourceWithNullSelector
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MaxTests.EmptyString
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MaxTests.NullNullableInt64Source
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MaxTests.Max_CustomComparer_NullSource_ThrowsArgumentNullException
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MaxTests.EmptyInt32
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MaxTests.MaxDoubleWithSelectorAccessingField
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MaxTests.EmptyNullableSingleWithSelector
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MaxTests.NullStringSourceWithSelector
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MaxTests.NullNullableDoubleSourceWithSelector
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MaxTests.EmptySingle
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MaxTests.EmptyNullableInt32WithSelector
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MaxTests.NullInt64Source
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MaxTests.EmptyDateTime
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MaxTests.StringSourceWithNullSelector
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MaxTests.DecimalMaximumRepeated
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MaxTests.MaxBy_CustomComparer
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MaxTests.NullDateTimeSource
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MaxTests.EmptyNullableDouble
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MaxTests.NullNullableInt32Source
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MaxTests.NullNullableDateTimeSourceWithSelector
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MaxTests.Int64MaxRepeated
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MaxTests.DecimalSourceWithNullSelector
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MaxTests.NullNullableDecimalSourceWithSelector
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MaxTests.MaxBy_CustomComparer_DistinctTypes
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MaxTests.Single_MaxRepeated
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MaxTests.NullableInt64SourceWithNullSelector
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MaxTests.EmptyInt32WithSelector
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MaxTests.NullNullableInt64SourceWithSelector
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MaxTests.EmptyNullableDecimal
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MaxTests.MaxInt32WithSelectorAccessingProperty
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MaxTests.MaxNullableInt64WithSelectorAccessingField
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MaxTests.DoubleMaximumRepeated
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MaxTests.NullDecimalSourceWithSelector
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MaxTests.EmptyNullableDoubleWithSelector
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MaxTests.NullNullableDoubleSource
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MaxTests.Int32SourceWithNullSelector
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MaxTests.NullableDecimalSourceWithNullSelector
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MaxTests.MaxNullableInt32WithSelectorAccessingField
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MaxTests.EmptyStringSourceWithSelector
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MaxTests.Int32MaxRepeated
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MaxTests.NullSingleSourceWithSelector
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MaxTests.NullableSingleMaxRepeated
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MaxTests.EmptyDecimal
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MaxTests.NullableDateTimeSourceWithNullSelector
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MaxTests.Max_CustomComparer
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MaxTests.EmptyNullableInt64
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MaxTests.NullInt32SourceWithSelector
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MaxTests.NullDecimalSource
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MaxTests.NullableInt32SourceWithNullSelector
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MaxTests.NullSingleSource
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MaxTests.NullInt32Source
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MaxTests.NullStringSource
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MaxTests.EmptyDoubleWithSelector
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MaxTests.EmptyNullableInt64WithSelector
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MaxTests.Max1
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MaxTests.MaxStringWithSelectorAccessingProperty
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MaxTests.MaxDecimalWithSelectorAccessingProperty
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MaxTests.EmptyNullableSingle
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MaxTests.EmptyBoolean
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MaxTests.MaxInt64WithSelectorAccessingProperty
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MaxTests.NullableInt64MaximumRepeated
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MaxTests.EmptyInt64
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MaxTests.NullNullableInt32SourceWithSelector
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MaxTests.SingleSourceWithNullSelector
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MaxTests.EmptySingleWithSelector
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MaxTests.EmptyDecimalWithSelector
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MaxTests.DoubleSourceWithNullSelector
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MaxTests.MaxNullableSingleWithSelectorAccessingProperty
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MaxTests.NullableDoubleSourceWithNullSelector
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MaxTests.MaxNullableDecimalWithSelectorAccessingProperty
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MaxTests.NullableInt32MaxRepeated
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MaxTests.MaxNullableDoubleWithSelectorAccessingProperty
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MaxTests.EmptyInt64WithSelector
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MaxTests.EmptyDouble
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MaxTests.MaxSingleWithSelectorAccessingProperty
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MaxTests.Max2
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MaxTests.NullDoubleSourceWithSelector
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MaxTests.MaxBy
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MaxTests.NullDoubleSource
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MaxTests.EmptyNullableDateTimeWithSelector
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MaxTests.NullableDecimalMaximumRepeated
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MaxTests.NullNullableDecimalSource
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MaxTests.EmptyNullableInt32
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MaxTests.NullNullableSingleSourceWithSelector
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MaxTests.NullableSingleSourceWithNullSelector
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MaxTests.EmptyNullableDecimalWithSelector
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MaxTests.MaxBy_NullSource_ThrowsArgumentNullException
+  [40m[32minfo[39m[22m[49m: [STRT] System.Linq.Tests.MaxTests.StringMaximumRepeated
+  [40m[32minfo[39m[22m[49m: Finished:    System.Linq.Queryable.Tests.dll
+  [40m[32minfo[39m[22m[49m: Stored /home/pavelsavara/dev/runtime/artifacts/bin/System.Linq.Queryable.Tests/Release/net11.0/browser-wasm/wwwroot/xharness-output/testResults.xml results 267610 bytes
+  [40m[32minfo[39m[22m[49m: Finished uploading 267610 bytes of RESULTXML
+  [40m[32minfo[39m[22m[49m: Xml file was written to the provided writer.
+  [40m[32minfo[39m[22m[49m: 
+  [40m[32minfo[39m[22m[49m: === TEST EXECUTION SUMMARY ===
+  [40m[32minfo[39m[22m[49m: Tests run: 1448 Passed: 1448 Inconclusive: 0 Failed: 0 Ignored: 0 Skipped: 0
+  [40m[32minfo[39m[22m[49m: 
+  [40m[32minfo[39m[22m[49m: test-main.js exiting WasmTestRunner.dll System.Linq.Queryable.Tests.dll after 0.08706666666666667 minutes with result 0 and linear memory 278396928 bytes
+  [40m[32minfo[39m[22m[49m: DOTNET: forceDisposeProxies done: 14 imports, 0 exports, 0 GCHandles, 0 JSHandles.
+  [40m[32minfo[39m[22m[49m: WASM EXIT 0
+  [40m[32minfo[39m[22m[49m: Waiting to flush log messages with a timeout of 120 secs ..
+  [40m[32minfo[39m[22m[49m: Closing 1 browser tabs before setting the main tab to config page and quitting.
+  XHarness exit code: 0
+  ~/dev/runtime/artifacts/bin/System.Linq.Queryable.Tests/Release/net11.0/browser-wasm/wwwroot ~/dev/runtime/src/libraries/System.Linq.Queryable/tests
+  ----- end Sun Feb 1 17:57:57 CET 2026 ----- exit code 0 ----------------------------------------------------------
+  XHarness artifacts: /home/pavelsavara/dev/runtime/artifacts/bin/System.Linq.Queryable.Tests/Release/net11.0/browser-wasm/wwwroot/xharness-output
+
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:10.90

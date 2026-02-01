@@ -1,0 +1,53 @@
+
+  Determining projects to restore...
+  Restored /home/pavelsavara/dev/runtime/src/libraries/System.Runtime/tests/System.Reflection.Tests/AssemblyVersion/System.Reflection.Tests.Assembly_1_2_0_0.csproj (in 194 ms).
+  Restored /home/pavelsavara/dev/runtime/src/libraries/System.Runtime/tests/System.Reflection.Tests/AssemblyVersion/System.Reflection.Tests.Assembly_1_1_1_0.csproj (in 194 ms).
+  Restored /home/pavelsavara/dev/runtime/src/libraries/System.Runtime/tests/System.Reflection.Tests/AssemblyVersion/System.Reflection.Tests.Assembly_1_1_1_3.csproj (in 194 ms).
+  Restored /home/pavelsavara/dev/runtime/src/libraries/System.Runtime/tests/System.Reflection.Tests/AssemblyVersion/System.Reflection.Tests.Assembly_1_3_0_0.csproj (in 194 ms).
+  Restored /home/pavelsavara/dev/runtime/src/libraries/System.Runtime/tests/System.Reflection.Tests/AssemblyVersion/System.Reflection.Tests.Assembly_0_0_0_0.csproj (in 194 ms).
+  Restored /home/pavelsavara/dev/runtime/src/libraries/System.Runtime/tests/System.Reflection.Tests/AssemblyVersion/System.Reflection.Tests.Assembly_1_1_0_0.csproj (in 194 ms).
+  Restored /home/pavelsavara/dev/runtime/src/libraries/System.Runtime/tests/System.Reflection.Tests/UnloadableAssembly/UnloadableAssembly.csproj (in 194 ms).
+  Restored /home/pavelsavara/dev/runtime/src/libraries/System.Runtime/tests/System.Reflection.Tests/AssemblyVersion/System.Reflection.Tests.Assembly_3_0_0_0.csproj (in 194 ms).
+  Restored /home/pavelsavara/dev/runtime/src/libraries/System.Runtime/tests/System.Reflection.Tests/AssemblyVersion/System.Reflection.Tests.Assembly_1_1_3_0.csproj (in 194 ms).
+  Restored /home/pavelsavara/dev/runtime/src/libraries/System.Runtime/tests/System.Reflection.Tests/AssemblyVersion/System.Reflection.Tests.Assembly_1_1_2_0.csproj (in 194 ms).
+  Restored /home/pavelsavara/dev/runtime/src/libraries/System.Runtime/tests/System.Reflection.Tests/AssemblyVersion/System.Reflection.Tests.Assembly_1_0_0_0.csproj (in 194 ms).
+  Restored /home/pavelsavara/dev/runtime/src/libraries/System.Runtime/tests/System.Reflection.Tests/Hello工程123/Hello工程123.csproj (in 194 ms).
+  Restored /home/pavelsavara/dev/runtime/src/libraries/System.Runtime/tests/System.Reflection.Tests/ForwardedTypesAssembly/ForwardedTypesAssembly.csproj (in 194 ms).
+  Restored /home/pavelsavara/dev/runtime/src/libraries/System.Runtime/tests/System.Reflection.Tests/AssemblyVersion/System.Reflection.Tests.Assembly_1_1_1_2.csproj (in 194 ms).
+  Restored /home/pavelsavara/dev/runtime/src/libraries/System.Runtime/tests/System.Reflection.Tests/System.Reflection.Tests.csproj (in 194 ms).
+  5 of 20 projects are up-to-date for restore.
+  TestUtilities -> /home/pavelsavara/dev/runtime/artifacts/bin/TestUtilities/Release/net10.0/TestUtilities.dll
+  System.Reflection.TestExe -> /home/pavelsavara/dev/runtime/artifacts/bin/System.Reflection.TestExe/Release/net11.0/System.Reflection.TestExe.dll
+  Microsoft.Interop.SourceGeneration -> /home/pavelsavara/dev/runtime/artifacts/bin/Microsoft.Interop.SourceGeneration/Release/netstandard2.0/Microsoft.Interop.SourceGeneration.dll
+  Hello工程123 -> /home/pavelsavara/dev/runtime/artifacts/bin/Hello工程123/Release/net11.0/Hello工程123.dll
+  DownlevelLibraryImportGenerator -> /home/pavelsavara/dev/runtime/artifacts/bin/DownlevelLibraryImportGenerator/Release/netstandard2.0/Microsoft.Interop.LibraryImportGenerator.Downlevel.dll
+  TestAssembly -> /home/pavelsavara/dev/runtime/artifacts/bin/TestAssembly/Release/netstandard2.0/TestAssembly.dll
+  System.Reflection.Tests.Assembly_0_0_0_0 -> /home/pavelsavara/dev/runtime/artifacts/bin/System.Reflection.Tests.Assembly_0_0_0_0/Release/netstandard2.0/System.Reflection.Tests.Assembly_0_0_0_0.dll
+  System.Reflection.Tests.Assembly_1_1_0_0 -> /home/pavelsavara/dev/runtime/artifacts/bin/System.Reflection.Tests.Assembly_1_1_0_0/Release/netstandard2.0/System.Reflection.Tests.Assembly_1_1_0_0.dll
+  System.Reflection.Tests.Assembly_3_0_0_0 -> /home/pavelsavara/dev/runtime/artifacts/bin/System.Reflection.Tests.Assembly_3_0_0_0/Release/netstandard2.0/System.Reflection.Tests.Assembly_3_0_0_0.dll
+  System.Reflection.Tests.Assembly_1_3_0_0 -> /home/pavelsavara/dev/runtime/artifacts/bin/System.Reflection.Tests.Assembly_1_3_0_0/Release/netstandard2.0/System.Reflection.Tests.Assembly_1_3_0_0.dll
+  System.Reflection.Tests.Assembly_1_1_1_0 -> /home/pavelsavara/dev/runtime/artifacts/bin/System.Reflection.Tests.Assembly_1_1_1_0/Release/netstandard2.0/System.Reflection.Tests.Assembly_1_1_1_0.dll
+  System.Reflection.Tests.Assembly_1_2_0_0 -> /home/pavelsavara/dev/runtime/artifacts/bin/System.Reflection.Tests.Assembly_1_2_0_0/Release/netstandard2.0/System.Reflection.Tests.Assembly_1_2_0_0.dll
+  System.Reflection.Tests.Assembly_1_1_1_2 -> /home/pavelsavara/dev/runtime/artifacts/bin/System.Reflection.Tests.Assembly_1_1_1_2/Release/netstandard2.0/System.Reflection.Tests.Assembly_1_1_1_2.dll
+  System.Reflection.Tests.Assembly_1_1_2_0 -> /home/pavelsavara/dev/runtime/artifacts/bin/System.Reflection.Tests.Assembly_1_1_2_0/Release/netstandard2.0/System.Reflection.Tests.Assembly_1_1_2_0.dll
+  System.Reflection.Tests.Assembly_1_0_0_0 -> /home/pavelsavara/dev/runtime/artifacts/bin/System.Reflection.Tests.Assembly_1_0_0_0/Release/netstandard2.0/System.Reflection.Tests.Assembly_1_0_0_0.dll
+  System.Reflection.Tests.Assembly_1_1_1_3 -> /home/pavelsavara/dev/runtime/artifacts/bin/System.Reflection.Tests.Assembly_1_1_1_3/Release/netstandard2.0/System.Reflection.Tests.Assembly_1_1_1_3.dll
+  System.Reflection.Tests.Assembly_1_1_3_0 -> /home/pavelsavara/dev/runtime/artifacts/bin/System.Reflection.Tests.Assembly_1_1_3_0/Release/netstandard2.0/System.Reflection.Tests.Assembly_1_1_3_0.dll
+  UnloadableAssembly -> /home/pavelsavara/dev/runtime/artifacts/bin/UnloadableAssembly/Release/netstandard2.0/UnloadableAssembly.dll
+  ForwardedTypesAssembly -> /home/pavelsavara/dev/runtime/artifacts/bin/ForwardedTypesAssembly/Release/netstandard2.0/ForwardedTypesAssembly.dll
+  WasmTriggerPublishApp for CoreCLR not implemented
+/home/pavelsavara/dev/runtime/eng/testing/tests.browser.targets(263,5): error : System.InvalidOperationException: No file exists for the asset at either location '/home/pavelsavara/dev/runtime/artifacts/bin/System.Reflection.Tests/Release/net11.0/browser-wasm/publish/System.Reflection.Tests.dll' or '/home/pavelsavara/dev/runtime/artifacts/bin/System.Reflection.Tests/Release/net11.0/browser-wasm/publish/System.Reflection.Tests.dll'. [/home/pavelsavara/dev/runtime/src/libraries/System.Runtime/tests/System.Reflection.Tests/System.Reflection.Tests.csproj]
+/home/pavelsavara/dev/runtime/eng/testing/tests.browser.targets(263,5): error :    at Microsoft.AspNetCore.StaticWebAssets.Tasks.StaticWebAsset.ResolveFile(String identity, String originalItemSpec) [/home/pavelsavara/dev/runtime/src/libraries/System.Runtime/tests/System.Reflection.Tests/System.Reflection.Tests.csproj]
+/home/pavelsavara/dev/runtime/eng/testing/tests.browser.targets(263,5): error :    at Microsoft.AspNetCore.StaticWebAssets.Tasks.DefineStaticWebAssets.ResolveFileDetails(String originalItemSpec, String identity) [/home/pavelsavara/dev/runtime/src/libraries/System.Runtime/tests/System.Reflection.Tests/System.Reflection.Tests.csproj]
+/home/pavelsavara/dev/runtime/eng/testing/tests.browser.targets(263,5): error :    at Microsoft.AspNetCore.StaticWebAssets.Tasks.DefineStaticWebAssets.Execute() [/home/pavelsavara/dev/runtime/src/libraries/System.Runtime/tests/System.Reflection.Tests/System.Reflection.Tests.csproj]
+
+Build FAILED.
+
+/home/pavelsavara/dev/runtime/eng/testing/tests.browser.targets(263,5): error : System.InvalidOperationException: No file exists for the asset at either location '/home/pavelsavara/dev/runtime/artifacts/bin/System.Reflection.Tests/Release/net11.0/browser-wasm/publish/System.Reflection.Tests.dll' or '/home/pavelsavara/dev/runtime/artifacts/bin/System.Reflection.Tests/Release/net11.0/browser-wasm/publish/System.Reflection.Tests.dll'. [/home/pavelsavara/dev/runtime/src/libraries/System.Runtime/tests/System.Reflection.Tests/System.Reflection.Tests.csproj]
+/home/pavelsavara/dev/runtime/eng/testing/tests.browser.targets(263,5): error :    at Microsoft.AspNetCore.StaticWebAssets.Tasks.StaticWebAsset.ResolveFile(String identity, String originalItemSpec) [/home/pavelsavara/dev/runtime/src/libraries/System.Runtime/tests/System.Reflection.Tests/System.Reflection.Tests.csproj]
+/home/pavelsavara/dev/runtime/eng/testing/tests.browser.targets(263,5): error :    at Microsoft.AspNetCore.StaticWebAssets.Tasks.DefineStaticWebAssets.ResolveFileDetails(String originalItemSpec, String identity) [/home/pavelsavara/dev/runtime/src/libraries/System.Runtime/tests/System.Reflection.Tests/System.Reflection.Tests.csproj]
+/home/pavelsavara/dev/runtime/eng/testing/tests.browser.targets(263,5): error :    at Microsoft.AspNetCore.StaticWebAssets.Tasks.DefineStaticWebAssets.Execute() [/home/pavelsavara/dev/runtime/src/libraries/System.Runtime/tests/System.Reflection.Tests/System.Reflection.Tests.csproj]
+    0 Warning(s)
+    1 Error(s)
+
+Time Elapsed 00:00:04.08

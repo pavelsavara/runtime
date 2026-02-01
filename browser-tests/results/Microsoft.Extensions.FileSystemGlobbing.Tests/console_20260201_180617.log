@@ -1,0 +1,444 @@
+Running in: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/143.0.0.0 Safari/537.36
+Running at: http://127.0.0.1:45781/index.html?arg=--setenv%3dXHARNESS_LOG_TEST_START%3dtrue&arg=--run&arg=WasmTestRunner.dll&arg=Microsoft.Extensions.FileSystemGlobbing.Tests.dll&arg=-notrait&arg=category%3dOuterLoop&arg=-notrait&arg=category%3dfailing&arg=-verbosity&arg=Info
+could not load /runArgs.json: 404. Ignoring
+Incoming arguments: --setenv=XHARNESS_LOG_TEST_START=true --run WasmTestRunner.dll Microsoft.Extensions.FileSystemGlobbing.Tests.dll -notrait category=OuterLoop -notrait category=failing -verbosity Info
+Application arguments: --run WasmTestRunner.dll Microsoft.Extensions.FileSystemGlobbing.Tests.dll -notrait category=OuterLoop -notrait category=failing -verbosity Info
+Initializing dotnet version 11.0.0 commit hash e31907b0fbca908ed525247a1dc38cc5fba7b0ff
+Using threadless Xunit runner
+Discovering: Microsoft.Extensions.FileSystemGlobbing.Tests.dll (method display = ClassAndMethod, method display options = None)
+Discovered:  Microsoft.Extensions.FileSystemGlobbing.Tests.dll (found 145 of 147 test cases)
+Starting:    Microsoft.Extensions.FileSystemGlobbing.Tests.dll
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternMatchingTests.IncompletePatternsDoNotInclude
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternMatchingTests.InnerRecursiveWildcardMuseStartWithAndEndWith
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternMatchingTests.RecursiveWildcardSurroundingContainsWith
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternMatchingTests.StemMatchOnExactFile
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternMatchingTests.LeadingDotDotCanComeThroughPattern
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternMatchingTests.IncompletePatternsDoNotExclude
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternMatchingTests.PatternBeginAndEndCantOverlap(includePattern: "1234*5678", matchesExpected: ["12345678"])
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternMatchingTests.PatternBeginAndEndCantOverlap(includePattern: "12345*5678", matchesExpected: [])
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternMatchingTests.PatternBeginAndEndCantOverlap(includePattern: "12*3456*78", matchesExpected: ["12345678"])
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternMatchingTests.PatternBeginAndEndCantOverlap(includePattern: "12*23*", matchesExpected: [])
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternMatchingTests.PatternBeginAndEndCantOverlap(includePattern: "*67*78", matchesExpected: [])
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternMatchingTests.PatternBeginAndEndCantOverlap(includePattern: "*45*56", matchesExpected: [])
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternMatchingTests.PatternMatchingWorks(includePattern: "*.txt", matchesExpected: ["alpha.txt", "beta.txt"])
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternMatchingTests.PatternMatchingWorks(includePattern: "alpha.*", matchesExpected: ["alpha.txt"])
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternMatchingTests.PatternMatchingWorks(includePattern: "*.*", matchesExpected: ["alpha.txt", "beta.txt", "gamma.dat"])
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternMatchingTests.PatternMatchingWorks(includePattern: "*", matchesExpected: ["alpha.txt", "beta.txt", "gamma.dat"])
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternMatchingTests.PatternMatchingWorks(includePattern: "*et*", matchesExpected: ["beta.txt"])
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternMatchingTests.PatternMatchingWorks(includePattern: "b*et*t", matchesExpected: ["beta.txt"])
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternMatchingTests.PatternMatchingWorks(includePattern: "b*et*x", matchesExpected: [])
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternMatchingTests.FolderNamesAreTraversed
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternMatchingTests.PatternMatchingWorksInFolders(includePattern: "*mm*/*", matchesExpected: ["gamma/hello.txt"])
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternMatchingTests.PatternMatchingWorksInFolders(includePattern: "/*mm*/*", matchesExpected: ["gamma/hello.txt"])
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternMatchingTests.PatternMatchingWorksInFolders(includePattern: "*alpha*/*", matchesExpected: ["alpha/hello.txt"])
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternMatchingTests.PatternMatchingWorksInFolders(includePattern: "/*alpha*/*", matchesExpected: ["alpha/hello.txt"])
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternMatchingTests.PatternMatchingWorksInFolders(includePattern: "*/*", matchesExpected: ["alpha/hello.txt", "beta/hello.txt", "gamma/hello.txt"])
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternMatchingTests.PatternMatchingWorksInFolders(includePattern: "/*/*", matchesExpected: ["alpha/hello.txt", "beta/hello.txt", "gamma/hello.txt"])
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternMatchingTests.PatternMatchingWorksInFolders(includePattern: "*.*/*", matchesExpected: ["alpha/hello.txt", "beta/hello.txt", "gamma/hello.txt"])
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternMatchingTests.PatternMatchingWorksInFolders(includePattern: "/*.*/*", matchesExpected: ["alpha/hello.txt", "beta/hello.txt", "gamma/hello.txt"])
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternMatchingTests.SimpleStemMatching
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternMatchingTests.MismatchedFileIsIgnored
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternMatchingTests.StemMatchingWithFileExtension
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternMatchingTests.RecursiveAloneIncludesEverything
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternMatchingTests.StarDotStarIsSameAsStar
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternMatchingTests.MultipleRecursiveWildcardStemMatch
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternMatchingTests.SequentialFoldersMayBeRequired
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternMatchingTests.PatternMatchingCurrent(includePattern: "", matchesExpected: [])
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternMatchingTests.PatternMatchingCurrent(includePattern: "./", matchesExpected: ["alpha/hello.txt", "beta/hello.txt", "gamma/hello.txt"])
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternMatchingTests.PatternMatchingCurrent(includePattern: "./alpha/hello.txt", matchesExpected: ["alpha/hello.txt"])
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternMatchingTests.PatternMatchingCurrent(includePattern: "./**/hello.txt", matchesExpected: ["alpha/hello.txt", "beta/hello.txt", "gamma/hello.txt"])
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternMatchingTests.PatternMatchingCurrent(includePattern: "././**/hello.txt", matchesExpected: ["alpha/hello.txt", "beta/hello.txt", "gamma/hello.txt"])
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternMatchingTests.PatternMatchingCurrent(includePattern: "././**/./hello.txt", matchesExpected: ["alpha/hello.txt", "beta/hello.txt", "gamma/hello.txt"])
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternMatchingTests.PatternMatchingCurrent(includePattern: "././**/./**/hello.txt", matchesExpected: ["alpha/hello.txt", "beta/hello.txt", "gamma/hello.txt"])
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternMatchingTests.PatternMatchingCurrent(includePattern: "./*mm*/hello.txt", matchesExpected: ["gamma/hello.txt"])
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternMatchingTests.PatternMatchingCurrent(includePattern: "./*mm*/*", matchesExpected: ["gamma/hello.txt"])
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternMatchingTests.ExcludeCanHaveSurroundingRecursiveWildcards
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternMatchingTests.WildcardMidSegmentMatch
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternMatchingTests.EmptyCollectionWhenNoFilesPresent
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternMatchingTests.LeadingDotDotWithRecursiveCanComeThroughPattern
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternMatchingTests.ExcludeFolderRecursively
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternMatchingTests.LeadingRecursiveWildcardMatchesAllLeadingPaths
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternMatchingTests.SlashPolarityIsIgnored(includePattern: "beta/alpha.txt", filePath: "beta/alpha.txt")
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternMatchingTests.SlashPolarityIsIgnored(includePattern: "beta\\alpha.txt", filePath: "beta/alpha.txt")
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternMatchingTests.SlashPolarityIsIgnored(includePattern: "beta/alpha.txt", filePath: "beta\\alpha.txt")
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternMatchingTests.SlashPolarityIsIgnored(includePattern: "beta\\alpha.txt", filePath: "beta\\alpha.txt")
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternMatchingTests.SlashPolarityIsIgnored(includePattern: "\\beta\\alpha.txt", filePath: "beta\\alpha.txt")
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternMatchingTests.RecursiveWildcardStemMatch
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternMatchingTests.ExcludeFolderByName
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternMatchingTests.TrailingRecursiveWildcardMatchesAllFiles
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternMatchingTests.StemMatchingWithParentDir
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternMatchingTests.ExcludeMayEndInDirectoryName
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternMatchingTests.MatchingFileIsFound
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternSegments.LiteralPathSegmentTests.AllowEmptyInDefaultConstructor
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternSegments.LiteralPathSegmentTests.ThrowArgumentNullException
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternSegments.LiteralPathSegmentTests.Match(initialValue: "something", testSample: "anything", comparisonType: Ordinal, expectation: False)
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternSegments.LiteralPathSegmentTests.Match(initialValue: "something", testSample: "Something", comparisonType: Ordinal, expectation: False)
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternSegments.LiteralPathSegmentTests.Match(initialValue: "something", testSample: "something", comparisonType: Ordinal, expectation: True)
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternSegments.LiteralPathSegmentTests.Match(initialValue: "something", testSample: "anything", comparisonType: OrdinalIgnoreCase, expectation: False)
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternSegments.LiteralPathSegmentTests.Match(initialValue: "something", testSample: "Something", comparisonType: OrdinalIgnoreCase, expectation: True)
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternSegments.LiteralPathSegmentTests.Match(initialValue: "something", testSample: "something", comparisonType: OrdinalIgnoreCase, expectation: True)
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternSegments.ParentPathSegmentTests.Match(testSample: ".", expectation: False)
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternSegments.ParentPathSegmentTests.Match(testSample: "..", expectation: True)
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternSegments.ParentPathSegmentTests.Match(testSample: "...", expectation: False)
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternContexts.PatternContextLinearIncludeTests.PredictNotCallBackWhenEnterUnmatchDirectory(testSegments: ["a", "b", "c"], pushDirectory: ["root", "b"])
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternContexts.PatternContextLinearIncludeTests.PredictNotCallBackWhenEnterUnmatchDirectory(testSegments: ["a", "b", "c"], pushDirectory: ["root", "a", "c"])
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternContexts.PatternContextLinearIncludeTests.PredictNotCallBackWhenEnterUnmatchDirectory(testSegments: ["a", "b", "c"], pushDirectory: ["root", "a", "b", "d"])
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternContexts.PatternContextLinearIncludeTests.PredictNotCallBackWhenEnterUnmatchDirectory(testSegments: ["a", "b", "c"], pushDirectory: ["root", "a", "b", "c"])
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternContexts.PatternContextLinearIncludeTests.TestFileForIncludeReturnsCorrectResult(testSegments: ["a", "b", "c"], pushDirectory: ["root", "a"], filename: "b", expectResult: False)
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternContexts.PatternContextLinearIncludeTests.TestFileForIncludeReturnsCorrectResult(testSegments: ["a", "b", "c"], pushDirectory: ["root", "a", "b"], filename: "d", expectResult: False)
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternContexts.PatternContextLinearIncludeTests.TestFileForIncludeReturnsCorrectResult(testSegments: ["a", "b", "c"], pushDirectory: ["root", "a", "b"], filename: "c", expectResult: True)
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternContexts.PatternContextLinearIncludeTests.TestFileForIncludeReturnsCorrectResult(testSegments: ["a", "b", "c"], pushDirectory: ["root", "a", "b", "c"], filename: "d", expectResult: False)
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternContexts.PatternContextLinearIncludeTests.TestFileForExcludeReturnsCorrectResult(testSegments: ["a", "b", "c"], pushDirectory: ["root", "a"], filename: "b", expectResult: False)
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternContexts.PatternContextLinearIncludeTests.TestFileForExcludeReturnsCorrectResult(testSegments: ["a", "b", "c"], pushDirectory: ["root", "a", "b"], filename: "c", expectResult: True)
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternContexts.PatternContextLinearIncludeTests.TestFileForExcludeReturnsCorrectResult(testSegments: ["a", "b", "c"], pushDirectory: ["root", "a", "b"], filename: "d", expectResult: False)
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternContexts.PatternContextLinearIncludeTests.TestFileForExcludeReturnsCorrectResult(testSegments: ["a", "b", "c"], pushDirectory: ["root", "a", "b", "c"], filename: "d", expectResult: False)
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternContexts.PatternContextLinearIncludeTests.TestDirectoryForExcludeReturnsCorrectResult(testSegments: ["a", "b", "c"], pushDirectory: ["root"], directoryName: "a", expectResult: False)
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternContexts.PatternContextLinearIncludeTests.TestDirectoryForExcludeReturnsCorrectResult(testSegments: ["a", "b", "c"], pushDirectory: ["root", "a"], directoryName: "b", expectResult: False)
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternContexts.PatternContextLinearIncludeTests.TestDirectoryForExcludeReturnsCorrectResult(testSegments: ["a", "b", "c"], pushDirectory: ["root", "a"], directoryName: "c", expectResult: False)
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternContexts.PatternContextLinearIncludeTests.TestDirectoryForExcludeReturnsCorrectResult(testSegments: ["a", "b", "c"], pushDirectory: ["root", "a", "b"], directoryName: "c", expectResult: True)
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternContexts.PatternContextLinearIncludeTests.PredictReturnsCorrectResult(testSegments: ["a", "b"], pushDirectory: ["root"], expectSegment: "a", expectLast: False)
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternContexts.PatternContextLinearIncludeTests.PredictReturnsCorrectResult(testSegments: ["a", "b"], pushDirectory: ["root", "a"], expectSegment: "b", expectLast: True)
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternContexts.PatternContextLinearIncludeTests.PredictReturnsCorrectResult(testSegments: ["a", "b", "c"], pushDirectory: ["root"], expectSegment: "a", expectLast: False)
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternContexts.PatternContextLinearIncludeTests.PredictReturnsCorrectResult(testSegments: ["a", "b", "c"], pushDirectory: ["root", "a"], expectSegment: "b", expectLast: False)
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternContexts.PatternContextLinearIncludeTests.PredictReturnsCorrectResult(testSegments: ["a", "b", "c"], pushDirectory: ["root", "a", "b"], expectSegment: "c", expectLast: True)
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternContexts.PatternContextLinearIncludeTests.PredictBeforeEnterDirectoryShouldThrow
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternContexts.PatternContextLinearIncludeTests.TestDirectoryForIncludeReturnsCorrectResult(testSegments: ["a", "b", "c"], pushDirectory: ["root"], directoryName: "a", expectResult: True)
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternContexts.PatternContextLinearIncludeTests.TestDirectoryForIncludeReturnsCorrectResult(testSegments: ["a", "b", "c"], pushDirectory: ["root", "a"], directoryName: "b", expectResult: True)
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternContexts.PatternContextLinearIncludeTests.TestDirectoryForIncludeReturnsCorrectResult(testSegments: ["a", "b", "c"], pushDirectory: ["root", "a"], directoryName: "c", expectResult: False)
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternContexts.PatternContextLinearIncludeTests.TestDirectoryForIncludeReturnsCorrectResult(testSegments: ["a", "b", "c"], pushDirectory: ["root", "a", "b"], directoryName: "c", expectResult: False)
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternSegments.RecursiveWildcardSegmentTests.Match
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.OrderedPatternMatchingTests.FolderNamesAreTraversed
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.OrderedPatternMatchingTests.PatternMatchingCurrent(includePattern: "", matchesExpected: [])
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.OrderedPatternMatchingTests.PatternMatchingCurrent(includePattern: "./", matchesExpected: ["alpha/hello.txt", "beta/hello.txt", "gamma/hello.txt"])
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.OrderedPatternMatchingTests.PatternMatchingCurrent(includePattern: "./alpha/hello.txt", matchesExpected: ["alpha/hello.txt"])
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.OrderedPatternMatchingTests.PatternMatchingCurrent(includePattern: "./**/hello.txt", matchesExpected: ["alpha/hello.txt", "beta/hello.txt", "gamma/hello.txt"])
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.OrderedPatternMatchingTests.PatternMatchingCurrent(includePattern: "././**/hello.txt", matchesExpected: ["alpha/hello.txt", "beta/hello.txt", "gamma/hello.txt"])
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.OrderedPatternMatchingTests.PatternMatchingCurrent(includePattern: "././**/./hello.txt", matchesExpected: ["alpha/hello.txt", "beta/hello.txt", "gamma/hello.txt"])
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.OrderedPatternMatchingTests.PatternMatchingCurrent(includePattern: "././**/./**/hello.txt", matchesExpected: ["alpha/hello.txt", "beta/hello.txt", "gamma/hello.txt"])
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.OrderedPatternMatchingTests.PatternMatchingCurrent(includePattern: "./*mm*/hello.txt", matchesExpected: ["gamma/hello.txt"])
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.OrderedPatternMatchingTests.PatternMatchingCurrent(includePattern: "./*mm*/*", matchesExpected: ["gamma/hello.txt"])
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.OrderedPatternMatchingTests.IncompletePatternsDoNotExclude
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.OrderedPatternMatchingTests.RecursiveWildcardStemMatch
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.OrderedPatternMatchingTests.RecursiveWildcardSurroundingContainsWith
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.OrderedPatternMatchingTests.PatternMatchingWorks(includePattern: "*.txt", matchesExpected: ["alpha.txt", "beta.txt"])
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.OrderedPatternMatchingTests.PatternMatchingWorks(includePattern: "alpha.*", matchesExpected: ["alpha.txt"])
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.OrderedPatternMatchingTests.PatternMatchingWorks(includePattern: "*.*", matchesExpected: ["alpha.txt", "beta.txt", "gamma.dat"])
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.OrderedPatternMatchingTests.PatternMatchingWorks(includePattern: "*", matchesExpected: ["alpha.txt", "beta.txt", "gamma.dat"])
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.OrderedPatternMatchingTests.PatternMatchingWorks(includePattern: "*et*", matchesExpected: ["beta.txt"])
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.OrderedPatternMatchingTests.PatternMatchingWorks(includePattern: "b*et*t", matchesExpected: ["beta.txt"])
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.OrderedPatternMatchingTests.PatternMatchingWorks(includePattern: "b*et*x", matchesExpected: [])
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.OrderedPatternMatchingTests.PreserveFilterOrderingFalse
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.OrderedPatternMatchingTests.NoFilterExcludes
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.OrderedPatternMatchingTests.DoubleIncludeIncludesFile
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.OrderedPatternMatchingTests.ReIncludeSubdir
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.OrderedPatternMatchingTests.WildcardMidSegmentMatch
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.OrderedPatternMatchingTests.IncludesThenGlobalExcludeOverrides
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.OrderedPatternMatchingTests.StemMatchingWithFileExtension
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.OrderedPatternMatchingTests.LeadingRecursiveWildcardMatchesAllLeadingPaths
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.OrderedPatternMatchingTests.MatchingFileIsFound
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.OrderedPatternMatchingTests.LeadingDotDotWithRecursiveCanComeThroughPattern
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.OrderedPatternMatchingTests.TrailingRecursiveWildcardMatchesAllFiles
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.OrderedPatternMatchingTests.EmptyCollectionWhenNoFilesPresent
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.OrderedPatternMatchingTests.InnerRecursiveWildcardMuseStartWithAndEndWith
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.OrderedPatternMatchingTests.StemMatchOnExactFile
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.OrderedPatternMatchingTests.MixedPatternSequence_SimpleFilters
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.OrderedPatternMatchingTests.SequentialFoldersMayBeRequired
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.OrderedPatternMatchingTests.ExcludeCanHaveSurroundingRecursiveWildcards
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.OrderedPatternMatchingTests.StarDotStarIsSameAsStar
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.OrderedPatternMatchingTests.DoubleExcludeExcludesFile
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.OrderedPatternMatchingTests.ExcludeFolderRecursively
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.OrderedPatternMatchingTests.ExcludeFolderByName
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.OrderedPatternMatchingTests.SlashPolarityIsIgnored(includePattern: "beta/alpha.txt", filePath: "beta/alpha.txt")
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.OrderedPatternMatchingTests.SlashPolarityIsIgnored(includePattern: "beta\\alpha.txt", filePath: "beta/alpha.txt")
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.OrderedPatternMatchingTests.SlashPolarityIsIgnored(includePattern: "beta/alpha.txt", filePath: "beta\\alpha.txt")
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.OrderedPatternMatchingTests.SlashPolarityIsIgnored(includePattern: "beta\\alpha.txt", filePath: "beta\\alpha.txt")
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.OrderedPatternMatchingTests.SlashPolarityIsIgnored(includePattern: "\\beta\\alpha.txt", filePath: "beta\\alpha.txt")
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.OrderedPatternMatchingTests.LeadingDotDotCanComeThroughPattern
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.OrderedPatternMatchingTests.IncompletePatternsDoNotInclude
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.OrderedPatternMatchingTests.MultipleRecursiveWildcardStemMatch
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.OrderedPatternMatchingTests.ExcludeDoubleIncludeIncludesFile
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.OrderedPatternMatchingTests.MixedPatternSequence_DeeplyNestedFilters
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.OrderedPatternMatchingTests.PatternMatchingWorksInFolders(includePattern: "*mm*/*", matchesExpected: ["gamma/hello.txt"])
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.OrderedPatternMatchingTests.PatternMatchingWorksInFolders(includePattern: "/*mm*/*", matchesExpected: ["gamma/hello.txt"])
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.OrderedPatternMatchingTests.PatternMatchingWorksInFolders(includePattern: "*alpha*/*", matchesExpected: ["alpha/hello.txt"])
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.OrderedPatternMatchingTests.PatternMatchingWorksInFolders(includePattern: "/*alpha*/*", matchesExpected: ["alpha/hello.txt"])
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.OrderedPatternMatchingTests.PatternMatchingWorksInFolders(includePattern: "*/*", matchesExpected: ["alpha/hello.txt", "beta/hello.txt", "gamma/hello.txt"])
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.OrderedPatternMatchingTests.PatternMatchingWorksInFolders(includePattern: "/*/*", matchesExpected: ["alpha/hello.txt", "beta/hello.txt", "gamma/hello.txt"])
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.OrderedPatternMatchingTests.PatternMatchingWorksInFolders(includePattern: "*.*/*", matchesExpected: ["alpha/hello.txt", "beta/hello.txt", "gamma/hello.txt"])
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.OrderedPatternMatchingTests.PatternMatchingWorksInFolders(includePattern: "/*.*/*", matchesExpected: ["alpha/hello.txt", "beta/hello.txt", "gamma/hello.txt"])
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.OrderedPatternMatchingTests.RecursiveAloneIncludesEverything
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.OrderedPatternMatchingTests.SimpleStemMatching
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.OrderedPatternMatchingTests.MismatchedFileIsIgnored
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.OrderedPatternMatchingTests.StemMatchingWithParentDir
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.OrderedPatternMatchingTests.MixOfPatternsAcrossVariousFileTypes
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.OrderedPatternMatchingTests.IncludeDoubleExcludeExcludesFile
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.OrderedPatternMatchingTests.PatternBeginAndEndCantOverlap(includePattern: "1234*5678", matchesExpected: ["12345678"])
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.OrderedPatternMatchingTests.PatternBeginAndEndCantOverlap(includePattern: "12345*5678", matchesExpected: [])
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.OrderedPatternMatchingTests.PatternBeginAndEndCantOverlap(includePattern: "12*3456*78", matchesExpected: ["12345678"])
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.OrderedPatternMatchingTests.PatternBeginAndEndCantOverlap(includePattern: "12*23*", matchesExpected: [])
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.OrderedPatternMatchingTests.PatternBeginAndEndCantOverlap(includePattern: "*67*78", matchesExpected: [])
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.OrderedPatternMatchingTests.PatternBeginAndEndCantOverlap(includePattern: "*45*56", matchesExpected: [])
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.OrderedPatternMatchingTests.ExcludeMayEndInDirectoryName
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.FilePatternMatchTests.TestPathArgumentNullExceptions
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.FilePatternMatchTests.TestGetHashCode
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.FilePatternMatchTests.TestStemArgumentNullExceptions
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.FunctionalTests.FolderExclude
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.FunctionalTests.StemCorrectWithDifferentWildCards
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.FunctionalTests.MultipleSubDirsAfterFirstWildcardMatch_HasCorrectStem_WithInMemory
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.FunctionalTests.VerifyFiles_ParentRedundantSegment_HasMatches
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.FunctionalTests.StemIncludesAllSegmentsFromPatternStartingAtWildcard_RootDirectory(root: "root", includePattern: "*.0", expectedStem: "test.0")
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.FunctionalTests.StemIncludesAllSegmentsFromPatternStartingAtWildcard_RootDirectory(root: "root", includePattern: "**/*.0", expectedStem: "test.0")
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.FunctionalTests.SingleFile(pattern: "source1.cs", expect: "src/project/source1.cs")
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.FunctionalTests.SingleFile(pattern: "../project2/source1.cs", expect: "src/project2/source1.cs")
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.FunctionalTests.WildcardAndDoubleParentWithRecursiveSearch
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.FunctionalTests.RecursiveAndDoubleParentsSearch
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.FunctionalTests.ExcludeCaseInsensitive(root: "src/project/compiler/preprocess/", excludePattern: "source.cs", expectedFiles: ["preprocess-source1.cs", "sub/preprocess-source2.cs", "sub/sub/preprocess-source3.cs", "sub/sub/preprocess-source3.txt"])
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.FunctionalTests.ExcludeCaseInsensitive(root: "src/project/compiler/preprocess/", excludePattern: "preprocess-source1.cs", expectedFiles: ["sub/preprocess-source2.cs", "sub/sub/preprocess-source3.cs", "sub/sub/preprocess-source3.txt"])
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.FunctionalTests.ExcludeCaseInsensitive(root: "src/project/compiler/preprocess/", excludePattern: "preprocesS-source1.cs", expectedFiles: ["sub/preprocess-source2.cs", "sub/sub/preprocess-source3.cs", "sub/sub/preprocess-source3.txt"])
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.FunctionalTests.ExcludeCaseInsensitive(root: "src/project/compiler/preprocess/", excludePattern: "**/Preprocess*", expectedFiles: [])
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.FunctionalTests.ExcludeCaseInsensitive(root: "src/project/compiler/preprocess/", excludePattern: "**/preprocess*", expectedFiles: [])
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.FunctionalTests.ExcludeCaseInsensitive(root: "src/project/compiler/preprocess/", excludePattern: "**/*source*.cs", expectedFiles: ["sub/sub/preprocess-source3.txt"])
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.FunctionalTests.ExcludeCaseInsensitive(root: "src/project/compiler/preprocess/", excludePattern: "**/*Source*.cs", expectedFiles: ["sub/sub/preprocess-source3.txt"])
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.FunctionalTests.ExcludeCaseInsensitive(root: "src/project/compiler/preprocess/", excludePattern: "sub/sub/*", expectedFiles: ["preprocess-source1.cs", "sub/preprocess-source2.cs"])
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.FunctionalTests.ExcludeCaseInsensitive(root: "src/project/compiler/preprocess/", excludePattern: "sub/Sub/*", expectedFiles: ["preprocess-source1.cs", "sub/preprocess-source2.cs"])
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.FunctionalTests.WildcardAndDoubleParentsSearch
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.FunctionalTests.VerifyFiles_ParentRedundantSegment_CurrentDirectory_HasMatches
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.FunctionalTests.IncludeCaseInsensitive(root: "src/project", includePattern: "source1.cs", expectedFiles: ["source1.cs"])
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.FunctionalTests.IncludeCaseInsensitive(root: "src/project", includePattern: "Source1.cs", expectedFiles: ["Source1.cs"])
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.FunctionalTests.IncludeCaseInsensitive(root: "src/project", includePattern: "compiler/preprocess/**/*.cs", expectedFiles: ["compiler/preprocess/preprocess-source1.cs", "compiler/preprocess/sub/preprocess-source2.cs", "compiler/preprocess/sub/sub/preprocess-source3.cs"])
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.FunctionalTests.IncludeCaseInsensitive(root: "src/project", includePattern: "compiler/Preprocess/**.cs", expectedFiles: ["compiler/Preprocess/preprocess-source1.cs", "compiler/Preprocess/sub/preprocess-source2.cs", "compiler/Preprocess/sub/sub/preprocess-source3.cs"])
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.FunctionalTests.VerifyFiles_InMemory_HasCaseSensitiveRootMatches(matchRoot: "/this/example/root", filesRoot: "/this/example/root", pattern: "**/*", expectedSubPaths: ["some/test/file.txt"])
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.FunctionalTests.PathIncludesAllSegmentsFromPattern_RootDirectory(root: "root", includePattern: "*.0", expectedPath: "test.0")
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.FunctionalTests.PathIncludesAllSegmentsFromPattern_RootDirectory(root: "root", includePattern: "**/*.0", expectedPath: "test.0")
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.FunctionalTests.OneLevelParentAndRecursiveSearch
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.FunctionalTests.RootDir_IsAbsolutePath_WithInMemory_AllOS(rootDir: "/src/project", separator: '/')
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.FunctionalTests.RootDir_IsAbsolutePath_WithInMemory_AllOS(rootDir: "/src/project/", separator: '/')
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.FunctionalTests.PathIncludesAllSegmentsFromPattern_OneDirectoryDeep(root: "root/dir1", includePattern: "*.1", expectedPath: "test.1")
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.FunctionalTests.PathIncludesAllSegmentsFromPattern_OneDirectoryDeep(root: "root/dir1", includePattern: "**/*.1", expectedPath: "test.1")
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.FunctionalTests.PathIncludesAllSegmentsFromPattern_OneDirectoryDeep(root: "root", includePattern: "dir1/*.1", expectedPath: "dir1/test.1")
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.FunctionalTests.PathIncludesAllSegmentsFromPattern_OneDirectoryDeep(root: "root", includePattern: "dir1/**/*.1", expectedPath: "dir1/test.1")
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.FunctionalTests.PathIncludesAllSegmentsFromPattern_OneDirectoryDeep(root: "root", includePattern: "**/dir1/*.1", expectedPath: "dir1/test.1")
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.FunctionalTests.PathIncludesAllSegmentsFromPattern_OneDirectoryDeep(root: "root", includePattern: "**/dir1/**/*.1", expectedPath: "dir1/test.1")
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.FunctionalTests.PathIncludesAllSegmentsFromPattern_OneDirectoryDeep(root: "root", includePattern: "**/*.1", expectedPath: "dir1/test.1")
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.FunctionalTests.DoubleParentsWithRecursiveSearch
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.FunctionalTests.PathIncludesAllSegmentsFromPattern_TwoDirectoriesDeep(root: "root/dir1/dir2", includePattern: "*.2", expectedPath: "test.2")
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.FunctionalTests.PathIncludesAllSegmentsFromPattern_TwoDirectoriesDeep(root: "root", includePattern: "**/dir2/*.2", expectedPath: "dir1/dir2/test.2")
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.FunctionalTests.PathIncludesAllSegmentsFromPattern_TwoDirectoriesDeep(root: "root", includePattern: "**/dir1/**/*.2", expectedPath: "dir1/dir2/test.2")
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.FunctionalTests.PathIncludesAllSegmentsFromPattern_TwoDirectoriesDeep(root: "root", includePattern: "dir1/**/*.2", expectedPath: "dir1/dir2/test.2")
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.FunctionalTests.PathIncludesAllSegmentsFromPattern_TwoDirectoriesDeep(root: "root", includePattern: "**/dir1/**/dir2/**/*.2", expectedPath: "dir1/dir2/test.2")
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.FunctionalTests.PathIncludesAllSegmentsFromPattern_TwoDirectoriesDeep(root: "root", includePattern: "**/dir1/**/dir2/*.2", expectedPath: "dir1/dir2/test.2")
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.FunctionalTests.PathIncludesAllSegmentsFromPattern_TwoDirectoriesDeep(root: "root", includePattern: "**/dir1/dir2/**/*.2", expectedPath: "dir1/dir2/test.2")
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.FunctionalTests.PathIncludesAllSegmentsFromPattern_TwoDirectoriesDeep(root: "root", includePattern: "**/dir2/**/*.2", expectedPath: "dir1/dir2/test.2")
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.FunctionalTests.PathIncludesAllSegmentsFromPattern_TwoDirectoriesDeep(root: "root", includePattern: "dir1/dir2/**/*.2", expectedPath: "dir1/dir2/test.2")
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.FunctionalTests.PathIncludesAllSegmentsFromPattern_TwoDirectoriesDeep(root: "root/dir1", includePattern: "**/*.2", expectedPath: "dir2/test.2")
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.FunctionalTests.PathIncludesAllSegmentsFromPattern_TwoDirectoriesDeep(root: "root/dir1", includePattern: "**/dir2/**/*.2", expectedPath: "dir2/test.2")
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.FunctionalTests.PathIncludesAllSegmentsFromPattern_TwoDirectoriesDeep(root: "root/dir1", includePattern: "**/dir2/*.2", expectedPath: "dir2/test.2")
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.FunctionalTests.PathIncludesAllSegmentsFromPattern_TwoDirectoriesDeep(root: "root/dir1", includePattern: "dir2/**/*.2", expectedPath: "dir2/test.2")
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.FunctionalTests.PathIncludesAllSegmentsFromPattern_TwoDirectoriesDeep(root: "root/dir1", includePattern: "dir2/*.2", expectedPath: "dir2/test.2")
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.FunctionalTests.PathIncludesAllSegmentsFromPattern_TwoDirectoriesDeep(root: "root/dir1/dir2", includePattern: "**/*.2", expectedPath: "test.2")
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.FunctionalTests.PathIncludesAllSegmentsFromPattern_TwoDirectoriesDeep(root: "root", includePattern: "dir1/dir2/*.2", expectedPath: "dir1/dir2/test.2")
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.FunctionalTests.PathIncludesAllSegmentsFromPattern_TwoDirectoriesDeep(root: "root", includePattern: "**/*.2", expectedPath: "dir1/dir2/test.2")
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.FunctionalTests.VerifyFiles_InMemory_HasCaseInsensitiveRootMatches(matchRoot: "/this/example/root", filesRoot: "/this/EXAMPLE/root", pattern: "**/*", expectedSubPaths: ["some/test/file.txt"])
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.FunctionalTests.VerifyFiles_InMemory_HasCaseInsensitiveRootMatches(matchRoot: "/this/example/root", filesRoot: "/this/example/root", pattern: "**/*", expectedSubPaths: ["some/test/file.txt"])
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.FunctionalTests.VerifyFiles_InMemory_HasCaseInsensitiveRootMatches(matchRoot: "/this/EXAMPLE/root", filesRoot: "/this/example/root", pattern: "**/*", expectedSubPaths: ["some/test/file.txt"])
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.FunctionalTests.DuplicatePatterns(pattern1: "sub/source2.cs", pattern2: "sub/source2.cs")
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.FunctionalTests.DuplicatePatterns(pattern1: "sub\\source2.cs", pattern2: "sub\\source2.cs")
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.FunctionalTests.DuplicatePatterns(pattern1: "sub/source2.cs", pattern2: "sub\\source2.cs")
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.FunctionalTests.StemIncludesAllSegmentsFromPatternStartingAtWildcard_OneDirectoryDeep(root: "root/dir1", includePattern: "*.1", fileToFind: "test.1", expectedStem: "test.1")
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.FunctionalTests.StemIncludesAllSegmentsFromPatternStartingAtWildcard_OneDirectoryDeep(root: "root/dir1", includePattern: "**/*.1", fileToFind: "test.1", expectedStem: "test.1")
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.FunctionalTests.StemIncludesAllSegmentsFromPatternStartingAtWildcard_OneDirectoryDeep(root: "root", includePattern: "dir1/*.1", fileToFind: "dir1/test.1", expectedStem: "test.1")
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.FunctionalTests.StemIncludesAllSegmentsFromPatternStartingAtWildcard_OneDirectoryDeep(root: "root", includePattern: "dir1/**/*.1", fileToFind: "dir1/test.1", expectedStem: "test.1")
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.FunctionalTests.StemIncludesAllSegmentsFromPatternStartingAtWildcard_OneDirectoryDeep(root: "root", includePattern: "**/dir1/*.1", fileToFind: "dir1/test.1", expectedStem: "dir1/test.1")
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.FunctionalTests.StemIncludesAllSegmentsFromPatternStartingAtWildcard_OneDirectoryDeep(root: "root", includePattern: "**/dir1/**/*.1", fileToFind: "dir1/test.1", expectedStem: "dir1/test.1")
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.FunctionalTests.StemIncludesAllSegmentsFromPatternStartingAtWildcard_OneDirectoryDeep(root: "root", includePattern: "**/*.1", fileToFind: "dir1/test.1", expectedStem: "dir1/test.1")
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.FunctionalTests.RootDir_IsPathRoot_WithInMemory_AllOS(rootDir: "/", separator: '/')
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.FunctionalTests.StemCorrectWithDifferentWildCards_WithInMemory
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.FunctionalTests.ExcludeCaseSensitive(root: "src/project/compiler/preprocess/", excludePattern: "source.cs", expectedFiles: ["preprocess-source1.cs", "sub/preprocess-source2.cs", "sub/sub/preprocess-source3.cs", "sub/sub/preprocess-source3.txt"])
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.FunctionalTests.ExcludeCaseSensitive(root: "src/project/compiler/preprocess/", excludePattern: "preprocess-source1.cs", expectedFiles: ["sub/preprocess-source2.cs", "sub/sub/preprocess-source3.cs", "sub/sub/preprocess-source3.txt"])
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.FunctionalTests.ExcludeCaseSensitive(root: "src/project/compiler/preprocess/", excludePattern: "preprocesS-source1.cs", expectedFiles: ["preprocess-source1.cs", "sub/preprocess-source2.cs", "sub/sub/preprocess-source3.cs", "sub/sub/preprocess-source3.txt"])
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.FunctionalTests.ExcludeCaseSensitive(root: "src/project/compiler/preprocess/", excludePattern: "**/Preprocess*", expectedFiles: ["preprocess-source1.cs", "sub/preprocess-source2.cs", "sub/sub/preprocess-source3.cs", "sub/sub/preprocess-source3.txt"])
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.FunctionalTests.ExcludeCaseSensitive(root: "src/project/compiler/preprocess/", excludePattern: "**/preprocess*", expectedFiles: [])
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.FunctionalTests.ExcludeCaseSensitive(root: "src/project/compiler/preprocess/", excludePattern: "**/*source*.cs", expectedFiles: ["sub/sub/preprocess-source3.txt"])
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.FunctionalTests.ExcludeCaseSensitive(root: "src/project/compiler/preprocess/", excludePattern: "**/*Source*.cs", expectedFiles: ["preprocess-source1.cs", "sub/preprocess-source2.cs", "sub/sub/preprocess-source3.cs", "sub/sub/preprocess-source3.txt"])
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.FunctionalTests.ExcludeCaseSensitive(root: "src/project/compiler/preprocess/", excludePattern: "sub/sub/*", expectedFiles: ["preprocess-source1.cs", "sub/preprocess-source2.cs"])
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.FunctionalTests.ExcludeCaseSensitive(root: "src/project/compiler/preprocess/", excludePattern: "sub/Sub/*", expectedFiles: ["preprocess-source1.cs", "sub/preprocess-source2.cs", "sub/sub/preprocess-source3.cs", "sub/sub/preprocess-source3.txt"])
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.FunctionalTests.VerifyAbsolutePaths_HasMatches
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.FunctionalTests.VerifyInMemoryDirectoryInfo_IsNotEmpty
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.FunctionalTests.FolderInclude
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.FunctionalTests.StemIncludesAllSegmentsFromPatternStartingAtWildcard_TwoDirectoriesDeep(root: "root/dir1/dir2", includePattern: "*.2", fileToFind: "test.2", expectedStem: "test.2")
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.FunctionalTests.StemIncludesAllSegmentsFromPatternStartingAtWildcard_TwoDirectoriesDeep(root: "root", includePattern: "**/dir2/*.2", fileToFind: "dir1/dir2/test.2", expectedStem: "dir1/dir2/test.2")
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.FunctionalTests.StemIncludesAllSegmentsFromPatternStartingAtWildcard_TwoDirectoriesDeep(root: "root", includePattern: "**/dir1/**/*.2", fileToFind: "dir1/dir2/test.2", expectedStem: "dir1/dir2/test.2")
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.FunctionalTests.StemIncludesAllSegmentsFromPatternStartingAtWildcard_TwoDirectoriesDeep(root: "root", includePattern: "dir1/**/*.2", fileToFind: "dir1/dir2/test.2", expectedStem: "dir2/test.2")
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.FunctionalTests.StemIncludesAllSegmentsFromPatternStartingAtWildcard_TwoDirectoriesDeep(root: "root", includePattern: "**/dir1/**/dir2/**/*.2", fileToFind: "dir1/dir2/test.2", expectedStem: "dir1/dir2/test.2")
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.FunctionalTests.StemIncludesAllSegmentsFromPatternStartingAtWildcard_TwoDirectoriesDeep(root: "root", includePattern: "**/dir1/**/dir2/*.2", fileToFind: "dir1/dir2/test.2", expectedStem: "dir1/dir2/test.2")
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.FunctionalTests.StemIncludesAllSegmentsFromPatternStartingAtWildcard_TwoDirectoriesDeep(root: "root", includePattern: "**/dir1/dir2/**/*.2", fileToFind: "dir1/dir2/test.2", expectedStem: "dir1/dir2/test.2")
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.FunctionalTests.StemIncludesAllSegmentsFromPatternStartingAtWildcard_TwoDirectoriesDeep(root: "root", includePattern: "**/dir2/**/*.2", fileToFind: "dir1/dir2/test.2", expectedStem: "dir1/dir2/test.2")
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.FunctionalTests.StemIncludesAllSegmentsFromPatternStartingAtWildcard_TwoDirectoriesDeep(root: "root", includePattern: "dir1/dir2/**/*.2", fileToFind: "dir1/dir2/test.2", expectedStem: "test.2")
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.FunctionalTests.StemIncludesAllSegmentsFromPatternStartingAtWildcard_TwoDirectoriesDeep(root: "root/dir1", includePattern: "**/*.2", fileToFind: "dir2/test.2", expectedStem: "dir2/test.2")
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.FunctionalTests.StemIncludesAllSegmentsFromPatternStartingAtWildcard_TwoDirectoriesDeep(root: "root/dir1", includePattern: "**/dir2/**/*.2", fileToFind: "dir2/test.2", expectedStem: "dir2/test.2")
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.FunctionalTests.StemIncludesAllSegmentsFromPatternStartingAtWildcard_TwoDirectoriesDeep(root: "root/dir1", includePattern: "**/dir2/*.2", fileToFind: "dir2/test.2", expectedStem: "dir2/test.2")
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.FunctionalTests.StemIncludesAllSegmentsFromPatternStartingAtWildcard_TwoDirectoriesDeep(root: "root/dir1", includePattern: "dir2/**/*.2", fileToFind: "dir2/test.2", expectedStem: "test.2")
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.FunctionalTests.StemIncludesAllSegmentsFromPatternStartingAtWildcard_TwoDirectoriesDeep(root: "root/dir1", includePattern: "dir2/*.2", fileToFind: "dir2/test.2", expectedStem: "test.2")
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.FunctionalTests.StemIncludesAllSegmentsFromPatternStartingAtWildcard_TwoDirectoriesDeep(root: "root/dir1/dir2", includePattern: "**/*.2", fileToFind: "test.2", expectedStem: "test.2")
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.FunctionalTests.StemIncludesAllSegmentsFromPatternStartingAtWildcard_TwoDirectoriesDeep(root: "root", includePattern: "dir1/dir2/*.2", fileToFind: "dir1/dir2/test.2", expectedStem: "test.2")
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.FunctionalTests.StemIncludesAllSegmentsFromPatternStartingAtWildcard_TwoDirectoriesDeep(root: "root", includePattern: "**/*.2", fileToFind: "dir1/dir2/test.2", expectedStem: "dir1/dir2/test.2")
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.FunctionalTests.MultipleSubDirsAfterFirstWildcardMatch_HasCorrectStem
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.FunctionalTests.VerifyFiles_RedundantSegment_HasMatches(file: "./sdk/9.0.100-preview.4.24207.1/.version")
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.FunctionalTests.VerifyFiles_RedundantSegment_HasMatches(file: "././sdk/9.0.100-preview.4.24207.1/.version")
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.FunctionalTests.RecursiveAndDoubleParentsWithRecursiveSearch
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.FunctionalTests.IncludeCaseSensitive(root: "src/project", includePattern: "source1.cs", expectedFiles: ["source1.cs"])
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.FunctionalTests.IncludeCaseSensitive(root: "src/project", includePattern: "Source1.cs", expectedFiles: [])
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.FunctionalTests.IncludeCaseSensitive(root: "src/project", includePattern: "compiler/preprocess/**/*.cs", expectedFiles: ["compiler/preprocess/preprocess-source1.cs", "compiler/preprocess/sub/preprocess-source2.cs", "compiler/preprocess/sub/sub/preprocess-source3.cs"])
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.FunctionalTests.IncludeCaseSensitive(root: "src/project", includePattern: "compiler/Preprocess/**.cs", expectedFiles: [])
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.FunctionalTests.SingleFileAndRecursive
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.FunctionalTests.VerifyFiles_InMemory_HasCaseSensitiveRootMisses(matchRoot: "/this/example/root", filesRoot: "/this/EXAMPLE/root", pattern: "**/*", expectedSubPaths: ["some/test/file.txt"])
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.FunctionalTests.VerifyFiles_InMemory_HasCaseSensitiveRootMisses(matchRoot: "/this/EXAMPLE/root", filesRoot: "/this/example/root", pattern: "**/*", expectedSubPaths: ["some/test/file.txt"])
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.FunctionalTests.RecursiveSuffixSearch
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.FileAbstractionsTests.FilesAreEnumerated
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.FileAbstractionsTests.FoldersAreEnumerated
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.FileAbstractionsTests.SubFoldersAreEnumerated
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.FileAbstractionsTests.GetDirectoryCanTakeDotDot
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.FileAbstractionsTests.TempFolderStartsInitiallyEmpty
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternSegments.CurrentPathSegmentTests.Match(testSample: "anything")
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternSegments.CurrentPathSegmentTests.Match(testSample: "")
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternSegments.CurrentPathSegmentTests.Match(testSample: null)
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternContexts.PatternContextRaggedIncludeTests.PredictReturnsCorrectResult(patternString: "/a/b/**/c/d", pushDirectory: ["root"], expectSegment: "a")
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternContexts.PatternContextRaggedIncludeTests.PredictReturnsCorrectResult(patternString: "/a/b/**/c/d", pushDirectory: ["root", "a"], expectSegment: "b")
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternContexts.PatternContextRaggedIncludeTests.PredictReturnsCorrectResult(patternString: "/a/b/**/c/d", pushDirectory: ["root", "a", "b"], expectSegment: null)
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternContexts.PatternContextRaggedIncludeTests.PredictReturnsCorrectResult(patternString: "/a/b/**/c/d", pushDirectory: ["root", "a", "b", "whatever"], expectSegment: null)
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternContexts.PatternContextRaggedIncludeTests.PredictReturnsCorrectResult(patternString: "/a/b/**/c/d", pushDirectory: ["root", "a", "b", "whatever", "anything"], expectSegment: null)
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternContexts.PatternContextRaggedIncludeTests.PredictBeforeEnterDirectoryShouldThrow
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternContexts.PatternContextRaggedIncludeTests.PredictNotCallBackWhenEnterUnmatchDirectory(patternString: "/a/b/**/c/d", pushDirectory: ["root", "b"])
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternContexts.PatternContextRaggedIncludeTests.PredictNotCallBackWhenEnterUnmatchDirectory(patternString: "/a/b/**/c/d", pushDirectory: ["root", "a", "c"])
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternSegments.WildcardPathSegmentTests.PositiveOrdinalIgnoreCaseMatch(testSample: "abc", segment: WildcardPathSegment { BeginsWith = "a", CanProduceStem = True, Contains = [], EndsWith = "c" })
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternSegments.WildcardPathSegmentTests.PositiveOrdinalIgnoreCaseMatch(testSample: "abBb123c", segment: WildcardPathSegment { BeginsWith = "a", CanProduceStem = True, Contains = [], EndsWith = "c" })
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternSegments.WildcardPathSegmentTests.PositiveOrdinalIgnoreCaseMatch(testSample: "aaac", segment: WildcardPathSegment { BeginsWith = "a", CanProduceStem = True, Contains = [], EndsWith = "c" })
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternSegments.WildcardPathSegmentTests.PositiveOrdinalIgnoreCaseMatch(testSample: "acccc", segment: WildcardPathSegment { BeginsWith = "a", CanProduceStem = True, Contains = [], EndsWith = "c" })
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternSegments.WildcardPathSegmentTests.PositiveOrdinalIgnoreCaseMatch(testSample: "aacc", segment: WildcardPathSegment { BeginsWith = "a", CanProduceStem = True, Contains = [], EndsWith = "c" })
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternSegments.WildcardPathSegmentTests.PositiveOrdinalIgnoreCaseMatch(testSample: "aacc", segment: WildcardPathSegment { BeginsWith = "aa", CanProduceStem = True, Contains = [], EndsWith = "c" })
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternSegments.WildcardPathSegmentTests.PositiveOrdinalIgnoreCaseMatch(testSample: "acc", segment: WildcardPathSegment { BeginsWith = "ac", CanProduceStem = True, Contains = [], EndsWith = "c" })
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternSegments.WildcardPathSegmentTests.PositiveOrdinalIgnoreCaseMatch(testSample: "abcdefgh", segment: WildcardPathSegment { BeginsWith = "ab", CanProduceStem = True, Contains = ["cd", "ef"], EndsWith = "gh" })
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternSegments.WildcardPathSegmentTests.PositiveOrdinalIgnoreCaseMatch(testSample: "abCDEfgh", segment: WildcardPathSegment { BeginsWith = "ab", CanProduceStem = True, Contains = ["cd", "ef"], EndsWith = "gh" })
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternSegments.WildcardPathSegmentTests.PositiveOrdinalIgnoreCaseMatch(testSample: "ab123cd321ef123gh", segment: WildcardPathSegment { BeginsWith = "ab", CanProduceStem = True, Contains = ["cd", "ef"], EndsWith = "gh" })
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternSegments.WildcardPathSegmentTests.PositiveOrdinalIgnoreCaseMatch(testSample: "abcd321ef123gh", segment: WildcardPathSegment { BeginsWith = "ab", CanProduceStem = True, Contains = ["cd", "ef"], EndsWith = "gh" })
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternSegments.WildcardPathSegmentTests.PositiveOrdinalIgnoreCaseMatch(testSample: "ababcd321ef123gh", segment: WildcardPathSegment { BeginsWith = "ab", CanProduceStem = True, Contains = ["cd", "ef"], EndsWith = "gh" })
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternSegments.WildcardPathSegmentTests.NegativeOrdinalIgnoreCaseMatch(testSample: "aa", segment: WildcardPathSegment { BeginsWith = "a", CanProduceStem = True, Contains = [], EndsWith = "c" })
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternSegments.WildcardPathSegmentTests.NegativeOrdinalIgnoreCaseMatch(testSample: "cc", segment: WildcardPathSegment { BeginsWith = "a", CanProduceStem = True, Contains = [], EndsWith = "c" })
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternSegments.WildcardPathSegmentTests.NegativeOrdinalIgnoreCaseMatch(testSample: "ab", segment: WildcardPathSegment { BeginsWith = "a", CanProduceStem = True, Contains = [], EndsWith = "c" })
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternSegments.WildcardPathSegmentTests.NegativeOrdinalIgnoreCaseMatch(testSample: "ab", segment: WildcardPathSegment { BeginsWith = "a", CanProduceStem = True, Contains = ["b"], EndsWith = "c" })
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternSegments.WildcardPathSegmentTests.NegativeOrdinalIgnoreCaseMatch(testSample: "bc", segment: WildcardPathSegment { BeginsWith = "a", CanProduceStem = True, Contains = ["b"], EndsWith = "c" })
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternSegments.WildcardPathSegmentTests.NegativeOrdinalIgnoreCaseMatch(testSample: "ac", segment: WildcardPathSegment { BeginsWith = "a", CanProduceStem = True, Contains = ["b"], EndsWith = "c" })
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternSegments.WildcardPathSegmentTests.NegativeOrdinalIgnoreCaseMatch(testSample: "abc", segment: WildcardPathSegment { BeginsWith = "a", CanProduceStem = True, Contains = ["b", "b"], EndsWith = "c" })
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternSegments.WildcardPathSegmentTests.NegativeOrdinalIgnoreCaseMatch(testSample: "ab", segment: WildcardPathSegment { BeginsWith = "ab", CanProduceStem = True, Contains = [], EndsWith = "c" })
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternSegments.WildcardPathSegmentTests.NegativeOrdinalIgnoreCaseMatch(testSample: "ab", segment: WildcardPathSegment { BeginsWith = "abb", CanProduceStem = True, Contains = [], EndsWith = "c" })
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternSegments.WildcardPathSegmentTests.NegativeOrdinalIgnoreCaseMatch(testSample: "ac", segment: WildcardPathSegment { BeginsWith = "ac", CanProduceStem = True, Contains = [], EndsWith = "c" })
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternSegments.WildcardPathSegmentTests.PositiveOrdinalMatch(testSample: "abc", segment: WildcardPathSegment { BeginsWith = "a", CanProduceStem = True, Contains = [], EndsWith = "c" })
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternSegments.WildcardPathSegmentTests.PositiveOrdinalMatch(testSample: "abBb123c", segment: WildcardPathSegment { BeginsWith = "a", CanProduceStem = True, Contains = [], EndsWith = "c" })
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternSegments.WildcardPathSegmentTests.PositiveOrdinalMatch(testSample: "aaac", segment: WildcardPathSegment { BeginsWith = "a", CanProduceStem = True, Contains = [], EndsWith = "c" })
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternSegments.WildcardPathSegmentTests.PositiveOrdinalMatch(testSample: "Aaac", segment: WildcardPathSegment { BeginsWith = "A", CanProduceStem = True, Contains = [], EndsWith = "c" })
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternSegments.WildcardPathSegmentTests.PositiveOrdinalMatch(testSample: "acccC", segment: WildcardPathSegment { BeginsWith = "a", CanProduceStem = True, Contains = [], EndsWith = "C" })
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternSegments.WildcardPathSegmentTests.PositiveOrdinalMatch(testSample: "aacc", segment: WildcardPathSegment { BeginsWith = "a", CanProduceStem = True, Contains = [], EndsWith = "c" })
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternSegments.WildcardPathSegmentTests.PositiveOrdinalMatch(testSample: "aAcc", segment: WildcardPathSegment { BeginsWith = "aA", CanProduceStem = True, Contains = [], EndsWith = "c" })
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternSegments.WildcardPathSegmentTests.PositiveOrdinalMatch(testSample: "acc", segment: WildcardPathSegment { BeginsWith = "ac", CanProduceStem = True, Contains = [], EndsWith = "c" })
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternSegments.WildcardPathSegmentTests.PositiveOrdinalMatch(testSample: "abcDefgh", segment: WildcardPathSegment { BeginsWith = "ab", CanProduceStem = True, Contains = ["cD", "ef"], EndsWith = "gh" })
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternSegments.WildcardPathSegmentTests.PositiveOrdinalMatch(testSample: "aB123cd321ef123gh", segment: WildcardPathSegment { BeginsWith = "aB", CanProduceStem = True, Contains = ["cd", "ef"], EndsWith = "gh" })
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternSegments.WildcardPathSegmentTests.PositiveOrdinalMatch(testSample: "abcd321ef123gh", segment: WildcardPathSegment { BeginsWith = "ab", CanProduceStem = True, Contains = ["cd", "ef"], EndsWith = "gh" })
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternSegments.WildcardPathSegmentTests.PositiveOrdinalMatch(testSample: "ababcdCD321ef123gh", segment: WildcardPathSegment { BeginsWith = "ab", CanProduceStem = True, Contains = ["cd", "ef"], EndsWith = "gh" })
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternSegments.WildcardPathSegmentTests.PositiveOrdinalMatch(testSample: "ababcdCD321ef123gh", segment: WildcardPathSegment { BeginsWith = "ab", CanProduceStem = True, Contains = ["CD", "ef"], EndsWith = "gh" })
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternSegments.WildcardPathSegmentTests.PositiveOrdinalMatch(testSample: "ababcd321eF123gh", segment: WildcardPathSegment { BeginsWith = "ab", CanProduceStem = True, Contains = ["cd", "eF"], EndsWith = "gh" })
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternSegments.WildcardPathSegmentTests.NegativeOrdinalMatch(testSample: "aa", segment: WildcardPathSegment { BeginsWith = "a", CanProduceStem = True, Contains = [], EndsWith = "c" })
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternSegments.WildcardPathSegmentTests.NegativeOrdinalMatch(testSample: "abc", segment: WildcardPathSegment { BeginsWith = "A", CanProduceStem = True, Contains = [], EndsWith = "c" })
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternSegments.WildcardPathSegmentTests.NegativeOrdinalMatch(testSample: "cc", segment: WildcardPathSegment { BeginsWith = "a", CanProduceStem = True, Contains = [], EndsWith = "c" })
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternSegments.WildcardPathSegmentTests.NegativeOrdinalMatch(testSample: "ab", segment: WildcardPathSegment { BeginsWith = "a", CanProduceStem = True, Contains = [], EndsWith = "c" })
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternSegments.WildcardPathSegmentTests.NegativeOrdinalMatch(testSample: "ab", segment: WildcardPathSegment { BeginsWith = "a", CanProduceStem = True, Contains = ["b"], EndsWith = "c" })
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternSegments.WildcardPathSegmentTests.NegativeOrdinalMatch(testSample: "bc", segment: WildcardPathSegment { BeginsWith = "a", CanProduceStem = True, Contains = ["b"], EndsWith = "c" })
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternSegments.WildcardPathSegmentTests.NegativeOrdinalMatch(testSample: "ac", segment: WildcardPathSegment { BeginsWith = "a", CanProduceStem = True, Contains = ["b"], EndsWith = "c" })
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternSegments.WildcardPathSegmentTests.NegativeOrdinalMatch(testSample: "abc", segment: WildcardPathSegment { BeginsWith = "a", CanProduceStem = True, Contains = ["b", "b"], EndsWith = "c" })
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternSegments.WildcardPathSegmentTests.NegativeOrdinalMatch(testSample: "ab", segment: WildcardPathSegment { BeginsWith = "ab", CanProduceStem = True, Contains = [], EndsWith = "c" })
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternSegments.WildcardPathSegmentTests.NegativeOrdinalMatch(testSample: "ab", segment: WildcardPathSegment { BeginsWith = "abb", CanProduceStem = True, Contains = [], EndsWith = "c" })
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternSegments.WildcardPathSegmentTests.NegativeOrdinalMatch(testSample: "ac", segment: WildcardPathSegment { BeginsWith = "ac", CanProduceStem = True, Contains = [], EndsWith = "c" })
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternSegments.WildcardPathSegmentTests.NegativeOrdinalMatch(testSample: "abBb123C", segment: WildcardPathSegment { BeginsWith = "a", CanProduceStem = True, Contains = [], EndsWith = "c" })
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternSegments.WildcardPathSegmentTests.NegativeOrdinalMatch(testSample: "Aaac", segment: WildcardPathSegment { BeginsWith = "a", CanProduceStem = True, Contains = [], EndsWith = "c" })
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternSegments.WildcardPathSegmentTests.NegativeOrdinalMatch(testSample: "aAac", segment: WildcardPathSegment { BeginsWith = "A", CanProduceStem = True, Contains = [], EndsWith = "c" })
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternSegments.WildcardPathSegmentTests.NegativeOrdinalMatch(testSample: "aCc", segment: WildcardPathSegment { BeginsWith = "a", CanProduceStem = True, Contains = [], EndsWith = "C" })
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternSegments.WildcardPathSegmentTests.NegativeOrdinalMatch(testSample: "aacc", segment: WildcardPathSegment { BeginsWith = "aA", CanProduceStem = True, Contains = [], EndsWith = "c" })
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternSegments.WildcardPathSegmentTests.NegativeOrdinalMatch(testSample: "acc", segment: WildcardPathSegment { BeginsWith = "aC", CanProduceStem = True, Contains = [], EndsWith = "c" })
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternSegments.WildcardPathSegmentTests.NegativeOrdinalMatch(testSample: "abcDefgh", segment: WildcardPathSegment { BeginsWith = "ab", CanProduceStem = True, Contains = ["cd", "ef"], EndsWith = "gh" })
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternSegments.WildcardPathSegmentTests.NegativeOrdinalMatch(testSample: "aB123cd321ef123gh", segment: WildcardPathSegment { BeginsWith = "aB", CanProduceStem = True, Contains = ["cd", "EF"], EndsWith = "gh" })
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternSegments.WildcardPathSegmentTests.NegativeOrdinalMatch(testSample: "abcd321ef123gh", segment: WildcardPathSegment { BeginsWith = "ab", CanProduceStem = True, Contains = ["cd", "efF"], EndsWith = "gh" })
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternSegments.WildcardPathSegmentTests.NegativeOrdinalMatch(testSample: "ababcdCD321ef123gh", segment: WildcardPathSegment { BeginsWith = "AB", CanProduceStem = True, Contains = ["cd", "ef"], EndsWith = "gh" })
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternSegments.WildcardPathSegmentTests.NegativeOrdinalMatch(testSample: "ababcdCD321ef123gh", segment: WildcardPathSegment { BeginsWith = "ab", CanProduceStem = True, Contains = ["CD", "EF"], EndsWith = "gh" })
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternSegments.WildcardPathSegmentTests.DefaultConstructor_ThrowException_WhenNotOrdinalComparison(comparisonType: CurrentCulture)
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternSegments.WildcardPathSegmentTests.DefaultConstructor_ThrowException_WhenNotOrdinalComparison(comparisonType: CurrentCultureIgnoreCase)
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternSegments.WildcardPathSegmentTests.DefaultConstructor_ThrowException_WhenNotOrdinalComparison(comparisonType: InvariantCulture)
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternSegments.WildcardPathSegmentTests.DefaultConstructor_ThrowException_WhenNotOrdinalComparison(comparisonType: InvariantCultureIgnoreCase)
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternSegments.WildcardPathSegmentTests.DefaultConstructor(comparisonType: Ordinal)
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.PatternSegments.WildcardPathSegmentTests.DefaultConstructor(comparisonType: OrdinalIgnoreCase)
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.Patterns.PatternTests.BuildRaggedPattern(sample: "/abc/", segmentCount: 2, startSegmentsCount: 1, containSegmentCount: 0, endSegmentCount: 0)
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.Patterns.PatternTests.BuildRaggedPattern(sample: "**/*.suffix", segmentCount: 2, startSegmentsCount: 0, containSegmentCount: 0, endSegmentCount: 1)
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.Patterns.PatternTests.BuildRaggedPattern(sample: "/ab/**/**/hij/**", segmentCount: 5, startSegmentsCount: 1, containSegmentCount: 1, endSegmentCount: 0)
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.Patterns.PatternTests.BuildRaggedPattern(sample: "/ab/**/**/hij/**/", segmentCount: 6, startSegmentsCount: 1, containSegmentCount: 1, endSegmentCount: 0)
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.Patterns.PatternTests.BuildRaggedPattern(sample: "ab/**/**/hij/**/", segmentCount: 6, startSegmentsCount: 1, containSegmentCount: 1, endSegmentCount: 0)
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.Patterns.PatternTests.BuildRaggedPattern(sample: "ab/**/**/hij/**", segmentCount: 5, startSegmentsCount: 1, containSegmentCount: 1, endSegmentCount: 0)
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.Patterns.PatternTests.BuildRaggedPattern(sample: "**/**/hij/**", segmentCount: 4, startSegmentsCount: 0, containSegmentCount: 1, endSegmentCount: 0)
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.Patterns.PatternTests.BuildRaggedPattern(sample: "/**/hij/**", segmentCount: 3, startSegmentsCount: 0, containSegmentCount: 1, endSegmentCount: 0)
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.Patterns.PatternTests.BuildRaggedPattern(sample: "**/hij/**", segmentCount: 3, startSegmentsCount: 0, containSegmentCount: 1, endSegmentCount: 0)
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.Patterns.PatternTests.BuildRaggedPattern(sample: "**.suffix", segmentCount: 2, startSegmentsCount: 0, containSegmentCount: 0, endSegmentCount: 1)
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.Patterns.PatternTests.BuildRaggedPattern(sample: "**/hij/**/klm", segmentCount: 4, startSegmentsCount: 0, containSegmentCount: 1, endSegmentCount: 1)
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.Patterns.PatternTests.BuildRaggedPattern(sample: "abc/efg/**/hij/**/klm/**", segmentCount: 7, startSegmentsCount: 2, containSegmentCount: 2, endSegmentCount: 0)
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.Patterns.PatternTests.BuildRaggedPattern(sample: "abc/efg/**/hij/**/klm", segmentCount: 6, startSegmentsCount: 2, containSegmentCount: 1, endSegmentCount: 1)
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.Patterns.PatternTests.BuildRaggedPattern(sample: "abc/efg/**/hij/klm", segmentCount: 5, startSegmentsCount: 2, containSegmentCount: 0, endSegmentCount: 2)
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.Patterns.PatternTests.BuildRaggedPattern(sample: "/abc/efg/**", segmentCount: 3, startSegmentsCount: 2, containSegmentCount: 0, endSegmentCount: 0)
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.Patterns.PatternTests.BuildRaggedPattern(sample: "abc/efg/**", segmentCount: 3, startSegmentsCount: 2, containSegmentCount: 0, endSegmentCount: 0)
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.Patterns.PatternTests.BuildRaggedPattern(sample: "abc/efg/h*j/*.*/", segmentCount: 5, startSegmentsCount: 4, containSegmentCount: 0, endSegmentCount: 0)
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.Patterns.PatternTests.BuildRaggedPattern(sample: "abc/efg/", segmentCount: 3, startSegmentsCount: 2, containSegmentCount: 0, endSegmentCount: 0)
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.Patterns.PatternTests.BuildRaggedPattern(sample: "abc/", segmentCount: 2, startSegmentsCount: 1, containSegmentCount: 0, endSegmentCount: 0)
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.Patterns.PatternTests.BuildRaggedPattern(sample: "abc/efg/**/hij/**/klm/**/", segmentCount: 8, startSegmentsCount: 2, containSegmentCount: 2, endSegmentCount: 0)
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.Patterns.PatternTests.BuildRaggedPattern(sample: "ab/**.suffix", segmentCount: 3, startSegmentsCount: 1, containSegmentCount: 0, endSegmentCount: 1)
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.Patterns.PatternTests.BuildRaggedPatternNegative(sample: "abc")
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.Patterns.PatternTests.BuildRaggedPatternNegative(sample: "/abc")
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.Patterns.PatternTests.BuildRaggedPatternNegative(sample: "abc/efg")
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.Patterns.PatternTests.BuildRaggedPatternNegative(sample: "abc/efg/h*j")
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.Patterns.PatternTests.BuildRaggedPatternNegative(sample: "abc/efg/h*j/*.*")
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.Patterns.PatternTests.BuildRaggedPatternNegative(sample: "abc/efg/hij")
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.Patterns.PatternTests.BuildRaggedPatternNegative(sample: "abc/efg/hij/klm")
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.Patterns.PatternTests.ThrowExceptionForInvalidParentsPath(sample: "a/../")
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.Patterns.PatternTests.ThrowExceptionForInvalidParentsPath(sample: "a/..")
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.Patterns.PatternTests.ThrowExceptionForInvalidParentsPath(sample: "/a/../")
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.Patterns.PatternTests.ThrowExceptionForInvalidParentsPath(sample: "./a/../")
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.Patterns.PatternTests.ThrowExceptionForInvalidParentsPath(sample: "**/../")
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.Patterns.PatternTests.ThrowExceptionForInvalidParentsPath(sample: "*.cs/../")
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.Patterns.PatternTests.ThrowExceptionForNull
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.Patterns.PatternTests.BuildLinearPatternNegative(sample: "abc/efg/**")
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.Patterns.PatternTests.BuildLinearPatternNegative(sample: "/abc/efg/**")
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.Patterns.PatternTests.BuildLinearPatternNegative(sample: "abc/efg/**/hij/klm")
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.Patterns.PatternTests.BuildLinearPatternNegative(sample: "abc/efg/**/hij/**/klm")
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.Patterns.PatternTests.BuildLinearPatternNegative(sample: "abc/efg/**/hij/**/klm/**")
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.Patterns.PatternTests.BuildLinearPatternNegative(sample: "abc/efg/**/hij/**/klm/**/")
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.Patterns.PatternTests.BuildLinearPatternNegative(sample: "**/hij/**/klm")
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.Patterns.PatternTests.BuildLinearPatternNegative(sample: "**/hij/**")
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.Patterns.PatternTests.BuildLinearPatternNegative(sample: "/**/hij/**")
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.Patterns.PatternTests.BuildLinearPatternNegative(sample: "**/**/hij/**")
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.Patterns.PatternTests.BuildLinearPatternNegative(sample: "ab/**/**/hij/**")
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.Patterns.PatternTests.BuildLinearPatternNegative(sample: "ab/**/**/hij/**/")
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.Patterns.PatternTests.BuildLinearPatternNegative(sample: "/ab/**/**/hij/**/")
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.Patterns.PatternTests.BuildLinearPatternNegative(sample: "/ab/**/**/hij/**")
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.Patterns.PatternTests.BuildLinearPattern(sample: "abc", segmentCount: 1)
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.Patterns.PatternTests.BuildLinearPattern(sample: "/abc", segmentCount: 1)
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.Patterns.PatternTests.BuildLinearPattern(sample: "abc/efg", segmentCount: 2)
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.Patterns.PatternTests.BuildLinearPattern(sample: "abc/efg/h*j", segmentCount: 3)
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.Patterns.PatternTests.BuildLinearPattern(sample: "abc/efg/h*j/*.*", segmentCount: 4)
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.Patterns.PatternTests.BuildLinearPattern(sample: "abc/efg/hij", segmentCount: 3)
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.Patterns.PatternTests.BuildLinearPattern(sample: "abc/efg/hij/klm", segmentCount: 4)
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.Patterns.PatternTests.BuildLinearPattern(sample: "../abc/efg/hij/klm", segmentCount: 5)
+[STRT] Microsoft.Extensions.FileSystemGlobbing.Tests.Patterns.PatternTests.BuildLinearPattern(sample: "../../abc/efg/hij/klm", segmentCount: 6)
+Finished:    Microsoft.Extensions.FileSystemGlobbing.Tests.dll
+Finished uploading 161660 bytes of RESULTXML
+Xml file was written to the provided writer.
+
+=== TEST EXECUTION SUMMARY ===
+Tests run: 424 Passed: 423 Inconclusive: 0 Failed: 0 Ignored: 0 Skipped: 1
+
+test-main.js exiting WasmTestRunner.dll Microsoft.Extensions.FileSystemGlobbing.Tests.dll after 0.06055 minutes with result 0 and linear memory 193331200 bytes
+DOTNET: forceDisposeProxies done: 14 imports, 0 exports, 0 GCHandles, 0 JSHandles.
+WASM EXIT 0
