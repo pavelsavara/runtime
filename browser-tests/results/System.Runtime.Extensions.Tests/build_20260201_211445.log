@@ -7662,3 +7662,12 @@
   ~/dev/runtime/artifacts/bin/System.Runtime.Extensions.Tests/Release/net11.0-browser/browser-wasm/wwwroot ~/dev/runtime/src/libraries/System.Runtime/tests/System.Runtime.Extensions.Tests
   ----- end Sun Feb 1 21:43:47 CET 2026 ----- exit code 71 ----------------------------------------------------------
   XHarness artifacts: /home/pavelsavara/dev/runtime/artifacts/bin/System.Runtime.Extensions.Tests/Release/net11.0-browser/browser-wasm/wwwroot/xharness-output
+/home/pavelsavara/dev/runtime/eng/testing/tests.targets(206,5): error : One or more tests failed while running tests from 'System.Runtime.Extensions.Tests'. [/home/pavelsavara/dev/runtime/src/libraries/System.Runtime/tests/System.Runtime.Extensions.Tests/System.Runtime.Extensions.Tests.csproj::TargetFramework=net11.0-browser]
+
+Build FAILED.
+
+/home/pavelsavara/dev/runtime/eng/testing/tests.targets(206,5): error : One or more tests failed while running tests from 'System.Runtime.Extensions.Tests'. [/home/pavelsavara/dev/runtime/src/libraries/System.Runtime/tests/System.Runtime.Extensions.Tests/System.Runtime.Extensions.Tests.csproj::TargetFramework=net11.0-browser]
+    0 Warning(s)
+    1 Error(s)
+
+Time Elapsed 02:52:53.81

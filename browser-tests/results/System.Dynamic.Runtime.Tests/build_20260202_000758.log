@@ -1,0 +1,382 @@
+
+  Determining projects to restore...
+  All projects are up-to-date for restore.
+  TestUtilities -> /home/pavelsavara/dev/runtime/artifacts/bin/TestUtilities/Release/net10.0/TestUtilities.dll
+  WasmTriggerPublishApp for CoreCLR not implemented
+  System.Dynamic.Runtime.Tests -> /home/pavelsavara/dev/runtime/artifacts/bin/System.Dynamic.Runtime.Tests/Release/net11.0/browser-wasm/System.Dynamic.Runtime.Tests.dll
+  export SCENARIO=WasmTestOnChrome
+  export XUNIT_HIDE_PASSING_OUTPUT_DIAGNOSTICS=1
+  export PREPEND_PATH=/home/pavelsavara/dev/runtime/artifacts/bin/chromedriver/chromedriver_linux64
+  export RuntimeIdentifier=browser-wasm
+  PATH=/home/pavelsavara/dev/runtime/artifacts/bin/chromedriver/chromedriver_linux64:/home/pavelsavara/.jsvu/bin:/home/pavelsavara/dev/runtime/.dotnet:/home/pavelsavara/bin:/home/pavelsavara/dev/.dotnet:/home/pavelsavara/.vscode-server/data/User/globalStorage/github.copilot-chat/debugCommand:/home/pavelsavara/.vscode-server/data/User/globalStorage/github.copilot-chat/copilotCli:/home/pavelsavara/.vscode-server/bin/c9d77990917f3102ada88be140d28b038d1dd7c7/bin/remote-cli:/home/pavelsavara/bin:/home/pavelsavara/bin:/home/pavelsavara/dev/.dotnet:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/windows/system32:/mnt/c/windows:/mnt/d/.dotnet/:/mnt/c/windows/System32/Wbem:/mnt/c/windows/System32/WindowsPowerShell/v1.0/:/mnt/c/windows/System32/OpenSSH/:/mnt/c/Program Files/HP/HP One Agent:/mnt/c/Program Files/nodejs/:/mnt/c/Program Files/Meld/:/mnt/c/Program Files/dotnet/:/mnt/c/Program Files/Git/cmd:/mnt/c/Program Files/PuTTY/:/mnt/c/Program Files/PowerShell/7/:/mnt/c/Program Files/Microsoft SQL Server/170/Tools/Binn/:/mnt/c/Program Files/GitExtensions/:/mnt/c/Program Files/GitHub CLI/:/mnt/d/bin:/mnt/d/.dotnet/:/mnt/c/Users/pavelsavara/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/pavelsavara/AppData/Local/Programs/MicrosoftVSCode/bin:/mnt/c/Users/pavelsavara/AppData/Roaming/npm:/mnt/c/Users/pavelsavara/AppData/Local/Programs/Python/Python310/:/mnt/c/Users/pavelsavara/AppData/Local/Programs/Python/Python310/Scripts/:/mnt/c/Users/pavelsavara/AppData/Local/Microsoft/WinGet/Packages/GitHub.Copilot.Prerelease_Microsoft.Winget.Source_8wekyb3d8bbwe:/mnt/c/Users/pavelsavara/.dotnet/tools:/snap/bin
+  EXECUTION_DIR=/home/pavelsavara/dev/runtime/artifacts/bin/System.Dynamic.Runtime.Tests/Release/net11.0/browser-wasm/wwwroot
+  SCENARIO=WasmTestOnChrome
+  XHARNESS_OUT=/home/pavelsavara/dev/runtime/artifacts/bin/System.Dynamic.Runtime.Tests/Release/net11.0/browser-wasm/wwwroot/xharness-output
+  XHARNESS_CLI_PATH=
+  HARNESS_RUNNER=dotnet xharness
+  XHARNESS_COMMAND=test-browser
+  MAIN_JS=
+  JS_ENGINE=
+  JS_ENGINE_ARGS=--browser-arg=--js-flags=--stack-trace-limit=1000
+  XHARNESS_ARGS= --browser-arg=--js-flags=--stack-trace-limit=1000
+  ~/dev/runtime/artifacts/bin/System.Dynamic.Runtime.Tests/Release/net11.0/browser-wasm/wwwroot ~/dev/runtime/src/libraries/System.Runtime/tests/System.Dynamic.Runtime.Tests
+  ----- start Mon Feb 2 00:08:02 CET 2026 =============== To repro directly: =====================================================
+  pushd /home/pavelsavara/dev/runtime/artifacts/bin/System.Dynamic.Runtime.Tests/Release/net11.0/browser-wasm/wwwroot
+  dotnet xharness wasm test-browser --app=. --output-directory=/home/pavelsavara/dev/runtime/artifacts/bin/System.Dynamic.Runtime.Tests/Release/net11.0/browser-wasm/wwwroot/xharness-output -s dotnet.native.js.symbols --symbol-patterns wasm-symbol-patterns.txt --symbolicator WasmSymbolicator.dll,Microsoft.WebAssembly.Internal.SymbolicatorWrapperForXHarness --browser-path=/home/pavelsavara/dev/runtime/artifacts/bin/chrome/chrome-linux/chrome --timeout=00:30:00  --browser-arg=--js-flags=--stack-trace-limit=1000   --  --setenv=XHARNESS_LOG_TEST_START=true  --run WasmTestRunner.dll System.Dynamic.Runtime.Tests.dll  -notrait category=OuterLoop -notrait category=failing 
+  popd
+  ===========================================================================================================
+  ~/dev/runtime/artifacts/bin/System.Dynamic.Runtime.Tests/Release/net11.0/browser-wasm/wwwroot ~/dev/runtime/artifacts/bin/System.Dynamic.Runtime.Tests/Release/net11.0/browser-wasm/wwwroot ~/dev/runtime/src/libraries/System.Runtime/tests/System.Dynamic.Runtime.Tests
+  [11.0.0-prerelease.26064.3+31e0b8e08f57890f7b7004b93361d69cd4b21079] XHarness command issued: wasm test-browser --app=. --output-directory=/home/pavelsavara/dev/runtime/artifacts/bin/System.Dynamic.Runtime.Tests/Release/net11.0/browser-wasm/wwwroot/xharness-output -s dotnet.native.js.symbols --symbol-patterns wasm-symbol-patterns.txt --symbolicator WasmSymbolicator.dll,Microsoft.WebAssembly.Internal.SymbolicatorWrapperForXHarness --browser-path=/home/pavelsavara/dev/runtime/artifacts/bin/chrome/chrome-linux/chrome --timeout=00:30:00 --browser-arg=--js-flags=--stack-trace-limit=1000 -- --setenv=XHARNESS_LOG_TEST_START=true --run WasmTestRunner.dll System.Dynamic.Runtime.Tests.dll -notrait category=OuterLoop -notrait category=failing
+  [40m[1m[33mwarn[39m[22m[49m: Cannot find symbols file dotnet.native.js.symbols
+  [40m[32minfo[39m[22m[49m: Using Chrome from /home/pavelsavara/dev/runtime/artifacts/bin/chrome/chrome-linux/chrome
+  [40m[32minfo[39m[22m[49m: Starting chromedriver with args: --js-flags=--stack-trace-limit=1000 --headless --incognito --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-renderer-backgrounding --enable-features=NetworkService,NetworkServiceInProcess --allow-insecure-localhost --disable-breakpad --disable-component-extensions-with-background-pages --disable-dev-shm-usage --disable-extensions --disable-features=TranslateUI --disable-ipc-flooding-protection --force-color-profile=srgb --metrics-recording-only and load strategy: Normal
+  Starting ChromeDriver 143.0.7499.0 (0000000000000000000000000000000000000000-0000000000000000000000000000000000000000) on port 44069
+  Only local connections are allowed.
+  Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
+  ChromeDriver was started successfully on port 44069.
+  [40m[32minfo[39m[22m[49m: Running in: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/143.0.0.0 Safari/537.36
+  [40m[32minfo[39m[22m[49m: Running at: http://127.0.0.1:45253/index.html?arg=--setenv%3dXHARNESS_LOG_TEST_START%3dtrue&arg=--run&arg=WasmTestRunner.dll&arg=System.Dynamic.Runtime.Tests.dll&arg=-notrait&arg=category%3dOuterLoop&arg=-notrait&arg=category%3dfailing&arg=-verbosity&arg=Info
+  [40m[32minfo[39m[22m[49m: could not load /runArgs.json: 404. Ignoring
+  [40m[32minfo[39m[22m[49m: Incoming arguments: --setenv=XHARNESS_LOG_TEST_START=true --run WasmTestRunner.dll System.Dynamic.Runtime.Tests.dll -notrait category=OuterLoop -notrait category=failing -verbosity Info
+  [40m[32minfo[39m[22m[49m: Application arguments: --run WasmTestRunner.dll System.Dynamic.Runtime.Tests.dll -notrait category=OuterLoop -notrait category=failing -verbosity Info
+  [40m[32minfo[39m[22m[49m: Initializing dotnet version 11.0.0 commit hash e31907b0fbca908ed525247a1dc38cc5fba7b0ff
+  [40m[32minfo[39m[22m[49m: Using threadless Xunit runner
+  [40m[32minfo[39m[22m[49m: Discovering: System.Dynamic.Runtime.Tests.dll (method display = ClassAndMethod, method display options = None)
+  [40m[32minfo[39m[22m[49m: Discovered:  System.Dynamic.Runtime.Tests.dll (found 2913 of 2913 test cases)
+  [40m[32minfo[39m[22m[49m: Starting:    System.Dynamic.Runtime.Tests.dll
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.context.indexer.regclass.regclass003.regclass003.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.context.indexer.genclass.genclass001.genclass001.Test.PlusOperator
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.dynamicType.basic.collectioninit008.collectioninit008.A.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.namedandoptional.usage.dlgate.dlgate02.dlgate02.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.context.method.genmethod.genclass.genclass013.genclass013.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.namedandoptional.usage.inheritance.inherit21.inherit21.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.dynamicType.nullable.nullandnonnullablesub_lng001.nullandnonnullablesub_lng001.Test.Program.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.SpecialNames.opspecial021.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.namedandoptional.usage.overload.overload16c.overload16c.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.namedandoptional.decl.attributes.defaultParameter.default04.default04.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.dynamicType.conversions.array003.array003.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.context.property.autoproperty.regclass.regclass037.regclass037.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.namedandoptional.usage.inheritance.inherit15b.inherit15b.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.declarations.backwardscompatible.dynamicfieldorlocal002.dynamicfieldorlocal002.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.context.method.genmethod.regclass.regclass001.regclass001.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.namedandoptional.usage.inheritance.explicit03c.explicit03c.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.context.method.regmethod.genclass.genclass002.genclass002.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.statements.IndexerOperator.Binary.sub001.sub001.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.context.method.genmethod.genclass.genclass001.genclass001.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.namedandoptional.usage.inheritance.inherit14a.inherit14a.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.namedandoptional.decl.inheritance.inherit01a.inherit01a.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.dynamicType.formalParameter.operate001.operate001.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.statements.IndexerOperator.Binary.equal002.equal002.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.namedandoptional.usage.dlgate.dlgate15b.dlgate15b.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.dynamicType.conversions.target004.target004.TargetIsUserdefinedValueType.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.namedandoptional.usage.inheritance.inherit19.inherit19.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.overloadResolution.Methods.Oneclass2methods.twoprms005.twoprms005.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.namedandoptional.usage.extension.ext13.ext13.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.dynamicType.nullable.nullandnonnullableshr_integereger001.nullandnonnullableshr_integereger001.Test.Program.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.context.operate.genclass.genclass016.genclass016.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.overloadResolution.Methods.literals.zeroliteralresolution022.zeroliteralresolution022.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.namedandoptional.usage.overload.overload16b.overload16b.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.namedandoptional.usage.basic.generic03b.generic03b.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.context.indexer.regclass.regclass010.regclass010.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.dynamicType.generics.nested.nested003.nested003.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.context.operate.compound.evnt.pluseql.dynamic004.dynamic004.C.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.namedandoptional.usage.extension.ext07.ext07.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.SpecialNames.opspecial016.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.namedandoptional.decl.attributes.optionalParameter.opt02.opt02.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.namedandoptional.basic.optional03.optional03.TestFunction.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.context.operate.compound.basic.property03.property03.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.Variance.implem.cnstraintegereger05.cnstraintegereger05.P.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.dynamicType.generics.derived.ovr003.ovr003.Program.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.dynamicType.nullable.nullandnonnullablelt_uintegereger001.nullandnonnullablelt_uintegereger001.Test.Program.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.dynamicType.nullable.nullandnonnullableor_integereger001.nullandnonnullableor_integereger001.Test.Program.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.declarations.returnType.operate.binary001.binary001.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.namedandoptional.usage.executeOrder.nested05b.nested05b.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.namedandoptional.usage.dlgate.evnt03b.evnt03b.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.overloadResolution.Methods.Oneclass2methods.moreprms001.moreprms001.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.namedandoptional.usage.inheritance.inherit11.inherit11.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.dynamicType.basic.implicit001.implicit001.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.namedandoptional.decl.types.cnst06b.cnst06b.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.dynamicType.generics.cnstraintegeregers.simple019.simple019.B.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.context.property.regproperty.regclass.regclass031.regclass031.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.namedandoptional.usage.overload.overload04b.overload04b.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.namedandoptional.usage.prms.prms08c.prms08c.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.context.operate.compound.evnt.minuseql.fieldproperty004.fieldproperty004.C.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.namedandoptional.usage.inheritance.multi02.multi02.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.dynamicType.conversions.context007.context007.ConversionInArrayCreation.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.dynamicType.nullable.nullandnonnullablesub_enum001.nullandnonnullablesub_enum001.Test.Program.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.overloadResolution.Methods.literals.zeroliteralresolution028.zeroliteralresolution028.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.overloadResolution.Indexers.Oneclass2indexers.oneparamdifftypesnoconv001.oneparamdifftypesnoconv001.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.dynamicType.nullable.nullandnonnullablege_dbl001.nullandnonnullablege_dbl001.Test.Program.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.namedandoptional.usage.dlgate.lambda01.lambda01.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.namedandoptional.usage.dlgate.evnt07a.evnt07a.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.namedandoptional.usage.dlgate.evnt25c.evnt25c.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.namedandoptional.usage.executeOrder.order04.order04.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.namedandoptional.usage.extension.ext06.ext06.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.overloadResolution.Methods.literals.zeroliteral006.zeroliteral006.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.Variance.assign.overload01.overload01.C.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] System.Dynamic.Runtime.Tests.Test.CalledFrom_GenericStaticMethodBody
+  [40m[32minfo[39m[22m[49m: [STRT] System.Dynamic.Runtime.Tests.Test.CalledFrom_DoWhileExpression
+  [40m[32minfo[39m[22m[49m: [STRT] System.Dynamic.Runtime.Tests.Test.CalledFrom_ModuloOperator
+  [40m[32minfo[39m[22m[49m: [STRT] System.Dynamic.Runtime.Tests.Test.CalledFrom_ForeachInsideUsingStatement
+  [40m[32minfo[39m[22m[49m: [STRT] System.Dynamic.Runtime.Tests.Test.CalledFrom_GreaterThanOrEqualToOperator
+  [40m[32minfo[39m[22m[49m: [STRT] System.Dynamic.Runtime.Tests.Test.CalledFrom_DefaultSectionStatementList
+  [40m[32minfo[39m[22m[49m: [STRT] System.Dynamic.Runtime.Tests.Test.CalledFrom_Constructor
+  [40m[32minfo[39m[22m[49m: [STRT] System.Dynamic.Runtime.Tests.Test.CalledFrom_UsingExpression
+  [40m[32minfo[39m[22m[49m: [STRT] System.Dynamic.Runtime.Tests.Test.CalledFrom_ForExpressionConditions
+  [40m[32minfo[39m[22m[49m: [STRT] System.Dynamic.Runtime.Tests.Test.CalledFrom_GenericStaticMethodBody1
+  [40m[32minfo[39m[22m[49m: [STRT] System.Dynamic.Runtime.Tests.Test.CalledFrom_PlusOperator
+  [40m[32minfo[39m[22m[49m: [STRT] System.Dynamic.Runtime.Tests.Test.CalledFrom_StaticGetPropertyBody
+  [40m[32minfo[39m[22m[49m: [STRT] System.Dynamic.Runtime.Tests.Test.CalledFrom_IteratorCallingLambdaExpression
+  [40m[32minfo[39m[22m[49m: [STRT] System.Dynamic.Runtime.Tests.Test.CalledFrom_StaticPropertySetBody
+  [40m[32minfo[39m[22m[49m: [STRT] System.Dynamic.Runtime.Tests.Test.CalledFrom_ForeachExpression
+  [40m[32minfo[39m[22m[49m: [STRT] System.Dynamic.Runtime.Tests.Test.CalledFrom_ObjectInitializerInsideCollectionInitializer
+  [40m[32minfo[39m[22m[49m: [STRT] System.Dynamic.Runtime.Tests.Test.CalledFrom_DynamicVariableNamedDynamic
+  [40m[32minfo[39m[22m[49m: [STRT] System.Dynamic.Runtime.Tests.Test.CalledFrom_ExtensionMethodBody
+  [40m[32minfo[39m[22m[49m: [STRT] System.Dynamic.Runtime.Tests.Test.CalledFrom_ForLoopBody
+  [40m[32minfo[39m[22m[49m: [STRT] System.Dynamic.Runtime.Tests.Test.CalledFrom_ForExpressionBody
+  [40m[32minfo[39m[22m[49m: [STRT] System.Dynamic.Runtime.Tests.Test.CalledFrom_UsedInMethodArgument
+  [40m[32minfo[39m[22m[49m: [STRT] System.Dynamic.Runtime.Tests.Test.CalledFrom_StaticFieldInitializerOutOfConstructor
+  [40m[32minfo[39m[22m[49m: [STRT] System.Dynamic.Runtime.Tests.Test.CalledFrom_MemberInitializerOfObjectInitializer
+  [40m[32minfo[39m[22m[49m: [STRT] System.Dynamic.Runtime.Tests.Test.CalledFrom_AnonymousType_InsideQueryExpression
+  [40m[32minfo[39m[22m[49m: [STRT] System.Dynamic.Runtime.Tests.Test.CalledFrom_ImplicitlyTypeArrayInitializer
+  [40m[32minfo[39m[22m[49m: [STRT] System.Dynamic.Runtime.Tests.Test.CalledFrom_LockExpression
+  [40m[32minfo[39m[22m[49m: [STRT] System.Dynamic.Runtime.Tests.Test.CalledFrom_CheckedExpression
+  [40m[32minfo[39m[22m[49m: [STRT] System.Dynamic.Runtime.Tests.Test.CalledFrom_StaticMethodBody2
+  [40m[32minfo[39m[22m[49m: [STRT] System.Dynamic.Runtime.Tests.Test.CalledFrom_FieldInitializerOutOfConstructor
+  [40m[32minfo[39m[22m[49m: [STRT] System.Dynamic.Runtime.Tests.Test.CalledFrom_LockBlock
+  [40m[32minfo[39m[22m[49m: [STRT] System.Dynamic.Runtime.Tests.Test.CalledFrom_CollectionInitializer
+  [40m[32minfo[39m[22m[49m: [STRT] System.Dynamic.Runtime.Tests.Test.CalledFrom_ThrowExpression
+  [40m[32minfo[39m[22m[49m: [STRT] System.Dynamic.Runtime.Tests.Test.CalledFrom_GenericMethodArgument
+  [40m[32minfo[39m[22m[49m: [STRT] System.Dynamic.Runtime.Tests.Test.CalledFrom_StaticMethodBody7
+  [40m[32minfo[39m[22m[49m: [STRT] System.Dynamic.Runtime.Tests.Test.CalledFrom_DelegateInvokeArgument
+  [40m[32minfo[39m[22m[49m: [STRT] System.Dynamic.Runtime.Tests.Test.CalledFrom_StaticMethodBody6
+  [40m[32minfo[39m[22m[49m: [STRT] System.Dynamic.Runtime.Tests.Test.CalledFrom_ExtensionArgument
+  [40m[32minfo[39m[22m[49m: [STRT] System.Dynamic.Runtime.Tests.Test.CalledFrom_TryCatchFinally
+  [40m[32minfo[39m[22m[49m: [STRT] System.Dynamic.Runtime.Tests.Test.CalledFrom_StaticMethodBody4
+  [40m[32minfo[39m[22m[49m: [STRT] System.Dynamic.Runtime.Tests.Test.CalledFrom_StaticMethodBody3
+  [40m[32minfo[39m[22m[49m: [STRT] System.Dynamic.Runtime.Tests.Test.CalledFrom_ObjectInitializer_InsideCollectionInitializer
+  [40m[32minfo[39m[22m[49m: [STRT] System.Dynamic.Runtime.Tests.Test.CalledFrom_StaticMethdBody
+  [40m[32minfo[39m[22m[49m: [STRT] System.Dynamic.Runtime.Tests.Test.CalledFrom_EqualityOperator
+  [40m[32minfo[39m[22m[49m: [STRT] System.Dynamic.Runtime.Tests.Test.CalledFrom_TryCatchFinally_AnonymousMethod_ReferringToTwoDynamicParameters
+  [40m[32minfo[39m[22m[49m: [STRT] System.Dynamic.Runtime.Tests.Test.CalledFrom_StaticMethodBody5
+  [40m[32minfo[39m[22m[49m: [STRT] System.Dynamic.Runtime.Tests.Test.CalledFrom_PropertyGetBody
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.dynamicType.generics.cnstraintegeregers.simple012.simple012.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.namedandoptional.decl.other.extension02b.extension02b.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.namedandoptional.usage.dlgate.optattr04.optattr04.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.namedandoptional.usage.dlgate.dlgate01c.dlgate01c.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.namedandoptional.decl.inheritance.inherit09.inherit09.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.Variance.complex.typeinference006.typeinference006.C.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.namedandoptional.usage.basic.usage12b.usage12b.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.declarations.localVariable.blockVariable.anonmethod001.anonmethod001.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.context.method.regmethod.genclass.genclass001.genclass001.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.context.indexer.regclass.regclass042.regclass042.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.dynamicType.basic.array004.array004.C.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.overloadResolution.Methods.literals.zeroliteralresolution032.zeroliteralresolution032.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.integeregereraction.combined001.combined001.CombinedDynamicAndStaticOneLoop.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.overloadResolution.Operators.Oneclass2operates.binary.oneparamdifftypesconv007.oneparamdifftypesconv007.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.dynamicType.integeregererfaces.integeregererface013.integeregererface013.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.dynamicType.nullable.nullandnonnullableor_enum001.nullandnonnullableor_enum001.Test.Program.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.dynamicType.nullable.nullandnonnullablegt_dcml001.nullandnonnullablegt_dcml001.Test.Program.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.dynamicType.integeregererfaces.integeregererface001.integeregererface001.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.namedandoptional.usage.executeOrder.nested03b.nested03b.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.conformance.dynamic.unsfe.context.freach01.freach01.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.Variance.assign.assignment11.assignment11.B.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.namedandoptional.decl.declaration.indexer02.indexer02.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.context.method.genmethod.genclass.genclass008a.genclass008a.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.namedandoptional.usage.dlgate.evnt01.evnt01.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.dynamicType.generics.cnstraintegeregers.simple020.simple020.B.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.namedandoptional.usage.inheritance.explicit03.explicit03.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.integeregereraction.statictodynamic022.statictodynamic022.StaticToDynamicOfFirstClassWithStaticProperty.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.overloadResolution.Methods.Oneclass2methods.oneparamdifftypesconv013.oneparamdifftypesconv013.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.overloadResolution.Methods.Oneclass2methods.oneparamdifftypesconv009.oneparamdifftypesconv009.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.namedandoptional.usage.dlgate.evnt24a.evnt24a.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.Variance.expr.is07.is07.C.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.SpecialNames.opspecial013.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.overloadResolution.Methods.Oneclass2methods.regression01.regression01.A.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.namedandoptional.usage.inheritance.inherit06a.inherit06a.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.statements.IndexerOperator.Binary.assignment008e.assignment008e.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] Dynamic.Operator.Tests.DivideEqualLiftTests.UShort
+  [40m[32minfo[39m[22m[49m: [STRT] Dynamic.Operator.Tests.DivideEqualLiftTests.ULong
+  [40m[32minfo[39m[22m[49m: [STRT] Dynamic.Operator.Tests.DivideEqualLiftTests.SByte
+  [40m[32minfo[39m[22m[49m: [STRT] Dynamic.Operator.Tests.DivideEqualLiftTests.Float
+  [40m[32minfo[39m[22m[49m: [STRT] Dynamic.Operator.Tests.DivideEqualLiftTests.UInt
+  [40m[32minfo[39m[22m[49m: [STRT] Dynamic.Operator.Tests.DivideEqualLiftTests.Decimal
+  [40m[32minfo[39m[22m[49m: [STRT] Dynamic.Operator.Tests.DivideEqualLiftTests.Long
+  [40m[32minfo[39m[22m[49m: [STRT] Dynamic.Operator.Tests.DivideEqualLiftTests.Char
+  [40m[32minfo[39m[22m[49m: [STRT] Dynamic.Operator.Tests.DivideEqualLiftTests.Double
+  [40m[32minfo[39m[22m[49m: [STRT] Dynamic.Operator.Tests.DivideEqualLiftTests.Object
+  [40m[32minfo[39m[22m[49m: [STRT] Dynamic.Operator.Tests.DivideEqualLiftTests.Short
+  [40m[32minfo[39m[22m[49m: [STRT] Dynamic.Operator.Tests.DivideEqualLiftTests.String
+  [40m[32minfo[39m[22m[49m: [STRT] Dynamic.Operator.Tests.DivideEqualLiftTests.Byte
+  [40m[32minfo[39m[22m[49m: [STRT] Dynamic.Operator.Tests.DivideEqualLiftTests.Int
+  [40m[32minfo[39m[22m[49m: [STRT] Dynamic.Operator.Tests.DivideEqualLiftTests.Bool
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.namedandoptional.usage.overload.overload24.overload24.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.namedandoptional.usage.dlgate.lambda07.lambda07.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.declarations.localVariable.simple.declaration009.declaration009.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.integeregereraction.dynamictostatic006.dynamictostatic006.DynamicToStaticOfFirstGenericClassWithInstanceProperty.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.namedandoptional.usage.basic.usage04b.usage04b.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.namedandoptional.decl.declaration.prms11.prms11.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.dynamicType.basic.anonmethod003.anonmethod003.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.dynamicType.invoke.invoke002.invoke002.B.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.namedandoptional.usage.extension.ext05.ext05.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.statements.cnst.readonly04a.readonly04a.TestClass.RunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.namedandoptional.usage.executeOrder.order05.order05.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.ClsCompliance.bug89385_a.bug89385_a.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.dynamicType.basic.dlgate002.dlgate002.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.declarations.returnType.indexers.indexer003.indexer003.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.dynamicType.basic.negboxing002.negboxing002.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.dynamicType.conversions.target003.target003.TargetIsPredefinedValueType.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.declarations.returnType.properties.property005.property005.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.Variance.basic.dlgatecov.dlgatecov.C.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.context.indexer.regclass.regclass039.regclass039.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.overloadResolution.Methods.literals.zeroliteralresolution053.zeroliteralresolution053.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.namedandoptional.decl.attributes.defaultParameter.default06.default06.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.context.indexer.regclass.regclass014.regclass014.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.dynamicType.basic.lambda008.lambda008.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.overloadResolution.Methods.literals.zeroliteralresolution007.zeroliteralresolution007.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.dynamicType.basic.lambda009.lambda009.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.overloadResolution.Indexers.Oneclass2indexers.twoprms002.twoprms002.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.dynamicType.returnType.covariant.integeregererface001.integeregererface001.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.namedandoptional.decl.inheritance.inherit03a.inherit03a.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.context.method.genmethod.genclass.genclass026.genclass026.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.namedandoptional.decl.inheritance.inherit19.inherit19.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.context.method.genmethod.genclass.genclass011.genclass011.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.context.operate.compound.evnt.minuseql.dynamic004.dynamic004.C.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.statements.Null.null004.null004.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.dynamicType.generics.extractDynamic.extract003.extract003.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.namedandoptional.usage.other.indexer09c.indexer09c.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.overloadResolution.Indexers.Twoclass2indexers.overload005.overload005.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.context.operate.regclass.regstrct007.regstrct007.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.overloadResolution.Operators.Oneclass2operates.conversion.oneparamdifftypesconv001.oneparamdifftypesconv001.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.namedandoptional.decl.declaration.cnstrctor01a.cnstrctor01a.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.namedandoptional.decl.strct.strct19a.strct19a.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.dynamicType.basic.collectioninit001.collectioninit001.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.namedandoptional.usage.overload.overload19.overload19.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.unsfe.basic.anonytype01.anonytype01.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.dynamicType.statements.do003.do003.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] Dynamic.Operator.Tests.ShiftRightEqualTypeTests.UShort
+  [40m[32minfo[39m[22m[49m: [STRT] Dynamic.Operator.Tests.ShiftRightEqualTypeTests.ULong
+  [40m[32minfo[39m[22m[49m: [STRT] Dynamic.Operator.Tests.ShiftRightEqualTypeTests.SByte
+  [40m[32minfo[39m[22m[49m: [STRT] Dynamic.Operator.Tests.ShiftRightEqualTypeTests.Float
+  [40m[32minfo[39m[22m[49m: [STRT] Dynamic.Operator.Tests.ShiftRightEqualTypeTests.UInt
+  [40m[32minfo[39m[22m[49m: [STRT] Dynamic.Operator.Tests.ShiftRightEqualTypeTests.Decimal
+  [40m[32minfo[39m[22m[49m: [STRT] Dynamic.Operator.Tests.ShiftRightEqualTypeTests.Long
+  [40m[32minfo[39m[22m[49m: [STRT] Dynamic.Operator.Tests.ShiftRightEqualTypeTests.Char
+  [40m[32minfo[39m[22m[49m: [STRT] Dynamic.Operator.Tests.ShiftRightEqualTypeTests.Double
+  [40m[32minfo[39m[22m[49m: [STRT] Dynamic.Operator.Tests.ShiftRightEqualTypeTests.Object
+  [40m[32minfo[39m[22m[49m: [STRT] Dynamic.Operator.Tests.ShiftRightEqualTypeTests.Short
+  [40m[32minfo[39m[22m[49m: [STRT] Dynamic.Operator.Tests.ShiftRightEqualTypeTests.String
+  [40m[32minfo[39m[22m[49m: [STRT] Dynamic.Operator.Tests.ShiftRightEqualTypeTests.Byte
+  [40m[32minfo[39m[22m[49m: [STRT] Dynamic.Operator.Tests.ShiftRightEqualTypeTests.Int
+  [40m[32minfo[39m[22m[49m: [STRT] Dynamic.Operator.Tests.ShiftRightEqualTypeTests.Bool
+  [40m[32minfo[39m[22m[49m: [STRT] Dynamic.Operator.Tests.PlusEqualTypeTests.UShort
+  [40m[32minfo[39m[22m[49m: [STRT] Dynamic.Operator.Tests.PlusEqualTypeTests.ULong
+  [40m[32minfo[39m[22m[49m: [STRT] Dynamic.Operator.Tests.PlusEqualTypeTests.SByte
+  [40m[32minfo[39m[22m[49m: [STRT] Dynamic.Operator.Tests.PlusEqualTypeTests.Float
+  [40m[32minfo[39m[22m[49m: [STRT] Dynamic.Operator.Tests.PlusEqualTypeTests.UInt
+  [40m[32minfo[39m[22m[49m: [STRT] Dynamic.Operator.Tests.PlusEqualTypeTests.Decimal
+  [40m[32minfo[39m[22m[49m: [STRT] Dynamic.Operator.Tests.PlusEqualTypeTests.Long
+  [40m[32minfo[39m[22m[49m: [STRT] Dynamic.Operator.Tests.PlusEqualTypeTests.Char
+  [40m[32minfo[39m[22m[49m: [STRT] Dynamic.Operator.Tests.PlusEqualTypeTests.Double
+  [40m[32minfo[39m[22m[49m: [STRT] Dynamic.Operator.Tests.PlusEqualTypeTests.Object
+  [40m[32minfo[39m[22m[49m: [STRT] Dynamic.Operator.Tests.PlusEqualTypeTests.Short
+  [40m[32minfo[39m[22m[49m: [STRT] Dynamic.Operator.Tests.PlusEqualTypeTests.String
+  [40m[32minfo[39m[22m[49m: [STRT] Dynamic.Operator.Tests.PlusEqualTypeTests.Byte
+  [40m[32minfo[39m[22m[49m: [STRT] Dynamic.Operator.Tests.PlusEqualTypeTests.Int
+  [40m[32minfo[39m[22m[49m: [STRT] Dynamic.Operator.Tests.PlusEqualTypeTests.Bool
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.namedandoptional.usage.basic.usage10d.usage10d.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.namedandoptional.usage.dlgate.dlgate04c.dlgate04c.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.dynamicType.generics.nested.nested006.nested006.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.namedandoptional.usage.overload.overload21.overload21.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.namedandoptional.decl.types.type03b.type03b.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.overloadResolution.Methods.literals.zeroliteral004.zeroliteral004.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.namedandoptional.usage.dlgate.lambda16.lambda16.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.context.method.genmethod.regclass.regclass008.regclass008.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.namedandoptional.usage.dlgate.dlgate14b.dlgate14b.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.namedandoptional.usage.other.ref05.ref05.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.dynamicType.nullable.nullandnonnullableadd_flt001.nullandnonnullableadd_flt001.Test.Program.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.dynamicType.nullable.nullandnonnullablege_flt001.nullandnonnullablege_flt001.Test.Program.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.namedandoptional.decl.opOverload.explicit02.explicit02.TestFunction.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.overloadResolution.Methods.Oneclass2methods.oneparamdifftypesconv005.oneparamdifftypesconv005.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.context.method.genmethod.regclass.regclass011.regclass011.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.overloadResolution.Indexers.Oneclass2indexers.oneparam006.oneparam006.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.dynamicType.conversions.cnst002.cnst002.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.context.property.autoproperty.genclass.genclass006.genclass006.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.overloadResolution.Methods.literals.zeroliteralresolution051.zeroliteralresolution051.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.namedandoptional.decl.types.type09.type09.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.overloadResolution.Methods.Oneclass2methods.onedynamicparam004.onedynamicparam004.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.statements.cnst.readonly10.readonly10.C.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.namedandoptional.usage.basic.usage03a.usage03a.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.namedandoptional.decl.opOverload.explicit05.explicit05.TestFunction.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.context.property.autoproperty.regclass.regclass004.regclass004.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.dynamicType.generics.nested.nestedstrct004.nestedstrct004.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.namedandoptional.decl.types.type04b.type04b.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.namedandoptional.usage.basic.generic03a.generic03a.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.namedandoptional.usage.extension.ext14a.ext14a.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.integeregereraction.statictodynamic021.statictodynamic021.StaticToDynamicOfFirstClassWithStaticMethod.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.context.method.regmethod.regclass.regclass086.regclass086.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.overloadResolution.Methods.literals.realliteral001.realliteral001.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.overloadResolution.Methods.literals.zeroliteral010.zeroliteral010.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.dynamicType.basic.evnt002.evnt002.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.declarations.localVariable.simple.errordeclaration001.errordeclaration001.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.overloadResolution.Methods.literals.realliteral005.realliteral005.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.context.operate.regclass.regstrct010.regstrct010.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.dynamicType.generics.nested.nestedclass006.nestedclass006.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.unsfe.basic.implicit01.implicit01.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.declarations.localVariable.simple.declaration002.declaration002.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.namedandoptional.decl.integeregererface.integeregererface17.integeregererface17.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.overloadResolution.Operators.Twoclass2operates.binary.overload008.overload008.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.overloadResolution.Indexers.Oneclass2indexers.oneparamdifftypesconv009.oneparamdifftypesconv009.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.Variance.expr.is02.is02.C.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.dynamicType.returnType.covariant.usage008.usage008.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.overloadResolution.Indexers.Twoclass2indexers.ovr009.ovr009.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.dynamicType.nullable.nullandnonnullableshr_ulng001.nullandnonnullableshr_ulng001.Test.Program.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.namedandoptional.usage.other.base03.base03.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.namedandoptional.decl.attributes.defaultParameter.default10c.default10c.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.namedandoptional.decl.inheritance.inherit21.inherit21.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.dynamicType.returnType.basic.generic004.generic004.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.overloadResolution.Methods.Oneclass2methods.cnstraintegereger01.cnstraintegereger01.A.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.namedandoptional.usage.basic.usage15b.usage15b.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.namedandoptional.decl.inheritance.inherit07a.inherit07a.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.dynamicType.basic.array010.array010.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.namedandoptional.usage.inheritance.inherit06d.inherit06d.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.context.indexer.regclass.regclass019.regclass019.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.overloadResolution.Methods.literals.zeroliteralresolution013.zeroliteralresolution013.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.namedandoptional.usage.basic.usage17.usage17.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.declarations.backwardscompatible.dynamictypedeclared017.dynamictypedeclared017.A.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.dynamicType.formalParameter.method009.method009.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.context.method.regmethod.genclass.genclass016.genclass016.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.dynamicType.statements.yield004.yield004.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.overloadResolution.Methods.literals.zeroliteralresolution004.zeroliteralresolution004.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.namedandoptional.usage.dlgate.lambda14.lambda14.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.namedandoptional.decl.types.nullable10a.nullable10a.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.namedandoptional.decl.types.type05b.type05b.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.dynamicType.basic.lambda007.lambda007.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.namedandoptional.usage.dlgate.dlgate04.dlgate04.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.dynamicType.basic.anonmethod006.anonmethod006.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.namedandoptional.usage.executeOrder.nested02a.nested02a.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.unsfe.basic.lambda02.lambda02.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.declarations.formalParameter.Methods.method001.method001.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.namedandoptional.usage.inheritance.inherit16b.inherit16b.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.context.indexer.regclass.regclass045.regclass045.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.overloadResolution.Operators.Twoclass2operates.binary.overload005.overload005.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.context.property.autoproperty.regclass.regclass007.regclass007.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.namedandoptional.usage.basic.usage14b.usage14b.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.context.method.regmethod.regclass.regclass074.regclass074.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.dynamicType.nullable.nullandnonnullablemul_uintegereger001.nullandnonnullablemul_uintegereger001.Test.Program.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.unsfe.basic.collection02.collection02.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.overloadResolution.Methods.literals.zeroliteralresolution050.zeroliteralresolution050.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.context.operate.compound.evnt.pluseql.return002.return002.C.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.context.operate.regclass.regstrct031.regstrct031.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.dynamicType.generics.derived.changetypearg002.changetypearg002.Program.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.dynamicType.basic.literal001.literal001.Test.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.dynamicType.basic.gettype01.gettype01.Program.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] ManagedTests.DynamicCSharp.Conformance.dynamic.dynamicType.nullable.nullandnonnullableeq_dcml001.nullandnonnullableeq_dcml001.Test.Program.DynamicCSharpRunTest
+  [40m[32minfo[39m[22m[49m: [STRT] Dynamic.Operator.Tests.AndEqualTypeTests.UShort
+  [40m[32minfo[39m[22m[49m: [STRT] Dynamic.Operator.Tests.AndEqualTypeTests.ULong
+  [40m[32minfo[39m[22m[49m: [STRT] Dynamic.Operator.Tests.AndEqualTypeTests.SByte
+  [40m[32minfo[39m[22m[49m: [STRT] Dynamic.Operator.Tests.AndEqualTypeTests.Float
+  [40m[32minfo[39m[22m[49m: [STRT] Dynamic.Operator.Tests.AndEqualTypeTests.UInt
+  [40m[32minfo[39m[22m[49m: [STRT] Dynamic.Operator.Tests.AndEqualTypeTests.Decimal
+  [40m[32minfo[39m[22m[49m: [STRT] Dynamic.Operator.Tests.AndEqualTypeTests.Long
+  [40m[32minfo[39m[22m[49m: [STRT] Dynamic.Operator.Tests.AndEqualTypeTests.Char
