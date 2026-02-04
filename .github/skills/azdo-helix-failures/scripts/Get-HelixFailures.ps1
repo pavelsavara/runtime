@@ -108,7 +108,7 @@ param(
     [int]$TimeoutSec = 30,
     [int]$ContextLines = 0,
     [switch]$NoCache,
-    [int]$CacheTTLSeconds = 30,
+    [int]$CacheTTLSeconds = 60*60, # 1 hour
     [switch]$ContinueOnError,
     [switch]$SearchMihuBot
 )
