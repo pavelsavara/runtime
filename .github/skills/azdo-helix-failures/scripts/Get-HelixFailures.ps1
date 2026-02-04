@@ -31,6 +31,9 @@
 .PARAMETER FetchFromHelix
     If specified, fetches Helix console logs for failed tests.
 
+.PARAMETER Silent
+    If specified, fetches Helix console logs for failed tests.
+
 .PARAMETER MaxJobs
     Maximum number of failed jobs to process. Default: 5
 
@@ -99,6 +102,7 @@ param(
     [string]$Organization = "dnceng-public",
     [string]$Project = "cbb18261-c48f-4abb-8651-8cdcb5474649",
     [switch]$FetchFromHelix,
+    [switch]$Silent,
     [int]$MaxJobs = 5,
     [int]$MaxFailureLines = 50,
     [int]$TimeoutSec = 30,
@@ -150,10 +154,10 @@ if ($ClearCache) {
         $files = Get-ChildItem -Path $cacheDir -File
         $count = $files.Count
         Remove-Item -Path $cacheDir -Recurse -Force
-        Write-Host "Cleared $count cached files from $cacheDir" -ForegroundColor Green
+        Write-Verbose "Cleared $count cached files from $cacheDir"
     }
     else {
-        Write-Verbose "Cache directory does not exist: $cacheDir" -ForegroundColor Yellow
+        Write-Verbose "Cache directory does not exist: $cacheDir"
     }
     exit 0
 }
@@ -251,7 +255,7 @@ function Set-CachedResponse {
         Write-Verbose "Cached response for $Url"
         
         # Add entry to cache index
-        Add-CacheIndexEntry -Hash $hash -Url $Url -Type $Type -Context $Context
+        Add-CacheIndexEntry -Hash $hash -Url $Url -Type $Type -Context $Context -CacheFile $cacheFile
         
         return $cacheFile
     }
@@ -270,7 +274,8 @@ function Add-CacheIndexEntry {
         [string]$Hash,
         [string]$Url,
         [string]$Type = "unknown",
-        [string]$Context = ""
+        [string]$Context = "",
+        [string]$CacheFile = ""
     )
     
     if ($NoCache) { return }
@@ -309,7 +314,10 @@ function Add-CacheIndexEntry {
         
         $newContent | Set-Content -LiteralPath $tempIndexFile -Force -NoNewline
         Move-Item -LiteralPath $tempIndexFile -Destination $indexFile -Force
-        Write-Verbose "Added cache index entry: $Type - $Context"
+        Write-Host-Links "$Type - $Context"
+        Write-Host-Links "  $CacheFile" -ForegroundColor Gray
+        Write-Host-Links "  $cleanUrl" -ForegroundColor Gray
+        Write-Host-Links ""
     }
     catch {
         if (Test-Path $tempIndexFile) {
@@ -334,6 +342,13 @@ function Invoke-CachedRestMethod {
     if (-not $SkipCache) {
         $cached = Get-CachedResponse -Url $Uri
         if ($cached) {
+            $hash = Get-UrlHash -Url $Url
+            $CacheFile = Join-Path $script:CacheDir "$hash.json"
+            Write-Host-Links "$Type - $Context"
+            Write-Host-Links "  $CacheFile" -ForegroundColor Gray
+            Write-Host-Links "  $Uri" -ForegroundColor Gray
+            Write-Host-Links ""
+
             if ($AsJson) {
                 try {
                     return $cached | ConvertFrom-Json -ErrorAction Stop
@@ -367,6 +382,60 @@ function Invoke-CachedRestMethod {
 }
 
 #endregion Caching Functions
+
+#region Output Wrapper Functions
+
+function Write-Host-Links {
+    <#
+    .SYNOPSIS
+        Write-Host wrapper that outputs only when $Silent is false (verbose/progress mode).
+    #>
+    param(
+        [Parameter(Position = 0, ValueFromPipeline = $true)]
+        [object]$Object,
+        [System.ConsoleColor]$ForegroundColor,
+        [System.ConsoleColor]$BackgroundColor,
+        [switch]$NoNewline,
+        [object]$Separator
+    )
+    
+    if ($Silent) {
+        $params = @{}
+        if ($PSBoundParameters.ContainsKey('Object')) { $params['Object'] = $Object }
+        if ($PSBoundParameters.ContainsKey('ForegroundColor')) { $params['ForegroundColor'] = $ForegroundColor }
+        if ($PSBoundParameters.ContainsKey('BackgroundColor')) { $params['BackgroundColor'] = $BackgroundColor }
+        if ($NoNewline) { $params['NoNewline'] = $true }
+        if ($PSBoundParameters.ContainsKey('Separator')) { $params['Separator'] = $Separator }
+        Write-Host @params
+    }
+}
+
+function Write-Host-Verbose {
+    <#
+    .SYNOPSIS
+        Write-Host wrapper that outputs only when $Silent is true (silent/dump mode).
+    #>
+    param(
+        [Parameter(Position = 0, ValueFromPipeline = $true)]
+        [object]$Object,
+        [System.ConsoleColor]$ForegroundColor,
+        [System.ConsoleColor]$BackgroundColor,
+        [switch]$NoNewline,
+        [object]$Separator
+    )
+    
+    if (-not $Silent) {
+        $params = @{}
+        if ($PSBoundParameters.ContainsKey('Object')) { $params['Object'] = $Object }
+        if ($PSBoundParameters.ContainsKey('ForegroundColor')) { $params['ForegroundColor'] = $ForegroundColor }
+        if ($PSBoundParameters.ContainsKey('BackgroundColor')) { $params['BackgroundColor'] = $BackgroundColor }
+        if ($NoNewline) { $params['NoNewline'] = $true }
+        if ($PSBoundParameters.ContainsKey('Separator')) { $params['Separator'] = $Separator }
+        Write-Host @params
+    }
+}
+
+#endregion Output Wrapper Functions
 
 #region Validation Functions
 
@@ -445,9 +514,9 @@ function Get-AzDOBuildIdFromPR {
     $buildIds = $failingBuilds.Keys | ForEach-Object { [int]$_ } | Sort-Object -Unique
 
     if ($buildIds.Count -gt 1) {
-        Write-Host "Found $($buildIds.Count) failing builds:" -ForegroundColor Yellow
+        Write-Host-Verbose "Found $($buildIds.Count) failing builds:" -ForegroundColor Yellow
         foreach ($id in $buildIds) {
-            Write-Host "  - Build $id ($($failingBuilds[$id.ToString()]))" -ForegroundColor Gray
+            Write-Host-Verbose "  - Build $id ($($failingBuilds[$id.ToString()]))" -ForegroundColor Gray
         }
     }
 
@@ -514,10 +583,10 @@ function Get-BuildAnalysisKnownIssues {
         }
 
         if ($knownIssues.Count -gt 0) {
-            Write-Host "`nBuild Analysis found $($knownIssues.Count) known issue(s):" -ForegroundColor Yellow
+            Write-Host-Verbose "`nBuild Analysis found $($knownIssues.Count) known issue(s):" -ForegroundColor Yellow
             foreach ($issue in $knownIssues) {
-                Write-Host "  - #$($issue.Number): $($issue.Title)" -ForegroundColor Gray
-                Write-Host "    $($issue.Url)" -ForegroundColor DarkGray
+                Write-Host-Verbose "  - #$($issue.Number): $($issue.Title)" -ForegroundColor Gray
+                Write-Host-Verbose "    $($issue.Url)" -ForegroundColor DarkGray
             }
         }
 
@@ -554,7 +623,7 @@ function Get-PRChangedFiles {
         $count = [int]$fileCount
         if ($count -gt $MaxFiles) {
             Write-Verbose "PR has $count files (exceeds limit of $MaxFiles) - skipping correlation"
-            Write-Host "PR has $count changed files - skipping detailed correlation (limit: $MaxFiles)" -ForegroundColor Gray
+            Write-Host-Verbose "PR has $count changed files - skipping detailed correlation (limit: $MaxFiles)" -ForegroundColor Gray
             return @()
         }
 
@@ -668,35 +737,35 @@ function Show-PRCorrelationSummary {
 
     # Show results
     if ($correlatedFiles.Count -gt 0 -or $testFiles.Count -gt 0) {
-        Write-Host "`n=== PR Change Correlation ===" -ForegroundColor Magenta
+        Write-Host-Verbose "`n=== PR Change Correlation ===" -ForegroundColor Magenta
 
         if ($testFiles.Count -gt 0) {
-            Write-Host "⚠️  Test files changed by this PR are failing:" -ForegroundColor Yellow
+            Write-Host-Verbose "⚠️  Test files changed by this PR are failing:" -ForegroundColor Yellow
             $shown = 0
             foreach ($file in $testFiles) {
                 if ($shown -ge 10) {
-                    Write-Host "    ... and $($testFiles.Count - 10) more test files" -ForegroundColor Gray
+                    Write-Host-Verbose "    ... and $($testFiles.Count - 10) more test files" -ForegroundColor Gray
                     break
                 }
-                Write-Host "    $file" -ForegroundColor Red
+                Write-Host-Verbose "    $file" -ForegroundColor Red
                 $shown++
             }
         }
 
         if ($correlatedFiles.Count -gt 0) {
-            Write-Host "⚠️  Files changed by this PR appear in failures:" -ForegroundColor Yellow
+            Write-Host-Verbose "⚠️  Files changed by this PR appear in failures:" -ForegroundColor Yellow
             $shown = 0
             foreach ($file in $correlatedFiles) {
                 if ($shown -ge 10) {
-                    Write-Host "    ... and $($correlatedFiles.Count - 10) more files" -ForegroundColor Gray
+                    Write-Host-Verbose "    ... and $($correlatedFiles.Count - 10) more files" -ForegroundColor Gray
                     break
                 }
-                Write-Host "    $file" -ForegroundColor Red
+                Write-Host-Verbose "    $file" -ForegroundColor Red
                 $shown++
             }
         }
 
-        Write-Host "`nThese failures are likely PR-related." -ForegroundColor Yellow
+        Write-Host-Verbose "`nThese failures are likely PR-related." -ForegroundColor Yellow
     }
 }
 
@@ -751,7 +820,7 @@ function Get-AzDOTimeline {
     )
 
     $url = "https://dev.azure.com/$Organization/$Project/_apis/build/builds/$Build/timeline?api-version=7.0"
-    Write-Host "Fetching build timeline..." -ForegroundColor Cyan
+    Write-Verbose "Fetching build timeline..."
 
     try {
         # Don't cache timeline for in-progress builds - it changes as jobs complete
@@ -761,10 +830,11 @@ function Get-AzDOTimeline {
     }
     catch {
         if ($ContinueOnError) {
-            Write-Warning "Failed to fetch build timeline: $_"
+            Write-Warning "Failed to fetch build timeline"
+            Write-Verbose "Failed to fetch build timeline: $_"
             return $null
         }
-        throw "Failed to fetch build timeline: $_"
+        throw "Failed to fetch build timeline"
     }
 }
 
@@ -824,7 +894,8 @@ function Get-BuildLog {
         return $response
     }
     catch {
-        Write-Warning "Failed to fetch log ${LogId}: $_"
+        Write-Warning "Failed to fetch log ${LogId}"
+        Write-Verbose "Failed to fetch log ${LogId}: $_"
         return $null
     }
 }
@@ -1200,10 +1271,10 @@ function Show-KnownIssues {
     if ($TestName -or $ErrorMessage) {
         $knownIssues = Search-KnownIssues -TestName $TestName -ErrorMessage $ErrorMessage -Repository $Repository
         if ($knownIssues -and $knownIssues.Count -gt 0) {
-            Write-Host "`n  Known Issues:" -ForegroundColor Magenta
+            Write-Host-Verbose "`n  Known Issues:" -ForegroundColor Magenta
             foreach ($issue in $knownIssues) {
-                Write-Host "    #$($issue.Number): $($issue.Title)" -ForegroundColor Magenta
-                Write-Host "    $($issue.Url)" -ForegroundColor Gray
+                Write-Host-Verbose "    #$($issue.Number): $($issue.Title)" -ForegroundColor Magenta
+                Write-Host-Verbose "    $($issue.Url)" -ForegroundColor Gray
             }
         }
 
@@ -1244,11 +1315,11 @@ function Show-KnownIssues {
                     $newResults = $mihuBotResults | Where-Object { $_.Number -notin $knownNumbers }
 
                     if ($newResults -and @($newResults).Count -gt 0) {
-                        Write-Host "`n  Related Issues (MihuBot):" -ForegroundColor Blue
+                        Write-Host-Verbose "`n  Related Issues (MihuBot):" -ForegroundColor Blue
                         foreach ($issue in $newResults) {
                             $stateIcon = if ($issue.State -eq "open") { "[open]" } else { "[closed]" }
-                            Write-Host "    #$($issue.Number): $($issue.Title) $stateIcon" -ForegroundColor Blue
-                            Write-Host "    $($issue.Url)" -ForegroundColor Gray
+                            Write-Host-Verbose "    #$($issue.Number): $($issue.Title) $stateIcon" -ForegroundColor Blue
+                            Write-Host-Verbose "    $($issue.Url)" -ForegroundColor Gray
                         }
                     }
                 }
@@ -1539,18 +1610,18 @@ function Show-TestRunResults {
 
     if (-not $TestRunUrls -or $TestRunUrls.Count -eq 0) { return }
 
-    Write-Host "`n  Test Results:" -ForegroundColor Yellow
+    Write-Host-Verbose "`n  Test Results:" -ForegroundColor Yellow
     foreach ($testRun in $TestRunUrls) {
-        Write-Host "    Run $($testRun.RunId): $($testRun.Url)" -ForegroundColor Gray
+        Write-Host-Verbose "    Run $($testRun.RunId): $($testRun.Url)" -ForegroundColor Gray
 
         $testResults = Get-AzDOTestResults -RunId $testRun.RunId -Org $Org
         if ($testResults -and $testResults.Count -gt 0) {
-            Write-Host "`n    Failed tests ($($testResults.Count)):" -ForegroundColor Red
+            Write-Host-Verbose "`n    Failed tests ($($testResults.Count)):" -ForegroundColor Red
             foreach ($result in $testResults | Select-Object -First 10) {
-                Write-Host "      - $($result.name)" -ForegroundColor White
+                Write-Host-Verbose "      - $($result.name)" -ForegroundColor White
             }
             if ($testResults.Count -gt 10) {
-                Write-Host "      ... and $($testResults.Count - 10) more" -ForegroundColor Gray
+                Write-Host-Verbose "      ... and $($testResults.Count - 10) more" -ForegroundColor Gray
             }
         }
     }
@@ -1564,56 +1635,56 @@ function Show-TestRunResults {
 try {
     # Handle direct Helix job query
     if ($PSCmdlet.ParameterSetName -eq 'HelixJob') {
-        Write-Host "`n=== Helix Job $HelixJob ===" -ForegroundColor Yellow
-        Write-Host "URL: https://helix.dot.net/api/jobs/$HelixJob" -ForegroundColor Gray
+        Write-Host-Verbose "`n=== Helix Job $HelixJob ===" -ForegroundColor Yellow
+        Write-Host-Verbose "URL: https://helix.dot.net/api/jobs/$HelixJob" -ForegroundColor Gray
 
         # Get job details
         $jobDetails = Get-HelixJobDetails -JobId $HelixJob
         if ($jobDetails) {
-            Write-Host "`nQueue: $($jobDetails.QueueId)" -ForegroundColor Cyan
-            Write-Host "Source: $($jobDetails.Source)" -ForegroundColor Cyan
+            Write-Host-Verbose "`nQueue: $($jobDetails.QueueId)" -ForegroundColor Cyan
+            Write-Host-Verbose "Source: $($jobDetails.Source)" -ForegroundColor Cyan
         }
 
         if ($WorkItem) {
             # Query specific work item
-            Write-Host "`n--- Work Item: $WorkItem ---" -ForegroundColor Cyan
+            Write-Host-Verbose "`n--- Work Item: $WorkItem ---" -ForegroundColor Cyan
 
             $workItemDetails = Get-HelixWorkItemDetails -JobId $HelixJob -WorkItemName $WorkItem
             if ($workItemDetails) {
-                Write-Host "  State: $($workItemDetails.State)" -ForegroundColor $(if ($workItemDetails.State -eq 'Passed') { 'Green' } else { 'Red' })
-                Write-Host "  Exit Code: $($workItemDetails.ExitCode)" -ForegroundColor White
-                Write-Host "  Machine: $($workItemDetails.MachineName)" -ForegroundColor Gray
-                Write-Host "  Duration: $($workItemDetails.Duration)" -ForegroundColor Gray
+                # Fetch console log
+                $consoleUrl = "https://helix.dot.net/api/2019-06-17/jobs/$HelixJob/workitems/$WorkItem/console"
+
+                Write-Host-Verbose "  State: $($workItemDetails.State)" -ForegroundColor $(if ($workItemDetails.State -eq 'Passed') { 'Green' } else { 'Red' })
+                Write-Host-Verbose "  Exit Code: $($workItemDetails.ExitCode)" -ForegroundColor White
+                Write-Host-Verbose "  Machine: $($workItemDetails.MachineName)" -ForegroundColor Gray
+                Write-Host-Verbose "  Duration: $($workItemDetails.Duration)" -ForegroundColor Gray
 
                 # Show artifacts with binlogs highlighted
                 if ($workItemDetails.Files -and $workItemDetails.Files.Count -gt 0) {
-                    Write-Host "`n  Artifacts:" -ForegroundColor Yellow
+                    Write-Host-Verbose "`n  Artifacts:" -ForegroundColor Yellow
                     $binlogs = $workItemDetails.Files | Where-Object { $_.FileName -like "*.binlog" }
                     $otherFiles = $workItemDetails.Files | Where-Object { $_.FileName -notlike "*.binlog" }
 
                     # Show binlogs first with special formatting
                     foreach ($file in $binlogs | Select-Object -Unique FileName, Uri) {
-                        Write-Host "    📋 $($file.FileName): $($file.Uri)" -ForegroundColor Cyan
+                        Write-Host-Verbose "    📋 $($file.FileName): $($file.Uri)" -ForegroundColor Cyan
                     }
                     if ($binlogs.Count -gt 0) {
-                        Write-Host "    (Tip: Use MSBuild MCP server or https://live.msbuildlog.com/ to analyze binlogs)" -ForegroundColor DarkGray
+                        Write-Host-Verbose "    (Tip: Use MSBuild MCP server or https://live.msbuildlog.com/ to analyze binlogs)" -ForegroundColor DarkGray
                     }
 
                     # Show other files
                     foreach ($file in $otherFiles | Select-Object -Unique FileName, Uri | Select-Object -First 10) {
-                        Write-Host "    $($file.FileName): $($file.Uri)" -ForegroundColor Gray
+                        Write-Host-Verbose "    $($file.FileName): $($file.Uri)" -ForegroundColor Gray
                     }
                 }
-
-                # Fetch console log
-                $consoleUrl = "https://helix.dot.net/api/2019-06-17/jobs/$HelixJob/workitems/$WorkItem/console"
-                Write-Host "`n  Console Log: $consoleUrl" -ForegroundColor Yellow
+                Write-Host-Verbose "`n  Console Log: $consoleUrl" -ForegroundColor Yellow
 
                 $consoleLog = Get-HelixConsoleLog -Url $consoleUrl -WorkItemName $WorkItem
                 if ($consoleLog) {
                     $failureInfo = Format-TestFailure -LogContent $consoleLog
                     if ($failureInfo) {
-                        Write-Host $failureInfo -ForegroundColor White
+                        Write-Host-Verbose $failureInfo -ForegroundColor White
 
                         # Search for known issues
                         Show-KnownIssues -TestName $WorkItem -ErrorMessage $failureInfo -IncludeMihuBot:$SearchMihuBot
@@ -1622,18 +1693,18 @@ try {
                         # Show last 50 lines if no failure pattern detected
                         $lines = $consoleLog -split "`n"
                         $lastLines = $lines | Select-Object -Last 50
-                        Write-Host ($lastLines -join "`n") -ForegroundColor White
+                        Write-Host-Verbose ($lastLines -join "`n") -ForegroundColor White
                     }
                 }
             }
         }
         else {
             # List all work items in the job
-            Write-Host "`nWork Items:" -ForegroundColor Yellow
+            Write-Host-Verbose "`nWork Items:" -ForegroundColor Yellow
             $workItems = Get-HelixWorkItems -JobId $HelixJob
             if ($workItems) {
-                Write-Host "  Total: $($workItems.Count)" -ForegroundColor Cyan
-                Write-Host "  Checking for failures..." -ForegroundColor Gray
+                Write-Host-Verbose "  Total: $($workItems.Count)" -ForegroundColor Cyan
+                Write-Verbose "  Checking for failures..."
 
                 # Need to fetch details for each to find failures (list API only shows 'Finished')
                 $failedItems = @()
@@ -1649,22 +1720,22 @@ try {
                 }
 
                 if ($failedItems.Count -gt 0) {
-                    Write-Host "`n  Failed Work Items:" -ForegroundColor Red
+                    Write-Host-Verbose "`n  Failed Work Items:" -ForegroundColor Red
                     foreach ($wi in $failedItems | Select-Object -First $MaxJobs) {
-                        Write-Host "    - $($wi.Name) (Exit: $($wi.ExitCode))" -ForegroundColor White
+                        Write-Host-Verbose "    - $($wi.Name) (Exit: $($wi.ExitCode))" -ForegroundColor White
                     }
-                    Write-Host "`n  Use -WorkItem '<name>' to see details" -ForegroundColor Gray
+                    Write-Host-Verbose "`n  Use -WorkItem '<name>' to see details" -ForegroundColor Gray
                 }
                 else {
-                    Write-Host "  No failures found in first 20 work items" -ForegroundColor Green
+                    Write-Host-Verbose "  No failures found in first 20 work items" -ForegroundColor Green
                 }
 
-                Write-Host "`n  All work items:" -ForegroundColor Yellow
+                Write-Host-Verbose "`n  All work items:" -ForegroundColor Yellow
                 foreach ($wi in $workItems | Select-Object -First 10) {
-                    Write-Host "    - $($wi.Name)" -ForegroundColor White
+                    Write-Host-Verbose "    - $($wi.Name)" -ForegroundColor White
                 }
                 if ($workItems.Count -gt 10) {
-                    Write-Host "    ... and $($workItems.Count - 10) more" -ForegroundColor Gray
+                    Write-Host-Verbose "    ... and $($workItems.Count - 10) more" -ForegroundColor Gray
                 }
             }
         }
@@ -1701,8 +1772,8 @@ try {
         # Set current build ID for cache index entries
         $script:CurrentBuildId = $currentBuildId
         
-        Write-Host "`n=== Azure DevOps Build $currentBuildId ===" -ForegroundColor Yellow
-        Write-Host "URL: https://dev.azure.com/$Organization/$Project/_build/results?buildId=$currentBuildId" -ForegroundColor Gray
+        Write-Host-Verbose "`n=== Azure DevOps Build $currentBuildId ===" -ForegroundColor Yellow
+        Write-Host-Verbose "URL: https://dev.azure.com/$Organization/$Project/_build/results?buildId=$currentBuildId" -ForegroundColor Gray
 
         # Get and display build status
         $buildStatus = Get-AzDOBuildStatus -Build $currentBuildId
@@ -1719,7 +1790,7 @@ try {
             elseif ($buildStatus.Status -eq "inProgress") {
                 $statusText = "IN PROGRESS - showing failures so far"
             }
-            Write-Host "Status: $statusText" -ForegroundColor $statusColor
+            Write-Host-Verbose "Status: $statusText" -ForegroundColor $statusColor
         }
 
         # Get timeline
@@ -1745,7 +1816,7 @@ try {
         if ((-not $failedJobs -or $failedJobs.Count -eq 0) -and $localTestFailures.Count -eq 0) {
             if ($buildStatus -and $buildStatus.Status -eq "inProgress") {
                 Write-Host "`nNo failures yet - build still in progress" -ForegroundColor Cyan
-                Write-Host "Run again later to check for failures, or use -NoCache to get fresh data" -ForegroundColor Gray
+                Write-Host-Verbose "Run again later to check for failures, or use -NoCache to get fresh data" -ForegroundColor Gray
             }
             else {
                 Write-Host "`nNo failed jobs found in build $currentBuildId" -ForegroundColor Green
@@ -1754,23 +1825,23 @@ try {
             if ($canceledJobs -and $canceledJobs.Count -gt 0) {
                 Write-Host "`nNote: $($canceledJobs.Count) job(s) were canceled (not failed):" -ForegroundColor DarkYellow
                 foreach ($job in $canceledJobs | Select-Object -First 5) {
-                    Write-Host "  - $($job.name)" -ForegroundColor DarkGray
+                    Write-Host-Verbose "  - $($job.name)" -ForegroundColor DarkGray
                 }
                 if ($canceledJobs.Count -gt 5) {
-                    Write-Host "  ... and $($canceledJobs.Count - 5) more" -ForegroundColor DarkGray
+                    Write-Host-Verbose "  ... and $($canceledJobs.Count - 5) more" -ForegroundColor DarkGray
                 }
-                Write-Host "  (Canceled jobs are typically due to earlier stage failures or timeouts)" -ForegroundColor DarkGray
+                Write-Host-Verbose "  (Canceled jobs are typically due to earlier stage failures or timeouts)" -ForegroundColor DarkGray
             }
             continue
         }
 
         # Report local test failures first (these may exist even without failed jobs)
         if ($localTestFailures.Count -gt 0) {
-            Write-Host "`n=== Local Test Failures (non-Helix) ===" -ForegroundColor Yellow
-            Write-Host "Build: https://dev.azure.com/$Organization/$Project/_build/results?buildId=$currentBuildId" -ForegroundColor Gray
+            Write-Host-Verbose "`n=== Local Test Failures (non-Helix) ===" -ForegroundColor Yellow
+            Write-Host-Verbose "Build: https://dev.azure.com/$Organization/$Project/_build/results?buildId=$currentBuildId" -ForegroundColor Gray
 
             foreach ($failure in $localTestFailures) {
-                Write-Host "`n--- $($failure.TaskName) ---" -ForegroundColor Cyan
+                Write-Host-Verbose "`n--- $($failure.TaskName) ---" -ForegroundColor Cyan
 
                 # Collect issues for correlation
                 $issueMessages = $failure.Issues | ForEach-Object { $_.message }
@@ -1787,11 +1858,11 @@ try {
                 if ($failure.TaskId) {
                     $jobLogUrl += "&t=$($failure.TaskId)"
                 }
-                Write-Host "  Log: $jobLogUrl" -ForegroundColor Gray
+                Write-Host-Verbose "  Log: $jobLogUrl" -ForegroundColor Gray
 
                 # Show issues
                 foreach ($issue in $failure.Issues) {
-                    Write-Host "  $($issue.message)" -ForegroundColor Red
+                    Write-Host-Verbose "  $($issue.message)" -ForegroundColor Red
                 }
 
                 # Show test run URLs if available
@@ -1824,23 +1895,23 @@ try {
         }
 
         if (-not $failedJobs -or $failedJobs.Count -eq 0) {
-            Write-Host "`n=== Summary ===" -ForegroundColor Yellow
-            Write-Host "Local test failures: $($localTestFailures.Count)" -ForegroundColor Red
-            Write-Host "Build URL: https://dev.azure.com/$Organization/$Project/_build/results?buildId=$currentBuildId" -ForegroundColor Cyan
+            Write-Host-Verbose "`n=== Summary ===" -ForegroundColor Yellow
+            Write-Host-Verbose "Local test failures: $($localTestFailures.Count)" -ForegroundColor Red
+            Write-Host-Verbose "Build URL: https://dev.azure.com/$Organization/$Project/_build/results?buildId=$currentBuildId" -ForegroundColor Cyan
             $totalLocalFailures += $localTestFailures.Count
             continue
         }
 
-        Write-Host "`nFound $($failedJobs.Count) failed job(s):" -ForegroundColor Red
+        Write-Host-Verbose "`nFound $($failedJobs.Count) failed job(s) in Azdo:" -ForegroundColor Red
 
         # Show canceled jobs if any (these are different from failed)
         if ($canceledJobs -and $canceledJobs.Count -gt 0) {
-            Write-Host "Also $($canceledJobs.Count) job(s) were canceled (due to earlier failures/timeouts):" -ForegroundColor DarkYellow
+            Write-Host-Verbose "Also $($canceledJobs.Count) job(s) were canceled (due to earlier failures/timeouts):" -ForegroundColor DarkYellow
             foreach ($job in $canceledJobs | Select-Object -First 3) {
-                Write-Host "  - $($job.name)" -ForegroundColor DarkGray
+                Write-Host-Verbose "  - $($job.name)" -ForegroundColor DarkGray
             }
             if ($canceledJobs.Count -gt 3) {
-                Write-Host "  ... and $($canceledJobs.Count - 3) more" -ForegroundColor DarkGray
+                Write-Host-Verbose "  ... and $($canceledJobs.Count - 3) more" -ForegroundColor DarkGray
             }
         }
 
@@ -1848,13 +1919,13 @@ try {
         $errorCount = 0
         foreach ($job in $failedJobs) {
             if ($processedJobs -ge $MaxJobs) {
-                Write-Host "`n... and $($failedJobs.Count - $MaxJobs) more failed jobs (use -MaxJobs to see more)" -ForegroundColor Yellow
+                Write-Host-Verbose "`n... and $($failedJobs.Count - $MaxJobs) more failed jobs (use -MaxJobs to see more)" -ForegroundColor Yellow
                 break
             }
 
             try {
-                Write-Host "`n--- $($job.name) ---" -ForegroundColor Cyan
-                Write-Host "  Build: https://dev.azure.com/$Organization/$Project/_build/results?buildId=$currentBuildId&view=logs&j=$($job.id)" -ForegroundColor Gray
+                Write-Host-Verbose "`n--- $($job.name) ---" -ForegroundColor Cyan
+                Write-Host-Verbose "  Build: https://dev.azure.com/$Organization/$Project/_build/results?buildId=$currentBuildId&view=logs&j=$($job.id)" -ForegroundColor Gray
 
                 # Get Helix tasks for this job
                 $helixTasks = Get-HelixJobInfo -Timeline $timeline -JobId $job.id
@@ -1862,7 +1933,7 @@ try {
                 if ($helixTasks) {
                     foreach ($task in $helixTasks) {
                         if ($task.log) {
-                            Write-Host "  Fetching Helix task log..." -ForegroundColor Gray
+                            Write-Verbose "  Fetching Helix task log..."
                             $logContent = Get-BuildLog -Build $currentBuildId -LogId $task.log.id
 
                             if ($logContent) {
@@ -1870,9 +1941,9 @@ try {
                                 $failures = Extract-TestFailures -LogContent $logContent
 
                                 if ($failures.Count -gt 0) {
-                                    Write-Host "  Failed tests:" -ForegroundColor Red
+                                    Write-Host-Verbose "  Failed tests:" -ForegroundColor Red
                                     foreach ($failure in $failures) {
-                                        Write-Host "    - $($failure.TestName)" -ForegroundColor White
+                                        Write-Host-Verbose "    - $($failure.TestName)" -ForegroundColor White
                                     }
 
                                     # Collect for PR correlation
@@ -1889,11 +1960,11 @@ try {
                             $helixUrls = Extract-HelixUrls -LogContent $logContent
 
                             if ($helixUrls.Count -gt 0 -and $FetchFromHelix) {
-                                Write-Host "`n  Helix Console Logs:" -ForegroundColor Yellow
+                                Write-Host-Verbose "`n  Helix Console Logs:" -ForegroundColor Yellow
 
                                 foreach ($url in $helixUrls | Select-Object -First 3) {
-                                    Write-Host "`n  $url" -ForegroundColor Gray
-
+                                    Write-Host-Verbose "`n  $url" -ForegroundColor Gray
+                                    
                                     # Extract work item name from URL for known issue search
                                     $workItemName = ""
                                     if ($url -match '/workitems/([^/]+)/console') {
@@ -1904,7 +1975,7 @@ try {
                                     if ($helixLog) {
                                         $failureInfo = Format-TestFailure -LogContent $helixLog
                                         if ($failureInfo) {
-                                            Write-Host $failureInfo -ForegroundColor White
+                                            Write-Host-Verbose $failureInfo -ForegroundColor White
 
                                             # Search for known issues
                                             Show-KnownIssues -TestName $workItemName -ErrorMessage $failureInfo -IncludeMihuBot:$SearchMihuBot
@@ -1913,9 +1984,9 @@ try {
                                 }
                             }
                             elseif ($helixUrls.Count -gt 0) {
-                                Write-Host "`n  Helix logs available (use -FetchFromHelix to fetch):" -ForegroundColor Yellow
+                                Write-Host-Verbose "`n  Helix logs available (use -FetchFromHelix to fetch):" -ForegroundColor Yellow
                                 foreach ($url in $helixUrls | Select-Object -First 3) {
-                                    Write-Host "    $url" -ForegroundColor Gray
+                                    Write-Host-Verbose "    $url" -ForegroundColor Gray
                                 }
                             }
                         }
@@ -1929,12 +2000,12 @@ try {
                 }
 
                 foreach ($task in $buildTasks | Select-Object -First 3) {
-                    Write-Host "  Failed task: $($task.name)" -ForegroundColor Red
+                    Write-Host-Verbose "  Failed task: $($task.name)" -ForegroundColor Red
 
                     # Fetch and parse the build log for actual errors
                     if ($task.log) {
                         $logUrl = "https://dev.azure.com/$Organization/$Project/_build/results?buildId=$currentBuildId&view=logs&j=$($job.id)&t=$($task.id)"
-                        Write-Host "  Log: $logUrl" -ForegroundColor Gray
+                        Write-Host-Verbose "  Log: $logUrl" -ForegroundColor Gray
                         $logContent = Get-BuildLog -Build $currentBuildId -LogId $task.log.id
 
                         if ($logContent) {
@@ -1952,24 +2023,23 @@ try {
 
                                 # Extract Helix log URLs from the full log content
                                 $helixLogUrls = Extract-HelixLogUrls -LogContent $logContent
-
                                 if ($helixLogUrls.Count -gt 0) {
-                                    Write-Host "  Helix failures ($($helixLogUrls.Count)):" -ForegroundColor Red
+                                    Write-Host-Verbose "  Helix failures ($($helixLogUrls.Count)):" -ForegroundColor Red
                                     foreach ($helixLog in $helixLogUrls | Select-Object -First 5) {
-                                        Write-Host "    - $($helixLog.WorkItem)" -ForegroundColor White
-                                        Write-Host "      Log: $($helixLog.Url)" -ForegroundColor Gray
+                                        Write-Host-Verbose "    - $($helixLog.WorkItem)" -ForegroundColor White
+                                        Write-Host-Verbose "      Log: $($helixLog.Url)" -ForegroundColor Gray
                                     }
                                     if ($helixLogUrls.Count -gt 5) {
-                                        Write-Host "    ... and $($helixLogUrls.Count - 5) more" -ForegroundColor Gray
+                                        Write-Host-Verbose "    ... and $($helixLogUrls.Count - 5) more" -ForegroundColor Gray
                                     }
                                 }
                                 else {
-                                    Write-Host "  Build errors:" -ForegroundColor Red
+                                    Write-Host-Verbose "  Build errors:" -ForegroundColor Red
                                     foreach ($err in $buildErrors | Select-Object -First 5) {
-                                        Write-Host "    $err" -ForegroundColor White
+                                        Write-Host-Verbose "    $err" -ForegroundColor White
                                     }
                                     if ($buildErrors.Count -gt 5) {
-                                        Write-Host "    ... and $($buildErrors.Count - 5) more errors" -ForegroundColor Gray
+                                        Write-Host-Verbose "    ... and $($buildErrors.Count - 5) more errors" -ForegroundColor Gray
                                     }
                                 }
 
@@ -1977,7 +2047,7 @@ try {
                                 Show-KnownIssues -ErrorMessage ($buildErrors -join "`n") -IncludeMihuBot:$SearchMihuBot
                             }
                             else {
-                                Write-Host "  (No specific errors extracted from log)" -ForegroundColor Gray
+                                Write-Host-Verbose "  (No specific errors extracted from log)" -ForegroundColor Gray
                             }
                         }
                     }
@@ -2000,15 +2070,15 @@ try {
     $totalFailedJobs += $failedJobs.Count
     $totalLocalFailures += $localTestFailures.Count
 
-    Write-Host "`n=== Build $currentBuildId Summary ===" -ForegroundColor Yellow
-    Write-Host "Failed jobs: $($failedJobs.Count)" -ForegroundColor Red
+    Write-Host-Verbose "`n=== Build $currentBuildId Summary ===" -ForegroundColor Yellow
+    Write-Host-Verbose "Failed jobs: $($failedJobs.Count)" -ForegroundColor Red
     if ($localTestFailures.Count -gt 0) {
-        Write-Host "Local test failures: $($localTestFailures.Count)" -ForegroundColor Red
+        Write-Host-Verbose "Local test failures: $($localTestFailures.Count)" -ForegroundColor Red
     }
     if ($errorCount -gt 0) {
-        Write-Host "API errors (partial results): $errorCount" -ForegroundColor Yellow
+        Write-Host-Verbose "API errors (partial results): $errorCount" -ForegroundColor Yellow
     }
-    Write-Host "Build URL: https://dev.azure.com/$Organization/$Project/_build/results?buildId=$currentBuildId" -ForegroundColor Cyan
+    Write-Host-Verbose "Build URL: https://dev.azure.com/$Organization/$Project/_build/results?buildId=$currentBuildId" -ForegroundColor Cyan
 }
 
 # Show PR change correlation if we have changed files
@@ -2018,32 +2088,32 @@ if ($prChangedFiles.Count -gt 0 -and $allFailuresForCorrelation.Count -gt 0) {
 
 # Overall summary if multiple builds
 if ($buildIds.Count -gt 1) {
-    Write-Host "`n=== Overall Summary ===" -ForegroundColor Magenta
-    Write-Host "Analyzed $($buildIds.Count) builds" -ForegroundColor White
-    Write-Host "Total failed jobs: $totalFailedJobs" -ForegroundColor Red
-    Write-Host "Total local test failures: $totalLocalFailures" -ForegroundColor Red
+    Write-Host-Verbose "`n=== Overall Summary ===" -ForegroundColor Magenta
+    Write-Host-Verbose "Analyzed $($buildIds.Count) builds" -ForegroundColor White
+    Write-Host-Verbose "Total failed jobs: $totalFailedJobs" -ForegroundColor Red
+    Write-Host-Verbose "Total local test failures: $totalLocalFailures" -ForegroundColor Red
 
     if ($knownIssuesFromBuildAnalysis.Count -gt 0) {
-        Write-Host "`nKnown Issues (from Build Analysis):" -ForegroundColor Yellow
+        Write-Host-Verbose "`nKnown Issues (from Build Analysis):" -ForegroundColor Yellow
         foreach ($issue in $knownIssuesFromBuildAnalysis) {
-            Write-Host "  - #$($issue.Number): $($issue.Title)" -ForegroundColor Gray
-            Write-Host "    $($issue.Url)" -ForegroundColor DarkGray
+            Write-Host-Verbose "  - #$($issue.Number): $($issue.Title)" -ForegroundColor Gray
+            Write-Host-Verbose "    $($issue.Url)" -ForegroundColor DarkGray
         }
     }
 }
 
 # Smart retry recommendation
-Write-Host "`n=== Recommendation ===" -ForegroundColor Magenta
+Write-Host-Verbose "`n=== Recommendation ===" -ForegroundColor Magenta
 
 if ($knownIssuesFromBuildAnalysis.Count -gt 0) {
     $knownIssueCount = $knownIssuesFromBuildAnalysis.Count
-    Write-Host "KNOWN ISSUES DETECTED" -ForegroundColor Yellow
-    Write-Host "$knownIssueCount tracked issue(s) found that may correlate with failures above." -ForegroundColor White
-    Write-Host "Review the failure details and linked issues to determine if retry is needed." -ForegroundColor Gray
+    Write-Host-Verbose "KNOWN ISSUES DETECTED" -ForegroundColor Yellow
+    Write-Host-Verbose "$knownIssueCount tracked issue(s) found that may correlate with failures above." -ForegroundColor White
+    Write-Host-Verbose "Review the failure details and linked issues to determine if retry is needed." -ForegroundColor Gray
 }
 elseif ($totalFailedJobs -eq 0 -and $totalLocalFailures -eq 0) {
-    Write-Host "BUILD SUCCESSFUL" -ForegroundColor Green
-    Write-Host "No failures detected." -ForegroundColor White
+    Write-Host-Verbose "BUILD SUCCESSFUL" -ForegroundColor Green
+    Write-Host-Verbose "No failures detected." -ForegroundColor White
 }
 elseif ($prChangedFiles.Count -gt 0 -and $allFailuresForCorrelation.Count -gt 0) {
     # Check if failures correlate with PR changes
@@ -2061,23 +2131,23 @@ elseif ($prChangedFiles.Count -gt 0 -and $allFailuresForCorrelation.Count -gt 0)
     }
     
     if ($hasCorrelation) {
-        Write-Host "LIKELY PR-RELATED" -ForegroundColor Red
-        Write-Host "Failures appear to correlate with files changed in this PR." -ForegroundColor White
-        Write-Host "Review the 'PR Change Correlation' section above and fix the issues before retrying." -ForegroundColor Gray
+        Write-Host-Verbose "LIKELY PR-RELATED" -ForegroundColor Red
+        Write-Host-Verbose "Failures appear to correlate with files changed in this PR." -ForegroundColor White
+        Write-Host-Verbose "Review the 'PR Change Correlation' section above and fix the issues before retrying." -ForegroundColor Gray
     }
     else {
-        Write-Host "POSSIBLY TRANSIENT" -ForegroundColor Yellow
-        Write-Host "No known issues matched, but failures don't clearly correlate with PR changes." -ForegroundColor White
-        Write-Host "Consider:" -ForegroundColor Gray
-        Write-Host "  1. Check if same tests are failing on main branch" -ForegroundColor Gray
-        Write-Host "  2. Search for existing issues: gh issue list --label 'Known Build Error' --search '<test name>'" -ForegroundColor Gray
-        Write-Host "  3. If infrastructure-related (device not found, network errors), retry may help" -ForegroundColor Gray
+        Write-Host-Verbose "POSSIBLY TRANSIENT" -ForegroundColor Yellow
+        Write-Host-Verbose "No known issues matched, but failures don't clearly correlate with PR changes." -ForegroundColor White
+        Write-Host-Verbose "Consider:" -ForegroundColor Gray
+        Write-Host-Verbose "  1. Check if same tests are failing on main branch" -ForegroundColor Gray
+        Write-Host-Verbose "  2. Search for existing issues: gh issue list --label 'Known Build Error' --search '<test name>'" -ForegroundColor Gray
+        Write-Host-Verbose "  3. If infrastructure-related (device not found, network errors), retry may help" -ForegroundColor Gray
     }
 }
 else {
-    Write-Host "REVIEW REQUIRED" -ForegroundColor Yellow
-    Write-Host "Could not automatically determine failure cause." -ForegroundColor White
-    Write-Host "Review the failures above to determine if they are PR-related or infrastructure issues." -ForegroundColor Gray
+    Write-Host-Verbose "REVIEW REQUIRED" -ForegroundColor Yellow
+    Write-Host-Verbose "Could not automatically determine failure cause." -ForegroundColor White
+    Write-Host-Verbose "Review the failures above to determine if they are PR-related or infrastructure issues." -ForegroundColor Gray
 }
 
 }
