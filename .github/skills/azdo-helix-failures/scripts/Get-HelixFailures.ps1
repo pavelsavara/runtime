@@ -314,10 +314,7 @@ function Add-CacheIndexEntry {
         
         $newContent | Set-Content -LiteralPath $tempIndexFile -Force -NoNewline
         Move-Item -LiteralPath $tempIndexFile -Destination $indexFile -Force
-        Write-Host-Links "$Type - $Context"
-        Write-Host-Links "  $CacheFile" -ForegroundColor Gray
-        Write-Host-Links "  $cleanUrl" -ForegroundColor Gray
-        Write-Host-Links ""
+        Write-Host-Links -Type $Type -Context $Context -CacheFile $CacheFile -Url $Url
     }
     catch {
         if (Test-Path $tempIndexFile) {
@@ -342,12 +339,9 @@ function Invoke-CachedRestMethod {
     if (-not $SkipCache) {
         $cached = Get-CachedResponse -Url $Uri
         if ($cached) {
-            $hash = Get-UrlHash -Url $Url
+            $hash = Get-UrlHash -Url $Uri
             $CacheFile = Join-Path $script:CacheDir "$hash.json"
-            Write-Host-Links "$Type - $Context"
-            Write-Host-Links "  $CacheFile" -ForegroundColor Gray
-            Write-Host-Links "  $Uri" -ForegroundColor Gray
-            Write-Host-Links ""
+            Write-Host-Links -Type $Type -Context $Context -CacheFile $CacheFile -Url $Uri
 
             if ($AsJson) {
                 try {
@@ -385,36 +379,31 @@ function Invoke-CachedRestMethod {
 
 #region Output Wrapper Functions
 
+$silentLogFile = $null
+
 function Write-Host-Links {
-    <#
-    .SYNOPSIS
-        Write-Host wrapper that outputs only when $Silent is false (verbose/progress mode).
-    #>
     param(
-        [Parameter(Position = 0, ValueFromPipeline = $true)]
-        [object]$Object,
-        [System.ConsoleColor]$ForegroundColor,
-        [System.ConsoleColor]$BackgroundColor,
-        [switch]$NoNewline,
-        [object]$Separator
+        [string]$Type = "unknown",
+        [string]$Context = "",
+        [string]$CacheFile = "",
+        [string]$Url = ""
     )
     
     if ($Silent) {
-        $params = @{}
-        if ($PSBoundParameters.ContainsKey('Object')) { $params['Object'] = $Object }
-        if ($PSBoundParameters.ContainsKey('ForegroundColor')) { $params['ForegroundColor'] = $ForegroundColor }
-        if ($PSBoundParameters.ContainsKey('BackgroundColor')) { $params['BackgroundColor'] = $BackgroundColor }
-        if ($NoNewline) { $params['NoNewline'] = $true }
-        if ($PSBoundParameters.ContainsKey('Separator')) { $params['Separator'] = $Separator }
-        Write-Host @params
+        Write-Host "$Type : $Context"
+        Write-Host "  from $Url" -ForegroundColor Gray
+        Write-Host "  stored in $CacheFile" -ForegroundColor Gray
+        Write-Host ""
+
+        if ($silentLogFile) {
+            # Log to silent log file as well on single line
+            $logEntry = "$Type : $Context from $Url stored in $CacheFile`n"
+            $logEntry | Out-File -FilePath $silentLogFile -Append -Encoding UTF8
+        }
     }
 }
 
 function Write-Host-Verbose {
-    <#
-    .SYNOPSIS
-        Write-Host wrapper that outputs only when $Silent is true (silent/dump mode).
-    #>
     param(
         [Parameter(Position = 0, ValueFromPipeline = $true)]
         [object]$Object,
@@ -432,6 +421,13 @@ function Write-Host-Verbose {
         if ($NoNewline) { $params['NoNewline'] = $true }
         if ($PSBoundParameters.ContainsKey('Separator')) { $params['Separator'] = $Separator }
         Write-Host @params
+    }
+    else {
+        # In silent mode, write to verbose stream and to dedicated verbose log
+        Write-Verbose $Object
+        if ($silentLogFile) {
+            $Object | Out-File -FilePath $silentLogFile -Append -Encoding UTF8
+        }
     }
 }
 
@@ -1633,6 +1629,7 @@ function Show-TestRunResults {
 
 # Main execution
 try {
+
     # Handle direct Helix job query
     if ($PSCmdlet.ParameterSetName -eq 'HelixJob') {
         Write-Host-Verbose "`n=== Helix Job $HelixJob ===" -ForegroundColor Yellow
@@ -1771,6 +1768,10 @@ try {
     foreach ($currentBuildId in $buildIds) {
         # Set current build ID for cache index entries
         $script:CurrentBuildId = $currentBuildId
+        if ($Silent) {
+            $silentLogFile = Join-Path $script:TempDir "helix-failures-cache" "build-$currentBuildId-verbose.log"
+            Write-Host "`n Detailed analysis in $silentLogFile"
+        }
         
         Write-Host-Verbose "`n=== Azure DevOps Build $currentBuildId ===" -ForegroundColor Yellow
         Write-Host-Verbose "URL: https://dev.azure.com/$Organization/$Project/_build/results?buildId=$currentBuildId" -ForegroundColor Gray
