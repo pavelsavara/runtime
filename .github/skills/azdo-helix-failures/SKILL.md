@@ -21,10 +21,10 @@ Use this skill when:
 
 ```powershell
 # Analyze PR failures (most common) - defaults to dotnet/runtime
-./scripts/Get-HelixFailures.ps1 -PRNumber 123445 -ShowLogs
+./scripts/Get-HelixFailures.ps1 -PRNumber 123445 -FetchFromHelix
 
 # Analyze by build ID
-./scripts/Get-HelixFailures.ps1 -BuildId 1276327 -ShowLogs
+./scripts/Get-HelixFailures.ps1 -BuildId 1276327 -FetchFromHelix
 
 # Query specific Helix work item
 ./scripts/Get-HelixFailures.ps1 -HelixJob "4b24b2c2-..." -WorkItem "System.Net.Http.Tests"
@@ -41,7 +41,7 @@ Use this skill when:
 |-----------|-------------|
 | `-PRNumber` | GitHub PR number to analyze |
 | `-BuildId` | Azure DevOps build ID |
-| `-ShowLogs` | Fetch and display Helix console logs |
+| `-FetchFromHelix` | Fetch and display Helix console logs |
 | `-Repository` | Target repo (default: dotnet/runtime) |
 | `-MaxJobs` | Max failed jobs to show (default: 5) |
 | `-SearchMihuBot` | Search MihuBot for related issues |
@@ -52,7 +52,7 @@ Use this skill when:
 2. Gets failed jobs from Azure DevOps timeline
 3. **Separates canceled jobs from failed jobs** (canceled = dependency failures)
 4. Extracts Helix work item failures
-5. Fetches console logs (with `-ShowLogs`)
+5. Fetches console logs (with `-FetchFromHelix`)
 6. Searches for known issues with "Known Build Error" label
 7. Correlates failures with PR changes
 8. **Provides smart retry recommendations**
@@ -85,7 +85,7 @@ The script provides a recommendation at the end:
 ## Analysis Workflow
 
 1. **Read PR context first** - Check title, description, comments
-2. **Run the script** with `-ShowLogs` for detailed failure info
+2. **Run the script** with `-FetchFromHelix` for detailed failure info
 3. **Check Build Analysis** - Known issues are safe to retry
 4. **Correlate with PR changes** - Same files failing = likely PR-related
 5. **Interpret patterns**:

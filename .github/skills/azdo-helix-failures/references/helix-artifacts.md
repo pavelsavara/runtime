@@ -9,7 +9,7 @@ Guide to finding and analyzing artifacts from Helix test runs.
 Query a specific work item to see its artifacts:
 
 ```powershell
-./scripts/Get-HelixFailures.ps1 -HelixJob "4b24b2c2-..." -WorkItem "Microsoft.NET.Sdk.Tests.dll.1" -ShowLogs
+./scripts/Get-HelixFailures.ps1 -HelixJob "4b24b2c2-..." -WorkItem "Microsoft.NET.Sdk.Tests.dll.1" -FetchFromHelix
 ```
 
 ### Via API
@@ -97,7 +97,7 @@ Mobile device tests typically include XHarness orchestration logs:
 
 ## Finding the Right Work Item
 
-1. Run the script with `-ShowLogs` to see Helix job/work item info
+1. Run the script with `-FetchFromHelix` to download Helix job/work item info
 2. Look for lines like:
    ```
    Helix Job: 4b24b2c2-ad5a-4c46-8a84-844be03b1d51

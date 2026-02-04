@@ -28,8 +28,8 @@
 .PARAMETER Project
     The Azure DevOps project GUID. Default: cbb18261-c48f-4abb-8651-8cdcb5474649
 
-.PARAMETER ShowLogs
-    If specified, fetches and displays the Helix console logs for failed tests.
+.PARAMETER FetchFromHelix
+    If specified, fetches Helix console logs for failed tests.
 
 .PARAMETER MaxJobs
     Maximum number of failed jobs to process. Default: 5
@@ -63,7 +63,7 @@
     .\Get-HelixFailures.ps1 -BuildId 1276327
 
 .EXAMPLE
-    .\Get-HelixFailures.ps1 -PRNumber 123445 -ShowLogs
+    .\Get-HelixFailures.ps1 -PRNumber 123445 -FetchFromHelix
 
 .EXAMPLE
     .\Get-HelixFailures.ps1 -PRNumber 123445 -Repository dotnet/aspnetcore
@@ -98,7 +98,7 @@ param(
     [string]$Repository = "dotnet/runtime",
     [string]$Organization = "dnceng-public",
     [string]$Project = "cbb18261-c48f-4abb-8651-8cdcb5474649",
-    [switch]$ShowLogs,
+    [switch]$FetchFromHelix,
     [int]$MaxJobs = 5,
     [int]$MaxFailureLines = 50,
     [int]$TimeoutSec = 30,
@@ -110,6 +110,9 @@ param(
 )
 
 $ErrorActionPreference = "Stop"
+
+# Track the current build ID for cache index entries (set during execution)
+$script:CurrentBuildId = $null
 
 #region Caching Functions
 
@@ -150,7 +153,7 @@ if ($ClearCache) {
         Write-Host "Cleared $count cached files from $cacheDir" -ForegroundColor Green
     }
     else {
-        Write-Host "Cache directory does not exist: $cacheDir" -ForegroundColor Yellow
+        Write-Verbose "Cache directory does not exist: $cacheDir" -ForegroundColor Yellow
     }
     exit 0
 }
@@ -230,10 +233,12 @@ function Get-CachedResponse {
 function Set-CachedResponse {
     param(
         [string]$Url,
-        [string]$Content
+        [string]$Content,
+        [string]$Type = "unknown",
+        [string]$Context = ""
     )
 
-    if ($NoCache) { return }
+    if ($NoCache) { return $null }
 
     $hash = Get-UrlHash -Url $Url
     $cacheFile = Join-Path $script:CacheDir "$hash.json"
@@ -244,6 +249,11 @@ function Set-CachedResponse {
         $Content | Set-Content -LiteralPath $tempFile -Force
         Move-Item -LiteralPath $tempFile -Destination $cacheFile -Force
         Write-Verbose "Cached response for $Url"
+        
+        # Add entry to cache index
+        Add-CacheIndexEntry -Hash $hash -Url $Url -Type $Type -Context $Context
+        
+        return $cacheFile
     }
     catch {
         # Clean up temp file on failure
@@ -251,6 +261,61 @@ function Set-CachedResponse {
             Remove-Item -LiteralPath $tempFile -Force -ErrorAction SilentlyContinue
         }
         Write-Verbose "Failed to cache response: $_"
+        return $null
+    }
+}
+
+function Add-CacheIndexEntry {
+    param(
+        [string]$Hash,
+        [string]$Url,
+        [string]$Type = "unknown",
+        [string]$Context = ""
+    )
+    
+    if ($NoCache) { return }
+    
+    # Strip SAS tokens from URL (preserve other query params like api-version)
+    $cleanUrl = $Url -replace '([?&])sig=[^&]+&?', '$1' -replace '[?&]$', ''
+    
+    $indexFile = Join-Path $script:CacheDir "cache-index.jsonl"
+    
+    $entry = [ordered]@{
+        file = $Hash+".json"
+        buildId = if ($script:CurrentBuildId) { $script:CurrentBuildId.ToString() } else { "" }
+        type = $Type
+        context = $Context
+        timestamp = (Get-Date -Format "o")
+        url = $cleanUrl
+    }
+    
+    $jsonLine = $entry | ConvertTo-Json -Compress
+    
+    # Append to index file (thread-safe with temp file pattern)
+    $tempIndexFile = Join-Path $script:CacheDir "cache-index.tmp.$([System.Guid]::NewGuid().ToString('N'))"
+    try {
+        # Read existing content and append
+        $existingContent = ""
+        if (Test-Path $indexFile) {
+            $existingContent = Get-Content $indexFile -Raw -ErrorAction SilentlyContinue
+        }
+        
+        # Add new entry
+        if ($existingContent) {
+            $newContent = $existingContent.TrimEnd() + "`n" + $jsonLine
+        } else {
+            $newContent = $jsonLine
+        }
+        
+        $newContent | Set-Content -LiteralPath $tempIndexFile -Force -NoNewline
+        Move-Item -LiteralPath $tempIndexFile -Destination $indexFile -Force
+        Write-Verbose "Added cache index entry: $Type - $Context"
+    }
+    catch {
+        if (Test-Path $tempIndexFile) {
+            Remove-Item -LiteralPath $tempIndexFile -Force -ErrorAction SilentlyContinue
+        }
+        Write-Verbose "Failed to add cache index entry: $_"
     }
 }
 
@@ -260,7 +325,9 @@ function Invoke-CachedRestMethod {
         [int]$TimeoutSec = 30,
         [switch]$AsJson,
         [switch]$SkipCache,
-        [switch]$SkipCacheWrite
+        [switch]$SkipCacheWrite,
+        [string]$Type = "api-response",
+        [string]$Context = ""
     )
 
     # Check cache first (unless skipping)
@@ -289,10 +356,10 @@ function Invoke-CachedRestMethod {
     if (-not $SkipCache -and -not $SkipCacheWrite) {
         if ($AsJson -or $response -is [PSCustomObject]) {
             $content = $response | ConvertTo-Json -Depth 100 -Compress
-            Set-CachedResponse -Url $Uri -Content $content
+            Set-CachedResponse -Url $Uri -Content $content -Type $Type -Context $Context | Out-Null
         }
         else {
-            Set-CachedResponse -Url $Uri -Content $response
+            Set-CachedResponse -Url $Uri -Content $response -Type $Type -Context $Context | Out-Null
         }
     }
 
@@ -656,12 +723,12 @@ function Get-AzDOBuildStatus {
         }
 
         # Fetch fresh status
-        $response = Invoke-CachedRestMethod -Uri $url -TimeoutSec $TimeoutSec -AsJson -SkipCache
+        $response = Invoke-CachedRestMethod -Uri $url -TimeoutSec $TimeoutSec -AsJson -SkipCache -SkipCacheWrite
 
         # Only cache if completed
         if ($response.status -eq "completed") {
             $content = $response | ConvertTo-Json -Depth 10 -Compress
-            Set-CachedResponse -Url $url -Content $content
+            Set-CachedResponse -Url $url -Content $content -Type "azdo-build-status" -Context "Build$Build" | Out-Null
         }
 
         return @{
@@ -688,7 +755,8 @@ function Get-AzDOTimeline {
 
     try {
         # Don't cache timeline for in-progress builds - it changes as jobs complete
-        $response = Invoke-CachedRestMethod -Uri $url -TimeoutSec $TimeoutSec -AsJson -SkipCacheWrite:$BuildInProgress
+        $response = Invoke-CachedRestMethod -Uri $url -TimeoutSec $TimeoutSec -AsJson -SkipCacheWrite:$BuildInProgress `
+            -Type "azdo-timeline" -Context "Build$Build"
         return $response
     }
     catch {
@@ -751,7 +819,8 @@ function Get-BuildLog {
     $url = "https://dev.azure.com/$Organization/$Project/_apis/build/builds/$Build/logs/${LogId}?api-version=7.0"
 
     try {
-        $response = Invoke-CachedRestMethod -Uri $url -TimeoutSec $TimeoutSec
+        $response = Invoke-CachedRestMethod -Uri $url -TimeoutSec $TimeoutSec `
+            -Type "azdo-build-log" -Context "Build$Build-Log$LogId"
         return $response
     }
     catch {
@@ -1312,7 +1381,8 @@ function Get-HelixJobDetails {
     $url = "https://helix.dot.net/api/2019-06-17/jobs/$JobId"
 
     try {
-        $response = Invoke-CachedRestMethod -Uri $url -TimeoutSec $TimeoutSec -AsJson
+        $response = Invoke-CachedRestMethod -Uri $url -TimeoutSec $TimeoutSec -AsJson `
+            -Type "helix-job" -Context $JobId
         return $response
     }
     catch {
@@ -1327,7 +1397,8 @@ function Get-HelixWorkItems {
     $url = "https://helix.dot.net/api/2019-06-17/jobs/$JobId/workitems"
 
     try {
-        $response = Invoke-CachedRestMethod -Uri $url -TimeoutSec $TimeoutSec -AsJson
+        $response = Invoke-CachedRestMethod -Uri $url -TimeoutSec $TimeoutSec -AsJson `
+            -Type "helix-workitems" -Context $JobId
         return $response
     }
     catch {
@@ -1342,7 +1413,8 @@ function Get-HelixWorkItemDetails {
     $url = "https://helix.dot.net/api/2019-06-17/jobs/$JobId/workitems/$WorkItemName"
 
     try {
-        $response = Invoke-CachedRestMethod -Uri $url -TimeoutSec $TimeoutSec -AsJson
+        $response = Invoke-CachedRestMethod -Uri $url -TimeoutSec $TimeoutSec -AsJson `
+            -Type "helix-workitem" -Context $WorkItemName
         return $response
     }
     catch {
@@ -1352,10 +1424,14 @@ function Get-HelixWorkItemDetails {
 }
 
 function Get-HelixConsoleLog {
-    param([string]$Url)
+    param(
+        [string]$Url,
+        [string]$WorkItemName = ""
+    )
 
     try {
-        $response = Invoke-CachedRestMethod -Uri $Url -TimeoutSec $TimeoutSec
+        $response = Invoke-CachedRestMethod -Uri $Url -TimeoutSec $TimeoutSec `
+            -Type "helix-console" -Context $WorkItemName
         return $response
     }
     catch {
@@ -1533,7 +1609,7 @@ try {
                 $consoleUrl = "https://helix.dot.net/api/2019-06-17/jobs/$HelixJob/workitems/$WorkItem/console"
                 Write-Host "`n  Console Log: $consoleUrl" -ForegroundColor Yellow
 
-                $consoleLog = Get-HelixConsoleLog -Url $consoleUrl
+                $consoleLog = Get-HelixConsoleLog -Url $consoleUrl -WorkItemName $WorkItem
                 if ($consoleLog) {
                     $failureInfo = Format-TestFailure -LogContent $consoleLog
                     if ($failureInfo) {
@@ -1622,6 +1698,9 @@ try {
     $allFailuresForCorrelation = @()
 
     foreach ($currentBuildId in $buildIds) {
+        # Set current build ID for cache index entries
+        $script:CurrentBuildId = $currentBuildId
+        
         Write-Host "`n=== Azure DevOps Build $currentBuildId ===" -ForegroundColor Yellow
         Write-Host "URL: https://dev.azure.com/$Organization/$Project/_build/results?buildId=$currentBuildId" -ForegroundColor Gray
 
@@ -1809,7 +1888,7 @@ try {
                             # Extract and optionally fetch Helix URLs
                             $helixUrls = Extract-HelixUrls -LogContent $logContent
 
-                            if ($helixUrls.Count -gt 0 -and $ShowLogs) {
+                            if ($helixUrls.Count -gt 0 -and $FetchFromHelix) {
                                 Write-Host "`n  Helix Console Logs:" -ForegroundColor Yellow
 
                                 foreach ($url in $helixUrls | Select-Object -First 3) {
@@ -1821,7 +1900,7 @@ try {
                                         $workItemName = $Matches[1]
                                     }
 
-                                    $helixLog = Get-HelixConsoleLog -Url $url
+                                    $helixLog = Get-HelixConsoleLog -Url $url -WorkItemName $workItemName
                                     if ($helixLog) {
                                         $failureInfo = Format-TestFailure -LogContent $helixLog
                                         if ($failureInfo) {
@@ -1834,7 +1913,7 @@ try {
                                 }
                             }
                             elseif ($helixUrls.Count -gt 0) {
-                                Write-Host "`n  Helix logs available (use -ShowLogs to fetch):" -ForegroundColor Yellow
+                                Write-Host "`n  Helix logs available (use -FetchFromHelix to fetch):" -ForegroundColor Yellow
                                 foreach ($url in $helixUrls | Select-Object -First 3) {
                                     Write-Host "    $url" -ForegroundColor Gray
                                 }

@@ -70,7 +70,7 @@ Other repos have different pipelines - the script discovers them automatically f
 ## Test Execution Types
 
 ### Helix Tests
-Tests run on Helix distributed test infrastructure. The script extracts console log URLs and can fetch detailed failure info with `-ShowLogs`.
+Tests run on Helix distributed test infrastructure. The script extracts console log URLs and can fetch detailed failure info with `-FetchFromHelix`.
 
 ### Local Tests (Non-Helix)
 Some repositories (e.g., dotnet/sdk) run tests directly on the build agent. The script detects these and extracts Azure DevOps Test Run URLs.
