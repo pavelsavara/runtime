@@ -108,7 +108,7 @@ extern "C" void* BrowserHost_CreateHostContract(void)
     return &host_contract;
 }
 
-extern "C" int BrowserHost_InitializeCoreCLR(int propertiesCount, const char** propertyKeys, const char** propertyValues)
+extern "C" int BrowserHost_InitializeDotnet(int propertiesCount, const char** propertyKeys, const char** propertyValues)
 {
     coreclr_set_error_writer(log_error_info);
 
@@ -122,6 +122,7 @@ extern "C" int BrowserHost_InitializeCoreCLR(int propertiesCount, const char** p
     return 0;
 }
 
+static bool executeAssemblyFailed = false;
 extern "C" int BrowserHost_ExecuteAssembly(const char* assemblyPath, int argc, const char** argv)
 {
     int exit_code = 0;
@@ -130,24 +131,25 @@ extern "C" int BrowserHost_ExecuteAssembly(const char* assemblyPath, int argc, c
     if (retval < 0)
     {
         std::fprintf(stderr, "coreclr_execute_assembly failed - Error: 0x%08x\n", retval);
+        executeAssemblyFailed = true;
         return -1;
     }
     return exit_code;
 }
 
-extern "C" int BrowserHost_ShutdownCoreCLR(int exit_code)
+extern "C" int BrowserHost_ShutdownDotnet(int exit_code)
 {
-    int latched_exit_code = 0;
+    if (executeAssemblyFailed)
+    {
+        return exit_code;
+    }
+
+    int latched_exit_code = exit_code;
     int result = coreclr_shutdown_2(CurrentClrInstance, CurrentAppDomainId, &latched_exit_code);
     if (result < 0)
     {
         std::fprintf(stderr, "coreclr_shutdown_2 failed - Error: 0x%08x\n", result);
         exit_code = -1;
-    }
-
-    if (exit_code != -1)
-    {
-        exit_code = latched_exit_code;
     }
 
     return exit_code;

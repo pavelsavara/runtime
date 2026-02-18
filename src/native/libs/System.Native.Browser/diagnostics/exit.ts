@@ -60,7 +60,7 @@ function logExitReason(exitCode: number, reason: any) {
         } else {
             reason = reason + "";
         }
-        const msg = "dotnet exited with " + exitCode;
+        const msg = "dotnet exited with: " + exitCode;
         if (hasExitStatus) {
             dotnetLogger.debug(msg, reason);
         } else {
@@ -125,7 +125,7 @@ function fatalHandler(event: any, reason: any, type: string) {
         }
         reason.stack = reason.stack + "";// string conversion (it could be getter)
         if (!reason.silent) {
-            dotnetLogger.error("Unhandled error:", reason);
+            dotnetLogger.error("Unhandled error: ", reason);
             dotnetApi.exit(1, reason);
         }
     } catch (error: any) {
@@ -153,6 +153,6 @@ async function flushNodeStreams() {
         await Promise.race([Promise.all([stdoutFlushed, stderrFlushed]), timeout]);
         clearTimeout(timeoutId);
     } catch (err) {
-        dotnetLogger.error(`flushing std* streams failed`, err);
+        dotnetLogger.error("flushing std* streams failed: ", err);
     }
 }

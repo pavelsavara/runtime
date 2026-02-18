@@ -43,17 +43,21 @@ export function warn(msg: string, ...data: any) {
 }
 
 export function error(msg: string, reason: any) {
+    if (reason.silent) {
+        return;
+    }
     console.error(prefix + msg, normalizeException(reason));
 }
 
 export function normalizeException(reason: any) {
     let res = "unknown exception";
+    let stack: string | undefined;
     if (reason) {
-        if (typeof reason === "object" && reason.status === undefined && reason.stack === undefined) {
-            try {
-                reason.stack = new Error().stack + "";
-            } catch {
-                // Ignore failure to assign stack; continue logging with what we have.
+        if (typeof reason === "object" && reason.status === undefined) {
+            if (stack !== undefined) {
+                stack = reason.stack;
+            } else {
+                stack = new Error().stack + "";
             }
         }
         if (reason.message) {
@@ -63,7 +67,6 @@ export function normalizeException(reason: any) {
         } else {
             res = reason + "";
         }
-        const stack = reason.stack;
         if (stack) {
             // Some JS runtimes insert the error message at the top of the stack, some don't,
             //  so normalize it by using the stack as the result if it already contains the error
