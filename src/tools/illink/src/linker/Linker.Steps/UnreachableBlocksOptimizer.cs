@@ -609,6 +609,12 @@ namespace Mono.Linker.Steps
             //
             List<(int, Instruction)>? conditionInstrsToReplace;
 
+            //
+            // Indicates the body contains calls to methods marked with [DoesNotReturn].
+            // Code after such calls is unreachable and can be removed.
+            //
+            bool hasDoesNotReturnCalls;
+
             public BodyReducer(MethodBody body, LinkContext context)
             {
                 Body = body;
@@ -618,6 +624,7 @@ namespace Mono.Linker.Steps
                 mapping = null;
                 conditionInstrsToRemove = null;
                 conditionInstrsToReplace = null;
+                hasDoesNotReturnCalls = false;
                 InstructionsReplaced = 0;
             }
 
@@ -841,7 +848,7 @@ namespace Mono.Linker.Steps
                 if (FoldedInstructions == null)
                     InitializeFoldedInstruction();
 
-                if (!RemoveConditions())
+                if (!RemoveConditions() && !hasDoesNotReturnCalls)
                     return false;
 
                 BitArray reachableInstrs = GetReachableInstructionsMap(out var unreachableEH);
@@ -888,6 +895,12 @@ namespace Mono.Linker.Steps
                             var md = context.TryResolve((MethodReference)instr.Operand);
                             if (md == null)
                                 break;
+
+                            if (!hasDoesNotReturnCalls && !md.IsVirtual && HasDoesNotReturnAttribute(md))
+                            {
+                                hasDoesNotReturnCalls = true;
+                                changed = true;
+                            }
 
                             // Not supported
                             if (md.IsVirtual || md.CallingConvention == MethodCallingConvention.VarArg)
@@ -964,13 +977,14 @@ namespace Mono.Linker.Steps
                     int index = i - removed;
                     // If we intend to remove the last instruction we replaced it with "ret" above (not "nop")
                     // but we can't get rid of it completely because it may happen that the last kept instruction
-                    // is a conditional branch - in which case to keep the IL valid, there has to be something after
-                    // the conditional branch instruction (the else branch). So if that's the case
-                    // inject "ldnull; throw;" at the end - this branch should never be reachable and it's always valid
+                    // is a conditional branch or a call to a [DoesNotReturn] method - in which case to keep the
+                    // IL valid, there has to be something after it. So if that's the case inject "ldnull; throw;"
+                    // at the end - this branch should never be reachable and it's always valid
                     // (ret may need to return a value of the right type if the method has a return value which is complicated
                     // to construct out of nothing).
                     if (index == Instructions.Count - 1 && Instructions[index].OpCode == OpCodes.Ret &&
-                        index > 0 && IsConditionalBranch(Instructions[index - 1].OpCode))
+                        index > 0 && (IsConditionalBranch(Instructions[index - 1].OpCode) ||
+                                      Instructions[index - 1].OpCode.FlowControl == FlowControl.Call))
                     {
                         processor.Replace(index, Instruction.Create(OpCodes.Ldnull));
                         processor.InsertAfter(Instructions[index], Instruction.Create(OpCodes.Throw));
@@ -1196,8 +1210,12 @@ namespace Mono.Linker.Steps
                                         throw new NotImplementedException();
                                 }
 
-                            case FlowControl.Next:
                             case FlowControl.Call:
+                                if (hasDoesNotReturnCalls && IsDoesNotReturnCall(instr))
+                                    break;
+                                continue;
+
+                            case FlowControl.Next:
                             case FlowControl.Meta:
                                 continue;
 
@@ -1342,6 +1360,33 @@ namespace Mono.Linker.Steps
             {
                 Debug.Assert(FoldedInstructions != null);
                 return HasJumpIntoTargetRange(FoldedInstructions, firstInstr, lastInstr, TryGetInstructionIndex);
+            }
+
+            bool IsDoesNotReturnCall(Instruction instruction)
+            {
+                if (instruction.OpCode.Code is not (Code.Call or Code.Callvirt))
+                    return false;
+
+                var md = context.TryResolve((MethodReference)instruction.Operand);
+                if (md is null || md.IsVirtual)
+                    return false;
+
+                return HasDoesNotReturnAttribute(md);
+            }
+
+            static bool HasDoesNotReturnAttribute(MethodDefinition method)
+            {
+                if (!method.HasCustomAttributes)
+                    return false;
+
+                foreach (var ca in method.CustomAttributes)
+                {
+                    if (ca.AttributeType.Name == "DoesNotReturnAttribute"
+                        && ca.AttributeType.Namespace == "System.Diagnostics.CodeAnalysis")
+                        return true;
+                }
+
+                return false;
             }
         }
 
