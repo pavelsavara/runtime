@@ -454,6 +454,166 @@ For each sub-cluster above (parallel sub-agents):
 5. **Note `#if TARGET_BROWSER`, `#if FEATURE_WASM_MANAGED_THREADS`** — conditionally compiled code
 6. **Estimate cut safety** — for each cross-cluster edge, assess whether breaking it would affect Blazor scenarios
 
+### Phase 2 Results: Cross-Cluster Dependency Analysis
+
+#### 2.1 Cluster-Level SCC Structure
+
+All 29 sub-clusters form **one giant SCC** at the cluster level with **160 directed edges**.
+At the coarse parent level (1A, 1B, ..., 1L), all **11 parent clusters** also form a single SCC with **56 directed edges**.
+
+**Implication:** There is no easy "peel off" — every sub-cluster is reachable from every other sub-cluster.
+
+#### 2.2 Cross-Cluster Dependency Matrix (Top Edges by Count)
+
+| From | To | Edges | Key Coupling Pattern |
+|------|----|------:|----------------------|
+| 1A-iii Infrastructure | 1F-ii Vector | 64 | HexConverter uses Vector128 ops |
+| 1E-iii Unicode | 1F-ii Vector | 49 | Utf8Utility/Ascii uses Vector128 for SIMD text |
+| 1C-ii Members | 1C-i TypeSystem | 46 | TypeInfo.IsAssignableFrom, CustomAttribute -> Type |
+| 1D-i TypeConstruction | 1C-i TypeSystem | 33 | TypeBuilderInstantiation -> RuntimeType virtuals |
+| 1C-i TypeSystem | 1D-i TypeConstruction | 29 | RuntimeType.IsAssignableFrom -> TypeBuilder |
+| 1A-ii CoreTypes | 1A-iii Infrastructure | 27 | Span, ReadOnlySpan -> ThrowHelper |
+| 1C-ii Members | 1D-i TypeConstruction | 25 | TypeInfo, CustomAttribute -> TypeBuilder |
+| 1C-i TypeSystem | 1A-ii CoreTypes | 24 | RuntimeType uses Span, Array.Copy |
+| 1B-ii Formatting | 1E-ii Encoding | 21 | NumberFormatInfo.TChar() -> Encoding.GetBytes |
+| 1E-ii Encoding | 1A-ii CoreTypes | 21 | Encoding -> ReadOnlySpan, ArgumentOutOfRange |
+| 1A-ii CoreTypes | 1C-i TypeSystem | 21 | Enum, MulticastDelegate -> RuntimeType |
+| 1F-ii Vector | 1A-iii Infrastructure | 21 | Vector128 -> ThrowHelper |
+| 1C-iii Assembly | 1A-ii CoreTypes | 21 | AssemblyNameParser -> String.Equals |
+| 1E-i StringBuilder | 1A-ii CoreTypes | 17 | ValueStringBuilder -> Span |
+| 1C-i TypeSystem | 1C-ii Members | 16 | RuntimeType -> CustomAttribute, MemberInfo |
+
+#### 2.3 Bidirectional Coupling (Strongest Cycles)
+
+| Cluster Pair | Fwd+Bwd | Total | Cycle Nature |
+|-------------|---------|------:|--------------|
+| 1F-ii Vector <-> 1A-iii Infrastructure | 21+64 | 85 | Vector ThrowHelper <-> HexConverter vectorized |
+| 1C-i TypeSystem <-> 1D-i TypeConstruction | 29+33 | 62 | RuntimeType <-> TypeBuilder mutual virtuals |
+| 1C-i TypeSystem <-> 1C-ii Members | 16+46 | 62 | Type <-> CustomAttribute/MemberInfo |
+| 1A-ii CoreTypes <-> 1C-i TypeSystem | 21+24 | 45 | Enum/Span <-> RuntimeType |
+| 1A-ii CoreTypes <-> 1A-iii Infrastructure | 27+5 | 32 | Span <-> ThrowHelper/SR |
+| 1E-ii Encoding <-> 1A-ii CoreTypes | 21+5 | 26 | Encoding <-> String/Span |
+| 1C-ii Members <-> 1D-i TypeConstruction | 25+1 | 26 | TypeInfo/CustomAttr <-> TypeBuilder |
+| 1E-i StringBuilder <-> 1A-ii CoreTypes | 17+4 | 21 | ValueStringBuilder <-> Span |
+| 1B-ii Formatting <-> 1A-ii CoreTypes | 12+8 | 20 | CompareInfo <-> String/MemoryExtensions |
+| 1D-iii EmitSupport <-> 1D-i TypeConstruction | 6+12 | 18 | SymbolType <-> TypeBuilderInstantiation |
+
+#### 2.4 `Type.op_Equality` / `typeof(T)` Bottleneck
+
+**18 out of 29 clusters** call `Type::op_Equality`, `Type::op_Inequality`, `Type::get_IsValueType`, or `Type::get_IsEnum` — pulling in the entire TypeSystem cluster (1C-i). This is the **#1 coupling mechanism** holding the SCC together.
+
+| Calling Cluster | # Calls | Pattern |
+|----------------|--------:|---------|
+| 1C-i TypeSystem (self) | 27 | RuntimeType internal logic |
+| 1C-ii Members | 24 | TypeInfo.IsAssignableFrom, CustomAttribute |
+| 1D-i TypeConstruction | 14 | TypeBuilder.IsTypeEqual |
+| 1A-ii CoreTypes | 11 | Enum.TryFormat, Array.Copy typeof chains |
+| 1F-i Scalar | 11 | Scalar&lt;T&gt;.Add — `typeof(T) == typeof(byte)` chains |
+| 1B-ii Formatting | 10 | NumberFormatInfo generic TChar dispatch |
+| 1G-i Dictionary | 10 | `typeof(TKey).IsValueType` checks |
+| 1F-ii Vector | 9 | Vector128.AddSaturate type checks |
+| 1H-i ThreadPrimitives | 7 | Interlocked generic type guards |
+| 1A-i Numeric | 6 | UInt64.CreateTruncating generic chains |
+
+**Root cause**: All generic `typeof(T) ==` pattern matching compiles to `Type.op_Equality(Type.GetTypeFromHandle, Type.GetTypeFromHandle)` at the IL level. The JIT eliminates these at runtime, but the **linker must conservatively preserve them** because the T is open at trim time.
+
+#### 2.5 Coarse Parent-Level Dependencies (1A..1L)
+
+All 11 parent clusters form a single SCC. Strongest bidirectional couplings:
+
+| Parent Pair | Total Edges | Primary Mechanism |
+|------------|------------:|-------------------|
+| 1D Emit <-> 1C Reflection | 123 | TypeBuilder/SymbolType <-> RuntimeType mutual |
+| 1F Intrinsics <-> 1A Primitives | 115 | Vector ops -> ThrowHelper; HexConverter -> Vector128 |
+| 1A Primitives <-> 1C Reflection | 113 | Enum/typeof -> RuntimeType; RuntimeType -> Span/Array |
+| 1E Text <-> 1A Primitives | 58 | Encoding -> Span; String -> ValueStringBuilder |
+| 1B Globalization <-> 1A Primitives | 39 | NumberFormatInfo <-> String/AppContext |
+| 1E Text <-> 1C Reflection | 25 | Encoding -> Type.op_Equality (via generic code) |
+| 1G Collections <-> 1C Reflection | 23 | Dictionary typeof(TKey).IsValueType |
+
+#### 2.6 Critical SCC-Breaking Edges (Single-Edge Removals)
+
+Only **4 out of 160 edges** are true bottleneck edges where removal reduces the SCC:
+
+| Edge | Reduction | Method-Level Edges | Feasibility |
+|------|-----------|--------------------|-------------|
+| **1H-i ThreadPrimitives -> 1H-ii Synchronization** | 29→27 (-2) | 3: Lock -> WaitHandle/EventWaitHandle | MODERATE — Lock.CreateWaitEvent/SignalWaiter; could potentially use an interface indirection |
+| **1A-ii CoreTypes -> 1J-ii SearchValues** | 29→28 (-1) | 6: String.MakeSeparatorList, MemoryExtensions.IndexOfAny -> SearchValues | LOW — hot path for String.Split and span search |
+| **1J-ii SearchValues -> 1A-iii Infrastructure** | 29→28 (-1) | 6: SearchValues -> SpanHelpers.IndexOfAny/Contains | LOW — fundamental helper dependency |
+| **1H-ii Synchronization -> 1L-ii SafeHandle** | 29→28 (-1) | 5: WaitHandle/EventWaitHandle -> SafeHandle ops | MODERATE — SafeHandle.DangerousAddRef/Release |
+
+**Key insight**: The SCC is **extremely well-connected**. Removing single edges at the cluster level barely reduces it. The fundamental problem is that `Type.op_Equality` (called from 18 clusters via `typeof(T)` patterns) creates a hub that connects everything through 1C-i TypeSystem.
+
+#### 2.7 Cluster Coupling Summary
+
+| Cluster | Intra | OutCross | InCross | ExtOut | Total |
+|---------|------:|--------:|-------:|------:|------:|
+| 1C-i TypeSystem | 207 | 94 | 182 | 169 | 470 |
+| 1A-ii CoreTypes | 70 | 114 | 163 | 144 | 328 |
+| 1C-ii Members | 67 | 119 | 23 | 136 | 322 |
+| 1E-ii Encoding | 90 | 43 | 37 | 112 | 245 |
+| 1F-ii Vector | 103 | 47 | 118 | 90 | 240 |
+| 1B-ii Formatting | 51 | 59 | 23 | 70 | 180 |
+| 1A-iii Infrastructure | 31 | 83 | 90 | 45 | 159 |
+| 1A-i Numeric | 51 | 42 | 25 | 65 | 158 |
+| 1E-i StringBuilder | 28 | 25 | 36 | 56 | 109 |
+| 1D-i TypeConstruction | 11 | 51 | 67 | 45 | 107 |
+
+**Most coupled**: 1C-i TypeSystem (470 total call edges), 1A-ii CoreTypes (328), 1C-ii Members (322).
+**Least coupled**: 1D-ii ILGeneration (8), 1J-iii BinaryPrimitives (7), 1L-ii SafeHandle (16), 1L-iii Marshalling (16), 1H-ii Synchronization (18).
+
+#### 2.8 `#if TARGET_BROWSER` / `TARGET_WASI` Conditionals in SCC Files
+
+71 conditional compilation lines across 25 files. Key clusters affected:
+
+| File (lines) | Cluster | What Changes |
+|-------------|---------|--------------|
+| ThreadPoolWorkQueue.cs (8) | 1H-i | FEATURE_WASM_MANAGED_THREADS — entire ThreadPool dispatch strategy |
+| ManualResetEventSlim.cs (6) | 1H-ii | TARGET_BROWSER — spin wait disabled on single-threaded WASM |
+| TimeZoneInfo.Unix.NonAndroid.cs (6) | 1A-ii | TARGET_BROWSER — timezone file loading vs. embedded data |
+| Thread.cs (5) | 1H-i | TARGET_BROWSER/WASI — thread creation, sleep behavior |
+| Thread.CoreCLR.cs (4) | 1H-i | TARGET_BROWSER — starts in WASM context |
+| Monitor.cs (4) | 1H-i | TARGET_BROWSER — Monitor disabled on ST browser |
+| OperatingSystem.cs (4) | 1A-ii | TARGET_BROWSER/WASI — platform detection |
+| FileStatus.Unix.cs (4) | 1I-ii | TARGET_BROWSER — file mode handling differs |
+| Assembly.cs (4) | 1C-iii | TARGET_BROWSER — assembly loading restrictions |
+| EventSource.cs (3) | 1M-ii | FEATURE_WASM_PERFTRACING — eventsource integration |
+| CultureData.Icu.cs (2) | 1B-i | TARGET_BROWSER — ICU data loading |
+| GlobalizationMode.cs (1) | 1B-i | TARGET_BROWSER/WASI — invariant globalization mode |
+
+**Threading cluster (1H) has the most browser-conditional code** — 22 of 71 lines. This is expected: the browser WASM target can be single-threaded, which fundamentally changes ThreadPool, Monitor, Lock, and ManualResetEventSlim behavior.
+
+#### 2.9 External Callees (Leaving the SCC)
+
+Clusters with most external dependencies (calls to non-SCC methods):
+
+| Cluster | Ext Calls | Top External Types |
+|---------|----------:|-------------------|
+| 1C-i TypeSystem | 169 | RuntimeType, SignatureType, RuntimeTypeHandle (self-recursive non-SCC) |
+| 1A-ii CoreTypes | 144 | ReadOnlySpan, String, Unsafe, SpanHelpers, Object |
+| 1C-ii Members | 136 | SignatureType, Type, ParameterInfo, TypeDelegator |
+| 1E-ii Encoding | 112 | ThrowHelper, Encoding (self), String, Char |
+| 1F-ii Vector | 90 | Unsafe (37!), Vector64 self-calls, Vector128 |
+
+Notable: 1F-ii Vector has **37 external calls to Unsafe** (Unsafe.SizeOf, Unsafe.As, etc.) — these are JIT intrinsics and should not contribute to SCC growth.
+
+#### 2.10 Key Findings & Implications for Phase 3
+
+1. **The SCC cannot be split by removing small numbers of cluster-level edges.** The 29 sub-clusters form a single highly-connected SCC with 160 edges, and only 4 single-edge bottlenecks exist (each removing at most 2 clusters).
+
+2. **`Type.op_Equality` is the universal glue.** 18/29 clusters call it via `typeof(T) ==` patterns. Any strategy to break the SCC must address this — either by:
+   - Making the linker understand that `typeof(T) == typeof(X)` is a constant pattern (JIT already optimizes it)
+   - Moving Type.op_Equality to a minimal "type identity" cluster that doesn't pull in full RuntimeType
+   - Using feature switches to stub out Type.op_Equality for specific T instantiations
+
+3. **Reflection.Emit (1D) is tightly coupled to TypeSystem (1C) with 123 bidirectional edges.** This is the second-biggest cycle. On browser/WASM, Reflection.Emit is rarely used (Blazor doesn't use it). If the linker could trim Emit away, it would remove 31 methods from the SCC.
+
+4. **Intrinsics (1F) <-> Infrastructure (1A)** has 115 bidirectional edges but these are mostly HexConverter's vectorized implementations and ThrowHelper calls. HexConverter is used by AssemblyNameParser which is used by Reflection.
+
+5. **Threading (1H) is the most browser-affected cluster** with 22 conditional compilation lines. The browser target fundamentally changes thread behavior, but the conditional code is already structured with `#if TARGET_BROWSER`.
+
+6. **The real SCC-breaking strategy must work at the method level, not the cluster level.** The cluster graph is too well-connected. Phase 3 should focus on identifying specific method-level cycles that can be broken with feature switches, interface indirection, or lazy loading patterns.
+
 ---
 
 ## Phase 3: Characterize Key Coupling Points — 30 Theories
