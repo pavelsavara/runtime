@@ -2,7 +2,7 @@
 
 ## Context
 
-**Goal:** Break the main SCC (3,056 methods, ~438 KB transitive, 66.9% of total IL) in System.Private.CoreLib for browser/WASM target into sub-clusters, characterize each, map inter-cluster dependencies, and identify safe dependency-cut candidates to reduce size as much as possible.
+**Goal:** Break the main SCC in System.Private.CoreLib for browser/WASM targets into sub-clusters, characterize each, map inter-cluster dependencies, and identify safe dependency-cut candidates to reduce size as much as possible. The browser sample has a 267-method SCC (async/IO/FileStream cycle, 433 KB transitive, 66.9% of total IL). The Blazor app has no single dominant CoreLib SCC; its cost is driven by external assemblies (Linq.Expressions, Text.Json, Components).
 
 **Target:** IL-trimmed `System.Private.CoreLib.dll` for browser/WASM (CoreCLR build). The sample app folder name contains "mono" but the actual build is CoreCLR.
 
@@ -19,13 +19,10 @@
 - `src/coreclr/System.Private.CoreLib/src/`
 
 **Key metrics from method-cost tool:**
-- 9 assemblies, 12,135 methods, 654,703 bytes total IL
-- Main SCC core: 2,694 methods (transitiveMethodCount=6700)
-- SCC with close satellites: ~3,056 methods
-- Max transitive: 437,883 bytes (66.9%)
-- System.Private.CoreLib alone: 435,793 bytes own IL in SCC
 
-## SCC Core Namespace Distribution (2,694 methods)
+TODO
+
+## SCC Core Namespace Distribution
 
 | Methods | Namespace | Notes |
 |---------|-----------|-------|
@@ -57,13 +54,13 @@
 ## Phase 0: Method-Cost Analysis
 
 ### 0A. Browser sample app [DONE]
-- [x] Run method-cost tool on `d:\runtime2\src\mono\sample\wasm\browser\bin\publish\wwwroot\_framework`
-- [x] Report saved to `d:\runtime2\method-cost-full.json` (n=5000)
-- [x] Identified SCC core: 2,694 methods, all with transitiveMethodCount=6700
-- [x] Mapped namespace distribution
+- [ ] Run method-cost tool on `d:\runtime2\src\mono\sample\wasm\browser\bin\publish\wwwroot\_framework`
+- [ ] Report saved to `d:\runtime2\method-cost-full.json` (n=5000)
+- [ ] Identified SCC core: 2,694 methods, all with transitiveMethodCount=6700
+- [ ] Mapped namespace distribution
 
 ### 0B. Blazor WASM app [TODO]
-- [ ] Run method-cost tool on `d:\samples\blazorwasmruntime\bin\Release\net11.0\publish\wwwroot\_framework\System.Private.CoreLib.13rc2m3cwc.dll`
+- [ ] Run method-cost tool on `d:\samples\blazorwasmruntime\bin\Release\net11.0\publish\wwwroot\_framework\`
 - [ ] Save report to `d:\runtime2\method-cost-full-blazor.json` (n=5000)
 - [ ] Identify SCC core size and compare with browser sample (2,694 methods)
 - [ ] Map namespace distribution differences — Blazor uses more Reflection, Components, JSON, HTTP
