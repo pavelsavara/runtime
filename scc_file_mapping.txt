@@ -1,0 +1,1334 @@
+Mapping 162 distinct types to source files...
+
+Found 1695 .cs files in libraries SPC
+Found 148 .cs files in coreclr SPC
+
+Mapped: 136 types
+Unmapped: 26 types
+
+Unmapped types:
+  System.Buffers.SharedArrayPoolPartitions  (searched: ['System.Buffers.SharedArrayPoolPartitions', 'SharedArrayPoolPartitions'])
+  System.Buffers.SharedArrayPoolPartitions/Partition  (searched: ['Partition', 'SharedArrayPoolPartitions'])
+  System.Collections.Generic.ValueListBuilder`1  (searched: ['System.Collections.Generic.ValueListBuilder', 'ValueListBuilder'])
+  System.HexConverter  (searched: ['System.HexConverter', 'HexConverter'])
+  System.MdUtf8String  (searched: ['System.MdUtf8String', 'MdUtf8String'])
+  System.ModuleHandle  (searched: ['System.ModuleHandle', 'ModuleHandle'])
+  System.Reflection.AssemblyNameFormatter  (searched: ['System.Reflection.AssemblyNameFormatter', 'AssemblyNameFormatter'])
+  System.Reflection.AssemblyNameParser  (searched: ['System.Reflection.AssemblyNameParser', 'AssemblyNameParser'])
+  System.Reflection.CustomAttribute  (searched: ['System.Reflection.CustomAttribute', 'CustomAttribute'])
+  System.Reflection.Metadata.AssemblyNameInfo  (searched: ['System.Reflection.Metadata.AssemblyNameInfo', 'AssemblyNameInfo'])
+  System.Reflection.Metadata.TypeName  (searched: ['System.Reflection.Metadata.TypeName', 'TypeName'])
+  System.Reflection.Metadata.TypeNameParser  (searched: ['System.Reflection.Metadata.TypeNameParser', 'TypeNameParser'])
+  System.Reflection.Metadata.TypeNameParserHelpers  (searched: ['System.Reflection.Metadata.TypeNameParserHelpers', 'TypeNameParserHelpers'])
+  System.Reflection.MetadataImport  (searched: ['System.Reflection.MetadataImport', 'MetadataImport'])
+  System.Reflection.PseudoCustomAttribute  (searched: ['System.Reflection.PseudoCustomAttribute', 'PseudoCustomAttribute'])
+  System.RuntimeFieldHandle  (searched: ['System.RuntimeFieldHandle', 'RuntimeFieldHandle'])
+  System.RuntimeMethodHandle  (searched: ['System.RuntimeMethodHandle', 'RuntimeMethodHandle'])
+  System.RuntimeTypeHandle  (searched: ['System.RuntimeTypeHandle', 'RuntimeTypeHandle'])
+  System.Text.ConsoleEncoding  (searched: ['System.Text.ConsoleEncoding', 'ConsoleEncoding'])
+  System.Text.DecoderExceptionFallbackBuffer  (searched: ['System.Text.DecoderExceptionFallbackBuffer', 'DecoderExceptionFallbackBuffer'])
+  System.Text.DecoderFallbackBuffer  (searched: ['System.Text.DecoderFallbackBuffer', 'DecoderFallbackBuffer'])
+  System.Text.DecoderReplacementFallbackBuffer  (searched: ['System.Text.DecoderReplacementFallbackBuffer', 'DecoderReplacementFallbackBuffer'])
+  System.Text.EncoderExceptionFallbackBuffer  (searched: ['System.Text.EncoderExceptionFallbackBuffer', 'EncoderExceptionFallbackBuffer'])
+  System.Text.EncoderFallbackBuffer  (searched: ['System.Text.EncoderFallbackBuffer', 'EncoderFallbackBuffer'])
+  System.Text.EncoderFallbackException  (searched: ['System.Text.EncoderFallbackException', 'EncoderFallbackException'])
+  System.Text.EncoderReplacementFallbackBuffer  (searched: ['System.Text.EncoderReplacementFallbackBuffer', 'EncoderReplacementFallbackBuffer'])
+
+========================================================================================================================
+Sub-Cluster                    Methods   Own IL Types  Key Source Files
+========================================================================================================================
+  1C-i-TypeSystem                  116   11190B     8  RuntimeType.ActivatorCache.cs, RuntimeType.BoxCache.cs, RuntimeType.CoreCLR.cs, RuntimeType.CreateUninitializedCache.CoreCLR.cs (+6)
+  1A-ii-CoreTypes                   96   10594B    17  Array.CoreCLR.cs, Delegate.CoreCLR.cs, Enum.CoreCLR.cs, Environment.CoreCLR.cs (+47)
+  1A-iii-Infrastructure             55   10436B     7  GC.CoreCLR.cs, AppDomain.Unix.cs, AppDomain.Windows.cs, AppDomain.cs (+12)
+  1F-i-Scalar                       11    8177B     1  Scalar.cs
+  1E-iii-Unicode                    30    7944B     4  Ascii.CaseConversion.cs, Ascii.Equality.cs, Ascii.Transcoding.cs, Ascii.Trimming.cs (+10)
+  1C-ii-Members                     78    7933B    18  Associates.cs, MdFieldInfo.cs, MethodBase.CoreCLR.cs, RtFieldInfo.cs (+14)
+  1A-i-Numeric                      59    6669B    14  Math.CoreCLR.cs, MathF.CoreCLR.cs, BitConverter.cs, Char.cs (+19)
+  1B-ii-Formatting                  51    4693B     8  CharUnicodeInfo.cs, CompareInfo.Icu.cs, CompareInfo.Invariant.cs, CompareInfo.Nls.cs (+13)
+  1E-ii-Encoding                    68    4673B    11  Encoding.Internal.cs, Encoding.cs, UTF8Encoding.Sealed.cs, UTF8Encoding.cs
+  1F-ii-Vector                      91    4338B     9  Vector128.Numerics.cs, Vector128.cs, Vector256.cs, Vector512.cs (+2)
+  1C-iii-Assembly                   19    3709B     5  AssemblyName.CoreCLR.cs, RuntimeAssembly.cs, RuntimeModule.cs, AssemblyName.cs
+  1C-iv-Metadata                    26    2822B     5  
+  1G-i-Dictionary                   19    2659B     3  Dictionary.cs, HashSet.cs, Hashtable.cs
+  1E-i-StringBuilder                30    2561B     3  StringBuilder.CoreCLR.cs, StringBuilder.Debug.cs, StringBuilder.cs, ValueStringBuilder.AppendFormat.cs
+  1D-iii-EmitSupport                31    2032B     4  RuntimeAssemblyBuilder.cs, RuntimeModuleBuilder.cs, SymbolType.cs, TypeNameBuilder.cs
+  1J-i-ArrayPool                    13    1404B     5  ArrayPool.cs, SharedArrayPool.cs
+  1D-i-TypeConstruction             35    1353B     3  RuntimeTypeBuilder.cs, TypeBuilder.cs, TypeBuilderInstantiation.cs
+  1H-i-ThreadPrimitives             16    1244B     3  Monitor.CoreCLR.cs, Thread.CoreCLR.cs, Lock.cs, Monitor.cs (+3)
+  1K-iii-Other                      15    1210B     3  ConditionalWeakTable.cs, DefaultInterpolatedStringHandler.cs, Unsafe.cs
+  1H-ii-Synchronization             11     899B     5  Interlocked.CoreCLR.cs, AsyncLocal.cs, EventWaitHandle.Unix.cs, EventWaitHandle.Windows.cs (+9)
+  1B-i-CultureInfra                 17     781B     2  CultureData.Browser.cs, CultureData.Icu.cs, CultureData.Nls.cs, CultureData.Unix.cs (+6)
+  1F-iii-GenericNumerics            14     755B     4  BitOperations.cs, INumberBase.cs, Vector.cs
+  1G-iii-Lists                      10     703B     2  List.cs
+  1L-i-Marshal                       7     519B     3  Interop.Libraries.cs, Marshal.CoreCLR.cs, MemoryMarshal.CoreCLR.cs, Marshal.NoCom.cs (+4)
+  1L-iii-Marshalling                 4     348B     4  ReadOnlySpanMarshaller.cs, Utf16StringMarshaller.cs, Utf8StringMarshaller.cs
+  1L-ii-SafeHandle                   8     274B     2  SafeFileHandle.OverlappedValueTaskSource.Windows.cs, SafeFileHandle.ThreadPoolValueTaskSource.cs, SafeFileHandle.Unix.cs, SafeFileHandle.Windows.cs (+2)
+  1J-ii-SearchValues                 7     269B     6  Any1SearchValues.cs, Any2SearchValues.cs, Any3SearchValues.cs, Any4SearchValues.cs (+2)
+  1J-iii-BinaryPrimitives            3     117B     2  FormattingHelpers.CountDigits.Int128.cs, FormattingHelpers.CountDigits.cs, FormattingHelpers.cs, Utilities.cs
+  1D-ii-ILGeneration                 2      43B     1  DynamicMethod.CoreCLR.cs, DynamicMethod.cs
+========================================================================================================================
+  TOTAL                            942  100349B
+
+
+### 1C-i-TypeSystem (116 methods, 11,190 bytes, 8 types)
+Source files:
+  src/coreclr/System.Private.CoreLib/src/System/RuntimeType.ActivatorCache.cs
+  src/coreclr/System.Private.CoreLib/src/System/RuntimeType.BoxCache.cs
+  src/coreclr/System.Private.CoreLib/src/System/RuntimeType.CoreCLR.cs
+  src/coreclr/System.Private.CoreLib/src/System/RuntimeType.CreateUninitializedCache.CoreCLR.cs
+  src/coreclr/System.Private.CoreLib/src/System/RuntimeType.GenericCache.cs
+  src/coreclr/System.Private.CoreLib/src/System/Type.CoreCLR.cs
+  src/libraries/System.Private.CoreLib/src/System/RuntimeType.cs
+  src/libraries/System.Private.CoreLib/src/System/Type.Enum.cs
+  src/libraries/System.Private.CoreLib/src/System/Type.Helpers.cs
+  src/libraries/System.Private.CoreLib/src/System/Type.cs
+
+  System.RuntimeType (52m, 4522B) [RuntimeType.ActivatorCache.cs, RuntimeType.BoxCache.cs, RuntimeType.CoreCLR.cs, RuntimeType.CreateUninitializedCache.CoreCLR.cs, RuntimeType.GenericCache.cs, RuntimeType.cs]
+      538B  System.RuntimeType::GetMember(String, MemberTypes, BindingFlags)
+      456B  System.RuntimeType::GetMethodBase(RuntimeType, RuntimeMethodHandleInternal)
+      315B  System.RuntimeType::FilterApplyMethodBase(MethodBase, BindingFlags, BindingFlags, CallingConventions, Type[])
+      306B  System.RuntimeType::MakeGenericType(Type[])
+      190B  System.RuntimeType::FilterApplyBase(MemberInfo, BindingFlags, Boolean, Boolean, Boolean, String, Boolean)
+      166B  System.RuntimeType::GetMethodImplCommon(String, Int32, BindingFlags, Binder, CallingConventions, Type[], ParameterModifier[])
+      165B  System.RuntimeType::ValidateGenericArguments(MemberInfo, RuntimeType[], Exception)
+      130B  System.RuntimeType::GetBaseType()
+      130B  System.RuntimeType::GetPropertyCandidates(String, BindingFlags, Type[], Boolean)
+      118B  System.RuntimeType::GetNestedType(String, BindingFlags)
+    ... +42 more (2008B)
+  System.RuntimeType/RuntimeTypeCache/MemberInfoCache`1 (18m, 4116B) [RuntimeType.ActivatorCache.cs, RuntimeType.BoxCache.cs, RuntimeType.CoreCLR.cs, RuntimeType.CreateUninitializedCache.CoreCLR.cs, RuntimeType.GenericCache.cs, RuntimeType.cs]
+      574B  System.RuntimeType/RuntimeTypeCache/MemberInfoCache`1::PopulateMethods(Filter)
+      463B  System.RuntimeType/RuntimeTypeCache/MemberInfoCache`1::PopulateInterfaces(Filter)
+      415B  System.RuntimeType/RuntimeTypeCache/MemberInfoCache`1::PopulateProperties(Filter, RuntimeType, Dictionary`2, Span`1, Boolean, ListBuilder`1&)
+      350B  System.RuntimeType/RuntimeTypeCache/MemberInfoCache`1::AddMethod(RuntimeType, RuntimeMethodHandleInternal, CacheType)
+      246B  System.RuntimeType/RuntimeTypeCache/MemberInfoCache`1::Insert(T[]&, String, MemberListType)
+      231B  System.RuntimeType/RuntimeTypeCache/MemberInfoCache`1::PopulateLiteralFields(Filter, RuntimeType, ListBuilder`1&)
+      205B  System.RuntimeType/RuntimeTypeCache/MemberInfoCache`1::PopulateEvents(Filter, RuntimeType, Dictionary`2, ListBuilder`1&)
+      200B  System.RuntimeType/RuntimeTypeCache/MemberInfoCache`1::PopulateRtFields(Filter, ReadOnlySpan`1, RuntimeType, ListBuilder`1&)
+      198B  System.RuntimeType/RuntimeTypeCache/MemberInfoCache`1::PopulateConstructors(Filter)
+      190B  System.RuntimeType/RuntimeTypeCache/MemberInfoCache`1::PopulateProperties(Filter)
+    ... +8 more (1044B)
+  System.Type (22m, 1168B) [Type.CoreCLR.cs, Type.Enum.cs, Type.Helpers.cs, Type.cs]
+      353B  System.Type::GetRuntimeTypeCode(RuntimeType)
+      133B  System.Type::get_ContainsGenericParameters()
+      118B  System.Type::IsAssignableFrom(Type)
+       81B  System.Type::ImplementInterface(Type)
+       68B  System.Type::GetMethod(String, BindingFlags, Binder, CallingConventions, Type[], ParameterModifier[])
+       67B  System.Type::GetEnumUnderlyingType()
+       42B  System.Type::IsSubclassOf(Type)
+       40B  System.Type::GetTypeCode(Type)
+       38B  System.Type::op_Equality(Type, Type)
+       29B  System.Type::get_GenericTypeArguments()
+    ... +12 more (199B)
+  System.RuntimeType/RuntimeTypeCache (16m, 636B) [RuntimeType.ActivatorCache.cs, RuntimeType.BoxCache.cs, RuntimeType.CoreCLR.cs, RuntimeType.CreateUninitializedCache.CoreCLR.cs, RuntimeType.GenericCache.cs, RuntimeType.cs]
+      212B  System.RuntimeType/RuntimeTypeCache::GetGenericMethodInfo(RuntimeMethodHandleInternal)
+      110B  System.RuntimeType/RuntimeTypeCache::GetNamespace()
+       44B  System.RuntimeType/RuntimeTypeCache::.ctor(RuntimeType)
+       39B  System.RuntimeType/RuntimeTypeCache::GetFullName()
+       29B  System.RuntimeType/RuntimeTypeCache::GetMemberCache(MemberInfoCache`1&)
+       28B  System.RuntimeType/RuntimeTypeCache::GetMethod(RuntimeType, RuntimeMethodHandleInternal)
+       28B  System.RuntimeType/RuntimeTypeCache::GetConstructor(RuntimeType, RuntimeMethodHandleInternal)
+       17B  System.RuntimeType/RuntimeTypeCache::GetMemberList(MemberInfoCache`1&, MemberListType, String, CacheType)
+       17B  System.RuntimeType/RuntimeTypeCache::get_FunctionPointerReturnAndParameterTypes()
+       16B  System.RuntimeType/RuntimeTypeCache::GetMethodList(MemberListType, String)
+    ... +6 more (96B)
+  System.RuntimeType/IGenericCacheEntry`1 (4m, 476B) [RuntimeType.ActivatorCache.cs, RuntimeType.BoxCache.cs, RuntimeType.CoreCLR.cs, RuntimeType.CreateUninitializedCache.CoreCLR.cs, RuntimeType.GenericCache.cs, RuntimeType.cs]
+      165B  System.RuntimeType/IGenericCacheEntry`1::CreateAndCache(RuntimeType)
+      152B  System.RuntimeType/IGenericCacheEntry`1::Replace(RuntimeType, TCache)
+       83B  System.RuntimeType/IGenericCacheEntry`1::GetOrCreate(RuntimeType)
+       76B  System.RuntimeType/IGenericCacheEntry`1::Find(RuntimeType)
+  System.RuntimeTypeHandle (2m, 168B) []
+       98B  System.RuntimeTypeHandle::CopyRuntimeTypeHandles(RuntimeTypeHandle[], Span`1)
+       70B  System.RuntimeTypeHandle::GetUtf8Name(RuntimeType)
+  System.RuntimeType/ListBuilder`1 (1m, 54B) [RuntimeType.ActivatorCache.cs, RuntimeType.BoxCache.cs, RuntimeType.CoreCLR.cs, RuntimeType.CreateUninitializedCache.CoreCLR.cs, RuntimeType.GenericCache.cs, RuntimeType.cs]
+       54B  System.RuntimeType/ListBuilder`1::CopyTo(Object[], Int32)
+  System.RuntimeType/RuntimeTypeCache/Filter (1m, 50B) [RuntimeType.ActivatorCache.cs, RuntimeType.BoxCache.cs, RuntimeType.CoreCLR.cs, RuntimeType.CreateUninitializedCache.CoreCLR.cs, RuntimeType.GenericCache.cs, RuntimeType.cs]
+       50B  System.RuntimeType/RuntimeTypeCache/Filter::Match(MdUtf8String)
+
+### 1A-ii-CoreTypes (96 methods, 10,594 bytes, 17 types)
+Source files:
+  src/coreclr/System.Private.CoreLib/src/System/Array.CoreCLR.cs
+  src/coreclr/System.Private.CoreLib/src/System/Delegate.CoreCLR.cs
+  src/coreclr/System.Private.CoreLib/src/System/Enum.CoreCLR.cs
+  src/coreclr/System.Private.CoreLib/src/System/Environment.CoreCLR.cs
+  src/coreclr/System.Private.CoreLib/src/System/MulticastDelegate.CoreCLR.cs
+  src/coreclr/System.Private.CoreLib/src/System/Runtime/Loader/AssemblyLoadContext.CoreCLR.cs
+  src/coreclr/System.Private.CoreLib/src/System/String.CoreCLR.cs
+  src/libraries/System.Private.CoreLib/src/System/AppContext.AnyOS.cs
+  src/libraries/System.Private.CoreLib/src/System/AppContext.Browser.cs
+  src/libraries/System.Private.CoreLib/src/System/AppContext.cs
+  src/libraries/System.Private.CoreLib/src/System/AppContextConfigHelper.cs
+  src/libraries/System.Private.CoreLib/src/System/Array.Enumerators.cs
+  src/libraries/System.Private.CoreLib/src/System/Array.cs
+  src/libraries/System.Private.CoreLib/src/System/Delegate.cs
+  src/libraries/System.Private.CoreLib/src/System/Enum.EnumInfo.cs
+  src/libraries/System.Private.CoreLib/src/System/Enum.cs
+  src/libraries/System.Private.CoreLib/src/System/Environment.Android.cs
+  src/libraries/System.Private.CoreLib/src/System/Environment.Browser.cs
+  src/libraries/System.Private.CoreLib/src/System/Environment.FreeBSD.cs
+  src/libraries/System.Private.CoreLib/src/System/Environment.GetFolderPathCore.Unix.cs
+  src/libraries/System.Private.CoreLib/src/System/Environment.Linux.cs
+  src/libraries/System.Private.CoreLib/src/System/Environment.NoRegistry.cs
+  src/libraries/System.Private.CoreLib/src/System/Environment.OSVersion.MacCatalyst.cs
+  src/libraries/System.Private.CoreLib/src/System/Environment.OSVersion.OSX.cs
+  src/libraries/System.Private.CoreLib/src/System/Environment.OSVersion.Unix.cs
+  src/libraries/System.Private.CoreLib/src/System/Environment.OSX.cs
+  src/libraries/System.Private.CoreLib/src/System/Environment.SpecialFolder.cs
+  src/libraries/System.Private.CoreLib/src/System/Environment.SpecialFolderOption.cs
+  src/libraries/System.Private.CoreLib/src/System/Environment.SunOS.cs
+  src/libraries/System.Private.CoreLib/src/System/Environment.Unix.cs
+  src/libraries/System.Private.CoreLib/src/System/Environment.UnixOrBrowser.cs
+  src/libraries/System.Private.CoreLib/src/System/Environment.Variables.Unix.cs
+  src/libraries/System.Private.CoreLib/src/System/Environment.Variables.Windows.cs
+  src/libraries/System.Private.CoreLib/src/System/Environment.Win32.cs
+  src/libraries/System.Private.CoreLib/src/System/Environment.Windows.cs
+  src/libraries/System.Private.CoreLib/src/System/Environment.cs
+  src/libraries/System.Private.CoreLib/src/System/Environment.iOS.cs
+  src/libraries/System.Private.CoreLib/src/System/MemoryExtensions.Globalization.Utf8.cs
+  src/libraries/System.Private.CoreLib/src/System/MemoryExtensions.Globalization.cs
+  src/libraries/System.Private.CoreLib/src/System/MemoryExtensions.Trim.Utf8.cs
+  src/libraries/System.Private.CoreLib/src/System/MemoryExtensions.Trim.cs
+  src/libraries/System.Private.CoreLib/src/System/MemoryExtensions.cs
+  src/libraries/System.Private.CoreLib/src/System/MulticastDelegate.cs
+  src/libraries/System.Private.CoreLib/src/System/ReadOnlySpan.cs
+  src/libraries/System.Private.CoreLib/src/System/Runtime/Loader/AssemblyLoadContext.cs
+  src/libraries/System.Private.CoreLib/src/System/Span.cs
+  src/libraries/System.Private.CoreLib/src/System/String.Comparison.cs
+  src/libraries/System.Private.CoreLib/src/System/String.Manipulation.cs
+  src/libraries/System.Private.CoreLib/src/System/String.Searching.cs
+  src/libraries/System.Private.CoreLib/src/System/String.cs
+  src/libraries/System.Private.CoreLib/src/System/Version.cs
+
+  System.MemoryExtensions (20m, 2654B) [MemoryExtensions.Globalization.Utf8.cs, MemoryExtensions.Globalization.cs, MemoryExtensions.Trim.Utf8.cs, MemoryExtensions.Trim.cs, MemoryExtensions.cs]
+      574B  System.MemoryExtensions::SplitCore(ReadOnlySpan`1, Span`1, ReadOnlySpan`1, ReadOnlySpan`1, Boolean, StringSplitOptions)
+      441B  System.MemoryExtensions::IndexOfAnyInRange(ReadOnlySpan`1, T, T)
+      186B  System.MemoryExtensions::IndexOfAnyExcept(ReadOnlySpan`1, T)
+      186B  System.MemoryExtensions::IndexOf(ReadOnlySpan`1, T)
+      186B  System.MemoryExtensions::LastIndexOf(ReadOnlySpan`1, T)
+      170B  System.MemoryExtensions::SequenceCompareTo(ReadOnlySpan`1, ReadOnlySpan`1)
+      141B  System.MemoryExtensions::IndexOf(ReadOnlySpan`1, ReadOnlySpan`1)
+      118B  System.MemoryExtensions::IndexOfAny(ReadOnlySpan`1, T, T)
+      101B  System.MemoryExtensions::AsSpan(T[], Int32)
+       96B  System.MemoryExtensions::StartsWith(ReadOnlySpan`1, ReadOnlySpan`1)
+    ... +10 more (455B)
+  System.Enum (10m, 2048B) [Enum.CoreCLR.cs, Enum.EnumInfo.cs, Enum.cs]
+      872B  System.Enum::TryFormatUnconstrained(TEnum, Span`1, Int32&, ReadOnlySpan`1)
+      563B  System.Enum::TryFormatNumberAsHex(Byte&, Span`1, Int32&)
+      150B  System.Enum::TryFormatFlagNames(EnumInfo`1, TStorage, Span`1, Int32&, Boolean&)
+      148B  System.Enum::TryFormatPrimitiveNonDefault(RuntimeType, TUnderlying, Span`1, Int32&, ReadOnlySpan`1)
+      109B  System.Enum::TryFormatPrimitiveDefault(RuntimeType, TUnderlying, Span`1, Int32&)
+       87B  System.Enum::GetNameInlined(EnumInfo`1, TStorage)
+       34B  System.Enum::AreSequentialFromZero(TStorage[])
+       31B  System.Enum::GetEnumInfo(RuntimeType, Boolean)
+       30B  System.Enum::FindDefinedIndex(TStorage[], TStorage)
+       24B  System.Enum::<GetEnumInfo>g__InitializeEnumInfo|5_0(RuntimeType, Boolean)
+  System.String (25m, 1834B) [String.CoreCLR.cs, String.Comparison.cs, String.Manipulation.cs, String.Searching.cs, String.cs]
+      280B  System.String::MakeSeparatorListAny(ReadOnlySpan`1, ReadOnlySpan`1, ValueListBuilder`1&)
+      271B  System.String::MakeSeparatorListVectorized(ReadOnlySpan`1, ValueListBuilder`1&, Char, Char, Char)
+      242B  System.String::StartsWith(String, StringComparison)
+      168B  System.String::Equals(String, StringComparison)
+      162B  System.String::JoinCore(ReadOnlySpan`1, ReadOnlySpan`1)
+      143B  System.String::MakeSeparatorListAny(ReadOnlySpan`1, ReadOnlySpan`1, ValueListBuilder`1&, ValueListBuilder`1&)
+       65B  System.String::MakeSeparatorList(ReadOnlySpan`1, ReadOnlySpan`1, ValueListBuilder`1&)
+       63B  System.String::ThrowSubstringArgumentOutOfRange(Int32, Int32)
+       57B  System.String::Substring(Int32, Int32)
+       50B  System.String::CreateStringFromEncoding(Byte*, Int32, Encoding)
+    ... +15 more (333B)
+  System.HexConverter (6m, 937B) []
+      599B  System.HexConverter::TryDecodeFrom_Vector128(ReadOnlySpan`1, Span`1, Int32&)
+      114B  System.HexConverter::TryDecodeFromUtf8_Scalar(ReadOnlySpan`1, Span`1, Int32&)
+      114B  System.HexConverter::TryDecodeFromUtf16_Scalar(ReadOnlySpan`1, Span`1, Int32&)
+       56B  System.HexConverter::TryDecodeFromUtf16(ReadOnlySpan`1, Span`1, Int32&)
+       38B  System.HexConverter::FromChar(Int32)
+       16B  System.HexConverter::get_CharToHexLookup()
+  System.Array (4m, 685B) [Array.CoreCLR.cs, Array.Enumerators.cs, Array.cs]
+      338B  System.Array::CopyImpl(Array, Int32, Array, Int32, Int32, Boolean)
+      182B  System.Array::Copy(Array, Int32, Array, Int32, Int32, Boolean)
+      152B  System.Array::Copy(Array, Array, Int32)
+       13B  System.Array::Copy(Array, Int32, Array, Int32, Int32)
+  System.ModuleHandle (5m, 572B) []
+      281B  System.ModuleHandle::ResolveTypeHandle(Int32, RuntimeTypeHandle[], RuntimeTypeHandle[])
+      141B  System.ModuleHandle::ResolveMethodHandle(Int32, RuntimeTypeHandle[], RuntimeTypeHandle[])
+      130B  System.ModuleHandle::ResolveMethodHandleInternal(RuntimeModule, Int32, ReadOnlySpan`1, ReadOnlySpan`1)
+       10B  System.ModuleHandle::ResolveMethodHandle(Int32)
+       10B  System.ModuleHandle::ResolveTypeHandle(Int32)
+  System.Span`1 (6m, 304B) [Span.cs]
+      113B  System.Span`1::.ctor(T[], Int32, Int32)
+       78B  System.Span`1::.ctor(T[])
+       46B  System.Span`1::.ctor(Void*, Int32)
+       40B  System.Span`1::ToArray()
+       20B  System.Span`1::Fill(T)
+        7B  System.Span`1::op_Implicit(T[])
+  System.AppContextConfigHelper (2m, 268B) [AppContextConfigHelper.cs]
+      164B  System.AppContextConfigHelper::GetInt16Config(String, Int16, Boolean)
+      104B  System.AppContextConfigHelper::GetInt16Config(String, String, Int16, Boolean)
+  System.Delegate (2m, 229B) [Delegate.CoreCLR.cs, Delegate.cs]
+      222B  System.Delegate::GetMethodImpl()
+        7B  System.Delegate::get_Method()
+  System.Version (3m, 206B) [Version.cs]
+       81B  System.Version::.ctor(Int32, Int32, Int32, Int32)
+       68B  System.Version::.ctor(Int32, Int32, Int32)
+       57B  System.Version::.ctor(Int32, Int32)
+  System.Runtime.Loader.AssemblyLoadContext (3m, 199B) [AssemblyLoadContext.CoreCLR.cs, AssemblyLoadContext.cs]
+      169B  System.Runtime.Loader.AssemblyLoadContext::InvokeResolveEvent(ResolveEventHandler, RuntimeAssembly, String)
+       17B  System.Runtime.Loader.AssemblyLoadContext::get_CurrentContextualReflectionContext()
+       13B  System.Runtime.Loader.AssemblyLoadContext::OnTypeResolve(RuntimeAssembly, String)
+  System.MulticastDelegate (1m, 180B) [MulticastDelegate.CoreCLR.cs, MulticastDelegate.cs]
+      180B  System.MulticastDelegate::GetMethodImpl()
+  System.Environment (2m, 134B) [Environment.CoreCLR.cs, Environment.Android.cs, Environment.Browser.cs, Environment.FreeBSD.cs, Environment.GetFolderPathCore.Unix.cs, Environment.Linux.cs, Environment.NoRegistry.cs, Environment.OSVersion.MacCatalyst.cs, Environment.OSVersion.OSX.cs, Environment.OSVersion.Unix.cs, Environment.OSX.cs, Environment.SpecialFolder.cs, Environment.SpecialFolderOption.cs, Environment.SunOS.cs, Environment.Unix.cs, Environment.UnixOrBrowser.cs, Environment.Variables.Unix.cs, Environment.Variables.Windows.cs, Environment.Win32.cs, Environment.Windows.cs, Environment.cs, Environment.iOS.cs]
+      116B  System.Environment::GetEnvironmentVariableCore(String)
+       18B  System.Environment::GetEnvironmentVariable(String)
+  System.Enum/EnumInfo`1 (2m, 117B) [Enum.CoreCLR.cs, Enum.EnumInfo.cs, Enum.cs]
+       62B  System.Enum/EnumInfo`1::Create(RuntimeType, Boolean)
+       55B  System.Enum/EnumInfo`1::.ctor(Boolean, TStorage[], String[])
+  System.ReadOnlySpan`1 (2m, 86B) [ReadOnlySpan.cs]
+       46B  System.ReadOnlySpan`1::.ctor(Void*, Int32)
+       40B  System.ReadOnlySpan`1::ToArray()
+  System.MdUtf8String (2m, 77B) []
+       41B  System.MdUtf8String::Equals(MdUtf8String)
+       36B  System.MdUtf8String::.ctor(Void*)
+  System.AppContext (1m, 64B) [AppContext.AnyOS.cs, AppContext.Browser.cs, AppContext.cs]
+       64B  System.AppContext::GetData(String)
+
+### 1A-iii-Infrastructure (55 methods, 10,436 bytes, 7 types)
+Source files:
+  src/coreclr/System.Private.CoreLib/src/System/GC.CoreCLR.cs
+  src/libraries/System.Private.CoreLib/src/System/AppDomain.Unix.cs
+  src/libraries/System.Private.CoreLib/src/System/AppDomain.Windows.cs
+  src/libraries/System.Private.CoreLib/src/System/AppDomain.cs
+  src/libraries/System.Private.CoreLib/src/System/ArgumentOutOfRangeException.cs
+  src/libraries/System.Private.CoreLib/src/System/GC.cs
+  src/libraries/System.Private.CoreLib/src/System/ObjectDisposedException.cs
+  src/libraries/System.Private.CoreLib/src/System/SR.cs
+  src/libraries/System.Private.CoreLib/src/System/SpanHelpers.BinarySearch.cs
+  src/libraries/System.Private.CoreLib/src/System/SpanHelpers.Byte.cs
+  src/libraries/System.Private.CoreLib/src/System/SpanHelpers.ByteMemOps.cs
+  src/libraries/System.Private.CoreLib/src/System/SpanHelpers.Char.cs
+  src/libraries/System.Private.CoreLib/src/System/SpanHelpers.Packed.cs
+  src/libraries/System.Private.CoreLib/src/System/SpanHelpers.T.cs
+  src/libraries/System.Private.CoreLib/src/System/SpanHelpers.cs
+  src/libraries/System.Private.CoreLib/src/System/ThrowHelper.cs
+
+  System.SpanHelpers (31m, 9774B) [SpanHelpers.BinarySearch.cs, SpanHelpers.Byte.cs, SpanHelpers.ByteMemOps.cs, SpanHelpers.Char.cs, SpanHelpers.Packed.cs, SpanHelpers.T.cs, SpanHelpers.cs]
+     1393B  System.SpanHelpers::NonPackedIndexOfAnyValueType(TValue&, TValue, TValue, TValue, Int32)
+     1153B  System.SpanHelpers::NonPackedIndexOfAnyValueType(TValue&, TValue, TValue, Int32)
+      954B  System.SpanHelpers::IndexOfAnyValueType(TValue&, TValue, TValue, TValue, TValue, TValue, Int32)
+      862B  System.SpanHelpers::Fill(T&, UIntPtr, T)
+      840B  System.SpanHelpers::NonPackedIndexOfValueType(TValue&, TValue, Int32)
+      833B  System.SpanHelpers::IndexOfAnyValueType(TValue&, TValue, TValue, TValue, TValue, Int32)
+      676B  System.SpanHelpers::LastIndexOfValueType(TValue&, TValue, Int32)
+      596B  System.SpanHelpers::NonPackedContainsValueType(T&, T, Int32)
+      440B  System.SpanHelpers::IndexOfNullByte(Byte*)
+      409B  System.SpanHelpers::IndexOf(Char&, Int32, Char&, Int32)
+    ... +21 more (1618B)
+  System.SR (4m, 207B) [SR.cs]
+       69B  System.SR::Format(String, Object, Object, Object)
+       59B  System.SR::Format(String, Object, Object)
+       49B  System.SR::Format(String, Object)
+       30B  System.SR::Format(String, Object[])
+  System.ArgumentOutOfRangeException (6m, 180B) [ArgumentOutOfRangeException.cs]
+       36B  System.ArgumentOutOfRangeException::ThrowIfNegativeOrZero(T, String)
+       36B  System.ArgumentOutOfRangeException::ThrowLess(T, T, String)
+       30B  System.ArgumentOutOfRangeException::ThrowNegative(T, String)
+       30B  System.ArgumentOutOfRangeException::ThrowNegativeOrZero(T, String)
+       26B  System.ArgumentOutOfRangeException::ThrowIfLessThan(T, T, String)
+       22B  System.ArgumentOutOfRangeException::ThrowIfNegative(T, String)
+  System.ThrowHelper (10m, 169B) [ThrowHelper.cs]
+       25B  System.ThrowHelper::GetAmbiguousMatchException(MemberInfo)
+       23B  System.ThrowHelper::ThrowObjectDisposedException(Object)
+       17B  System.ThrowHelper::GetAddingDuplicateWithKeyArgumentException(Object)
+       17B  System.ThrowHelper::ThrowArgument_TypeContainsReferences(Type)
+       15B  System.ThrowHelper::ThrowForUnsupportedIntrinsicsVector512BaseType()
+       15B  System.ThrowHelper::ThrowForUnsupportedIntrinsicsVector256BaseType()
+       15B  System.ThrowHelper::ThrowForUnsupportedIntrinsicsVector64BaseType()
+       15B  System.ThrowHelper::ThrowForUnsupportedNumericsVectorBaseType()
+       15B  System.ThrowHelper::ThrowForUnsupportedIntrinsicsVector128BaseType()
+       12B  System.ThrowHelper::ThrowAddingDuplicateWithKeyArgumentException(T)
+  System.GC (2m, 66B) [GC.CoreCLR.cs, GC.cs]
+       59B  System.GC::GetGCMemoryInfo(GCKind)
+        7B  System.GC::GetGCMemoryInfo()
+  System.AppDomain (1m, 30B) [AppDomain.Unix.cs, AppDomain.Windows.cs, AppDomain.cs]
+       30B  System.AppDomain::get_CurrentDomain()
+  System.ObjectDisposedException (1m, 10B) [ObjectDisposedException.cs]
+       10B  System.ObjectDisposedException::ThrowIf(Boolean, Object)
+
+### 1F-i-Scalar (11 methods, 8,177 bytes, 1 types)
+Source files:
+  src/libraries/System.Private.CoreLib/src/System/Runtime/Intrinsics/Scalar.cs
+
+  System.Runtime.Intrinsics.Scalar`1 (11m, 8177B) [Scalar.cs]
+     1097B  System.Runtime.Intrinsics.Scalar`1::AddSaturate(T, T)
+     1084B  System.Runtime.Intrinsics.Scalar`1::SubtractSaturate(T, T)
+      797B  System.Runtime.Intrinsics.Scalar`1::Min(T, T)
+      755B  System.Runtime.Intrinsics.Scalar`1::Add(T, T)
+      755B  System.Runtime.Intrinsics.Scalar`1::Subtract(T, T)
+      715B  System.Runtime.Intrinsics.Scalar`1::ShiftLeft(T, Int32)
+      669B  System.Runtime.Intrinsics.Scalar`1::LessThanOrEqual(T, T)
+      633B  System.Runtime.Intrinsics.Scalar`1::Equals(T, T)
+      633B  System.Runtime.Intrinsics.Scalar`1::LessThan(T, T)
+      528B  System.Runtime.Intrinsics.Scalar`1::ExtractMostSignificantBit(T)
+    ... +1 more (511B)
+
+### 1E-iii-Unicode (30 methods, 7,944 bytes, 4 types)
+Source files:
+  src/libraries/System.Private.CoreLib/src/System/Text/Ascii.CaseConversion.cs
+  src/libraries/System.Private.CoreLib/src/System/Text/Ascii.Equality.cs
+  src/libraries/System.Private.CoreLib/src/System/Text/Ascii.Transcoding.cs
+  src/libraries/System.Private.CoreLib/src/System/Text/Ascii.Trimming.cs
+  src/libraries/System.Private.CoreLib/src/System/Text/Ascii.Utility.Helpers.cs
+  src/libraries/System.Private.CoreLib/src/System/Text/Ascii.Utility.cs
+  src/libraries/System.Private.CoreLib/src/System/Text/Ascii.cs
+  src/libraries/System.Private.CoreLib/src/System/Text/Unicode/Utf16Utility.Validation.cs
+  src/libraries/System.Private.CoreLib/src/System/Text/Unicode/Utf16Utility.cs
+  src/libraries/System.Private.CoreLib/src/System/Text/Unicode/Utf8.cs
+  src/libraries/System.Private.CoreLib/src/System/Text/Unicode/Utf8Utility.Helpers.cs
+  src/libraries/System.Private.CoreLib/src/System/Text/Unicode/Utf8Utility.Transcoding.cs
+  src/libraries/System.Private.CoreLib/src/System/Text/Unicode/Utf8Utility.Validation.cs
+  src/libraries/System.Private.CoreLib/src/System/Text/Unicode/Utf8Utility.cs
+
+  System.Text.Unicode.Utf8Utility (5m, 3749B) [Utf8Utility.Helpers.cs, Utf8Utility.Transcoding.cs, Utf8Utility.Validation.cs, Utf8Utility.cs]
+     1680B  System.Text.Unicode.Utf8Utility::TranscodeToUtf16(Byte*, Int32, Char*, Int32, Byte*&, Char*&)
+     1057B  System.Text.Unicode.Utf8Utility::TranscodeToUtf8(Char*, Int32, Byte*, Int32, Char*&, Byte*&)
+      930B  System.Text.Unicode.Utf8Utility::GetPointerToFirstInvalidByte(Byte*, Int32, Int32&, Int32&)
+       55B  System.Text.Unicode.Utf8Utility::GetIndexOfFirstInvalidUtf8Sequence(ReadOnlySpan`1, Boolean&)
+       27B  System.Text.Unicode.Utf8Utility::AllBytesInVector128AreAscii(Vector128`1)
+  System.Text.Ascii (21m, 3425B) [Ascii.CaseConversion.cs, Ascii.Equality.cs, Ascii.Transcoding.cs, Ascii.Trimming.cs, Ascii.Utility.Helpers.cs, Ascii.Utility.cs, Ascii.cs]
+      885B  System.Text.Ascii::ChangeCase(TFrom*, TTo*, UIntPtr)
+      351B  System.Text.Ascii::NarrowUtf16ToAscii(Char*, Byte*, UIntPtr)
+      294B  System.Text.Ascii::WidenAsciiToUtf1_Vector(Byte*, Char*, UIntPtr&, UIntPtr)
+      271B  System.Text.Ascii::WidenAsciiToUtf16(Byte*, Char*, UIntPtr)
+      257B  System.Text.Ascii::GetIndexOfFirstNonAsciiByte_Vector(Byte*, UIntPtr)
+      256B  System.Text.Ascii::GetIndexOfFirstNonAsciiChar_Vector(Char*, UIntPtr)
+      229B  System.Text.Ascii::Widen(TVectorByte)
+      218B  System.Text.Ascii::NarrowUtf16ToAscii_Intrinsified(Char*, Byte*, UIntPtr)
+      138B  System.Text.Ascii::ChangeWidthAndWriteTo(Vector128`1, TTo*, UIntPtr)
+      115B  System.Text.Ascii::ChangeCase(ReadOnlySpan`1, Span`1, Int32&)
+    ... +11 more (411B)
+  System.Text.Unicode.Utf16Utility (2m, 467B) [Utf16Utility.Validation.cs, Utf16Utility.cs]
+      456B  System.Text.Unicode.Utf16Utility::GetPointerToFirstInvalidChar(Char*, Int32, Int64&, Int32&)
+       11B  System.Text.Unicode.Utf16Utility::GetSurrogateMask(Vector128`1)
+  System.Text.Unicode.Utf8 (2m, 303B) [Utf8.cs]
+      291B  System.Text.Unicode.Utf8::ToUtf16(ReadOnlySpan`1, Span`1, Int32&, Int32&, Boolean, Boolean)
+       12B  System.Text.Unicode.Utf8::IsValid(ReadOnlySpan`1)
+
+### 1C-ii-Members (78 methods, 7,933 bytes, 18 types)
+Source files:
+  src/coreclr/System.Private.CoreLib/src/System/Reflection/Associates.cs
+  src/coreclr/System.Private.CoreLib/src/System/Reflection/MdFieldInfo.cs
+  src/coreclr/System.Private.CoreLib/src/System/Reflection/MethodBase.CoreCLR.cs
+  src/coreclr/System.Private.CoreLib/src/System/Reflection/RtFieldInfo.cs
+  src/coreclr/System.Private.CoreLib/src/System/Reflection/RuntimeConstructorInfo.CoreCLR.cs
+  src/coreclr/System.Private.CoreLib/src/System/Reflection/RuntimeEventInfo.cs
+  src/coreclr/System.Private.CoreLib/src/System/Reflection/RuntimeFieldInfo.cs
+  src/coreclr/System.Private.CoreLib/src/System/Reflection/RuntimeMethodInfo.CoreCLR.cs
+  src/coreclr/System.Private.CoreLib/src/System/Reflection/RuntimeParameterInfo.cs
+  src/coreclr/System.Private.CoreLib/src/System/Reflection/RuntimePropertyInfo.cs
+  src/coreclr/System.Private.CoreLib/src/System/Reflection/TypeNameResolver.CoreCLR.cs
+  src/libraries/System.Private.CoreLib/src/System/DefaultBinder.cs
+  src/libraries/System.Private.CoreLib/src/System/Reflection/MethodBase.cs
+  src/libraries/System.Private.CoreLib/src/System/Reflection/RuntimeConstructorInfo.cs
+  src/libraries/System.Private.CoreLib/src/System/Reflection/RuntimeMethodInfo.cs
+  src/libraries/System.Private.CoreLib/src/System/Reflection/SignatureTypeExtensions.cs
+  src/libraries/System.Private.CoreLib/src/System/Reflection/TypeInfo.cs
+  src/libraries/System.Private.CoreLib/src/System/Reflection/TypeNameResolver.cs
+
+  System.Reflection.TypeNameResolver (8m, 1459B) [TypeNameResolver.CoreCLR.cs, TypeNameResolver.cs]
+      628B  System.Reflection.TypeNameResolver::GetType(String, ReadOnlySpan`1, TypeName)
+      179B  System.Reflection.TypeNameResolver::GetTypeFromDefaultAssemblies(String, ReadOnlySpan`1, TypeName)
+      142B  System.Reflection.TypeNameResolver::Resolve(TypeName)
+      118B  System.Reflection.TypeNameResolver::GetSimpleType(TypeName)
+      112B  System.Reflection.TypeNameResolver::GetType(String, Boolean, Boolean, Assembly)
+       96B  System.Reflection.TypeNameResolver::ResolveAssembly(AssemblyName)
+       92B  System.Reflection.TypeNameResolver::GetTypeReferencedByCustomAttribute(String, RuntimeModule)
+       92B  System.Reflection.TypeNameResolver::GetGenericType(TypeName)
+  System.DefaultBinder (8m, 1374B) [DefaultBinder.cs]
+      486B  System.DefaultBinder::SelectMethod(BindingFlags, MethodBase[], Type[], ParameterModifier[])
+      288B  System.DefaultBinder::FindMostSpecific(ReadOnlySpan`1, Int32[], Type, ReadOnlySpan`1, Int32[], Type, Type[], Object[])
+      236B  System.DefaultBinder::FindMostSpecificType(Type, Type, Type)
+      112B  System.DefaultBinder::CanChangePrimitive(Type, Type)
+       91B  System.DefaultBinder::CompareMethodSig(MethodBase, MethodBase)
+       82B  System.DefaultBinder::FindMostSpecificMethod(MethodBase, Int32[], Type, MethodBase, Int32[], Type, Type[], Object[])
+       53B  System.DefaultBinder::FindMostDerivedNewSlotMeth(MethodBase[], Int32)
+       26B  System.DefaultBinder::GetHierarchyDepth(Type)
+  System.Reflection.CustomAttribute (13m, 1365B) []
+      479B  System.Reflection.CustomAttribute::FilterCustomAttributeRecord(MetadataToken, MetadataImport&, RuntimeModule, MetadataToken, RuntimeType, Boolean, ListBuilder`1&, RuntimeType&, IRuntimeMethodInfo&, Boolean&)
+      222B  System.Reflection.CustomAttribute::IsCustomAttributeDefined(RuntimeModule, Int32, RuntimeType, Int32, Boolean)
+      191B  System.Reflection.CustomAttribute::GetAttributeUsage(RuntimeType)
+      105B  System.Reflection.CustomAttribute::IsDefined(RuntimeType, RuntimeType, Boolean)
+       88B  System.Reflection.CustomAttribute::AttributeUsageCheck(RuntimeType, Boolean, ListBuilder`1&)
+       85B  System.Reflection.CustomAttribute::IsDefined(RuntimeMethodInfo, RuntimeType, Boolean)
+       67B  System.Reflection.CustomAttribute::MatchesTypeFilter(RuntimeType, RuntimeType)
+       30B  System.Reflection.CustomAttribute::IsDefined(RuntimeFieldInfo, RuntimeType)
+       30B  System.Reflection.CustomAttribute::IsDefined(RuntimeParameterInfo, RuntimeType)
+       19B  System.Reflection.CustomAttribute::IsDefined(RuntimeConstructorInfo, RuntimeType)
+    ... +3 more (49B)
+  System.Reflection.SignatureTypeExtensions (9m, 713B) [SignatureTypeExtensions.cs]
+      321B  System.Reflection.SignatureTypeExtensions::MatchesExactly(SignatureType, Type)
+      264B  System.Reflection.SignatureTypeExtensions::TryResolve(SignatureType, Type[])
+       33B  System.Reflection.SignatureTypeExtensions::MatchesParameterTypeExactly(Type, ParameterInfo)
+       17B  System.Reflection.SignatureTypeExtensions::TryMakeGenericType(Type, Type[])
+       17B  System.Reflection.SignatureTypeExtensions::TryMakeArrayType(Type, Int32)
+       16B  System.Reflection.SignatureTypeExtensions::TryMakeArrayType(Type)
+       16B  System.Reflection.SignatureTypeExtensions::TryMakePointerType(Type)
+       16B  System.Reflection.SignatureTypeExtensions::TryMakeByRefType(Type)
+       13B  System.Reflection.SignatureTypeExtensions::TryResolveAgainstGenericMethod(SignatureType, MethodInfo)
+  System.Reflection.PseudoCustomAttribute (7m, 674B) []
+      182B  System.Reflection.PseudoCustomAttribute::IsDefined(RuntimeParameterInfo, RuntimeType)
+      157B  System.Reflection.PseudoCustomAttribute::IsDefined(RuntimeFieldInfo, RuntimeType)
+      132B  System.Reflection.PseudoCustomAttribute::IsDefined(RuntimeMethodInfo, RuntimeType)
+      132B  System.Reflection.PseudoCustomAttribute::IsDefined(RuntimeType, RuntimeType)
+       35B  System.Reflection.PseudoCustomAttribute::GetMarshalAsCustomAttribute(Int32, RuntimeModule)
+       18B  System.Reflection.PseudoCustomAttribute::GetMarshalAsCustomAttribute(RuntimeParameterInfo)
+       18B  System.Reflection.PseudoCustomAttribute::GetMarshalAsCustomAttribute(RuntimeFieldInfo)
+  System.Reflection.Associates (2m, 656B) [Associates.cs]
+      390B  System.Reflection.Associates::AssignAssociates(MetadataImport, Int32, RuntimeType, RuntimeType, RuntimeMethodInfo&, RuntimeMethodInfo&, RuntimeMethodInfo&, RuntimeMethodInfo&, RuntimeMethodInfo&, MethodInfo[]&, Boolean&, BindingFlags&)
+      266B  System.Reflection.Associates::AssignAssociates(Int32, RuntimeType, RuntimeType)
+  System.Reflection.RuntimePropertyInfo (5m, 392B) [RuntimePropertyInfo.cs]
+      168B  System.Reflection.RuntimePropertyInfo::GetIndexParametersSpan()
+      114B  System.Reflection.RuntimePropertyInfo::.ctor(Int32, RuntimeType, RuntimeTypeCache, Boolean&)
+       50B  System.Reflection.RuntimePropertyInfo::IsDefined(Type, Boolean)
+       45B  System.Reflection.RuntimePropertyInfo::get_Name()
+       15B  System.Reflection.RuntimePropertyInfo::GetIndexParameters()
+  System.Reflection.RuntimeParameterInfo (5m, 372B) [RuntimeParameterInfo.cs]
+      132B  System.Reflection.RuntimeParameterInfo::.ctor(RuntimeParameterInfo, MemberInfo)
+       84B  System.Reflection.RuntimeParameterInfo::get_Name()
+       70B  System.Reflection.RuntimeParameterInfo::get_ParameterType()
+       65B  System.Reflection.RuntimeParameterInfo::IsDefined(Type, Boolean)
+       21B  System.Reflection.RuntimeParameterInfo::.ctor(RuntimeParameterInfo, RuntimePropertyInfo)
+  System.Reflection.RuntimeEventInfo (3m, 207B) [RuntimeEventInfo.cs]
+      112B  System.Reflection.RuntimeEventInfo::.ctor(Int32, RuntimeType, RuntimeTypeCache, Boolean&)
+       50B  System.Reflection.RuntimeEventInfo::IsDefined(Type, Boolean)
+       45B  System.Reflection.RuntimeEventInfo::get_Name()
+  System.Reflection.RuntimeMethodInfo (4m, 199B) [RuntimeMethodInfo.CoreCLR.cs, RuntimeMethodInfo.cs]
+       88B  System.Reflection.RuntimeMethodInfo::GetParentDefinition()
+       51B  System.Reflection.RuntimeMethodInfo::IsDefined(Type, Boolean)
+       34B  System.Reflection.RuntimeMethodInfo::GetParameters()
+       26B  System.Reflection.RuntimeMethodInfo::get_Name()
+  System.Reflection.MdFieldInfo (2m, 150B) [MdFieldInfo.cs]
+       91B  System.Reflection.MdFieldInfo::get_FieldType()
+       59B  System.Reflection.MdFieldInfo::get_Name()
+  System.Reflection.TypeInfo (1m, 95B) [TypeInfo.cs]
+       95B  System.Reflection.TypeInfo::IsAssignableFrom(TypeInfo)
+  System.Reflection.RuntimeConstructorInfo (3m, 72B) [RuntimeConstructorInfo.CoreCLR.cs, RuntimeConstructorInfo.cs]
+       50B  System.Reflection.RuntimeConstructorInfo::IsDefined(Type, Boolean)
+       15B  System.Reflection.RuntimeConstructorInfo::GetParameters()
+        7B  System.Reflection.RuntimeConstructorInfo::get_Name()
+  System.RuntimeMethodHandle (3m, 62B) []
+       23B  System.RuntimeMethodHandle::GetUtf8Name(RuntimeMethodHandleInternal)
+       21B  System.RuntimeMethodHandle::GetName(RuntimeMethodHandleInternal)
+       18B  System.RuntimeMethodHandle::GetName(IRuntimeMethodInfo)
+  System.RuntimeFieldHandle (2m, 55B) []
+       32B  System.RuntimeFieldHandle::GetName(IRuntimeFieldInfo)
+       23B  System.RuntimeFieldHandle::GetUtf8Name(RuntimeFieldHandleInternal)
+  System.Reflection.RuntimeFieldInfo (1m, 50B) [RuntimeFieldInfo.cs]
+       50B  System.Reflection.RuntimeFieldInfo::IsDefined(Type, Boolean)
+  System.Reflection.RtFieldInfo (1m, 26B) [RtFieldInfo.cs]
+       26B  System.Reflection.RtFieldInfo::get_Name()
+  System.Reflection.MethodBase (1m, 12B) [MethodBase.CoreCLR.cs, MethodBase.cs]
+       12B  System.Reflection.MethodBase::GetParametersAsSpan()
+
+### 1A-i-Numeric (59 methods, 6,669 bytes, 14 types)
+Source files:
+  src/coreclr/System.Private.CoreLib/src/System/Math.CoreCLR.cs
+  src/coreclr/System.Private.CoreLib/src/System/MathF.CoreCLR.cs
+  src/libraries/System.Private.CoreLib/src/System/BitConverter.cs
+  src/libraries/System.Private.CoreLib/src/System/Char.cs
+  src/libraries/System.Private.CoreLib/src/System/Convert.cs
+  src/libraries/System.Private.CoreLib/src/System/Double.cs
+  src/libraries/System.Private.CoreLib/src/System/Int16.cs
+  src/libraries/System.Private.CoreLib/src/System/Int32.cs
+  src/libraries/System.Private.CoreLib/src/System/Math.DivModInt.cs
+  src/libraries/System.Private.CoreLib/src/System/Math.cs
+  src/libraries/System.Private.CoreLib/src/System/MathF.cs
+  src/libraries/System.Private.CoreLib/src/System/Number.BigInteger.cs
+  src/libraries/System.Private.CoreLib/src/System/Number.DiyFp.cs
+  src/libraries/System.Private.CoreLib/src/System/Number.Dragon4.cs
+  src/libraries/System.Private.CoreLib/src/System/Number.Formatting.cs
+  src/libraries/System.Private.CoreLib/src/System/Number.Grisu3.cs
+  src/libraries/System.Private.CoreLib/src/System/Number.NumberToFloatingPointBits.cs
+  src/libraries/System.Private.CoreLib/src/System/Number.Parsing.cs
+  src/libraries/System.Private.CoreLib/src/System/ParseNumbers.cs
+  src/libraries/System.Private.CoreLib/src/System/Single.cs
+  src/libraries/System.Private.CoreLib/src/System/UInt16.cs
+  src/libraries/System.Private.CoreLib/src/System/UInt32.cs
+  src/libraries/System.Private.CoreLib/src/System/UInt64.cs
+
+  System.Number (25m, 4836B) [Number.BigInteger.cs, Number.DiyFp.cs, Number.Dragon4.cs, Number.Formatting.cs, Number.Grisu3.cs, Number.NumberToFloatingPointBits.cs, Number.Parsing.cs]
+     1509B  System.Number::TryParseNumber(TChar*&, TChar*, NumberStyles, NumberBuffer&, NumberFormatInfo)
+     1333B  System.Number::TryParseBinaryIntegerStyle(ReadOnlySpan`1, NumberStyles, NumberFormatInfo, TInteger&)
+      634B  System.Number::TryParseBinaryIntegerHexOrBinaryNumberStyle(ReadOnlySpan`1, NumberStyles, TInteger&)
+      296B  System.Number::TryNumberBufferToBinaryInteger(NumberBuffer&, TInteger&)
+      123B  System.Number::UInt32ToDecChars(TChar*, UInt32, Int32)
+      112B  System.Number::UInt32ToDecChars(TChar*, UInt32)
+      108B  System.Number::NegativeInt32ToDecStr(Int32, Int32, String)
+      104B  System.Number::ThrowFormatException(ReadOnlySpan`1)
+       89B  System.Number::TryStringToNumber(ReadOnlySpan`1, NumberStyles, NumberBuffer&, NumberFormatInfo)
+       79B  System.Number::TryParseBinaryIntegerNumber(ReadOnlySpan`1, NumberStyles, NumberFormatInfo, TInteger&)
+    ... +15 more (449B)
+  System.UInt32 (5m, 476B) [UInt32.cs]
+      364B  System.UInt32::TryConvertFromTruncating(TOther, UInt32&)
+       74B  System.UInt32::CreateTruncating(TOther)
+       24B  System.UInt32::TryParse(ReadOnlySpan`1, NumberStyles, IFormatProvider, UInt32&)
+        7B  System.UInt32::Log2(UInt32)
+        7B  System.UInt32::TrailingZeroCount(UInt32)
+  System.ParseNumbers (3m, 462B) [ParseNumbers.cs]
+      410B  System.ParseNumbers::StringToInt(ReadOnlySpan`1, Int32, Int32, Int32&)
+       39B  System.ParseNumbers::EatWhiteSpace(ReadOnlySpan`1, Int32&)
+       13B  System.ParseNumbers::StringToInt(ReadOnlySpan`1, Int32, Int32)
+  System.UInt64 (2m, 445B) [UInt64.cs]
+      371B  System.UInt64::TryConvertFromTruncating(TOther, UInt64&)
+       74B  System.UInt64::CreateTruncating(TOther)
+  System.Math (4m, 121B) [Math.CoreCLR.cs, Math.DivModInt.cs, Math.cs]
+       34B  System.Math::Min(Single, Single)
+       34B  System.Math::Min(Double, Double)
+       28B  System.Math::ThrowMinMaxException(T, T)
+       25B  System.Math::Clamp(UInt32, UInt32, UInt32)
+  System.Convert (1m, 86B) [Convert.cs]
+       86B  System.Convert::ToInt16(String, Int32)
+  System.Char (4m, 80B) [Char.cs]
+       25B  System.Char::IsWhiteSpaceLatin1(Char)
+       22B  System.Char::IsWhiteSpace(Char)
+       17B  System.Char::IsLatin1(Char)
+       16B  System.Char::get_Latin1CharInfo()
+  System.Int16 (2m, 44B) [Int16.cs]
+       24B  System.Int16::Parse(String, NumberStyles, IFormatProvider)
+       20B  System.Int16::Parse(ReadOnlySpan`1, NumberStyles, IFormatProvider)
+  System.BitConverter (6m, 42B) [BitConverter.cs]
+        7B  System.BitConverter::Int64BitsToDouble(Int64)
+        7B  System.BitConverter::SingleToInt32Bits(Single)
+        7B  System.BitConverter::Int32BitsToSingle(Int32)
+        7B  System.BitConverter::DoubleToUInt64Bits(Double)
+        7B  System.BitConverter::DoubleToInt64Bits(Double)
+        7B  System.BitConverter::SingleToUInt32Bits(Single)
+  System.UInt16 (1m, 24B) [UInt16.cs]
+       24B  System.UInt16::TryParse(ReadOnlySpan`1, NumberStyles, IFormatProvider, UInt16&)
+  System.Double (2m, 19B) [Double.cs]
+       11B  System.Double::IsNegative(Double)
+        8B  System.Double::Min(Double, Double)
+  System.Single (2m, 18B) [Single.cs]
+       10B  System.Single::IsNegative(Single)
+        8B  System.Single::Min(Single, Single)
+  System.MathF (1m, 8B) [MathF.CoreCLR.cs, MathF.cs]
+        8B  System.MathF::Min(Single, Single)
+  System.Int32 (1m, 8B) [Int32.cs]
+        8B  System.Int32::ToString()
+
+### 1B-ii-Formatting (51 methods, 4,693 bytes, 8 types)
+Source files:
+  src/libraries/System.Private.CoreLib/src/System/Globalization/CharUnicodeInfo.cs
+  src/libraries/System.Private.CoreLib/src/System/Globalization/CompareInfo.Icu.cs
+  src/libraries/System.Private.CoreLib/src/System/Globalization/CompareInfo.Invariant.cs
+  src/libraries/System.Private.CoreLib/src/System/Globalization/CompareInfo.Nls.cs
+  src/libraries/System.Private.CoreLib/src/System/Globalization/CompareInfo.Utf8.cs
+  src/libraries/System.Private.CoreLib/src/System/Globalization/CompareInfo.cs
+  src/libraries/System.Private.CoreLib/src/System/Globalization/CompareInfo.iOS.cs
+  src/libraries/System.Private.CoreLib/src/System/Globalization/GregorianCalendar.cs
+  src/libraries/System.Private.CoreLib/src/System/Globalization/InvariantModeCasing.cs
+  src/libraries/System.Private.CoreLib/src/System/Globalization/NumberFormatInfo.cs
+  src/libraries/System.Private.CoreLib/src/System/Globalization/Ordinal.Utf8.cs
+  src/libraries/System.Private.CoreLib/src/System/Globalization/Ordinal.cs
+  src/libraries/System.Private.CoreLib/src/System/Globalization/SurrogateCasing.cs
+  src/libraries/System.Private.CoreLib/src/System/Globalization/TextInfo.Icu.cs
+  src/libraries/System.Private.CoreLib/src/System/Globalization/TextInfo.Nls.cs
+  src/libraries/System.Private.CoreLib/src/System/Globalization/TextInfo.cs
+  src/libraries/System.Private.CoreLib/src/System/Globalization/TextInfo.iOS.cs
+
+  System.Globalization.NumberFormatInfo (13m, 1230B) [NumberFormatInfo.cs]
+      263B  System.Globalization.NumberFormatInfo::.ctor(CultureData)
+      166B  System.Globalization.NumberFormatInfo::InitializeInvariantAndNegativeSignFlags()
+       90B  System.Globalization.NumberFormatInfo::PositiveSignTChar()
+       90B  System.Globalization.NumberFormatInfo::CurrencySymbolTChar()
+       90B  System.Globalization.NumberFormatInfo::CurrencyGroupSeparatorTChar()
+       90B  System.Globalization.NumberFormatInfo::CurrencyDecimalSeparatorTChar()
+       90B  System.Globalization.NumberFormatInfo::NumberGroupSeparatorTChar()
+       90B  System.Globalization.NumberFormatInfo::NegativeSignTChar()
+       90B  System.Globalization.NumberFormatInfo::NumberDecimalSeparatorTChar()
+       81B  System.Globalization.NumberFormatInfo::<GetInstance>g__GetProviderNonNull|58_0(IFormatProvider)
+    ... +3 more (90B)
+  System.Globalization.Ordinal (5m, 967B) [Ordinal.Utf8.cs, Ordinal.cs]
+      580B  System.Globalization.Ordinal::EqualsIgnoreCase_Vector(Char&, Char&, Int32)
+      185B  System.Globalization.Ordinal::EqualsIgnoreCase_Scalar(Char&, Char&, Int32)
+      151B  System.Globalization.Ordinal::CompareStringIgnoreCase(Char&, Int32, Char&, Int32)
+       39B  System.Globalization.Ordinal::EqualsIgnoreCase(Char&, Char&, Int32)
+       12B  System.Globalization.Ordinal::CompareStringIgnoreCaseNonAscii(Char&, Int32, Char&, Int32)
+  System.Globalization.InvariantModeCasing (7m, 962B) [InvariantModeCasing.cs]
+      269B  System.Globalization.InvariantModeCasing::ToUpper(String)
+      269B  System.Globalization.InvariantModeCasing::ToLower(String)
+      162B  System.Globalization.InvariantModeCasing::CompareStringIgnoreCase(Char&, Int32, Char&, Int32)
+      124B  System.Globalization.InvariantModeCasing::ToLower(ReadOnlySpan`1, Span`1)
+      124B  System.Globalization.InvariantModeCasing::ToUpper(ReadOnlySpan`1, Span`1)
+        7B  System.Globalization.InvariantModeCasing::ToUpper(Char)
+        7B  System.Globalization.InvariantModeCasing::ToLower(Char)
+  System.Globalization.TextInfo (6m, 682B) [TextInfo.Icu.cs, TextInfo.Nls.cs, TextInfo.cs, TextInfo.iOS.cs]
+      312B  System.Globalization.TextInfo::ChangeCaseCommon(TextInfo, String)
+      180B  System.Globalization.TextInfo::ToLowerAsciiInvariant(String)
+       97B  System.Globalization.TextInfo::ChangeCaseCommon(TextInfo, ReadOnlySpan`1, Span`1)
+       50B  System.Globalization.TextInfo::PopulateIsAsciiCasingSameAsInvariant()
+       24B  System.Globalization.TextInfo::get_IsAsciiCasingSameAsInvariant()
+       19B  System.Globalization.TextInfo::ToLowerInvariant(String)
+  System.Globalization.CharUnicodeInfo (12m, 434B) [CharUnicodeInfo.cs]
+       91B  System.Globalization.CharUnicodeInfo::GetCategoryCasingTableOffsetNoBoundsChecks(UInt32)
+       67B  System.Globalization.CharUnicodeInfo::ToUpper(UInt32)
+       67B  System.Globalization.CharUnicodeInfo::ToLower(UInt32)
+       42B  System.Globalization.CharUnicodeInfo::ToLower(Char)
+       42B  System.Globalization.CharUnicodeInfo::ToUpper(Char)
+       29B  System.Globalization.CharUnicodeInfo::GetIsWhiteSpace(Char)
+       16B  System.Globalization.CharUnicodeInfo::get_CategoriesValues()
+       16B  System.Globalization.CharUnicodeInfo::get_CategoryCasingLevel3Index()
+       16B  System.Globalization.CharUnicodeInfo::get_CategoryCasingLevel2Index()
+       16B  System.Globalization.CharUnicodeInfo::get_CategoryCasingLevel1Index()
+    ... +2 more (32B)
+  System.Globalization.CompareInfo (4m, 307B) [CompareInfo.Icu.cs, CompareInfo.Invariant.cs, CompareInfo.Nls.cs, CompareInfo.Utf8.cs, CompareInfo.cs, CompareInfo.iOS.cs]
+      138B  System.Globalization.CompareInfo::Compare(ReadOnlySpan`1, ReadOnlySpan`1, CompareOptions)
+       81B  System.Globalization.CompareInfo::IsPrefix(ReadOnlySpan`1, ReadOnlySpan`1, CompareOptions)
+       48B  System.Globalization.CompareInfo::Compare(String, String, CompareOptions)
+       40B  System.Globalization.CompareInfo::IsPrefix(String, String, CompareOptions)
+  System.Globalization.GregorianCalendar (2m, 71B) [GregorianCalendar.cs]
+       63B  System.Globalization.GregorianCalendar::.ctor(GregorianCalendarTypes)
+        8B  System.Globalization.GregorianCalendar::.ctor()
+  System.Globalization.SurrogateCasing (2m, 40B) [SurrogateCasing.cs]
+       20B  System.Globalization.SurrogateCasing::ToUpper(Char, Char, Char&, Char&)
+       20B  System.Globalization.SurrogateCasing::ToLower(Char, Char, Char&, Char&)
+
+### 1E-ii-Encoding (68 methods, 4,673 bytes, 11 types)
+Source files:
+  src/libraries/System.Private.CoreLib/src/System/Text/Encoding.Internal.cs
+  src/libraries/System.Private.CoreLib/src/System/Text/Encoding.cs
+  src/libraries/System.Private.CoreLib/src/System/Text/UTF8Encoding.Sealed.cs
+  src/libraries/System.Private.CoreLib/src/System/Text/UTF8Encoding.cs
+
+  System.Text.Encoding (20m, 1682B) [Encoding.Internal.cs, Encoding.cs]
+      307B  System.Text.Encoding::GetBytesWithFallback(ReadOnlySpan`1, Int32, Span`1, Int32, EncoderNLS, Boolean)
+      275B  System.Text.Encoding::GetCharsWithFallback(ReadOnlySpan`1, Int32, Span`1, Int32, DecoderNLS, Boolean)
+      158B  System.Text.Encoding::GetCharCountWithFallback(ReadOnlySpan`1, Int32, DecoderNLS)
+      157B  System.Text.Encoding::GetByteCountWithFallback(ReadOnlySpan`1, Int32, EncoderNLS)
+      118B  System.Text.Encoding::GetChars(Byte*, Int32, Char*, Int32)
+      118B  System.Text.Encoding::GetBytes(Char*, Int32, Byte*, Int32)
+       51B  System.Text.Encoding::ThrowCharsOverflow(DecoderNLS, Boolean)
+       51B  System.Text.Encoding::ThrowBytesOverflow(EncoderNLS, Boolean)
+       48B  System.Text.Encoding::GetCharsWithFallback(Byte*, Int32, Char*, Int32, Int32, Int32, Boolean)
+       48B  System.Text.Encoding::GetBytesWithFallback(Char*, Int32, Byte*, Int32, Int32, Int32, Boolean)
+    ... +10 more (351B)
+  System.Text.UTF8Encoding (19m, 1308B) [UTF8Encoding.Sealed.cs, UTF8Encoding.cs]
+      155B  System.Text.UTF8Encoding::GetBytes(Char[], Int32, Int32, Byte[], Int32)
+      153B  System.Text.UTF8Encoding::GetChars(Byte[], Int32, Int32, Char[], Int32)
+      151B  System.Text.UTF8Encoding::GetBytes(String, Int32, Int32, Byte[], Int32)
+      139B  System.Text.UTF8Encoding::GetCharsWithFallback(ReadOnlySpan`1, Int32, Span`1, Int32, DecoderNLS, Boolean)
+       89B  System.Text.UTF8Encoding::GetByteCount(Char[], Int32, Int32)
+       86B  System.Text.UTF8Encoding::GetCharCount(Byte[], Int32, Int32)
+       65B  System.Text.UTF8Encoding::GetBytes(Char*, Int32, Byte*, Int32)
+       65B  System.Text.UTF8Encoding::GetChars(Byte*, Int32, Char*, Int32)
+       44B  System.Text.UTF8Encoding::GetBytes(ReadOnlySpan`1, Span`1)
+       42B  System.Text.UTF8Encoding::GetByteCountFast(Char*, Int32, EncoderFallback, Int32&)
+    ... +9 more (319B)
+  System.Text.EncoderFallbackBuffer (6m, 393B) []
+      148B  System.Text.EncoderFallbackBuffer::TryDrainRemainingDataForGetBytes(Span`1, Int32&)
+      100B  System.Text.EncoderFallbackBuffer::InternalFallback(ReadOnlySpan`1, Int32&)
+       71B  System.Text.EncoderFallbackBuffer::DrainRemainingDataForGetByteCount()
+       27B  System.Text.EncoderFallbackBuffer::ThrowLastCharRecursive(Int32)
+       26B  System.Text.EncoderFallbackBuffer::TryInternalFallbackGetBytes(ReadOnlySpan`1, Span`1, Int32&, Int32&)
+       21B  System.Text.EncoderFallbackBuffer::InternalFallbackGetByteCount(ReadOnlySpan`1, Int32&)
+  System.Text.EncoderReplacementFallbackBuffer (2m, 277B) []
+      153B  System.Text.EncoderReplacementFallbackBuffer::Fallback(Char, Char, Int32)
+      124B  System.Text.EncoderReplacementFallbackBuffer::Fallback(Char, Int32)
+  System.Text.DecoderFallbackBuffer (3m, 253B) []
+      150B  System.Text.DecoderFallbackBuffer::ThrowLastBytesRecursive(Byte[])
+       55B  System.Text.DecoderFallbackBuffer::TryInternalFallbackGetChars(ReadOnlySpan`1, Int32, Span`1, Int32&)
+       48B  System.Text.DecoderFallbackBuffer::InternalFallbackGetCharCount(ReadOnlySpan`1, Int32)
+  System.Text.EncoderExceptionFallbackBuffer (2m, 167B) []
+      137B  System.Text.EncoderExceptionFallbackBuffer::Fallback(Char, Char, Int32)
+       30B  System.Text.EncoderExceptionFallbackBuffer::Fallback(Char, Int32)
+  System.Text.ConsoleEncoding (10m, 161B) []
+       19B  System.Text.ConsoleEncoding::GetBytes(Char[], Int32, Int32, Byte[], Int32)
+       19B  System.Text.ConsoleEncoding::GetBytes(String, Int32, Int32, Byte[], Int32)
+       19B  System.Text.ConsoleEncoding::GetChars(Byte[], Int32, Int32, Char[], Int32)
+       17B  System.Text.ConsoleEncoding::GetBytes(Char*, Int32, Byte*, Int32)
+       17B  System.Text.ConsoleEncoding::GetChars(Byte*, Int32, Char*, Int32)
+       15B  System.Text.ConsoleEncoding::GetByteCount(Char[], Int32, Int32)
+       15B  System.Text.ConsoleEncoding::GetCharCount(Byte[], Int32, Int32)
+       14B  System.Text.ConsoleEncoding::GetCharCount(Byte*, Int32)
+       13B  System.Text.ConsoleEncoding::GetByteCount(String)
+       13B  System.Text.ConsoleEncoding::GetBytes(String)
+  System.Text.DecoderExceptionFallbackBuffer (2m, 153B) []
+      144B  System.Text.DecoderExceptionFallbackBuffer::Throw(Byte[], Int32)
+        9B  System.Text.DecoderExceptionFallbackBuffer::Fallback(Byte[], Int32)
+  System.Text.EncoderFallbackException (1m, 128B) []
+      128B  System.Text.EncoderFallbackException::.ctor(String, Char, Char, Int32)
+  System.Text.UTF8Encoding/UTF8EncodingSealed (2m, 95B) [UTF8Encoding.Sealed.cs, UTF8Encoding.cs]
+       66B  System.Text.UTF8Encoding/UTF8EncodingSealed::GetBytesForSmallInput(String)
+       29B  System.Text.UTF8Encoding/UTF8EncodingSealed::GetBytes(String)
+  System.Text.DecoderReplacementFallbackBuffer (1m, 56B) []
+       56B  System.Text.DecoderReplacementFallbackBuffer::Fallback(Byte[], Int32)
+
+### 1F-ii-Vector (91 methods, 4,338 bytes, 9 types)
+Source files:
+  src/libraries/System.Private.CoreLib/src/System/Runtime/Intrinsics/Vector128.Numerics.cs
+  src/libraries/System.Private.CoreLib/src/System/Runtime/Intrinsics/Vector128.cs
+  src/libraries/System.Private.CoreLib/src/System/Runtime/Intrinsics/Vector256.cs
+  src/libraries/System.Private.CoreLib/src/System/Runtime/Intrinsics/Vector512.cs
+  src/libraries/System.Private.CoreLib/src/System/Runtime/Intrinsics/Vector64.cs
+  src/libraries/System.Private.CoreLib/src/System/Runtime/Intrinsics/VectorMath.cs
+
+  System.Runtime.Intrinsics.Vector128 (39m, 1053B) [Vector128.Numerics.cs, Vector128.cs]
+      111B  System.Runtime.Intrinsics.Vector128::Narrow(Vector128`1, Vector128`1)
+      102B  System.Runtime.Intrinsics.Vector128::AddSaturate(Vector128`1, Vector128`1)
+      102B  System.Runtime.Intrinsics.Vector128::SubtractSaturate(Vector128`1, Vector128`1)
+       62B  System.Runtime.Intrinsics.Vector128::Shuffle(Vector128`1, Vector128`1)
+       55B  System.Runtime.Intrinsics.Vector128::Min(Vector128`1, Vector128`1)
+       44B  System.Runtime.Intrinsics.Vector128::Create(Byte, Byte, Byte, Byte, Byte, Byte, Byte, Byte, Byte, Byte, Byte, Byte, Byte, Byte, Byte, Byte)
+       40B  System.Runtime.Intrinsics.Vector128::LessThanOrEqual(Vector128`1, Vector128`1)
+       40B  System.Runtime.Intrinsics.Vector128::LessThan(Vector128`1, Vector128`1)
+       40B  System.Runtime.Intrinsics.Vector128::Equals(Vector128`1, Vector128`1)
+       33B  System.Runtime.Intrinsics.Vector128::ExtractMostSignificantBits(Vector128`1)
+    ... +29 more (424B)
+  System.Runtime.Intrinsics.Vector64 (12m, 730B) [Vector64.cs]
+      118B  System.Runtime.Intrinsics.Vector64::SubtractSaturate(Vector64`1, Vector64`1)
+      118B  System.Runtime.Intrinsics.Vector64::AddSaturate(Vector64`1, Vector64`1)
+       74B  System.Runtime.Intrinsics.Vector64::Equals(Vector64`1, Vector64`1)
+       74B  System.Runtime.Intrinsics.Vector64::LessThan(Vector64`1, Vector64`1)
+       74B  System.Runtime.Intrinsics.Vector64::LessThanOrEqual(Vector64`1, Vector64`1)
+       59B  System.Runtime.Intrinsics.Vector64::Min(Vector64`1, Vector64`1)
+       53B  System.Runtime.Intrinsics.Vector64::WidenUpper(Vector64`1)
+       43B  System.Runtime.Intrinsics.Vector64::ExtractMostSignificantBits(Vector64`1)
+       43B  System.Runtime.Intrinsics.Vector64::WidenLower(Vector64`1)
+       34B  System.Runtime.Intrinsics.Vector64::Create(T)
+    ... +2 more (40B)
+  System.Runtime.Intrinsics.Vector64`1 (10m, 699B) [Vector64.cs]
+      346B  System.Runtime.Intrinsics.Vector64`1::get_IsSupported()
+       56B  System.Runtime.Intrinsics.Vector64`1::op_Addition(Vector64`1, Vector64`1)
+       56B  System.Runtime.Intrinsics.Vector64`1::op_Subtraction(Vector64`1, Vector64`1)
+       49B  System.Runtime.Intrinsics.Vector64`1::op_LeftShift(Vector64`1, Int32)
+       43B  System.Runtime.Intrinsics.Vector64`1::op_Equality(Vector64`1, Vector64`1)
+       40B  System.Runtime.Intrinsics.Vector64`1::op_BitwiseAnd(Vector64`1, Vector64`1)
+       40B  System.Runtime.Intrinsics.Vector64`1::op_BitwiseOr(Vector64`1, Vector64`1)
+       40B  System.Runtime.Intrinsics.Vector64`1::op_ExclusiveOr(Vector64`1, Vector64`1)
+       15B  System.Runtime.Intrinsics.Vector64`1::get_Zero()
+       14B  System.Runtime.Intrinsics.Vector64`1::get_Count()
+  System.Runtime.Intrinsics.Vector128`1 (11m, 656B) [Vector128.Numerics.cs, Vector128.cs]
+      346B  System.Runtime.Intrinsics.Vector128`1::get_IsSupported()
+       40B  System.Runtime.Intrinsics.Vector128`1::op_Subtraction(Vector128`1, Vector128`1)
+       40B  System.Runtime.Intrinsics.Vector128`1::op_Addition(Vector128`1, Vector128`1)
+       40B  System.Runtime.Intrinsics.Vector128`1::op_BitwiseAnd(Vector128`1, Vector128`1)
+       40B  System.Runtime.Intrinsics.Vector128`1::op_BitwiseOr(Vector128`1, Vector128`1)
+       40B  System.Runtime.Intrinsics.Vector128`1::op_ExclusiveOr(Vector128`1, Vector128`1)
+       39B  System.Runtime.Intrinsics.Vector128`1::op_Equality(Vector128`1, Vector128`1)
+       30B  System.Runtime.Intrinsics.Vector128`1::op_LeftShift(Vector128`1, Int32)
+       15B  System.Runtime.Intrinsics.Vector128`1::get_Count()
+       15B  System.Runtime.Intrinsics.Vector128`1::get_Zero()
+    ... +1 more (11B)
+  System.Runtime.Intrinsics.Vector256`1 (2m, 361B) [Vector256.cs]
+      346B  System.Runtime.Intrinsics.Vector256`1::get_IsSupported()
+       15B  System.Runtime.Intrinsics.Vector256`1::get_Count()
+  System.Runtime.Intrinsics.Vector512`1 (1m, 346B) [Vector512.cs]
+      346B  System.Runtime.Intrinsics.Vector512`1::get_IsSupported()
+  System.Runtime.Intrinsics.VectorMath (1m, 178B) [VectorMath.cs]
+      178B  System.Runtime.Intrinsics.VectorMath::Min(TVector, TVector)
+  System.Runtime.Intrinsics.Vector256 (7m, 170B) [Vector256.cs]
+       53B  System.Runtime.Intrinsics.Vector256::AsVector(Vector256`1)
+       33B  System.Runtime.Intrinsics.Vector256::Create(Vector128`1, Vector128`1)
+       25B  System.Runtime.Intrinsics.Vector256::WidenLower(Vector256`1)
+       25B  System.Runtime.Intrinsics.Vector256::WidenUpper(Vector256`1)
+       18B  System.Runtime.Intrinsics.Vector256::Widen(Vector256`1)
+        8B  System.Runtime.Intrinsics.Vector256::Create(Vector128`1, Vector128`1)
+        8B  System.Runtime.Intrinsics.Vector256::Create(Vector128`1)
+  System.Runtime.Intrinsics.Vector512 (8m, 145B) [Vector512.cs]
+       30B  System.Runtime.Intrinsics.Vector512::Create(Vector256`1, Vector256`1)
+       25B  System.Runtime.Intrinsics.Vector512::WidenLower(Vector512`1)
+       25B  System.Runtime.Intrinsics.Vector512::WidenUpper(Vector512`1)
+       18B  System.Runtime.Intrinsics.Vector512::Widen(Vector512`1)
+       18B  System.Runtime.Intrinsics.Vector512::AsVector(Vector512`1)
+       13B  System.Runtime.Intrinsics.Vector512::Create(Vector128`1)
+        8B  System.Runtime.Intrinsics.Vector512::Create(Vector256`1, Vector256`1)
+        8B  System.Runtime.Intrinsics.Vector512::Create(Vector256`1)
+
+### 1C-iii-Assembly (19 methods, 3,709 bytes, 5 types)
+Source files:
+  src/coreclr/System.Private.CoreLib/src/System/Reflection/AssemblyName.CoreCLR.cs
+  src/coreclr/System.Private.CoreLib/src/System/Reflection/RuntimeAssembly.cs
+  src/coreclr/System.Private.CoreLib/src/System/Reflection/RuntimeModule.cs
+  src/libraries/System.Private.CoreLib/src/System/Reflection/AssemblyName.cs
+
+  System.Reflection.AssemblyNameParser (8m, 1775B) []
+      528B  System.Reflection.AssemblyNameParser::TryParse(AssemblyNameParts&)
+      521B  System.Reflection.AssemblyNameParser::TryGetNextToken(String&, Token&)
+      444B  System.Reflection.AssemblyNameParser::TryParseVersion(String, Version&)
+      119B  System.Reflection.AssemblyNameParser::TryParseProcessorArchitecture(String, ProcessorArchitecture&)
+      109B  System.Reflection.AssemblyNameParser::TryParsePKT(String, Boolean, Byte[]&)
+       28B  System.Reflection.AssemblyNameParser::TryParseCulture(String, String&)
+       17B  System.Reflection.AssemblyNameParser::TryParse(ReadOnlySpan`1, AssemblyNameParts&)
+        9B  System.Reflection.AssemblyNameParser::IsAttribute(String, String)
+  System.Reflection.RuntimeAssembly (5m, 762B) [RuntimeAssembly.cs]
+      319B  System.Reflection.RuntimeAssembly::GetTypeCore(QCallAssembly, String, ReadOnlySpan`1, Int32, ObjectHandleOnStack)
+      269B  System.Reflection.RuntimeAssembly::GetTypeCoreIgnoreCase(QCallAssembly, String, ReadOnlySpan`1, Int32, ObjectHandleOnStack)
+       99B  System.Reflection.RuntimeAssembly::GetTypeCore(String, ReadOnlySpan`1, Boolean, Boolean)
+       52B  System.Reflection.RuntimeAssembly::get_FullName()
+       23B  System.Reflection.RuntimeAssembly::GetType(String, Boolean, Boolean)
+  System.Reflection.RuntimeModule (3m, 594B) [RuntimeModule.cs]
+      337B  System.Reflection.RuntimeModule::ResolveMethod(Int32, Type[], Type[])
+      179B  System.Reflection.RuntimeModule::ResolveType(Int32, Type[], Type[])
+       78B  System.Reflection.RuntimeModule::ConvertToTypeHandleArray(Type[])
+  System.Reflection.AssemblyNameFormatter (2m, 559B) []
+      328B  System.Reflection.AssemblyNameFormatter::AppendDisplayName(ValueStringBuilder&, String, Version, String, Byte[], AssemblyNameFlags, AssemblyContentType, Byte[])
+      231B  System.Reflection.AssemblyNameFormatter::AppendQuoted(ValueStringBuilder&, String)
+  System.Reflection.AssemblyName (1m, 19B) [AssemblyName.CoreCLR.cs, AssemblyName.cs]
+       19B  System.Reflection.AssemblyName::set_CultureName(String)
+
+### 1C-iv-Metadata (26 methods, 2,822 bytes, 5 types)
+
+  System.Reflection.Metadata.TypeNameParserHelpers (11m, 894B) []
+      138B  System.Reflection.Metadata.TypeNameParserHelpers::<Unescape>g__UnescapeToBuilder|7_0(String, Int32)
+      134B  System.Reflection.Metadata.TypeNameParserHelpers::TryGetTypeNameInfo(TypeNameParseOptions, ReadOnlySpan`1&, List`1&, Int32&, Int32&)
+      127B  System.Reflection.Metadata.TypeNameParserHelpers::IsBeginningOfGenericArgs(ReadOnlySpan`1&, Boolean&)
+      127B  System.Reflection.Metadata.TypeNameParserHelpers::TryParseNextDecorator(ReadOnlySpan`1&, Int32&)
+       88B  System.Reflection.Metadata.TypeNameParserHelpers::AppendRankOrModifierStringRepresentation(Int32, ValueStringBuilder&)
+       82B  System.Reflection.Metadata.TypeNameParserHelpers::GetFullTypeNameLength(ReadOnlySpan`1, Boolean&)
+       52B  System.Reflection.Metadata.TypeNameParserHelpers::GetAssemblyNameCandidate(ReadOnlySpan`1)
+       48B  System.Reflection.Metadata.TypeNameParserHelpers::ThrowArgumentException_InvalidTypeName(Int32)
+       41B  System.Reflection.Metadata.TypeNameParserHelpers::TryStripFirstCharAndTrailingSpaces(ReadOnlySpan`1&, Char)
+       34B  System.Reflection.Metadata.TypeNameParserHelpers::IndexOfNamespaceDelimiter(ReadOnlySpan`1)
+    ... +1 more (23B)
+  System.Reflection.Metadata.TypeNameParser (3m, 695B) []
+      487B  System.Reflection.Metadata.TypeNameParser::ParseNextTypeName(Boolean, Int32&)
+      113B  System.Reflection.Metadata.TypeNameParser::Parse(ReadOnlySpan`1, Boolean, Nullable`1)
+       95B  System.Reflection.Metadata.TypeNameParser::TryParseAssemblyName(AssemblyNameInfo&)
+  System.Reflection.Metadata.TypeName (6m, 652B) []
+      267B  System.Reflection.Metadata.TypeName::AppendFullName(ValueStringBuilder&)
+      167B  System.Reflection.Metadata.TypeName::AppendName(ValueStringBuilder&)
+      123B  System.Reflection.Metadata.TypeName::get_FullName()
+       66B  System.Reflection.Metadata.TypeName::get_Name()
+       20B  System.Reflection.Metadata.TypeName::Unescape(String)
+        9B  System.Reflection.Metadata.TypeName::Parse(ReadOnlySpan`1, Nullable`1)
+  System.Reflection.MetadataImport (3m, 304B) []
+      252B  System.Reflection.MetadataImport::GetMarshalAs(ConstArray, RuntimeModule)
+       26B  System.Reflection.MetadataImport::GetName(Int32)
+       26B  System.Reflection.MetadataImport::GetNamespace(Int32)
+  System.Reflection.Metadata.AssemblyNameInfo (3m, 277B) []
+      134B  System.Reflection.Metadata.AssemblyNameInfo::ToAssemblyName()
+      101B  System.Reflection.Metadata.AssemblyNameInfo::AppendFullName(ValueStringBuilder&)
+       42B  System.Reflection.Metadata.AssemblyNameInfo::TryParse(ReadOnlySpan`1, AssemblyNameInfo&)
+
+### 1G-i-Dictionary (19 methods, 2,659 bytes, 3 types)
+Source files:
+  src/libraries/System.Private.CoreLib/src/System/Collections/Generic/Dictionary.cs
+  src/libraries/System.Private.CoreLib/src/System/Collections/Generic/HashSet.cs
+  src/libraries/System.Private.CoreLib/src/System/Collections/Hashtable.cs
+
+  System.Collections.Generic.Dictionary`2 (9m, 1328B) [Dictionary.cs]
+      565B  System.Collections.Generic.Dictionary`2::TryInsert(TKey, TValue, InsertionBehavior)
+      297B  System.Collections.Generic.Dictionary`2::FindValue(TKey)
+      242B  System.Collections.Generic.Dictionary`2::Resize(Int32, Boolean)
+      136B  System.Collections.Generic.Dictionary`2::.ctor(Int32, IEqualityComparer`1)
+       39B  System.Collections.Generic.Dictionary`2::TryGetValue(TKey, TValue&)
+       19B  System.Collections.Generic.Dictionary`2::Resize()
+       11B  System.Collections.Generic.Dictionary`2::set_Item(TKey, TValue)
+       10B  System.Collections.Generic.Dictionary`2::TryAdd(TKey, TValue)
+        9B  System.Collections.Generic.Dictionary`2::.ctor()
+  System.Collections.Generic.HashSet`1 (8m, 1156B) [HashSet.cs]
+      494B  System.Collections.Generic.HashSet`1::AddIfNotPresent(T, Int32&)
+      255B  System.Collections.Generic.HashSet`1::FindItemIndex(T)
+      243B  System.Collections.Generic.HashSet`1::Resize(Int32, Boolean)
+      113B  System.Collections.Generic.HashSet`1::.ctor(IEqualityComparer`1)
+       19B  System.Collections.Generic.HashSet`1::Resize()
+       14B  System.Collections.Generic.HashSet`1::Contains(T)
+       10B  System.Collections.Generic.HashSet`1::Add(T)
+        8B  System.Collections.Generic.HashSet`1::.ctor()
+  System.Collections.Hashtable (2m, 175B) [Hashtable.cs]
+      162B  System.Collections.Hashtable::.ctor(Int32, Single)
+       13B  System.Collections.Hashtable::.ctor()
+
+### 1E-i-StringBuilder (30 methods, 2,561 bytes, 3 types)
+Source files:
+  src/coreclr/System.Private.CoreLib/src/System/Text/StringBuilder.CoreCLR.cs
+  src/libraries/System.Private.CoreLib/src/System/Text/StringBuilder.Debug.cs
+  src/libraries/System.Private.CoreLib/src/System/Text/StringBuilder.cs
+  src/libraries/System.Private.CoreLib/src/System/Text/ValueStringBuilder.AppendFormat.cs
+
+  System.Text.StringBuilder (14m, 1284B) [StringBuilder.CoreCLR.cs, StringBuilder.Debug.cs, StringBuilder.cs]
+      236B  System.Text.StringBuilder::set_Length(Int32)
+      227B  System.Text.StringBuilder::Remove(Int32, Int32, StringBuilder&, Int32&)
+      155B  System.Text.StringBuilder::AppendWithExpansion(Char&, Int32)
+      125B  System.Text.StringBuilder::AppendWithExpansion(Char, Int32)
+       96B  System.Text.StringBuilder::Append(Char&, Int32)
+       93B  System.Text.StringBuilder::AppendSpanFormattable(T)
+       88B  System.Text.StringBuilder::Remove(Int32, Int32)
+       84B  System.Text.StringBuilder::Append(Char, Int32)
+       82B  System.Text.StringBuilder::.ctor(Int32, Int32)
+       33B  System.Text.StringBuilder::get_RemainingCurrentChunk()
+    ... +4 more (65B)
+  System.Text.ValueStringBuilder (11m, 733B) [ValueStringBuilder.AppendFormat.cs]
+      127B  System.Text.ValueStringBuilder::Grow(Int32)
+      102B  System.Text.ValueStringBuilder::AppendSpanFormattable(T, String, IFormatProvider)
+       90B  System.Text.ValueStringBuilder::Append(Char, Int32)
+       85B  System.Text.ValueStringBuilder::Append(ReadOnlySpan`1)
+       78B  System.Text.ValueStringBuilder::AppendSlow(String)
+       72B  System.Text.ValueStringBuilder::Append(String)
+       53B  System.Text.ValueStringBuilder::AppendSpan(Int32)
+       52B  System.Text.ValueStringBuilder::Append(Char)
+       30B  System.Text.ValueStringBuilder::Dispose()
+       29B  System.Text.ValueStringBuilder::EnsureCapacity(Int32)
+    ... +1 more (15B)
+  System.Text.StringBuilder/AppendInterpolatedStringHandler (5m, 544B) [StringBuilder.CoreCLR.cs, StringBuilder.Debug.cs, StringBuilder.cs]
+      281B  System.Text.StringBuilder/AppendInterpolatedStringHandler::AppendFormatted(T, String)
+      118B  System.Text.StringBuilder/AppendInterpolatedStringHandler::AppendFormatted(ReadOnlySpan`1, Int32, String)
+       69B  System.Text.StringBuilder/AppendInterpolatedStringHandler::AppendFormattedWithTempSpace(T, Int32, String)
+       62B  System.Text.StringBuilder/AppendInterpolatedStringHandler::AppendCustomFormatter(T, String)
+       14B  System.Text.StringBuilder/AppendInterpolatedStringHandler::AppendLiteral(String)
+
+### 1D-iii-EmitSupport (31 methods, 2,032 bytes, 4 types)
+Source files:
+  src/coreclr/System.Private.CoreLib/src/System/Reflection/Emit/RuntimeAssemblyBuilder.cs
+  src/coreclr/System.Private.CoreLib/src/System/Reflection/Emit/RuntimeModuleBuilder.cs
+  src/libraries/System.Private.CoreLib/src/System/Reflection/Emit/SymbolType.cs
+  src/libraries/System.Private.CoreLib/src/System/Reflection/Emit/TypeNameBuilder.cs
+
+  System.Reflection.Emit.TypeNameBuilder (15m, 1047B) [TypeNameBuilder.cs]
+      281B  System.Reflection.Emit.TypeNameBuilder::AddAssemblyQualifiedName(Type, Format)
+       96B  System.Reflection.Emit.TypeNameBuilder::AddElementType(Type)
+       86B  System.Reflection.Emit.TypeNameBuilder::AddArray(Int32)
+       82B  System.Reflection.Emit.TypeNameBuilder::EscapeName(String)
+       78B  System.Reflection.Emit.TypeNameBuilder::PopOpenGenericArgument()
+       66B  System.Reflection.Emit.TypeNameBuilder::EscapeEmbeddedAssemblyName(String)
+       60B  System.Reflection.Emit.TypeNameBuilder::AddAssemblySpec(String)
+       58B  System.Reflection.Emit.TypeNameBuilder::CloseGenericArguments()
+       51B  System.Reflection.Emit.TypeNameBuilder::Append(String)
+       45B  System.Reflection.Emit.TypeNameBuilder::ToString(Type, Format)
+    ... +5 more (144B)
+  System.Reflection.Emit.SymbolType (12m, 928B) [SymbolType.cs]
+      528B  System.Reflection.Emit.SymbolType::FormCompoundType(String, Type, Int32)
+      137B  System.Reflection.Emit.SymbolType::SetBounds(Int32, Int32)
+       67B  System.Reflection.Emit.SymbolType::get_Name()
+       37B  System.Reflection.Emit.SymbolType::MakeArrayType(Int32)
+       29B  System.Reflection.Emit.SymbolType::MakeArrayType()
+       29B  System.Reflection.Emit.SymbolType::MakeByRefType()
+       29B  System.Reflection.Emit.SymbolType::MakePointerType()
+       24B  System.Reflection.Emit.SymbolType::IsAssignableFrom(TypeInfo)
+       15B  System.Reflection.Emit.SymbolType::SetFormat(String, Int32, Int32)
+       13B  System.Reflection.Emit.SymbolType::HasElementTypeImpl()
+    ... +2 more (20B)
+  System.Reflection.Emit.RuntimeModuleBuilder (2m, 30B) [RuntimeModuleBuilder.cs]
+       15B  System.Reflection.Emit.RuntimeModuleBuilder::ResolveType(Int32, Type[], Type[])
+       15B  System.Reflection.Emit.RuntimeModuleBuilder::ResolveMethod(Int32, Type[], Type[])
+  System.Reflection.Emit.RuntimeAssemblyBuilder (2m, 27B) [RuntimeAssemblyBuilder.cs]
+       15B  System.Reflection.Emit.RuntimeAssemblyBuilder::GetType(String, Boolean, Boolean)
+       12B  System.Reflection.Emit.RuntimeAssemblyBuilder::get_FullName()
+
+### 1J-i-ArrayPool (13 methods, 1,404 bytes, 5 types)
+Source files:
+  src/libraries/System.Private.CoreLib/src/System/Buffers/ArrayPool.cs
+  src/libraries/System.Private.CoreLib/src/System/Buffers/SharedArrayPool.cs
+
+  System.Buffers.SharedArrayPool`1 (5m, 855B) [SharedArrayPool.cs]
+      365B  System.Buffers.SharedArrayPool`1::Trim()
+      223B  System.Buffers.SharedArrayPool`1::Rent(Int32)
+      156B  System.Buffers.SharedArrayPool`1::Return(T[], Boolean)
+       80B  System.Buffers.SharedArrayPool`1::InitializeTlsBucketsAndTrimming()
+       31B  System.Buffers.SharedArrayPool`1::CreatePerCorePartitions(Int32)
+  System.Buffers.SharedArrayPoolPartitions/Partition (3m, 358B) []
+      234B  System.Buffers.SharedArrayPoolPartitions/Partition::Trim(Int32, Int32, MemoryPressure)
+       71B  System.Buffers.SharedArrayPoolPartitions/Partition::TryPush(Array)
+       53B  System.Buffers.SharedArrayPoolPartitions/Partition::TryPop()
+  System.Buffers.SharedArrayPoolPartitions (3m, 154B) []
+       61B  System.Buffers.SharedArrayPoolPartitions::TryPop()
+       60B  System.Buffers.SharedArrayPoolPartitions::TryPush(Array)
+       33B  System.Buffers.SharedArrayPoolPartitions::Trim(Int32, Int32, MemoryPressure)
+  System.Buffers.ArrayPool`1 (1m, 25B) [ArrayPool.cs]
+       25B  System.Buffers.ArrayPool`1::Return(T[], Int32)
+  System.Buffers.SharedArrayPool`1/<>c (1m, 12B) [SharedArrayPool.cs]
+       12B  System.Buffers.SharedArrayPool`1/<>c::<InitializeTlsBucketsAndTrimming>b__11_0(Object)
+
+### 1D-i-TypeConstruction (35 methods, 1,353 bytes, 3 types)
+Source files:
+  src/coreclr/System.Private.CoreLib/src/System/Reflection/Emit/RuntimeTypeBuilder.cs
+  src/libraries/System.Private.CoreLib/src/System/Reflection/Emit/TypeBuilder.cs
+  src/libraries/System.Private.CoreLib/src/System/Reflection/Emit/TypeBuilderInstantiation.cs
+
+  System.Reflection.Emit.RuntimeTypeBuilder (13m, 773B) [RuntimeTypeBuilder.cs]
+      165B  System.Reflection.Emit.RuntimeTypeBuilder::IsAssignableFrom(Type)
+      122B  System.Reflection.Emit.RuntimeTypeBuilder::IsTypeEqual(Type, Type)
+       75B  System.Reflection.Emit.RuntimeTypeBuilder::IsDefined(Type, Boolean)
+       63B  System.Reflection.Emit.RuntimeTypeBuilder::get_UnderlyingSystemType()
+       58B  System.Reflection.Emit.RuntimeTypeBuilder::GetMethodImpl(String, BindingFlags, Binder, CallingConventions, Type[], ParameterModifier[])
+       52B  System.Reflection.Emit.RuntimeTypeBuilder::GetInterfaces()
+       51B  System.Reflection.Emit.RuntimeTypeBuilder::IsSubclassOf(Type)
+       37B  System.Reflection.Emit.RuntimeTypeBuilder::GetGenericTypeDefinition()
+       34B  System.Reflection.Emit.RuntimeTypeBuilder::GetMember(String, MemberTypes, BindingFlags)
+       33B  System.Reflection.Emit.RuntimeTypeBuilder::GetNestedType(String, BindingFlags)
+    ... +3 more (83B)
+  System.Reflection.Emit.TypeBuilderInstantiation (17m, 519B) [TypeBuilderInstantiation.cs]
+       94B  System.Reflection.Emit.TypeBuilderInstantiation::Substitute(Type[])
+       62B  System.Reflection.Emit.TypeBuilderInstantiation::MakeGenericType(Type, Type[])
+       54B  System.Reflection.Emit.TypeBuilderInstantiation::MakeArrayType(Int32)
+       54B  System.Reflection.Emit.TypeBuilderInstantiation::get_BaseType()
+       38B  System.Reflection.Emit.TypeBuilderInstantiation::get_ContainsGenericParameters()
+       32B  System.Reflection.Emit.TypeBuilderInstantiation::.ctor(Type, Type[])
+       27B  System.Reflection.Emit.TypeBuilderInstantiation::get_FullName()
+       24B  System.Reflection.Emit.TypeBuilderInstantiation::IsAssignableFrom(TypeInfo)
+       21B  System.Reflection.Emit.TypeBuilderInstantiation::GetMethodImpl(String, BindingFlags, Binder, CallingConventions, Type[], ParameterModifier[])
+       21B  System.Reflection.Emit.TypeBuilderInstantiation::GetFields(BindingFlags)
+    ... +7 more (92B)
+  System.Reflection.Emit.TypeBuilder (5m, 61B) [TypeBuilder.cs]
+       14B  System.Reflection.Emit.TypeBuilder::MakeArrayType(Int32)
+       13B  System.Reflection.Emit.TypeBuilder::MakeArrayType()
+       13B  System.Reflection.Emit.TypeBuilder::MakeByRefType()
+       13B  System.Reflection.Emit.TypeBuilder::MakePointerType()
+        8B  System.Reflection.Emit.TypeBuilder::MakeGenericType(Type[])
+
+### 1H-i-ThreadPrimitives (16 methods, 1,244 bytes, 3 types)
+Source files:
+  src/coreclr/System.Private.CoreLib/src/System/Threading/Monitor.CoreCLR.cs
+  src/coreclr/System.Private.CoreLib/src/System/Threading/Thread.CoreCLR.cs
+  src/libraries/System.Private.CoreLib/src/System/Threading/Lock.cs
+  src/libraries/System.Private.CoreLib/src/System/Threading/Monitor.cs
+  src/libraries/System.Private.CoreLib/src/System/Threading/Thread.Unix.cs
+  src/libraries/System.Private.CoreLib/src/System/Threading/Thread.Windows.cs
+  src/libraries/System.Private.CoreLib/src/System/Threading/Thread.cs
+
+  System.Threading.Lock (11m, 1112B) [Lock.cs]
+      633B  System.Threading.Lock::TryEnterSlow(Int32, Int32)
+      115B  System.Threading.Lock::TryInitializeStatics()
+      107B  System.Threading.Lock::LazyInitializeOrEnter()
+       54B  System.Threading.Lock::ExitImpl()
+       49B  System.Threading.Lock::CreateWaitEvent(Boolean)
+       35B  System.Threading.Lock::TryEnter_Inlined(Int32)
+       30B  System.Threading.Lock::Exit()
+       30B  System.Threading.Lock::DetermineMinSpinCountForAdaptiveSpin()
+       28B  System.Threading.Lock::DetermineMaxSpinCount()
+       22B  System.Threading.Lock::SignalWaiterIfNecessary(State)
+    ... +1 more (9B)
+  System.Threading.Monitor (3m, 84B) [Monitor.CoreCLR.cs, Monitor.cs]
+       44B  System.Threading.Monitor::Exit(Object)
+       21B  System.Threading.Monitor::Enter(Object)
+       19B  System.Threading.Monitor::Enter(Object, Boolean&)
+  System.Threading.Thread (2m, 48B) [Thread.CoreCLR.cs, Thread.Unix.cs, Thread.Windows.cs, Thread.cs]
+       26B  System.Threading.Thread::<get_WaitInfo>g__AllocateWaitInfo|73_0()
+       22B  System.Threading.Thread::get_WaitInfo()
+
+### 1K-iii-Other (15 methods, 1,210 bytes, 3 types)
+Source files:
+  src/libraries/System.Private.CoreLib/src/System/Runtime/CompilerServices/ConditionalWeakTable.cs
+  src/libraries/System.Private.CoreLib/src/System/Runtime/CompilerServices/DefaultInterpolatedStringHandler.cs
+  src/libraries/System.Private.CoreLib/src/System/Runtime/CompilerServices/Unsafe.cs
+
+  System.Runtime.CompilerServices.DefaultInterpolatedStringHandler (13m, 1066B) [DefaultInterpolatedStringHandler.cs]
+      257B  System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendFormatted(T)
+      251B  System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendFormatted(T, String)
+      135B  System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::GrowCore(UInt32)
+       61B  System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendCustomFormatter(T, String)
+       59B  System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::.ctor(Int32, Int32)
+       55B  System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::GrowThenCopyString(String)
+       53B  System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendLiteral(String)
+       49B  System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::Clear()
+       48B  System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::.ctor(Int32, Int32, IFormatProvider, Span`1)
+       45B  System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::HasCustomFormatter(IFormatProvider)
+    ... +3 more (53B)
+  System.Runtime.CompilerServices.ConditionalWeakTable`2 (1m, 78B) [ConditionalWeakTable.cs]
+       78B  System.Runtime.CompilerServices.ConditionalWeakTable`2::Add(TKey, TValue)
+  System.Runtime.CompilerServices.Unsafe (1m, 66B) [Unsafe.cs]
+       66B  System.Runtime.CompilerServices.Unsafe::BitCast(TFrom)
+
+### 1H-ii-Synchronization (11 methods, 899 bytes, 5 types)
+Source files:
+  src/coreclr/System.Private.CoreLib/src/System/Threading/Interlocked.CoreCLR.cs
+  src/libraries/System.Private.CoreLib/src/System/Threading/AsyncLocal.cs
+  src/libraries/System.Private.CoreLib/src/System/Threading/EventWaitHandle.Unix.cs
+  src/libraries/System.Private.CoreLib/src/System/Threading/EventWaitHandle.Windows.cs
+  src/libraries/System.Private.CoreLib/src/System/Threading/EventWaitHandle.cs
+  src/libraries/System.Private.CoreLib/src/System/Threading/Interlocked.cs
+  src/libraries/System.Private.CoreLib/src/System/Threading/WaitHandle.Unix.cs
+  src/libraries/System.Private.CoreLib/src/System/Threading/WaitHandle.Windows.cs
+  src/libraries/System.Private.CoreLib/src/System/Threading/WaitHandle.cs
+  src/libraries/System.Private.CoreLib/src/System/Threading/WaitSubsystem.HandleManager.Unix.cs
+  src/libraries/System.Private.CoreLib/src/System/Threading/WaitSubsystem.ThreadWaitInfo.Unix.cs
+  src/libraries/System.Private.CoreLib/src/System/Threading/WaitSubsystem.Unix.cs
+  src/libraries/System.Private.CoreLib/src/System/Threading/WaitSubsystem.WaitableObject.Unix.cs
+
+  System.Threading.Interlocked (2m, 454B) [Interlocked.CoreCLR.cs, Interlocked.cs]
+      242B  System.Threading.Interlocked::CompareExchange(T&, T, T)
+      212B  System.Threading.Interlocked::Exchange(T&, T)
+  System.Threading.WaitHandle (4m, 309B) [WaitHandle.Unix.cs, WaitHandle.Windows.cs, WaitHandle.cs]
+      266B  System.Threading.WaitHandle::WaitOneNoCheck(Int32, Boolean, Object, WaitHandleWaitSourceMap)
+       17B  System.Threading.WaitHandle::Dispose(Boolean)
+       14B  System.Threading.WaitHandle::Dispose()
+       12B  System.Threading.WaitHandle::WaitOneCore(IntPtr, Int32, Boolean)
+  System.Threading.EventWaitHandle (2m, 57B) [EventWaitHandle.Unix.cs, EventWaitHandle.Windows.cs, EventWaitHandle.cs]
+       31B  System.Threading.EventWaitHandle::Set()
+       26B  System.Threading.EventWaitHandle::ValidateHandle()
+  System.Threading.AsyncLocal`1 (1m, 44B) [AsyncLocal.cs]
+       44B  System.Threading.AsyncLocal`1::get_Value()
+  System.Threading.WaitSubsystem (2m, 35B) [WaitSubsystem.HandleManager.Unix.cs, WaitSubsystem.ThreadWaitInfo.Unix.cs, WaitSubsystem.Unix.cs, WaitSubsystem.WaitableObject.Unix.cs]
+       20B  System.Threading.WaitSubsystem::Wait(IWaitableObject, Int32, Boolean, Boolean)
+       15B  System.Threading.WaitSubsystem::Wait(IntPtr, Int32, Boolean)
+
+### 1B-i-CultureInfra (17 methods, 781 bytes, 2 types)
+Source files:
+  src/libraries/System.Private.CoreLib/src/System/Globalization/CultureData.Browser.cs
+  src/libraries/System.Private.CoreLib/src/System/Globalization/CultureData.Icu.cs
+  src/libraries/System.Private.CoreLib/src/System/Globalization/CultureData.Nls.cs
+  src/libraries/System.Private.CoreLib/src/System/Globalization/CultureData.Unix.cs
+  src/libraries/System.Private.CoreLib/src/System/Globalization/CultureData.Windows.cs
+  src/libraries/System.Private.CoreLib/src/System/Globalization/CultureData.cs
+  src/libraries/System.Private.CoreLib/src/System/Globalization/CultureData.iOS.cs
+  src/libraries/System.Private.CoreLib/src/System/Globalization/CultureInfo.Unix.cs
+  src/libraries/System.Private.CoreLib/src/System/Globalization/CultureInfo.Windows.cs
+  src/libraries/System.Private.CoreLib/src/System/Globalization/CultureInfo.cs
+
+  System.Globalization.CultureInfo (13m, 675B) [CultureInfo.Unix.cs, CultureInfo.Windows.cs, CultureInfo.cs]
+      152B  System.Globalization.CultureInfo::GetCultureInfo(String)
+       96B  System.Globalization.CultureInfo::.ctor(String, Boolean)
+       59B  System.Globalization.CultureInfo::get_DateTimeFormat()
+       53B  System.Globalization.CultureInfo::get_NumberFormat()
+       52B  System.Globalization.CultureInfo::GetFormat(Type)
+       52B  System.Globalization.CultureInfo::get_CompareInfo()
+       51B  System.Globalization.CultureInfo::get_Calendar()
+       37B  System.Globalization.CultureInfo::get_CurrentCulture()
+       35B  System.Globalization.CultureInfo::get_CachedCulturesByName()
+       33B  System.Globalization.CultureInfo::.ctor(CultureData, Boolean)
+    ... +3 more (55B)
+  System.Globalization.CultureData (4m, 106B) [CultureData.Browser.cs, CultureData.Icu.cs, CultureData.Nls.cs, CultureData.Unix.cs, CultureData.Windows.cs, CultureData.cs, CultureData.iOS.cs]
+       56B  System.Globalization.CultureData::get_CultureName()
+       35B  System.Globalization.CultureData::GetCultureData(String, Boolean)
+        8B  System.Globalization.CultureData::get_DefaultCalendar()
+        7B  System.Globalization.CultureData::AnsiToLower(String)
+
+### 1F-iii-GenericNumerics (14 methods, 755 bytes, 4 types)
+Source files:
+  src/libraries/System.Private.CoreLib/src/System/Numerics/BitOperations.cs
+  src/libraries/System.Private.CoreLib/src/System/Numerics/INumberBase.cs
+  src/libraries/System.Private.CoreLib/src/System/Numerics/Vector.cs
+
+  System.Numerics.Vector`1 (6m, 439B) [Vector.cs]
+      346B  System.Numerics.Vector`1::get_IsSupported()
+       43B  System.Numerics.Vector`1::op_Equality(Vector`1, Vector`1)
+       19B  System.Numerics.Vector`1::get_Count()
+       13B  System.Numerics.Vector`1::.ctor(T)
+       11B  System.Numerics.Vector`1::op_Inequality(Vector`1, Vector`1)
+        7B  System.Numerics.Vector`1::op_Explicit(Vector`1)
+  System.Numerics.BitOperations (5m, 185B) [BitOperations.cs]
+       61B  System.Numerics.BitOperations::Log2SoftwareFallback(UInt32)
+       60B  System.Numerics.BitOperations::TrailingZeroCount(UInt32)
+       38B  System.Numerics.BitOperations::Log2(UInt32)
+       13B  System.Numerics.BitOperations::get_Log2DeBruijn()
+       13B  System.Numerics.BitOperations::get_TrailingZeroCountDeBruijn()
+  System.Numerics.INumberBase`1 (1m, 80B) [INumberBase.cs]
+       80B  System.Numerics.INumberBase`1::CreateTruncating(TOther)
+  System.Numerics.Vector (2m, 51B) [Vector.cs]
+       34B  System.Numerics.Vector::Create(T)
+       17B  System.Numerics.Vector::As(Vector`1)
+
+### 1G-iii-Lists (10 methods, 703 bytes, 2 types)
+Source files:
+  src/libraries/System.Private.CoreLib/src/System/Collections/Generic/List.cs
+
+  System.Collections.Generic.List`1 (6m, 359B) [List.cs]
+      114B  System.Collections.Generic.List`1::RemoveAt(Int32)
+       86B  System.Collections.Generic.List`1::set_Capacity(Int32)
+       60B  System.Collections.Generic.List`1::Add(T)
+       46B  System.Collections.Generic.List`1::ToArray()
+       39B  System.Collections.Generic.List`1::AddWithResize(T)
+       14B  System.Collections.Generic.List`1::Grow(Int32)
+  System.Collections.Generic.ValueListBuilder`1 (4m, 344B) []
+      189B  System.Collections.Generic.ValueListBuilder`1::Grow(Int32)
+       57B  System.Collections.Generic.ValueListBuilder`1::Dispose()
+       56B  System.Collections.Generic.ValueListBuilder`1::Append(T)
+       42B  System.Collections.Generic.ValueListBuilder`1::AddWithResize(T)
+
+### 1L-i-Marshal (7 methods, 519 bytes, 3 types)
+Source files:
+  src/coreclr/System.Private.CoreLib/src/Interop/Unix/Interop.Libraries.cs
+  src/coreclr/System.Private.CoreLib/src/System/Runtime/InteropServices/Marshal.CoreCLR.cs
+  src/coreclr/System.Private.CoreLib/src/System/Runtime/InteropServices/MemoryMarshal.CoreCLR.cs
+  src/libraries/System.Private.CoreLib/src/System/Runtime/InteropServices/Marshal.NoCom.cs
+  src/libraries/System.Private.CoreLib/src/System/Runtime/InteropServices/Marshal.Unix.cs
+  src/libraries/System.Private.CoreLib/src/System/Runtime/InteropServices/Marshal.Windows.cs
+  src/libraries/System.Private.CoreLib/src/System/Runtime/InteropServices/Marshal.cs
+  src/libraries/System.Private.CoreLib/src/System/Runtime/InteropServices/MemoryMarshal.cs
+
+  System.Runtime.InteropServices.MemoryMarshal (5m, 359B) [MemoryMarshal.CoreCLR.cs, MemoryMarshal.cs]
+      113B  System.Runtime.InteropServices.MemoryMarshal::Cast(Span`1)
+      112B  System.Runtime.InteropServices.MemoryMarshal::Cast(ReadOnlySpan`1)
+       53B  System.Runtime.InteropServices.MemoryMarshal::AsBytes(ReadOnlySpan`1)
+       53B  System.Runtime.InteropServices.MemoryMarshal::AsBytes(Span`1)
+       28B  System.Runtime.InteropServices.MemoryMarshal::CreateReadOnlySpanFromNullTerminated(Byte*)
+  Interop/Sys (1m, 86B) [Interop.Libraries.cs]
+       86B  Interop/Sys::Unlink(String)
+  System.Runtime.InteropServices.Marshal (1m, 74B) [Marshal.CoreCLR.cs, Marshal.NoCom.cs, Marshal.Unix.cs, Marshal.Windows.cs, Marshal.cs]
+       74B  System.Runtime.InteropServices.Marshal::StringToCoTaskMemUni(String)
+
+### 1L-iii-Marshalling (4 methods, 348 bytes, 4 types)
+Source files:
+  src/libraries/System.Private.CoreLib/src/System/Runtime/InteropServices/Marshalling/ReadOnlySpanMarshaller.cs
+  src/libraries/System.Private.CoreLib/src/System/Runtime/InteropServices/Marshalling/Utf16StringMarshaller.cs
+  src/libraries/System.Private.CoreLib/src/System/Runtime/InteropServices/Marshalling/Utf8StringMarshaller.cs
+
+  System.Runtime.InteropServices.Marshalling.ReadOnlySpanMarshaller`2/ManagedToUnmanagedIn (1m, 144B) [ReadOnlySpanMarshaller.cs]
+      144B  System.Runtime.InteropServices.Marshalling.ReadOnlySpanMarshaller`2/ManagedToUnmanagedIn::FromManaged(ReadOnlySpan`1, Span`1)
+  System.Runtime.InteropServices.Marshalling.Utf8StringMarshaller/ManagedToUnmanagedIn (1m, 131B) [Utf8StringMarshaller.cs]
+      131B  System.Runtime.InteropServices.Marshalling.Utf8StringMarshaller/ManagedToUnmanagedIn::FromManaged(String, Span`1)
+  System.Runtime.InteropServices.Marshalling.Utf8StringMarshaller (1m, 66B) [Utf8StringMarshaller.cs]
+       66B  System.Runtime.InteropServices.Marshalling.Utf8StringMarshaller::ConvertToUnmanaged(String)
+  System.Runtime.InteropServices.Marshalling.Utf16StringMarshaller (1m, 7B) [Utf16StringMarshaller.cs]
+        7B  System.Runtime.InteropServices.Marshalling.Utf16StringMarshaller::ConvertToUnmanaged(String)
+
+### 1L-ii-SafeHandle (8 methods, 274 bytes, 2 types)
+Source files:
+  src/libraries/System.Private.CoreLib/src/Microsoft/Win32/SafeHandles/SafeFileHandle.OverlappedValueTaskSource.Windows.cs
+  src/libraries/System.Private.CoreLib/src/Microsoft/Win32/SafeHandles/SafeFileHandle.ThreadPoolValueTaskSource.cs
+  src/libraries/System.Private.CoreLib/src/Microsoft/Win32/SafeHandles/SafeFileHandle.Unix.cs
+  src/libraries/System.Private.CoreLib/src/Microsoft/Win32/SafeHandles/SafeFileHandle.Windows.cs
+  src/libraries/System.Private.CoreLib/src/Microsoft/Win32/SafeHandles/SafeFileHandle.cs
+  src/libraries/System.Private.CoreLib/src/System/Runtime/InteropServices/SafeHandle.cs
+
+  System.Runtime.InteropServices.SafeHandle (7m, 211B) [SafeHandle.cs]
+      118B  System.Runtime.InteropServices.SafeHandle::InternalRelease(Boolean)
+       45B  System.Runtime.InteropServices.SafeHandle::DangerousAddRef(Boolean&)
+       14B  System.Runtime.InteropServices.SafeHandle::Dispose()
+       11B  System.Runtime.InteropServices.SafeHandle::DangerousAddRef()
+        8B  System.Runtime.InteropServices.SafeHandle::Dispose(Boolean)
+        8B  System.Runtime.InteropServices.SafeHandle::DangerousRelease()
+        7B  System.Runtime.InteropServices.SafeHandle::Close()
+  Microsoft.Win32.SafeHandles.SafeFileHandle (1m, 63B) [SafeFileHandle.OverlappedValueTaskSource.Windows.cs, SafeFileHandle.ThreadPoolValueTaskSource.cs, SafeFileHandle.Unix.cs, SafeFileHandle.Windows.cs, SafeFileHandle.cs]
+       63B  Microsoft.Win32.SafeHandles.SafeFileHandle::ReleaseHandle()
+
+### 1J-ii-SearchValues (7 methods, 269 bytes, 6 types)
+Source files:
+  src/libraries/System.Private.CoreLib/src/System/SearchValues/Any1SearchValues.cs
+  src/libraries/System.Private.CoreLib/src/System/SearchValues/Any2SearchValues.cs
+  src/libraries/System.Private.CoreLib/src/System/SearchValues/Any3SearchValues.cs
+  src/libraries/System.Private.CoreLib/src/System/SearchValues/Any4SearchValues.cs
+  src/libraries/System.Private.CoreLib/src/System/SearchValues/Any5SearchValues.cs
+  src/libraries/System.Private.CoreLib/src/System/SearchValues/ProbabilisticMap.cs
+
+  System.Buffers.ProbabilisticMap (2m, 59B) [ProbabilisticMap.cs]
+       33B  System.Buffers.ProbabilisticMap::Contains(UInt32&, ReadOnlySpan`1, Int32)
+       26B  System.Buffers.ProbabilisticMap::Contains(ReadOnlySpan`1, Char)
+  System.Buffers.Any5SearchValues`2 (1m, 54B) [Any5SearchValues.cs]
+       54B  System.Buffers.Any5SearchValues`2::IndexOfAny(ReadOnlySpan`1)
+  System.Buffers.Any4SearchValues`2 (1m, 48B) [Any4SearchValues.cs]
+       48B  System.Buffers.Any4SearchValues`2::IndexOfAny(ReadOnlySpan`1)
+  System.Buffers.Any3SearchValues`2 (1m, 42B) [Any3SearchValues.cs]
+       42B  System.Buffers.Any3SearchValues`2::IndexOfAny(ReadOnlySpan`1)
+  System.Buffers.Any2SearchValues`2 (1m, 36B) [Any2SearchValues.cs]
+       36B  System.Buffers.Any2SearchValues`2::IndexOfAny(ReadOnlySpan`1)
+  System.Buffers.Any1SearchValues`2 (1m, 30B) [Any1SearchValues.cs]
+       30B  System.Buffers.Any1SearchValues`2::IndexOfAny(ReadOnlySpan`1)
+
+### 1J-iii-BinaryPrimitives (3 methods, 117 bytes, 2 types)
+Source files:
+  src/libraries/System.Private.CoreLib/src/System/Buffers/Text/FormattingHelpers.CountDigits.Int128.cs
+  src/libraries/System.Private.CoreLib/src/System/Buffers/Text/FormattingHelpers.CountDigits.cs
+  src/libraries/System.Private.CoreLib/src/System/Buffers/Text/Utf8Formatter/FormattingHelpers.cs
+  src/libraries/System.Private.CoreLib/src/System/Buffers/Utilities.cs
+
+  System.Buffers.Utilities (2m, 82B) [Utilities.cs]
+       68B  System.Buffers.Utilities::GetMemoryPressure()
+       14B  System.Buffers.Utilities::SelectBucketIndex(Int32)
+  System.Buffers.Text.FormattingHelpers (1m, 35B) [FormattingHelpers.CountDigits.Int128.cs, FormattingHelpers.CountDigits.cs, FormattingHelpers.cs]
+       35B  System.Buffers.Text.FormattingHelpers::CountDigits(UInt32)
+
+### 1D-ii-ILGeneration (2 methods, 43 bytes, 1 types)
+Source files:
+  src/coreclr/System.Private.CoreLib/src/System/Reflection/Emit/DynamicMethod.CoreCLR.cs
+  src/libraries/System.Private.CoreLib/src/System/Reflection/Emit/DynamicMethod.cs
+
+  System.Reflection.Emit.DynamicMethod (2m, 43B) [DynamicMethod.CoreCLR.cs, DynamicMethod.cs]
+       28B  System.Reflection.Emit.DynamicMethod::IsDefined(Type, Boolean)
+       15B  System.Reflection.Emit.DynamicMethod::GetParameters()

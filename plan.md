@@ -235,6 +235,212 @@ Sub-areas:
 - Resources — ResourceManager, ResourceReader, SR
 - Serialization — SerializationInfo
 
+### Phase 1 Results: SCC Method-to-File Inventory
+
+**942 methods, 100,349 bytes own IL, 162 distinct types, 29 sub-clusters**
+
+#### Summary Table
+
+| Sub-Cluster | Methods | Own IL | Types | Key Source Files |
+|-------------|--------:|-------:|------:|------------------|
+| 1C-i TypeSystem | 116 | 11,190B | 8 | RuntimeType*.cs, Type*.cs |
+| 1A-ii CoreTypes | 96 | 10,594B | 17 | Enum.cs, MemoryExtensions.cs, String*.cs, Array.cs, HexConverter.cs |
+| 1A-iii Infrastructure | 55 | 10,436B | 7 | SpanHelpers*.cs (9,774B), ThrowHelper.cs, SR.cs |
+| 1F-i Scalar | 11 | 8,177B | 1 | Scalar.cs (single type, huge per-method IL) |
+| 1E-iii Unicode | 30 | 7,944B | 4 | Utf8Utility*.cs, Ascii*.cs, Utf16Utility*.cs, Utf8.cs |
+| 1C-ii Members | 78 | 7,933B | 18 | TypeNameResolver*.cs, DefaultBinder.cs, CustomAttribute*.cs, Associates.cs |
+| 1A-i Numeric | 59 | 6,669B | 14 | Number.*.cs (4,836B), UInt32.cs, UInt64.cs, ParseNumbers.cs |
+| 1B-ii Formatting | 51 | 4,693B | 8 | NumberFormatInfo.cs, Ordinal.cs, InvariantModeCasing.cs, TextInfo*.cs |
+| 1E-ii Encoding | 68 | 4,673B | 11 | Encoding*.cs, UTF8Encoding*.cs, *FallbackBuffer files |
+| 1F-ii Vector | 91 | 4,338B | 9 | Vector128*.cs, Vector64.cs, Vector256.cs, Vector512.cs, VectorMath.cs |
+| 1C-iii Assembly | 19 | 3,709B | 5 | AssemblyNameParser.cs, RuntimeAssembly.cs, RuntimeModule.cs |
+| 1C-iv Metadata | 26 | 2,822B | 5 | TypeNameParser*.cs, TypeName.cs, AssemblyNameInfo.cs (System.Reflection.Metadata) |
+| 1G-i Dictionary | 19 | 2,659B | 3 | Dictionary.cs, HashSet.cs, Hashtable.cs |
+| 1E-i StringBuilder | 30 | 2,561B | 3 | StringBuilder*.cs, ValueStringBuilder.AppendFormat.cs |
+| 1D-iii EmitSupport | 31 | 2,032B | 4 | TypeNameBuilder.cs, SymbolType.cs, RuntimeModuleBuilder.cs |
+| 1J-i ArrayPool | 13 | 1,404B | 5 | SharedArrayPool.cs, ArrayPool.cs |
+| 1D-i TypeConstruction | 35 | 1,353B | 3 | RuntimeTypeBuilder.cs, TypeBuilderInstantiation.cs |
+| 1H-i ThreadPrimitives | 16 | 1,244B | 3 | Lock.cs (1,112B), Monitor*.cs, Thread*.cs |
+| 1K-iii CompilerServices | 15 | 1,210B | 3 | DefaultInterpolatedStringHandler.cs, ConditionalWeakTable.cs, Unsafe.cs |
+| 1H-ii Synchronization | 11 | 899B | 5 | Interlocked*.cs, WaitHandle*.cs, EventWaitHandle*.cs |
+| 1B-i CultureInfra | 17 | 781B | 2 | CultureInfo*.cs, CultureData*.cs |
+| 1F-iii GenericNumerics | 14 | 755B | 4 | Vector.cs, BitOperations.cs, INumberBase.cs |
+| 1G-iii Lists | 10 | 703B | 2 | List.cs, ValueListBuilder.cs |
+| 1L-i Marshal | 7 | 519B | 3 | MemoryMarshal*.cs, Marshal*.cs, Interop.Libraries.cs |
+| 1L-iii Marshalling | 4 | 348B | 4 | Utf8StringMarshaller.cs, Utf16StringMarshaller.cs, ReadOnlySpanMarshaller.cs |
+| 1L-ii SafeHandle | 8 | 274B | 2 | SafeHandle.cs, SafeFileHandle*.cs |
+| 1J-ii SearchValues | 7 | 269B | 6 | Any1-5SearchValues.cs, ProbabilisticMap.cs |
+| 1J-iii BinaryPrimitives | 3 | 117B | 2 | FormattingHelpers*.cs, Utilities.cs |
+| 1D-ii ILGeneration | 2 | 43B | 1 | DynamicMethod*.cs |
+
+#### Top 20 Types by Own IL (core cost drivers)
+
+| Type | Own IL | Methods | Sub-Cluster |
+|------|-------:|--------:|-------------|
+| SpanHelpers | 9,774B | 31 | 1A-iii Infrastructure |
+| Scalar\`1 | 8,177B | 11 | 1F-i Scalar |
+| Number | 4,836B | 25 | 1A-i Numeric |
+| RuntimeType | 4,522B | 52 | 1C-i TypeSystem |
+| MemberInfoCache\`1 | 4,116B | 18 | 1C-i TypeSystem |
+| Utf8Utility | 3,749B | 5 | 1E-iii Unicode |
+| Ascii | 3,425B | 21 | 1E-iii Unicode |
+| MemoryExtensions | 2,654B | 20 | 1A-ii CoreTypes |
+| Enum | 2,048B | 10 | 1A-ii CoreTypes |
+| String | 1,834B | 25 | 1A-ii CoreTypes |
+| AssemblyNameParser | 1,775B | 8 | 1C-iii Assembly |
+| Encoding | 1,682B | 20 | 1E-ii Encoding |
+| TypeNameResolver | 1,459B | 8 | 1C-ii Members |
+| DefaultBinder | 1,374B | 8 | 1C-ii Members |
+| CustomAttribute | 1,365B | 13 | 1C-ii Members |
+| Dictionary\`2 | 1,328B | 9 | 1G-i Dictionary |
+| UTF8Encoding | 1,308B | 19 | 1E-ii Encoding |
+| StringBuilder | 1,284B | 14 | 1E-i StringBuilder |
+| NumberFormatInfo | 1,230B | 13 | 1B-ii Formatting |
+| HashSet\`1 | 1,156B | 8 | 1G-i Dictionary |
+
+#### Detailed Source File Mapping
+
+**1C-i TypeSystem** (116 methods, 11,190B) — RuntimeType, Type, RuntimeTypeHandle, RuntimeTypeCache
+- `src/coreclr/System.Private.CoreLib/src/System/RuntimeType.CoreCLR.cs` — RuntimeType coreclr-specific (52m, 4,522B)
+- `src/coreclr/System.Private.CoreLib/src/System/RuntimeType.ActivatorCache.cs` — Activator cache
+- `src/coreclr/System.Private.CoreLib/src/System/RuntimeType.BoxCache.cs` — Generic boxing cache
+- `src/coreclr/System.Private.CoreLib/src/System/RuntimeType.GenericCache.cs` — IGenericCacheEntry (4m, 476B)
+- `src/libraries/System.Private.CoreLib/src/System/RuntimeType.cs` — Shared RuntimeType logic
+- `src/libraries/System.Private.CoreLib/src/System/Type.cs` — System.Type base (22m, 1,168B)
+- `src/coreclr/System.Private.CoreLib/src/System/RuntimeHandles.cs` — RuntimeTypeHandle, RuntimeMethodHandle, RuntimeFieldHandle
+
+**1A-ii CoreTypes** (96 methods, 10,594B) — String, Enum, Array, MemoryExtensions, Span, Delegate, etc.
+- `src/libraries/System.Private.CoreLib/src/System/MemoryExtensions*.cs` — MemoryExtensions (20m, 2,654B)
+- `src/libraries/System.Private.CoreLib/src/System/Enum.cs` + `Enum.EnumInfo.cs` — Enum formatting/parsing (10m, 2,048B)
+- `src/libraries/System.Private.CoreLib/src/System/String.*.cs` — String ops (25m, 1,834B)
+- `src/libraries/Common/src/System/HexConverter.cs` — Hex encode/decode (6m, 937B)
+- `src/libraries/System.Private.CoreLib/src/System/Array.cs` — Array.Copy etc. (4m, 685B)
+- `src/coreclr/System.Private.CoreLib/src/System/RuntimeHandles.cs` — ModuleHandle (5m, 572B)
+- `src/libraries/System.Private.CoreLib/src/System/Span.cs` — Span\`1 (6m, 304B)
+
+**1A-iii Infrastructure** (55 methods, 10,436B) — SpanHelpers, ThrowHelper, SR, exceptions
+- `src/libraries/System.Private.CoreLib/src/System/SpanHelpers.*.cs` — **SpanHelpers (31m, 9,774B)** — dominates this cluster
+- `src/libraries/System.Private.CoreLib/src/System/ThrowHelper.cs` — Exception throwers (10m, 169B)
+- `src/libraries/System.Private.CoreLib/src/System/SR.cs` — String resources (4m, 207B)
+
+**1F-i Scalar** (11 methods, 8,177B) — Scalar\`1 generic SIMD scalar ops
+- `src/libraries/System.Private.CoreLib/src/System/Runtime/Intrinsics/Scalar.cs` — Single file, all 8.2KB
+- Top methods: AddSaturate (1,097B), SubtractSaturate (1,084B), Min (797B), Add (755B)
+
+**1E-iii Unicode** (30 methods, 7,944B) — Ascii, Utf8Utility, Utf16Utility, Utf8
+- `src/libraries/System.Private.CoreLib/src/System/Text/Unicode/Utf8Utility*.cs` — (5m, 3,749B)
+- `src/libraries/System.Private.CoreLib/src/System/Text/Ascii*.cs` — (21m, 3,425B)
+- `src/libraries/System.Private.CoreLib/src/System/Text/Unicode/Utf16Utility*.cs` — (2m, 467B)
+- `src/libraries/System.Private.CoreLib/src/System/Text/Unicode/Utf8.cs` — (2m, 303B)
+
+**1C-ii Members** (78 methods, 7,933B) — Reflection members: methods, fields, binder, custom attributes
+- `src/libraries/System.Private.CoreLib/src/System/Reflection/TypeNameResolver.cs` + CoreCLR variant — (8m, 1,459B)
+- `src/libraries/System.Private.CoreLib/src/System/DefaultBinder.cs` — (8m, 1,374B)
+- `src/coreclr/System.Private.CoreLib/src/System/Reflection/RuntimeCustomAttributeData.cs` — CustomAttribute (13m, 1,365B)
+- `src/coreclr/System.Private.CoreLib/src/System/Reflection/Associates.cs` — Property/event accessors (2m, 656B)
+- `src/libraries/System.Private.CoreLib/src/System/Reflection/SignatureTypeExtensions.cs` — (9m, 713B)
+- `src/coreclr/System.Private.CoreLib/src/System/Reflection/PseudoCustomAttribute` — (7m, 674B)
+- `src/coreclr/System.Private.CoreLib/src/System/Reflection/RuntimePropertyInfo.cs` — (5m, 392B)
+- `src/coreclr/System.Private.CoreLib/src/System/Reflection/RuntimeParameterInfo.cs` — (5m, 372B)
+
+**1A-i Numeric** (59 methods, 6,669B) — Number formatting/parsing, Convert, Math, numeric primitives
+- `src/libraries/System.Private.CoreLib/src/System/Number.*.cs` — Number (25m, 4,836B)
+- `src/libraries/System.Private.CoreLib/src/System/UInt32.cs` — (5m, 476B)
+- `src/libraries/System.Private.CoreLib/src/System/ParseNumbers.cs` — (3m, 462B)
+- `src/libraries/System.Private.CoreLib/src/System/UInt64.cs` — (2m, 445B)
+
+**1B-ii Formatting** (51 methods, 4,693B) — NumberFormatInfo, CompareInfo, TextInfo, casing
+- `src/libraries/System.Private.CoreLib/src/System/Globalization/NumberFormatInfo.cs` — (13m, 1,230B)
+- `src/libraries/System.Private.CoreLib/src/System/Globalization/Ordinal*.cs` — (5m, 967B)
+- `src/libraries/System.Private.CoreLib/src/System/Globalization/InvariantModeCasing.cs` — (7m, 962B)
+- `src/libraries/System.Private.CoreLib/src/System/Globalization/TextInfo*.cs` — (6m, 682B)
+- `src/libraries/System.Private.CoreLib/src/System/Globalization/CharUnicodeInfo.cs` — (12m, 434B)
+
+**1E-ii Encoding** (68 methods, 4,673B) — Encoding framework, UTF8, fallback buffers
+- `src/libraries/System.Private.CoreLib/src/System/Text/Encoding*.cs` — Base Encoding (20m, 1,682B)
+- `src/libraries/System.Private.CoreLib/src/System/Text/UTF8Encoding*.cs` — UTF8 (19m, 1,308B)
+- Fallback buffers: EncoderFallbackBuffer (6m, 393B), DecoderFallbackBuffer (3m, 253B), etc.
+- `src/libraries/Common/src/System/Text/ConsoleEncoding.cs` — ConsoleEncoding wrapper (10m, 161B)
+
+**1F-ii Vector** (91 methods, 4,338B) — Vector128/256/512/64 SIMD operations
+- `src/libraries/System.Private.CoreLib/src/System/Runtime/Intrinsics/Vector128*.cs` — Vector128 (50m, 1,709B)
+- `src/libraries/System.Private.CoreLib/src/System/Runtime/Intrinsics/Vector64.cs` — Vector64 (22m, 1,429B)
+- `src/libraries/System.Private.CoreLib/src/System/Runtime/Intrinsics/Vector256.cs` — (9m, 531B)
+- `src/libraries/System.Private.CoreLib/src/System/Runtime/Intrinsics/Vector512.cs` — (9m, 491B)
+- `src/libraries/System.Private.CoreLib/src/System/Runtime/Intrinsics/VectorMath.cs` — (1m, 178B)
+
+**1C-iii Assembly** (19 methods, 3,709B) — Assembly/module resolution, name parsing
+- `src/libraries/Common/src/System/Reflection/AssemblyNameParser.cs` — (8m, 1,775B)
+- `src/coreclr/System.Private.CoreLib/src/System/Reflection/RuntimeAssembly.cs` — (5m, 762B)
+- `src/coreclr/System.Private.CoreLib/src/System/Reflection/RuntimeModule.cs` — (3m, 594B)
+- `src/libraries/Common/src/System/Reflection/AssemblyNameFormatter.cs` — (2m, 559B)
+
+**1C-iv Metadata** (26 methods, 2,822B) — System.Reflection.Metadata type name parsing
+- `src/libraries/System.Reflection.Metadata/src/System/Reflection/Metadata/TypeNameParserHelpers.cs` — (11m, 894B)
+- `src/libraries/System.Reflection.Metadata/src/System/Reflection/Metadata/TypeNameParser.cs` — (3m, 695B)
+- `src/libraries/System.Reflection.Metadata/src/System/Reflection/Metadata/TypeName.cs` — (6m, 652B)
+- `src/libraries/System.Reflection.Metadata/src/System/Reflection/Metadata/AssemblyNameInfo.cs` — (3m, 277B)
+- `src/coreclr/System.Private.CoreLib/src/System/Reflection/MdImport.cs` — MetadataImport (3m, 304B)
+
+**1G-i Dictionary** (19 methods, 2,659B) — Dictionary, HashSet, Hashtable
+- `src/libraries/System.Private.CoreLib/src/System/Collections/Generic/Dictionary.cs` — (9m, 1,328B)
+- `src/libraries/System.Private.CoreLib/src/System/Collections/Generic/HashSet.cs` — (8m, 1,156B)
+- `src/libraries/System.Private.CoreLib/src/System/Collections/Hashtable.cs` — (2m, 175B)
+
+**1E-i StringBuilder** (30 methods, 2,561B)
+- `src/libraries/System.Private.CoreLib/src/System/Text/StringBuilder.cs` — (14m, 1,284B)
+- `src/libraries/System.Private.CoreLib/src/System/Text/ValueStringBuilder.AppendFormat.cs` — (11m, 733B)
+- `src/libraries/System.Private.CoreLib/src/System/Text/StringBuilder.cs` — AppendInterpolatedStringHandler (5m, 544B)
+
+**1D-iii EmitSupport** (31 methods, 2,032B) — Type name building, symbol types, module/assembly builders
+- `src/libraries/System.Private.CoreLib/src/System/Reflection/Emit/TypeNameBuilder.cs` — (15m, 1,047B)
+- `src/libraries/System.Private.CoreLib/src/System/Reflection/Emit/SymbolType.cs` — (12m, 928B)
+
+**1D-i TypeConstruction** (35 methods, 1,353B)
+- `src/coreclr/System.Private.CoreLib/src/System/Reflection/Emit/RuntimeTypeBuilder.cs` — (13m, 773B)
+- `src/libraries/System.Private.CoreLib/src/System/Reflection/Emit/TypeBuilderInstantiation.cs` — (17m, 519B)
+
+**1J-i ArrayPool** (13 methods, 1,404B) — SharedArrayPool, partitioning, trimming
+- `src/libraries/System.Private.CoreLib/src/System/Buffers/SharedArrayPool.cs` — (5m, 855B + 3m, 358B partitions)
+
+**1H-i ThreadPrimitives** (16 methods, 1,244B) — Lock, Monitor, Thread
+- `src/libraries/System.Private.CoreLib/src/System/Threading/Lock.cs` — Lock class (11m, 1,112B)
+
+**1K-iii CompilerServices** (15 methods, 1,210B)
+- `src/libraries/System.Private.CoreLib/src/System/Runtime/CompilerServices/DefaultInterpolatedStringHandler.cs` — (13m, 1,066B)
+
+**1H-ii Synchronization** (11 methods, 899B) — Interlocked, WaitHandle, EventWaitHandle
+- `src/libraries/System.Private.CoreLib/src/System/Threading/Interlocked.cs` — (2m, 454B)
+- `src/libraries/System.Private.CoreLib/src/System/Threading/WaitHandle*.cs` — (4m, 309B)
+
+**1B-i CultureInfra** (17 methods, 781B) — CultureInfo, CultureData
+- `src/libraries/System.Private.CoreLib/src/System/Globalization/CultureInfo*.cs` — (13m, 675B)
+- `src/libraries/System.Private.CoreLib/src/System/Globalization/CultureData*.cs` — (4m, 106B)
+
+**1F-iii GenericNumerics** (14 methods, 755B) — Vector\`1, BitOperations
+- `src/libraries/System.Private.CoreLib/src/System/Numerics/Vector.cs` — (8m, 490B)
+- `src/libraries/System.Private.CoreLib/src/System/Numerics/BitOperations.cs` — (5m, 185B)
+
+**Remaining small clusters:** 1G-iii Lists (703B), 1L-i Marshal (519B), 1L-iii Marshalling (348B), 1L-ii SafeHandle (274B), 1J-ii SearchValues (269B), 1J-iii BinaryPrimitives (117B), 1D-ii ILGeneration (43B)
+
+#### Key Observations from Phase 1
+
+1. **SpanHelpers dominates infrastructure** — 9,774B (9.7% of total SCC IL) in a single utility class. It's pulled in transitively by virtually every span/string/memory operation.
+
+2. **Scalar\`1 is disproportionately expensive** — 8,177B for just 11 methods. Each method has huge type-switch IL for all numeric types. This is the generic math bridge.
+
+3. **Reflection is the largest domain** — 1C-i + 1C-ii + 1C-iii + 1C-iv + 1D-i + 1D-ii + 1D-iii = 328 methods, 29,747B (29.6%). Breaking Reflection-Emit from Reflection-Core would be the single biggest win.
+
+4. **Text processing is #2** — 1E-i + 1E-ii + 1E-iii = 128 methods, 15,178B (15.1%). Encoding framework (4.6KB) is pulled in even when only UTF8 is needed on WASM.
+
+5. **Numeric formatting is tightly coupled** — Number.cs (4,836B) + NumberFormatInfo (1,230B) + Ordinal/Casing (2,000B) form a chain from Int32.ToString() through CultureInfo.
+
+6. **Vector types are shallow** — 91 Vector methods but only 4,338B total; they exist because SpanHelpers and Ascii call into them. The real cost is Scalar\`1 (8,177B).
+
+7. **Collections are modest** — 2,659B for Dictionary/HashSet. These are in the SCC because EqualityComparer pulls in RuntimeType for generic dispatch.
+
+8. **External assembly code in SCC** — System.Reflection.Metadata types (TypeNameParser, TypeName, AssemblyNameInfo) total 2,822B. These are compiled into CoreLib and pulled in by TypeNameResolver for Type.GetType().
+
 ---
 
 ## Phase 2: Dependency Analysis per Sub-Cluster
