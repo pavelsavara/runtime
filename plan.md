@@ -61,7 +61,7 @@ TODO
 
 ### 0B. Blazor WASM app [TODO]
 - [ ] Run method-cost tool on `d:\samples\blazorwasmruntime\bin\Release\net11.0\publish\wwwroot\_framework\`
-- [ ] Save report to `d:\runtime2\method-cost-full-blazor.json` (n=5000)
+- [ ] Save report to `d:\runtime2\method-cost-full-blazor.json` (n=17000)
 - [ ] Identify SCC core size and compare with browser sample (2,694 methods)
 - [ ] Map namespace distribution differences — Blazor uses more Reflection, Components, JSON, HTTP
 - [ ] Document delta: methods in Blazor SCC but not in browser sample, and vice versa
