@@ -71,45 +71,59 @@
 
 ### 0B. Blazor WASM app [DONE]
 - [x] Run method-cost tool on `d:\samples\blazorwasmruntime\bin\Release\net11.0\publish\wwwroot\_framework\`
-- [x] Report saved to `d:\runtime2\method-cost-full-blazor.json` (n=5000)
-- [x] 40 assemblies, 25,373 methods, 1,467.9 KB total IL
+- [x] Report saved to `d:\runtime2\method-cost-full-blazor.json` (n=17000)
+- [x] 40 assemblies, 25,373 methods (16,629 in report), 1,467.9 KB total IL
 - [x] Largest super-SCC: 1,046 methods, max transitive 460,727 bytes (449.9 KB, 30.7%)
 
 **Key findings:**
 
-1. **No single dominant CoreLib SCC in Blazor.** The browser sample has a clean 1,090-method CoreLib SCC.
-   In Blazor, the CoreLib methods are fragmented across many smaller groups (largest: 55 methods at Reflection).
+1. **Blazor is NOT a strict superset of the browser sample.** Of 4,939 browser methods, 4,608 also appear
+   in Blazor (93.3%), but **323 methods are in browser only** (plus 8 app-specific `Sample.*` methods).
+   All 323 are above the Blazor report cutoff — they are genuinely absent from Blazor's trimmed output.
+   - 297 are `System.Globalization` — calendars, CultureData, CompareInfo, TextInfo methods
+   - The rest: String (5), Console (3), Rune (2), Task\`1 (2), misc (14)
+   - Top types trimmed from Blazor: CultureData (56), CalendricalCalculationsHelper (31),
+     HebrewCalendar (20), JapaneseCalendar (18), PersianCalendar (18), CalendarData (17),
+     HijriCalendar (17), UmAlQuraCalendar (17), CompareInfo (16), GregorianCalendarHelper (14)
+   - **Blazor trims more aggressively** in globalization — the browser sample retains full calendar
+     and culture data infrastructure that Blazor apps don't need.
 
-2. **Blazor cost is driven by external assemblies:**
+2. **No single dominant CoreLib SCC in Blazor.** The browser sample has a clean 1,090-method CoreLib SCC.
+   In Blazor, the CoreLib methods are fragmented across many smaller groups (largest: 54 methods in Reflection at 231.0 KB).
+
+3. **Blazor cost is driven by external assemblies:**
    - Linq.Expressions: 170.2 KB own, max transitive 432.9 KB
    - Text.Json: 161.8 KB own, max transitive 432.8 KB
    - Components: 91.0 KB own, max transitive 449.9 KB
    - Net.Http: 55.6 KB own, max transitive 399.9 KB
 
-3. **Blazor true SCCs (identical transitiveSize = definite mutual recursion):**
+4. **Blazor true SCCs (identical transitiveSize = definite mutual recursion):**
    - 61 methods in Linq.Expressions.Interpreter (354.0 KB)
    - 99 methods in Linq.Expressions.Compiler (316.2 KB)
    - 97 methods in Linq.Expressions core (304.1 KB)
    - 42 methods in Linq.Expressions.Compiler (283.7 KB)
-   - 33 methods in Text.Json.Nodes (284.5 KB)
+   - 32 methods in Text.Json.Nodes (284.5 KB, two groups of 16)
+   - 29 methods in IO/Net.Http (263.2 KB)
+   - 23 methods in Components.RenderTree/Rendering (277.6 KB)
    - 22 methods in Threading.Tasks (189.2 KB)
    - 54 methods in Reflection (231.0 KB)
-   - 29 methods in IO/Net.Http (263.2 KB)
+   - 20 methods in Linq.Expressions.Interpreter (336.4 KB)
+   - 15 methods in Text.Json.Serialization (297.6 KB)
    - 14 methods in Text.Json.Serialization.Converters (332.2 KB)
-   - 11 methods in Collections.Frozen (180.1 KB)
+   - 11 methods in Collections.Frozen (180.1 KB, two groups)
+   - 11 methods in DI.ServiceLookup (258.0 KB)
 
-4. **Zero overlap** between browser SCC core (1,082 unique names) and Blazor SCC core (100 names).
+5. **Zero overlap** between browser SCC core (1,082 unique names) and Blazor SCC core (100 names).
    Browser SCC = CoreLib primitives/globalization/text/reflection.
    Blazor SCC = Linq.Expressions.Compiler (99) + 1 Components method.
 
-5. **Assembly cost ranking in Blazor (by max transitive):**
+6. **Assembly cost ranking in Blazor (by max transitive):**
    Components 449.9 KB > Linq.Expressions 432.9 KB > Text.Json 432.8 KB > Net.Http 399.9 KB > CoreLib 324.6 KB
-
-6. **CoreLib is smaller in Blazor's transitive ranking** (324.6 KB max) vs browser sample (255.8 KB max)
-   because Blazor's CoreLib methods feed into larger cross-assembly chains rather than forming their own isolated SCC.
 
 7. **Implication for SCC-breaking strategy:** Focus the CoreLib SCC analysis on the browser sample's 1,090-method SCC.
    For Blazor, the biggest wins come from breaking Linq.Expressions and Text.Json SCCs, not CoreLib.
+   The 323 browser-only methods (mostly globalization/calendars) suggest the browser sample would benefit
+   from the same aggressive globalization trimming that Blazor already applies.
 
 ---
 
