@@ -612,110 +612,184 @@ Notable: 1F-ii Vector has **37 external calls to Unsafe** (Unsafe.SizeOf, Unsafe
 
 5. **Threading (1H) is the most browser-affected cluster** with 22 conditional compilation lines. The browser target fundamentally changes thread behavior, but the conditional code is already structured with `#if TARGET_BROWSER`.
 
-6. **The real SCC-breaking strategy must work at the method level, not the cluster level.** The cluster graph is too well-connected. Phase 3 should focus on identifying specific method-level cycles that can be broken with feature switches, interface indirection, or lazy loading patterns.
+6. **The real SCC-breaking strategy must work at the method level, not the cluster level.** The cluster graph is too well-connected. Phase 4 should focus on identifying specific method-level cycles that can be broken with feature switches, interface indirection, or lazy loading patterns.
+
+#### 2.11 The `typeof(T)` Linker Optimization Opportunity
+
+**Core question: Is this SCC "real" or an artifact of the linker's conservative analysis?**
+
+The JIT eliminates `typeof(T) == typeof(int)` at runtime — for each concrete instantiation of `T`, the comparison becomes a constant `true`/`false`, and the dead branch is removed. This means at runtime, `Scalar<byte>.Add` never actually calls `Type.op_Equality` — the JIT inlines the constant and removes the type comparison entirely.
+
+However, the **ILLinker cannot do this**. At trim time, it sees the IL:
+
+```
+ldtoken T                              // open generic parameter
+call Type.GetTypeFromHandle(RuntimeTypeHandle)
+ldtoken [System.Int32]
+call Type.GetTypeFromHandle(RuntimeTypeHandle)
+call Type.op_Equality(Type, Type)      // ← linker must keep this
+brtrue.s LABEL
+```
+
+Because `T` is an open generic parameter, the linker cannot evaluate the comparison. It must conservatively preserve:
+- `Type.GetTypeFromHandle` → pulls in `RuntimeType`
+- `Type.op_Equality` → pulls in `RuntimeType.Equals` / `RuntimeTypeHandle` comparison
+- All code reachable from both branches (since it can't eliminate either)
+
+This is why 18/29 clusters call into `Type.op_Equality` — not because they genuinely depend on runtime type identity, but because the **idiomatic C# generic dispatch pattern** (`typeof(T) == typeof(X)`) compiles to calls the linker cannot fold.
+
+**Three independent blockers in the ILLinker** (verified by code inspection):
+
+1. **`ldtoken` is not a recognized constant** — `UnreachableBlocksOptimizer.IsConstantValue()` only recognizes `Ldc_*`, `Ldnull`, `Ldstr`. The `ldtoken` instruction is not in the list, so `GetArgumentsOnStack()` returns null and the optimizer never tries to evaluate the call chain.
+
+2. **`Type.GetTypeFromHandle` is not an intrinsic** — `EvaluateIntrinsicCall()` only handles `String.op_Equality/Inequality/Concat`. No `System.Type` methods are recognized.
+
+3. **`Type.op_Equality` is not an intrinsic** — Same as above; the method check is `DeclaringType.MetadataType == MetadataType.String` — Type is never matched.
+
+4. **No generic instantiation context** — The optimizer works on `MethodDefinition` (uninstantiated), not specific instantiations. Even if it could evaluate `typeof(int) == typeof(int)`, it would need to process each instantiation separately. The cache is keyed by `MethodDefinition`, not `MethodReference`.
+
+**What would fixing this require:**
+
+| Change | Difficulty | Impact |
+|--------|-----------|--------|
+| Add `ldtoken` as constant-propagatable value | Medium | Enables the chain |
+| Add `Type.GetTypeFromHandle` as intrinsic | Easy | Converts token → type identity |
+| Add `Type.op_Equality/Inequality` as intrinsic | Easy | Compares two type identities |
+| Per-instantiation optimization context | Hard | Required for open generic `T` |
+
+The first three changes would immediately help code like `typeof(int) == typeof(byte)` (concrete types). But the real win requires change 4 — optimizing *per generic instantiation* — so that `Scalar<byte>.Add()` gets its own analysis where `typeof(T)` is known to be `typeof(byte)`.
+
+**Impact estimate:** If the linker could fold all `typeof(T) == typeof(X)` patterns:
+- 18/29 clusters would lose their coupling through `Type.op_Equality`
+- Scalar\`1 (8,177B, 11 methods) might vanish entirely — every branch is guarded by `typeof(T) ==`
+- Vector128/256/512 type-dispatch methods would slim drastically
+- Dictionary/HashSet `typeof(TKey).IsValueType` checks would be folded
+- NumberFormatInfo generic `TChar` dispatch would be resolved
+
+This is potentially worth **20-40 KB** of IL savings (rough estimate: 20-40% of the 100 KB own IL) and could break the SCC into multiple disconnected components without any source-level changes to CoreLib.
+
+**Comparison with existing substitution pattern:** The linker already folds `IntPtr.Size → 4/8`, `GlobalizationMode.Invariant → true/false`, `IsSupported → false` via XML substitution files. The `typeof(T)` pattern is conceptually similar — it's a compile-time constant that the linker doesn't currently recognize. The difference is that existing substitutions are simple method body replacements, while `typeof(T)` folding requires multi-instruction pattern matching and per-instantiation analysis.
+
+**Existing analogy in NativeAOT:** The NativeAOT compiler (RyuJIT + ILC) already handles this — it compiles each generic instantiation separately with full type knowledge, so `typeof(T) == typeof(int)` is trivially constant-folded. The question is whether ILLink can approximate this for the shared generic code path.
+
+**Recommendation:** This should be investigated as the **highest-leverage intervention** — it addresses the root cause rather than symptoms. Even a partial implementation (concrete types only, without per-instantiation context) would help. A full implementation would likely collapse the SCC dramatically without touching CoreLib source at all.
 
 ---
 
-## Phase 3: Characterize Key Coupling Points — 30 Theories
+## Phase 3: Existing Trimming Infrastructure Audit [ELEVATED — was Phase 4]
 
-### Already-known coupling chains
+Phase 2 showed the SCC is too well-connected for cluster-level cutting. Before proposing new cuts, we must understand what the linker already does and what mechanisms are available.
 
-1. **Exception.ToString() -> StackTrace -> Reflection** — every exception type drags in StackTrace which uses Reflection to format frames
-2. **RuntimeType -> Reflection.Emit** — RuntimeType uses Emit for dynamic invocation
-3. **CultureInfo <-> Number formatting <-> all numeric primitives** — every Int32.ToString() needs NumberFormatInfo -> CultureInfo -> CultureData
-4. **Thread/ThreadPool -> Task -> async builders** — threading primitives are coupled to the entire async chain
-5. **String <-> CompareInfo <-> CultureInfo** — string comparison ops route through globalization
-6. **SafeFileHandle -> ThreadPool (async IO completion)** — file handle async ops register with ThreadPool (managed code path)
-7. **Array.Sort -> Comparer -> generic interface dispatch** — sorting pulls in comparer infrastructure
-8. **Type.GetType() -> AssemblyLoadContext -> Assembly -> Reflection** — type loading chain
-
-### New theories to investigate
-
-9. **Enum.ToString() -> RuntimeType -> Reflection** — Enum formatting uses reflection to get names
-10. **DefaultBinder -> RuntimeType -> all of Reflection** — method resolution pulls in complete type system
-11. **Convert class -> every numeric type + DateTime + String** — universal conversion hub
-12. **DateTime.ToString() -> DateTimeFormat -> CultureInfo -> CalendarData -> ALL calendars** — date formatting pulls in all calendar implementations
-13. **Scalar\`1 (10,240 bytes) <-> all numeric types** — generic SIMD scalar bridges to every INumber implementor
-14. **StringBuilder.AppendFormat -> IFormattable -> all formattable types** — format infrastructure spans the whole SCC
-15. **Encoding.GetEncoding -> all Encoding subclasses** — encoding registry pulls in UTF8, Unicode, etc.
-16. **Stream virtual methods -> FileStream -> FileSystem -> Interop -> SafeHandle** — stream hierarchy forces file system inclusion
-17. **AssemblyLoadContext -> NativeLibrary -> Marshal** — assembly loading drags in native interop
-18. **DynamicMethod -> RuntimeILGenerator -> SignatureHelper -> RuntimeType** — DM creation is a reflection cycle
-19. **ThrowHelper -> every exception type -> Exception -> StackTrace** — ThrowHelper is a universal SCC entry point
-20. **CalendricalCalculationsHelper (3,059 bytes) -> pulled in by DateTimeFormatInfo** — large calendar math included for all cultures
-21. **CompareInfo -> Ordinal/OrdinalCasing -> Char -> Unicode tables** — comparison pulls in casing tables
-22. **ConcurrentDictionary -> uses Lock/Monitor & EqualityComparer** — ties threading to collections to type system
-23. **GC -> Thread -> ThreadPool -> Timer** — GC infrastructure connected to threading
-24. **MetadataReader (external, 6,148 bytes) -> pulled in by Reflection.Metadata -> Reflection.Emit** — external assembly MetadataReader in the SCC
-25. **SerializationInfo -> RuntimeType -> activator** — serialization requires type activation
-26. **FieldAccessor -> Reflection.Emit (InvokerEmitUtil)** — field access uses dynamic codegen
-27. **Resource loading -> Assembly.GetManifestResourceStream -> Stream** — resource loading couples to IO
-28. ~~**Random -> Interop.Sys (Unix random)**~~ — out of scope (native interop)
-29. **TimeZoneInfo (14,512 bytes) -> IO (file reading) + Globalization** — timezone loading needs file access and culture
-30. **IO.Enumeration -> PathInternal -> String operations -> MemoryExtensions** — directory enumeration pulls in span/string infrastructure
-
----
-
-## Phase 4: Browser/WASM Context Analysis
-
-1. **Audit `#if` conditionals** for `TARGET_BROWSER`, `TARGET_WASI`, `FEATURE_WASM_MANAGED_THREADS` (managed C# only)
-2. **Review ILLink substitution files** — `src/libraries/System.Private.CoreLib/src/ILLink/` — understand what is already stubbed out
+1. **Review ILLink substitution files** — `src/libraries/System.Private.CoreLib/src/ILLink/` — catalog all existing body substitutions
+2. **Review existing feature switches** — catalog which trimmer-friendly switches exist (`EventSource.IsEnabled`, `GlobalizationMode.Invariant`, `IsSupported` stubs, etc.) and which are already active for browser publishes
 3. **Check .csproj/.projitems** for browser-specific file inclusions/exclusions
-4. **Review existing feature switches** — catalog which trimmer-friendly switches exist and which are already active for browser publishes
-5. **Note browser specifics:**
-   - Single-threaded (no real Thread.Start, but ThreadPool exists)
-   - Minimal filesystem (MEMFS or no real FS)
-   - No native library loading
-   - Non-invariant globalization (ICU via JS or system ICU)
+4. **Audit `#if` conditionals** for `TARGET_BROWSER`, `TARGET_WASI`, `FEATURE_WASM_MANAGED_THREADS` — expand beyond the 71 lines found in Phase 2
+5. **Map the linker's current typeof(T) capabilities** — confirm the three blockers identified in Phase 2 analysis (see section 2.11)
+6. **Review ILLink.Descriptors.Shared.xml** — what types/methods are force-rooted?
 
 ---
 
-## Phase 5: Document Sub-Clusters
+## Phase 4: Method-Level SCC Analysis [REVISED — was Phase 3]
 
-Write `sub-clusters.md` with for each sub-cluster:
-1. **Name** — what it does
-2. **Member types** — list of types
-3. **Own IL size** — sum of own sizes
-4. **Dependencies in** — which sub-clusters depend on this one
-5. **Dependencies out** — which sub-clusters this one depends on
-6. **Coupling methods** — specific methods creating cross-cluster edges
-7. **Browser relevance** — how critical this is for Blazor WASM scenarios
+Phase 2 proved cluster-level Tarjan is useless (single SCC). We need method-level cycle analysis.
+
+### 4A. Get Full Method-Level Call Graph
+
+Re-run the method-cost tool with higher callee limit (topCallees truncated to 1-5 is insufficient):
+- Option A: Re-run with `n=10000` or similar to get all callees per method
+- Option B: Extract edges from ILLink's linker output
+- Option C: Parse the msbuild.binlog or ILLink dependency trace
+
+### 4B. Method-Level Tarjan SCC
+
+Run Tarjan on the full method-level graph for the 942 SCC methods:
+- Find actual strongly connected components (the method-cost tool's SCC may be an overestimate if topCallees is truncated)
+- Identify which methods participate in real cycles vs. just transitive reachability
+- Find articulation edges: specific method-to-method calls whose removal breaks the SCC
+
+### 4C. Validate/Refute Coupling Theories
+
+Using the full call graph, validate the 30 theories from Phase 2. For each:
+- Does the chain actually exist in the trimmed assembly?
+- What is the actual IL weight of the chain?
+- Is there a single bottleneck method in the chain that could be cut?
+
+### Coupling Theories (Carried from earlier analysis)
+
+**Already-known coupling chains:**
+1. Exception.ToString() -> StackTrace -> Reflection
+2. RuntimeType -> Reflection.Emit (dynamic invocation)
+3. CultureInfo <-> Number formatting <-> all numeric primitives
+4. Thread/ThreadPool -> Task -> async builders
+5. String <-> CompareInfo <-> CultureInfo
+6. SafeFileHandle -> ThreadPool (async IO completion)
+7. Array.Sort -> Comparer -> generic interface dispatch
+8. Type.GetType() -> AssemblyLoadContext -> Assembly -> Reflection
+
+**Theories to investigate:**
+9. Enum.ToString() -> RuntimeType -> Reflection (reflection to get names)
+10. DefaultBinder -> RuntimeType -> all of Reflection
+11. Convert class -> every numeric type + DateTime + String
+12. DateTime.ToString() -> DateTimeFormat -> CultureInfo -> CalendarData -> ALL calendars
+13. Scalar\`1 (8,177B) <-> all numeric types (generic SIMD scalar bridges)
+14. StringBuilder.AppendFormat -> IFormattable -> all formattable types
+15. Encoding.GetEncoding -> all Encoding subclasses
+16. Stream virtual methods -> FileStream -> FileSystem -> Interop -> SafeHandle
+17. AssemblyLoadContext -> NativeLibrary -> Marshal
+18. DynamicMethod -> RuntimeILGenerator -> SignatureHelper -> RuntimeType
+19. ThrowHelper -> every exception type -> Exception -> StackTrace
+20. CalendricalCalculationsHelper (3,059B) -> DateTimeFormatInfo
+21. CompareInfo -> Ordinal/OrdinalCasing -> Char -> Unicode tables
+22. ConcurrentDictionary -> Lock/Monitor & EqualityComparer
+23. GC -> Thread -> ThreadPool -> Timer
+24. MetadataReader (external, 2,822B) -> Reflection.Metadata -> Reflection.Emit
+25. SerializationInfo -> RuntimeType -> activator
+26. FieldAccessor -> Reflection.Emit (InvokerEmitUtil)
+27. Resource loading -> Assembly.GetManifestResourceStream -> Stream
+28. ~~Random -> Interop.Sys (Unix random)~~ — out of scope (native interop)
+29. TimeZoneInfo (14,512B) -> IO (file reading) + Globalization
+30. IO.Enumeration -> PathInternal -> String operations -> MemoryExtensions
 
 ---
 
-## Phase 6: Propose Safe Cuts
+## Phase 5: Propose Actionable Strategies [REVISED — was Phase 5+6]
 
-For each identified coupling point, produce a prioritized list of cut candidates:
-1. **Cut description** — which cross-cluster edge to break and how
-2. **IL savings estimate** — how many bytes/methods would become trimmable
-3. **Safety assessment** — would Blazor still work? Would reflection still work? Any observable behavior changes?
-4. **Confidence level** — high/medium/low based on how well-understood the coupling is
-5. **Prerequisites** — does this cut depend on another cut being made first?
+Narrowed to 4 focused strategies based on Phase 2 findings:
 
-Prioritize by: (IL savings) × (safety confidence) — biggest safe wins first.
+### Strategy A: Linker `typeof(T)` Pattern Recognition (Highest Impact)
+
+Teach ILLink to constant-fold `typeof(T) == typeof(X)` patterns. This would eliminate the #1 SCC coupling mechanism (18/29 clusters). See detailed analysis in **section 2.11**.
+
+### Strategy B: Reflection.Emit Feature Switch
+
+Add a feature switch to stub out Reflection.Emit on browser/WASM when not needed. Would decouple 1D (Emit) from 1C (Reflection) — 123 bidirectional edges, ~5.4 KB IL (1D-i + 1D-ii + 1D-iii).
+
+### Strategy C: HexConverter → Vector Decoupling
+
+Break the HexConverter → Vector128 chain (64 edges from Infrastructure → Vector). HexConverter is pulled in by AssemblyNameParser → Reflection. Could provide a scalar fallback gated on the linker.
+
+### Strategy D: Method-Level Targeted Cuts
+
+Using method-level Tarjan results from Phase 4B, identify specific methods where interface indirection, lazy loading, or feature switches break actual method-level cycles. Target the 4 bottleneck edges found in Phase 2 plus any new ones from full method-level analysis.
 
 ---
 
-## Phase 7: Validate Cuts
+## Phase 6: Implement & Validate
 
-1. **Re-run method-cost** on modified builds to confirm SCC breakage
-2. **Measure published Blazor WASM app size** before/after
-3. **Run library test suites** for affected areas to catch regressions
-4. **Iterate** — if a cut doesn't break the SCC as expected, investigate why and adjust
+1. **Prototype** top strategies (starting with highest impact-to-effort ratio)
+2. **Re-run method-cost** on modified builds to confirm SCC breakage
+3. **Measure published Blazor WASM app size** before/after
+4. **Run library test suites** for affected areas to catch regressions
+5. **Iterate** — if a cut doesn't break the SCC as expected, investigate why and adjust
 
 ---
 
 ## Execution Strategy
 
-- Phase 0B: Run method-cost on Blazor app, compare with browser sample
-- Phase 1: Single pass, categorize from method-cost JSON + source file mapping
-- Phase 2: **Parallel sub-agents** — one per major area (1A through 1N), each:
-  - Maps types to source files (managed C# only)
-  - Greps for outbound/inbound references
-  - Identifies coupling methods
-  - Assesses cut safety for cross-cluster edges
-- Phase 3: After Phase 2 data, validate/refute theories using actual cross-references
-- Phase 4: Single focused pass on browser-specific conditionals and existing trimming
-- Phase 5: Consolidate into sub-clusters document
-- Phase 6: Produce prioritized cut proposals ranked by savings × safety
-- Phase 7: Validate top cuts with actual builds and tests
+- Phase 0: Run method-cost on browser sample + Blazor app, compare [DONE]
+- Phase 1: Single pass, categorize from method-cost JSON + source file mapping [DONE]
+- Phase 2: Cross-cluster dependency analysis, Tarjan SCC, typeof(T) discovery [DONE]
+- Phase 3: Audit existing ILLink substitutions, feature switches, browser conditionals
+- Phase 4: Method-level Tarjan with full call graph, validate coupling theories
+- Phase 5: Propose 4 focused strategies (typeof(T) linker opt, Emit switch, HexConverter decouple, method-level cuts)
+- Phase 6: Implement top strategies + validate with builds and tests
