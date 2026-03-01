@@ -2,9 +2,17 @@
 
 ## Context
 
-**Goal:** Break the main SCC (3,056 methods, ~438 KB transitive, 66.9% of total IL) in System.Private.CoreLib for browser/WASM target into sub-clusters, characterize each, map inter-cluster dependencies, and identify dependency-cut candidates.
+**Goal:** Break the main SCC (3,056 methods, ~438 KB transitive, 66.9% of total IL) in System.Private.CoreLib for browser/WASM target into sub-clusters, characterize each, map inter-cluster dependencies, and identify safe dependency-cut candidates to reduce size as much as possible.
 
-**Target:** IL-trimmed `System.Private.CoreLib.dll` for browser/WASM (CoreCLR path).
+**Target:** IL-trimmed `System.Private.CoreLib.dll` for browser/WASM (CoreCLR build). The sample app folder name contains "mono" but the actual build is CoreCLR.
+
+**Scope:** Managed C# code only. Native code, JS interop glue, and emscripten dependencies are out of scope.
+
+**Assumptions:**
+- Non-invariant globalization (invariant-mode cuts are already well-known)
+- Reflection and Reflection.Emit must remain functional (Blazor depends on them)
+- Satellite methods outside the core SCC are out of scope — how to cut those is already known
+- Focus is on identifying **what** to cut safely; implementation details (ILLink directives, feature switches, `#if` guards) come after
 
 **Source directories:**
 - `src/libraries/System.Private.CoreLib/src/`
@@ -46,12 +54,21 @@
 
 ---
 
-## Phase 0: Method-Cost Analysis [DONE]
+## Phase 0: Method-Cost Analysis
 
+### 0A. Browser sample app [DONE]
 - [x] Run method-cost tool on `d:\runtime2\src\mono\sample\wasm\browser\bin\publish\wwwroot\_framework`
 - [x] Report saved to `d:\runtime2\method-cost-full.json` (n=5000)
 - [x] Identified SCC core: 2,694 methods, all with transitiveMethodCount=6700
 - [x] Mapped namespace distribution
+
+### 0B. Blazor WASM app [TODO]
+- [ ] Run method-cost tool on `d:\samples\blazorwasmruntime\bin\Release\net11.0\publish\wwwroot\_framework\System.Private.CoreLib.13rc2m3cwc.dll`
+- [ ] Save report to `d:\runtime2\method-cost-full-blazor.json` (n=5000)
+- [ ] Identify SCC core size and compare with browser sample (2,694 methods)
+- [ ] Map namespace distribution differences — Blazor uses more Reflection, Components, JSON, HTTP
+- [ ] Document delta: methods in Blazor SCC but not in browser sample, and vice versa
+- [ ] Determine if the Blazor SCC is a strict superset or if the two apps pull in different SCC shapes
 
 ---
 
@@ -160,11 +177,12 @@ Sub-areas:
 
 For each sub-cluster above (parallel sub-agents):
 
-1. **List source files** — Map sub-cluster types to actual .cs files
+1. **List source files** — Map sub-cluster types to actual .cs files (managed C# only)
 2. **Scan outbound refs** — grep for type names from OTHER sub-clusters referenced in this sub-cluster's source
 3. **Scan inbound refs** — grep for this sub-cluster's type names in other sub-cluster source files
 4. **Identify coupling methods** — the specific methods/properties that create cross-cluster edges
 5. **Note `#if TARGET_BROWSER`, `#if FEATURE_WASM_MANAGED_THREADS`** — conditionally compiled code
+6. **Estimate cut safety** — for each cross-cluster edge, assess whether breaking it would affect Blazor scenarios
 
 ---
 
@@ -177,7 +195,7 @@ For each sub-cluster above (parallel sub-agents):
 3. **CultureInfo <-> Number formatting <-> all numeric primitives** — every Int32.ToString() needs NumberFormatInfo -> CultureInfo -> CultureData
 4. **Thread/ThreadPool -> Task -> async builders** — threading primitives are coupled to the entire async chain
 5. **String <-> CompareInfo <-> CultureInfo** — string comparison ops route through globalization
-6. **SafeFileHandle -> ThreadPool (async IO completion)** — file handle async ops register with ThreadPool
+6. **SafeFileHandle -> ThreadPool (async IO completion)** — file handle async ops register with ThreadPool (managed code path)
 7. **Array.Sort -> Comparer -> generic interface dispatch** — sorting pulls in comparer infrastructure
 8. **Type.GetType() -> AssemblyLoadContext -> Assembly -> Reflection** — type loading chain
 
@@ -202,7 +220,7 @@ For each sub-cluster above (parallel sub-agents):
 25. **SerializationInfo -> RuntimeType -> activator** — serialization requires type activation
 26. **FieldAccessor -> Reflection.Emit (InvokerEmitUtil)** — field access uses dynamic codegen
 27. **Resource loading -> Assembly.GetManifestResourceStream -> Stream** — resource loading couples to IO
-28. **Random -> Interop.Sys (Unix random)** — random number generation may pull in interop
+28. ~~**Random -> Interop.Sys (Unix random)**~~ — out of scope (native interop)
 29. **TimeZoneInfo (14,512 bytes) -> IO (file reading) + Globalization** — timezone loading needs file access and culture
 30. **IO.Enumeration -> PathInternal -> String operations -> MemoryExtensions** — directory enumeration pulls in span/string infrastructure
 
@@ -210,14 +228,15 @@ For each sub-cluster above (parallel sub-agents):
 
 ## Phase 4: Browser/WASM Context Analysis
 
-1. **Audit `#if` conditionals** for `TARGET_BROWSER`, `TARGET_WASI`, `FEATURE_WASM_MANAGED_THREADS`, `MONO` vs no-MONO
-2. **Review ILLink substitution files** — `src/libraries/System.Private.CoreLib/src/ILLink/`
+1. **Audit `#if` conditionals** for `TARGET_BROWSER`, `TARGET_WASI`, `FEATURE_WASM_MANAGED_THREADS` (managed C# only)
+2. **Review ILLink substitution files** — `src/libraries/System.Private.CoreLib/src/ILLink/` — understand what is already stubbed out
 3. **Check .csproj/.projitems** for browser-specific file inclusions/exclusions
-4. **Note browser specifics:**
+4. **Review existing feature switches** — catalog which trimmer-friendly switches exist and which are already active for browser publishes
+5. **Note browser specifics:**
    - Single-threaded (no real Thread.Start, but ThreadPool exists)
    - Minimal filesystem (MEMFS or no real FS)
    - No native library loading
-   - Globalization may use JS ICU or invariant mode
+   - Non-invariant globalization (ICU via JS or system ICU)
 
 ---
 
@@ -230,17 +249,43 @@ Write `sub-clusters.md` with for each sub-cluster:
 4. **Dependencies in** — which sub-clusters depend on this one
 5. **Dependencies out** — which sub-clusters this one depends on
 6. **Coupling methods** — specific methods creating cross-cluster edges
-7. **Browser relevance** — how important this is for WASM
+7. **Browser relevance** — how critical this is for Blazor WASM scenarios
+
+---
+
+## Phase 6: Propose Safe Cuts
+
+For each identified coupling point, produce a prioritized list of cut candidates:
+1. **Cut description** — which cross-cluster edge to break and how
+2. **IL savings estimate** — how many bytes/methods would become trimmable
+3. **Safety assessment** — would Blazor still work? Would reflection still work? Any observable behavior changes?
+4. **Confidence level** — high/medium/low based on how well-understood the coupling is
+5. **Prerequisites** — does this cut depend on another cut being made first?
+
+Prioritize by: (IL savings) × (safety confidence) — biggest safe wins first.
+
+---
+
+## Phase 7: Validate Cuts
+
+1. **Re-run method-cost** on modified builds to confirm SCC breakage
+2. **Measure published Blazor WASM app size** before/after
+3. **Run library test suites** for affected areas to catch regressions
+4. **Iterate** — if a cut doesn't break the SCC as expected, investigate why and adjust
 
 ---
 
 ## Execution Strategy
 
+- Phase 0B: Run method-cost on Blazor app, compare with browser sample
 - Phase 1: Single pass, categorize from method-cost JSON + source file mapping
 - Phase 2: **Parallel sub-agents** — one per major area (1A through 1N), each:
-  - Maps types to source files
+  - Maps types to source files (managed C# only)
   - Greps for outbound/inbound references
   - Identifies coupling methods
+  - Assesses cut safety for cross-cluster edges
 - Phase 3: After Phase 2 data, validate/refute theories using actual cross-references
-- Phase 4: Single focused pass on browser-specific conditionals
-- Phase 5: Consolidate into final document
+- Phase 4: Single focused pass on browser-specific conditionals and existing trimming
+- Phase 5: Consolidate into sub-clusters document
+- Phase 6: Produce prioritized cut proposals ranked by savings × safety
+- Phase 7: Validate top cuts with actual builds and tests
