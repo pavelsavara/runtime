@@ -2,14 +2,14 @@
 
 ## Context
 
-**Goal:** Break the main SCC in System.Private.CoreLib for browser/WASM targets into sub-clusters, characterize each, map inter-cluster dependencies, and identify safe dependency-cut candidates to reduce size as much as possible. The browser sample has a 1,090-method CoreLib SCC (178.4 KB, 31.1% of total IL). The Blazor app has no single dominant CoreLib SCC; its cost is driven by external assemblies (Linq.Expressions, Text.Json, Components). The largest Blazor SCC is 99 methods in Linq.Expressions.Compiler (316.2 KB). Zero overlap between browser and Blazor SCC cores.
+**Goal:** Break the main SCC in System.Private.CoreLib for browser/WASM targets into sub-clusters, characterize each, map inter-cluster dependencies, and identify safe dependency-cut candidates to reduce size as much as possible. The browser sample has a 942-method CoreLib SCC (159.2 KB, 34.8% of total IL). The Blazor app has no single dominant CoreLib SCC; its cost is driven by external assemblies (Linq.Expressions, Text.Json, Components). The largest Blazor SCC is 99 methods in Linq.Expressions.Compiler (316.2 KB). With matching globalization flags (InvariantGlobalization=true, PredefinedCulturesOnly=true), the browser SCC core is 100% contained in Blazor — any SCC-breaking work on the browser sample directly benefits Blazor.
 
 **Target:** IL-trimmed `System.Private.CoreLib.dll` for browser/WASM (CoreCLR build). The sample app folder name contains "mono" but the actual build is CoreCLR.
 
 **Scope:** Managed C# code only. Native code, JS interop glue, and emscripten dependencies are out of scope.
 
 **Assumptions:**
-- Non-invariant globalization (invariant-mode cuts are already well-known)
+- Invariant globalization (InvariantGlobalization=true, PredefinedCulturesOnly=true — matching Blazor defaults)
 - Reflection and Reflection.Emit must remain functional (Blazor depends on them)
 - Satellite methods outside the core SCC are out of scope — how to cut those is already known
 - Focus is on identifying **what** to cut safely; implementation details (ILLink directives, feature switches, `#if` guards) come after
@@ -23,38 +23,41 @@
 | Metric | Browser Sample | Blazor WASM |
 |--------|---------------|-------------|
 | Assemblies | 4 | 40 |
-| Total methods | 10,821 | 25,373 |
-| Total IL size | 587,152 bytes (573.4 KB) | 1,503,162 bytes (1,467.9 KB) |
-| CoreLib IL size | 576,116 bytes (562.6 KB) | 766,356 bytes (748.4 KB) |
-| Max transitive size | 261,988 bytes (255.8 KB, 44.6%) | 460,727 bytes (449.9 KB, 30.7%) |
-| Largest super-SCC | 1,090 methods | 1,046 methods |
-| CoreLib max transitive | 261,988 bytes (255.8 KB) | 332,347 bytes (324.6 KB) |
-| Tarjan direct SCCs (multi) | 8 | 31 |
+| Total methods | 10,339 | 25,373 |
+| Total IL size | 554,647 bytes (541.6 KB) | 1,503,162 bytes (1,467.9 KB) |
+| Max transitive size | 241,207 bytes (235.6 KB, 43.5%) | 460,727 bytes (449.9 KB, 30.7%) |
+| Largest super-SCC | 942 methods | 1,046 methods |
+| SCC transitive size | 163,058 bytes (159.2 KB, 34.8%) | — |
+| Tarjan direct SCCs (multi) | 7 | 31 |
 | Tarjan super-SCCs (multi) | 15 | 81 |
 
-## Browser SCC Core Namespace Distribution (1,090 methods, 182,691 bytes = 178.4 KB)
+*Browser sample built with InvariantGlobalization=true, PredefinedCulturesOnly=true (matching Blazor defaults).*
+
+## Browser SCC Core Namespace Distribution (942 methods, 163,058 bytes = 159.2 KB)
 
 | Methods | Namespace | Notes |
 |---------|-----------|-------|
-| 375 | System | Primitives, Number, String, Array, DateTime, Enum, Convert, etc. |
-| 163 | System.Globalization | CultureData, CompareInfo, DateTimeFormatInfo, Calendars, TextInfo |
-| 121 | System.Text | StringBuilder, Encoding, UTF8, Unicode utilities |
-| 103 | System.Runtime.Intrinsics | Scalar\`1, Vector128/256/512 helpers |
+| 336 | System | Primitives, Number, String, Array, DateTime, Enum, Convert, etc. |
+| 119 | System.Text | StringBuilder, Encoding, UTF8, Unicode utilities |
+| 102 | System.Runtime.Intrinsics | Scalar\`1, Vector128/256/512 helpers |
 | 87 | System.Reflection | RuntimeType, CustomAttribute, MethodBase, FieldInfo, etc. |
 | 68 | System.Reflection.Emit | TypeBuilder, ILGenerator, ModuleBuilder, SignatureHelper |
-| 29 | System.Collections.Generic | Dictionary, List, HashSet, Comparer, EqualityComparer |
-| 28 | System.Buffers | ArrayPool, SearchValues, IndexOfAnyAsciiSearcher |
+| 68 | System.Globalization | DateTimeFormatInfo, NumberFormatInfo, CultureInfo (calendars trimmed) |
 | 27 | System.Threading | Thread, ThreadPool, Lock, Monitor, Timer |
+| 27 | System.Collections.Generic | Dictionary, List, HashSet, Comparer, EqualityComparer |
 | 23 | System.Reflection.Metadata | MetadataReader (external assembly) |
+| 22 | System.Buffers | ArrayPool, SearchValues, IndexOfAnyAsciiSearcher |
 | 15 | System.Runtime.CompilerServices | RuntimeHelpers, CastHelpers |
 | 14 | System.Numerics | Vector\`1, BitOperations |
-| 14 | System.Runtime.InteropServices | Marshal, GCHandle, SafeHandle |
+| 13 | System.Runtime.InteropServices | Marshal, GCHandle, SafeHandle |
 | 9 | System.Text.Unicode | Utf8Utility, Utf16Utility |
 | 4 | System.Runtime.InteropServices.Marshalling | SafeHandleMarshaller, Utf8StringMarshaller |
 | 3 | System.Runtime.Loader | AssemblyLoadContext |
 | 2 | System.Collections | Non-generic collections |
 | 1 | System.Buffers.Text | Utf8Formatter |
 | 1 | Microsoft.Win32.SafeHandles | SafeFileHandle |
+
+*Compared to non-invariant build: SCC dropped from 1,090 to 942 methods. Globalization went from 163 to 68 methods (95 calendar/CultureData methods trimmed). System dropped from 375 to 336 (39 fewer).*
 
 ---
 
@@ -63,11 +66,13 @@
 ### 0A. Browser sample app [DONE]
 - [x] Run method-cost tool on `d:\runtime2\src\mono\sample\wasm\browser\bin\publish\wwwroot\_framework`
 - [x] Report saved to `d:\runtime2\method-cost-full.json` (n=5000)
-- [x] 4 assemblies, 10,821 methods, 573.4 KB total IL
-- [x] Largest super-SCC: 1,090 methods (all with transitiveMethodCount=3234, identical transitiveSize=182,691 bytes = 178.4 KB, 31.1%)
-- [x] Max transitive size: 261,988 bytes (255.8 KB, 44.6%) — DateOnly feeds into the SCC + DateTime/IO/async chain
-- [x] Top types by transitive: DateOnly (255.8 KB), TimeOnly (255.5 KB), DateTime (254.5 KB), Stream (249.8 KB), JavaScriptExports (248.8 KB)
+- [x] Built with InvariantGlobalization=true, PredefinedCulturesOnly=true (matching Blazor defaults)
+- [x] 4 assemblies, 10,339 methods, 541.6 KB total IL
+- [x] Largest super-SCC: 942 methods (identical transitiveSize=163,058 bytes = 159.2 KB, 34.8%)
+- [x] Max transitive size: 241,207 bytes (235.6 KB, 43.5%) — Sample.PrintMeaning async -> Stream -> SemaphoreSlim -> threading/IO chain
+- [x] Top methods by transitive: PrintMeaning (235.6 KB), Stream.BeginWrite (232.1 KB), SemaphoreSlim.WaitUntil (231.6 KB)
 - [x] Mapped namespace distribution (see table above)
+- [x] **Previous run (InvariantGlobalization=false):** 10,821 methods, 573.4 KB, SCC=1,090 methods/178.4 KB. InvariantGlobalization trimmed 148 SCC methods (mostly calendars/CultureData) and 19.2 KB from SCC.
 
 ### 0B. Blazor WASM app [DONE]
 - [x] Run method-cost tool on `d:\samples\blazorwasmruntime\bin\Release\net11.0\publish\wwwroot\_framework\`
@@ -77,18 +82,14 @@
 
 **Key findings:**
 
-1. **Blazor is NOT a strict superset of the browser sample.** Of 4,939 browser methods, 4,608 also appear
-   in Blazor (93.3%), but **323 methods are in browser only** (plus 8 app-specific `Sample.*` methods).
-   All 323 are above the Blazor report cutoff — they are genuinely absent from Blazor's trimmed output.
-   - 297 are `System.Globalization` — calendars, CultureData, CompareInfo, TextInfo methods
-   - The rest: String (5), Console (3), Rune (2), Task\`1 (2), misc (14)
-   - Top types trimmed from Blazor: CultureData (56), CalendricalCalculationsHelper (31),
-     HebrewCalendar (20), JapaneseCalendar (18), PersianCalendar (18), CalendarData (17),
-     HijriCalendar (17), UmAlQuraCalendar (17), CompareInfo (16), GregorianCalendarHelper (14)
-   - **Blazor trims more aggressively** in globalization — the browser sample retains full calendar
-     and culture data infrastructure that Blazor apps don't need.
+1. **With matching flags, browser is nearly a strict superset of Blazor's CoreLib subset.**
+   After rebuilding with InvariantGlobalization=true and PredefinedCulturesOnly=true (matching Blazor defaults),
+   only **9 browser-only methods** remain (excl. 8 app-specific). These are minor: System (5),
+   Runtime.CompilerServices (2), Threading.Tasks (2). **100% of the browser SCC core (934 methods) is present in Blazor.**
+   This means any SCC-breaking work on the browser sample directly benefits Blazor apps.
+   - Previous run (non-invariant): 323 browser-only methods (297 globalization) — that gap is now closed.
 
-2. **No single dominant CoreLib SCC in Blazor.** The browser sample has a clean 1,090-method CoreLib SCC.
+2. **No single dominant CoreLib SCC in Blazor.** The browser sample has a clean 942-method CoreLib SCC.
    In Blazor, the CoreLib methods are fragmented across many smaller groups (largest: 54 methods in Reflection at 231.0 KB).
 
 3. **Blazor cost is driven by external assemblies:**
@@ -113,17 +114,25 @@
    - 11 methods in Collections.Frozen (180.1 KB, two groups)
    - 11 methods in DI.ServiceLookup (258.0 KB)
 
-5. **Zero overlap** between browser SCC core (1,082 unique names) and Blazor SCC core (100 names).
-   Browser SCC = CoreLib primitives/globalization/text/reflection.
+5. **Zero overlap** between browser SCC core (934 unique names) and Blazor SCC core (100 names).
+   Browser SCC = CoreLib primitives/text/reflection/intrinsics.
    Blazor SCC = Linq.Expressions.Compiler (99) + 1 Components method.
+   However, all 934 browser SCC methods are individually present in Blazor (just not forming a single SCC there).
 
 6. **Assembly cost ranking in Blazor (by max transitive):**
    Components 449.9 KB > Linq.Expressions 432.9 KB > Text.Json 432.8 KB > Net.Http 399.9 KB > CoreLib 324.6 KB
 
-7. **Implication for SCC-breaking strategy:** Focus the CoreLib SCC analysis on the browser sample's 1,090-method SCC.
+7. **Implication for SCC-breaking strategy:** Focus the CoreLib SCC analysis on the browser sample's 942-method SCC.
    For Blazor, the biggest wins come from breaking Linq.Expressions and Text.Json SCCs, not CoreLib.
-   The 323 browser-only methods (mostly globalization/calendars) suggest the browser sample would benefit
-   from the same aggressive globalization trimming that Blazor already applies.
+   With matching globalization flags, the browser SCC core is 100% contained in Blazor — any cuts apply to both.
+
+8. **Effect of InvariantGlobalization=true on browser sample:**
+   - Methods: 10,821 → 10,339 (482 fewer, ~4.5%)
+   - Total IL: 573.4 KB → 541.6 KB (31.8 KB savings)
+   - SCC: 1,090 → 942 methods (148 fewer, -13.6%)
+   - SCC transitive: 178.4 KB → 159.2 KB (19.2 KB savings, -10.8%)
+   - Globalization in SCC: 163 → 68 methods (95 calendar/CultureData methods trimmed)
+   - System namespace in SCC: 375 → 336 (39 fewer)
 
 ---
 
@@ -131,19 +140,19 @@
 
 For each major namespace area, break into 2-3 sub-areas and map to source files.
 
-### 1A. System Primitives (864 methods)
+### 1A. System Primitives (736 methods — 336 in SCC + ~400 satellite)
 
 Sub-areas:
 - **1A-i. Numeric types & formatting** — Int32, UInt32, Int64, Double, Single, Half, Decimal, Int128, UInt128, Number (formatting/parsing), Convert
 - **1A-ii. String & core types** — String, Char, Enum, Array, Object, ValueType, Delegate, Guid, DateTime, TimeSpan, TimeZoneInfo, DateOnly, TimeOnly
 - **1A-iii. Infrastructure** — ThrowHelper, SR, Buffer, SpanHelpers, MemoryExtensions, HashCode, Marvin, BitConverter, Random
 
-### 1B. Globalization (482 methods)
+### 1B. Globalization (68 SCC methods — invariant mode, calendars trimmed)
 
 Sub-areas:
-- **1B-i. Culture infrastructure** — CultureInfo, CultureData, CompareInfo, TextInfo, GlobalizationMode
+- **1B-i. Culture infrastructure** — CultureInfo, CultureData (minimal), GlobalizationMode
 - **1B-ii. Number & date formatting** — NumberFormatInfo, DateTimeFormatInfo, DateTimeFormat, TimeSpanFormat, TimeSpanParse
-- **1B-iii. Calendars** — GregorianCalendar, HebrewCalendar, HijriCalendar, JapaneseCalendar, PersianCalendar, UmAlQuraCalendar, CalendricalCalculationsHelper, CalendarData
+- ~~**1B-iii. Calendars**~~ — trimmed by InvariantGlobalization=true
 
 ### 1C. Reflection (278 methods)
 
