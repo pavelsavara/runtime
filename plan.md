@@ -2,7 +2,7 @@
 
 ## Context
 
-**Goal:** Break the main SCC in System.Private.CoreLib for browser/WASM targets into sub-clusters, characterize each, map inter-cluster dependencies, and identify safe dependency-cut candidates to reduce size as much as possible. The browser sample has a 267-method SCC (async/IO/FileStream cycle, 433 KB transitive, 66.9% of total IL). The Blazor app has no single dominant CoreLib SCC; its cost is driven by external assemblies (Linq.Expressions, Text.Json, Components).
+**Goal:** Break the main SCC in System.Private.CoreLib for browser/WASM targets into sub-clusters, characterize each, map inter-cluster dependencies, and identify safe dependency-cut candidates to reduce size as much as possible. The browser sample has a 1,090-method CoreLib SCC (178.4 KB, 31.1% of total IL). The Blazor app has no single dominant CoreLib SCC; its cost is driven by external assemblies (Linq.Expressions, Text.Json, Components). The largest Blazor SCC is 99 methods in Linq.Expressions.Compiler (316.2 KB). Zero overlap between browser and Blazor SCC cores.
 
 **Target:** IL-trimmed `System.Private.CoreLib.dll` for browser/WASM (CoreCLR build). The sample app folder name contains "mono" but the actual build is CoreCLR.
 
@@ -20,52 +20,96 @@
 
 **Key metrics from method-cost tool:**
 
-TODO
+| Metric | Browser Sample | Blazor WASM |
+|--------|---------------|-------------|
+| Assemblies | 4 | 40 |
+| Total methods | 10,821 | 25,373 |
+| Total IL size | 587,152 bytes (573.4 KB) | 1,503,162 bytes (1,467.9 KB) |
+| CoreLib IL size | 576,116 bytes (562.6 KB) | 766,356 bytes (748.4 KB) |
+| Max transitive size | 261,988 bytes (255.8 KB, 44.6%) | 460,727 bytes (449.9 KB, 30.7%) |
+| Largest super-SCC | 1,090 methods | 1,046 methods |
+| CoreLib max transitive | 261,988 bytes (255.8 KB) | 332,347 bytes (324.6 KB) |
+| Tarjan direct SCCs (multi) | 8 | 31 |
+| Tarjan super-SCCs (multi) | 15 | 81 |
 
-## SCC Core Namespace Distribution
+## Browser SCC Core Namespace Distribution (1,090 methods, 182,691 bytes = 178.4 KB)
 
 | Methods | Namespace | Notes |
 |---------|-----------|-------|
-| 864 | System | Primitives, Number, String, Array, DateTime, Enum, Convert, etc. |
-| 482 | System.Globalization | CultureData, CompareInfo, DateTimeFormatInfo, Calendars, TextInfo |
-| 278 | System.Reflection | RuntimeType, CustomAttribute, MethodBase, FieldInfo, etc. |
-| 180 | System.Text | StringBuilder, Encoding, UTF8, Unicode utilities |
-| 177 | System.Reflection.Emit | TypeBuilder, ILGenerator, ModuleBuilder, SignatureHelper |
-| 121 | System.Runtime.Intrinsics | Scalar\`1, Vector128/256/512 helpers |
-| 79 | System.Collections.Generic | Dictionary, List, HashSet, Comparer, EqualityComparer |
-| 76 | System.Threading | Thread, ThreadPool, Lock, Monitor, Timer |
-| 71 | System.IO | Stream, FileStream, Path, File, Directory |
-| 52 | System.Runtime.CompilerServices | RuntimeHelpers, CastHelpers, AsyncMethodBuilder |
-| 49 | System.Buffers | ArrayPool, SearchValues, IndexOfAnyAsciiSearcher |
-| 35 | System.IO.Strategies | BufferedFileStreamStrategy, OSFileStreamStrategy |
-| 27 | System.Reflection.Metadata | MetadataReader (external assembly) |
-| 25 | System.Runtime.InteropServices | Marshal, GCHandle, SafeHandle |
-| 25 | System.Runtime.InteropServices.JavaScript | JSMarshalerArgument, JSHostImplementation |
-| 25 | System.IO.Enumeration | FileSystemEnumerator, FileSystemName |
-| 21 | System.Numerics | Vector\`1, BitOperations |
-| 17 | System.Diagnostics | StackTrace, Debugger, Stopwatch |
-| 14 | System.Buffers.Binary | BinaryPrimitives |
-| 14 | System.Collections.Concurrent | ConcurrentDictionary |
-| 13 | System.Text.Unicode | Utf8Utility, Utf16Utility |
-| 13 | System.Runtime.InteropServices.Marshalling | SafeHandleMarshaller, Utf8StringMarshaller |
+| 375 | System | Primitives, Number, String, Array, DateTime, Enum, Convert, etc. |
+| 163 | System.Globalization | CultureData, CompareInfo, DateTimeFormatInfo, Calendars, TextInfo |
+| 121 | System.Text | StringBuilder, Encoding, UTF8, Unicode utilities |
+| 103 | System.Runtime.Intrinsics | Scalar\`1, Vector128/256/512 helpers |
+| 87 | System.Reflection | RuntimeType, CustomAttribute, MethodBase, FieldInfo, etc. |
+| 68 | System.Reflection.Emit | TypeBuilder, ILGenerator, ModuleBuilder, SignatureHelper |
+| 29 | System.Collections.Generic | Dictionary, List, HashSet, Comparer, EqualityComparer |
+| 28 | System.Buffers | ArrayPool, SearchValues, IndexOfAnyAsciiSearcher |
+| 27 | System.Threading | Thread, ThreadPool, Lock, Monitor, Timer |
+| 23 | System.Reflection.Metadata | MetadataReader (external assembly) |
+| 15 | System.Runtime.CompilerServices | RuntimeHelpers, CastHelpers |
+| 14 | System.Numerics | Vector\`1, BitOperations |
+| 14 | System.Runtime.InteropServices | Marshal, GCHandle, SafeHandle |
+| 9 | System.Text.Unicode | Utf8Utility, Utf16Utility |
+| 4 | System.Runtime.InteropServices.Marshalling | SafeHandleMarshaller, Utf8StringMarshaller |
+| 3 | System.Runtime.Loader | AssemblyLoadContext |
+| 2 | System.Collections | Non-generic collections |
+| 1 | System.Buffers.Text | Utf8Formatter |
+| 1 | Microsoft.Win32.SafeHandles | SafeFileHandle |
 
 ---
 
 ## Phase 0: Method-Cost Analysis
 
 ### 0A. Browser sample app [DONE]
-- [ ] Run method-cost tool on `d:\runtime2\src\mono\sample\wasm\browser\bin\publish\wwwroot\_framework`
-- [ ] Report saved to `d:\runtime2\method-cost-full.json` (n=5000)
-- [ ] Identified SCC core: 2,694 methods, all with transitiveMethodCount=6700
-- [ ] Mapped namespace distribution
+- [x] Run method-cost tool on `d:\runtime2\src\mono\sample\wasm\browser\bin\publish\wwwroot\_framework`
+- [x] Report saved to `d:\runtime2\method-cost-full.json` (n=5000)
+- [x] 4 assemblies, 10,821 methods, 573.4 KB total IL
+- [x] Largest super-SCC: 1,090 methods (all with transitiveMethodCount=3234, identical transitiveSize=182,691 bytes = 178.4 KB, 31.1%)
+- [x] Max transitive size: 261,988 bytes (255.8 KB, 44.6%) — DateOnly feeds into the SCC + DateTime/IO/async chain
+- [x] Top types by transitive: DateOnly (255.8 KB), TimeOnly (255.5 KB), DateTime (254.5 KB), Stream (249.8 KB), JavaScriptExports (248.8 KB)
+- [x] Mapped namespace distribution (see table above)
 
-### 0B. Blazor WASM app [TODO]
-- [ ] Run method-cost tool on `d:\samples\blazorwasmruntime\bin\Release\net11.0\publish\wwwroot\_framework\`
-- [ ] Save report to `d:\runtime2\method-cost-full-blazor.json` (n=17000)
-- [ ] Identify SCC core size and compare with browser sample (2,694 methods)
-- [ ] Map namespace distribution differences — Blazor uses more Reflection, Components, JSON, HTTP
-- [ ] Document delta: methods in Blazor SCC but not in browser sample, and vice versa
-- [ ] Determine if the Blazor SCC is a strict superset or if the two apps pull in different SCC shapes
+### 0B. Blazor WASM app [DONE]
+- [x] Run method-cost tool on `d:\samples\blazorwasmruntime\bin\Release\net11.0\publish\wwwroot\_framework\`
+- [x] Report saved to `d:\runtime2\method-cost-full-blazor.json` (n=5000)
+- [x] 40 assemblies, 25,373 methods, 1,467.9 KB total IL
+- [x] Largest super-SCC: 1,046 methods, max transitive 460,727 bytes (449.9 KB, 30.7%)
+
+**Key findings:**
+
+1. **No single dominant CoreLib SCC in Blazor.** The browser sample has a clean 1,090-method CoreLib SCC.
+   In Blazor, the CoreLib methods are fragmented across many smaller groups (largest: 55 methods at Reflection).
+
+2. **Blazor cost is driven by external assemblies:**
+   - Linq.Expressions: 170.2 KB own, max transitive 432.9 KB
+   - Text.Json: 161.8 KB own, max transitive 432.8 KB
+   - Components: 91.0 KB own, max transitive 449.9 KB
+   - Net.Http: 55.6 KB own, max transitive 399.9 KB
+
+3. **Blazor true SCCs (identical transitiveSize = definite mutual recursion):**
+   - 61 methods in Linq.Expressions.Interpreter (354.0 KB)
+   - 99 methods in Linq.Expressions.Compiler (316.2 KB)
+   - 97 methods in Linq.Expressions core (304.1 KB)
+   - 42 methods in Linq.Expressions.Compiler (283.7 KB)
+   - 33 methods in Text.Json.Nodes (284.5 KB)
+   - 22 methods in Threading.Tasks (189.2 KB)
+   - 54 methods in Reflection (231.0 KB)
+   - 29 methods in IO/Net.Http (263.2 KB)
+   - 14 methods in Text.Json.Serialization.Converters (332.2 KB)
+   - 11 methods in Collections.Frozen (180.1 KB)
+
+4. **Zero overlap** between browser SCC core (1,082 unique names) and Blazor SCC core (100 names).
+   Browser SCC = CoreLib primitives/globalization/text/reflection.
+   Blazor SCC = Linq.Expressions.Compiler (99) + 1 Components method.
+
+5. **Assembly cost ranking in Blazor (by max transitive):**
+   Components 449.9 KB > Linq.Expressions 432.9 KB > Text.Json 432.8 KB > Net.Http 399.9 KB > CoreLib 324.6 KB
+
+6. **CoreLib is smaller in Blazor's transitive ranking** (324.6 KB max) vs browser sample (255.8 KB max)
+   because Blazor's CoreLib methods feed into larger cross-assembly chains rather than forming their own isolated SCC.
+
+7. **Implication for SCC-breaking strategy:** Focus the CoreLib SCC analysis on the browser sample's 1,090-method SCC.
+   For Blazor, the biggest wins come from breaking Linq.Expressions and Text.Json SCCs, not CoreLib.
 
 ---
 
