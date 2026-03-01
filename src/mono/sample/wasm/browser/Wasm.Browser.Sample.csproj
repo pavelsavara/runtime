@@ -6,6 +6,7 @@
     <EventSourceSupport>false</EventSourceSupport>
 
     <WasmTestSupport>true</WasmTestSupport>
+    <CompressionEnabled>false</CompressionEnabled>
     <WasmTestExitOnUnhandledError>true</WasmTestExitOnUnhandledError>
     <WasmTestAppendElementOnExit>true</WasmTestAppendElementOnExit>
     <WasmTestLogExitCode>true</WasmTestLogExitCode>
