@@ -4,13 +4,13 @@
     <EnableDiagnostics>false</EnableDiagnostics>
     <MetricsSupport>false</MetricsSupport>
     <EventSourceSupport>false</EventSourceSupport>
-
-    <WasmTestSupport>true</WasmTestSupport>
-    <WasmTestExitOnUnhandledError>true</WasmTestExitOnUnhandledError>
-    <WasmTestAppendElementOnExit>true</WasmTestAppendElementOnExit>
-    <WasmTestLogExitCode>true</WasmTestLogExitCode>
-    <WasmTestAsyncFlushOnExit>true</WasmTestAsyncFlushOnExit>
-    <WasmTestForwardConsole>true</WasmTestForwardConsole>
+    <CompressionEnabled>false</CompressionEnabled>
+    <StackTraceSupport>false</StackTraceSupport>
+    <DebugSymbols>false</DebugSymbols>
+    <PredefinedCulturesOnly>true</PredefinedCulturesOnly>
+    <InvariantGlobalization>true</InvariantGlobalization>
+    <StackTraceLineNumberSupport>false</StackTraceLineNumberSupport>
+    <WasmEmitSymbolMap>false</WasmEmitSymbolMap>
     
     <EnableAggressiveTrimming>true</EnableAggressiveTrimming>
     <PublishTrimmed>true</PublishTrimmed>
