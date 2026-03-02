@@ -1177,9 +1177,9 @@ Using method-level Tarjan results from Phase 4B, identify specific methods where
  - cut `HexConverter` -> `Vector128` https://github.com/dotnet/runtime/pull/125040
  - `System.Reflection.Emit.IsSupported` - https://gist.github.com/pavelsavara/54d2776c5479642f02654d2b3a8afa85
  - `typeof(T)` ILLink https://gist.github.com/pavelsavara/abfc66b8e463d237902317b0f67e9c1e
- - - `CustomAttribute::IsDefined` - https://gist.github.com/pavelsavara/df8165368f746039765bc16db9417c59
- 
- - `StackTrace.IsSupported` remains **true** — keeps StackTrace→Reflection coupling alive.
+ - `CustomAttribute::IsDefined` - https://gist.github.com/pavelsavara/df8165368f746039765bc16db9417c59
+ - `StackTrace.IsSupported` - https://gist.github.com/pavelsavara/0abddc9c048edfad39078e7a1fe7e222
+
  - `StartupHookProvider.IsSupported` remains **true** — could be disabled for published apps.
  - `SupportsWasmIntrinsics`
   - COM/swift interop ?
