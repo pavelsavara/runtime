@@ -24,6 +24,9 @@ namespace Mono.Linker.Steps
         readonly LinkContext _context;
         readonly Dictionary<MethodDefinition, MethodResult?> _cache_method_results = new(2048);
         readonly Stack<MethodDefinition> _resursion_guard = new();
+        readonly HashSet<MethodDefinition> _methodsWithGenericTypeofPatterns = new();
+        readonly Dictionary<TypeDefinition, List<GenericInstanceType>> _typeInstantiations = new();
+        readonly Dictionary<MethodDefinition, List<GenericInstanceMethod>> _methodInstantiations = new();
 
         MethodDefinition? IntPtrSize, UIntPtrSize;
 
@@ -75,6 +78,133 @@ namespace Mono.Linker.Steps
             catch (Exception e)
             {
                 throw new InternalErrorException($"Could not process the body of method '{method.GetDisplayName()}'.", e);
+            }
+        }
+
+        internal void FlagMethodWithGenericTypeofPattern(MethodDefinition method)
+        {
+            _methodsWithGenericTypeofPatterns.Add(method);
+        }
+
+        /// <summary>
+        /// Re-processes methods that contain typeof(T) patterns using per-instantiation analysis.
+        /// Called after marking is complete so that all concrete generic instantiations are known.
+        /// </summary>
+        public void ProcessDeferredTypeofMethods()
+        {
+            if (_methodsWithGenericTypeofPatterns.Count == 0)
+                return;
+
+            CollectInstantiationsFromLinkedAssemblies();
+
+            foreach (var method in _methodsWithGenericTypeofPatterns)
+            {
+                var instantiations = GetInstantiationsForMethod(method);
+                if (instantiations is not { Count: > 0 })
+                    continue;
+
+                ReprocessMethodWithInstantiations(method, instantiations);
+            }
+        }
+
+        void CollectInstantiationsFromLinkedAssemblies()
+        {
+            foreach (var assembly in _context.GetAssemblies())
+            {
+                if (_context.Annotations.GetAction(assembly) != AssemblyAction.Link)
+                    continue;
+
+                foreach (var type in assembly.MainModule.Types)
+                    CollectInstantiationsFromType(type);
+            }
+        }
+
+        void CollectInstantiationsFromType(TypeDefinition type)
+        {
+            foreach (var method in type.Methods)
+            {
+                if (!method.HasBody || !_context.Annotations.IsMarked(method))
+                    continue;
+
+                foreach (var instruction in _context.GetMethodIL(method.Body).Instructions)
+                {
+                    if (instruction.OpCode.Code is not (Code.Call or Code.Callvirt or Code.Newobj or Code.Ldftn or Code.Ldvirtftn))
+                        continue;
+
+                    if (instruction.Operand is not MethodReference mr)
+                        continue;
+
+                    var resolved = _context.Resolve(mr);
+                    if (resolved is null || !_methodsWithGenericTypeofPatterns.Contains(resolved))
+                        continue;
+
+                    if (mr is GenericInstanceMethod gim)
+                    {
+                        if (!_methodInstantiations.TryGetValue(resolved, out var list))
+                        {
+                            list = new();
+                            _methodInstantiations[resolved] = list;
+                        }
+                        list.Add(gim);
+                    }
+
+                    if (mr.DeclaringType is GenericInstanceType git)
+                    {
+                        var declaringType = resolved.DeclaringType;
+                        if (!_typeInstantiations.TryGetValue(declaringType, out var list))
+                        {
+                            list = new();
+                            _typeInstantiations[declaringType] = list;
+                        }
+                        list.Add(git);
+                    }
+                }
+            }
+
+            foreach (var nestedType in type.NestedTypes)
+                CollectInstantiationsFromType(nestedType);
+        }
+
+        List<IGenericInstance>? GetInstantiationsForMethod(MethodDefinition method)
+        {
+            List<IGenericInstance>? result = null;
+
+            if (_methodInstantiations.TryGetValue(method, out var methodInsts))
+                result = new List<IGenericInstance>(methodInsts);
+
+            if (_typeInstantiations.TryGetValue(method.DeclaringType, out var typeInsts))
+            {
+                result ??= new List<IGenericInstance>();
+                result.AddRange(typeInsts);
+            }
+
+            return result;
+        }
+
+        void ReprocessMethodWithInstantiations(MethodDefinition method, List<IGenericInstance> instantiations)
+        {
+            if (!IsMethodSupported(method))
+                return;
+
+            if (_context.Annotations.GetAction(method.Module.Assembly) != AssemblyAction.Link)
+                return;
+
+            var reducer = new BodyReducer(method.Body, _context);
+
+            try
+            {
+                if (!reducer.ApplyTemporaryInlining(this, instantiations))
+                    return;
+
+                if (reducer.RewriteBody())
+                    _context.LogMessage($"Typeof(T) deferred reduction: '{reducer.InstructionsReplaced}' instructions in [{method.DeclaringType.Module.Assembly.Name}] method '{method.GetDisplayName()}'.");
+
+                var inliner = new CallInliner(method.Body, this);
+                inliner.RewriteBody();
+            }
+            catch (Exception e)
+            {
+                throw new InternalErrorException($"Could not reprocess the body of method '{method.GetDisplayName()}'.", e);
             }
         }
 
@@ -414,8 +544,10 @@ namespace Mono.Linker.Steps
         /// <summary>
         /// Detects the IL pattern: ldtoken X; call GetTypeFromHandle; ldtoken Y; call GetTypeFromHandle; call op_Equality/op_Inequality
         /// and evaluates the type comparison when both types are concrete (not open generic parameters).
+        /// When knownInstantiations is provided, evaluates generic parameters against all known instantiations
+        /// and folds if all agree on the result.
         /// </summary>
-        static Instruction? TryEvaluateTypeEqualityPattern(MethodDefinition method, Collection<Instruction> instructions, int callIndex, ITryResolveMetadata resolver, out int stackDepth)
+        static Instruction? TryEvaluateTypeEqualityPattern(MethodDefinition method, Collection<Instruction> instructions, int callIndex, ITryResolveMetadata resolver, out int stackDepth, IReadOnlyList<IGenericInstance>? knownInstantiations = null)
         {
             stackDepth = 0;
 
@@ -444,9 +576,14 @@ namespace Mono.Linker.Steps
             if (!IsCallToGetTypeFromHandle(instr1) || !IsCallToGetTypeFromHandle(instr3))
                 return null;
 
-            // Don't fold when either type contains an open generic parameter
+            // When types contain open generic parameters, try evaluating with known instantiations
             if (type1.ContainsGenericParameter || type2.ContainsGenericParameter)
-                return null;
+            {
+                if (knownInstantiations is not { Count: > 0 })
+                    return null;
+
+                return TryEvaluateTypeofWithInstantiations(type1, type2, method.Name, knownInstantiations, resolver, instructions, callIndex, out stackDepth);
+            }
 
             // Guard against jumps into the middle of the pattern
             if (HasJumpIntoTargetRange(instructions, callIndex - 4, callIndex))
@@ -469,6 +606,70 @@ namespace Mono.Linker.Steps
 
                 return mr.Name == "GetTypeFromHandle" && mr.DeclaringType.IsTypeOf("System", "Type");
             }
+        }
+
+        /// <summary>
+        /// Evaluates typeof equality/inequality against all known generic instantiations.
+        /// Returns a constant if all instantiations agree on the result; null otherwise.
+        /// </summary>
+        static Instruction? TryEvaluateTypeofWithInstantiations(
+            TypeReference type1, TypeReference type2, string methodName,
+            IReadOnlyList<IGenericInstance> knownInstantiations,
+            ITryResolveMetadata resolver,
+            Collection<Instruction> instructions, int callIndex,
+            out int stackDepth)
+        {
+            stackDepth = 0;
+            bool? unanimousResult = null;
+
+            foreach (var inst in knownInstantiations)
+            {
+                var inflated1 = TypeReferenceExtensions.InflateGenericType(inst, type1);
+                var inflated2 = TypeReferenceExtensions.InflateGenericType(inst, type2);
+
+                // After inflation, types should be concrete; if still generic, bail
+                if (inflated1.ContainsGenericParameter || inflated2.ContainsGenericParameter)
+                    return null;
+
+                bool areEqual = TypeReferenceEqualityComparer.AreEqual(inflated1, inflated2, resolver);
+
+                if (unanimousResult is null)
+                    unanimousResult = areEqual;
+                else if (unanimousResult != areEqual)
+                    return null; // Instantiations disagree, cannot fold
+            }
+
+            if (unanimousResult is null)
+                return null;
+
+            // Guard against jumps into the middle of the pattern
+            if (HasJumpIntoTargetRange(instructions, callIndex - 4, callIndex))
+                return null;
+
+            bool result = unanimousResult.Value;
+            if (methodName[3] == 'I') // op_Inequality
+                result = !result;
+
+            stackDepth = 2;
+            return Instruction.Create(OpCodes.Ldc_I4, result ? 1 : 0);
+        }
+
+        /// <summary>
+        /// Lightweight check: is the instruction at callIndex a typeof equality pattern containing a GenericParameter?
+        /// </summary>
+        static bool HasGenericTypeofPattern(MethodDefinition method, Collection<Instruction> instructions, int callIndex)
+        {
+            if (!method.DeclaringType.IsTypeOf("System", "Type") ||
+                method.Name is not ("op_Equality" or "op_Inequality"))
+                return false;
+
+            if (callIndex < 4)
+                return false;
+
+            var i0 = instructions[callIndex - 4];
+            var i2 = instructions[callIndex - 2];
+            return (i0.OpCode.Code == Code.Ldtoken && i0.Operand is TypeReference t1 && t1.ContainsGenericParameter) ||
+                   (i2.OpCode.Code == Code.Ldtoken && i2.Operand is TypeReference t2 && t2.ContainsGenericParameter);
         }
 
         static Instruction[]? GetArgumentsOnStack(MethodDefinition method, Collection<Instruction> instructions, int index)
@@ -981,7 +1182,7 @@ namespace Mono.Linker.Steps
                 return true;
             }
 
-            public bool ApplyTemporaryInlining(in UnreachableBlocksOptimizer optimizer)
+            public bool ApplyTemporaryInlining(in UnreachableBlocksOptimizer optimizer, IReadOnlyList<IGenericInstance>? knownInstantiations = null)
             {
                 bool changed = false;
                 var instructions = Instructions;
@@ -1008,7 +1209,14 @@ namespace Mono.Linker.Steps
 
                             int typePatternStackDepth = 0;
                             if (targetResult == null && md.IsStatic && args == null)
-                                targetResult = TryEvaluateTypeEqualityPattern(md, FoldedInstructions ?? instructions, i, context, out typePatternStackDepth);
+                                targetResult = TryEvaluateTypeEqualityPattern(md, FoldedInstructions ?? instructions, i, context, out typePatternStackDepth, knownInstantiations);
+
+                            // Flag methods with unresolved typeof(T) patterns for deferred processing
+                            if (targetResult == null && typePatternStackDepth == 0 && knownInstantiations == null && md.IsStatic)
+                            {
+                                if (HasGenericTypeofPattern(md, FoldedInstructions ?? instructions, i))
+                                    optimizer.FlagMethodWithGenericTypeofPattern(Body.Method);
+                            }
 
                             targetResult ??= optimizer.TryGetMethodCallResult(new CalleePayload(md, args))?.Instruction;
 

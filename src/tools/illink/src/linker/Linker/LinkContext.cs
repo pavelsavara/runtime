@@ -1037,6 +1037,11 @@ namespace Mono.Linker
             return MethodIL.Create(method.Body);
         }
 
+        public void ProcessDeferredTypeofOptimizations()
+        {
+            _unreachableBlocksOptimizer.ProcessDeferredTypeofMethods();
+        }
+
         readonly HashSet<MemberReference> unresolved_reported = new();
 
         readonly HashSet<ExportedType> unresolved_exported_types_reported = new();

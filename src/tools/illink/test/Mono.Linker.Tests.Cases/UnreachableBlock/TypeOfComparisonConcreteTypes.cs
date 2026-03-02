@@ -113,6 +113,7 @@ namespace Mono.Linker.Tests.Cases.UnreachableBlock
 		}
 
 		[Kept]
+		[ExpectBodyModified]
 		static void TestOpenGenericTypeofNotFolded<T> ()
 		{
 			if (typeof (T) == typeof (int)) {
@@ -123,6 +124,7 @@ namespace Mono.Linker.Tests.Cases.UnreachableBlock
 		}
 
 		[Kept]
+		[ExpectBodyModified]
 		static void TestOpenGenericNestedTypeofNotFolded<T> ()
 		{
 			if (typeof (List<T>) == typeof (List<int>)) {

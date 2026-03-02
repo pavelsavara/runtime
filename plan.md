@@ -424,19 +424,65 @@ Tests:
 
 ---
 
-## 8. Next Steps
+## 8. Progress
 
-- [ ] Prototype Step 1.1: Add `ldtoken` to `IsConstantValue` and `GetConstantValue`
-- [ ] Prototype Step 1.2: Add `Type.GetTypeFromHandle`/`op_Equality` as intrinsics
-- [ ] Write Phase 1 test cases (`TypeOfEqualityConcreteTypes.cs`, etc.)
-- [ ] Run Phase 1 tests — verify concrete-type folding works
-- [ ] Measure: Count `typeof(T)` dispatch patterns in trimmed CoreLib IL
-- [ ] Measure: Quantify IL bytes saved by concrete-type folding alone
-- [ ] Investigate Cecil's ability to resolve generic parameters in instantiation context
+### Phase 1: Concrete-type typeof equality folding — ✅ COMPLETE
+
+**Implementation:**
+- Added `TryEvaluateTypeEqualityPattern()` to detect the IL pattern `ldtoken; GetTypeFromHandle; ldtoken; GetTypeFromHandle; op_Equality/op_Inequality` inline.
+- Extended `EvaluateIntrinsicCall()` to handle `System.Type` methods (`GetTypeFromHandle` passthrough, `op_Equality/op_Inequality` comparison).
+- Updated `ConstantExpressionMethodAnalyzer` to propagate type identity through property/method calls.
+- All concrete-type typeof comparisons fold correctly, including nested generics like `List<int> == List<byte>`.
+
+**Tests:** `TypeOfComparisonConcreteTypes.cs` — 11 test methods covering equality, inequality, reference types, generic types, property-based patterns, multiple branches, and open-generic non-folding. All pass.
+
+**Regressions:** 0. Full suite: 1126/1160 passed, 1 pre-existing failure, 33 skipped.
+
+### Phase 2: Selective per-instantiation optimization — ✅ COMPLETE
+
+**Architecture decision:** Post-marking body re-optimization. MarkStep processes method bodies ONCE per MethodDefinition (not per instantiation), so the initial marking sees all branches as live. After marking completes, a new pipeline step (`TypeofOptimizationStep`) collects known instantiations and re-optimizes flagged method bodies. This provides CODE SIZE reduction (dead typeof branches removed from IL) but does NOT enable trimming of methods only reachable from dead branches (they were already marked). Full trimming integration is deferred to Phase 3.
+
+**Implementation (4 files modified, 2 new files):**
+
+1. **`UnreachableBlocksOptimizer.cs`** — Added:
+   - Fields: `_methodsWithGenericTypeofPatterns`, `_typeInstantiations`, `_methodInstantiations`
+   - `FlagMethodWithGenericTypeofPattern()` — called during initial processing when typeof(T) pattern detected
+   - `ProcessDeferredTypeofMethods()` — main entry point called after marking
+   - `CollectInstantiationsFromLinkedAssemblies()` / `CollectInstantiationsFromType()` — scans all marked method bodies for generic call sites referencing flagged methods
+   - `GetInstantiationsForMethod()` — merges method-level and type-level instantiations
+   - `ReprocessMethodWithInstantiations()` — creates fresh BodyReducer with instantiation context
+   - `TryEvaluateTypeofWithInstantiations()` — evaluates typeof equality against all known instantiations, folds if unanimous
+   - `HasGenericTypeofPattern()` — lightweight check for flagging
+   - Modified `TryEvaluateTypeEqualityPattern()` — optional `knownInstantiations` parameter
+   - Modified `ApplyTemporaryInlining()` — optional `knownInstantiations` parameter, flagging logic
+
+2. **`TypeofOptimizationStep.cs`** (NEW) — Pipeline step that triggers deferred processing
+
+3. **`LinkContext.cs`** — Added `ProcessDeferredTypeofOptimizations()` bridge method
+
+4. **`Driver.cs`** — Registered `TypeofOptimizationStep` before `SweepStep` in pipeline
+
+**Key algorithm:** For each typeof(T)==typeof(X) pattern, evaluate against ALL known instantiations using `TypeReferenceExtensions.InflateGenericType()`. If all instantiations agree (all true or all false) → fold to constant. If instantiations disagree → leave unchanged. Uses Cecil's `TypeReferenceEqualityComparer.AreEqual()` for type comparison.
+
+**Tests:** `TypeOfComparisonGenericTypes.cs` — 5 test scenarios:
+- Method-level generic dead branch (typeof(T)==typeof(float) with T={int,byte} → always false → folded)
+- Type-level generic dead branch (MyGenericType<T> with typeof(T)==typeof(long) → folded)
+- Method-level generic alive branch (typeof(T)==typeof(int) with T={int,byte} → disagree → NOT folded)
+- Multiple dead branches (float/double folded, int/byte kept)
+- Updated Phase 1 tests: open-generic methods with concrete instantiations now correctly fold
+
+**Regressions:** 0. Full suite: 1126/1160 passed, 1 pre-existing failure, 33 skipped. All 23 UnreachableBlock tests pass.
+
+**Known limitations:**
+- Methods only reachable from dead typeof branches are still marked (marking happens before re-optimization)
+- Duplicate instantiations in the collection lists (harmless, minor perf overhead)
+- Methods with both type-level AND method-level generic parameters: if the wrong kind of provider is encountered during inflation, the parameter stays unresolved → safe bail-out (returns null)
+
+---
+
+## 9. Next Steps
+
+- [ ] Measure: Quantify IL bytes saved on a real WASM app with typeof(T) dispatch patterns
+- [ ] Investigate Phase 3: Two-pass marking or deferred body scanning for full trimming of dead-branch members
 - [ ] File GitHub issue to discuss approach with ILLink maintainers
-- [ ] If Phase 1 proves value, design Phase 2 instantiation tracking architecture
-- [ ] Write Phase 2 test cases (`TypeOfGenericScalarPattern.cs`, etc.)
-- [ ] Prototype Step 2.1: Method flagging for typeof(T) patterns
-- [ ] Prototype Step 2.2-2.3: Per-instantiation body creation and optimization
-- [ ] Run Phase 2 throughput benchmarks
-- [ ] If Phase 2 succeeds, design Phase 3 generalized architecture
+- [ ] Consider: Should TypeofOptimizationStep be conditional on optimization being enabled?
