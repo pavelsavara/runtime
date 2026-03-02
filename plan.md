@@ -3,20 +3,22 @@
 ## TL;DR - Opportunities
 
 ## Good
+ - `SupportsWasmIntrinsics` - https://github.com/dotnet/runtime/pull/125046
+
+# ???
  - COM interop - https://gist.github.com/pavelsavara/0e4f72a9f194ca758d6dbdb6bacd06d6
+ - threads substitution
+ - `System.Reflection.Emit.IsSupported` - https://gist.github.com/pavelsavara/54d2776c5479642f02654d2b3a8afa85
+ - `StackTrace.IsSupported` - https://gist.github.com/pavelsavara/0abddc9c048edfad39078e7a1fe7e222
+ 
 
 # Meh
  - cut `HexConverter` -> `Vector128` https://github.com/dotnet/runtime/pull/125040
- - `System.Reflection.Emit.IsSupported` - https://gist.github.com/pavelsavara/54d2776c5479642f02654d2b3a8afa85
- - `typeof(T)` ILLink https://gist.github.com/pavelsavara/abfc66b8e463d237902317b0f67e9c1e
+ - `typeof(T)` ILLink https://gist.github.com/pavelsavara/abfc66b8e463d237902317b0f67e9c1e 
  - `CustomAttribute::IsDefined` - https://gist.github.com/pavelsavara/df8165368f746039765bc16db9417c59
- - `StackTrace.IsSupported` - https://gist.github.com/pavelsavara/0abddc9c048edfad39078e7a1fe7e222
  - `StartupHookProvider.IsSupported` - https://gist.github.com/pavelsavara/2ed212a96d03b1ec8f0adfd393827dc7
- - `SupportsWasmIntrinsics` - https://github.com/dotnet/runtime/pull/125046
  - `RuntimeParameterInfo::IsDefined` - https://gist.github.com/pavelsavara/91b2b1880a54d383122d16337aa897f2
  - `RuntimeTypeBuilder::get_UnderlyingSystemType` - https://gist.github.com/pavelsavara/97203c004a7d4ee840364ba3a7c56874
- - COM interop - https://gist.github.com/pavelsavara/0e4f72a9f194ca758d6dbdb6bacd06d6
- - threads substitution
 
 ## Context
 
