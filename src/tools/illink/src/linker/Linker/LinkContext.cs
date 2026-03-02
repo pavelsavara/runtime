@@ -1037,6 +1037,20 @@ namespace Mono.Linker
             return MethodIL.Create(method.Body);
         }
 
+        /// <summary>
+        /// Returns MethodIL wrapping the raw method body without triggering optimization.
+        /// Used by the typeof pre-scan to read instructions before the optimizer has run.
+        /// </summary>
+        internal static MethodIL GetRawMethodIL(MethodDefinition method)
+        {
+            return MethodIL.Create(method.Body);
+        }
+
+        public void PreScanAndOptimizeTypeofPatterns()
+        {
+            _unreachableBlocksOptimizer.PreScanAndOptimize();
+        }
+
         public void ProcessDeferredTypeofOptimizations()
         {
             _unreachableBlocksOptimizer.ProcessDeferredTypeofMethods();

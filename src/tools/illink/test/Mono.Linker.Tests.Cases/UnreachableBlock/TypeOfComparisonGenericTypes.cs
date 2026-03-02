@@ -104,17 +104,14 @@ namespace Mono.Linker.Tests.Cases.UnreachableBlock
 		[Kept]
 		static void GenericReached_6 () { }
 
-		// Methods from dead branches — still marked from initial pass (marking happens before deferred typeof optimization)
-		[Kept]
+		// Methods from dead branches — now trimmed because pre-marking typeof optimization
+		// removes dead branches before MarkStep, so these are never referenced.
 		static void GenericDeadBranch_1 () { }
 
-		[Kept]
 		static void GenericDeadBranch_2 () { }
 
-		[Kept]
 		static void GenericDeadBranch_3 () { }
 
-		[Kept]
 		static void GenericDeadBranch_4 () { }
 	}
 }

@@ -184,7 +184,6 @@ namespace Mono.Linker.Tests.Cases.UnreachableBlock
 		[Kept]
 		static void TypeofReached_9 () { }
 
-		[Kept]
 		static void TypeofReached_10 () { }
 
 		[Kept]
@@ -193,7 +192,6 @@ namespace Mono.Linker.Tests.Cases.UnreachableBlock
 		[Kept]
 		static void TypeofReached_12 () { }
 
-		[Kept]
 		static void TypeofReached_13 () { }
 
 		static void TypeofNeverReached_1 () { }

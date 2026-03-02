@@ -87,15 +87,150 @@ namespace Mono.Linker.Steps
         }
 
         /// <summary>
+        /// Pre-scans all method bodies in linked assemblies to identify typeof(T) patterns,
+        /// collects instantiations, and pre-optimizes flagged methods before marking occurs.
+        /// Running this before MarkStep ensures dead typeof branches are removed before marking,
+        /// enabling trimming of members only reachable from those dead branches.
+        /// Only flagged methods are pre-optimized; all other methods are processed normally
+        /// during MarkStep to avoid interfering with substitution timing.
+        /// </summary>
+        public void PreScanAndOptimize()
+        {
+            // Step 1: Lightweight scan of ALL method bodies for typeof(T) patterns.
+            // Uses raw IL access (no ProcessMethod) to avoid interfering with substitutions.
+            foreach (var assembly in _context.GetAssemblies())
+            {
+                if (_context.Annotations.GetAction(assembly) != AssemblyAction.Link)
+                    continue;
+
+                foreach (var type in assembly.MainModule.Types)
+                    PreScanTypeForTypeofPatterns(type);
+            }
+
+            if (_methodsWithGenericTypeofPatterns.Count == 0)
+                return;
+
+            // Step 2: Collect instantiations from all bodies (not filtered by marking)
+            foreach (var assembly in _context.GetAssemblies())
+            {
+                if (_context.Annotations.GetAction(assembly) != AssemblyAction.Link)
+                    continue;
+
+                foreach (var type in assembly.MainModule.Types)
+                    CollectInstantiationsFromTypeRaw(type);
+            }
+
+            // Step 3: Pre-optimize flagged methods with instantiation context.
+            // This modifies the Cecil MethodBody directly. When MarkStep later calls
+            // GetMethodIL, ProcessMethod runs on the already-pre-optimized body.
+            foreach (var method in _methodsWithGenericTypeofPatterns)
+            {
+                var instantiations = GetInstantiationsForMethod(method);
+                if (instantiations is not { Count: > 0 })
+                    continue;
+
+                ReprocessMethodWithInstantiations(method, instantiations);
+            }
+        }
+
+        void PreScanTypeForTypeofPatterns(TypeDefinition type)
+        {
+            foreach (var method in type.Methods)
+            {
+                if (!method.HasBody)
+                    continue;
+
+                if (!IsMethodSupported(method))
+                    continue;
+
+                var instructions = LinkContext.GetRawMethodIL(method).Instructions;
+                for (int i = 0; i < instructions.Count; i++)
+                {
+                    var instr = instructions[i];
+                    if (instr.OpCode.Code is not (Code.Call or Code.Callvirt))
+                        continue;
+
+                    if (instr.Operand is not MethodReference mr)
+                        continue;
+
+                    var resolved = _context.TryResolve(mr);
+                    if (resolved is null)
+                        continue;
+
+                    if (HasGenericTypeofPattern(resolved, instructions, i))
+                    {
+                        _methodsWithGenericTypeofPatterns.Add(method);
+                        break;
+                    }
+                }
+            }
+
+            foreach (var nestedType in type.NestedTypes)
+                PreScanTypeForTypeofPatterns(nestedType);
+        }
+
+        void CollectInstantiationsFromTypeRaw(TypeDefinition type)
+        {
+            foreach (var method in type.Methods)
+            {
+                if (!method.HasBody)
+                    continue;
+
+                foreach (var instruction in LinkContext.GetRawMethodIL(method).Instructions)
+                {
+                    if (instruction.OpCode.Code is not (Code.Call or Code.Callvirt or Code.Newobj or Code.Ldftn or Code.Ldvirtftn))
+                        continue;
+
+                    if (instruction.Operand is not MethodReference mr)
+                        continue;
+
+                    var resolved = _context.TryResolve(mr);
+                    if (resolved is null || !_methodsWithGenericTypeofPatterns.Contains(resolved))
+                        continue;
+
+                    if (mr is GenericInstanceMethod gim)
+                    {
+                        if (!_methodInstantiations.TryGetValue(resolved, out var list))
+                        {
+                            list = new();
+                            _methodInstantiations[resolved] = list;
+                        }
+                        list.Add(gim);
+                    }
+
+                    if (mr.DeclaringType is GenericInstanceType git)
+                    {
+                        var declaringType = resolved.DeclaringType;
+                        if (!_typeInstantiations.TryGetValue(declaringType, out var list))
+                        {
+                            list = new();
+                            _typeInstantiations[declaringType] = list;
+                        }
+                        list.Add(git);
+                    }
+                }
+            }
+
+            foreach (var nestedType in type.NestedTypes)
+                CollectInstantiationsFromTypeRaw(nestedType);
+        }
+
+        /// <summary>
         /// Re-processes methods that contain typeof(T) patterns using per-instantiation analysis.
-        /// Called after marking is complete so that all concrete generic instantiations are known.
+        /// Called after marking is complete with more precise (marked-only) instantiation data.
+        /// This second pass may fold additional patterns that the pre-scan could not
+        /// (because the pre-scan overcounts instantiations from unreachable code).
         /// </summary>
         public void ProcessDeferredTypeofMethods()
         {
             if (_methodsWithGenericTypeofPatterns.Count == 0)
                 return;
 
-            CollectInstantiationsFromLinkedAssemblies();
+            // Clear pre-scan instantiation data and re-collect from marked bodies only
+            _typeInstantiations.Clear();
+            _methodInstantiations.Clear();
+
+            CollectInstantiationsFromLinkedAssemblies(requireMarked: true);
 
             foreach (var method in _methodsWithGenericTypeofPatterns)
             {
@@ -107,7 +242,7 @@ namespace Mono.Linker.Steps
             }
         }
 
-        void CollectInstantiationsFromLinkedAssemblies()
+        void CollectInstantiationsFromLinkedAssemblies(bool requireMarked)
         {
             foreach (var assembly in _context.GetAssemblies())
             {
@@ -115,15 +250,18 @@ namespace Mono.Linker.Steps
                     continue;
 
                 foreach (var type in assembly.MainModule.Types)
-                    CollectInstantiationsFromType(type);
+                    CollectInstantiationsFromType(type, requireMarked);
             }
         }
 
-        void CollectInstantiationsFromType(TypeDefinition type)
+        void CollectInstantiationsFromType(TypeDefinition type, bool requireMarked)
         {
             foreach (var method in type.Methods)
             {
-                if (!method.HasBody || !_context.Annotations.IsMarked(method))
+                if (!method.HasBody)
+                    continue;
+
+                if (requireMarked && !_context.Annotations.IsMarked(method))
                     continue;
 
                 foreach (var instruction in _context.GetMethodIL(method.Body).Instructions)
@@ -162,7 +300,7 @@ namespace Mono.Linker.Steps
             }
 
             foreach (var nestedType in type.NestedTypes)
-                CollectInstantiationsFromType(nestedType);
+                CollectInstantiationsFromType(nestedType, requireMarked);
         }
 
         List<IGenericInstance>? GetInstantiationsForMethod(MethodDefinition method)
@@ -585,8 +723,9 @@ namespace Mono.Linker.Steps
                 return TryEvaluateTypeofWithInstantiations(type1, type2, method.Name, knownInstantiations, resolver, instructions, callIndex, out stackDepth);
             }
 
-            // Guard against jumps into the middle of the pattern
-            if (HasJumpIntoTargetRange(instructions, callIndex - 4, callIndex))
+            // Guard against jumps into the interior of the pattern (skip the first ldtoken,
+            // which is a valid branch target in chained if-else-if typeof comparisons).
+            if (HasJumpIntoTargetRange(instructions, callIndex - 3, callIndex))
                 return null;
 
             bool areEqual = TypeReferenceEqualityComparer.AreEqual(type1, type2, resolver);
@@ -642,8 +781,9 @@ namespace Mono.Linker.Steps
             if (unanimousResult is null)
                 return null;
 
-            // Guard against jumps into the middle of the pattern
-            if (HasJumpIntoTargetRange(instructions, callIndex - 4, callIndex))
+            // Guard against jumps into the interior of the pattern (skip the first ldtoken,
+            // which is a valid branch target in chained if-else-if typeof comparisons).
+            if (HasJumpIntoTargetRange(instructions, callIndex - 3, callIndex))
                 return null;
 
             bool result = unanimousResult.Value;

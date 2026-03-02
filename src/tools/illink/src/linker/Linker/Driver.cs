@@ -1575,6 +1575,7 @@ namespace Mono.Linker
         {
             Pipeline p = new Pipeline();
             p.AppendStep(new ProcessReferencesStep());
+            p.AppendStep(new TypeofPreOptimizationStep());
             p.AppendStep(new MarkStep());
             p.AppendStep(new RemoveResourcesStep());
             p.AppendStep(new ValidateVirtualMethodAnnotationsStep());
