@@ -1,5 +1,13 @@
 # typeof(T) Linker Optimization — Research & Plan
 
+
+
+# TL;DR
+
+This whole complexity is probably worth of 40KB of IL
+
+
+
 ## 1. Problem Statement
 
 The ILLinker's `UnreachableBlocksOptimizer` cannot fold `typeof(T) == typeof(X)` patterns. The JIT handles this at runtime (each generic instantiation gets constant-folded), and NativeAOT's `SubstitutedILProvider` handles it at compile time. But ILLink leaves these patterns intact, which means:
@@ -478,11 +486,243 @@ Tests:
 - Duplicate instantiations in the collection lists (harmless, minor perf overhead)
 - Methods with both type-level AND method-level generic parameters: if the wrong kind of provider is encountered during inflation, the parameter stays unresolved → safe bail-out (returns null)
 
+### Phase 3: Full per-instantiation optimization (pre-marking) — ✅ COMPLETE
+
+**Architecture decision:** Pre-marking pipeline integration via `TypeofPreOptimizationStep` — a lightweight pre-scan approach that runs before `MarkStep`. For every trimmable assembly, scans all method bodies for typeof(T) equality patterns, collects concrete generic instantiations from the same assemblies, then re-optimizes flagged method bodies with the instantiation context. This enables true trimming because dead branches are eliminated before marking discovers the types/methods they reference.
+
+**Implementation (5 files modified, 1 new file):**
+
+1. **`UnreachableBlocksOptimizer.cs`** — Added:
+   - `PreScanAndOptimize(AssemblyDefinition)` — main entry point for pre-scan
+   - `PreScanTypeForTypeofPatterns(TypeDefinition)` — scans all methods in a type for typeof(T) patterns, flags them
+   - `CollectInstantiationsFromTypeRaw(TypeDefinition)` — scans IL for `GenericInstanceMethod`/`GenericInstanceType` references to flagged methods (no dependency on marking)
+   - Fix: `HasJumpIntoTargetRange` guard — uses `callIndex-3` instead of `callIndex-4` for correct range checking
+
+2. **`TypeofPreOptimizationStep.cs`** (NEW) — Pipeline step registered before `MarkStep` in `Driver.cs`
+   - Iterates trimmable assemblies, calls `PreScanAndOptimize` on each
+
+3. **`LinkContext.cs`** — Added `GetRawMethodIL(MethodDefinition)` (static) and `PreScanAndOptimizeTypeofPatterns(AssemblyDefinition)` bridge
+
+4. **`Driver.cs`** — Registered `TypeofPreOptimizationStep` before `MarkStep`
+
+**Tests:** Updated `TypeOfComparisonGenericTypes.cs`:
+- Changed `[Kept]` expectations: methods that were only reachable from dead typeof branches are now correctly trimmed (e.g., `FloatOnlyMethod`, `LongOnlyMethod`)
+- Existing Phase 1 concrete-type tests unaffected
+
+**Regressions:** 0. Full suite: 1126/1160 passed, 1 pre-existing failure, 33 skipped. All 23 UnreachableBlock tests pass.
+
 ---
 
-## 9. Next Steps
+## 9. Real-World Impact Investigation
 
-- [ ] Measure: Quantify IL bytes saved on a real WASM app with typeof(T) dispatch patterns
-- [ ] Investigate Phase 3: Two-pass marking or deferred body scanning for full trimming of dead-branch members
+### Methodology
+
+Built a Cecil-based scanner tool (`_scan_typeof/`) that scans trimmed WASM assemblies for typeof equality patterns and their instantiation visibility.
+
+**Target:** `src/mono/sample/wasm/browser/` trimmed with the new ILLink optimizations.
+
+**Trimmed output:** 4 DLLs total:
+- `System.Private.CoreLib.dll` — 1.42 MB (trimmable, gets `AssemblyAction.Link`)
+- `System.Console.dll` — 14 KB
+- `System.Runtime.InteropServices.JavaScript.dll` — 31 KB
+- `Wasm.Browser.Sample.dll` — 18 KB
+
+### Findings
+
+| Metric | Count |
+|--------|-------|
+| **CONCRETE typeof patterns** | 0 (Phase 1 handled all) |
+| **GENERIC typeof patterns** | 1,055 (all in System.Private.CoreLib) |
+| Methods with ZERO visible instantiations | 74 |
+| Methods with ONLY open-generic instantiations | 119 |
+| Unique methods containing patterns | ~193 |
+
+**All 1,055 patterns are invisible to the current optimization** because the linker cannot discover their concrete type arguments.
+
+### Root Cause Analysis
+
+Two categories prevent the linker from seeing concrete instantiations:
+
+#### Category 1: Constrained Virtual Dispatch (74 methods, ~40% of patterns)
+
+The C# compiler emits:
+```
+constrained. !!TOther
+callvirt instance bool INumberBase`1<!!TOther>::TryConvertToSaturating<byte>(!!0&)
+```
+
+This `constrained.` prefix + `callvirt` pattern does NOT create a `GenericInstanceMethod` in Cecil IL. The actual type binding (`TOther` → `int`, `byte`, etc.) happens at runtime through virtual dispatch. The linker sees only the open interface call, never the concrete implementation.
+
+**Affected types:** `INumberBase<T>` hierarchy — `Byte`, `Int16`, `Int32`, `Int64`, `Int128`, `UInt16`, `UInt32`, `UInt64`, `UInt128`, `Half`, `Single`, `Double`, `Decimal`, `NFloat`, `Char`, `BigInteger`, etc.
+
+**Affected methods:** `TryConvertToSaturating<TOther>`, `TryConvertToTruncating<TOther>`, `TryConvertToChecked<TOther>`, `CreateSaturating<TOther>`, `CreateTruncating<TOther>`, `CreateChecked<TOther>`
+
+#### Category 2: Open Generic Call Chains (119 methods, ~60% of patterns)
+
+Methods are called only from other generic methods with forwarded type parameters:
+```csharp
+// In Vector128<T>:
+public static Vector128<T> Create(T value) => Scalar<T>.IsSupported ? ... : ...
+// The linker sees: Scalar<T>.IsSupported — not Scalar<int>.IsSupported
+```
+
+Even when `Vector128<int>.Create(42)` exists in the app, the linker processes `Vector128<T>.Create()` as a *definition*, not per-instantiation. The `T` in `Scalar<T>` is never resolved.
+
+**Affected types:** `Scalar<T>`, `Vector128<T>`, `Vector256<T>`, `Vector512<T>`, `Vector64<T>`, `Vector<T>`, `Number`, `DateTimeFormat`, `NumberFormatInfo`, `TextInfo`, `SpanHelpers`, `Ascii`
+
+**Affected patterns:** `typeof(T) == typeof(byte)`, `typeof(T) == typeof(int)`, `typeof(TChar) == typeof(char)`, `typeof(T) == typeof(Half)`, etc.
+
+### Conclusion
+
+Phases 1–3 are architecturally correct but have **zero measurable impact** on meaningful workloads because the patterns that exist in real trimmed output are all in generic methods whose concrete instantiations are invisible to the linker's IL scanning. A fundamentally different approach is needed: **whole-program generic instantiation analysis** that propagates concrete type arguments through call chains and resolves constrained virtual dispatch.
+
+---
+
+## 10. Whole-Program Generic Instantiation Analysis — Design
+
+### Goal
+
+Build a complete map of concrete generic instantiations reachable in the trimmed program, including:
+1. **Direct instantiations** — `GenericInstanceMethod` / `GenericInstanceType` visible in IL (what Phases 2–3 already collect)
+2. **Transitive instantiations** — if `Foo<T>` calls `Bar<T>` and `Foo<int>` is instantiated, then `Bar<int>` is a derived instantiation
+3. **Constrained dispatch instantiations** — if `constrained. T callvirt IFace<T>.Method<TOther>(...)` is emitted and `T=byte`, `TOther=int` is known, resolve to `Byte.Method<int>`
+
+### Algorithm: Transitive Instantiation Propagation
+
+#### Phase A: Build the Generic Call Graph
+
+For every generic method definition `M<T₁..Tₙ>`, scan its IL body and record:
+- Every callsite to another generic method `N<U₁..Uₘ>` where any `Uⱼ` depends on some `Tᵢ`
+- The dependency mapping: e.g., `M<T>.Body calls N<T, int>` → `N.U₁ = M.T₁, N.U₂ = int`
+
+This produces a directed graph where nodes are generic method definitions and edges carry a **type argument substitution function**.
+
+```
+GenericCallEdge {
+    MethodDefinition Source;      // e.g., Vector128<T>.Create
+    MethodDefinition Target;      // e.g., Scalar<T>.get_IsSupported
+    TypeSubstitution Mapping;     // e.g., Target.T₁ = Source.T₁
+}
+```
+
+#### Phase B: Seed with Direct Instantiations
+
+Collect all `GenericInstanceMethod` and `GenericInstanceType` references from all marked (or all trimmable) assemblies. These are the "seed" concrete instantiations:
+
+```
+Seeds: { Vector128<int>.Create, Vector128<byte>.Create, List<string>.Add, ... }
+```
+
+#### Phase C: Propagate Through the Call Graph (Fixed-Point)
+
+```
+WorkQueue = Seeds
+While WorkQueue is not empty:
+    inst = WorkQueue.Dequeue()   // e.g., Vector128<int>.Create
+    For each GenericCallEdge from inst.Definition:
+        Apply inst's type arguments to edge.Mapping
+        → produces concrete instantiation of Target
+        // e.g., Scalar<int>.get_IsSupported
+        If this instantiation is new:
+            Add to known instantiations
+            WorkQueue.Enqueue(it)
+```
+
+This is essentially a **type-flow analysis** — propagating concrete type arguments forward through the generic call graph until a fixed point.
+
+**Termination guarantee:** The set of possible instantiations is bounded by the set of types in the program × method definitions. Each instantiation is processed at most once.
+
+#### Phase D: Resolve Constrained Virtual Dispatch
+
+For `constrained.` callvirt patterns:
+
+```
+constrained. !!TOther
+callvirt instance bool INumberBase`1<!!TOther>::TryConvertToSaturating<byte>(!!0&)
+```
+
+When propagation resolves `TOther = int`:
+1. Look up the concrete type `int` (i.e., `System.Int32`)
+2. Find the implementation of `INumberBase<int>.TryConvertToSaturating<byte>` on `Int32`
+3. Record this as a concrete instantiation: `Int32.TryConvertToSaturating<byte>`
+4. Add to work queue for further propagation
+
+This requires interface method resolution, which Cecil supports via `TypeDefinition.Methods` + interface mapping.
+
+### Integration Points in ILLink
+
+#### Option 1: Extend TypeofPreOptimizationStep (Recommended)
+
+Expand the existing pre-marking step:
+
+```
+TypeofPreOptimizationStep:
+  1. [existing] Scan all method bodies for typeof(T) patterns → flag methods
+  2. [NEW] Build generic call graph (Phase A)
+  3. [NEW] Collect seed instantiations (Phase B)
+  4. [NEW] Propagate to fixed point (Phase C + D)
+  5. [existing] Re-optimize flagged methods with the COMPLETE instantiation map
+```
+
+The key change: step 5 now has dramatically more instantiation data than the current direct-scan approach.
+
+#### Option 2: Integrate with MarkStep
+
+Run propagation incrementally during marking:
+- When MarkStep encounters a new generic instantiation, propagate it through the call graph
+- Feed derived instantiations back into the typeof optimizer
+- Advantage: only processes reachable code, not dead code
+- Disadvantage: more complex, requires MarkStep modification
+
+#### Option 3: Separate Analysis Pass
+
+A standalone analysis pass that runs after assembly loading, before any optimization or marking:
+- Pro: clean separation from other linker logic
+- Con: analyzes ALL code including dead code (wasted work, though bounded)
+
+### Scope and Complexity
+
+| Component | Estimated Effort | Risk |
+|-----------|-----------------|------|
+| Generic call graph builder | Medium | Low — straightforward IL scan |
+| Seed collection | Easy | Low — already partially implemented |
+| Transitive propagation | Medium | Medium — need to handle recursive generics, ensure termination |
+| Constrained dispatch resolution | Hard | High — requires interface mapping, virtual method resolution |
+| Integration with typeof optimizer | Easy | Low — just pass more instantiation data |
+
+**Key risk: Constrained dispatch resolution.** Cecil doesn't have a built-in "resolve interface implementation" API. We'd need to walk `TypeDefinition.Interfaces` and match method signatures. This is error-prone for:
+- Explicit interface implementations (different name than interface method)
+- Default interface methods (implementation may be on the interface itself)
+- Generic interface instantiations (`INumberBase<int>` vs `INumberBase<T>`)
+
+**Mitigation:** NativeAOT already has `VirtualMethodResolution` logic in `src/coreclr/tools/Common/TypeSystem/`. While ILLink uses Cecil (not the same type system), the algorithm is referenceable.
+
+### Expected Impact
+
+Based on the scanner data:
+- **74 zero-instantiation methods** → constrained dispatch resolution would make their instantiations visible → typeof branches can be folded → methods reachable only from dead branches can be trimmed
+- **119 open-generic-only methods** → transitive propagation would resolve `T` to concrete types → typeof branches can be folded
+- **Combined:** up to 1,055 typeof patterns could become optimizable
+- **Estimated IL savings:** 20–40 KB in System.Private.CoreLib (original estimate from §1, now validated as achievable with this approach)
+
+### Limitations and Open Questions
+
+1. **Reflection-based instantiations:** If a type is instantiated via reflection (`typeof(Scalar<>).MakeGenericType(typeof(int))`), the linker won't see the instantiation in IL. This is already a known linker limitation — reflection is handled through annotations, not IL analysis.
+
+2. **Cross-assembly propagation:** If assembly A calls `Foo<T>` in assembly B, and assembly C instantiates `Foo<int>`, the propagation needs to work across assembly boundaries. The pre-scan step already iterates all trimmable assemblies, so this should work naturally.
+
+3. **Performance:** The fixed-point propagation could be expensive for programs with many generic types. Mitigation: only build the call graph for methods flagged as containing typeof patterns (or methods transitively calling such methods).
+
+4. **Interaction with generic sharing:** The runtime may share code between reference-type instantiations. The optimizer should be conservative — if `Foo<string>` and `Foo<object>` share code, don't fold a typeof branch unless ALL sharing-compatible instantiations agree.
+
+---
+
+## 11. Next Steps
+
+- [ ] Implement Phase A: generic call graph builder — scan method bodies, record generic call edges with type substitution mappings
+- [ ] Implement Phase B+C: seed collection + transitive propagation to fixed point
+- [ ] Implement Phase D: constrained virtual dispatch resolution (research Cecil interface mapping first)
+- [ ] Integrate with `TypeofPreOptimizationStep` — pass complete instantiation map to existing typeof optimizer
+- [ ] Re-scan trimmed WASM app to measure actual IL savings
 - [ ] File GitHub issue to discuss approach with ILLink maintainers
 - [ ] Consider: Should TypeofOptimizationStep be conditional on optimization being enabled?
