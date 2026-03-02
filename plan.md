@@ -1,5 +1,22 @@
 # System.Private.CoreLib SCC Research Plan
 
+## TL;DR - Opportunities
+
+## Good
+ - COM interop - https://gist.github.com/pavelsavara/0e4f72a9f194ca758d6dbdb6bacd06d6
+
+# Meh
+ - cut `HexConverter` -> `Vector128` https://github.com/dotnet/runtime/pull/125040
+ - `System.Reflection.Emit.IsSupported` - https://gist.github.com/pavelsavara/54d2776c5479642f02654d2b3a8afa85
+ - `typeof(T)` ILLink https://gist.github.com/pavelsavara/abfc66b8e463d237902317b0f67e9c1e
+ - `CustomAttribute::IsDefined` - https://gist.github.com/pavelsavara/df8165368f746039765bc16db9417c59
+ - `StackTrace.IsSupported` - https://gist.github.com/pavelsavara/0abddc9c048edfad39078e7a1fe7e222
+ - `StartupHookProvider.IsSupported` - https://gist.github.com/pavelsavara/2ed212a96d03b1ec8f0adfd393827dc7
+ - `SupportsWasmIntrinsics` - https://github.com/dotnet/runtime/pull/125046
+ - `RuntimeParameterInfo::IsDefined` - https://gist.github.com/pavelsavara/91b2b1880a54d383122d16337aa897f2
+ - `RuntimeTypeBuilder::get_UnderlyingSystemType` - https://gist.github.com/pavelsavara/97203c004a7d4ee840364ba3a7c56874
+ - threads substitution
+
 ## Context
 
 **Goal:** Break the main SCC in System.Private.CoreLib for browser/WASM targets into sub-clusters, characterize each, map inter-cluster dependencies, and identify safe dependency-cut candidates to reduce size as much as possible. The browser sample has a 942-method CoreLib SCC (159.2 KB, 34.8% of total IL). The Blazor app has no single dominant CoreLib SCC; its cost is driven by external assemblies (Linq.Expressions, Text.Json, Components). The largest Blazor SCC is 99 methods in Linq.Expressions.Compiler (316.2 KB). With matching globalization flags (InvariantGlobalization=true, PredefinedCulturesOnly=true), the browser SCC core is 100% contained in Blazor — any SCC-breaking work on the browser sample directly benefits Blazor.
@@ -1170,20 +1187,3 @@ Using method-level Tarjan results from Phase 4B, identify specific methods where
 - Phase 4: Method-level Tarjan with full call graph, validate coupling theories [DONE]
 - Phase 5: Propose 4 focused strategies (typeof(T) linker opt, Emit switch, HexConverter decouple, method-level cuts)
 - Phase 6: Implement top strategies + validate with builds and tests
-
----
-
-# Opportunities
- - cut `HexConverter` -> `Vector128` https://github.com/dotnet/runtime/pull/125040
- - `System.Reflection.Emit.IsSupported` - https://gist.github.com/pavelsavara/54d2776c5479642f02654d2b3a8afa85
- - `typeof(T)` ILLink https://gist.github.com/pavelsavara/abfc66b8e463d237902317b0f67e9c1e
- - `CustomAttribute::IsDefined` - https://gist.github.com/pavelsavara/df8165368f746039765bc16db9417c59
- - `StackTrace.IsSupported` - https://gist.github.com/pavelsavara/0abddc9c048edfad39078e7a1fe7e222
-
- - `StartupHookProvider.IsSupported` remains **true** — could be disabled for published apps.
- - `SupportsWasmIntrinsics`
-  - COM/swift interop ?
- - threads substitution
- - `RuntimeParameterInfo::IsDefined`
- - `RuntimeTypeBuilder::get_UnderlyingSystemType` → `Type::get_IsEnum`
- 
