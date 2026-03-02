@@ -323,7 +323,7 @@ namespace Mono.Linker.Steps
             return TryGetMethodCallResult(new CalleePayload(sizeOfImpl, Array.Empty<Instruction>()))?.Instruction;
         }
 
-        static Instruction? EvaluateIntrinsicCall(MethodReference method, Instruction[] arguments)
+        static Instruction? EvaluateIntrinsicCall(MethodReference method, Instruction[] arguments, ITryResolveMetadata? resolver = null)
         {
             //
             // In theory any pure method could be executed via reflection but
@@ -358,7 +358,117 @@ namespace Mono.Linker.Steps
                 }
             }
 
+            if (method.DeclaringType.IsTypeOf("System", "Type"))
+            {
+                switch (method.Name)
+                {
+                    case "GetTypeFromHandle":
+                        if (arguments.Length != 1)
+                            return null;
+
+                        // Pass through the ldtoken instruction so callers can extract the TypeReference
+                        if (arguments[0].OpCode.Code == Code.Ldtoken && arguments[0].Operand is TypeReference)
+                            return arguments[0];
+
+                        return null;
+
+                    case "op_Equality":
+                    case "op_Inequality":
+                        if (arguments.Length != 2)
+                            return null;
+
+                        if (!TryGetTypeFromLdtoken(arguments[0], out TypeReference? type1) ||
+                            !TryGetTypeFromLdtoken(arguments[1], out TypeReference? type2))
+                            return null;
+
+                        // Don't fold when either type contains an open generic parameter
+                        if (type1.ContainsGenericParameter || type2.ContainsGenericParameter)
+                            return null;
+
+                        bool areEqual = resolver is not null
+                            ? TypeReferenceEqualityComparer.AreEqual(type1, type2, resolver)
+                            : string.Equals(type1.FullName, type2.FullName, StringComparison.Ordinal);
+
+                        if (method.Name[3] == 'I') // op_Inequality
+                            areEqual = !areEqual;
+
+                        return Instruction.Create(OpCodes.Ldc_I4, areEqual ? 1 : 0);
+                }
+            }
+
             return null;
+        }
+
+        static bool TryGetTypeFromLdtoken(Instruction instruction, [NotNullWhen(true)] out TypeReference? type)
+        {
+            if (instruction.OpCode.Code == Code.Ldtoken && instruction.Operand is TypeReference typeRef)
+            {
+                type = typeRef;
+                return true;
+            }
+
+            type = null;
+            return false;
+        }
+
+        /// <summary>
+        /// Detects the IL pattern: ldtoken X; call GetTypeFromHandle; ldtoken Y; call GetTypeFromHandle; call op_Equality/op_Inequality
+        /// and evaluates the type comparison when both types are concrete (not open generic parameters).
+        /// </summary>
+        static Instruction? TryEvaluateTypeEqualityPattern(MethodDefinition method, Collection<Instruction> instructions, int callIndex, ITryResolveMetadata resolver, out int stackDepth)
+        {
+            stackDepth = 0;
+
+            // Check if this is Type.op_Equality or Type.op_Inequality
+            if (!method.DeclaringType.IsTypeOf("System", "Type"))
+                return null;
+
+            if (method.Name is not ("op_Equality" or "op_Inequality"))
+                return null;
+
+            // Need at least 4 instructions before the call: ldtoken, call, ldtoken, call
+            if (callIndex < 4)
+                return null;
+
+            var instr0 = instructions[callIndex - 4]; // ldtoken X
+            var instr1 = instructions[callIndex - 3]; // call GetTypeFromHandle
+            var instr2 = instructions[callIndex - 2]; // ldtoken Y
+            var instr3 = instructions[callIndex - 1]; // call GetTypeFromHandle
+
+            if (instr0.OpCode.Code != Code.Ldtoken || instr0.Operand is not TypeReference type1)
+                return null;
+
+            if (instr2.OpCode.Code != Code.Ldtoken || instr2.Operand is not TypeReference type2)
+                return null;
+
+            if (!IsCallToGetTypeFromHandle(instr1) || !IsCallToGetTypeFromHandle(instr3))
+                return null;
+
+            // Don't fold when either type contains an open generic parameter
+            if (type1.ContainsGenericParameter || type2.ContainsGenericParameter)
+                return null;
+
+            // Guard against jumps into the middle of the pattern
+            if (HasJumpIntoTargetRange(instructions, callIndex - 4, callIndex))
+                return null;
+
+            bool areEqual = TypeReferenceEqualityComparer.AreEqual(type1, type2, resolver);
+            if (method.Name[3] == 'I') // op_Inequality
+                areEqual = !areEqual;
+
+            stackDepth = 2; // Two Type arguments on the stack to unwind
+            return Instruction.Create(OpCodes.Ldc_I4, areEqual ? 1 : 0);
+
+            static bool IsCallToGetTypeFromHandle(Instruction instr)
+            {
+                if (instr.OpCode.Code is not Code.Call)
+                    return false;
+
+                if (instr.Operand is not MethodReference mr)
+                    return false;
+
+                return mr.Name == "GetTypeFromHandle" && mr.DeclaringType.IsTypeOf("System", "Type");
+            }
         }
 
         static Instruction[]? GetArgumentsOnStack(MethodDefinition method, Collection<Instruction> instructions, int index)
@@ -894,7 +1004,11 @@ namespace Mono.Linker.Steps
                                 break;
 
                             Instruction[]? args = GetArgumentsOnStack(md, FoldedInstructions ?? instructions, i);
-                            targetResult = args?.Length > 0 && md.IsStatic ? EvaluateIntrinsicCall(md, args) : null;
+                            targetResult = args?.Length > 0 && md.IsStatic ? EvaluateIntrinsicCall(md, args, context) : null;
+
+                            int typePatternStackDepth = 0;
+                            if (targetResult == null && md.IsStatic && args == null)
+                                targetResult = TryEvaluateTypeEqualityPattern(md, FoldedInstructions ?? instructions, i, context, out typePatternStackDepth);
 
                             targetResult ??= optimizer.TryGetMethodCallResult(new CalleePayload(md, args))?.Instruction;
 
@@ -906,8 +1020,8 @@ namespace Mono.Linker.Steps
                             // that require full stack understanding the logic won't work and will leave more opcodes
                             // on the stack and constant won't be propagated
                             //
-                            int depth = args?.Length ?? 0;
-                            if (!md.IsStatic)
+                            int depth = typePatternStackDepth > 0 ? typePatternStackDepth : (args?.Length ?? 0);
+                            if (!md.IsStatic && typePatternStackDepth == 0)
                                 ++depth;
 
                             if (depth != 0)
@@ -1947,7 +2061,7 @@ namespace Mono.Linker.Steps
                             //
                             if (args.Length > 0)
                             {
-                                linstr = EvaluateIntrinsicCall(md, args);
+                                linstr = EvaluateIntrinsicCall(md, args, optimizer._context);
                                 if (linstr != null)
                                 {
                                     PushOnStack(linstr);
