@@ -11,6 +11,7 @@
     <WasmTestLogExitCode>true</WasmTestLogExitCode>
     <WasmTestAsyncFlushOnExit>true</WasmTestAsyncFlushOnExit>
     <WasmTestForwardConsole>true</WasmTestForwardConsole>
+    <WasmEnableILSplit>true</WasmEnableILSplit>
     
     <EnableAggressiveTrimming>true</EnableAggressiveTrimming>
     <PublishTrimmed>true</PublishTrimmed>

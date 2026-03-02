@@ -11,6 +11,7 @@
   <Import Project="$(MSBuildThisFileDirectory)BrowserWasmApp.CoreCLR.targets" Condition="'$(UsingNativeAOT)' != 'true' and '$(RuntimeFlavor)' == 'CoreCLR'" />
   <Import Project="$(MSBuildThisFileDirectory)EmSdkRepo.Defaults.props" Condition="'$(UsingNativeAOT)' == 'true' and '$(EMSDK_PATH)' != ''" />
   <Import Project="$(MSBuildThisFileDirectory)WasmApp.InTree.CI.targets" Condition="'$(ContinuousIntegrationBuild)' == 'true'" />
+  <Import Project="$(ToolsProjectRoot)ilsplit\src\ILSplit.Tasks\build\ILSplit.targets" Condition="'$(WasmEnableILSplit)' == 'true' and Exists('$(ILSplitTasksAssemblyPath)')" />
 
   <Target Name="CopyAppZipToHelixTestDir"
           Condition="'$(WasmCopyAppZipToHelixTestDir)' == 'true' and '$(WasmBuildingForNestedPublish)' != 'true'"

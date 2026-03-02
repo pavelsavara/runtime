@@ -4,6 +4,6 @@
 import { dotnet } from './_framework/dotnet.js'
 
 await dotnet
-    .withDiagnosticTracing(false)
+    .withDiagnosticTracing(true)
     .withApplicationArguments("dotnet", "is", "great!")
     .runMainAndExit();

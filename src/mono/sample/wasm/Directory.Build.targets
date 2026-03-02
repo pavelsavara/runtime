@@ -2,6 +2,8 @@
   <PropertyGroup>
     <!-- RuntimeFlavor must be set during evaluation to import correct targets -->
     <RuntimeFlavor Condition="'$(Nested_RuntimeFlavor)' != ''">$(Nested_RuntimeFlavor)</RuntimeFlavor>
+    <!-- WasmEnableILSplit must be set during evaluation to import ILSplit.targets -->
+    <WasmEnableILSplit Condition="'$(Nested_WasmEnableILSplit)' != ''">$(Nested_WasmEnableILSplit)</WasmEnableILSplit>
   </PropertyGroup>
 
   <Import Project="../Directory.Build.targets" />
@@ -52,6 +54,9 @@
     <NestedBuildProperty Include="WasmTestLogExitCode" />
     <NestedBuildProperty Include="WasmTestAsyncFlushOnExit" />
     <NestedBuildProperty Include="WasmTestForwardConsole" />
+    <NestedBuildProperty Include="WasmEnableILSplit" />
+    <NestedBuildProperty Include="ILSplitProfilePath" />
+    <NestedBuildProperty Include="ILSplitMinClusterSize" />
   </ItemGroup>
 
   <Target Name="_ValidateRuntimeFlavorBuild" BeforeTargets="BuildSampleInTree">

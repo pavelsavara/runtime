@@ -1,0 +1,64 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>$(NetCoreAppCurrent)</TargetFramework>
+    <RuntimeIdentifier>win-x64</RuntimeIdentifier>
+    <SelfContained>true</SelfContained>
+    <PublishSingleFile>false</PublishSingleFile>
+    <PublishReadyToRun>false</PublishReadyToRun>
+    <EnableDefaultItems>true</EnableDefaultItems>
+    <Nullable>enable</Nullable>
+    <IsPackable>false</IsPackable>
+    <ILSplitToolPath>$(ArtifactsBinDir)ILSplit\Debug\$(NetCoreAppToolCurrent)\ilsplit.dll</ILSplitToolPath>
+    <!-- IL-only (non-R2R) framework assemblies from the local libs build -->
+    <_ILOnlyRuntimeDir>$(ArtifactsBinDir)runtime\$(NetCoreAppCurrent)-windows-Release-x64\</_ILOnlyRuntimeDir>
+    <!-- IL-only CoreLib for splitting (R2R CoreLib can't be rewritten by Cecil) -->
+    <_ILOnlyCoreLibPath>$(ArtifactsBinDir)coreclr\windows.x64.Release\IL\System.Private.CoreLib.dll</_ILOnlyCoreLibPath>
+    <!-- CoreCLR VM headers for pinned-type extraction -->
+    <_VmNamespacesHeader>$(RepoRoot)src\coreclr\vm\namespace.h</_VmNamespacesHeader>
+    <_VmCorelibHeader>$(RepoRoot)src\coreclr\vm\corelib.h</_VmCorelibHeader>
+    <_VmRexcepHeader>$(RepoRoot)src\coreclr\vm\rexcep.h</_VmRexcepHeader>
+  </PropertyGroup>
+
+  <Target Name="RunILSplit" AfterTargets="Publish" Condition="'$(RunILSplit)' != 'false'">
+    <PropertyGroup>
+      <_ILSplitOutputDir>$([MSBuild]::NormalizePath('$(PublishDir)', 'ilsplit-tmp'))</_ILSplitOutputDir>
+    </PropertyGroup>
+
+    <!-- Overlay IL-only framework DLLs over the published R2R copies so ILSplit can process them -->
+    <ItemGroup>
+      <_ILOnlyDlls Include="$(_ILOnlyRuntimeDir)*.dll" />
+    </ItemGroup>
+    <Copy SourceFiles="@(_ILOnlyDlls)" DestinationFolder="$(PublishDir)" OverwriteReadOnlyFiles="true" Condition="Exists('$(_ILOnlyRuntimeDir)')" />
+
+    <!-- Replace R2R CoreLib with IL-only version so ILSplit (Cecil) can process it -->
+    <Copy SourceFiles="$(_ILOnlyCoreLibPath)" DestinationFiles="$(PublishDir)System.Private.CoreLib.dll" OverwriteReadOnlyFiles="true" Condition="Exists('$(_ILOnlyCoreLibPath)')" />
+
+    <!-- Collect all managed DLLs in the publish directory (including CoreLib) -->
+    <ItemGroup>
+      <_PublishedDlls Include="$(PublishDir)*.dll" />
+    </ItemGroup>
+
+    <MakeDir Directories="$(_ILSplitOutputDir)" />
+
+    <Message Importance="High" Text="Running ILSplit on %(_PublishedDlls.Count) DLLs from $(PublishDir)" />
+
+    <!-- Run ILSplit tool on all published DLLs -->
+    <Exec Command="dotnet exec $(ILSplitToolPath) @(_PublishedDlls->'--input %(FullPath)', ' ') --output $(_ILSplitOutputDir) --vm-namespaces-header $(_VmNamespacesHeader) --vm-corelib-header $(_VmCorelibHeader) --vm-rexcep-header $(_VmRexcepHeader)" />
+
+    <!-- Copy split output back over the publish directory -->
+    <ItemGroup>
+      <_ILSplitOutput Include="$(_ILSplitOutputDir)\*.dll" />
+      <_ILSplitManifests Include="$(_ILSplitOutputDir)\*.json" />
+    </ItemGroup>
+
+    <Copy SourceFiles="@(_ILSplitOutput)" DestinationFolder="$(PublishDir)" OverwriteReadOnlyFiles="true" />
+    <Copy SourceFiles="@(_ILSplitManifests)" DestinationFolder="$(PublishDir)" OverwriteReadOnlyFiles="true" />
+
+    <RemoveDir Directories="$(_ILSplitOutputDir)" />
+
+    <Message Importance="High" Text="ILSplit complete. Split DLLs copied to $(PublishDir)" />
+  </Target>
+
+</Project>

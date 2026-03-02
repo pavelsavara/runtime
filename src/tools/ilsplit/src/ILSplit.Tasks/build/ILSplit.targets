@@ -1,0 +1,177 @@
+<Project>
+
+  <!--
+    ILSplit.targets — Assembly splitting for on-demand loading.
+
+    Two integration points:
+    1. _RunILSplit: Mono WASM pipeline — hooks into _WasmAssembliesInternal
+    2. _RunILSplitForPublish: Blazor SDK pipeline — hooks into ResolvedFileToPublish
+       (used by CoreCLR WASM and any path where the Mono pipeline is not active)
+
+    Required properties:
+      $(ILSplitTasksAssemblyPath) — Path to ILSplit.Tasks.dll
+      $(WasmEnableILSplit)        — Set to 'true' to enable
+
+    Optional properties:
+      $(ILSplitProfilePath)       — Path to text file with hot class names (one per line)
+      $(ILSplitMinClusterSize)    — Minimum cluster size in bytes (default: 102400)
+
+    Optional items:
+      @(ILSplitAssembly)          — Specific assemblies to split (defaults to all)
+  -->
+
+  <UsingTask TaskName="ILSplit.Tasks.ILSplitTask"
+             AssemblyFile="$(ILSplitTasksAssemblyPath)"
+             Condition="'$(ILSplitTasksAssemblyPath)' != '' and Exists('$(ILSplitTasksAssemblyPath)')" />
+
+  <PropertyGroup>
+    <WasmEnableILSplit Condition="'$(WasmEnableILSplit)' == ''">false</WasmEnableILSplit>
+    <ILSplitMinClusterSize Condition="'$(ILSplitMinClusterSize)' == ''">102400</ILSplitMinClusterSize>
+    <_ILSplitOutputDir>$([MSBuild]::NormalizeDirectory($(IntermediateOutputPath), 'ilsplit'))</_ILSplitOutputDir>
+    <!-- CoreCLR VM headers for extracting types that must stay in the hot cluster -->
+    <_ILSplitVmCorelibHeader Condition="'$(_ILSplitVmCorelibHeader)' == ''">$(MSBuildThisFileDirectory)..\..\..\..\..\coreclr\vm\corelib.h</_ILSplitVmCorelibHeader>
+    <_ILSplitVmNamespacesHeader Condition="'$(_ILSplitVmNamespacesHeader)' == ''">$(MSBuildThisFileDirectory)..\..\..\..\..\coreclr\vm\namespace.h</_ILSplitVmNamespacesHeader>
+  </PropertyGroup>
+
+  <!--
+    Integration point 1: Mono WASM pipeline.
+    Runs when _WasmAssembliesInternal is populated (Mono builds with WasmApp.Common.targets).
+    Sets _ILSplitRan to prevent the Blazor SDK path from running as well.
+  -->
+  <Target Name="_RunILSplit"
+          DependsOnTargets="PrepareInputsForWasmBuild"
+          BeforeTargets="_WasmBuildNativeCore;WasmGenerateAppBundle"
+          Condition="'$(WasmEnableILSplit)' == 'true'">
+
+    <Error Condition="'$(ILSplitTasksAssemblyPath)' == '' or !Exists('$(ILSplitTasksAssemblyPath)')"
+           Text="ILSplit is enabled but ILSplitTasksAssemblyPath='$(ILSplitTasksAssemblyPath)' is not set or does not exist. Build the ILSplit.Tasks project first." />
+
+    <ILSplit.Tasks.ILSplitTask
+        InputAssemblies="@(_WasmAssembliesInternal)"
+        AssembliesToSplit="@(ILSplitAssembly)"
+        HotClassListPath="$(ILSplitProfilePath)"
+        OutputDirectory="$(_ILSplitOutputDir)"
+        MinClusterSize="$(ILSplitMinClusterSize)"
+        VmCorelibHeaderPath="$(_ILSplitVmCorelibHeader)"
+        VmNamespacesHeaderPath="$(_ILSplitVmNamespacesHeader)">
+      <Output TaskParameter="SplitAssemblies" ItemName="_ILSplitOutput" />
+      <Output TaskParameter="ManifestPath" PropertyName="_ILSplitManifestPath" />
+    </ILSplit.Tasks.ILSplitTask>
+
+    <!-- Replace _WasmAssembliesInternal with split output -->
+    <ItemGroup>
+      <_WasmAssembliesInternal Remove="@(_WasmAssembliesInternal)" />
+      <_WasmAssembliesInternal Include="@(_ILSplitOutput)" />
+    </ItemGroup>
+
+    <PropertyGroup>
+      <_ILSplitRan>true</_ILSplitRan>
+    </PropertyGroup>
+
+    <Message Text="ILSplit: Manifest written to $(_ILSplitManifestPath)"
+             Importance="Normal"
+             Condition="'$(_ILSplitManifestPath)' != ''" />
+  </Target>
+
+  <!--
+    Integration point 2: Blazor SDK publish pipeline.
+    Runs after ILLink and before the Blazor SDK gathers assemblies for the _framework folder.
+    Used by CoreCLR WASM (where the Mono pipeline is not active).
+    Skipped during Mono nested publish and if _RunILSplit already handled splitting.
+  -->
+  <Target Name="_RunILSplitForPublish"
+          AfterTargets="ILLink"
+          BeforeTargets="_GatherWasmFilesToPublish;ProcessPublishFilesForWasm"
+          Condition="'$(WasmEnableILSplit)' == 'true' and '$(_ILSplitRan)' != 'true' and '$(WasmBuildingForNestedPublish)' != 'true'">
+
+    <Error Condition="'$(ILSplitTasksAssemblyPath)' == '' or !Exists('$(ILSplitTasksAssemblyPath)')"
+           Text="ILSplit is enabled but ILSplitTasksAssemblyPath='$(ILSplitTasksAssemblyPath)' is not set or does not exist. Build the ILSplit.Tasks project first." />
+
+    <!-- Gather managed DLLs from the publish file list -->
+    <ItemGroup>
+      <_ILSplitPublishInput Include="@(ResolvedFileToPublish)" Condition="'%(Extension)' == '.dll'" />
+    </ItemGroup>
+
+    <ILSplit.Tasks.ILSplitTask
+        InputAssemblies="@(_ILSplitPublishInput)"
+        AssembliesToSplit="@(ILSplitAssembly)"
+        HotClassListPath="$(ILSplitProfilePath)"
+        OutputDirectory="$(_ILSplitOutputDir)"
+        MinClusterSize="$(ILSplitMinClusterSize)"
+        VmCorelibHeaderPath="$(_ILSplitVmCorelibHeader)"
+        VmNamespacesHeaderPath="$(_ILSplitVmNamespacesHeader)">
+      <Output TaskParameter="SplitAssemblies" ItemName="_ILSplitPublishOutput" />
+      <Output TaskParameter="ManifestPath" PropertyName="_ILSplitManifestPath" />
+    </ILSplit.Tasks.ILSplitTask>
+
+    <!-- Replace ResolvedFileToPublish: remove original DLLs, add all split output
+         (hot assemblies, non-split passthrough, and cold chunks).
+         Cold chunks bypass the StaticWebAsset pipeline (no build-time match), so they
+         need an explicit wwwroot/_framework/ relative path to land next to regular assemblies. -->
+    <ItemGroup>
+      <ResolvedFileToPublish Remove="@(_ILSplitPublishInput)" />
+      <_ILSplitPublishOutput Condition="'%(_ILSplitPublishOutput.RelativePath)' == ''"
+                              RelativePath="%(FileName)%(Extension)" />
+      <_ILSplitPublishOutput Condition="'%(_ILSplitPublishOutput.ILSplitChunk)' == 'true'"
+                              RelativePath="wwwroot/_framework/%(_ILSplitPublishOutput.FileName)%(_ILSplitPublishOutput.Extension)" />
+      <ResolvedFileToPublish Include="@(_ILSplitPublishOutput)" />
+    </ItemGroup>
+
+    <Message Text="ILSplit (publish): Manifest written to $(_ILSplitManifestPath)"
+             Importance="Normal"
+             Condition="'$(_ILSplitManifestPath)' != ''" />
+  </Target>
+
+  <!--
+    Register cold chunks as StaticWebAssets so that GeneratePublishWasmBootJson
+    includes them in the boot config. Without this, the WASM loader won't know
+    about the cold chunk assemblies and the runtime will fail to resolve them
+    when type forwarders are followed.
+  -->
+  <Target Name="_RegisterILSplitColdChunksAsStaticWebAssets"
+          AfterTargets="ProcessPublishFilesForWasm"
+          BeforeTargets="GeneratePublishWasmBootJson;_AddPublishWasmBootJsonToStaticWebAssets"
+          Condition="'$(WasmEnableILSplit)' == 'true' and '@(_ILSplitPublishOutput)' != ''">
+
+    <ItemGroup>
+      <_ILSplitColdChunkCandidates Include="@(_ILSplitPublishOutput)"
+                                    Condition="'%(_ILSplitPublishOutput.ILSplitChunk)' == 'true'"
+                                    RelativePath="_framework/%(FileName)%(Extension)"
+                                    OriginalItemSpec="%(Identity)" />
+    </ItemGroup>
+
+    <DefineStaticWebAssets
+        Condition="'@(_ILSplitColdChunkCandidates)' != ''"
+        CandidateAssets="@(_ILSplitColdChunkCandidates)"
+        SourceId="$(PackageId)"
+        SourceType="Computed"
+        AssetKind="Publish"
+        AssetRole="Primary"
+        AssetTraitName="WasmResource"
+        AssetTraitValue="runtime"
+        CopyToOutputDirectory="Never"
+        CopyToPublishDirectory="PreserveNewest"
+        ContentRoot="$(PublishDir)wwwroot"
+        BasePath="$(StaticWebAssetBasePath)">
+      <Output TaskParameter="Assets" ItemName="_ILSplitColdChunkStaticWebAssets" />
+    </DefineStaticWebAssets>
+
+    <DefineStaticWebAssetEndpoints
+        Condition="'@(_ILSplitColdChunkStaticWebAssets)' != ''"
+        CandidateAssets="@(_ILSplitColdChunkStaticWebAssets)"
+        ExistingEndpoints="@(StaticWebAssetEndpoint)"
+        ContentTypeMappings="@(StaticWebAssetContentTypeMapping)">
+      <Output TaskParameter="Endpoints" ItemName="_ILSplitColdChunkEndpoints" />
+    </DefineStaticWebAssetEndpoints>
+
+    <ItemGroup>
+      <StaticWebAsset Include="@(_ILSplitColdChunkStaticWebAssets)" />
+      <StaticWebAssetEndpoint Include="@(_ILSplitColdChunkEndpoints)" />
+    </ItemGroup>
+
+    <Message Text="ILSplit: Registered %(ILSplitColdChunkStaticWebAssets.Identity) as StaticWebAsset"
+             Importance="Normal"
+             Condition="'@(_ILSplitColdChunkStaticWebAssets)' != ''" />
+  </Target>
+
+</Project>

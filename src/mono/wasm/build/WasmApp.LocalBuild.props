@@ -70,6 +70,7 @@
     <WasmBuildTasksAssemblyPath>$([MSBuild]::NormalizePath('$(WasmBuildTasksDir)', 'WasmBuildTasks.dll'))</WasmBuildTasksAssemblyPath>
     <MonoAOTCompilerTasksAssemblyPath>$([MSBuild]::NormalizePath('$(MonoAOTCompilerDir)', 'MonoAOTCompiler.dll'))</MonoAOTCompilerTasksAssemblyPath>
     <MonoTargetsTasksAssemblyPath>$([MSBuild]::NormalizePath('$(MonoTargetsTasksDir)', 'MonoTargetsTasks.dll'))</MonoTargetsTasksAssemblyPath>
+    <ILSplitTasksAssemblyPath Condition="'$(ILSplitTasksAssemblyPath)' == ''">$([MSBuild]::NormalizePath('$(BuildBaseDir)', 'ILSplit.Tasks', 'ILSplit.Tasks.dll'))</ILSplitTasksAssemblyPath>
   </PropertyGroup>
 
 </Project>

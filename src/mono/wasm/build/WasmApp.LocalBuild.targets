@@ -22,6 +22,10 @@
 <Project>
   <Import Project="$(_WasmTargetsDir)$(_TargetsBaseName).targets" />
 
+  <!-- ILSplit: Assembly splitting for on-demand loading (opt-in via WasmEnableILSplit=true) -->
+  <Import Project="$(MSBuildThisFileDirectory)..\..\..\tools\ilsplit\src\ILSplit.Tasks\build\ILSplit.targets"
+          Condition="'$(WasmEnableILSplit)' == 'true' and Exists('$(ILSplitTasksAssemblyPath)')" />
+
   <UsingTask TaskName="MonoAOTCompiler" AssemblyFile="$(MonoAOTCompilerTasksAssemblyPath)" TaskFactory="TaskHostFactory" />
   <UsingTask TaskName="ILStrip" AssemblyFile="$(MonoTargetsTasksAssemblyPath)" TaskFactory="TaskHostFactory" />
   <UsingTask TaskName="RuntimeConfigParserTask" AssemblyFile="$(MonoTargetsTasksAssemblyPath)" TaskFactory="TaskHostFactory" />

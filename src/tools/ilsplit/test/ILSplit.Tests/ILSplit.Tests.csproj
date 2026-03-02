@@ -1,0 +1,9 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.DotNet.Cecil" Version="$(MicrosoftDotNetCecilVersion)" PrivateAssets="All" Publish="True" />
+
+    <ProjectReference Include="..\..\src\ILSplit\ILSplit.csproj" SkipUseReferenceAssembly="true" />
+  </ItemGroup>
+
+</Project>

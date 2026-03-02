@@ -51,6 +51,17 @@ namespace Microsoft.NET.Sdk.WebAssembly
             if (IsMultiThreaded && extraMultiThreadedCoreAssemblyName.Contains(fileNameWithoutExtension))
                 return true;
 
+            // Treat ILSplit cold chunks of core assemblies (e.g. "System.Private.CoreLib.1") as core.
+            // These must be loaded before coreclr_initialize().
+            var lastDot = fileNameWithoutExtension.LastIndexOf('.');
+            if (lastDot > 0)
+            {
+                var baseName = fileNameWithoutExtension.Substring(0, lastDot);
+                var suffix = fileNameWithoutExtension.Substring(lastDot + 1);
+                if (int.TryParse(suffix, out _) && coreAssemblyNames.Contains(baseName))
+                    return true;
+            }
+
             return false;
         }
 

@@ -1,0 +1,39 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>$(NetCoreAppToolCurrent);$(NetFrameworkToolCurrent)</TargetFrameworks>
+    <TargetFramework />
+    <RootNamespace>ILSplit.Tasks</RootNamespace>
+    <Description>MSBuild tasks for running ILSplit assembly splitter</Description>
+    <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+    <Nullable>enable</Nullable>
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ILSplit\ILSplit.csproj" Condition="'$(TargetFrameworkIdentifier)' == '.NETCoreApp'" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.DotNet.Cecil" Version="$(MicrosoftDotNetCecilVersion)" />
+    <PackageDownloadAndReference Include="Microsoft.Build.Framework" Version="$(MicrosoftBuildFrameworkVersion)" Folder="ref/net472" Condition="$([MSBuild]::IsTargetFrameworkCompatible('$(TargetFramework)', 'net472'))" />
+    <PackageDownloadAndReference Include="Microsoft.Build.Framework" Version="$(MicrosoftBuildFrameworkVersion)" Folder="ref/net8.0" Condition="$([MSBuild]::IsTargetFrameworkCompatible('$(TargetFramework)', 'net8.0'))" />
+    <PackageDownloadAndReference Include="Microsoft.Build.Utilities.Core" Version="$(MicrosoftBuildUtilitiesCoreVersion)" Folder="ref/net472" Condition="$([MSBuild]::IsTargetFrameworkCompatible('$(TargetFramework)', 'net472'))" />
+    <PackageDownloadAndReference Include="Microsoft.Build.Utilities.Core" Version="$(MicrosoftBuildUtilitiesCoreVersion)" Folder="ref/net8.0" Condition="$([MSBuild]::IsTargetFrameworkCompatible('$(TargetFramework)', 'net8.0'))" />
+  </ItemGroup>
+
+  <Import Project="$(RepositoryEngineeringDir)PackageDownloadAndReference.targets" />
+
+  <ItemGroup>
+    <PackageReference Update="@(PackageReference)">
+      <PrivateAssets>All</PrivateAssets>
+      <Publish Condition="'%(PackageReference.Publish)' == ''">true</Publish>
+      <ExcludeAssets Condition="'%(PackageReference.Publish)' == 'false'">runtime</ExcludeAssets>
+    </PackageReference>
+    <ProjectReference Update="@(ProjectReference)">
+      <PrivateAssets>All</PrivateAssets>
+      <Publish Condition="'%(ProjectReference.Publish)' == ''">true</Publish>
+    </ProjectReference>
+  </ItemGroup>
+
+</Project>

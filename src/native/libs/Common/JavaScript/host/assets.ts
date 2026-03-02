@@ -100,13 +100,14 @@ export function BrowserHost_ExternalAssemblyProbe(pathPtr: CharPtr, outDataStart
     const path = _ems_.UTF8ToString(pathPtr);
     const assembly = loadedAssemblies.get(path);
     if (assembly) {
+        _ems_.dotnetLogger.info(`Assembly probe HIT: '${path}' ptr=${assembly.ptr.toString(16)} len=${assembly.length}`);
         _ems_.HEAPU32[outDataStartPtr as any >>> 2] = assembly.ptr;
         // int64_t target
         _ems_.HEAPU32[outSize as any >>> 2] = assembly.length;
         _ems_.HEAPU32[((outSize as any) + 4) >>> 2] = 0;
         return true;
     }
-    _ems_.dotnetLogger.debug(`Assembly not found: '${path}'`);
+    _ems_.dotnetLogger.info(`Assembly not found: '${path}'`);
     _ems_.HEAPU32[outDataStartPtr as any >>> 2] = 0;
     _ems_.HEAPU32[outSize as any >>> 2] = 0;
     _ems_.HEAPU32[((outSize as any) + 4) >>> 2] = 0;
