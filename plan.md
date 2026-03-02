@@ -944,66 +944,188 @@ Changes 1-3 would immediately help code like `typeof(int) == typeof(byte)` (conc
 
 ---
 
-## Phase 4: Method-Level SCC Analysis
+## Phase 4: Method-Level SCC Analysis [DONE]
 
 Phase 2 proved cluster-level Tarjan is useless (single SCC). We need method-level cycle analysis.
 
-### 4A. Get Full Method-Level Call Graph
+### 4A. Get Full Method-Level Call Graph [DONE]
 
-Re-run the method-cost tool with higher callee limit (topCallees truncated to 1-5 is insufficient):
-- Option A: Re-run with `n=10000` or similar to get all callees per method
-- Option B: Extract edges from ILLink's linker output
-- Option C: Parse the msbuild.binlog or ILLink dependency trace
+Re-ran method-cost tool with `--top-callees 10000 -n 10000` to get complete call graph.
 
-### 4B. Method-Level Tarjan SCC
+**Results:**
+- 10,000 methods analyzed (cap), 942 in super-SCC (same as before)
+- Call graph: 19,548 direct edges + 8,112 virtual edges (CHA-inferred)
+- Intra-SCC edges: **2,133** (previously only ~1,500 visible with top-5 cap)
+- 934 of 942 SCC nodes have both outgoing and incoming edges
+- Methods with up to 79 callees (TypeNameBuilder.AddAssemblyQualifiedName)
+- Data saved to `method-cost-full-callgraph.json`
 
-Run Tarjan on the full method-level graph for the 942 SCC methods:
-- Find actual strongly connected components (the method-cost tool's SCC may be an overestimate if topCallees is truncated)
-- Identify which methods participate in real cycles vs. just transitive reachability
-- Find articulation edges: specific method-to-method calls whose removal breaks the SCC
+### 4B. Method-Level Tarjan SCC [DONE]
 
-### 4C. Validate/Refute Coupling Theories
+Ran Tarjan's algorithm on the intra-SCC subgraph. Key findings:
 
-Using the full call graph, validate the 30 theories from Phase 2. For each:
-- Does the chain actually exist in the trimmed assembly?
-- What is the actual IL weight of the chain?
-- Is there a single bottleneck method in the chain that could be cut?
+**The 942-method super-SCC is almost entirely one real cycle:**
+- Tarjan found **1 component containing 934 methods** (99.2% of the super-SCC)
+- 0 singleton components, 0 smaller multi-method SCCs
+- The 8 missing methods have no intra-SCC edges (leaf callees with transitive size = SCC size only by virtual dispatch)
+- **100,078 bytes own IL** in the real method-level SCC
 
-### Coupling Theories (Carried from earlier analysis)
+#### 4B.1 Articulation Edge Analysis
 
-**Already-known coupling chains:**
-1. Exception.ToString() -> StackTrace -> Reflection
-2. RuntimeType -> Reflection.Emit (dynamic invocation)
-3. CultureInfo <-> Number formatting <-> all numeric primitives
-4. Thread/ThreadPool -> Task -> async builders
-5. String <-> CompareInfo <-> CultureInfo
-6. SafeFileHandle -> ThreadPool (async IO completion)
-7. Array.Sort -> Comparer -> generic interface dispatch
-8. Type.GetType() -> AssemblyLoadContext -> Assembly -> Reflection
+Tested all 2,133 intra-SCC edges individually. **919 of 2,133 edges are articulation edges** (removing one splits the SCC).
 
-**Theories to investigate:**
-9. Enum.ToString() -> RuntimeType -> Reflection (reflection to get names)
-10. DefaultBinder -> RuntimeType -> all of Reflection
-11. Convert class -> every numeric type + DateTime + String
-12. DateTime.ToString() -> DateTimeFormat -> CultureInfo -> CalendarData -> ALL calendars
-13. Scalar\`1 (8,177B) <-> all numeric types (generic SIMD scalar bridges)
-14. StringBuilder.AppendFormat -> IFormattable -> all formattable types
-15. Encoding.GetEncoding -> all Encoding subclasses
-16. Stream virtual methods -> FileStream -> FileSystem -> Interop -> SafeHandle
-17. AssemblyLoadContext -> NativeLibrary -> Marshal
-18. DynamicMethod -> RuntimeILGenerator -> SignatureHelper -> RuntimeType
-19. ThrowHelper -> every exception type -> Exception -> StackTrace
-20. CalendricalCalculationsHelper (3,059B) -> DateTimeFormatInfo
-21. CompareInfo -> Ordinal/OrdinalCasing -> Char -> Unicode tables
-22. ConcurrentDictionary -> Lock/Monitor & EqualityComparer
-23. GC -> Thread -> ThreadPool -> Timer
-24. MetadataReader (external, 2,822B) -> Reflection.Metadata -> Reflection.Emit
-25. SerializationInfo -> RuntimeType -> activator
-26. FieldAccessor -> Reflection.Emit (InvokerEmitUtil)
-27. Resource loading -> Assembly.GetManifestResourceStream -> Stream
-28. ~~Random -> Interop.Sys (Unix random)~~ — out of scope (native interop)
-29. TimeZoneInfo (14,512B) -> IO (file reading) + Globalization
-30. IO.Enumeration -> PathInternal -> String operations -> MemoryExtensions
+**Top articulation edges by SCC reduction:**
+
+| Edge | Reduction | New Largest |
+|------|-----------|-------------|
+| `Monitor::Enter` → `Lock::Enter` | **-593** | 341 |
+| `Lock::TryEnter_Inlined` → `Lock::TryEnterSlow` | -593 | 341 |
+| `Lock::LazyInitializeOrEnter` → `Lock::TryInitializeStatics` | -576 | 358 |
+| `Int16::Parse(String)` → `Int16::Parse(ReadOnlySpan)` | -502 | 432 |
+| `Number::ParseBinaryInteger` → `Number::ThrowOverflowOrFormatException` | -470 | 464 |
+| `Number::ThrowFormatException` → `Encoding::GetString` | -462 | 472 |
+| `TypeBuilderInstantiation::get_BaseType` → `Substitute` | -289 | 645 |
+| `PseudoCustomAttribute::GetMarshalAs` → `MetadataImport::GetMarshalAs` | -180 | 754 |
+| `RuntimeTypeBuilder::get_UnderlyingSystemType` → `Type::get_IsEnum` | -149 | 785 |
+| `Type.op_Equality` → `Type.Equals` | -147 | 787 |
+
+**Key insight:** The **Lock/Monitor chain** is the single biggest coupling bottleneck. Cutting `Monitor::Enter` → `Lock::Enter` alone drops the SCC from 934 to 341 methods (63% reduction). This is because Lock/Monitor connects the entire Threading domain (Lock → Thread → events → WaitHandle) to everything that acquires a lock (collections, encoding, globalization, reflection cache).
+
+#### 4B.2 Greedy Multi-Edge Cut (Minimal Fragmentation Set)
+
+Found that **11 edge cuts** reduce the 934-method SCC to 920 components (11 residual mini-SCCs of 2-3 methods each):
+
+| Cut# | Edge | Reduction | SCC After |
+|------|------|-----------|-----------|
+| 1 | `Monitor::Enter` → `Lock::Enter` | -593 | 341 |
+| 2 | `Lock::Exit` → `Lock::ExitImpl` | -233 | 108 |
+| 3 | `RuntimeParameterInfo::IsDefined` → `CustomAttribute::IsDefined` | -101 | 52 |
+| 4 | `TypeBuilderInstantiation::get_BaseType` → `Substitute` | -83 | 25 |
+| 5 | `MemberInfoCache::GetMemberList` → `Populate` | -39 | 13 |
+| 6 | `EnumInfo::Create` → `RuntimeFieldInfo::IsDefined` | -45 | 7 |
+| 7 | `String::Join(String, ReadOnlySpan)` → `JoinCore` | -24 | 1 |
+| 8 | `RuntimeType::get_DeclaringMethod` → `GetMethodBase` | -12 | 1 |
+| 9 | `Type::op_Equality` → `Type::Equals` | -11 | 1 |
+| 10 | `RuntimeAssembly::GetType` → `TypeNameResolver::GetType` | -5 | 2 |
+| 11 | `String::Equals(StringComparison)` → `CultureInfo::get_CompareInfo` | -4 | 1 |
+
+**Residual mini-SCCs after all 11 cuts:**
+- `RuntimeTypeBuilder ↔ RuntimeType ↔ Type` (3 methods, 398B IL)
+- `DynamicMethod ↔ MethodBase ↔ RuntimeConstructorInfo` (3 methods, 42B IL)
+- `RuntimeTypeBuilder ↔ Type` (3 methods, 150B IL)
+- `TypeBuilderInstantiation ↔ Type` (2 methods, 19B IL)
+- `SymbolType ↔ TypeBuilderInstantiation` (2×2 methods, 103B IL)
+- `ValueStringBuilder` self-cycle (2 methods, 67B IL)
+- `Type` self-cycle (2 methods, 63B IL)
+- `Delegate ↔ MulticastDelegate` (2 methods, 187B IL)
+- `TypeNameResolver` self-cycle (2 methods, 234B IL)
+
+### 4C. Coupling Theory Validation [DONE]
+
+**Validated theories (path found in SCC call graph):**
+
+| Theory | Status | Path |
+|--------|--------|------|
+| T2: RuntimeType → Reflection.Emit | **CONFIRMED** | `RuntimeType::GetMethodBase` → `RuntimeTypeBuilder::IsSubclassOf` (1 hop) |
+| T3: CultureInfo ↔ Number formatting | **CONFIRMED** | `NumberFormatInfo::.ctor(CultureData)` → `InitializeInvariantAndNegativeSignFlags` (1 hop) |
+| T10: DefaultBinder → RuntimeType | **CONFIRMED** | `DefaultBinder::CanChangePrimitive` → `Type::GetTypeCode` → `RuntimeType::GetTypeCodeImpl` (2 hops) |
+| T13: Scalar\`1 ↔ numeric types | **CONFIRMED** | `Scalar::Min` → `Double::Min` → `Math::Min` → `Double::IsNegative` → `BitConverter::DoubleToInt64Bits` (4 hops) |
+| T18: DynamicMethod → RuntimeType | **CONFIRMED** | `DynamicMethod::IsDefined` → `RuntimeType::IsAssignableFrom` (1 hop) |
+
+**Refuted theories (not found in trimmed SCC):**
+
+| Theory | Status | Reason |
+|--------|--------|--------|
+| T1: Exception.ToString → StackTrace → Reflection | **NOT IN SCC** | Exception and StackTrace methods not in the 942-method SCC (likely already trimmed or outside the SCC boundary) |
+| T9: Enum.ToString → RuntimeType | **NOT IN SCC** | Enum.ToString() not in SCC — only Enum.GetEnumInfo and EnumInfo\`1.Create are |
+| T19: ThrowHelper → StackTrace | **NOT IN SCC** | StackTrace/StackFrame methods not in SCC |
+| T20: CalendricalCalculationsHelper → DateTimeFormat | **NOT IN SCC** | CalendricalCalculationsHelper not in SCC |
+| T25: SerializationInfo → RuntimeType | **NOT IN SCC** | SerializationInfo not in SCC |
+| T26: FieldAccessor → Reflection.Emit | **NOT IN SCC** | FieldAccessor/InvokerEmitUtil not in SCC |
+| T29: TimeZoneInfo → IO + Globalization | **NOT IN SCC** | TimeZoneInfo not in SCC |
+
+### 4D. High-Degree Method Hubs
+
+**Top methods by in-degree (most called within SCC):**
+
+| In-degree | Method | IL Size |
+|-----------|--------|---------|
+| 88 | `Type::op_Equality(Type, Type)` | 38B |
+| 40 | `Type::op_Inequality(Type, Type)` | 11B |
+| 30 | `Span<T>::.ctor(void*, int)` | 46B |
+| 28 | `Unsafe::BitCast<TFrom>(TFrom)` | 66B |
+| 28 | `Vector128<T>::get_Count()` | 15B |
+| 21 | `SR::Format(string, object, object)` | 59B |
+| 20 | `RuntimeType::get_Cache()` | 42B |
+| 16 | `Type::get_IsValueType()` | 7B |
+
+`Type::op_Equality` is the #1 hub with 88 incoming edges — confirming that `typeof(T) == typeof(X)` patterns are the dominant coupling mechanism. Every Scalar\`1, Vector128, Vector64, Intrinsics method, plus Reflection.Emit type checks, flow through this single method.
+
+**Top methods by out-degree (call most SCC methods):**
+
+| Out-degree | Method | IL Size |
+|------------|--------|---------|
+| 25 | `HexConverter::TryDecodeFrom_Vector128` | 599B |
+| 19 | `Ascii::ChangeCase<TFrom,TTo>` | 885B |
+| 18 | `TypeNameBuilder::AddAssemblyQualifiedName` | 281B |
+| 17 | `RuntimeType::GetMethodBase` | 456B |
+| 15 | `TypeNameResolver::GetType` | 628B |
+
+### 4E. Domain-Level Cross-Cutting Summary
+
+| Domain | Methods | IL Bytes |
+|--------|---------|----------|
+| Reflection | 212 | 24,369 |
+| Other (primitives, spans, helpers) | 180 | 24,142 |
+| Text (Encoding, Ascii, Unicode) | 127 | 15,126 |
+| Intrinsics (Scalar, Vector128/64) | 97 | 12,347 |
+| Globalization | 68 | 5,474 |
+| Emit | 68 | 3,428 |
+| Collections | 29 | 3,362 |
+| Threading | 27 | 2,143 |
+| String | 25 | 1,834 |
+| Buffers | 22 | 1,755 |
+| Exceptions | 17 | 359 |
+| Convert | 13 | 1,065 |
+| Enum | 12 | 2,165 |
+
+**Top cross-domain edges:**
+
+| Count | From → To | Key Mechanism |
+|-------|-----------|---------------|
+| 147 | Reflection → Other | Type checks, Span construction, SR.Format |
+| 93 | Other → Intrinsics | SpanHelpers → Vector128, HexConverter → Vector128 |
+| 74 | Reflection → Emit | RuntimeType ↔ RuntimeTypeBuilder virtual dispatch |
+| 70 | Text → Intrinsics | Ascii/UTF8 → Vector128 vectorized paths |
+| 47 | Text → Other | Encoding → Span, ReadOnlySpan |
+| 33 | Emit → Other | TypeNameBuilder → various helpers |
+| 31 | Globalization → Other | NumberFormatInfo → Type checks |
+| 30 | Other → Reflection | ThrowHelper → Type, primitive parsing → Type |
+| 29 | Emit → Reflection | RuntimeTypeBuilder → RuntimeType virtual returns |
+
+### 4F. Key Findings & Strategic Implications
+
+1. **The SCC is real and tightly coupled.** 934 of 942 methods form a single genuine cycle with 2,133 edges. This is not an artifact of truncated callees.
+
+2. **Lock/Monitor is the #1 structural bottleneck.** Cutting the `Monitor::Enter` → `Lock::Enter` edge alone removes 593 methods (63%) from the SCC. This is because:
+   - Everything that acquires a lock (Reflection cache, Encoding tables, Globalization data, Collections) gets pulled into the cycle
+   - Lock's implementation pulls in Thread/Monitor internals, which pull in everything else
+   - **Actionable:** On single-threaded WASM, `Lock` could be stubbed to a no-op, breaking this entire chain
+
+3. **Only 11 edge cuts fully fragment the SCC.** The 934-method mega-cycle can be reduced to 920 components (max residual SCC = 3 methods) by cutting just 11 specific method-to-method calls. This is remarkably tractable.
+
+4. **`Type::op_Equality` is the #1 hub** (88 in-edges). The typeof(T) pattern confirmed as dominant coupling mechanism. But it's not an articulation edge by itself — too many parallel paths exist through the SCC.
+
+5. **Reflection ↔ Emit coupling is the #2 structural issue** (74 + 29 = 103 cross-domain edges). The `RuntimeTypeBuilder::get_UnderlyingSystemType` → `Type::get_IsEnum` edge alone accounts for 149 methods.
+
+6. **Several theories were refuted:** Exception/StackTrace, SerializationInfo, TimeZoneInfo, FieldAccessor, CalendricalCalculationsHelper are NOT in the SCC — they're either already trimmed or are leaf consumers (not cycle participants).
+
+7. **Practical cut priorities (by impact per cut):**
+   - **Cut 1:** Lock/Monitor chain (stub for single-threaded WASM) → -593 methods
+   - **Cut 2:** Lock::Exit chain → -233 methods
+   - **Cut 3:** CustomAttribute::IsDefined chain → -101 methods
+   - **Cut 4:** TypeBuilderInstantiation (Emit feature switch) → -83 methods
+   - These 4 cuts alone reduce the SCC from 934 to 25 methods
 
 ---
 
@@ -1045,7 +1167,7 @@ Using method-level Tarjan results from Phase 4B, identify specific methods where
 - Phase 1: Single pass, categorize from method-cost JSON + source file mapping [DONE]
 - Phase 2: Cross-cluster dependency analysis, Tarjan SCC, typeof(T) discovery [DONE]
 - Phase 3: Audit existing ILLink substitutions, feature switches, browser conditionals
-- Phase 4: Method-level Tarjan with full call graph, validate coupling theories
+- Phase 4: Method-level Tarjan with full call graph, validate coupling theories [DONE]
 - Phase 5: Propose 4 focused strategies (typeof(T) linker opt, Emit switch, HexConverter decouple, method-level cuts)
 - Phase 6: Implement top strategies + validate with builds and tests
 
@@ -1058,3 +1180,8 @@ Using method-level Tarjan results from Phase 4B, identify specific methods where
  - `SupportsWasmIntrinsics`
  - `ILLinkEqT` - typeof(T) Linker Optimization
  - `System.Reflection.Emit.IsSupported` - https://gist.github.com/pavelsavara/54d2776c5479642f02654d2b3a8afa85
+ - COM/swift interop ?
+ - threads substitution
+ - `RuntimeParameterInfo::IsDefined`
+ - `RuntimeTypeBuilder::get_UnderlyingSystemType` → `Type::get_IsEnum`
+ - `CustomAttribute::IsDefined`
