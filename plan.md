@@ -676,20 +676,275 @@ This is potentially worth **20-40 KB** of IL savings (rough estimate: 20-40% of 
 
 ---
 
-## Phase 3: Existing Trimming Infrastructure Audit [ELEVATED — was Phase 4]
+## Phase 3: Existing Trimming Infrastructure Audit [DONE]
 
 Phase 2 showed the SCC is too well-connected for cluster-level cutting. Before proposing new cuts, we must understand what the linker already does and what mechanisms are available.
 
-1. **Review ILLink substitution files** — `src/libraries/System.Private.CoreLib/src/ILLink/` — catalog all existing body substitutions
-2. **Review existing feature switches** — catalog which trimmer-friendly switches exist (`EventSource.IsEnabled`, `GlobalizationMode.Invariant`, `IsSupported` stubs, etc.) and which are already active for browser publishes
-3. **Check .csproj/.projitems** for browser-specific file inclusions/exclusions
-4. **Audit `#if` conditionals** for `TARGET_BROWSER`, `TARGET_WASI`, `FEATURE_WASM_MANAGED_THREADS` — expand beyond the 71 lines found in Phase 2
-5. **Map the linker's current typeof(T) capabilities** — confirm the three blockers identified in Phase 2 analysis (see section 2.11)
-6. **Review ILLink.Descriptors.Shared.xml** — what types/methods are force-rooted?
+1. **Review ILLink substitution files** — `src/libraries/System.Private.CoreLib/src/ILLink/` — catalog all existing body substitutions [DONE]
+2. **Review existing feature switches** — catalog which trimmer-friendly switches exist and which are already active for browser publishes [DONE]
+3. **Check .csproj/.projitems** for browser-specific file inclusions/exclusions [DONE]
+4. **Audit `#if` conditionals** for `TARGET_BROWSER`, `TARGET_WASI`, `FEATURE_WASM_MANAGED_THREADS` — comprehensive audit [DONE]
+5. **Map the linker's current typeof(T) capabilities** — confirm the blockers identified in Phase 2 analysis [DONE]
+6. **Review ILLink.Descriptors.Shared.xml** — what types/methods are force-rooted? [DONE]
+
+### Phase 3 Results
+
+#### 3.1 ILLink Substitution Files Catalog
+
+**14 substitution XML files** exist across CoreLib, organized by platform/architecture:
+
+| File | Scope | What It Stubs |
+|------|-------|---------------|
+| `ILLink.Substitutions.Shared.xml` | All platforms | EventSource.IsEnabled→false, GlobalizationMode.Invariant→true, PredefinedCulturesOnly→true, Task.s_asyncDebuggingEnabled→false |
+| `ILLink.Substitutions.32bit.xml` | 32-bit targets | IntPtr.Size→4, UIntPtr.Size→4 |
+| `ILLink.Substitutions.64bit.xml` | 64-bit targets | IntPtr.Size→8, UIntPtr.Size→8 |
+| `ILLink.Substitutions.LittleEndian.xml` | LE targets | BitConverter.IsLittleEndian→true |
+| `ILLink.Substitutions.NoX86Intrinsics.xml` | Non-x86 | ~60 x86 intrinsic IsSupported→false (SSE through AVX-512, Gfni, etc.) |
+| `ILLink.Substitutions.NoArmIntrinsics.xml` | Non-ARM | ~20 ARM intrinsic IsSupported→false (AdvSimd, Sve, Crc32, etc.) |
+| `ILLink.Substitutions.NoWasmIntrinsics.xml` | Non-WASM | PackedSimd.IsSupported→false |
+| `ILLink.Substitutions.iOS.xml` | iOS | GlobalizationMode.Hybrid→true |
+| **CoreCLR** `ILLink.Substitutions.xml` | CoreCLR | RuntimeFeature.IsDynamicCodeCompiled→true |
+| **Mono WASM** `ILLink.Substitutions.wasm.xml` | Mono WASM | RuntimeFeature.IsDynamicCodeCompiled→false |
+| **Mono iOS** `ILLink.Substitutions.iOS.xml` | Mono iOS | RuntimeFeature.IsDynamicCodeCompiled→false |
+| **Mono** `ILLink.Substitutions.Intrinsics.x86.xml` | Mono non-x86 | All x86 intrinsics IsSupported→false |
+| **Mono** `ILLink.Substitutions.Intrinsics.Vectors.xml` | Mono | Vector256/512.IsHardwareAccelerated→false |
+| **Browser SIMD** `ILLink.Substitutions.WasmIntrinsics.xml` | Browser WASM w/ SIMD | Vector.IsHardwareAccelerated→true, Vector128.IsHardwareAccelerated→true, PackedSimd.IsSupported→true |
+| **Browser no-SIMD** `ILLink.Substitutions.NoWasmIntrinsics.xml` (browser build dir) | Browser WASM w/o SIMD | Same 3 properties→false |
+
+**Active substitutions for Browser WASM (published, non-Debug, SIMD enabled):**
+- GlobalizationMode.Invariant→true (via InvariantGlobalization MSBuild property default)
+- GlobalizationMode.PredefinedCulturesOnly→true
+- EventSource.IsEnabled→false (via EventSourceSupport MSBuild property)
+- RuntimeFeature.IsDynamicCodeCompiled→false (Mono WASM)
+- Vector128.IsHardwareAccelerated→true, PackedSimd.IsSupported→true
+- Vector.IsHardwareAccelerated→true
+- Vector256.IsHardwareAccelerated→false, Vector512.IsHardwareAccelerated→false
+- All x86 intrinsics IsSupported→false
+- All ARM intrinsics IsSupported→false
+- IntPtr.Size→4 (WASM is 32-bit)
+- BitConverter.IsLittleEndian→true
+- Task.s_asyncDebuggingEnabled→false (Debugger.IsSupported=false)
+
+#### 3.2 Feature Switches Catalog
+
+**`FeatureSwitchDefinition` attributes in CoreLib** (properties the linker can substitute):
+
+| Feature Switch Name | Property | Default (Browser WASM) | Impact |
+|---------------------|----------|----------------------|--------|
+| `System.Diagnostics.Tracing.EventSource.IsSupported` | EventSource.IsSupported | **false** | Removes EventSource infrastructure |
+| `System.Diagnostics.Debugger.IsSupported` | Debugger.IsSupported | **false** | Removes debugger attributes, async debug hooks |
+| `System.Diagnostics.StackTrace.IsSupported` | StackTrace.IsSupported | true | Controls stack trace support |
+| `System.Diagnostics.StackTrace.IsLineNumberSupported` | StackTrace.IsLineNumberSupported | **false** (conditional) | Line numbers in stack traces |
+| `System.Diagnostics.Metrics.Meter.IsSupported` | EventSource.IsMeterSupported | **false** | Metrics/Meter support |
+| `System.Globalization.Invariant` | GlobalizationMode.Invariant | **true** | Invariant globalization, trims ICU |
+| `System.Globalization.PredefinedCulturesOnly` | GlobalizationMode.PredefinedCulturesOnly | **true** | Only built-in cultures |
+| `System.Runtime.CompilerServices.RuntimeFeature.IsDynamicCodeSupported` | RuntimeFeature.IsDynamicCodeSupported | true (via AppContext) | Dynamic code compilation |
+| `System.Runtime.CompilerServices.RuntimeFeature.IsMultithreadingSupported` | RuntimeFeature.IsMultithreadingSupported | **false** (single-threaded) | Threading support |
+| `System.Text.Encoding.EnableUnsafeUTF7Encoding` | LocalAppContextSwitches | **false** | UTF-7 encoding |
+| `System.TimeZoneInfo.Invariant` | TimeZoneInfo invariant mode | false | Timezone data loading |
+| `System.StartupHookProvider.IsSupported` | StartupHookProvider.IsSupported | true | Startup hooks |
+| `System.Runtime.InteropServices.EnableConsumingManagedCodeFromNativeHosting` | ComponentActivator.IsSupported | false (mobile-like) | Native hosting |
+| `System.Threading.Thread.EnableAutoreleasePool` | AutoreleasePool feature | false | Autorelease pool |
+| `System.ComponentModel.DefaultValueAttribute.IsSupported` | DefaultValueAttribute.IsSupported | true | DefaultValue attribute |
+| `System.Reflection.Metadata.MetadataUpdater.IsSupported` | MetadataUpdater.IsSupported | false (no hot reload in pub) | Hot reload support |
+
+**Browser WASM effective feature switch state (published, non-Debug):**
+
+| Switch | Value | How Set |
+|--------|-------|---------|
+| EventSource.IsSupported | false | `EventSourceSupport=false` (WasmApp.LocalBuild.targets) |
+| Debugger.IsSupported | false | `DebuggerSupport=false` (WasmApp.LocalBuild.targets) |
+| StackTrace.IsLineNumberSupported | false | `StackTraceLineNumberSupport=false` (conditional in Browser.targets) |
+| Metrics.Meter.IsSupported | false | `MetricsSupport=false` (WasmApp.Common.targets) |
+| Globalization.Invariant | true | `InvariantGlobalization` defaults to true for browser |
+| PredefinedCulturesOnly | true | (implied by Invariant=true) |
+| RuntimeFeature.IsMultithreadingSupported | false | RuntimeHostConfigurationOption when single-threaded |
+| RuntimeFeature.IsDynamicCodeCompiled | false | ILLink.Substitutions.wasm.xml (Mono) |
+| UseSystemResourceKeys | true | WasmApp.LocalBuild.targets |
+| EnableUnsafeUTF7Encoding | false | WasmApp.LocalBuild.targets |
+| HttpActivityPropagationSupport | false | WasmApp.LocalBuild.targets |
+
+**Switches that remain TRUE for browser WASM:**
+- RuntimeFeature.IsDynamicCodeSupported → true (Mono WASM supports dynamic code via interpreter)
+- StackTrace.IsSupported → true
+- TimeZoneInfo.Invariant → false (timezone data is available)
+- StartupHookProvider.IsSupported → true (not disabled)
+
+#### 3.3 Browser-Specific File Inclusions/Exclusions
+
+**DefineConstants for browser/WASM builds:**
+
+| Constant | When Defined | Where |
+|----------|-------------|-------|
+| `TARGET_BROWSER` | `TargetsBrowser=true` | System.Private.CoreLib.Shared.projitems |
+| `TARGET_WASI` | `TargetsWasi=true` | System.Private.CoreLib.Shared.projitems |
+| `TARGET_WASM` | `Platform=wasm` | Mono + CoreCLR .csproj files |
+| `FEATURE_WASM_MANAGED_THREADS` | Browser/WASI + `WasmEnableThreads=true` | Mono .csproj only |
+| `FEATURE_SINGLE_THREADED` | Browser/WASI + `WasmEnableThreads!=true` | Mono .csproj only |
+
+**Derived properties:**
+
+| Property | Value for Browser | Effect |
+|----------|------------------|--------|
+| `IsMobileLike` | true | Disables AssemblyDependencyResolver, cross-process mutex |
+| `SupportsWasmIntrinsics` | true (Platform=wasm) | Enables WasmBase.cs, PackedSimd.cs |
+| `UseMinimalGlobalizationData` | true | Minimal globalization data tables |
+| `FeatureCrossProcessMutex` | false | No cross-process mutex support |
+| `FeaturePortableTimer` | false (single-threaded) | Uses Browser-specific timer queue |
+| `FeaturePortableThreadPool` | false (single-threaded) | Uses Browser-specific thread pool |
+
+**Platform-specific source files for browser:**
+
+| Category | Files Included | Notes |
+|----------|---------------|-------|
+| Browser-only | AppContext.Browser.cs, Environment.Browser.cs, DriveInfoInternal.Browser.cs, PersistedFiles.Browser.cs, RuntimeInformation.Browser.cs | Basic platform plumbing |
+| Browser globalization | CultureData.Browser.cs | JS-based locale data (only with ICU) |
+| Browser async | AsyncHelpers.Browser.cs | Browser-specific async helpers |
+| Browser JS interop | Interop.Locale.CoreCLR.cs / .Mono.cs | JS locale queries |
+| Browser timezone | Interop.GetTimeZoneData.Wasm.cs | Embedded TZ data |
+| Browser threading (ST) | ThreadPool.Browser.cs, TimerQueue.Browser.cs, PreAllocatedOverlapped.Browser.cs, ThreadPoolBoundHandle.Browser.cs | Single-threaded stubs |
+| Browser threading (MT) | ThreadPool.Browser.Threads.cs, ThreadPoolBoundHandle.Browser.Threads.cs, PortableThreadPool.Browser.Threads.cs | Multi-threaded WASM |
+| WASM intrinsics | WasmBase.cs, PackedSimd.cs | Real implementations (not PlatformNotSupported) |
+| Excluded for browser | RuntimeInformation.Unix.cs, Interop.OSReleaseFile.cs, RuntimeEventSource.cs (non-browser only), AssemblyDependencyResolver.cs | Replaced by browser variants or platform-not-supported stubs |
+
+#### 3.4 `#if` Conditional Compilation Audit (Comprehensive)
+
+**Total: ~74 conditional compilation directives** across SCC-relevant CoreLib files:
+
+| Conditional | Occurrences | Files | Primary Pattern |
+|-------------|:-:|:-:|----------------|
+| `FEATURE_WASM_MANAGED_THREADS` | 31 | 11 | `[UnsupportedOSPlatform("browser")]` on blocking APIs; compile guards (#error) |
+| `TARGET_BROWSER` | 16 | 10 | Platform detection, JS interop, file system stubs |
+| `TARGET_WASI` | 10 | 7 | Similar to browser + WASI-specific poll/sleep |
+| `TARGET_WASM` | 5 | 2 | Interlocked byte/ushort intrinsics, architecture detection |
+| `FEATURE_SINGLE_THREADED` | 4 | 2 | Non-concurrent queue, IsMultithreadingSupported=false |
+
+**By namespace (SCC-relevant):**
+
+| Namespace | Occurrences | Key Patterns |
+|-----------|:-:|-------------|
+| System.Threading | 46 | Blocking API unsupported attrs, compile guards, worker limits, queue types |
+| System | 12 | Timezone embedded DB, GUID randomness, OS detection, base directory |
+| System.Globalization | 4 | JS interop for display names, invariant mode detection |
+| System.Runtime.CompilerServices | 3 | Multithreading and dynamic code feature switches |
+| System.Runtime.InteropServices | 3 | OS description, processor architecture |
+| System.Reflection | 2 | Skip File.Exists on embedded platforms (LoadFile/LoadFrom) |
+
+**Key patterns in conditional code:**
+
+1. **`[UnsupportedOSPlatform("browser")]` guards** (~30 occurrences) — Applied via `!FEATURE_WASM_MANAGED_THREADS` on: Monitor.Wait, ManualResetEventSlim.Wait, Thread.Start, RegisteredWaitHandle, all RegisterWaitForSingleObject overloads. These are **attributes only** — the methods still exist, they just warn when called from browser-targeted code.
+
+2. **`#error` compile guards** (4 occurrences) — TimerQueue.Browser.cs, TimerQueue.Wasi.cs, ThreadPool.Browser.cs, ThreadPool.Wasi.cs all `#error` when `FEATURE_WASM_MANAGED_THREADS` is defined, forcing use of Portable implementations.
+
+3. **Platform detection constants** (6 occurrences) — `OperatingSystem.IsBrowser()`, `IsWasi()`, `OSDescription`, `ProcessArchitecture`, `OSPlatformName`.
+
+4. **Embedded timezone database** (6 occurrences in TimeZoneInfo) — Browser/WASI loads TZ data via `Interop.Sys.GetTimeZoneData` from embedded resources instead of filesystem.
+
+5. **Interlocked intrinsics** (4 occurrences) — `TARGET_WASM` enables byte/ushort Exchange/CompareExchange as direct Mono WASM intrinsics.
+
+6. **Single-threaded fallbacks** (4 occurrences) — `FEATURE_SINGLE_THREADED` uses non-concurrent `Queue<object>` in ThreadPoolWorkQueue and disables IsMultithreadingSupported.
+
+**Important finding**: Most `TARGET_BROWSER` conditionals are at the **attribute level** (unsupported platform warnings) or in **platform-specific file variants** (already in separate .cs files chosen by csproj). Very few inline `#if TARGET_BROWSER` blocks exist in the shared SCC-relevant code. The threading area has the most, but they're primarily `[UnsupportedOSPlatform]` attribute conditionals, not code path conditionals.
+
+#### 3.5 ILLink.Descriptors — Force-Rooted Types
+
+**Types/methods force-preserved by descriptor files:**
+
+| Type | Methods | Why | When |
+|------|---------|-----|------|
+| ThreadPoolBoundHandle | .ctor | Interface impl workaround | Always |
+| ComponentActivator | GetFunctionPointer | Error experience for native hosting | Always |
+| ComponentActivator | LoadAssembly, LoadAssemblyBytes, LoadAssemblyAndGetFunctionPointer | Native hosting entry points | When EnableConsumingManagedCodeFromNativeHosting=true |
+| Task | ParentForDebugger, GetDelegateContinuationsForDebugger, SetNotificationForWaitCompletion | VS debugger | When Debugger.IsSupported=true (default) |
+| TaskScheduler | GetScheduledTasksForDebugger, GetTaskSchedulersForDebugger | VS debugger | When Debugger.IsSupported=true |
+| AsyncMethodBuilderCore | TryGetStateMachineForDebugger | Debugger | When Debugger.IsSupported=true |
+| Async*MethodBuilder (6 types) | ObjectIdForDebugger, SetNotificationForWaitCompletion | Debugger | When Debugger.IsSupported=true |
+| ThreadBlockingInfo | LockOwnerManagedThreadId | Debugger | When Debugger.IsSupported=true |
+| Task | GetActiveTaskFromId | VS Tasks Window | When Debugger.IsSupported=true |
+| MetadataUpdater | GetCapabilities | Hot reload | When Debugger.IsSupported=true |
+| Utf8StringMarshaller.ManagedToUnmanagedIn | FromManaged, ToUnmanaged, Free | GitHub issue #71847 | When Debugger.IsSupported=true |
+| EventSource | InitializeDefaultEventSources | Event initialization | When EventSource.IsSupported=true |
+| Thread (WASI-only) | RegisterWasiPollableHandle, RegisterWasiPollHook, PollWasiEventLoopUntil* | WASI poll hooks (accessed via UnsafeAccessor) | WASI only |
+
+**For browser WASM (published, DebuggerSupport=false)**:
+- Most debugger-rooted methods are **NOT preserved** (Debugger.IsSupported=false)
+- EventSource.InitializeDefaultEventSources is **NOT preserved** (EventSource.IsSupported=false)
+- ComponentActivator.GetFunctionPointer **IS preserved** (always)
+- ThreadPoolBoundHandle .ctor **IS preserved** (always)
+- Utf8StringMarshaller methods are **NOT preserved** (gated on Debugger.IsSupported)
+
+**Link attributes (attribute removal):**
+- When Debugger.IsSupported=false: removes DebuggableAttribute, DebuggerBrowsable, DebuggerDisplay, DebuggerHidden, DebuggerNonUserCode, DebuggerStepperBoundary, DebuggerStepThrough, DebuggerTypeProxy, DebuggerVisualizer
+- When MetadataUpdater.IsSupported=false: removes MetadataUpdateHandlerAttribute
+- When EventSource.IsSupported=false: removes EventSource/EventAttribute/EventData/EventField/EventIgnore/NonEvent
+- When COM.IsSupported=false: removes ClassInterface, ComDefaultInterface, ComEventInterface, ComSourceInterfaces, ComVisible, DispId, InterfaceType, ProgId
+- Always: removes TypeMapAttribute\`1, TypeMapAssociationAttribute\`1, TypeMapAssemblyTargetAttribute\`1
+
+#### 3.6 ILLink typeof(T) Optimizer Capabilities — Confirmed Blockers
+
+**Source code inspection of `src/tools/illink/src/linker/Linker.Steps/UnreachableBlocksOptimizer.cs` confirms all blockers:**
+
+| Blocker | Status | Evidence |
+|---------|--------|----------|
+| **`ldtoken` not recognized as constant** | **CONFIRMED** | `IsConstantValue()` (line ~388-410) only recognizes `Ldc_*`, `Ldnull`, `Ldstr`. `Code.Ldtoken` is absent. |
+| **`Type.GetTypeFromHandle` not an intrinsic** | **CONFIRMED** | `EvaluateIntrinsicCall()` (line ~326-362) only handles `System.String` methods (op_Equality, op_Inequality, Concat). No `System.Type` methods. |
+| **`Type.op_Equality` not an intrinsic** | **CONFIRMED** | Same code — only String's operators are handled. |
+| **No per-generic-instantiation context** | **CONFIRMED** | Cache is `Dictionary<MethodDefinition, MethodResult?>` (line ~25). Optimizer processes `MethodDefinition` not `MethodReference`. Generic parameters remain unresolved tokens on the analysis stack. |
+
+**Interesting nuance**: The internal `ConstantExpressionMethodAnalyzer.Analyze()` (line ~1767) **does** push `ldtoken` instructions onto the analysis stack. However, when these reach a `Call` to `Type.GetTypeFromHandle`, the analyzer falls through to `TryGetMethodCallResult` which resolves the callee to its `MethodDefinition` and tries to analyze its body — which fails since `GetTypeFromHandle` is a runtime intrinsic with no analyzable IL body.
+
+**Substitution value types supported**: The `CodeRewriterStep.CreateConstantResultInstruction` only supports bool, int, long, float, double, string, and null. **Type objects cannot be substitution values.**
+
+**What a fix would require (ordered by difficulty):**
+
+1. **Easy**: Add `Type.GetTypeFromHandle` as intrinsic — fold `ldtoken X` + `call GetTypeFromHandle` into a known Type constant (when X is a concrete TypeReference, not a GenericParameter)
+2. **Easy**: Add `Type.op_Equality/Inequality` as intrinsic — compare two Type constants and produce `ldc.i4.0/1`
+3. **Medium**: Add `ldtoken` of concrete types as constant-propagatable value in `IsConstantValue()` — enables the call chain
+4. **Hard**: Per-instantiation optimization context — required for open generic `T` (e.g., `typeof(T)` in `Scalar<byte>`)
+
+Changes 1-3 would immediately help code like `typeof(int) == typeof(byte)` (concrete types). But the real SCC-breaking win requires change 4 — optimizing each generic instantiation separately. This is fundamental because `typeof(T)` in `Scalar<T>.Add()` is only constant when we know T=byte.
+
+**Comparison with other optimizer patterns:**
+- IntPtr.Size→4/8, GlobalizationMode.Invariant→true/false use simple method body replacement (substitution XML)
+- IsHardwareAccelerated→true/false, IsSupported→false same pattern
+- These are all method-level: the linker replaces the entire method body with `return <constant>`
+- The `typeof(T)` pattern requires **instruction-level** analysis within a method body — a qualitatively different optimization
+
+#### 3.7 Key Findings & Implications for Later Phases
+
+1. **The existing trimming infrastructure is mature and well-structured.** 16+ feature switches, 14 substitution files, platform-specific file selection via csproj conditions, and attribute-level rooting create a layered system.
+
+2. **Browser WASM already gets aggressive trimming** — EventSource, Debugger, Metrics are all disabled. Globalization is invariant. Vector256/512, all x86/ARM intrinsics are stubbed false. Only Vector128 + PackedSimd are enabled.
+
+3. **Remaining optimization gaps for browser WASM:**
+   - `RuntimeFeature.IsDynamicCodeSupported` remains **true** — Reflection.Emit stays reachable. Setting this to false could allow trimming Emit types, but Blazor **uses** DynamicMethod (via Linq.Expressions), so this can't be turned off universally.
+   - `StackTrace.IsSupported` remains **true** — keeps StackTrace→Reflection coupling alive.
+   - `StartupHookProvider.IsSupported` remains **true** — could be disabled for published apps.
+   - No feature switch exists for Reflection.Emit specifically (separate from DynamicCode).
+   - No feature switch exists for DefaultBinder (pulled in by Reflection).
+   - No typeof(T) folding — the #1 SCC coupling mechanism is completely unaddressed.
+
+4. **The `#if TARGET_BROWSER` conditionals are mostly well-structured** — platform variants use separate source files (chosen by csproj), and inline conditionals are primarily attribute-level guards, not major code path changes. **No opportunities for additional compile-time trimming** were found that aren't already covered.
+
+5. **The ILLink typeof(T) gap is the single biggest untapped optimization.** 18/29 SCC sub-clusters are connected through `typeof(T) ==` patterns that the linker cannot fold. This affects:
+   - Scalar\`1 (8,177B, 11 methods) — every branch is `typeof(T) == typeof(X)`
+   - Vector128/256/512 type-dispatch methods
+   - Dictionary/HashSet `typeof(TKey).IsValueType` checks
+   - NumberFormatInfo generic TChar dispatch
+   - Enum formatting/parsing generic helpers
+   - HexConverter and other generic utility methods
+
+6. **A new feature switch for Reflection.Emit** (Strategy B from Phase 5) could be the most practical near-term win. Unlike typeof(T) folding (which requires hard ILLink work), adding `System.Reflection.Emit.IsSupported=false` could:
+   - Stub TypeBuilder/ILGenerator/DynamicMethod constructors
+   - Break 123 bidirectional edges between 1D (Emit) and 1C (Reflection)
+   - Remove ~5.4 KB of IL from the SCC
+   - However: requires confirming Blazor doesn't need it (it does use DynamicMethod via Linq.Expressions)
+
+7. **The force-rooted types are minimal for browser WASM** — with Debugger.IsSupported=false and EventSource.IsSupported=false, most descriptor-rooted methods are already eliminated. Only ComponentActivator.GetFunctionPointer and ThreadPoolBoundHandle..ctor remain unconditionally rooted.
 
 ---
 
-## Phase 4: Method-Level SCC Analysis [REVISED — was Phase 3]
+## Phase 4: Method-Level SCC Analysis
 
 Phase 2 proved cluster-level Tarjan is useless (single SCC). We need method-level cycle analysis.
 
@@ -793,3 +1048,13 @@ Using method-level Tarjan results from Phase 4B, identify specific methods where
 - Phase 4: Method-level Tarjan with full call graph, validate coupling theories
 - Phase 5: Propose 4 focused strategies (typeof(T) linker opt, Emit switch, HexConverter decouple, method-level cuts)
 - Phase 6: Implement top strategies + validate with builds and tests
+
+---
+
+# Opportunities
+ - `StackTrace.IsSupported` remains **true** — keeps StackTrace→Reflection coupling alive.
+ - `StartupHookProvider.IsSupported` remains **true** — could be disabled for published apps.
+ - cut `HexConverter` -> `Vector128` https://github.com/dotnet/runtime/pull/125040
+ - `SupportsWasmIntrinsics`
+ - `ILLinkEqT` - typeof(T) Linker Optimization
+ - `System.Reflection.Emit.IsSupported` - https://gist.github.com/pavelsavara/54d2776c5479642f02654d2b3a8afa85
