@@ -1174,14 +1174,16 @@ Using method-level Tarjan results from Phase 4B, identify specific methods where
 ---
 
 # Opportunities
+ - cut `HexConverter` -> `Vector128` https://github.com/dotnet/runtime/pull/125040
+ - `System.Reflection.Emit.IsSupported` - https://gist.github.com/pavelsavara/54d2776c5479642f02654d2b3a8afa85
+ - `typeof(T)` ILLink https://gist.github.com/pavelsavara/abfc66b8e463d237902317b0f67e9c1e
+ - - `CustomAttribute::IsDefined` - https://gist.github.com/pavelsavara/df8165368f746039765bc16db9417c59
+ 
  - `StackTrace.IsSupported` remains **true** — keeps StackTrace→Reflection coupling alive.
  - `StartupHookProvider.IsSupported` remains **true** — could be disabled for published apps.
- - cut `HexConverter` -> `Vector128` https://github.com/dotnet/runtime/pull/125040
  - `SupportsWasmIntrinsics`
- - `ILLinkEqT` - typeof(T) Linker Optimization
- - `System.Reflection.Emit.IsSupported` - https://gist.github.com/pavelsavara/54d2776c5479642f02654d2b3a8afa85
- - COM/swift interop ?
+  - COM/swift interop ?
  - threads substitution
  - `RuntimeParameterInfo::IsDefined`
  - `RuntimeTypeBuilder::get_UnderlyingSystemType` → `Type::get_IsEnum`
- - `CustomAttribute::IsDefined`
+ 
