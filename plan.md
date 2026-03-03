@@ -4,13 +4,12 @@
 
 ## Good
  - `SupportsWasmIntrinsics` - https://github.com/dotnet/runtime/pull/125046
+ - COM interop - https://github.com/dotnet/runtime/pull/125083
+ - synchronization primitives https://github.com/dotnet/runtime/pull/125084
 
 # ???
- - COM interop - https://gist.github.com/pavelsavara/0e4f72a9f194ca758d6dbdb6bacd06d6
- - threads substitution
  - `System.Reflection.Emit.IsSupported` - https://gist.github.com/pavelsavara/54d2776c5479642f02654d2b3a8afa85
  - `StackTrace.IsSupported` - https://gist.github.com/pavelsavara/0abddc9c048edfad39078e7a1fe7e222
- 
 
 # Meh
  - cut `HexConverter` -> `Vector128` https://github.com/dotnet/runtime/pull/125040
