@@ -6,7 +6,7 @@ import type {
     EmscriptenModuleInternal, InternalExchange, InternalExchangeSubscriber,
     RuntimeAPI, LoaderExports, BrowserUtilsExports, RuntimeExports,
     VoidPtr, JSMarshalerArguments, CSFnHandle, TypedArray,
-    MemOffset, CharPtrPtr
+    MemOffset, CharPtrPtr, CharPtr
 } from "../types";
 
 // we want to use the cross-module symbols defined in closure of dotnet.native.js
@@ -28,6 +28,7 @@ export type EmsAmbientSymbolsType = EmscriptenModuleInternal & {
     _SystemJS_ExecuteTimerCallback: () => void;
     _SystemJS_ExecuteBackgroundJobCallback: () => void;
     _SystemJS_ExecuteFinalizationCallback: () => void;
+    _SystemJS_ExecuteDiagnosticServerCallback: () => void;
     _BrowserHost_CreateHostContract: () => VoidPtr;
     _BrowserHost_InitializeDotnet: (propertiesCount: number, propertyKeys: CharPtrPtr, propertyValues: CharPtrPtr) => number;
     _BrowserHost_ExecuteAssembly: (mainAssemblyNamePtr: number, argsLength: number, argsPtr: number) => number;
@@ -40,6 +41,9 @@ export type EmsAmbientSymbolsType = EmscriptenModuleInternal & {
     _SystemInteropJS_BindAssemblyExports: (args: JSMarshalerArguments) => void;
     _SystemInteropJS_CallJSExport: (methodHandle: CSFnHandle, args: JSMarshalerArguments) => void;
 
+    // mono
+    _BrowserHost_AddAssembly: (name: CharPtr, data: VoidPtr, size: number) => number;
+
     FS: {
         createPath: (parent: string, path: string, canRead?: boolean, canWrite?: boolean) => string;
         createDataFile: (parent: string, name: string, data: TypedArray, canRead: boolean, canWrite: boolean, canOwn?: boolean) => string;
@@ -51,6 +55,7 @@ export type EmsAmbientSymbolsType = EmscriptenModuleInternal & {
         lastScheduledTimerId?: number;
         lastScheduledThreadPoolId?: number;
         lastScheduledFinalizationId?: number;
+        lastScheduledDiagnosticServerId?: number;
         cryptoWarnOnce?: boolean;
         isAborting?: boolean;
         isAsyncMain?: boolean;

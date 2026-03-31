@@ -55,7 +55,8 @@ function libBrowserHostFactory() {
     let explicitImportsBuilder = "";
     for (const exportName of Reflect.ownKeys(exports)) {
         const name = String(exportName);
-        if (name === "dotnetInitializeModule") continue;
+        if (name === "dotnetInitializeModule" || name === "runtimeFlavor") continue;
+        if (exports.runtimeFlavor === "CoreCLR" && name === "BrowserHost_AddAssembly") continue;
         mergeBrowserHost[name] = () => "dummy";
         assignExportsBuilder += `_${String(name)} = exports.${String(name)};\n`;
     }

@@ -1,6 +1,8 @@
 // Licensed to the .NET Foundation under one or more agreements.
 // The .NET Foundation licenses this file to you under the MIT license.
 
+import RuntimeFlavor from "consts:runtimeFlavor";
+
 import type { CharPtr, VfsAsset, VoidPtr, VoidPtrPtr } from "../types";
 import { _ems_ } from "../ems-ambient";
 
@@ -38,9 +40,17 @@ export function registerDllBytes(bytes: Uint8Array, virtualPath: string, shortNa
         const ptr = _ems_.HEAPU32[ptrPtr as any >>> 2];
         _ems_.HEAPU8.set(bytes, ptr >>> 0);
 
-        _ems_.dotnetLogger.debug(`Registered assembly '${virtualPath}' (shortName: '${shortName}') at ${ptr.toString(16)} length ${bytes.length}`);
-        loadedAssemblies.set(virtualPath, { ptr, length: bytes.length });
-        loadedAssemblies.set(shortName, { ptr, length: bytes.length });
+        const name = virtualPath.substring(virtualPath.lastIndexOf("/") + 1);
+        _ems_.dotnetLogger.debug(`Registered assembly '${virtualPath}' (name: '${name}') at ${ptr.toString(16)} length ${bytes.length}`);
+        if (RuntimeFlavor === "CoreCLR") {
+            loadedAssemblies.set(virtualPath, { ptr, length: bytes.length });
+            loadedAssemblies.set(name, { ptr, length: bytes.length });
+        } else {
+            _ems_.dotnetLogger.debug(`Registering assembly '${virtualPath}' (name: '${name}') at ${ptr.toString(16)} length ${bytes.length}`);
+            const namePtr = _ems_.dotnetBrowserUtilsExports.stringToUTF8Ptr(name.replace(/\.wasm$/, ".dll"));
+            _ems_._BrowserHost_AddAssembly(namePtr, ptr as any as VoidPtr, bytes.length);
+            _ems_._free(namePtr as any as VoidPtr);
+        }
     } finally {
         _ems_.stackRestore(sp);
     }

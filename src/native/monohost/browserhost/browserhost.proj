@@ -1,0 +1,221 @@
+<Project Sdk="Microsoft.Build.NoTargets">
+
+  <!--
+    Mono browser host build project.
+    Follows the same pattern as src/native/corehost/corehost.proj for browser targets.
+  -->
+  <Import Project="$(RepositoryEngineeringDir)versioning.targets" />
+  <Import Project="$(RepositoryEngineeringDir)native.wasm.targets" Condition="'$(TargetsBrowser)' == 'true'" />
+
+  <PropertyGroup>
+    <IncrementalNativeBuild Condition="'$(IncrementalNativeBuild)' == ''">true</IncrementalNativeBuild>
+    <BuildMonoHostDependsOn>GenerateRuntimeVersionFile</BuildMonoHostDependsOn>
+    <BuildMonoHostDependsOn Condition="'$(TargetsBrowser)' == 'true'">AcquireEmscriptenSdk;$(BuildMonoHostDependsOn);GenerateManagedToNative;GenerateMonoExports;GenerateEmccExports;ResolveRuntimeFilesFromLocalBuild</BuildMonoHostDependsOn>
+    <CopyWasmNativeFilesDependsOn Condition="'$(TargetOS)' == 'windows'">BuildMonoHostOnWindows</CopyWasmNativeFilesDependsOn>
+    <CopyWasmNativeFilesDependsOn Condition="'$(TargetOS)' != 'windows'">BuildMonoHostOnUnix</CopyWasmNativeFilesDependsOn>
+    <IntermediateOutputRootPath>$(ArtifactsObjDir)$(TargetRid).$(Configuration)\</IntermediateOutputRootPath>
+    <!-- Global location for version files -->
+    <NativeVersionFile Condition="$([MSBuild]::IsOsPlatform(Windows))">$(ArtifactsObjDir)_version.h</NativeVersionFile>
+    <NativeVersionFile Condition="!$([MSBuild]::IsOsPlatform(Windows))">$(ArtifactsObjDir)_version.c</NativeVersionFile>
+  </PropertyGroup>
+
+  <!-- ================================================================== -->
+  <!-- Generate PInvoke tables (pinvoke-table.h, wasm_m2n_invoke.g.h)    -->
+  <!-- Same pattern as src/mono/browser/browser.proj GenerateManagedToNative -->
+  <!-- ================================================================== -->
+  <UsingTask TaskName="ManagedToNativeGenerator" AssemblyFile="$(WasmAppBuilderTasksAssemblyPath)" TaskFactory="TaskHostFactory" />
+
+  <PropertyGroup>
+    <!-- MonoObjDir as defined in src/mono/Directory.Build.props — browserhost is outside that tree -->
+    <_BrowserHostMonoObjDir>$([MSBuild]::NormalizeDirectory('$(ArtifactsObjDir)', 'mono', 'browser.wasm.$(Configuration)'))</_BrowserHostMonoObjDir>
+    <_BrowserHostPInvokeDir>$([MSBuild]::NormalizeDirectory('$(ArtifactsObjDir)', 'monohost-wasm'))</_BrowserHostPInvokeDir>
+  </PropertyGroup>
+
+  <Target Name="GenerateManagedToNative"
+          Condition="'$(TargetsBrowser)' == 'true'"
+          DependsOnTargets="ResolveLibrariesFromLocalBuild;ResolveRuntimeFilesFromLocalBuild">
+    <PropertyGroup>
+      <_PInvokeTablePath>$(_BrowserHostPInvokeDir)pinvoke-table.h</_PInvokeTablePath>
+      <_InterpToNativeTablePath>$(_BrowserHostPInvokeDir)wasm_m2n_invoke.g.h</_InterpToNativeTablePath>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <WasmPInvokeModule Include="libSystem.Native" />
+      <WasmPInvokeModule Include="libSystem.IO.Compression.Native" />
+      <WasmPInvokeModule Include="libSystem.Globalization.Native" />
+      <WasmPInvokeModule Include="libSystem.Native.Browser" />
+      <WasmPInvokeModule Include="libSystem.Runtime.InteropServices.JavaScript.Native" />
+      <WasmPInvokeModule Include="libz" />
+      <WasmPInvokeAssembly Include="@(LibrariesRuntimeFiles)" Condition="'%(Extension)' == '.dll' and '%(IsNative)' != 'true'" />
+    </ItemGroup>
+
+    <!-- Retrieve CoreLib's targetpath via GetTargetPath as it isn't binplaced yet. -->
+    <MSBuild Projects="$(CoreLibProject)"
+             Targets="GetTargetPath">
+      <Output TaskParameter="TargetOutputs" ItemName="WasmPInvokeAssembly" />
+    </MSBuild>
+
+    <MakeDir Directories="$(_BrowserHostPInvokeDir)" Condition="!Exists('$(_BrowserHostPInvokeDir)')" />
+
+    <ManagedToNativeGenerator
+      Assemblies="@(WasmPInvokeAssembly)"
+      PInvokeModules="@(WasmPInvokeModule)"
+      PInvokeOutputPath="$(_PInvokeTablePath)"
+      InterpToNativeOutputPath="$(_InterpToNativeTablePath)">
+      <Output TaskParameter="FileWrites" ItemName="FileWrites" />
+    </ManagedToNativeGenerator>
+
+    <!-- Copy generated headers to MonoObjDir where CMakeLists.txt expects them -->
+    <MakeDir Directories="$(_BrowserHostMonoObjDir)" Condition="!Exists('$(_BrowserHostMonoObjDir)')" />
+    <Copy SourceFiles="$(_PInvokeTablePath)" DestinationFolder="$(_BrowserHostMonoObjDir)" SkipUnchangedFiles="true" />
+    <Copy SourceFiles="$(_InterpToNativeTablePath)" DestinationFolder="$(_BrowserHostMonoObjDir)" SkipUnchangedFiles="true" />
+  </Target>
+
+  <!-- Add Mono-specific exported functions/methods before GenerateEmccExports serializes them -->
+  <Target Name="GenerateMonoExports" Condition="'$(TargetsBrowser)' == 'true'">
+    <ItemGroup>
+      <!-- TODO-WASM: Jiterpreter exports
+      <EmccExportedRuntimeMethod Include="wasmExports" />
+
+      <EmccExportedFunction Include="_fmod" />
+      <EmccExportedFunction Include="_atan2" />
+      <EmccExportedFunction Include="_fma" />
+      <EmccExportedFunction Include="_pow" />
+      <EmccExportedFunction Include="_fmodf" />
+      <EmccExportedFunction Include="_atan2f" />
+      <EmccExportedFunction Include="_fmaf" />
+      <EmccExportedFunction Include="_powf" />
+
+      <EmccExportedFunction Include="_asin" />
+      <EmccExportedFunction Include="_asinh" />
+      <EmccExportedFunction Include="_acos" />
+      <EmccExportedFunction Include="_acosh" />
+      <EmccExportedFunction Include="_atan" />
+      <EmccExportedFunction Include="_atanh" />
+      <EmccExportedFunction Include="_cbrt" />
+      <EmccExportedFunction Include="_cos" />
+      <EmccExportedFunction Include="_cosh" />
+      <EmccExportedFunction Include="_exp" />
+      <EmccExportedFunction Include="_log" />
+      <EmccExportedFunction Include="_log2" />
+      <EmccExportedFunction Include="_log10" />
+      <EmccExportedFunction Include="_sin" />
+      <EmccExportedFunction Include="_sinh" />
+      <EmccExportedFunction Include="_tan" />
+      <EmccExportedFunction Include="_tanh" />
+
+      <EmccExportedFunction Include="_asinf" />
+      <EmccExportedFunction Include="_asinhf" />
+      <EmccExportedFunction Include="_acosf" />
+      <EmccExportedFunction Include="_acoshf" />
+      <EmccExportedFunction Include="_atanf" />
+      <EmccExportedFunction Include="_atanhf" />
+      <EmccExportedFunction Include="_cbrtf" />
+      <EmccExportedFunction Include="_cosf" />
+      <EmccExportedFunction Include="_coshf" />
+      <EmccExportedFunction Include="_expf" />
+      <EmccExportedFunction Include="_logf" />
+      <EmccExportedFunction Include="_log2f" />
+      <EmccExportedFunction Include="_log10f" />
+      <EmccExportedFunction Include="_sinf" />
+      <EmccExportedFunction Include="_sinhf" />
+      <EmccExportedFunction Include="_tanf" />
+      <EmccExportedFunction Include="_tanhf" />
+       -->
+    </ItemGroup>
+  </Target>
+
+  <Target Name="BuildMonoHostOnUnix"
+          Condition="'$(HostOS)' != 'windows'"
+          AfterTargets="Build"
+          DependsOnTargets="$(BuildMonoHostDependsOn)">
+    <PropertyGroup>
+      <CMakeBuildDir>$(IntermediateOutputRootPath)monohost\cmake\</CMakeBuildDir>
+      <BuildScript>$([MSBuild]::NormalizePath('$(MSBuildThisFileDirectory)', '..', 'build.sh'))</BuildScript>
+
+      <_MonoHostUnixTargetOS>$(TargetOS)</_MonoHostUnixTargetOS>
+      <BuildArgs>$(Configuration) $(TargetArchitecture) -commithash "$([MSBuild]::ValueOrDefault('$(SourceRevisionId)', 'N/A'))" -os $(_MonoHostUnixTargetOS)</BuildArgs>
+      <BuildArgs>$(BuildArgs) -cmakeargs "-DVERSION_FILE_PATH=$(NativeVersionFile)"</BuildArgs>
+    </PropertyGroup>
+
+    <PropertyGroup>
+      <BuildArgs Condition="'$(ConfigureOnly)' == 'true'">$(BuildArgs) -configureonly</BuildArgs>
+      <BuildArgs Condition="'$(PortableBuild)' != 'true'">$(BuildArgs) -portablebuild=false</BuildArgs>
+      <BuildArgs Condition="'$(KeepNativeSymbols)' != 'false'">$(BuildArgs) -keepnativesymbols</BuildArgs>
+      <BuildArgs Condition="'$(CrossBuild)' == 'true'">$(BuildArgs) -cross</BuildArgs>
+      <BuildArgs Condition="'$(Compiler)' != ''">$(BuildArgs) $(Compiler)</BuildArgs>
+      <BuildArgs Condition="'$(CMakeArgs)' != ''">$(BuildArgs) -cmakeargs "$(CMakeArgs)"</BuildArgs>
+      <BuildArgs Condition="'$(Ninja)' == 'true'">$(BuildArgs) -ninja</BuildArgs>
+      <BuildArgs>$(BuildArgs) -runtimeflavor $(RuntimeFlavor)</BuildArgs>
+      <BuildArgs Condition="'$(EnableNativeSanitizers)' != ''">$(BuildArgs) -fsanitize=$(EnableNativeSanitizers)</BuildArgs>
+      <BuildArgs Condition="'$(OfficialBuildId)' != ''">$(BuildArgs) /p:OfficialBuildId="$(OfficialBuildId)"</BuildArgs>
+      <BuildArgs>$(BuildArgs) -targetrid $(TargetRid)</BuildArgs>
+    </PropertyGroup>
+
+    <!--
+      Use IgnoreStandardErrorWarningFormat because Arcade sets WarnAsError and we want to avoid
+      upgrading compiler warnings to errors in release branches.
+    -->
+    <Message Text="&quot;$(BuildScript)&quot; $(BuildArgs) @(NativeCMakeArg, ' ')" Importance="High"/>
+    <Exec Command="&quot;$(BuildScript)&quot; $(BuildArgs) @(NativeCMakeArg, ' ')" IgnoreStandardErrorWarningFormat="true"/>
+  </Target>
+
+  <Target Name="BuildMonoHostOnWindows"
+          Condition="'$(HostOS)' == 'windows'"
+          AfterTargets="Build"
+          DependsOnTargets="$(BuildMonoHostDependsOn)">
+    <PropertyGroup>
+      <BuildScript>$([MSBuild]::NormalizePath('$(MSBuildThisFileDirectory)', '..', 'build.cmd'))</BuildScript>
+
+      <BuildArgs>$(Configuration) $(TargetArchitecture) -os $(TargetOS) commit $([MSBuild]::ValueOrDefault('$(SourceRevisionId)', 'N/A')) targetrid $(TargetRid)</BuildArgs>
+      <BuildArgs Condition="'$(ConfigureOnly)' == 'true'">$(BuildArgs) configureonly</BuildArgs>
+      <BuildArgs Condition="'$(PortableBuild)' == 'true'">$(BuildArgs) portable</BuildArgs>
+      <BuildArgs Condition="'$(IncrementalNativeBuild)' == 'true'">$(BuildArgs) incremental-native-build</BuildArgs>
+      <BuildArgs>$(BuildArgs) rootdir $(RepoRoot)</BuildArgs>
+      <BuildArgs Condition="'$(Ninja)' == 'false'">$(BuildArgs) msbuild</BuildArgs>
+      <BuildArgs>$(BuildArgs) runtimeflavor $(RuntimeFlavor)</BuildArgs>
+      <BuildArgs>$(BuildArgs) runtimeconfiguration $(RuntimeConfiguration)</BuildArgs>
+      <BuildArgs Condition="'$(EnableNativeSanitizers)' != ''">$(BuildArgs) -fsanitize=$(EnableNativeSanitizers)</BuildArgs>
+    </PropertyGroup>
+
+    <!--
+      Run script that invokes Cmake to create VS files, and then calls msbuild to compile them. Use
+      IgnoreStandardErrorWarningFormat because Arcade sets WarnAsError and we want to avoid
+      upgrading compiler warnings to errors in release branches.
+    -->
+    <Message Text="&quot;$(BuildScript)&quot; $(BuildArgs) @(NativeCMakeArg, ' ')" Importance="High"/>
+    <Exec Command="&quot;$(BuildScript)&quot; $(BuildArgs) @(NativeCMakeArg, ' ')" IgnoreStandardErrorWarningFormat="true"/>
+  </Target>
+
+  <Target Name="CopyWasmNativeFiles" AfterTargets="Build" DependsOnTargets="$(CopyWasmNativeFilesDependsOn)" Condition="'$(TargetsBrowser)' == 'true'">
+    <!-- Compute paths at execution time — liveBuilds.targets only re-sets them for CoreCLR in ResolveRuntimeFilesFromLocalBuild -->
+    <PropertyGroup>
+      <LibrariesSharedFrameworkDir>$([MSBuild]::NormalizeDirectory('$(LibrariesNativeArtifactsPath)', 'sharedFramework'))</LibrariesSharedFrameworkDir>
+      <HostSharedFrameworkDir>$([MSBuild]::NormalizeDirectory('$(HostArtifactsPath)', 'sharedFramework'))</HostSharedFrameworkDir>
+    </PropertyGroup>
+    <ItemGroup>
+      <_MicrosoftNetCoreAppRuntimePackNativeDirFiles Include="$(LibrariesSharedFrameworkDir)package.json" />
+      <_MicrosoftNetCoreAppRuntimePackNativeDirFiles Include="$(LibrariesSharedFrameworkDir)dotnet.d.ts" />
+      <_MicrosoftNetCoreAppRuntimePackNativeDirFiles Include="$(LibrariesSharedFrameworkDir)*.map" />
+      <_MicrosoftNetCoreAppRuntimePackNativeDirFiles Include="$(LibrariesSharedFrameworkDir)*.js" />
+      <_MicrosoftNetCoreAppRuntimePackNativeDirFiles Include="$(LibrariesSharedFrameworkDir)*.a" />
+      <_MicrosoftNetCoreAppRuntimePackNativeDirFiles Include="$(LibrariesSharedFrameworkDir)*.dat" />
+      <_MicrosoftNetCoreAppRuntimePackNativeDirFiles Include="$(HostSharedFrameworkDir)libMonoHost.a" />
+      <_MicrosoftNetCoreAppRuntimePackNativeDirFiles Include="$(HostSharedFrameworkDir)dotnet.native.js" />
+      <_MicrosoftNetCoreAppRuntimePackNativeDirFiles Condition="Exists('$(HostSharedFrameworkDir)dotnet.native.js.symbols')" Include="$(HostSharedFrameworkDir)dotnet.native.js.symbols" />
+      <_MicrosoftNetCoreAppRuntimePackNativeDirFiles Include="$(HostSharedFrameworkDir)dotnet.native.wasm" />
+    </ItemGroup>
+
+    <Copy SourceFiles="@(_MicrosoftNetCoreAppRuntimePackNativeDirFiles)"
+          DestinationFolder="$(MicrosoftNetCoreAppRuntimePackNativeDir)"
+          SkipUnchangedFiles="true" />
+
+    <!-- Also copy to $(LibrariesNativeArtifactsPath) root, where the Mono-flavor
+         sfxproj / libs.pretest expects files (without sharedFramework/ subdirectory). -->
+    <Copy SourceFiles="@(_MicrosoftNetCoreAppRuntimePackNativeDirFiles)"
+          DestinationFolder="$(LibrariesNativeArtifactsPath)"
+          SkipUnchangedFiles="true" />
+  </Target>
+
+  <Import Project="$(RepositoryEngineeringDir)nativeSanitizers.targets" />
+</Project>

@@ -6,6 +6,7 @@ import { InternalExchangeIndex } from "./types";
 import { _ems_ } from "../ems-ambient";
 
 import GitHash from "consts:gitHash";
+import RuntimeFlavor from "consts:runtimeFlavor";
 
 import { runMain, runMainAndExit, initializeCoreCLR } from "./host";
 import { registerPdbBytes, instantiateWebcilModule, registerDllBytes, installVfsFile, loadIcuData, instantiateWasm, } from "./assets";
@@ -66,5 +67,5 @@ function setupEmscripten() {
         _ems_.ENV[key] = loaderConfig.environmentVariables[key];
     }
 }
-
+export const runtimeFlavor = RuntimeFlavor;
 export { BrowserHost_ExternalAssemblyProbe } from "./assets";

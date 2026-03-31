@@ -35,9 +35,7 @@ export function SystemJS_ScheduleBackgroundJob(): void {
         return;
     }
     if (_ems_.DOTNET.lastScheduledThreadPoolId) {
-        globalThis.clearTimeout(_ems_.DOTNET.lastScheduledThreadPoolId);
-        _ems_.runtimeKeepalivePop();
-        _ems_.DOTNET.lastScheduledThreadPoolId = undefined;
+        return;
     }
     _ems_.DOTNET.lastScheduledThreadPoolId = _ems_.safeSetTimeout(SystemJS_ScheduleBackgroundJobTick, 0);
 
@@ -61,9 +59,7 @@ export function SystemJS_ScheduleFinalization(): void {
         return;
     }
     if (_ems_.DOTNET.lastScheduledFinalizationId) {
-        globalThis.clearTimeout(_ems_.DOTNET.lastScheduledFinalizationId);
-        _ems_.runtimeKeepalivePop();
-        _ems_.DOTNET.lastScheduledFinalizationId = undefined;
+        return;
     }
     _ems_.DOTNET.lastScheduledFinalizationId = _ems_.safeSetTimeout(SystemJS_ScheduleFinalizationTick, 0);
 
@@ -71,6 +67,31 @@ export function SystemJS_ScheduleFinalization(): void {
         try {
             _ems_.DOTNET.lastScheduledFinalizationId = undefined;
             _ems_._SystemJS_ExecuteFinalizationCallback();
+        } catch (error: any) {
+            // do not propagate ExitStatus exception
+            if (!error || typeof error.status !== "number") {
+                _ems_.dotnetApi.exit(1, error);
+                throw error;
+            }
+        }
+    }
+}
+
+export function SystemJS_ScheduleDiagnosticServerJob (): void {
+    if (_ems_.ABORT || _ems_.DOTNET.isAborting) {
+        // runtime is shutting down
+        return;
+    }
+
+    if (_ems_.DOTNET.lastScheduledDiagnosticServerId) {
+        return;
+    }
+    _ems_.DOTNET.lastScheduledDiagnosticServerId = _ems_.safeSetTimeout(SystemJS_ScheduleDiagnosticServerTick, 0);
+
+    function SystemJS_ScheduleDiagnosticServerTick (): void {
+        try {
+            _ems_.DOTNET.lastScheduledDiagnosticServerId = undefined;
+            _ems_._SystemJS_ExecuteDiagnosticServerCallback();
         } catch (error: any) {
             // do not propagate ExitStatus exception
             if (!error || typeof error.status !== "number") {

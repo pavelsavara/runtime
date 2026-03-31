@@ -160,6 +160,26 @@ const libBrowserHost = configure({
     }
 });
 
+const libMonoHost = configure({
+    input: "./libs/Common/JavaScript/host/index.ts",
+    output: [{
+        name: "libMonoHost",
+        format: "iife",
+        file: staticLibDestination + "/libMonoHost.js",
+        footer: await fs.readFile("./monohost/browserhost/libMonoHost.footer.js"),
+    }],
+    terser: {
+        compress: {
+            toplevel: true,
+            keep_fnames,
+        }, mangle: {
+            toplevel: true,
+            keep_fnames,
+            reserved,
+        }
+    }
+});
+
 export default defineConfig([
     dotnetJS,
     dotnetDTS,
@@ -168,7 +188,7 @@ export default defineConfig([
     dotnetDiagnosticsJS,
     dotnetRuntimeJS,
     libInteropJavaScriptNative,
-    libBrowserHost,
+    runtimeFlavor !== "Mono" ? libBrowserHost : libMonoHost,
 ]);
 
 function configure({ input, output, terser, external }) {

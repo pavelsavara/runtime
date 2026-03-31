@@ -12,13 +12,15 @@ set(ROLLUP_TS_SOURCES
     "${CLR_SRC_NATIVE_DIR}/rollup.config.defines.js"
     "${CLR_SRC_NATIVE_DIR}/rollup.config.plugins.js"
 
-    "${CLR_SRC_NATIVE_DIR}/corehost/browserhost/libBrowserHost.footer.js"
     "${CLR_SRC_NATIVE_DIR}/libs/System.Native.Browser/libSystem.Native.Browser.Utils.footer.js"
     "${CLR_SRC_NATIVE_DIR}/libs/System.Native.Browser/libSystem.Native.Browser.extpost.js"
     "${CLR_SRC_NATIVE_DIR}/libs/System.Native.Browser/libSystem.Native.Browser.footer.js"
     "${CLR_SRC_NATIVE_DIR}/libs/System.Runtime.InteropServices.JavaScript.Native/libSystem.Runtime.InteropServices.JavaScript.Native.footer.js"
 
+    "${CLR_SRC_NATIVE_DIR}/corehost/browserhost/libBrowserHost.footer.js"
     "${CLR_SRC_NATIVE_DIR}/corehost/browserhost/types.ts"
+    "${CLR_SRC_NATIVE_DIR}/monohost/browserhost/libMonoHost.footer.js"
+    "${CLR_SRC_NATIVE_DIR}/monohost/browserhost/types.ts"
 
     "${CLR_SRC_NATIVE_DIR}/libs/Common/JavaScript/cross-module/index.ts"
     "${CLR_SRC_NATIVE_DIR}/libs/Common/JavaScript/ems-ambient/index.ts"
@@ -131,7 +133,10 @@ if(CMAKE_BUILD_RUNTIME_FLAVOR STREQUAL "CoreCLR")
         "${STATIC_LIB_DESTINATION}/libBrowserHost.js.map"
     )
 else()
-    #error TODO Mono
+    LIST(APPEND ROLLUP_OUTPUTS
+        "${STATIC_LIB_DESTINATION}/libMonoHost.js"
+        "${STATIC_LIB_DESTINATION}/libMonoHost.js.map"
+    )
 endif()
 
 
