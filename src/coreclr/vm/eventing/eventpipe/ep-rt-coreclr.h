@@ -622,13 +622,12 @@ void
 ep_rt_notify_profiler_provider_created (EventPipeProvider *provider)
 {
 	STATIC_CONTRACT_NOTHROW;
-xxx
-#ifndef DACCESS_COMPILE
+#if !defined(DACCESS_COMPILE) && defined(PROFILING_SUPPORTED)
 		// Let the profiler know the provider has been created so it can register if it wants to
 		BEGIN_PROFILER_CALLBACK (CORProfilerTrackEventPipe ());
 		(&g_profControlBlock)->EventPipeProviderCreated (provider);
 		END_PROFILER_CALLBACK ();
-#endif // DACCESS_COMPILE
+#endif // !DACCESS_COMPILE && PROFILING_SUPPORTED
 }
 
 /*
