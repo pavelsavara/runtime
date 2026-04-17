@@ -54,6 +54,8 @@ set(SHARED_LIB_DESTINATION
     ${CLR_ARTIFACTS_BIN_DIR}/native/net${CMAKE_NET_CORE_APP_CURRENT_VERSION}-browser-${CMAKE_BUILD_LIBRARIES_CONFIGURATION}-wasm/sharedFramework)
 set(SHARED_CLR_DESTINATION
     ${CLR_ARTIFACTS_BIN_DIR}/coreclr/browser.wasm.${CMAKE_BUILD_RUNTIME_CONFIGURATION}/sharedFramework)
+set(CLR_LIB_DESTINATION
+    ${CLR_ARTIFACTS_BIN_DIR}/coreclr/browser.wasm.${CMAKE_BUILD_RUNTIME_CONFIGURATION}/lib)
 
 # CoreCLR runtime .a libraries
 LIST(APPEND NATIVE_LIBS
@@ -63,6 +65,7 @@ LIST(APPEND NATIVE_LIBS
     ${SHARED_CLR_DESTINATION}/libcoreclrminipal.a
     ${SHARED_CLR_DESTINATION}/libcoreclrpal.a
     ${SHARED_CLR_DESTINATION}/libminipal.a
+    ${CLR_LIB_DESTINATION}/libeventprovider.a
 )
 
 # Shared platform .a libraries
