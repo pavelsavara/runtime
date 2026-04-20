@@ -1106,6 +1106,8 @@ public:
 
     int32_t* GetCode(int32_t *pCodeSize);
 
+    static bool s_samplingProfilerEnabled;
+
 #if MEASURE_MEM_ALLOC
     // Memory statistics for profiling.
     using InterpMemStats = MemStats<InterpMemKindTraits>;

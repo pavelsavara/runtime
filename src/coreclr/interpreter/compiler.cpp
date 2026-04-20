@@ -45,6 +45,8 @@ static const char *g_stackTypeString[] = { "I4", "I8", "R4", "R8", "O ", "VT", "
 
 const char* CorInfoHelperToName(CorInfoHelpFunc helper);
 
+bool InterpCompiler::s_samplingProfilerEnabled = false;
+
 #if MEASURE_MEM_ALLOC
 #include <minipal/mutex.h>
 
@@ -2809,7 +2811,11 @@ void InterpCompiler::EmitBranch(InterpOpcode opcode, int32_t ilOffset)
 
     // Backwards branch, emit safepoint
     if (ilOffset < 0)
+    {
         AddIns(INTOP_SAFEPOINT);
+        if (InterpCompiler::s_samplingProfilerEnabled)
+            AddIns(INTOP_PROF_SAMPLEPOINT);
+    }
 
     InterpBasicBlock *pTargetBB = m_ppOffsetToBB[target];
     if (pTargetBB == NULL)
@@ -8107,6 +8113,8 @@ void InterpCompiler::GenerateCode(CORINFO_METHOD_INFO* methodInfo)
     // Safepoint at each method entry. This could be done as part of a call, rather than
     // adding an opcode.
     AddIns(INTOP_SAFEPOINT);
+    if (InterpCompiler::s_samplingProfilerEnabled)
+        AddIns(INTOP_PROF_SAMPLEPOINT);
 
     if (m_continuationArgIndex != -1)
     {

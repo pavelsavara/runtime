@@ -12,6 +12,10 @@
 #include "gchelpers.inl"
 #include "arraynative.inl"
 
+#ifdef TARGET_WASM
+extern void SamplingProfiler_OnSamplepoint();
+#endif
+
 // for numeric_limits
 #include <limits>
 #include <functional>
@@ -1810,6 +1814,17 @@ SWITCH_OPCODE:
                     }
                     ip++;
                     break;
+
+#ifdef TARGET_WASM
+                case INTOP_PROF_SAMPLEPOINT:
+                    SamplingProfiler_OnSamplepoint();
+                    ip++;
+                    break;
+#else
+                case INTOP_PROF_SAMPLEPOINT:
+                    ip++;
+                    break;
+#endif
 
                 case INTOP_BR:
                     ip += ip[1];

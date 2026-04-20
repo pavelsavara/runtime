@@ -595,7 +595,10 @@ void
 ep_rt_sample_profiler_enabled (EventPipeEvent *sampling_event)
 {
     STATIC_CONTRACT_NOTHROW;
-    // no-op
+#ifdef PERFTRACING_DISABLE_THREADS
+    extern void ep_rt_coreclr_sample_profiler_enabled (EventPipeEvent *sampling_event);
+    ep_rt_coreclr_sample_profiler_enabled (sampling_event);
+#endif
 }
 
 static
@@ -604,7 +607,10 @@ void
 ep_rt_sample_profiler_session_enabled (void)
 {
     STATIC_CONTRACT_NOTHROW;
-    // no-op
+#ifdef PERFTRACING_DISABLE_THREADS
+    extern void ep_rt_coreclr_sample_profiler_session_enabled (void);
+    ep_rt_coreclr_sample_profiler_session_enabled ();
+#endif
 }
 
 static
@@ -613,7 +619,10 @@ void
 ep_rt_sample_profiler_disabled (void)
 {
     STATIC_CONTRACT_NOTHROW;
-    // no-op
+#ifdef PERFTRACING_DISABLE_THREADS
+    extern void ep_rt_coreclr_sample_profiler_disabled (void);
+    ep_rt_coreclr_sample_profiler_disabled ();
+#endif
 }
 
 static

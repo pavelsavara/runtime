@@ -30,6 +30,7 @@ add_custom_command(OUTPUT ${GEN_EVENTPIPE_SOURCES}
 
 list(APPEND CORECLR_EVENTPIPE_SHIM_SOURCES
   ep-rt-coreclr.cpp
+  ep-rt-coreclr-sampling.cpp
 )
 
 list(APPEND CORECLR_EVENTPIPE_SHIM_HEADERS
