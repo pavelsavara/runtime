@@ -46,6 +46,7 @@ static const char *g_stackTypeString[] = { "I4", "I8", "R4", "R8", "O ", "VT", "
 const char* CorInfoHelperToName(CorInfoHelpFunc helper);
 
 bool InterpCompiler::s_samplingProfilerEnabled = false;
+bool InterpCompiler::s_browserProfilerEnabled = false;
 
 #if MEASURE_MEM_ALLOC
 #include <minipal/mutex.h>
@@ -2107,6 +2108,9 @@ InterpCompiler::InterpCompiler(COMP_HANDLE compHnd,
     assert(jitFlagsSize == sizeof(m_corJitFlags));
 
     m_emitSamplingProfiler = s_samplingProfilerEnabled
+        && InterpConfig.WasmPerformanceInstrumentation().contains(compHnd, m_methodHnd, m_classHnd, &m_methodInfo->args);
+
+    m_emitBrowserProfiler = s_browserProfilerEnabled
         && InterpConfig.WasmPerformanceInstrumentation().contains(compHnd, m_methodHnd, m_classHnd, &m_methodInfo->args);
 
 #ifdef DEBUG
@@ -5657,6 +5661,9 @@ void InterpCompiler::EmitRet(CORINFO_METHOD_INFO* methodInfo)
         return;
     }
 
+    if (m_emitBrowserProfiler)
+        AddIns(INTOP_PROF_LEAVE);
+
     if (m_methodInfo->args.isAsyncCall())
     {
         // We're doing a standard return. Set the continuation return to NULL.
@@ -8118,6 +8125,11 @@ void InterpCompiler::GenerateCode(CORINFO_METHOD_INFO* methodInfo)
     AddIns(INTOP_SAFEPOINT);
     if (m_emitSamplingProfiler)
         AddIns(INTOP_PROF_SAMPLEPOINT);
+    if (m_emitBrowserProfiler)
+    {
+        AddIns(INTOP_PROF_ENTER);
+        m_pLastNewIns->data[0] = GetMethodDataItemIndex(m_methodHnd);
+    }
 
     if (m_continuationArgIndex != -1)
     {

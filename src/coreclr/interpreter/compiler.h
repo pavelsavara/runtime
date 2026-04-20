@@ -628,6 +628,7 @@ private:
     CORINFO_METHOD_INFO* m_methodInfo;
     CORJIT_FLAGS m_corJitFlags;
     bool m_emitSamplingProfiler;
+    bool m_emitBrowserProfiler;
 
     void DeclarePointerIsClass(CORINFO_CLASS_HANDLE clsHnd)
     {
@@ -1108,6 +1109,7 @@ public:
     int32_t* GetCode(int32_t *pCodeSize);
 
     static bool s_samplingProfilerEnabled;
+    static bool s_browserProfilerEnabled;
 
 #if MEASURE_MEM_ALLOC
     // Memory statistics for profiling.

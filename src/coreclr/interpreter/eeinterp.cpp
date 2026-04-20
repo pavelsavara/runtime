@@ -34,6 +34,7 @@ extern "C" INTERP_API void jitStartup(ICorJitHost* jitHost)
     if (!InterpConfig.WasmPerformanceInstrumentation().isEmpty())
     {
         InterpCompiler::s_samplingProfilerEnabled = true;
+        InterpCompiler::s_browserProfilerEnabled = true;
     }
 
     g_interpInitialized = true;
