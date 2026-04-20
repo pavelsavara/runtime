@@ -115,6 +115,9 @@ export async function instantiateMainWasm(imports: WebAssembly.Imports, successC
         onDownloadedAsset(assetInternal);
     }
     successCallback(instance, module);
+    if (loaderConfig.enableJSPI) {
+        dotnetNativeBrowserExports.wrapExportsWithJSPI();
+    }
     const memory = dotnetNativeBrowserExports.getWasmMemory();
     wasmMemoryPromiseController.resolve(memory);
 }
@@ -138,6 +141,12 @@ export async function fetchIcu(asset: IcuAsset): Promise<void> {
     }
 }
 
+export async function fetchPriorityAssembly(asset: AssemblyAsset): Promise<void> {
+    const assetInternal = asset as AssetEntryInternal;
+    assetInternal.priority = true;
+    await fetchAssembly(asset);
+}
+
 export async function fetchAssembly(asset: AssemblyAsset): Promise<void> {
     const assetInternal = asset as AssetEntryInternal;
     totalAssetsToDownload++;
@@ -159,32 +168,59 @@ export async function fetchAssembly(asset: AssemblyAsset): Promise<void> {
     }
 }
 
+const pendingAssemblies: Map<string, Promise<any>> = new Map<string, Promise<any>>();
+
 async function fetchWebcil(assetInternal: AssetEntryInternal): Promise<void> {
     try {
         assetInternal.behavior = "webcil";
+
+        if (pendingAssemblies.has(assetInternal.virtualPath!)) {
+            await pendingAssemblies.get(assetInternal.virtualPath!);
+            return;
+        }
 
         const webcilPromise = loadResource(assetInternal);
 
         const memory = await wasmMemoryPromiseController.promise;
         const instancePromise = dotnetBrowserHostExports.instantiateWebcilModule(webcilPromise, memory, assetInternal.virtualPath!);
+        pendingAssemblies.set(assetInternal.virtualPath!, instancePromise);
+        if (assetInternal.shortName) {
+            pendingAssemblies.set(assetInternal.shortName, instancePromise);
+        }
         await instancePromise;
     } finally {
         onDownloadedAsset(assetInternal);
     }
 }
 
+export function getPendingAssembly(virtualPath: string): Promise<void> | undefined {
+    return pendingAssemblies.get(virtualPath);
+}
+
 async function fetchDll(assetInternal: AssetEntryInternal): Promise<void> {
     const virtualPath = assetInternal.virtualPath!;
     assetInternal.behavior = "assembly";
     let bytes;
+    let instancePCS: ReturnType<typeof createPromiseCompletionSource<void>> | undefined;
     try {
-        bytes = await fetchBytes(assetInternal);
+        if (pendingAssemblies.has(virtualPath)) {
+            await pendingAssemblies.get(virtualPath);
+            return;
+        }
+        const bytesPromise = fetchBytes(assetInternal);
+        instancePCS = createPromiseCompletionSource<void>();
+        pendingAssemblies.set(virtualPath, instancePCS.promise);
+        if (assetInternal.shortName) {
+            pendingAssemblies.set(assetInternal.shortName, instancePCS.promise);
+        }
+        bytes = await bytesPromise;
     } finally {
         onDownloadedAsset(assetInternal);
     }
     await nativeModulePromiseController.promise;
     if (bytes) {
         dotnetBrowserHostExports.registerDllBytes(bytes, virtualPath, assetInternal.shortName!);
+        instancePCS?.resolve();
     }
 }
 

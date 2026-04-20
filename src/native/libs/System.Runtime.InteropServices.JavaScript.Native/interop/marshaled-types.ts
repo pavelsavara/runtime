@@ -185,7 +185,7 @@ export class PromiseHolder extends ManagedObject {
         super();
     }
 
-    resolve(data: any) {
+    async resolve(data: any) {
         if (!isRuntimeRunning()) {
             dotnetLogger.debug("This promise resolution can't be propagated to managed code, runtime already exited.");
             return;
@@ -193,10 +193,10 @@ export class PromiseHolder extends ManagedObject {
         dotnetAssert.check(!this.isResolved, "resolve could be called only once");
         dotnetAssert.check(!this.isDisposed, "resolve is already disposed.");
         this.isResolved = true;
-        this.completeTaskWrapper(data, null);
+        await this.completeTaskWrapper(data, null);
     }
 
-    reject(reason: any) {
+    async reject(reason: any) {
         if (!isRuntimeRunning()) {
             dotnetLogger.debug("This promise rejection can't be propagated to managed code, runtime already exited.");
             return;
@@ -207,10 +207,10 @@ export class PromiseHolder extends ManagedObject {
         dotnetAssert.check(!this.isResolved, "reject could be called only once");
         dotnetAssert.check(!this.isDisposed, "resolve is already disposed.");
         this.isResolved = true;
-        this.completeTaskWrapper(null, reason);
+        await this.completeTaskWrapper(null, reason);
     }
 
-    cancel() {
+    async cancel() {
         if (!isRuntimeRunning()) {
             dotnetLogger.debug("This promise cancelation can't be propagated to managed code, runtime already exited.");
             return;
@@ -224,9 +224,9 @@ export class PromiseHolder extends ManagedObject {
             // and we need to use the postponed data/reason
             this.isResolved = true;
             if (this.reason !== undefined) {
-                this.completeTaskWrapper(null, this.reason);
+                await this.completeTaskWrapper(null, this.reason);
             } else {
-                this.completeTaskWrapper(this.data, null);
+                await this.completeTaskWrapper(this.data, null);
             }
         } else {
             // there is no racing resolve/reject, we can reject/cancel the promise
@@ -243,7 +243,7 @@ export class PromiseHolder extends ManagedObject {
     }
 
     // we can do this just once, because it will be dispose the GCHandle
-    completeTaskWrapper(data: any, reason: any) {
+    async completeTaskWrapper(data: any, reason: any) {
         try {
             dotnetAssert.check(!this.isPosted, "Promise is already posted to managed.");
             this.isPosted = true;
@@ -252,7 +252,7 @@ export class PromiseHolder extends ManagedObject {
             teardownManagedProxy(this, this.gc_handle, /*skipManaged: */ true);
             // order of operations with teardown_managed_proxy matters
             // so that managed user code running in the continuation could allocate the same GCHandle number and the local registry would be already ok with that
-            completeTask(this.gc_handle, reason, data, this.res_converter);
+            await completeTask(this.gc_handle, reason, data, this.res_converter);
         } catch (ex) {
             // there is no point to propagate the exception into the unhandled promise rejection
         }

@@ -7,8 +7,8 @@ import type { BindingClosureCS, BoundMarshalerToCs, CSFnHandle, JSFunctionSignat
 
 import { dotnetAssert, dotnetLogger, Module } from "./cross-module";
 
-import { bindAssemblyExports, invokeJSExport } from "./managed-exports";
-import { allocStackFrame, getSig, getSignatureType, getSignatureArgumentCount, getSignatureVersion, jsInteropState } from "./marshal";
+import { bindAssemblyExports, invokeJSExport, invokeJSExportSync } from "./managed-exports";
+import { allocStackFrame, getSig, getSignatureType, getSignatureArgumentCount, getSignatureVersion, jsInteropState, allocHeapFrame } from "./marshal";
 import { bindArgMarshalToCs } from "./marshal-to-cs";
 import { bindArgMarshalToJs, endMarshalTaskToJs } from "./marshal-to-js";
 import { assertJsInterop, assertRuntimeRunning, endMeasure, isRuntimeRunning, startMeasure } from "./utils";
@@ -75,10 +75,10 @@ export function bindCsFunction(methodHandle: CSFnHandle, assemblyName: string, n
         } else if (argsCount == 2 && resConverter) {
             boundFn = bindFn_2RA(closure);
         } else {
-            boundFn = bindFn(closure);
+            boundFn = bindFnAsync(closure);
         }
     } else if (isDiscardNoWait) {
-        boundFn = bindFn(closure);
+        boundFn = bindFnAsync(closure);
     } else {
         if (argsCount == 0 && !resConverter) {
             boundFn = bindFn_0V(closure);
@@ -89,7 +89,7 @@ export function bindCsFunction(methodHandle: CSFnHandle, assemblyName: string, n
         } else if (argsCount == 2 && resConverter) {
             boundFn = bindFn_2R(closure);
         } else {
-            boundFn = bindFn(closure);
+            boundFn = bindFnSync(closure);
         }
     }
 
@@ -113,7 +113,7 @@ export function bindCsFunction(methodHandle: CSFnHandle, assemblyName: string, n
 }
 
 function bindFn_0V(closure: BindingClosureCS) {
-    const method = closure.methodHandle;
+    const methodHandle = closure.methodHandle;
     const fqn = closure.fullyQualifiedName;
     (<any>closure) = null;
     return function boundFn_0V() {
@@ -124,7 +124,7 @@ function bindFn_0V(closure: BindingClosureCS) {
             const size = 2;
             const args = allocStackFrame(size);
             // call C# side
-            invokeJSExport(method, args);
+            invokeJSExportSync(methodHandle, args);
         } finally {
             if (isRuntimeRunning()) Module.stackRestore(sp);
 
@@ -134,7 +134,7 @@ function bindFn_0V(closure: BindingClosureCS) {
 }
 
 function bindFn_1V(closure: BindingClosureCS) {
-    const method = closure.methodHandle;
+    const methodHandle = closure.methodHandle;
     const marshaler1 = closure.argMarshalers[0]!;
     const fqn = closure.fullyQualifiedName;
     return function boundFn_1V(arg1: any) {
@@ -147,7 +147,7 @@ function bindFn_1V(closure: BindingClosureCS) {
             marshaler1(args, arg1);
 
             // call C# side
-            invokeJSExport(method, args);
+            invokeJSExportSync(methodHandle, args);
         } finally {
             if (isRuntimeRunning()) Module.stackRestore(sp);
 
@@ -157,7 +157,7 @@ function bindFn_1V(closure: BindingClosureCS) {
 }
 
 function bindFn_1R(closure: BindingClosureCS) {
-    const method = closure.methodHandle;
+    const methodHandle = closure.methodHandle;
     const marshaler1 = closure.argMarshalers[0]!;
     const resConverter = closure.resConverter!;
     const fqn = closure.fullyQualifiedName;
@@ -171,7 +171,7 @@ function bindFn_1R(closure: BindingClosureCS) {
             marshaler1(args, arg1);
 
             // call C# side
-            invokeJSExport(method, args);
+            invokeJSExportSync(methodHandle, args);
 
             const jsResult = resConverter(args);
             return jsResult;
@@ -189,27 +189,26 @@ function bindFn_1RA(closure: BindingClosureCS) {
     const resConverter = closure.resConverter!;
     const fqn = closure.fullyQualifiedName;
     (<any>closure) = null;
-    return function bindFn_1RA(arg1: any) {
+    return async function bindFn_1RA(arg1: any) {
         const mark = startMeasure();
         assertRuntimeRunning();
-        const sp = Module.stackSave();
+        const size = 3;
+        const args = allocHeapFrame(size);
         try {
-            const size = 3;
-            const args = allocStackFrame(size);
             marshaler1(args, arg1);
 
             // pre-allocate the promise
             let promise = resConverter(args);
 
             // call C# side
-            invokeJSExport(methodHandle, args);
+            await invokeJSExport(methodHandle, args);
 
             // in case the C# side returned synchronously
             promise = endMarshalTaskToJs(args, undefined, promise);
 
             return promise;
         } finally {
-            if (isRuntimeRunning()) Module.stackRestore(sp);
+            if (isRuntimeRunning()) Module._free(args as any);
 
             endMeasure(mark, MeasuredBlock.callCsFunction, fqn);
         }
@@ -217,7 +216,7 @@ function bindFn_1RA(closure: BindingClosureCS) {
 }
 
 function bindFn_2R(closure: BindingClosureCS) {
-    const method = closure.methodHandle;
+    const methodHandle = closure.methodHandle;
     const marshaler1 = closure.argMarshalers[0]!;
     const marshaler2 = closure.argMarshalers[1]!;
     const resConverter = closure.resConverter!;
@@ -234,7 +233,7 @@ function bindFn_2R(closure: BindingClosureCS) {
             marshaler2(args, arg2);
 
             // call C# side
-            invokeJSExport(method, args);
+            invokeJSExportSync(methodHandle, args);
 
             const jsResult = resConverter(args);
             return jsResult;
@@ -253,13 +252,12 @@ function bindFn_2RA(closure: BindingClosureCS) {
     const resConverter = closure.resConverter!;
     const fqn = closure.fullyQualifiedName;
     (<any>closure) = null;
-    return function bindFn_2RA(arg1: any, arg2: any) {
+    return async function bindFn_2RA(arg1: any, arg2: any) {
         const mark = startMeasure();
         assertRuntimeRunning();
-        const sp = Module.stackSave();
+        const size = 4;
+        const args = allocHeapFrame(size);
         try {
-            const size = 4;
-            const args = allocStackFrame(size);
             marshaler1(args, arg1);
             marshaler2(args, arg2);
 
@@ -267,35 +265,66 @@ function bindFn_2RA(closure: BindingClosureCS) {
             let promise = resConverter(args);
 
             // call C# side
-            invokeJSExport(methodHandle, args);
+            await invokeJSExport(methodHandle, args);
 
             // in case the C# side returned synchronously
             promise = endMarshalTaskToJs(args, undefined, promise);
 
             return promise;
         } finally {
-            if (isRuntimeRunning()) Module.stackRestore(sp);
+            if (isRuntimeRunning()) Module._free(args as any);
 
             endMeasure(mark, MeasuredBlock.callCsFunction, fqn);
         }
     };
 }
 
-function bindFn(closure: BindingClosureCS) {
+function bindFnSync(closure: BindingClosureCS) {
     const argsCount = closure.argsCount;
     const argMarshalers = closure.argMarshalers;
     const resConverter = closure.resConverter;
     const methodHandle = closure.methodHandle;
     const fqn = closure.fullyQualifiedName;
-    const isAsync = closure.isAsync;
-    const isDiscardNoWait = closure.isDiscardNoWait;
-    return function boundFn(...jsArgs: any[]) {
+    return function boundFnSync(...jsArgs: any[]) {
         const mark = startMeasure();
         assertRuntimeRunning();
         const sp = Module.stackSave();
         try {
             const size = 2 + argsCount;
             const args = allocStackFrame(size);
+            for (let index = 0; index < argsCount; index++) {
+                const marshaler = argMarshalers[index];
+                if (marshaler) {
+                    const jsArg = jsArgs[index];
+                    marshaler(args, jsArg);
+                }
+            }
+
+            // call C# side
+            invokeJSExportSync(methodHandle, args);
+            if (resConverter) {
+                return resConverter(args);
+            }
+        } finally {
+            if (isRuntimeRunning()) Module.stackRestore(sp);
+            endMeasure(mark, MeasuredBlock.callCsFunction, fqn);
+        }
+    };
+}
+
+function bindFnAsync(closure: BindingClosureCS) {
+    const argsCount = closure.argsCount;
+    const argMarshalers = closure.argMarshalers;
+    const resConverter = closure.resConverter;
+    const methodHandle = closure.methodHandle;
+    const fqn = closure.fullyQualifiedName;
+    const isAsync = closure.isAsync;
+    return async function boundFnAsync(...jsArgs: any[]) {
+        const mark = startMeasure();
+        assertRuntimeRunning();
+        const size = 2 + argsCount;
+        const args = allocHeapFrame(size);
+        try {
             for (let index = 0; index < argsCount; index++) {
                 const marshaler = argMarshalers[index];
                 if (marshaler) {
@@ -310,23 +339,15 @@ function bindFn(closure: BindingClosureCS) {
             }
 
             // call C# side
+            await invokeJSExport(methodHandle, args);
+
             if (isAsync) {
-                invokeJSExport(methodHandle, args);
                 // in case the C# side returned synchronously
                 jsResult = endMarshalTaskToJs(args, undefined, jsResult);
-            } else if (isDiscardNoWait) {
-                // call C# side, fire and forget
-                invokeJSExport(methodHandle, args);
-            } else {
-                invokeJSExport(methodHandle, args);
-                if (resConverter) {
-                    jsResult = resConverter(args);
-                }
             }
             return jsResult;
         } finally {
-            if (isRuntimeRunning()) Module.stackRestore(sp);
-
+            if (isRuntimeRunning()) Module._free(args as any);
             endMeasure(mark, MeasuredBlock.callCsFunction, fqn);
         }
     };

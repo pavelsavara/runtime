@@ -6,7 +6,8 @@ import type {
     EmscriptenModuleInternal, InternalExchange, InternalExchangeSubscriber,
     RuntimeAPI, LoaderExports, BrowserUtilsExports, RuntimeExports,
     VoidPtr, JSMarshalerArguments, CSFnHandle, TypedArray,
-    MemOffset, CharPtrPtr
+    MemOffset, CharPtrPtr,
+    BrowserHostExports,
 } from "../types";
 
 // we want to use the cross-module symbols defined in closure of dotnet.native.js
@@ -20,6 +21,7 @@ export type EmsAmbientSymbolsType = EmscriptenModuleInternal & {
     dotnetLoaderExports: LoaderExports;
     dotnetRuntimeExports: RuntimeExports;
     dotnetBrowserUtilsExports: BrowserUtilsExports;
+    dotnetBrowserHostExports: BrowserHostExports;
 
     dotnetUpdateInternals: (internals?: Partial<InternalExchange>, subscriber?: InternalExchangeSubscriber) => void;
     dotnetUpdateInternalsSubscriber: (internals: InternalExchange) => void;
@@ -31,16 +33,17 @@ export type EmsAmbientSymbolsType = EmscriptenModuleInternal & {
     _SystemJS_ExecuteDiagnosticServerCallback: () => void;
     _SystemJS_ScheduleDiagnosticServer: () => void;
     _BrowserHost_CreateHostContract: () => VoidPtr;
-    _BrowserHost_InitializeDotnet: (propertiesCount: number, propertyKeys: CharPtrPtr, propertyValues: CharPtrPtr) => number;
-    _BrowserHost_ExecuteAssembly: (mainAssemblyNamePtr: number, argsLength: number, argsPtr: number) => number;
+    _BrowserHost_InitializeDotnet: (propertiesCount: number, propertyKeys: CharPtrPtr, propertyValues: CharPtrPtr) => Promise<number>;
+    _BrowserHost_ExecuteAssembly: (mainAssemblyNamePtr: number, argsLength: number, argsPtr: number) => Promise<number>;
     _BrowserHost_ShutdownDotnet: (exitCode: number) => number;
     _wasm_load_icu_data: (dataPtr: VoidPtr) => number;
     _SystemInteropJS_GetManagedStackTrace: (args: JSMarshalerArguments) => void;
     _SystemInteropJS_CallDelegate: (args: JSMarshalerArguments) => void;
-    _SystemInteropJS_CompleteTask: (args: JSMarshalerArguments) => void;
+    _SystemInteropJS_CompleteTask: (args: JSMarshalerArguments) => Promise<void>;
     _SystemInteropJS_ReleaseJSOwnedObjectByGCHandle: (args: JSMarshalerArguments) => void;
-    _SystemInteropJS_BindAssemblyExports: (args: JSMarshalerArguments) => void;
-    _SystemInteropJS_CallJSExport: (methodHandle: CSFnHandle, args: JSMarshalerArguments) => void;
+    _SystemInteropJS_BindAssemblyExports: (args: JSMarshalerArguments) => Promise<void>;
+    _SystemInteropJS_CallJSExport: (methodHandle: CSFnHandle, args: JSMarshalerArguments) => Promise<void>;
+    _SystemJS_AsyncExports: (exports: VoidPtr) => number;
 
     FS: {
         createPath: (parent: string, path: string, canRead?: boolean, canWrite?: boolean) => string;
@@ -97,6 +100,7 @@ export type EmsAmbientSymbolsType = EmscriptenModuleInternal & {
     writeI53ToI64(ptr: MemOffset, value: number): void;
     readI53FromI64(ptr: MemOffset): number;
     readI53FromU64(ptr: MemOffset): number;
+    sizeOfPtr: number;
     UTF8ArrayToString(u8Array: Uint8Array, idx?: number, maxBytesToRead?: number): string;
     UTF8Decoder: TextDecoder | null;
 

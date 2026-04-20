@@ -3,8 +3,9 @@
 
 import { exceptions, simd } from "wasm-feature-detect";
 
-import { ENVIRONMENT_IS_NODE, ENVIRONMENT_IS_SHELL, globalThisAny } from "./per-module";
+import { ENVIRONMENT_IS_NODE, ENVIRONMENT_IS_SHELL, globalThisAny, hasJSPI } from "./per-module";
 import { dotnetAssert } from "./cross-module";
+import { loaderConfig } from "./config";
 
 const scriptUrlQuery = /*! webpackIgnore: true */import.meta.url;
 const queryIndex = scriptUrlQuery.indexOf("?");
@@ -24,6 +25,12 @@ export async function validateEngineFeatures(): Promise<void> {
             const v8MajorVersion = parseInt(v8v.split(".")[0], 10);
             dotnetAssert.check(v8MajorVersion >= 14, "This V8 shell is too old. Please use a modern version.");
         }
+    }
+    if (loaderConfig.enableJSPI) {
+        // JSPI (phase 4 W3C), shipped in Chrome 137+, Firefox 139+
+        // Safari Technology Preview (Release 238+)
+        // Node.js requires --experimental-wasm-stack-switching flag
+        loaderConfig.enableJSPI = hasJSPI;
     }
 }
 

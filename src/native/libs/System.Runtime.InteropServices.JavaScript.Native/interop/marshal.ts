@@ -47,6 +47,14 @@ export function allocStackFrame(size: number): JSMarshalerArguments {
     return args;
 }
 
+export function allocHeapFrame(size: number): JSMarshalerArguments {
+    const bytes = JavaScriptMarshalerArgSize * size;
+    const args = Module._malloc(bytes) as any;
+    dotnetBrowserUtilsExports.zeroRegion(args, bytes);
+    setArgsContext(args);
+    return args;
+}
+
 export function getArg(args: JSMarshalerArguments, index: number): JSMarshalerArgument {
     dotnetAssert.check(args, "Null args");
     return <any>args + (index * JavaScriptMarshalerArgSize);

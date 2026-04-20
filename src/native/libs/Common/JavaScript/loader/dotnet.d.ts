@@ -230,6 +230,10 @@ type LoaderConfig = {
      * Note: RuntimeAPI.runMain() and RuntimeAPI.runMainAndExit() will replace this value, if they provide it.
      */
     applicationArguments?: string[];
+    /**
+     * TODO
+     */
+    enableJSPI?: boolean;
 };
 type ResourceExtensions = {
     [extensionName: string]: ResourceList;

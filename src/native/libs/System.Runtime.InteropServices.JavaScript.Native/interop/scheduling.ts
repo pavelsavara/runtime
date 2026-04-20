@@ -51,11 +51,13 @@ export function preventTimerThrottling(): void {
     }
     spreadTimersMaximum = desiredReachTime;
 
-    function preventTimerThrottlingTick(id: { value: number }) {
+    async function preventTimerThrottlingTick(id: { value: number }) {
         pendingJsTimers.delete(id.value);
         if (!isRuntimeRunning()) {
             return;
         }
-        dotnetBrowserUtilsExports.runBackgroundTimers();
+        if (!dotnetBrowserUtilsExports.isSuspensionInFlight()) {
+            await dotnetBrowserUtilsExports.runBackgroundTimers();
+        }
     }
 }

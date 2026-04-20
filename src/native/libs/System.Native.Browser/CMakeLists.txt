@@ -1,6 +1,10 @@
 project(System.Native.Browser C)
 
-set(BROWSER_SOURCES ${BROWSER_SOURCES} entrypoints.c diagnostic_server_jobs.c)
+set(BROWSER_SOURCES ${BROWSER_SOURCES}
+    entrypoints.c
+    jspi.c
+    diagnostic_server_jobs.c
+)
 
 add_library(System.Native.Browser-Static
     STATIC

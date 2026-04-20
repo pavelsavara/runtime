@@ -1,7 +1,7 @@
 // Licensed to the .NET Foundation under one or more agreements.
 // The .NET Foundation licenses this file to you under the MIT license.
 
-import type { InternalExchange, NativeBrowserExports, NativeBrowserExportsTable } from "../types";
+import type { InternalExchange, NativeBrowserExports, NativeBrowserExportsTable, VoidPtr } from "../types";
 import { InternalExchangeIndex } from "../types";
 
 import { _ems_ } from "../../Common/JavaScript/ems-ambient";
@@ -28,6 +28,7 @@ export function dotnetInitializeModule(internals: InternalExchange): void {
     internals[InternalExchangeIndex.NativeBrowserExportsTable] = nativeBrowserExportsToTable({
         getWasmMemory,
         getWasmTable,
+        wrapExportsWithJSPI,
         SystemJS_ScheduleDiagnosticServer: _ems_._SystemJS_ScheduleDiagnosticServer,
     });
     _ems_.dotnetUpdateInternals(internals, _ems_.dotnetUpdateInternalsSubscriber);
@@ -40,6 +41,7 @@ export function dotnetInitializeModule(internals: InternalExchange): void {
         return [
             map.getWasmMemory,
             map.getWasmTable,
+            map.wrapExportsWithJSPI,
             map.SystemJS_ScheduleDiagnosticServer,
         ];
     }
@@ -50,6 +52,29 @@ export function dotnetInitializeModule(internals: InternalExchange): void {
 
     function getWasmTable(): WebAssembly.Table {
         return _ems_.wasmTable;
+    }
+
+    function wrapWithPromising(exts: VoidPtr, index: number): any {
+        const fnIdx = _ems_.dotnetApi.getHeapI32(exts as any + (index * 4));
+        return globalThis.WebAssembly.promising(_ems_.wasmTable.get(fnIdx));
+
+    }
+    function wrapExportsWithJSPI(): void {
+        const sp = _ems_.stackSave();
+        try {
+            const exts = _ems_.stackAlloc(4 * 10);
+            _ems_._SystemJS_AsyncExports(exts);
+            _ems_._SystemJS_ExecuteTimerCallback = wrapWithPromising(exts, 0);
+            _ems_._SystemJS_ExecuteBackgroundJobCallback = wrapWithPromising(exts, 1);
+            _ems_._SystemJS_ExecuteFinalizationCallback = wrapWithPromising(exts, 2);
+            _ems_._BrowserHost_InitializeDotnet = wrapWithPromising(exts, 3);
+            _ems_._BrowserHost_ExecuteAssembly = wrapWithPromising(exts, 4);
+            _ems_._SystemInteropJS_CallJSExport = wrapWithPromising(exts, 5);
+            _ems_._SystemInteropJS_CompleteTask = wrapWithPromising(exts, 6);
+            _ems_._SystemInteropJS_BindAssemblyExports = wrapWithPromising(exts, 7);
+        } finally {
+            _ems_.stackRestore(sp);
+        }
     }
 
     function setupEmscripten() {
@@ -74,6 +99,7 @@ export function dotnetInitializeModule(internals: InternalExchange): void {
                 } catch (err) {
                     // silently ignore any error during shutdown
                 }
+
             };
 
         }, ...(_ems_.Module.preInit || [])];

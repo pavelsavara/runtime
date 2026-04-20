@@ -9,6 +9,8 @@ import GitHash from "consts:gitHash";
 
 import { runMain, runMainAndExit, initializeCoreCLR } from "./host";
 import { registerPdbBytes, instantiateWebcilModule, registerDllBytes, installVfsFile, loadIcuData, instantiateWasm, } from "./assets";
+import { BrowserHost_ExternalAssemblyProbe as _BrowserHost_ExternalAssemblyProbe } from "./assets";
+import { hasJSPI } from "./per-module";
 
 export function dotnetInitializeModule(internals: InternalExchange): void {
     if (!Array.isArray(internals)) throw new Error("Expected internals to be an array");
@@ -67,4 +69,6 @@ function setupEmscripten() {
     }
 }
 
-export { BrowserHost_ExternalAssemblyProbe } from "./assets";
+export const BrowserHost_ExternalAssemblyProbe = hasJSPI
+    ? new globalThis.WebAssembly.Suspending(_BrowserHost_ExternalAssemblyProbe)
+    : _BrowserHost_ExternalAssemblyProbe;

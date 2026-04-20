@@ -3,3 +3,12 @@
 
 declare function autoAddDeps(obj: any, name: string): void;
 declare function addToLibrary(obj: any): void;
+
+// JSPI (WebAssembly JavaScript Promise Integration) API
+// Standardized phase 4: Chrome 137+, Firefox 139+, Safari TP 238+
+declare namespace WebAssembly {
+    class Suspending {
+        constructor(fn: (...args: any[]) => any);
+    }
+    function promising(fn: Function): (...args: any[]) => Promise<any>;
+}
