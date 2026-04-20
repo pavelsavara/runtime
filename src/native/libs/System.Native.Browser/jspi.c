@@ -10,8 +10,8 @@
 EXTERN_C void SystemJS_ExecuteTimerCallback ();
 EXTERN_C void SystemJS_ExecuteBackgroundJobCallback ();
 EXTERN_C void SystemJS_ExecuteFinalizationCallback ();
-EXTERN_C int BrowserHost_InitializeDotnet(int propertiesCount, const char** propertyKeys, const char** propertyValues);
-EXTERN_C int BrowserHost_ExecuteAssembly(const char* assemblyPath, int argc, const char** argv);
+EXTERN_C __attribute__((weak)) int BrowserHost_InitializeDotnet(int propertiesCount, const char** propertyKeys, const char** propertyValues);
+EXTERN_C __attribute__((weak)) int BrowserHost_ExecuteAssembly(const char* assemblyPath, int argc, const char** argv);
 EXTERN_C void SystemInteropJS_CallJSExport(int arg0, void * arg1);
 EXTERN_C void SystemInteropJS_CompleteTask(void * arg0);
 EXTERN_C void SystemInteropJS_BindAssemblyExports(void * arg0);
