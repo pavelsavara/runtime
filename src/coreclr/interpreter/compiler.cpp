@@ -2106,6 +2106,9 @@ InterpCompiler::InterpCompiler(COMP_HANDLE compHnd,
     DWORD jitFlagsSize = m_compHnd->getJitFlags(&m_corJitFlags, sizeof(m_corJitFlags));
     assert(jitFlagsSize == sizeof(m_corJitFlags));
 
+    m_emitSamplingProfiler = s_samplingProfilerEnabled
+        && InterpConfig.WasmPerformanceInstrumentation().contains(compHnd, m_methodHnd, m_classHnd, &m_methodInfo->args);
+
 #ifdef DEBUG
     m_methodName = ::PrintMethodName(compHnd, m_classHnd, m_methodHnd, &m_methodInfo->args,
                             /* includeAssembly */ false,
@@ -2813,7 +2816,7 @@ void InterpCompiler::EmitBranch(InterpOpcode opcode, int32_t ilOffset)
     if (ilOffset < 0)
     {
         AddIns(INTOP_SAFEPOINT);
-        if (InterpCompiler::s_samplingProfilerEnabled)
+        if (m_emitSamplingProfiler)
             AddIns(INTOP_PROF_SAMPLEPOINT);
     }
 
@@ -8113,7 +8116,7 @@ void InterpCompiler::GenerateCode(CORINFO_METHOD_INFO* methodInfo)
     // Safepoint at each method entry. This could be done as part of a call, rather than
     // adding an opcode.
     AddIns(INTOP_SAFEPOINT);
-    if (InterpCompiler::s_samplingProfilerEnabled)
+    if (m_emitSamplingProfiler)
         AddIns(INTOP_PROF_SAMPLEPOINT);
 
     if (m_continuationArgIndex != -1)
