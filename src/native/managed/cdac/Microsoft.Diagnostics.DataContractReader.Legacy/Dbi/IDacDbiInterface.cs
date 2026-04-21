@@ -196,9 +196,6 @@ public unsafe partial interface IDacDbiInterface
     int GetAddressType(ulong address, int* pRetVal);
 
     [PreserveSig]
-    int IsTransitionStub(ulong address, Interop.BOOL* pResult);
-
-    [PreserveSig]
     int GetCompilerFlags(ulong vmAssembly, Interop.BOOL* pfAllowJITOpts, Interop.BOOL* pfEnableEnC);
 
     [PreserveSig]
@@ -226,7 +223,7 @@ public unsafe partial interface IDacDbiInterface
     int Hijack(ulong vmThread, uint dwThreadId, nint pRecord, nint pOriginalContext, uint cbSizeContext, int reason, nint pUserData, ulong* pRemoteContextAddr);
 
     [PreserveSig]
-    int EnumerateThreads(nint fpCallback, nint pUserData);
+    int EnumerateThreads(delegate* unmanaged<ulong, nint, void> fpCallback, nint pUserData);
 
     [PreserveSig]
     int IsThreadMarkedDead(ulong vmThread, Interop.BOOL* pResult);
@@ -311,9 +308,6 @@ public unsafe partial interface IDacDbiInterface
 
     [PreserveSig]
     int EnumerateInternalFrames(ulong vmThread, nint fpCallback, nint pUserData);
-
-    [PreserveSig]
-    int IsMatchingParentFrame(ulong fpToCheck, ulong fpParent, Interop.BOOL* pResult);
 
     [PreserveSig]
     int GetStackParameterSize(ulong controlPC, uint* pRetVal);
@@ -422,12 +416,6 @@ public unsafe partial interface IDacDbiInterface
 
     [PreserveSig]
     int GetBasicObjectInfo(ulong objectAddress, int type, nint pObjectData);
-
-    [PreserveSig]
-    int TestCrst(ulong vmCrst);
-
-    [PreserveSig]
-    int TestRWLock(ulong vmRWLock);
 
     [PreserveSig]
     int GetDebuggerControlBlockAddress(ulong* pRetVal);
@@ -556,7 +544,7 @@ public unsafe partial interface IDacDbiInterface
     int GetLoaderHeapMemoryRanges(nint pRanges);
 
     [PreserveSig]
-    int IsModuleMapped(ulong pModule, int* isModuleMapped);
+    int IsModuleMapped(ulong pModule, Interop.BOOL* isModuleMapped);
 
     [PreserveSig]
     int MetadataUpdatesApplied(Interop.BOOL* pResult);

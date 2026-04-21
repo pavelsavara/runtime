@@ -778,6 +778,22 @@ internal partial struct RuntimeTypeSystem_1 : IRuntimeTypeSystem
         return default;
     }
 
+    public bool IsValueType(TypeHandle typeHandle)
+    {
+        if (typeHandle.IsMethodTable())
+        {
+            MethodTable methodTable = _methodTables[typeHandle.Address];
+            return methodTable.Flags.IsValueType;
+        }
+        else if (typeHandle.IsTypeDesc())
+        {
+            var typeDesc = _target.ProcessedData.GetOrAdd<TypeDesc>(typeHandle.TypeDescAddress());
+            return (CorElementType)(typeDesc.TypeAndFlags & 0xFF) == CorElementType.ValueType;
+        }
+
+        return false;
+    }
+
     public bool IsEnum(TypeHandle typeHandle)
     {
         // Enums have Category_PrimitiveValueType in their MethodTable flags and their
@@ -1908,8 +1924,8 @@ internal partial struct RuntimeTypeSystem_1 : IRuntimeTypeSystem
         TargetPointer handleAddr = GetStaticAddressHandle(@base, offset, isRVA, fieldDescPointer, moduleHandle);
         if (type == CorElementType.ValueType && !isRVA)
         {
-            Data.ObjectHandle objectHandle = _target.ProcessedData.GetOrAdd<Data.ObjectHandle>(handleAddr);
-            Data.Object obj = _target.ProcessedData.GetOrAdd<Data.Object>(objectHandle.Object);
+            TargetPointer objRef = _target.ReadPointer(handleAddr);
+            Data.Object obj = _target.ProcessedData.GetOrAdd<Data.Object>(objRef);
             return obj.Data;
         }
         return handleAddr;
