@@ -58,7 +58,7 @@ if /i not "%configuration%"=="Debug" if /i not "%configuration%"=="Release" if /
 :: Get the repo root (script is in src/tasks/WasmAppBuilder)
 set script_dir=%~dp0
 pushd "%script_dir%..\..\..\"
-set repo_root=%CD%
+set repo_root=D:\runtime2
 popd
 
 echo Configuration: %configuration%
