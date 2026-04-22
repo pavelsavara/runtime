@@ -611,6 +611,7 @@ RETAIL_CONFIG_DWORD_INFO(INTERNAL_EventPipeProcNumbers, W("EventPipeProcNumbers"
 RETAIL_CONFIG_DWORD_INFO(INTERNAL_EventPipeOutputStreaming, W("EventPipeOutputStreaming"), 1, "Enable/disable streaming for trace file set in DOTNET_EventPipeOutputPath.  Non-zero values enable streaming.")
 RETAIL_CONFIG_DWORD_INFO(INTERNAL_EventPipeEnableStackwalk, W("EventPipeEnableStackwalk"), 1, "Set to 0 to disable collecting stacks for EventPipe events.")
 RETAIL_CONFIG_STRING_INFO(INTERNAL_WasmPerformanceInstrumentation, W("WasmPerformanceInstrumentation"), "Configuration for WASM performance instrumentation profiler.")
+RETAIL_CONFIG_DWORD_INFO(INTERNAL_WasmPerformanceInstrumentationInterval, W("WasmPerformanceInstrumentationInterval"), 10, "Desired sample interval in milliseconds for WASM performance instrumentation profiler. 0 means sample every samplepoint.")
 
 #ifdef FEATURE_AUTO_TRACE
 RETAIL_CONFIG_DWORD_INFO_EX(INTERNAL_AutoTrace_N_Tracers, W("AutoTrace_N_Tracers"), 0, "", CLRConfig::LookupOptions::ParseIntegerAsBase10)

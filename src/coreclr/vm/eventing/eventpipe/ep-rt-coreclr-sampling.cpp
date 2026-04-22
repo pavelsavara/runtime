@@ -115,6 +115,16 @@ void ep_rt_coreclr_sample_profiler_enabled(EventPipeEvent *samplingEvent)
     if (s_desiredSampleIntervalMs <= 0.0)
         s_desiredSampleIntervalMs = 10.0;
 
+    // Override with env var if set (in milliseconds, 0 = sample every samplepoint)
+    const char* intervalStr = getenv("DOTNET_WasmPerformanceInstrumentationInterval");
+    if (intervalStr != nullptr)
+    {
+        char* end;
+        double interval = strtod(intervalStr, &end);
+        if (end != intervalStr)
+            s_desiredSampleIntervalMs = interval;
+    }
+
     s_lastSampleTimeMs = 0.0;
     s_prevSkipsPerPeriod = 1;
     s_skipsPerPeriod = 1;
