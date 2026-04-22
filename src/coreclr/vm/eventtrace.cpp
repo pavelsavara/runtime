@@ -4422,7 +4422,24 @@ TADDR MethodAndStartAddressToEECodeInfoPointer(MethodDesc *pMethodDesc, PCODE pN
         return 0;
     }
 
-    return GetInterpreterCodeFromInterpreterPrecodeIfPresent(start);
+    start = GetInterpreterCodeFromInterpreterPrecodeIfPresent(start);
+
+#if defined(FEATURE_INTERPRETER) && defined(FEATURE_PORTABLE_ENTRYPOINTS)
+    // For portable entrypoints, GetNativeCode() returns the portable entry point address,
+    // not the interpreter bytecode address. GetInterpreterCodeFromInterpreterPrecodeIfPresent
+    // is a no-op for portable entrypoints since there are no interpreter precodes.
+    // Use GetInterpreterCode() to get the bytecode address directly.
+    if (pNativeCodeStartAddress == (PCODE)0)
+    {
+        PTR_InterpByteCodeStart pInterpCode = pMethodDesc->GetInterpreterCode();
+        if (pInterpCode != NULL)
+        {
+            return dac_cast<TADDR>(pInterpCode);
+        }
+    }
+#endif
+
+    return start;
 }
 
 /****************************************************************************/
