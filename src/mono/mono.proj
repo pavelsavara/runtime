@@ -83,14 +83,14 @@
     <MonoComponentsStatic Condition="'$(MonoComponentsStatic)' == ''">true</MonoComponentsStatic>
   </PropertyGroup>
 
-  <ItemGroup Condition="'$(TargetsBrowser)' == 'true' or '$(TargetsWasi)' == 'true' or '$(TargetsiOS)' == 'true' or '$(TargetstvOS)' == 'true' or '$(TargetsMacCatalyst)' == 'true'">
-    <!-- this is here because of python -->
+  <!-- Python NuGet package disabled for upstream emsdk - python is installed via emsdk -->
+  <!--<ItemGroup Condition="'$(TargetsBrowser)' == 'true' or '$(TargetsWasi)' == 'true' or '$(TargetsiOS)' == 'true' or '$(TargetstvOS)' == 'true' or '$(TargetsMacCatalyst)' == 'true'">
     <PackageReference Condition="'$(HostOS)' == 'windows' and '$(ShouldProvisionEmscripten)' != 'true'"
                       Include="Microsoft.NET.Runtime.Emscripten.$(EmsdkVersion).Python.win-x64"
                       PrivateAssets="all"
                       Version="$(EmsdkPackageVersion)"
                       GeneratePathProperty="true" />
-  </ItemGroup>
+  </ItemGroup>-->
 
   <ItemGroup Condition="'$(MonoUseCrossTool)' == 'true'">
     <PackageReference Include="runtime.$(NETCoreSdkPortableRuntimeIdentifier).Microsoft.NETCore.Runtime.Mono.LLVM.Libclang"
@@ -757,7 +757,7 @@
       <_PythonCmd Condition="'$(HostOS)' != 'windows'">python3</_PythonCmd>
       <_PythonCmd Condition="'$(HostOS)' == 'windows'">python</_PythonCmd>
       <!-- Use python from the transport pack on Browser/Wasi -->
-      <_PythonCmd Condition="'$(HostOS)' == 'windows' and ('$(TargetsBrowser)' == 'true' or '$(TargetsWasi)' == 'true')">$([MSBuild]::NormalizePath('$(PkgMicrosoft_NET_Runtime_Emscripten_3_1_56_Python_win-x64)', 'tools', 'python.exe'))</_PythonCmd>
+      <_PythonCmd Condition="'$(HostOS)' == 'windows' and ('$(TargetsBrowser)' == 'true' or '$(TargetsWasi)' == 'true')">$([MSBuild]::NormalizePath('$(EMSDK_PATH)', 'python', 'python.exe'))</_PythonCmd>
     </PropertyGroup>
 
     <ItemGroup>
