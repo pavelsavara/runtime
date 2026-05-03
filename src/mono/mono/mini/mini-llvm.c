@@ -30,9 +30,46 @@
 #define __STDC_CONSTANT_MACROS
 #endif
 
+/*
+ * LLVM 23 deprecated the global-context C API entries (LLVMInt8Type, LLVMFloatType, ...)
+ * in favor of the *InContext variants. Mono's mini LLVM bridge still uses the legacy
+ * entries; silence the deprecation warnings until the call sites are ported.
+ */
+#ifdef __clang__
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#elif defined(__GNUC__)
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+#endif
+
 #include "llvm-c/Core.h"
 #include "llvm-c/BitWriter.h"
 #include "llvm-c/Analysis.h"
+
+/*
+ * The Mono calling convention is defined by a dotnet-specific patch to LLVM
+ * (CallingConv::Mono = 22 in llvm/IR/CallingConv.h, plus LLVMMono1CallConv = 22
+ * in llvm-c/Core.h). Those patches haven't been forward-ported to LLVM 23 yet,
+ * so provide a fallback definition here. The numeric value matches the dotnet
+ * LLVM 19 patch and slot 22 is unused in upstream LLVM 23.
+ */
+#ifndef LLVMMono1CallConv
+#define LLVMMono1CallConv 22
+#endif
+
+/*
+ * LLVM 23 deprecated the global-context C API entries (LLVMInt8Type, LLVMFloatType, ...)
+ * in favor of the *InContext variants. Mono's mini LLVM bridge still uses the legacy
+ * entries; silence the deprecation warnings until the call sites are ported.
+ * Placed AFTER the LLVM includes so a header push/pop pair can't reset it.
+ */
+#ifdef __clang__
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#pragma clang diagnostic ignored "-Wdeprecated"
+#elif defined(__GNUC__)
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+#endif
 #if LLVM_API_VERSION < 1900
 #include "llvm-c/Transforms/InstCombine.h"
 #include "llvm-c/Transforms/Scalar.h"
