@@ -11,6 +11,9 @@
     <!-- to strip wasi:http dependency -->
     <PublishTrimmed>true</PublishTrimmed>
     <WasmBuildNative>true</WasmBuildNative>
+
+     <WasmNativeDebugSymbols>true</WasmNativeDebugSymbols>
+     <WasmNativeStrip>false</WasmNativeStrip>
   </PropertyGroup>
 
   <Target Name="RunSample" DependsOnTargets="RunSampleWithWasmtime" />
