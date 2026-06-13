@@ -22,7 +22,7 @@ target_link_libraries(dotnet.native
     ${MONO_ARTIFACTS_DIR}/libmono-ee-interp.a
     ${MONO_ARTIFACTS_DIR}/libmonosgen-2.0.a
     ${MONO_ARTIFACTS_DIR}/libmono-icall-table.a
-    ${MONO_ARTIFACTS_DIR}/libmono-wasm-eh-js.a
+    ${MONO_ARTIFACTS_DIR}/libmono-wasm-${CONFIGURATION_EH_LIB}.a
     ${MONO_ARTIFACTS_DIR}/libmono-wasm-${CONFIGURATION_INTERPSIMDTABLES_LIB}.a
     ${NATIVE_BIN_DIR}/libSystem.Native.a
     ${NATIVE_BIN_DIR}/libSystem.Native.TimeZoneData.a
