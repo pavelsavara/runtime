@@ -1,17 +1,20 @@
 // Licensed to the .NET Foundation under one or more agreements.
 // The .NET Foundation licenses this file to you under the MIT license.
 
+#if TARGET_WINDOWS
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Text;
+#endif
 
 namespace System.Globalization
 {
     internal sealed partial class CultureData
     {
+#if TARGET_WINDOWS
         // Wrappers around the GetLocaleInfoEx APIs which handle marshalling the returned
         // data as either and Int or string.
         internal static unsafe string? GetLocaleInfoEx(string localeName, uint field)
@@ -534,5 +537,26 @@ namespace System.Globalization
                 return false;
             }
         }
+#else
+        // NLS is a Windows-only globalization backend; on other platforms GlobalizationMode.UseNls
+        // and ShouldUseUserOverrideNlsData are always false, so these are never invoked.
+#pragma warning disable CA1822 // stub members mirror the Windows instance signatures
+        private static CultureData? NlsGetCultureDataFromRegionName(string regionName) => throw new PlatformNotSupportedException();
+        private static CultureInfo[] NlsEnumCultures(CultureTypes types) => throw new PlatformNotSupportedException();
+        internal static bool NlsIsEnsurePredefinedLocaleName(string name) => throw new PlatformNotSupportedException();
+        private string NlsGetLanguageDisplayName(string cultureName) => throw new PlatformNotSupportedException();
+        private string NlsGetThreeLetterWindowsLanguageName(string cultureName) => throw new PlatformNotSupportedException();
+        private int NlsGetLocaleInfo(LocaleNumberData type) => throw new PlatformNotSupportedException();
+        private string NlsGetRegionDisplayName() => throw new PlatformNotSupportedException();
+        private string NlsGetConsoleFallbackName(string cultureName) => throw new PlatformNotSupportedException();
+        private string NlsGetLocaleInfo(LocaleStringData type) => throw new PlatformNotSupportedException();
+        private string NlsGetLocaleInfo(string localeName, LocaleStringData type) => throw new PlatformNotSupportedException();
+        private int[] NlsGetLocaleInfo(LocaleGroupingData type) => throw new PlatformNotSupportedException();
+        private int NlsGetFirstDayOfWeek() => throw new PlatformNotSupportedException();
+        private static int NlsLocaleNameToLCID(string cultureName) => throw new PlatformNotSupportedException();
+        private string? NlsGetTimeFormatString() => throw new PlatformNotSupportedException();
+        internal bool NlsIsReplacementCulture => throw new PlatformNotSupportedException();
+#pragma warning restore CA1822
+#endif
     }
 }
