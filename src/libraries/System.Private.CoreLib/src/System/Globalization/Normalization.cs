@@ -19,9 +19,13 @@ namespace System.Globalization
                 return true;
             }
 
-            return GlobalizationMode.UseNls ?
-                NlsIsNormalized(source, normalizationForm) :
-                IcuIsNormalized(source, normalizationForm);
+#if TARGET_WINDOWS
+            if (GlobalizationMode.UseNls)
+            {
+                return NlsIsNormalized(source, normalizationForm);
+            }
+#endif
+            return IcuIsNormalized(source, normalizationForm);
         }
 
         internal static string Normalize(string strInput, NormalizationForm normalizationForm)
@@ -35,9 +39,13 @@ namespace System.Globalization
                 return strInput;
             }
 
-            return GlobalizationMode.UseNls ?
-                NlsNormalize(strInput, normalizationForm) :
-                IcuNormalize(strInput, normalizationForm);
+#if TARGET_WINDOWS
+            if (GlobalizationMode.UseNls)
+            {
+                return NlsNormalize(strInput, normalizationForm);
+            }
+#endif
+            return IcuNormalize(strInput, normalizationForm);
         }
 
         internal static bool TryNormalize(ReadOnlySpan<char> source, Span<char> destination, out int charsWritten, NormalizationForm normalizationForm = NormalizationForm.FormC)
@@ -63,9 +71,13 @@ namespace System.Globalization
                 return false;
             }
 
-            return GlobalizationMode.UseNls ?
-                NlsTryNormalize(source, destination, out charsWritten, normalizationForm) :
-                IcuTryNormalize(source, destination, out charsWritten, normalizationForm);
+#if TARGET_WINDOWS
+            if (GlobalizationMode.UseNls)
+            {
+                return NlsTryNormalize(source, destination, out charsWritten, normalizationForm);
+            }
+#endif
+            return IcuTryNormalize(source, destination, out charsWritten, normalizationForm);
         }
 
         internal static int GetNormalizedLength(this ReadOnlySpan<char> source, NormalizationForm normalizationForm = NormalizationForm.FormC)
@@ -79,9 +91,13 @@ namespace System.Globalization
                 return source.Length;
             }
 
-            return GlobalizationMode.UseNls ?
-                NlsGetNormalizedLength(source, normalizationForm) :
-                IcuGetNormalizedLength(source, normalizationForm);
+#if TARGET_WINDOWS
+            if (GlobalizationMode.UseNls)
+            {
+                return NlsGetNormalizedLength(source, normalizationForm);
+            }
+#endif
+            return IcuGetNormalizedLength(source, normalizationForm);
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]

@@ -92,9 +92,13 @@ namespace System.Globalization
             {
                 fixed (char* pUnicode = unicode)
                 {
-                    return GlobalizationMode.UseNls ?
-                        NlsGetAsciiCore(unicode, pUnicode + index, count) :
-                        IcuGetAsciiCore(unicode, pUnicode + index, count);
+#if TARGET_WINDOWS
+                    if (GlobalizationMode.UseNls)
+                    {
+                        return NlsGetAsciiCore(unicode, pUnicode + index, count);
+                    }
+#endif
+                    return IcuGetAsciiCore(unicode, pUnicode + index, count);
                 }
             }
         }
@@ -136,9 +140,13 @@ namespace System.Globalization
             {
                 fixed (char* pAscii = ascii)
                 {
-                    return GlobalizationMode.UseNls ?
-                        NlsGetUnicodeCore(ascii, pAscii + index, count) :
-                        IcuGetUnicodeCore(ascii, pAscii + index, count);
+#if TARGET_WINDOWS
+                    if (GlobalizationMode.UseNls)
+                    {
+                        return NlsGetUnicodeCore(ascii, pAscii + index, count);
+                    }
+#endif
+                    return IcuGetUnicodeCore(ascii, pAscii + index, count);
                 }
             }
         }

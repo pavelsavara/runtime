@@ -384,7 +384,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)System\Globalization\IcuLocaleData.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)System\Globalization\IdnMapping.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)System\Globalization\IdnMapping.Icu.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)System\Globalization\IdnMapping.Nls.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)System\Globalization\IdnMapping.Nls.cs" Condition="'$(TargetsWindows)' == 'true'" />
     <Compile Include="$(MSBuildThisFileDirectory)System\Globalization\InvariantModeCasing.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)System\Globalization\ISOWeek.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)System\Globalization\JapaneseCalendar.cs" />
@@ -396,7 +396,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)System\Globalization\KoreanLunisolarCalendar.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)System\Globalization\Normalization.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)System\Globalization\Normalization.Icu.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)System\Globalization\Normalization.Nls.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)System\Globalization\Normalization.Nls.cs" Condition="'$(TargetsWindows)' == 'true'" />
     <Compile Include="$(MSBuildThisFileDirectory)System\Globalization\NumberFormatInfo.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)System\Globalization\NumberStyles.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)System\Globalization\Ordinal.cs" />
@@ -1439,10 +1439,10 @@
     <Compile Include="$(CommonPath)Interop\Windows\Kernel32\Interop.ResolveLocaleName.cs">
       <Link>Common\Interop\Windows\Kernel32\Interop.ResolveLocaleName.cs</Link>
     </Compile>
-    <Compile Include="$(CommonPath)Interop\Windows\Normaliz\Interop.Idna.cs">
+    <Compile Include="$(CommonPath)Interop\Windows\Normaliz\Interop.Idna.cs" Condition="'$(TargetsWindows)' == 'true'">
       <Link>Common\Interop\Windows\Normaliz\Interop.Idna.cs</Link>
     </Compile>
-    <Compile Include="$(CommonPath)Interop\Windows\Normaliz\Interop.Normalization.cs">
+    <Compile Include="$(CommonPath)Interop\Windows\Normaliz\Interop.Normalization.cs" Condition="'$(TargetsWindows)' == 'true'">
       <Link>Common\Interop\Windows\Normaliz\Interop.Normalization.cs</Link>
     </Compile>
     <Compile Include="$(CommonPath)DisableRuntimeMarshalling.cs">
