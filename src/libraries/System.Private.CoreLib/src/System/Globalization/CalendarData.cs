@@ -386,8 +386,15 @@ namespace System.Globalization
             return "en-US";
         }
 
-        private static bool SystemSupportsTaiwaneseCalendar() => GlobalizationMode.UseNls ?
-                                                            NlsSystemSupportsTaiwaneseCalendar() :
-                                                            IcuSystemSupportsTaiwaneseCalendar();
+        private static bool SystemSupportsTaiwaneseCalendar()
+        {
+#if TARGET_WINDOWS
+            if (GlobalizationMode.UseNls)
+            {
+                return NlsSystemSupportsTaiwaneseCalendar();
+            }
+#endif
+            return IcuSystemSupportsTaiwaneseCalendar();
+        }
     }
 }

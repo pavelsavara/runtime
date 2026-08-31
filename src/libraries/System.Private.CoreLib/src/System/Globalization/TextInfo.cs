@@ -48,10 +48,12 @@ namespace System.Globalization
             _cultureName = _cultureData.CultureName;
             _textInfoName = _cultureData.TextInfoName;
 
+#if TARGET_WINDOWS
             if (GlobalizationMode.UseNls)
             {
                 _sortHandle = CompareInfo.NlsGetSortHandle(_textInfoName);
             }
+#endif
         }
 
         private TextInfo(CultureData cultureData, bool readOnly)
@@ -697,11 +699,13 @@ namespace System.Globalization
 
         private unsafe void ChangeCaseCore(char* src, int srcLen, char* dstBuffer, int dstBufferCapacity, bool bToUpper)
         {
+#if TARGET_WINDOWS
             if (GlobalizationMode.UseNls)
             {
                 NlsChangeCase(src, srcLen, dstBuffer, dstBufferCapacity, bToUpper);
                 return;
             }
+#endif
 #if TARGET_MACCATALYST || TARGET_IOS || TARGET_TVOS
             if (GlobalizationMode.Hybrid)
             {

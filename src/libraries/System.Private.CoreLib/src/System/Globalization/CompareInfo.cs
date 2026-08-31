@@ -148,7 +148,13 @@ namespace System.Globalization
                 return true; // all chars are sortable in invariant mode
             }
 
-            return (GlobalizationMode.UseNls) ? NlsIsSortable(text) : IcuIsSortable(text);
+#if TARGET_WINDOWS
+            if (GlobalizationMode.UseNls)
+            {
+                return NlsIsSortable(text);
+            }
+#endif
+            return IcuIsSortable(text);
         }
 
         /// <summary>
@@ -171,11 +177,13 @@ namespace System.Globalization
         {
             _sortName = culture.SortName;
 
+#if TARGET_WINDOWS
             if (GlobalizationMode.UseNls)
             {
                 NlsInitSortHandle();
             }
             else
+#endif
             {
                 IcuInitSortHandle(culture.InteropName!);
             }
@@ -485,14 +493,22 @@ namespace System.Globalization
                 message: ((options & CompareOptions.Ordinal) != 0) ? SR.Argument_CompareOptionOrdinal : SR.Argument_InvalidFlag);
         }
 
-        private int CompareStringCore(ReadOnlySpan<char> string1, ReadOnlySpan<char> string2, CompareOptions options) =>
-            GlobalizationMode.UseNls ?
-                NlsCompareString(string1, string2, options) :
-#if TARGET_MACCATALYST || TARGET_IOS || TARGET_TVOS
-            GlobalizationMode.Hybrid ?
-                CompareStringNative(string1, string2, options) :
+        private int CompareStringCore(ReadOnlySpan<char> string1, ReadOnlySpan<char> string2, CompareOptions options)
+        {
+#if TARGET_WINDOWS
+            if (GlobalizationMode.UseNls)
+            {
+                return NlsCompareString(string1, string2, options);
+            }
 #endif
-                IcuCompareString(string1, string2, options);
+#if TARGET_MACCATALYST || TARGET_IOS || TARGET_TVOS
+            if (GlobalizationMode.Hybrid)
+            {
+                return CompareStringNative(string1, string2, options);
+            }
+#endif
+            return IcuCompareString(string1, string2, options);
+        }
 
         /// <summary>
         /// Determines whether prefix is a prefix of string.  If prefix equals
@@ -627,10 +643,16 @@ namespace System.Globalization
             return matched;
         }
 
-        private unsafe bool StartsWithCore(ReadOnlySpan<char> source, ReadOnlySpan<char> prefix, CompareOptions options, int* matchLengthPtr) =>
-            GlobalizationMode.UseNls ?
-                NlsStartsWith(source, prefix, options, matchLengthPtr) :
-                IcuStartsWith(source, prefix, options, matchLengthPtr);
+        private unsafe bool StartsWithCore(ReadOnlySpan<char> source, ReadOnlySpan<char> prefix, CompareOptions options, int* matchLengthPtr)
+        {
+#if TARGET_WINDOWS
+            if (GlobalizationMode.UseNls)
+            {
+                return NlsStartsWith(source, prefix, options, matchLengthPtr);
+            }
+#endif
+            return IcuStartsWith(source, prefix, options, matchLengthPtr);
+        }
 
         public bool IsPrefix(string source, string prefix)
         {
@@ -775,10 +797,16 @@ namespace System.Globalization
             return IsSuffix(source, suffix, CompareOptions.None);
         }
 
-        private unsafe bool EndsWithCore(ReadOnlySpan<char> source, ReadOnlySpan<char> suffix, CompareOptions options, int* matchLengthPtr) =>
-            GlobalizationMode.UseNls ?
-                NlsEndsWith(source, suffix, options, matchLengthPtr) :
-                IcuEndsWith(source, suffix, options, matchLengthPtr);
+        private unsafe bool EndsWithCore(ReadOnlySpan<char> source, ReadOnlySpan<char> suffix, CompareOptions options, int* matchLengthPtr)
+        {
+#if TARGET_WINDOWS
+            if (GlobalizationMode.UseNls)
+            {
+                return NlsEndsWith(source, suffix, options, matchLengthPtr);
+            }
+#endif
+            return IcuEndsWith(source, suffix, options, matchLengthPtr);
+        }
 
         /// <summary>
         /// Returns the first index where value is found in string.  The
@@ -1108,10 +1136,16 @@ namespace System.Globalization
             return retVal;
         }
 
-        private unsafe int IndexOfCore(ReadOnlySpan<char> source, ReadOnlySpan<char> target, CompareOptions options, int* matchLengthPtr, bool fromBeginning) =>
-            GlobalizationMode.UseNls ?
-                NlsIndexOfCore(source, target, options, matchLengthPtr, fromBeginning) :
-                IcuIndexOfCore(source, target, options, matchLengthPtr, fromBeginning);
+        private unsafe int IndexOfCore(ReadOnlySpan<char> source, ReadOnlySpan<char> target, CompareOptions options, int* matchLengthPtr, bool fromBeginning)
+        {
+#if TARGET_WINDOWS
+            if (GlobalizationMode.UseNls)
+            {
+                return NlsIndexOfCore(source, target, options, matchLengthPtr, fromBeginning);
+            }
+#endif
+            return IcuIndexOfCore(source, target, options, matchLengthPtr, fromBeginning);
+        }
 
         /// <summary>
         /// Returns the last index where value is found in string.  The
@@ -1433,10 +1467,16 @@ namespace System.Globalization
             return CreateSortKeyCore(source, CompareOptions.None);
         }
 
-        private SortKey CreateSortKeyCore(string source, CompareOptions options) =>
-            GlobalizationMode.UseNls ?
-                NlsCreateSortKey(source, options) :
-                IcuCreateSortKey(source, options);
+        private SortKey CreateSortKeyCore(string source, CompareOptions options)
+        {
+#if TARGET_WINDOWS
+            if (GlobalizationMode.UseNls)
+            {
+                return NlsCreateSortKey(source, options);
+            }
+#endif
+            return IcuCreateSortKey(source, options);
+        }
 
         /// <summary>
         /// Computes a sort key over the specified input.
@@ -1472,10 +1512,16 @@ namespace System.Globalization
             }
         }
 
-        private int GetSortKeyCore(ReadOnlySpan<char> source, Span<byte> destination, CompareOptions options) =>
-            GlobalizationMode.UseNls ?
-                NlsGetSortKey(source, destination, options) :
-                IcuGetSortKey(source, destination, options);
+        private int GetSortKeyCore(ReadOnlySpan<char> source, Span<byte> destination, CompareOptions options)
+        {
+#if TARGET_WINDOWS
+            if (GlobalizationMode.UseNls)
+            {
+                return NlsGetSortKey(source, destination, options);
+            }
+#endif
+            return IcuGetSortKey(source, destination, options);
+        }
 
         /// <summary>
         /// Returns the length (in bytes) of the sort key that would be produced from the specified input.
@@ -1505,10 +1551,16 @@ namespace System.Globalization
             }
         }
 
-        private int GetSortKeyLengthCore(ReadOnlySpan<char> source, CompareOptions options) =>
-            GlobalizationMode.UseNls ?
-              NlsGetSortKeyLength(source, options) :
-              IcuGetSortKeyLength(source, options);
+        private int GetSortKeyLengthCore(ReadOnlySpan<char> source, CompareOptions options)
+        {
+#if TARGET_WINDOWS
+            if (GlobalizationMode.UseNls)
+            {
+                return NlsGetSortKeyLength(source, options);
+            }
+#endif
+            return IcuGetSortKeyLength(source, options);
+        }
 
         public override bool Equals([NotNullWhen(true)] object? value)
         {
@@ -1573,10 +1625,16 @@ namespace System.Globalization
             }
         }
 
-        private int GetHashCodeOfStringCore(ReadOnlySpan<char> source, CompareOptions options) =>
-            GlobalizationMode.UseNls ?
-                NlsGetHashCodeOfString(source, options) :
-                IcuGetHashCodeOfString(source, options);
+        private int GetHashCodeOfStringCore(ReadOnlySpan<char> source, CompareOptions options)
+        {
+#if TARGET_WINDOWS
+            if (GlobalizationMode.UseNls)
+            {
+                return NlsGetHashCodeOfString(source, options);
+            }
+#endif
+            return IcuGetHashCodeOfString(source, options);
+        }
 
         public override string ToString() => "CompareInfo - " + Name;
 
@@ -1602,7 +1660,11 @@ namespace System.Globalization
                     throw new PlatformNotSupportedException(GetPNSEText("SortVersion"));
                 }
 #endif
+#if TARGET_WINDOWS
                         m_SortVersion = GlobalizationMode.UseNls ? NlsGetSortVersion() : IcuGetSortVersion();
+#else
+                        m_SortVersion = IcuGetSortVersion();
+#endif
                     }
                 }
 
