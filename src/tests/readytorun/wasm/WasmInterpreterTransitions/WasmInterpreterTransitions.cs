@@ -2,6 +2,7 @@
 // The .NET Foundation licenses this file to you under the MIT license.
 
 using System;
+using System.Collections.Generic;
 using System.Runtime;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
@@ -208,9 +209,28 @@ public class WasmInterpreterTransitions
         Assert.Equal(153, self.InterpretedIntFrom17Int(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17));           // IiTiiiiiiiiiiiiiiiip
         S52 s52 = self.InterpretedInstanceReturnsS52(); Assert.Equal(A, s52.A); Assert.Equal(B, s52.M);           // IS52Tp
         Assert.Equal(unchecked((short)C), InterpretedStaticReturnsS2NoArgs().A);                                             // IS2p
+
+        // https://github.com/dotnet/runtime/issues/134200: interpreted construction of a shared
+        // reference-type generic (Dictionary<__Canon,__Canon>) via the (int, IEqualityComparer) ctor,
+        // for which crossgen2 emits no R2R body.
+        Assert.Equal(A + B, InterpretedBuildsSharedGenericDictionary());
     }
 
     private static int s_sideEffect;
+
+    // The canonical Dictionary<__Canon,__Canon>.ctor(int, IEqualityComparer) has no R2R body; the
+    // interpreter must call it directly rather than dispatch through an interp->R2R thunk whose
+    // call_indirect type does not match, which traps with "null function or function signature mismatch".
+    [BypassReadyToRun]
+    [MethodImpl(MethodImplOptions.NoInlining)]
+    private static int InterpretedBuildsSharedGenericDictionary()
+    {
+        var map = new Dictionary<object, object>(4, EqualityComparer<object>.Default);
+        object k0 = new(), k1 = new();
+        map[k0] = A;
+        map[k1] = B;
+        return (int)map[k0] + (int)map[k1];
+    }
 
     // Reverse-pinvoke entry (R2R-compiled) that calls an interpreted static int(int).
     private static unsafe delegate* unmanaged<int, int> s_ucoToInterpreted = &UnmanagedCallerCallsInterpreted;
