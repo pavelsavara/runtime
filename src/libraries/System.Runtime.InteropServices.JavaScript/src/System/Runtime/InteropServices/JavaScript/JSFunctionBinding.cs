@@ -10,6 +10,15 @@ using System.Threading;
 namespace System.Runtime.InteropServices.JavaScript
 {
     /// <summary>
+    /// Represents the generated wrapper that marshals arguments and invokes a managed [JSExport] method.
+    /// This API supports JSImport infrastructure and is not intended to be used directly from your code.
+    /// </summary>
+    /// <param name="arguments">The JavaScript arguments buffer: the exception slot, the result slot, and one slot per argument.</param>
+    [CLSCompliant(false)]
+    [EditorBrowsable(EditorBrowsableState.Never)]
+    public delegate void JSExportCallback(Span<JSMarshalerArgument> arguments);
+
+    /// <summary>
     /// Represents a bound imported or exported JavaScript function and contains information necessary to invoke it.
     /// This API supports JSImport infrastructure and is not intended to be used directly from your code.
     /// </summary>
@@ -199,6 +208,33 @@ namespace System.Runtime.InteropServices.JavaScript
 
             return JSHostImplementation.BindManagedFunction(fullyQualifiedName, signatureHash, signatures);
         }
+
+        /// <summary>
+        /// Binds a specific managed function wrapper so that it can later be invoked by JavaScript callers.
+        /// This API supports JSImport infrastructure and is not intended to be used directly from your code.
+        /// </summary>
+        /// <param name="fullyQualifiedName">The fully qualified name of the exported method.</param>
+        /// <param name="signatureHash">The hash of the signature metadata.</param>
+        /// <param name="signatures">The metadata about the signature of the marshaled parameters.</param>
+        /// <param name="callback">The generated wrapper that marshals the arguments and invokes the exported method.</param>
+        /// <returns>The method metadata.</returns>
+        /// <exception cref="PlatformNotSupportedException">The method is executed on architecture other than WebAssembly.</exception>
+        public static JSFunctionBinding BindManagedFunction(string fullyQualifiedName, int signatureHash, ReadOnlySpan<JSMarshalerType> signatures, JSExportCallback callback)
+        {
+            if (RuntimeInformation.OSArchitecture != Architecture.Wasm)
+                throw new PlatformNotSupportedException();
+
+            return JSHostImplementation.BindManagedFunction(fullyQualifiedName, signatureHash, signatures, callback);
+        }
+
+        /// <summary>
+        /// Registers the exports of an assembly so that they can be bound without reflection.
+        /// This API supports JSImport infrastructure and is not intended to be used directly from your code.
+        /// </summary>
+        /// <param name="assemblyName">The simple name of the assembly.</param>
+        /// <param name="register">The generated registration entry point for the assembly's exports.</param>
+        public static void RegisterAssemblyExports(string assemblyName, Action register)
+            => JSHostImplementation.RegisterAssemblyExports(assemblyName, register);
 
 #if !DEBUG
         [MethodImpl(MethodImplOptions.AggressiveInlining)]

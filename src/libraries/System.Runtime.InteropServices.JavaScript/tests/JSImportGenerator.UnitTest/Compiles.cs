@@ -63,8 +63,8 @@ namespace JSImportGenerator.Unit.Tests
         }
 
         [Theory]
-        [MemberData(nameof(ImportOnlyCodeSnippetsToCompile))]
-        public void ValidateImportSnippetsWithoutAllowUnsafe(string source)
+        [MemberData(nameof(CodeSnippetsToCompile))]
+        public void ValidateSnippetsWithoutAllowUnsafe(string source)
         {
             Compilation comp = TestUtils.CreateCompilation(source, allowUnsafe: false);
             TestUtils.AssertPreSourceGeneratorCompilation(comp);
@@ -370,90 +370,86 @@ namespace JSImportGenerator.Unit.Tests
                                     [global::System.Runtime.CompilerServices.ModuleInitializerAttribute, global::System.Diagnostics.CodeAnalysis.DynamicDependencyAttribute(global::System.Diagnostics.CodeAnalysis.DynamicallyAccessedMemberTypes.PublicMethods | global::System.Diagnostics.CodeAnalysis.DynamicallyAccessedMemberTypes.NonPublicMethods, "System.Runtime.InteropServices.JavaScript.__GeneratedInitializer", "TestProject")]
                                     static internal void __TrimmingPreserve_()
                                     {
+                                        global::System.Runtime.InteropServices.JavaScript.JSFunctionBinding.RegisterAssemblyExports("TestProject", __Register_);
                                     }
 
-                                    [global::System.Diagnostics.CodeAnalysis.DynamicDependencyAttribute("__Wrapper_AnnotatedExport_2034238666", "Basic", "TestProject")]
                                     static void __Register_()
                                     {
                                         if (initialized || global::System.Runtime.InteropServices.RuntimeInformation.OSArchitecture != global::System.Runtime.InteropServices.Architecture.Wasm)
                                             return;
                                         initialized = true;
-                                        global::System.Runtime.InteropServices.JavaScript.JSFunctionBinding.BindManagedFunction("[TestProject]Basic:AnnotatedExport", 2034238666, [global::System.Runtime.InteropServices.JavaScript.JSMarshalerType.Discard, global::System.Runtime.InteropServices.JavaScript.JSMarshalerType.Object, global::System.Runtime.InteropServices.JavaScript.JSMarshalerType.Int52, global::System.Runtime.InteropServices.JavaScript.JSMarshalerType.BigInt64, global::System.Runtime.InteropServices.JavaScript.JSMarshalerType.Action(), global::System.Runtime.InteropServices.JavaScript.JSMarshalerType.Function(global::System.Runtime.InteropServices.JavaScript.JSMarshalerType.Int32), global::System.Runtime.InteropServices.JavaScript.JSMarshalerType.Span(global::System.Runtime.InteropServices.JavaScript.JSMarshalerType.Byte), global::System.Runtime.InteropServices.JavaScript.JSMarshalerType.ArraySegment(global::System.Runtime.InteropServices.JavaScript.JSMarshalerType.Byte), global::System.Runtime.InteropServices.JavaScript.JSMarshalerType.Task(global::System.Runtime.InteropServices.JavaScript.JSMarshalerType.Object), global::System.Runtime.InteropServices.JavaScript.JSMarshalerType.Array(global::System.Runtime.InteropServices.JavaScript.JSMarshalerType.Object), global::System.Runtime.InteropServices.JavaScript.JSMarshalerType.DateTime, global::System.Runtime.InteropServices.JavaScript.JSMarshalerType.DateTimeOffset, global::System.Runtime.InteropServices.JavaScript.JSMarshalerType.Task(global::System.Runtime.InteropServices.JavaScript.JSMarshalerType.DateTime), global::System.Runtime.InteropServices.JavaScript.JSMarshalerType.Task(global::System.Runtime.InteropServices.JavaScript.JSMarshalerType.DateTimeOffset), global::System.Runtime.InteropServices.JavaScript.JSMarshalerType.Task(global::System.Runtime.InteropServices.JavaScript.JSMarshalerType.Int52), global::System.Runtime.InteropServices.JavaScript.JSMarshalerType.Task(global::System.Runtime.InteropServices.JavaScript.JSMarshalerType.BigInt64), global::System.Runtime.InteropServices.JavaScript.JSMarshalerType.ArraySegment(global::System.Runtime.InteropServices.JavaScript.JSMarshalerType.Single)]);
+                                        global::System.Runtime.InteropServices.JavaScript.JSFunctionBinding.BindManagedFunction("[TestProject]Basic:AnnotatedExport", 2034238666, [global::System.Runtime.InteropServices.JavaScript.JSMarshalerType.Discard, global::System.Runtime.InteropServices.JavaScript.JSMarshalerType.Object, global::System.Runtime.InteropServices.JavaScript.JSMarshalerType.Int52, global::System.Runtime.InteropServices.JavaScript.JSMarshalerType.BigInt64, global::System.Runtime.InteropServices.JavaScript.JSMarshalerType.Action(), global::System.Runtime.InteropServices.JavaScript.JSMarshalerType.Function(global::System.Runtime.InteropServices.JavaScript.JSMarshalerType.Int32), global::System.Runtime.InteropServices.JavaScript.JSMarshalerType.Span(global::System.Runtime.InteropServices.JavaScript.JSMarshalerType.Byte), global::System.Runtime.InteropServices.JavaScript.JSMarshalerType.ArraySegment(global::System.Runtime.InteropServices.JavaScript.JSMarshalerType.Byte), global::System.Runtime.InteropServices.JavaScript.JSMarshalerType.Task(global::System.Runtime.InteropServices.JavaScript.JSMarshalerType.Object), global::System.Runtime.InteropServices.JavaScript.JSMarshalerType.Array(global::System.Runtime.InteropServices.JavaScript.JSMarshalerType.Object), global::System.Runtime.InteropServices.JavaScript.JSMarshalerType.DateTime, global::System.Runtime.InteropServices.JavaScript.JSMarshalerType.DateTimeOffset, global::System.Runtime.InteropServices.JavaScript.JSMarshalerType.Task(global::System.Runtime.InteropServices.JavaScript.JSMarshalerType.DateTime), global::System.Runtime.InteropServices.JavaScript.JSMarshalerType.Task(global::System.Runtime.InteropServices.JavaScript.JSMarshalerType.DateTimeOffset), global::System.Runtime.InteropServices.JavaScript.JSMarshalerType.Task(global::System.Runtime.InteropServices.JavaScript.JSMarshalerType.Int52), global::System.Runtime.InteropServices.JavaScript.JSMarshalerType.Task(global::System.Runtime.InteropServices.JavaScript.JSMarshalerType.BigInt64), global::System.Runtime.InteropServices.JavaScript.JSMarshalerType.ArraySegment(global::System.Runtime.InteropServices.JavaScript.JSMarshalerType.Single)], global::Basic.__Wrapper_AnnotatedExport_2034238666);
                                     }
                                 }
                             }
                             partial class Basic
                             {
                                 [global::System.Diagnostics.DebuggerNonUserCode]
-                                internal static unsafe void __Wrapper_AnnotatedExport_2034238666(global::System.Runtime.InteropServices.JavaScript.JSMarshalerArgument* __arguments_buffer)
+                                internal static void __Wrapper_AnnotatedExport_2034238666(global::System.Span<global::System.Runtime.InteropServices.JavaScript.JSMarshalerArgument> __arguments)
                                 {
-                                    unsafe
+                                    __Stub(__arguments[2], __arguments[3], __arguments[4], __arguments[5], __arguments[6], __arguments[7], __arguments[8], __arguments[9], __arguments[10], __arguments[11], __arguments[12], __arguments[13], __arguments[14], __arguments[15], __arguments[16], __arguments[17], ref __arguments[0]);
+                                    [global::System.Diagnostics.DebuggerNonUserCode]
+                                    void __Stub(global::System.Runtime.InteropServices.JavaScript.JSMarshalerArgument __a1_native, global::System.Runtime.InteropServices.JavaScript.JSMarshalerArgument __a2_native, global::System.Runtime.InteropServices.JavaScript.JSMarshalerArgument __a3_native, global::System.Runtime.InteropServices.JavaScript.JSMarshalerArgument __a4_native, global::System.Runtime.InteropServices.JavaScript.JSMarshalerArgument __a5_native, global::System.Runtime.InteropServices.JavaScript.JSMarshalerArgument __a6_native, global::System.Runtime.InteropServices.JavaScript.JSMarshalerArgument __a7_native, global::System.Runtime.InteropServices.JavaScript.JSMarshalerArgument __a8_native, global::System.Runtime.InteropServices.JavaScript.JSMarshalerArgument __a9_native, global::System.Runtime.InteropServices.JavaScript.JSMarshalerArgument __a10_native, global::System.Runtime.InteropServices.JavaScript.JSMarshalerArgument __a11_native, global::System.Runtime.InteropServices.JavaScript.JSMarshalerArgument __a12_native, global::System.Runtime.InteropServices.JavaScript.JSMarshalerArgument __a13_native, global::System.Runtime.InteropServices.JavaScript.JSMarshalerArgument __a14_native, global::System.Runtime.InteropServices.JavaScript.JSMarshalerArgument __a15_native, global::System.Runtime.InteropServices.JavaScript.JSMarshalerArgument __a16_native, ref global::System.Runtime.InteropServices.JavaScript.JSMarshalerArgument ____arg_exception_native)
                                     {
-                                        __Stub(__arguments_buffer[2], __arguments_buffer[3], __arguments_buffer[4], __arguments_buffer[5], __arguments_buffer[6], __arguments_buffer[7], __arguments_buffer[8], __arguments_buffer[9], __arguments_buffer[10], __arguments_buffer[11], __arguments_buffer[12], __arguments_buffer[13], __arguments_buffer[14], __arguments_buffer[15], __arguments_buffer[16], __arguments_buffer[17], __arguments_buffer);
-                                        [global::System.Diagnostics.DebuggerNonUserCode]
-                                        void __Stub(global::System.Runtime.InteropServices.JavaScript.JSMarshalerArgument __a1_native, global::System.Runtime.InteropServices.JavaScript.JSMarshalerArgument __a2_native, global::System.Runtime.InteropServices.JavaScript.JSMarshalerArgument __a3_native, global::System.Runtime.InteropServices.JavaScript.JSMarshalerArgument __a4_native, global::System.Runtime.InteropServices.JavaScript.JSMarshalerArgument __a5_native, global::System.Runtime.InteropServices.JavaScript.JSMarshalerArgument __a6_native, global::System.Runtime.InteropServices.JavaScript.JSMarshalerArgument __a7_native, global::System.Runtime.InteropServices.JavaScript.JSMarshalerArgument __a8_native, global::System.Runtime.InteropServices.JavaScript.JSMarshalerArgument __a9_native, global::System.Runtime.InteropServices.JavaScript.JSMarshalerArgument __a10_native, global::System.Runtime.InteropServices.JavaScript.JSMarshalerArgument __a11_native, global::System.Runtime.InteropServices.JavaScript.JSMarshalerArgument __a12_native, global::System.Runtime.InteropServices.JavaScript.JSMarshalerArgument __a13_native, global::System.Runtime.InteropServices.JavaScript.JSMarshalerArgument __a14_native, global::System.Runtime.InteropServices.JavaScript.JSMarshalerArgument __a15_native, global::System.Runtime.InteropServices.JavaScript.JSMarshalerArgument __a16_native, global::System.Runtime.InteropServices.JavaScript.JSMarshalerArgument* ____arg_exception_native__param)
+                                        object a1 = default;
+                                        long a2 = default;
+                                        long a3 = default;
+                                        global::System.Action a4 = default;
+                                        global::System.Func<int> a5 = default;
+                                        global::System.Span<byte> a6 = default;
+                                        global::System.ArraySegment<byte> a7 = default;
+                                        global::System.Threading.Tasks.Task<object> a8 = default;
+                                        object[] a9 = default;
+                                        global::System.DateTime a10 = default;
+                                        global::System.DateTimeOffset a11 = default;
+                                        global::System.Threading.Tasks.Task<global::System.DateTime> a12 = default;
+                                        global::System.Threading.Tasks.Task<global::System.DateTimeOffset> a13 = default;
+                                        global::System.Threading.Tasks.Task<long> a14 = default;
+                                        global::System.Threading.Tasks.Task<long> a15 = default;
+                                        global::System.ArraySegment<float> a16 = default;
+                                        try
                                         {
-                                            object a1 = default;
-                                            long a2 = default;
-                                            long a3 = default;
-                                            global::System.Action a4 = default;
-                                            global::System.Func<int> a5 = default;
-                                            global::System.Span<byte> a6 = default;
-                                            global::System.ArraySegment<byte> a7 = default;
-                                            global::System.Threading.Tasks.Task<object> a8 = default;
-                                            object[] a9 = default;
-                                            global::System.DateTime a10 = default;
-                                            global::System.DateTimeOffset a11 = default;
-                                            global::System.Threading.Tasks.Task<global::System.DateTime> a12 = default;
-                                            global::System.Threading.Tasks.Task<global::System.DateTimeOffset> a13 = default;
-                                            global::System.Threading.Tasks.Task<long> a14 = default;
-                                            global::System.Threading.Tasks.Task<long> a15 = default;
-                                            global::System.ArraySegment<float> a16 = default;
-                                            ref global::System.Runtime.InteropServices.JavaScript.JSMarshalerArgument ____arg_exception_native = ref *____arg_exception_native__param;
-                                            try
+                                            // UnmarshalCapture - Capture the native data into marshaller instances in case conversion to managed data throws an exception.
+                                            __a16_native.ToManaged(out a16);
+                                            __a11_native.ToManaged(out a11);
+                                            __a10_native.ToManaged(out a10);
+                                            __a9_native.ToManaged(out a9);
+                                            __a7_native.ToManaged(out a7);
+                                            __a6_native.ToManaged(out a6);
+                                            __a3_native.ToManagedBig(out a3);
+                                            __a2_native.ToManaged(out a2);
+                                            __a1_native.ToManaged(out a1);
+                                            // Unmarshal - Convert native data to managed data.
+                                            __a15_native.ToManaged(out a15, static (ref global::System.Runtime.InteropServices.JavaScript.JSMarshalerArgument __task_result_arg, out long __task_result) =>
                                             {
-                                                // UnmarshalCapture - Capture the native data into marshaller instances in case conversion to managed data throws an exception.
-                                                __a16_native.ToManaged(out a16);
-                                                __a11_native.ToManaged(out a11);
-                                                __a10_native.ToManaged(out a10);
-                                                __a9_native.ToManaged(out a9);
-                                                __a7_native.ToManaged(out a7);
-                                                __a6_native.ToManaged(out a6);
-                                                __a3_native.ToManagedBig(out a3);
-                                                __a2_native.ToManaged(out a2);
-                                                __a1_native.ToManaged(out a1);
-                                                // Unmarshal - Convert native data to managed data.
-                                                __a15_native.ToManaged(out a15, static (ref global::System.Runtime.InteropServices.JavaScript.JSMarshalerArgument __task_result_arg, out long __task_result) =>
-                                                {
-                                                    __task_result_arg.ToManagedBig(out __task_result);
-                                                });
-                                                __a14_native.ToManaged(out a14, static (ref global::System.Runtime.InteropServices.JavaScript.JSMarshalerArgument __task_result_arg, out long __task_result) =>
-                                                {
-                                                    __task_result_arg.ToManaged(out __task_result);
-                                                });
-                                                __a13_native.ToManaged(out a13, static (ref global::System.Runtime.InteropServices.JavaScript.JSMarshalerArgument __task_result_arg, out global::System.DateTimeOffset __task_result) =>
-                                                {
-                                                    __task_result_arg.ToManaged(out __task_result);
-                                                });
-                                                __a12_native.ToManaged(out a12, static (ref global::System.Runtime.InteropServices.JavaScript.JSMarshalerArgument __task_result_arg, out global::System.DateTime __task_result) =>
-                                                {
-                                                    __task_result_arg.ToManaged(out __task_result);
-                                                });
-                                                __a8_native.ToManaged(out a8, static (ref global::System.Runtime.InteropServices.JavaScript.JSMarshalerArgument __task_result_arg, out object __task_result) =>
-                                                {
-                                                    __task_result_arg.ToManaged(out __task_result);
-                                                });
-                                                __a5_native.ToManaged(out a5, static (ref global::System.Runtime.InteropServices.JavaScript.JSMarshalerArgument __delegate_arg_arg1, out int __delegate_arg1) =>
-                                                {
-                                                    __delegate_arg_arg1.ToManaged(out __delegate_arg1);
-                                                });
-                                                __a4_native.ToManaged(out a4);
-                                                global::Basic.AnnotatedExport(a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16);
-                                            }
-                                            catch (global::System.Exception __arg_exception)
+                                                __task_result_arg.ToManagedBig(out __task_result);
+                                            });
+                                            __a14_native.ToManaged(out a14, static (ref global::System.Runtime.InteropServices.JavaScript.JSMarshalerArgument __task_result_arg, out long __task_result) =>
                                             {
-                                                ____arg_exception_native.ToJS(__arg_exception);
-                                            }
+                                                __task_result_arg.ToManaged(out __task_result);
+                                            });
+                                            __a13_native.ToManaged(out a13, static (ref global::System.Runtime.InteropServices.JavaScript.JSMarshalerArgument __task_result_arg, out global::System.DateTimeOffset __task_result) =>
+                                            {
+                                                __task_result_arg.ToManaged(out __task_result);
+                                            });
+                                            __a12_native.ToManaged(out a12, static (ref global::System.Runtime.InteropServices.JavaScript.JSMarshalerArgument __task_result_arg, out global::System.DateTime __task_result) =>
+                                            {
+                                                __task_result_arg.ToManaged(out __task_result);
+                                            });
+                                            __a8_native.ToManaged(out a8, static (ref global::System.Runtime.InteropServices.JavaScript.JSMarshalerArgument __task_result_arg, out object __task_result) =>
+                                            {
+                                                __task_result_arg.ToManaged(out __task_result);
+                                            });
+                                            __a5_native.ToManaged(out a5, static (ref global::System.Runtime.InteropServices.JavaScript.JSMarshalerArgument __delegate_arg_arg1, out int __delegate_arg1) =>
+                                            {
+                                                __delegate_arg_arg1.ToManaged(out __delegate_arg1);
+                                            });
+                                            __a4_native.ToManaged(out a4);
+                                            global::Basic.AnnotatedExport(a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16);
+                                        }
+                                        catch (global::System.Exception __arg_exception)
+                                        {
+                                            ____arg_exception_native.ToJS(__arg_exception);
                                         }
                                     }
                                 }
@@ -540,45 +536,40 @@ namespace JSImportGenerator.Unit.Tests
                                     [global::System.Runtime.CompilerServices.ModuleInitializerAttribute, global::System.Diagnostics.CodeAnalysis.DynamicDependencyAttribute(global::System.Diagnostics.CodeAnalysis.DynamicallyAccessedMemberTypes.PublicMethods | global::System.Diagnostics.CodeAnalysis.DynamicallyAccessedMemberTypes.NonPublicMethods, "System.Runtime.InteropServices.JavaScript.__GeneratedInitializer", "TestProject")]
                                     static internal void __TrimmingPreserve_()
                                     {
+                                        global::System.Runtime.InteropServices.JavaScript.JSFunctionBinding.RegisterAssemblyExports("TestProject", __Register_);
                                     }
 
-                                    [global::System.Diagnostics.CodeAnalysis.DynamicDependencyAttribute("__Wrapper_Export1_622134597", "Basic", "TestProject")]
                                     static void __Register_()
                                     {
                                         if (initialized || global::System.Runtime.InteropServices.RuntimeInformation.OSArchitecture != global::System.Runtime.InteropServices.Architecture.Wasm)
                                             return;
                                         initialized = true;
-                                        global::System.Runtime.InteropServices.JavaScript.JSFunctionBinding.BindManagedFunction("[TestProject]Basic:Export1", 622134597, [global::System.Runtime.InteropServices.JavaScript.JSMarshalerType.Task(global::System.Runtime.InteropServices.JavaScript.JSMarshalerType.Int32)]);
+                                        global::System.Runtime.InteropServices.JavaScript.JSFunctionBinding.BindManagedFunction("[TestProject]Basic:Export1", 622134597, [global::System.Runtime.InteropServices.JavaScript.JSMarshalerType.Task(global::System.Runtime.InteropServices.JavaScript.JSMarshalerType.Int32)], global::Basic.__Wrapper_Export1_622134597);
                                     }
                                 }
                             }
                             partial class Basic
                             {
                                 [global::System.Diagnostics.DebuggerNonUserCode]
-                                internal static unsafe void __Wrapper_Export1_622134597(global::System.Runtime.InteropServices.JavaScript.JSMarshalerArgument* __arguments_buffer)
+                                internal static void __Wrapper_Export1_622134597(global::System.Span<global::System.Runtime.InteropServices.JavaScript.JSMarshalerArgument> __arguments)
                                 {
-                                    unsafe
+                                    __Stub(ref __arguments[0], ref __arguments[1]);
+                                    [global::System.Diagnostics.DebuggerNonUserCode]
+                                    void __Stub(ref global::System.Runtime.InteropServices.JavaScript.JSMarshalerArgument ____arg_exception_native, ref global::System.Runtime.InteropServices.JavaScript.JSMarshalerArgument __invokeRetValUnmanaged)
                                     {
-                                        __Stub(__arguments_buffer, __arguments_buffer + 1);
-                                        [global::System.Diagnostics.DebuggerNonUserCode]
-                                        void __Stub(global::System.Runtime.InteropServices.JavaScript.JSMarshalerArgument* ____arg_exception_native__param, global::System.Runtime.InteropServices.JavaScript.JSMarshalerArgument* __invokeRetValUnmanaged__param)
+                                        global::System.Threading.Tasks.Task<int> __invokeRetVal = default;
+                                        try
                                         {
-                                            ref global::System.Runtime.InteropServices.JavaScript.JSMarshalerArgument ____arg_exception_native = ref *____arg_exception_native__param;
-                                            ref global::System.Runtime.InteropServices.JavaScript.JSMarshalerArgument __invokeRetValUnmanaged = ref *__invokeRetValUnmanaged__param;
-                                            global::System.Threading.Tasks.Task<int> __invokeRetVal = default;
-                                            try
+                                            __invokeRetVal = global::Basic.Export1();
+                                            // Marshal - Convert managed data to native data.
+                                            __invokeRetValUnmanaged.ToJS(__invokeRetVal, static (ref global::System.Runtime.InteropServices.JavaScript.JSMarshalerArgument __task_result_arg, int __task_result) =>
                                             {
-                                                __invokeRetVal = global::Basic.Export1();
-                                                // Marshal - Convert managed data to native data.
-                                                __invokeRetValUnmanaged.ToJS(__invokeRetVal, static (ref global::System.Runtime.InteropServices.JavaScript.JSMarshalerArgument __task_result_arg, int __task_result) =>
-                                                {
-                                                    __task_result_arg.ToJS(__task_result);
-                                                });
-                                            }
-                                            catch (global::System.Exception __arg_exception)
-                                            {
-                                                ____arg_exception_native.ToJS(__arg_exception);
-                                            }
+                                                __task_result_arg.ToJS(__task_result);
+                                            });
+                                        }
+                                        catch (global::System.Exception __arg_exception)
+                                        {
+                                            ____arg_exception_native.ToJS(__arg_exception);
                                         }
                                     }
                                 }

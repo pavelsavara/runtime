@@ -23,8 +23,11 @@ namespace System.Runtime.InteropServices.JavaScript
         // they have negative values, so that they don't collide with JSHandles.
         private nint NextJSVHandle = -2;
         private readonly List<nint> JSVHandleFreeList = new();
-        internal Dictionary<int, Action<IntPtr>> JSExportByHandle = new Dictionary<int, Action<IntPtr>>();
+        internal Dictionary<int, JSExportEntry> JSExportByHandle = new Dictionary<int, JSExportEntry>();
         internal int NextJSExportHandle = 1;
+
+        // ArgumentCount is the frame size the JavaScript caller allocated for this signature.
+        internal readonly record struct JSExportEntry(JSExportCallback Callback, int ArgumentCount);
 
         public int PromiseHolderCount
         {

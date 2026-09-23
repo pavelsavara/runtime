@@ -18,8 +18,12 @@ namespace Microsoft.Interop.JavaScript
         protected override string AttributeMetadataName => Constants.JSExportAttribute;
         protected override DiagnosticDescriptor InvalidSignatureDescriptor => GeneratorDiagnostics.InvalidExportAttributedMethodSignature;
         protected override DiagnosticDescriptor ContainingTypeMissingModifiersDescriptor => GeneratorDiagnostics.InvalidExportAttributedMethodContainingTypeMissingModifiers;
-        protected override DiagnosticDescriptor? RequiresAllowUnsafeBlocksDescriptor => GeneratorDiagnostics.JSExportRequiresAllowUnsafeBlocks;
+        // The generated JSExport wrapper no longer uses pointers, so it does not require AllowUnsafeBlocks.
+        protected override DiagnosticDescriptor? RequiresAllowUnsafeBlocksDescriptor => null;
         protected override bool RequiresImplementation => true;
+
+        protected override ImmutableArray<DiagnosticDescriptor> AdditionalDescriptors =>
+            ImmutableArray.Create(GeneratorDiagnostics.JSExportInaccessibleNestedType);
 
         protected override ImmutableArray<DiagnosticInfo> CalculateDiagnostics(
             MethodDeclarationSyntax originalSyntax,
@@ -41,6 +45,14 @@ namespace Microsoft.Interop.JavaScript
                 new CompositeMarshallingGeneratorResolver(
                     new NoSpanAndTaskMixingResolver(),
                     new JSGeneratorResolver()));
+
+            if (!JSExportGenerator.IsReferenceableByMethodGroup(symbol.ContainingType))
+            {
+                generatorDiagnostics.ReportDiagnostic(DiagnosticInfo.Create(
+                    GeneratorDiagnostics.JSExportInaccessibleNestedType,
+                    locations.FallbackLocation,
+                    symbol.Name));
+            }
 
             return generatorDiagnostics.Diagnostics.ToImmutableArray();
         }

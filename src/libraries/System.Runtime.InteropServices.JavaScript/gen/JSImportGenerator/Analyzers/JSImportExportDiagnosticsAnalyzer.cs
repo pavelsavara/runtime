@@ -29,14 +29,18 @@ namespace Microsoft.Interop.JavaScript
             GeneratorDiagnostics.MarshallingAttributeConfigurationNotSupported);
 
         public override ImmutableArray<DiagnosticDescriptor> SupportedDiagnostics =>
-            RequiresAllowUnsafeBlocksDescriptor is null
+            (RequiresAllowUnsafeBlocksDescriptor is null
                 ? s_sharedDescriptors
                     .Add(InvalidSignatureDescriptor)
                     .Add(ContainingTypeMissingModifiersDescriptor)
                 : s_sharedDescriptors
                     .Add(InvalidSignatureDescriptor)
                     .Add(ContainingTypeMissingModifiersDescriptor)
-                    .Add(RequiresAllowUnsafeBlocksDescriptor);
+                    .Add(RequiresAllowUnsafeBlocksDescriptor))
+                .AddRange(AdditionalDescriptors);
+
+        /// <summary>Descriptors reported by a specific derived analyzer.</summary>
+        protected virtual ImmutableArray<DiagnosticDescriptor> AdditionalDescriptors => ImmutableArray<DiagnosticDescriptor>.Empty;
 
         /// <summary>The metadata name of the attribute this analyzer handles.</summary>
         protected abstract string AttributeMetadataName { get; }

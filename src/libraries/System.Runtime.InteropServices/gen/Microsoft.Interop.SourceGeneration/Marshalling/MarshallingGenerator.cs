@@ -23,7 +23,12 @@ namespace Microsoft.Interop
         /// <summary>
         /// The native signature should be a pointer to the type returned by <see cref="IUnboundMarshallingGenerator.AsNativeType(TypePositionInfo)"/> passed by value.
         /// </summary>
-        PointerToNativeType
+        PointerToNativeType,
+
+        /// <summary>
+        /// The native signature should be a reference to the type returned by <see cref="IUnboundMarshallingGenerator.AsNativeType(TypePositionInfo)"/>.
+        /// </summary>
+        RefToNativeType
     }
 
     /// <summary>
@@ -49,7 +54,12 @@ namespace Microsoft.Interop
         /// <summary>
         /// The native identifier provided by <see cref="StubIdentifierContext.GetIdentifiers(TypePositionInfo)"/> should be cast to the native type.
         /// </summary>
-        CastNativeIdentifier
+        CastNativeIdentifier,
+
+        /// <summary>
+        /// The native identifier provided by <see cref="StubIdentifierContext.GetIdentifiers(TypePositionInfo)"/> should be passed by reference.
+        /// </summary>
+        RefNativeIdentifier
     }
 
     /// <summary>

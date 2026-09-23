@@ -79,7 +79,7 @@ namespace JSImportGenerator.Unit.Tests
         }
 
         [Fact]
-        public async Task ValidateRequireAllowUnsafeBlocksDiagnostic()
+        public async Task DoesNotRequireAllowUnsafeBlocks()
         {
             string source = CodeSnippets.TrivialClassDeclarations;
             Compilation comp = TestUtils.CreateCompilation(new[] { source }, allowUnsafe: false);
@@ -87,10 +87,48 @@ namespace JSImportGenerator.Unit.Tests
 
             ImmutableArray<Diagnostic> analyzerDiags = await RunAnalyzerAsync(comp);
 
-            // JSExport still generates a pointer-based wrapper, so it requires AllowUnsafeBlocks.
-            Assert.True(analyzerDiags.Single(d => d.Id == "SYSLIB1075") != null);
-            // JSImport does not.
-            Assert.Empty(analyzerDiags.Where(d => d.Id == "SYSLIB1074"));
+            // Neither generated stub uses pointers any more.
+            Assert.Empty(analyzerDiags.Where(d => d.Id is "SYSLIB1074" or "SYSLIB1075"));
+        }
+
+        [Fact]
+        public async Task JSExportInInaccessibleNestedTypeWarns()
+        {
+            string source = """
+                using System.Runtime.InteropServices.JavaScript;
+                partial class Outer
+                {
+                    private partial class Inner
+                    {
+                        [JSExport]
+                        internal static void Export() { }
+                    }
+                }
+                """;
+            Compilation comp = TestUtils.CreateCompilation(new[] { source });
+            ImmutableArray<Diagnostic> analyzerDiags = await RunAnalyzerAsync(comp);
+
+            Assert.NotEmpty(analyzerDiags.Where(d => d.Id == "SYSLIB1076"));
+        }
+
+        [Fact]
+        public async Task JSExportInAccessibleNestedTypeDoesNotWarn()
+        {
+            string source = """
+                using System.Runtime.InteropServices.JavaScript;
+                public partial class Outer
+                {
+                    internal partial class Inner
+                    {
+                        [JSExport]
+                        internal static void Export() { }
+                    }
+                }
+                """;
+            Compilation comp = TestUtils.CreateCompilation(new[] { source });
+            ImmutableArray<Diagnostic> analyzerDiags = await RunAnalyzerAsync(comp);
+
+            Assert.Empty(analyzerDiags.Where(d => d.Id == "SYSLIB1076"));
         }
 
         private static Task<ImmutableArray<Diagnostic>> RunAnalyzerAsync(Compilation comp)

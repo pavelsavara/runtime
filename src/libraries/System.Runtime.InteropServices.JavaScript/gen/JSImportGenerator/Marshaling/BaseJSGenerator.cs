@@ -15,9 +15,13 @@ namespace Microsoft.Interop.JavaScript
 
         public ManagedTypeInfo NativeType => s_jsMarshalerArgument;
 
-        public SignatureBehavior NativeSignatureBehavior => TypeInfo.IsByRef ? SignatureBehavior.PointerToNativeType : SignatureBehavior.NativeType;
+        public SignatureBehavior NativeSignatureBehavior => TypeInfo.IsByRef
+            ? (CodeContext.Direction == MarshalDirection.UnmanagedToManaged ? SignatureBehavior.RefToNativeType : SignatureBehavior.PointerToNativeType)
+            : SignatureBehavior.NativeType;
 
-        public ValueBoundaryBehavior ValueBoundaryBehavior => TypeInfo.IsByRef ? ValueBoundaryBehavior.AddressOfNativeIdentifier : ValueBoundaryBehavior.NativeIdentifier;
+        public ValueBoundaryBehavior ValueBoundaryBehavior => TypeInfo.IsByRef
+            ? (CodeContext.Direction == MarshalDirection.UnmanagedToManaged ? ValueBoundaryBehavior.RefNativeIdentifier : ValueBoundaryBehavior.AddressOfNativeIdentifier)
+            : ValueBoundaryBehavior.NativeIdentifier;
 
         public virtual bool UsesNativeIdentifier => true;
 

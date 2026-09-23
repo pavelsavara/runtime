@@ -19,7 +19,24 @@ namespace Microsoft.Interop.JavaScript
             JSSignatureContext SignatureContext,
             ContainingSyntaxContext ContainingSyntaxContext,
             MethodSignatureDiagnosticLocations DiagnosticLocation,
-            JSExportData JSExportData);
+            JSExportData JSExportData,
+            bool IsReflectionFree);
+
+        /// <summary>
+        /// Whether the wrapper can be named from the generated registration, which requires every
+        /// containing type to be visible to it.
+        /// </summary>
+        internal static bool IsReferenceableByMethodGroup(INamedTypeSymbol? type)
+        {
+            for (INamedTypeSymbol? current = type; current is not null; current = current.ContainingType)
+            {
+                if (current.DeclaredAccessibility is not (Accessibility.Public or Accessibility.Internal or Accessibility.ProtectedOrInternal))
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
 
         public static class StepNames
         {
@@ -42,7 +59,7 @@ namespace Microsoft.Interop.JavaScript
                         requiresImplementation: true) is null);
 
             IncrementalValueProvider<StubEnvironment> stubEnvironment = context.CreateStubEnvironmentProvider();
-            IncrementalValuesProvider<(string Source, string Registration, string Attribute)> generateSingleStub = methodsToGenerate
+            IncrementalValuesProvider<(string Source, string Registration, string? Attribute)> generateSingleStub = methodsToGenerate
                 .Combine(stubEnvironment)
                 .Select(static (data, ct) => CalculateStubInformation(data.Left.Syntax, data.Left.Symbol, data.Right, ct))
                 .WithTrackingName(StepNames.CalculateStubInformation)
@@ -102,12 +119,12 @@ namespace Microsoft.Interop.JavaScript
             var signatureContext = JSSignatureContext.Create(symbol, environment, generatorDiagnostics, ct);
             ContainingSyntaxContext containingTypeContext = originalSyntax.GetContainingSyntaxContext();
 
-            return new IncrementalStubGenerationContext(signatureContext, containingTypeContext, locations, jsExportData);
+            return new IncrementalStubGenerationContext(signatureContext, containingTypeContext, locations, jsExportData, IsReferenceableByMethodGroup(symbol.ContainingType));
         }
 
         private static void WriteRegistrationSource(
             IndentedTextWriter writer,
-            ImmutableArray<(string Source, string Registration, string Attribute)> methods,
+            ImmutableArray<(string Source, string Registration, string? Attribute)> methods,
             string assemblyName)
         {
             const string GeneratedNamespace = "System.Runtime.InteropServices.JavaScript";
@@ -127,12 +144,16 @@ namespace Microsoft.Interop.JavaScript
                     writer.WriteLine("static internal void __TrimmingPreserve_()");
                     using (writer.WriteBlock())
                     {
+                        writer.WriteLine($"{Constants.JSFunctionSignatureGlobal}.{Constants.RegisterAssemblyExportsMethod}({CodeWriterHelpers.StringLiteral(assemblyName)}, __Register_);");
                     }
                     writer.WriteLine();
 
                     foreach (var method in methods)
                     {
-                        writer.WriteLine($"[{method.Attribute}]");
+                        if (method.Attribute is not null)
+                        {
+                            writer.WriteLine($"[{method.Attribute}]");
+                        }
                     }
                     writer.WriteLine("static void __Register_()");
                     using (writer.WriteBlock())
@@ -151,7 +172,7 @@ namespace Microsoft.Interop.JavaScript
             }
         }
 
-        private static (string Source, string Registration, string Attribute) GenerateSource(IncrementalStubGenerationContext incrementalContext)
+        private static (string Source, string Registration, string? Attribute) GenerateSource(IncrementalStubGenerationContext incrementalContext)
         {
             var diagnostics = new GeneratorDiagnosticsBag(new DescriptorProvider(), incrementalContext.DiagnosticLocation, SR.ResourceManager, typeof(FxResources.Microsoft.Interop.JavaScript.JSImportGenerator.SR));
             ImmutableArray<TypePositionInfo> signatureElements = incrementalContext.SignatureContext.SignatureContext.ElementTypeInformation;
@@ -198,6 +219,16 @@ namespace Microsoft.Interop.JavaScript
 
             JSSignatureContext signature = incrementalContext.SignatureContext;
             string signatures = SignatureBindingHelpers.CreateSignaturesArgument(signatureElements, StubCodeContext.DefaultNativeToManagedStub);
+
+            if (incrementalContext.IsReflectionFree)
+            {
+                string wrapperReference = $"{signature.StubTypeQualifiedName}.{signature.WrapperName}";
+                string fastRegistration = $"{Constants.JSFunctionSignatureGlobal}.{Constants.BindCSFunctionMethod}({CodeWriterHelpers.StringLiteral(signature.QualifiedMethodName)}, {signature.TypesHash.ToString(CultureInfo.InvariantCulture)}, {signatures}, {wrapperReference});";
+                return (writer.ToString(), fastRegistration, null);
+            }
+
+            // Inaccessible (private or protected nested) types cannot be named from the registration,
+            // so bind them through the reflection-based overload and keep the wrapper alive explicitly.
             string registration = $"{Constants.JSFunctionSignatureGlobal}.{Constants.BindCSFunctionMethod}({CodeWriterHelpers.StringLiteral(signature.QualifiedMethodName)}, {signature.TypesHash.ToString(CultureInfo.InvariantCulture)}, {signatures});";
             string attribute = $"{Constants.DynamicDependencyAttributeGlobal}({CodeWriterHelpers.StringLiteral(signature.WrapperName)}, {CodeWriterHelpers.StringLiteral(signature.StubTypeFullName)}, {CodeWriterHelpers.StringLiteral(signature.AssemblyName)})";
 
@@ -210,20 +241,43 @@ namespace Microsoft.Interop.JavaScript
             UnmanagedToManagedStubGenerator stubGenerator)
         {
             const string InnerWrapperName = "__Stub";
+            // Pointer types in the signature still need an unsafe context.
+            bool needsUnsafe = context.SignatureContext.SignatureContext.ElementTypeInformation.Any(static element => element.ManagedType is PointerTypeInfo);
             writer.WriteLine($"[{Constants.DebuggerNonUserCodeAttribute}]");
+
+            if (context.IsReflectionFree)
+            {
+                writer.WriteLine($"internal static {(needsUnsafe ? "unsafe " : "")}void {context.SignatureContext.WrapperName}({Constants.SpanGlobal}<{Constants.JSMarshalerArgumentGlobal}> {Constants.ArgumentsSpan})");
+                using (writer.WriteBlock())
+                {
+                    WriteWrapperBody(writer, context, stubGenerator, InnerWrapperName);
+                }
+                return;
+            }
+
             writer.WriteLine($"internal static unsafe void {context.SignatureContext.WrapperName}({Constants.JSMarshalerArgumentGlobal}* {Constants.ArgumentsBuffer})");
             using (writer.WriteBlock())
             {
                 writer.WriteLine("unsafe");
                 using (writer.WriteBlock())
                 {
-                    WriteWrapperToInnerStubCall(writer, context.SignatureContext.SignatureContext.ElementTypeInformation, InnerWrapperName);
-                    GeneratedMethodSignature signature = stubGenerator.GenerateAbiMethodSignatureData();
-                    writer.WriteLine($"[{Constants.DebuggerNonUserCodeAttribute}]");
-                    writer.WriteLine($"{signature.ReturnType} {InnerWrapperName}{signature.ParameterList}");
-                    writer.Write(stubGenerator.GenerateStubBodyForMethod(context.SignatureContext.MethodName));
+                    writer.WriteLine($"{Constants.SpanGlobal}<{Constants.JSMarshalerArgumentGlobal}> {Constants.ArgumentsSpan} = new {Constants.SpanGlobal}<{Constants.JSMarshalerArgumentGlobal}>({Constants.ArgumentsBuffer}, {context.SignatureContext.SignatureContext.ElementTypeInformation.Count(static element => element.NativeIndex != TypePositionInfo.UnsetIndex && !element.IsNativeReturnPosition) + 2});");
+                    WriteWrapperBody(writer, context, stubGenerator, InnerWrapperName);
                 }
             }
+        }
+
+        private static void WriteWrapperBody(
+            IndentedTextWriter writer,
+            IncrementalStubGenerationContext context,
+            UnmanagedToManagedStubGenerator stubGenerator,
+            string innerWrapperName)
+        {
+            WriteWrapperToInnerStubCall(writer, context.SignatureContext.SignatureContext.ElementTypeInformation, innerWrapperName);
+            GeneratedMethodSignature signature = stubGenerator.GenerateAbiMethodSignatureData();
+            writer.WriteLine($"[{Constants.DebuggerNonUserCodeAttribute}]");
+            writer.WriteLine($"{signature.ReturnType} {innerWrapperName}{signature.ParameterList}");
+            writer.Write(stubGenerator.GenerateStubBodyForMethod(context.SignatureContext.MethodName));
         }
 
         private static void WriteWrapperToInnerStubCall(
@@ -240,12 +294,12 @@ namespace Microsoft.Interop.JavaScript
                     hasReturn = nativeArgument.ManagedType != SpecialTypeInfo.Void;
                     continue;
                 }
-                writer.Write($"{Constants.ArgumentsBuffer}[{nativeArgument.NativeIndex + 2}], ");
+                writer.Write($"{Constants.ArgumentsSpan}[{nativeArgument.NativeIndex + 2}], ");
             }
-            writer.Write(Constants.ArgumentsBuffer);
+            writer.Write($"ref {Constants.ArgumentsSpan}[0]");
             if (hasReturn)
             {
-                writer.Write($", {Constants.ArgumentsBuffer} + 1");
+                writer.Write($", ref {Constants.ArgumentsSpan}[1]");
             }
             writer.WriteLine(");");
         }
