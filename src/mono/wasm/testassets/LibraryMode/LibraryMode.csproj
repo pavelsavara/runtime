@@ -2,7 +2,6 @@
   <PropertyGroup>
     <RuntimeIdentifier>browser-wasm</RuntimeIdentifier>
     <TargetFramework>net11.0</TargetFramework>
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <OutputType>Library</OutputType>
     <OverrideHtmlAssetPlaceholders>true</OverrideHtmlAssetPlaceholders>
   </PropertyGroup>
