@@ -29,7 +29,7 @@ function libBrowserUtilsFactory() {
         "__async_continuation",
         "$readI53FromU64",
         "$readI53FromI64",
-        "$writeI53ToI64"
+        "$writeI53ToI64",
     ];
     const mergeBrowserUtils = {
         $BROWSER_UTILS: {

@@ -37,5 +37,6 @@ export function cancelPromise(task_holder_gc_handle: GCHandle): void {
     }
     const holder = lookupJsOwnedObject(task_holder_gc_handle) as PromiseHolder;
     dotnetAssert.fastCheck(!!holder, () => `Expected Promise for GCHandle ${task_holder_gc_handle}`);
-    holder.cancel();
+    // fire and forget
+    holder.cancel().then(() => { }, () => { });
 }

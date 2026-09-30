@@ -140,6 +140,7 @@ export function dotnetUpdateInternalsSubscriber() {
             normalizeException: table[18],
             fetchSatelliteAssemblies: table[19],
             fetchLazyAssembly: table[20],
+            getPendingAssembly: table[21],
         };
         Object.assign(dotnetLoaderExports, loaderExportsLocal);
         Object.assign(logger, loggerLocal);
@@ -179,7 +180,8 @@ export function dotnetUpdateInternalsSubscriber() {
             getWasmMemory: table[0],
             getWasmTable: table[1],
             SystemJS_ScheduleDiagnosticServer: table[2],
-            SystemJS_GetMethodName: table[3],
+            wrapExportsWithJSPI: table[3],
+            SystemJS_GetMethodName: table[4],
         };
         Object.assign(interop, interopLocal);
     }
@@ -215,6 +217,9 @@ export function dotnetUpdateInternalsSubscriber() {
             abortPosix: table[10],
             getExitStatus: table[11],
             runBackgroundTimers: table[12],
+            serializeWasmCall: table[13],
+            serializeWasmCallSync: table[14],
+            isSuspensionInFlight: table[15],
         };
         Object.assign(interop, interopLocal);
     }

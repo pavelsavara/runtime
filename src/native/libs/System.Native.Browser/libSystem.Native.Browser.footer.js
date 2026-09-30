@@ -23,6 +23,7 @@ function libDotnetFactory() {
         "SystemJS_ExecuteTimerCallback",
         "SystemJS_ExecuteBackgroundJobCallback",
         "SystemJS_ExecuteFinalizationCallback",
+        "SystemJS_AsyncExports",
         "SystemJS_ExecuteDiagnosticServerCallback",
         "SystemJS_ScheduleDiagnosticServer",
         "SystemJS_GetMethodName",

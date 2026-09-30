@@ -15,3 +15,4 @@ export const CharPtrNull: CharPtr = <CharPtr><any>0;
 export const NativePointerNull: NativePointer = <NativePointer><any>0;
 export const browserVirtualAppBase = "/"; // keep in sync other places that define browserVirtualAppBase
 export const sizeOfPtr = 4;
+export const hasJSPI = typeof globalThis.WebAssembly?.Suspending === "function" && typeof globalThis.WebAssembly?.promising === "function";

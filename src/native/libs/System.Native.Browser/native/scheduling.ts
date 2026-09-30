@@ -15,10 +15,10 @@ export function SystemJS_ScheduleTimer(shortestDueTimeMs: number): void {
     }
     _ems_.DOTNET.lastScheduledTimerId = _ems_.safeSetTimeout(SystemJS_ScheduleTimerTick, shortestDueTimeMs);
 
-    function SystemJS_ScheduleTimerTick(): void {
+    async function SystemJS_ScheduleTimerTick(): Promise<void> {
         try {
             _ems_.DOTNET.lastScheduledTimerId = undefined;
-            _ems_._SystemJS_ExecuteTimerCallback();
+            await _ems_.dotnetBrowserUtilsExports.serializeWasmCall(() => _ems_._SystemJS_ExecuteTimerCallback());
         } catch (error: any) {
             // do not propagate ExitStatus exception
             if (!error || typeof error.status !== "number") {
@@ -41,10 +41,10 @@ export function SystemJS_ScheduleBackgroundJob(): void {
     }
     _ems_.DOTNET.lastScheduledThreadPoolId = _ems_.safeSetTimeout(SystemJS_ScheduleBackgroundJobTick, 0);
 
-    function SystemJS_ScheduleBackgroundJobTick(): void {
+    async function SystemJS_ScheduleBackgroundJobTick(): Promise<void> {
         try {
             _ems_.DOTNET.lastScheduledThreadPoolId = undefined;
-            _ems_._SystemJS_ExecuteBackgroundJobCallback();
+            await _ems_.dotnetBrowserUtilsExports.serializeWasmCall(() => _ems_._SystemJS_ExecuteBackgroundJobCallback());
         } catch (error: any) {
             // do not propagate ExitStatus exception
             if (!error || typeof error.status !== "number") {
@@ -67,10 +67,10 @@ export function SystemJS_ScheduleFinalization(): void {
     }
     _ems_.DOTNET.lastScheduledFinalizationId = _ems_.safeSetTimeout(SystemJS_ScheduleFinalizationTick, 0);
 
-    function SystemJS_ScheduleFinalizationTick(): void {
+    async function SystemJS_ScheduleFinalizationTick(): Promise<void> {
         try {
             _ems_.DOTNET.lastScheduledFinalizationId = undefined;
-            _ems_._SystemJS_ExecuteFinalizationCallback();
+            await _ems_.dotnetBrowserUtilsExports.serializeWasmCall(() => _ems_._SystemJS_ExecuteFinalizationCallback());
         } catch (error: any) {
             // do not propagate ExitStatus exception
             if (!error || typeof error.status !== "number") {

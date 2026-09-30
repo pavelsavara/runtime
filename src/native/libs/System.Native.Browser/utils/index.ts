@@ -20,7 +20,7 @@ import { dotnetUpdateInternals, dotnetUpdateInternalsSubscriber } from "../utils
 import { initPolyfills } from "../utils/polyfills";
 import { registerRuntime } from "./runtime-list";
 import { registerCDAC } from "./cdac";
-import { abortBackgroundTimers, runBackgroundTimers } from "./scheduling";
+import { abortBackgroundTimers, isSuspensionInFlight, runBackgroundTimers, serializeWasmCall, serializeWasmCallSync } from "./scheduling";
 
 export function dotnetInitializeModule(internals: InternalExchange): void {
     if (!Array.isArray(internals)) throw new Error("Expected internals to be an array");
@@ -58,6 +58,9 @@ export function dotnetInitializeModule(internals: InternalExchange): void {
         abortPosix,
         getExitStatus,
         runBackgroundTimers,
+        serializeWasmCall,
+        serializeWasmCallSync,
+        isSuspensionInFlight,
     });
     dotnetUpdateInternals(internals, dotnetUpdateInternalsSubscriber);
     function browserUtilsExportsToTable(map: BrowserUtilsExports): BrowserUtilsExportsTable {
@@ -76,6 +79,9 @@ export function dotnetInitializeModule(internals: InternalExchange): void {
             map.abortPosix,
             map.getExitStatus,
             map.runBackgroundTimers,
+            map.serializeWasmCall,
+            map.serializeWasmCallSync,
+            map.isSuspensionInFlight,
         ];
     }
 }

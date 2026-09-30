@@ -187,7 +187,7 @@ function _marshalDelegateToJs(arg: JSMarshalerArgument, _?: MarshalerType, resCo
     let result = lookupJsOwnedObject(gcHandle);
     if (result === null || result === undefined) {
         // this will create new Function for the C# delegate
-        result = (arg1Js: any, arg2Js: any, arg3Js: any): any => {
+        result = (arg1Js: any, arg2Js: any, arg3Js: any): Promise<any> => {
             dotnetAssert.check(!result.isDisposed, "Delegate is disposed and should not be invoked anymore.");
             // arg numbers are shifted by one, the real first is a gc handle of the callback
             return callDelegate(gcHandle, arg1Js, arg2Js, arg3Js, resConverter, arg1Converter, arg2Converter, arg3Converter);

@@ -92,6 +92,7 @@ function defaultConfig(target: LoaderConfigInternal) {
     if (target.diagnosticTracing === undefined) target.diagnosticTracing = false;
     if (target.virtualWorkingDirectory === undefined) target.virtualWorkingDirectory = browserVirtualAppBase;
     if (target.maxParallelDownloads === undefined) target.maxParallelDownloads = 16;
+    if (target.enableJSPI === undefined) target.enableJSPI = true;// TODO make false by default
     if (target.enableDownloadRetry === undefined) target.enableDownloadRetry = true;
     if (target.applicationEnvironment === undefined) target.applicationEnvironment = "Production";
     normalizeConfig(target);

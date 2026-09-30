@@ -3,12 +3,12 @@
 
 import type { JsModuleExports, EmscriptenModuleInternal, JsAsset, PromiseCompletionSource, VfsAsset } from "./types";
 
-import { dotnetAssert, dotnetInternals, dotnetBrowserHostExports, Module } from "./cross-module";
+import { dotnetAssert, dotnetInternals, dotnetBrowserHostExports, dotnetLogger, Module } from "./cross-module";
 import { exit, runtimeState } from "./exit";
 import { createPromiseCompletionSource } from "./promise-completion-source";
 import { getIcuResourceName } from "./icu";
 import { loaderConfig, validateLoaderConfig } from "./config";
-import { fetchAssembly, fetchIcu, fetchNativeSymbols, fetchPdb, fetchSatelliteAssemblies, fetchVfs, fetchMainWasm, loadDotnetModule, loadJSModule, nativeModulePromiseController, verifyAllAssetsDownloaded, callLibraryInitializerOnRuntimeReady, callLibraryInitializerOnRuntimeConfigLoaded, prefetchAllResources, prefetchJSModuleLinks, resolveAllDownloadsQueued } from "./assets";
+import { fetchAssembly, fetchIcu, fetchNativeSymbols, fetchPdb, fetchSatelliteAssemblies, fetchVfs, fetchMainWasm, loadDotnetModule, loadJSModule, nativeModulePromiseController, verifyAllAssetsDownloaded, fetchPriorityAssembly, callLibraryInitializerOnRuntimeReady, callLibraryInitializerOnRuntimeConfigLoaded, prefetchAllResources, prefetchJSModuleLinks, resolveAllDownloadsQueued } from "./assets";
 import { initPolyfillsLoader } from "./polyfills";
 import { validateEngineFeatures } from "./bootstrap";
 
@@ -96,6 +96,9 @@ export async function createRuntime(downloadOnly: boolean, httpCacheOnly: boolea
             modulesAfterConfigLoadedCache = modulesAfterConfigLoadedPromises;
         }
 
+        if (loaderConfig.enableJSPI) {
+            loaderConfig.maxParallelDownloads = 2;
+        }
         const appsettingsVfs = getAppsettingsVfs();
 
         // HTTP cache only path: just fetch all resources into browser cache and discard
@@ -117,7 +120,8 @@ export async function createRuntime(downloadOnly: boolean, httpCacheOnly: boolea
         const runtimeModulePromise: Promise<JsModuleExports> = loadDotnetModule(resources.jsModuleRuntime[0]);
         const wasmNativePromise: Promise<Response> = fetchMainWasm(resources.wasmNative[0]);
 
-        const coreAssembliesPromise = forEachResource(resources.coreAssembly, fetchAssembly);
+        const coreAssembliesPromise = forEachResource(resources.coreAssembly, fetchPriorityAssembly);
+        const coreVfsPromise = forEachResource(resources.coreVfs, fetchVfs);
 
         const icuResourceName = getIcuResourceName();
         const icuDataPromise = forEachResource(resources.icu, fetchIcu, asset => asset.name === icuResourceName);
@@ -157,6 +161,7 @@ export async function createRuntime(downloadOnly: boolean, httpCacheOnly: boolea
         await nativeModulePromiseController.promise;
         runtimeState.nativeReady = true;
         await coreAssembliesPromise;
+        await coreVfsPromise;
         await vfsPromise;
         await icuDataPromise;
         await wasmNativePromise; // this is just to propagate errors
@@ -166,13 +171,22 @@ export async function createRuntime(downloadOnly: boolean, httpCacheOnly: boolea
             await initializeCoreCLR();
         }
 
-        await assembliesPromise;
-        await satelliteResourcesPromise;
-        await pdbsPromise;
+        if (loaderConfig.enableJSPI) {
+            const report = (err: any) => dotnetLogger.error("Background assembly download failed", err);
+            assembliesPromise.then(() => { }, report);
+            satelliteResourcesPromise.then(() => { }, report);
+            pdbsPromise.then(() => { }, report);
+        } else {
+            await assembliesPromise;
+            await satelliteResourcesPromise;
+            await pdbsPromise;
+        }
         await corePDBsPromise;
         await runtimeModuleReady;
 
-        verifyAllAssetsDownloaded();
+        if (!loaderConfig.enableJSPI) {
+            verifyAllAssetsDownloaded();
+        }
 
         if (downloadOnly) {
             downloadMode = "intoMemory";
@@ -202,7 +216,7 @@ export function abortStartup(reason: any): void {
 
 async function initializeCoreCLR(): Promise<void> {
     dotnetAssert.check(!runtimeState.dotnetReady, "CoreCLR should be initialized just once");
-    const res = dotnetBrowserHostExports.initializeCoreCLR();
+    const res = await dotnetBrowserHostExports.initializeCoreCLR();
     if (res != 0) {
         const reason = new Error("Failed to initialize CoreCLR");
         runMainPromiseController.reject(reason);

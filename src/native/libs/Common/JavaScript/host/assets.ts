@@ -168,9 +168,16 @@ function finishWebcilInstance(instance: WebAssembly.Instance, payloadPtr: number
     loadedAssemblies.set(name, { ptr: payloadPtr, length: payloadSize });
 }
 
-export function BrowserHost_ExternalAssemblyProbe(pathPtr: CharPtr, outDataStartPtr: VoidPtrPtr, outSize: VoidPtr): boolean {
+export async function BrowserHost_ExternalAssemblyProbe(pathPtr: CharPtr, outDataStartPtr: VoidPtrPtr, outSize: VoidPtr): Promise<boolean> {
     const path = _ems_.UTF8ArrayToString(_ems_.dotnetApi.localHeapViewU8(), pathPtr as any);
-    const assembly = loadedAssemblies.get(path);
+    let assembly = loadedAssemblies.get(path);
+    if (!assembly) {
+        const pending = _ems_.dotnetLoaderExports.getPendingAssembly(path);
+        if (pending) {
+            await pending;
+            assembly = loadedAssemblies.get(path);
+        }
+    }
     if (assembly) {
         _ems_.HEAPU32[outDataStartPtr as any >>> 2] = assembly.ptr;
         // int64_t target

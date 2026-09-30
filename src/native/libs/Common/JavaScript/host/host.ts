@@ -13,49 +13,51 @@ const HOST_PROPERTY_APP_PATHS = "APP_PATHS";
 const APP_CONTEXT_BASE_DIRECTORY = "APP_CONTEXT_BASE_DIRECTORY";
 const RUNTIME_IDENTIFIER = "RUNTIME_IDENTIFIER";
 
-export function initializeCoreCLR(): number {
-    const loaderConfig = _ems_.dotnetApi.getConfig();
-    const hostContractPtr = _ems_._BrowserHost_CreateHostContract();
-    const runtimeConfigProperties = new Map<string, string>();
-    if (loaderConfig.runtimeConfig?.runtimeOptions?.configProperties) {
-        for (const [key, value] of Object.entries(loaderConfig.runtimeConfig?.runtimeOptions?.configProperties)) {
-            runtimeConfigProperties.set(key, "" + value);
+export async function initializeCoreCLR(): Promise<number> {
+    return _ems_.dotnetBrowserUtilsExports.serializeWasmCall(async () => {
+        const loaderConfig = _ems_.dotnetApi.getConfig();
+        const hostContractPtr = _ems_._BrowserHost_CreateHostContract();
+        const runtimeConfigProperties = new Map<string, string>();
+        if (loaderConfig.runtimeConfig?.runtimeOptions?.configProperties) {
+            for (const [key, value] of Object.entries(loaderConfig.runtimeConfig?.runtimeOptions?.configProperties)) {
+                runtimeConfigProperties.set(key, "" + value);
+            }
         }
-    }
 
-    const assemblyPaths = loaderConfig.resources!.assembly.map(asset => asset.virtualPath.replace(/\.wasm$/, ".dll"));
-    const coreAssemblyPaths = loaderConfig.resources!.coreAssembly.map(asset => asset.virtualPath.replace(/\.wasm$/, ".dll"));
-    const tpa = [...coreAssemblyPaths, ...assemblyPaths].join(":");
-    runtimeConfigProperties.set(HOST_PROPERTY_TRUSTED_PLATFORM_ASSEMBLIES, tpa);
-    runtimeConfigProperties.set(HOST_PROPERTY_NATIVE_DLL_SEARCH_DIRECTORIES, loaderConfig.virtualWorkingDirectory!);
-    runtimeConfigProperties.set(HOST_PROPERTY_APP_PATHS, loaderConfig.virtualWorkingDirectory!);
-    runtimeConfigProperties.set(HOST_PROPERTY_ENTRY_ASSEMBLY_NAME, loaderConfig.mainAssemblyName!);
-    runtimeConfigProperties.set(APP_CONTEXT_BASE_DIRECTORY, browserVirtualAppBase);
-    runtimeConfigProperties.set(RUNTIME_IDENTIFIER, "browser-wasm");
-    runtimeConfigProperties.set(HOST_PROPERTY_RUNTIME_CONTRACT, `0x${(hostContractPtr as unknown as number).toString(16)}`);
+        const assemblyPaths = loaderConfig.resources!.assembly.map(asset => asset.virtualPath.replace(/\.wasm$/, ".dll"));
+        const coreAssemblyPaths = loaderConfig.resources!.coreAssembly.map(asset => asset.virtualPath.replace(/\.wasm$/, ".dll"));
+        const tpa = [...coreAssemblyPaths, ...assemblyPaths].join(":");
+        runtimeConfigProperties.set(HOST_PROPERTY_TRUSTED_PLATFORM_ASSEMBLIES, tpa);
+        runtimeConfigProperties.set(HOST_PROPERTY_NATIVE_DLL_SEARCH_DIRECTORIES, loaderConfig.virtualWorkingDirectory!);
+        runtimeConfigProperties.set(HOST_PROPERTY_APP_PATHS, loaderConfig.virtualWorkingDirectory!);
+        runtimeConfigProperties.set(HOST_PROPERTY_ENTRY_ASSEMBLY_NAME, loaderConfig.mainAssemblyName!);
+        runtimeConfigProperties.set(APP_CONTEXT_BASE_DIRECTORY, browserVirtualAppBase);
+        runtimeConfigProperties.set(RUNTIME_IDENTIFIER, "browser-wasm");
+        runtimeConfigProperties.set(HOST_PROPERTY_RUNTIME_CONTRACT, `0x${(hostContractPtr as unknown as number).toString(16)}`);
 
-    const buffers: VoidPtr[] = [];
-    const appctx_keys = _ems_._malloc(sizeOfPtr * runtimeConfigProperties.size) as any as CharPtrPtr;
-    const appctx_values = _ems_._malloc(sizeOfPtr * runtimeConfigProperties.size) as any as CharPtrPtr;
-    buffers.push(appctx_keys as any);
-    buffers.push(appctx_values as any);
+        const buffers: VoidPtr[] = [];
+        const appctx_keys = _ems_._malloc(sizeOfPtr * runtimeConfigProperties.size) as any as CharPtrPtr;
+        const appctx_values = _ems_._malloc(sizeOfPtr * runtimeConfigProperties.size) as any as CharPtrPtr;
+        buffers.push(appctx_keys as any);
+        buffers.push(appctx_values as any);
 
-    let propertyCount = 0;
-    for (const [key, value] of runtimeConfigProperties.entries()) {
-        const keyPtr = _ems_.dotnetBrowserUtilsExports.stringToUTF8Ptr(key);
-        const valuePtr = _ems_.dotnetBrowserUtilsExports.stringToUTF8Ptr(value);
-        _ems_.dotnetApi.setHeapU32((appctx_keys as any) + (propertyCount * sizeOfPtr), keyPtr);
-        _ems_.dotnetApi.setHeapU32((appctx_values as any) + (propertyCount * sizeOfPtr), valuePtr);
-        propertyCount++;
-        buffers.push(keyPtr as any);
-        buffers.push(valuePtr as any);
-    }
+        let propertyCount = 0;
+        for (const [key, value] of runtimeConfigProperties.entries()) {
+            const keyPtr = _ems_.dotnetBrowserUtilsExports.stringToUTF8Ptr(key);
+            const valuePtr = _ems_.dotnetBrowserUtilsExports.stringToUTF8Ptr(value);
+            _ems_.dotnetApi.setHeapU32((appctx_keys as any) + (propertyCount * sizeOfPtr), keyPtr);
+            _ems_.dotnetApi.setHeapU32((appctx_values as any) + (propertyCount * sizeOfPtr), valuePtr);
+            propertyCount++;
+            buffers.push(keyPtr as any);
+            buffers.push(valuePtr as any);
+        }
 
-    const res = _ems_._BrowserHost_InitializeDotnet(propertyCount, appctx_keys, appctx_values);
-    for (const buf of buffers) {
-        _ems_._free(buf as any);
-    }
-    return res;
+        const res = await _ems_._BrowserHost_InitializeDotnet(propertyCount, appctx_keys, appctx_values);
+        for (const buf of buffers) {
+            _ems_._free(buf as any);
+        }
+        return res;
+    });
 }
 
 export async function runMain(mainAssemblyName?: string, args?: string[]): Promise<number> {
@@ -71,8 +73,7 @@ export async function runMain(mainAssemblyName?: string, args?: string[]): Promi
 
         args ??= [];
 
-        const sp = _ems_.stackSave();
-        const argsvPtr: number = _ems_.stackAlloc((args.length + 1) * sizeOfPtr) as any;
+        const argsvPtr: number = _ems_._malloc((args.length + 1) * sizeOfPtr) as any;
         const ptrs: VoidPtr[] = [];
         try {
 
@@ -81,7 +82,9 @@ export async function runMain(mainAssemblyName?: string, args?: string[]): Promi
                 ptrs.push(ptr);
                 _ems_.HEAPU32[(argsvPtr >>> 2) + i] = ptr;
             }
-            _ems_.EXITSTATUS = _ems_._BrowserHost_ExecuteAssembly(mainAssemblyNamePtr, args.length, argsvPtr);
+            _ems_.EXITSTATUS = await _ems_.dotnetBrowserUtilsExports.serializeWasmCall(() =>
+                _ems_._BrowserHost_ExecuteAssembly(mainAssemblyNamePtr, args!.length, argsvPtr)
+            );
             for (const ptr of ptrs) {
                 _ems_._free(ptr);
             }
@@ -94,7 +97,7 @@ export async function runMain(mainAssemblyName?: string, args?: string[]): Promi
 
             return _ems_.dotnetLoaderExports.getRunMainPromise();
         } finally {
-            _ems_.stackRestore(sp);
+            _ems_._free(argsvPtr as any);
         }
     } catch (error: any) {
         // do not propagate ExitStatus exception
