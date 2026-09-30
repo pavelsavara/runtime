@@ -15,19 +15,20 @@ function delay(ms) {
 try {
     const { setModuleImports, getAssemblyExports } = await dotnet
         .withConfig({ appendElementOnExit: true, exitOnUnhandledError: true, forwardConsole: true, logExitCode: true })
+        .withWorker()
         .withDiagnosticTracing(true)
         .create();
 
-    setModuleImports("main.js", {
+    /*setModuleImports("main.js", {
         Sample: {
             Test: {
                 displayMeaning
             }
         }
-    });
+    });*/
 
-    const exports = await getAssemblyExports("Wasm.Browser.Sample");
-    await exports.Sample.Test.PrintMeaning(delay(2000).then(() => 42));
+    //const exports = await getAssemblyExports("Wasm.Browser.Sample");
+    //await exports.Sample.Test.PrintMeaning(delay(2000).then(() => 42));
     const exitCode = await dotnet.run();
     console.log(`Program has exited with code ${exitCode}.`);
     exit(exitCode);

@@ -12,7 +12,8 @@ namespace Sample
     {
         public static Task<int> Main(string[] args)
         {
-            DisplayMeaning(42);
+            Console.WriteLine("Hello from WASM!");
+            //DisplayMeaning(42);
             return Task.FromResult(0);
         }
 

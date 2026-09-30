@@ -1,13 +1,15 @@
 // Licensed to the .NET Foundation under one or more agreements.
 // The .NET Foundation licenses this file to you under the MIT license.
 
-import type { DotnetHostBuilder, LoaderConfig, RuntimeAPI, LoadBootResourceCallback, DotnetModuleConfig } from "./types";
+import type { DotnetHostBuilder, LoaderConfig, RuntimeAPI, LoadBootResourceCallback, DotnetModuleConfig, WorkerOptions } from "./types";
 
 import { Module, dotnetApi } from "./cross-module";
 import { loaderConfig, mergeLoaderConfig, validateLoaderConfig } from "./config";
 import { createRuntime } from "./run";
 import { exit } from "./exit";
 import { setLoadBootResourceCallback } from "./assets";
+import { createWorkerProxy } from "./worker-proxy";
+import { ENVIRONMENT_IS_WEB_WORKER, ENVIRONMENT_IS_SIDECAR } from "./per-module";
 
 let applicationArguments: string[] | undefined = [];
 
@@ -18,10 +20,8 @@ export class HostBuilder implements DotnetHostBuilder {
         mergeLoaderConfig(config);
         return this;
     }
-    /**
-     * @deprecated This method is no longer supported and will be removed in a future version.
-     */
-    withConfigSrc(_configSrc: string): DotnetHostBuilder {
+    withWorker(options?: WorkerOptions): DotnetHostBuilder {
+        mergeLoaderConfig({ workerOptions: options ?? {} });
         return this;
     }
     withApplicationArguments(...args: string[]): DotnetHostBuilder {
@@ -119,7 +119,12 @@ export class HostBuilder implements DotnetHostBuilder {
     async create(): Promise<RuntimeAPI> {
         try {
             validateLoaderConfig();
-            await createRuntime(false);
+            if (loaderConfig.workerOptions && !ENVIRONMENT_IS_WEB_WORKER && !ENVIRONMENT_IS_SIDECAR) {
+                const apiProxy = await createWorkerProxy(loaderConfig);
+                Object.assign(dotnetApi, apiProxy);
+            } else {
+                await createRuntime(false);
+            }
             this.dotnetApi = dotnetApi;
             return this.dotnetApi;
         } catch (err) {
